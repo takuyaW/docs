@@ -1,0 +1,179 @@
+$_gray: #eee;
+$_lighter-gray: #aaa;
+
+$g_width: 880px;
+$g_padding: 70px;
+$sec_width: 690px;
+$aside_width: 218px;
+$h_color: #35527c;
+$f_color_ie: rgb(160,160,160);
+$f_color: rgba(125,125,125,0.8);
+$link_color: #3372ff;
+
+$prefixes: -webkit-, -moz-, -ms-, -o-, '';
+
+$monospace: 'Source Code Pro', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+$monospace-normal-weight: 500;
+$monospace-bold-weight: 700;
+
+
+
+
+@mixin placeholder-color($color, $selector: null) {
+  #{$selector}::-webkit-input-placeholder {
+    color: $color;
+  }
+  #{$selector}:-moz-placeholder {
+    color: $color;
+  }
+}
+
+@mixin background-linear-gradient-half($start-1, $end-1, $start-2, $end-2) {
+  background: $start-1;  // Old browsers
+  background: -moz-linear-gradient(top, $start-1, $end-1 50%, $start-2 50%, $end-2);  // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, from($start-1), color-stop(0.5, $end-1), color-stop(0.5, $start-2), to($end-2));  // Chrome,Safari4+
+  background: -webkit-linear-gradient(top, $start-1, $end-1 50%, $start-2 50%, $end-2);  // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, $start-1, $end-1 50%, $start-2 50%, $end-2);  // Opera 11.10+
+  background: linear-gradient(to bottom, $start-1, $end-1 50%, $start-2 50%, $end-2);  // IE10+, W3C
+  -pie-background: linear-gradient(top, $start-1, $end-1 50%, $start-2 50%, $end-2);  // IE lte 8 (using CSS3 PIE)
+}
+
+@mixin box-shadow($shadow-1, $shadow-2: null) {
+  -webkit-box-shadow: $shadow-1, $shadow-2;
+  box-shadow: $shadow-1, $shadow-2;
+}
+
+@mixin all-box-shadow($x, $y:0, $int:0, $rgb:#fff, $x2:null, $y2:null, $int2:null, $rgb2:null) {
+  @if $x == none {
+    @each $prefix in $prefixes {
+      #{$prefix}box-shadow: none;
+    }
+  }
+  @else {
+    @if $x2 == null {
+      @each $prefix in $prefixes {
+        #{$prefix}box-shadow: $x $y $int $rgb;
+      }
+    } @else {
+      @each $prefix in $prefixes {
+        #{$prefix}box-shadow: $x $y $int $rgb, $x2 $y2 $int2 $rgb2;
+      }
+    }
+  }
+}
+
+@mixin all-box-shadow-inset($x, $y:0, $int:0, $rgb:#fff, $x2:null, $y2:null, $int2:null, $rgb2:null) {
+  @if $x == none {
+    @each $prefix in $prefixes {
+      #{$prefix}box-shadow: none;
+    }
+  }
+  @else {
+    @if $x2 == null {
+      @each $prefix in $prefixes {
+        #{$prefix}box-shadow: $x $y $int $rgb inset;
+      }
+    } @else {
+      @each $prefix in $prefixes {
+        #{$prefix}box-shadow: $x $y $int $rgb inset, $x2 $y2 $int2 $rgb2 inset;
+      }
+    }
+  }
+}
+
+@mixin box-shadow($shadow-1, $shadow-2: null) {
+  -webkit-box-shadow: $shadow-1, $shadow-2;
+  box-shadow: $shadow-1, $shadow-2;
+}
+
+@mixin all-text-shadow($x, $y:0, $int:0, $rgb:#fff) {
+  @if $x == none {
+    @each $prefix in $prefixes {
+      #{$prefix}text-shadow: none;
+    }
+  }
+  @else {
+    @each $prefix in $prefixes {
+      #{$prefix}text-shadow: $x $y $int $rgb;
+    }
+  }
+}
+
+@mixin all-border-radius($val) {
+  @each $prefix in $prefixes {
+    #{$prefix}border-radius: $val;
+  }
+}
+
+@mixin all-a($color,$underline: none) {
+  @if $underline == all-none {
+    a:link,a:visited,a:hover,a:active { color: $color; text-decoration: none; }
+  }
+  @else if $underline == none {
+    a:link,a:visited { color: $color; text-decoration: none; }
+    a:hover { color: $color; text-decoration: underline; }
+    a:active { color: $color; text-decoration: none; }
+  }
+  @else if $underline == all-underline {
+    a:link,a:visited,a:hover,a:active {color: $color; text-decoration: underline;}
+  }
+  @else {
+    a:link,a:visited {color: $color; text-decoration: underline;}
+    a:hover {color: $color; text-decoration: none;}
+    a:active {color: $color; text-decoration: underline;}
+  }
+}
+
+
+
+@mixin background-linear-gradient($start, $end) {
+  background: $start;  // Old browsers
+  background: -moz-linear-gradient(top, $start, $end);  // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));  // Chrome,Safari4+
+  background: -webkit-linear-gradient(top, $start, $end);  // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, $start, $end);  // Opera 11.10+
+  background: linear-gradient(to bottom, $start, $end);  // IE10+, W3C
+  -pie-background: linear-gradient(top, $start, $end);  // IE lte 8 (using CSS3 PIE)
+}
+
+@mixin pie($path: './PIE.htc') {
+  /* IE lte 8 */
+  behavior: url($path);
+}
+
+@mixin form-focus() {
+  border: 1px solid #6e9ddd;
+  /* TODO: Fix shadow color */
+  @include box-shadow(0 0 3px #6e9ddd);
+}
+
+@mixin clearfix-after() {
+  &:after {
+      content: ".";
+      display: block;
+      clear: both;
+      height: 0px;
+      visibility: hidden;
+      font-size:0;
+  }
+}
+
+.direct-import {
+  display: block;
+  margin: 1em 0;
+  padding: 1em 1em 1em 5em;
+  border: 1px solid #aaa;
+  background: #fff url(../img/common/direct_import.png) 10px center no-repeat;
+  border-radius: 5px;
+  font-size: 110%;
+  font-weight: bold;
+
+  > a.reference:link, a.reference:visited {
+    color: #080;
+    font-weight: normal;
+  }
+
+  > a.reference:hover {
+    text-decoration: none;
+  }
+}
