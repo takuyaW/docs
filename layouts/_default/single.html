@@ -8,13 +8,23 @@
 
 <body>
 
-{{ partial "head.html" . }}
+{{ partial "head" . }}
 
-<div style="padding-top: 60px;">
-  {{ .Content }}
+
+<!-- {{ partial "sidebar" . }} -->
+
+<div class="wrapper">
+    <article id="body-container" class="main">
+        {{ .Content }}
+    </article>
+    
+    <aside class="aside aside-left">
+        {{ partial "sidebar" . }}
+    </aside>
 </div>
 
-{{ partial "footer.html" . }}
+
+{{ partial "footer" . }}
 
 </body>
 </html>

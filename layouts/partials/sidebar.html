@@ -1,0 +1,33 @@
+<aside class="global">
+  	<div class="aside-search" id="aside-search">
+        <input type="search" id="aside-search-doc" placeholder="Search Keyword">
+  	</div>
+
+  	<nav class="aside-main">
+    	<ul>
+        <li>test 1</li>
+        <li>test 2</li>
+        <li>test 3</li>
+      </ul>
+  	</nav>
+</aside>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+  if(LANG =="en")
+    docsearch({
+      apiKey: 'cb8771194cfef15ef3d6578f488656b7',
+      indexName: 'monaca',
+      inputSelector: '#aside-search-doc',
+      algoliaOptions: { 'facetFilters': ["language:en"] },
+      debug: false // Set debug to true if you want to inspect the dropdown
+    });
+  else if(LANG =="ja")
+    docsearch({
+      apiKey: 'cb8771194cfef15ef3d6578f488656b7',
+      indexName: 'monaca',
+      inputSelector: '#aside-search-doc',
+      algoliaOptions: { 'facetFilters': ["language:ja"] },
+      debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
