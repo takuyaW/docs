@@ -1,3 +1,7 @@
+---
+title: Monaca Debugger for iOS
+---
+
 Monaca Debugger for iOS
 =======================
 

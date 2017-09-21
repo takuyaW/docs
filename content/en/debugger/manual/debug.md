@@ -1,5 +1,8 @@
-Usage
-=====
+---
+title: Usage
+---
+
+# Usage
 
 In this page, we will describe how to use Monaca Debugger with Monaca
 Cloud IDE and other Monaca local development tools such as Monaca
@@ -17,8 +20,7 @@ more information.
 
 </div>
 
-Monaca Debugger with Monaca Cloud IDE
--------------------------------------
+## Monaca Debugger with Monaca Cloud IDE
 
 There are 2 main debugging mechanism can be used to debug Monaca apps
 with Monaca Cloud IDE such as:

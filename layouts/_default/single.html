@@ -2,29 +2,29 @@
 <html lang="{{ .Page.Language | default "en" }}">
 <head>
   <meta charset="utf-8">
-  <link href="{{"css/common.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/bootstrap.min.css" | relURL}}" rel="stylesheet">
+  <link href="{{"css/common.css" | relURL}}" rel="stylesheet">
+  
+<!-- 
+  <link href="{{"css/highlight.css" | relURL}}" rel="stylesheet">
+  <link href="{{"css/jquery.fancybox.css" | relURL}}" rel="stylesheet">
+  <link href="{{"css/print.css" | relURL}}" rel="stylesheet">
+  <link href="{{"css/spinner.css" | relURL}}" rel="stylesheet"> -->
 </head>
 
 <body>
 
-{{ partial "head" . }}
+    {{ partial "head_en" . }}
 
-
-<!-- {{ partial "sidebar" . }} -->
-
-<div class="wrapper">
-    <article id="body-container" class="main">
-        {{ .Content }}
-    </article>
-    
-    <aside class="aside aside-left">
-        {{ partial "sidebar" . }}
-    </aside>
-</div>
-
-
-{{ partial "footer" . }}
-
+    <div class="wrapper">
+        <article id="body-container" class="main">
+            {{ .Content }}
+        </article>
+        
+        <aside class="aside aside-left">
+            {{ partial "sidebar" . }}
+        </aside>
+    </div>
+    {{ partial "footer" . }}
 </body>
 </html>

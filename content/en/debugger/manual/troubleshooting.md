@@ -1,5 +1,7 @@
-Debugger Troubleshooting Guide
-==============================
+---
+title: Debugger Troubleshooting Guide
+---
+
 
 Fail to Pair Monaca Debugger
 ----------------------------

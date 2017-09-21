@@ -397,3 +397,74 @@ div.error_page {
     //padding-right: 200px;
   }
 }
+
+figure {
+  padding: 20px 0;
+  text-align: center;
+  img {
+    max-width: 700px;
+  }
+}
+
+figcaption {
+  padding-top: 5px;
+  font-weight: bold;
+}
+article {
+  table {
+    width: 100%;
+    line-height: 16px;
+    margin: 20px 0;
+    
+    border: 1px solid #cccccc;
+    border-right: 0;
+    border-left: 0;
+    thead {
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #cccccc;
+    }
+    tr {
+      th,td {
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        background-color: #f9f9f9;
+        padding: 12px 20px 12px 20px;
+        &:first-child {
+          border-left: 1px solid #cccccc;
+        }
+        &:last-child {
+          border-right: 1px solid #cccccc;
+        }
+      }
+      td {
+        border-bottom: 1px solid #cccccc;
+        background-color: #fff;
+        line-height: 20px;
+        &:first-child {
+          border-left: 1px solid #cccccc;
+        }
+        &:last-child {
+          border-right: 1px solid #cccccc;
+        }
+      }
+    }
+  }
+
+  table.small {
+    font-size: 13px;
+  }
+
+  p {
+    padding-top: 20px;
+  }
+  ul {
+    padding-top: 10px;
+  }
+  
+  ul > li {
+    padding-top: 10px;
+    line-height: 1.5;
+    margin-left: 40px;
+    list-style-type: disc;
+  }
+}

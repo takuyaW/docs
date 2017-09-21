@@ -1,3 +1,7 @@
+---
+title: Monaca Debugger for Chrome Apps
+---
+
 Monaca Debugger for Chrome Apps
 ===============================
 

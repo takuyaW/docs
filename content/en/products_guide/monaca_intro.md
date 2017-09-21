@@ -1,21 +1,15 @@
-Monaca Development Overview
-===========================
+---
+title: Monaca Development Overview
+---
 
-What is Monaca?
----------------
 
-Monaca is a development environment for smartphone and tablet
-applications provided by Asial Corporation. Monaca does not only provide
-you with a development environment at your fingertips but also allows
-anyone to be able to develop smartphone applications easier.
+# Monaca Development Overview
 
-Monaca uses a hybrid &lt;feature\_hybrid\_app&gt; approach to deliver
-mobile apps. It makes hybrid mobile app &lt;feature\_hybrid\_app&gt;
-development process with PhoneGap/Cordova simpler and stress-free with
-our comprehensive cloud-powered app development tools and services.
-Monaca is framework-agnostic and adaptive, ready to be immediately
-plugged into your existing workflow and development environment,
-creating the most open Cordova platform available.
+## What is Monaca?
+
+Monaca is a development environment for smartphone and tablet applications provided by Asial Corporation. Monaca does not only provide you with a development environment at your fingertips but also allows anyone to be able to develop smartphone applications easier.
+
+Monaca uses a hybrid &lt;feature\_hybrid\_app&gt; approach to deliver mobile apps. It makes hybrid mobile app &lt;feature\_hybrid\_app&gt development process with PhoneGap/Cordova simpler and stress-free with our comprehensive cloud-powered app development tools and services. Monaca is framework-agnostic and adaptive, ready to be immediately plugged into your existing workflow and development environment, creating the most open Cordova platform available.
 
 Why using Monaca?
 -----------------
@@ -59,17 +53,10 @@ are neither Cordova plugins nor native functions in Live Preview.
 Therefore, the app required those plugins and functions can't be
 previewed properly. Read more &lt;monaca\_ide\_index&gt;.
 
-![](images/monaca_intro/1.png)
-
-> width
->
-> :   700px
->
-> align
->
-> :   center
->
-> Overview of Monaca Cloud IDE
+<figure>
+  <img src="/images/monaca_intro/1.png">
+  <figcaption>Overview of Monaca Cloud IDE</figcaption>
+</figure>
 
 ### Monaca Localkit
 
@@ -82,17 +69,10 @@ With Monaca Localkit, Monaca users are able to setup their preferred
 development environment on local PC.
 Read more &lt;monaca\_localkit\_index&gt;.
 
-![](images/monaca_intro/5.png)
-
-> width
->
-> :   600px
->
-> align
->
-> :   center
->
-> Overview of Monaca Localkit
+<figure>
+  <img src="/images/monaca_intro/5.png">
+  <figcaption>Overview of Monaca Localkit</figcaption>
+</figure>
 
 ### Monaca CLI
 
@@ -109,17 +89,11 @@ Monaca. With this tool, Monaca users are able to develop an app using
 Visual Studio as the development environment. It’s free if you are a
 Visual Studio Community user. Read more &lt;monaca\_vs\_index&gt;.
 
-![](images/monaca_intro/vs.png)
+<figure>
+  <img src="/images/monaca_intro/vs.png">
+  <figcaption>Overview of Monaca for Visual Studio</figcaption>
+</figure>
 
-> width
->
-> :   700px
->
-> align
->
-> :   center
->
-> Overview of Monaca for Visual Studio
 
 Monaca Debugger
 ---------------
@@ -132,33 +106,42 @@ the development. It needs to be installed on your mobile devices. The
 app will automatically sync all your development projects and run them
 without the build process. Read more &lt;monaca\_debugger\_index&gt;.
 
-![](images/monaca_intro/2.png)
+<figure>
+  <img src="/images/monaca_intro/2.png" width="350">
+  <figcaption>Monaca Debugger App</figcaption>
+</figure>
 
-> width
->
-> :   250px
->
-> align
->
-> :   center
->
-> Monaca Debugger App
 
 Here is a table summarizing the debugging options between Monaca
 Debugger and Monaca development tools. For more information, please
 refer to Debugging Monaca Apps &lt;debugging\_monaca\_app&gt;.
 
-![](images/monaca_intro/6.png)
+<table class="small">
+    <tr>
+        <th>Monaca Development Tools</th>
+        <th>Monaca Cloud IDE</th>
+        <th>Monaca CLI/Monaca Localkit/Monaca for Visual Studio</th>
+    </tr>
+    <tr>
+        <td><b>Requirement</b></td>
+        <td>Internet connection</td>
+        <td>Internet connection and pairing</td>
+    </tr>
+    <tr>
+        <td><b>Monaca Debug Panel</b></td>
+        <td>The OS of your device and PC isn’t a problem. You can use this debug option whether you have a Mac/Windows and your device can either be an iOS or Android.</td>
+        <td>Not available</td>
+    </tr>
+    <tr>
+        <td><b>USB Debugging</b></td>
+        <td colspan="2">If you have an iOS device, you need a Mac because Safari (Safari remote debugging) is only available on Mac. If you have an Android device, you can use either a Mac/Windows as long as you have a Chrome Browser (Chrome DevTools).</td>
+    </tr>
+</table>
 
-> width
->
-> :   600px
->
-> align
->
-> :   center
->
-> Relationship between Monaca Debugger and Monaca Development Tools
+<figure>
+  <img src="/images/monaca_intro/6.png" alt="The Pulpit Rock">
+  <figcaption>Relationship between Monaca Debugger and Monaca Development Tools</figcaption>
+</figure>
 
 Monaca Registration Plan
 ------------------------
@@ -171,14 +154,10 @@ refer to [Monaca Pricing](https://monaca.io/pricing.html).
 
 Monthly Plans:
 
--   Free trial for the first 14 days
--   You can switch to another monthly plan in the trial period for free.
-    But the trial period will not be extended.
--   14 days after the subscription, you will be charged unless you
-    switch to Basic plan. The first charge is calculated on a daily
-    basis.
--   After that, you will be charged monthly price on every first day of
-    the month.
+- Free trial for the first 14 days
+- You can switch to another monthly plan in the trial period for free. But the trial period will not be extended.
+- 14 days after the subscription, you will be charged unless you switch to Basic plan. The first charge is calculated on a daily basis.
+- After that, you will be charged monthly price on every first day of the month.
 
 Annual Plans:
 
@@ -208,24 +187,17 @@ Characteristics of hybrid apps:
     WebView component of those platforms. Therefore, one source code can
     run on multiple supported platforms.
 
-![](images/monaca_intro/4.png)
+<figure>
+  <img src="/images/monaca_intro/4.png">
+  <figcaption>Differences between Native, Hybrid, and Web Apps</figcaption>
+</figure>
 
-> width
->
-> :   600px
->
-> align
->
-> :   center
->
-> Differences between Native, Hybrid, and Web Apps
 
 Required knowledge for hybrid app development:
-
--   HTML and CSS for UI (User Interface) design
--   JavaScript for implementing the app
--   JavaScript libraries for accessing the native functions of a device
-    and additional plugins
+ 
+* HTML and CSS for UI (User Interface) design
+* JavaScript for implementing the app
+* JavaScript libraries for accessing the native functions of a device and additional plugins
 
 <div class="admonition note">
 

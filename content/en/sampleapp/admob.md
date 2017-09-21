@@ -1,5 +1,5 @@
 
-AdMob Demo
+# AdMob Demo
 
 In this page, we will show how to integrate Monaca with the most common
 mobile ads network called, [AdMob](https://www.google.com/admob/). This

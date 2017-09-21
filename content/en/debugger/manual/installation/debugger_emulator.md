@@ -1,3 +1,7 @@
+---
+title: Monaca Debugger for Android Emulator
+---
+
 Monaca Debugger for Android Emulator
 ====================================
 
