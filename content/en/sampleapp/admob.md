@@ -1,3 +1,6 @@
+---
+title: AdMob Demo
+---
 
 # AdMob Demo
 
@@ -6,20 +9,38 @@ mobile ads network called, [AdMob](https://www.google.com/admob/). This
 sample app is based on a demo on [AdMob Plugin Pro on
 GitHub](https://github.com/floatinghotpot/cordova-admob-pro).
 
-  *Tested Environment*           Android 6.2                       iOS 9.3.5
-  ------------------------------ --------------------------------- ------------------
-  .. figure:: /images/sampleapp/admob/      1.png
-  :width: 337px
-  :align: left
-  Banner Ads
-  .. figure:: /images/sampleapp/admob/      2.png
-  :width: 337px
-  :align: left
-  Interstitial Ads
-  .. rst-class:: clear
-  :download:\`Click here to do   wnload the project &lt;download   /admob.zip&gt;\`
+*Tested Environment*: 
 
-  Prerequisite
+- Android 6.2
+- iOS 9.3.5
+  
+
+{{< highlight html >}}
+<section id="main">
+  <div>
+    <h1 id="title">{{ .Title }}</h1>
+    {{ range .Data.Pages }}
+      {{ .Render "summary"}}
+    {{ end }}
+  </div>
+</section>
+{{< /highlight >}}
+
+
+{{< figure src="/images/sampleapp/admob/1.png">}}
+
+
+{{< note >}}
+    [TEST] iOS/Android apps run on Cordova and use [PhoneGap](http://phonegap.com/), a JavaScript library, to access native functions of a device. Windows apps run on Windows runtime while Chrome apps run on Chrome runtime.
+{{< /note >}}
+
+{{< warning >}}
+
+    [TEST] The App ID (set in Monaca App Settings) cannot contain asterisk (`*`); otherwise, the build will fail. This App ID must be the same as the explicit App ID you will register (or have registered) in iOS Dev Center. Read more on register\_appID.
+
+{{< /warning >}}
+
+## Prerequisite
 
 In this demo, we are using AdMob's ad unit ids for testing only. If you
 want to use the ads with your real application, you are required to
@@ -27,70 +48,57 @@ register your application with AdMob.
 
 In order to register your application with AdMob, please do as follows:
 
-1.  Sign up with [AdMob Apps](https://apps.admob.com).
-2.  Go to MONETIZE tab and click + MONETIZE NEW APP button.
+1. Sign up with [AdMob Apps](https://apps.admob.com).
+2. Go to MONETIZE tab and click + MONETIZE NEW APP button.
 
-> ![](/images/sampleapp/admob/8.png)
->
-> > width
-> >
-> > :   700px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{< figure src="/images/sampleapp/admob/8.png">}}
+
 3.  Then, fill in the necessary information such your app name,
     platform, and type of ads. After completed, your will get an ad id
     for each ad unit. You will need to use this id to call each ad in
     your application. Here is an example:
 
-> ![](/images/sampleapp/admob/9.png)
->
-> > width
-> >
-> > :   630px
-> >
-> > align
-> >
-> > :   left
-> >
-File Components
----------------
+    {{< figure src="/images/sampleapp/admob/9.png">}}
 
-![](/images/sampleapp/admob/7.png){width="216px"}
+## File Components
 
-  ----------------- -----------------------------------------
-  `index.html`      The startup page
-  `js/app.js`       JavaScript file handling app execution.
-  `css/style.css`   A stylesheet file for the application
-  ----------------- -----------------------------------------
+{{< figure src="/images/sampleapp/admob/7.png">}}
 
-Required JS/CSS Components
---------------------------
+File Name         | Description
+------------------|-----------------------------------
+`index.html`      | The startup page
+`js/app.js`       | JavaScript file handling app execution
+`css/style.css`   | Stylesheet file for the application
 
-  ---------- --
-  `jQuery`
-  `Onsen`
-  ---------- --
 
-Required Cordova Plugins
-------------------------
+## Required JS/CSS Components
+
+- `jQuery`
+- `Onsen UI`
+
+
+## Required Cordova Plugins
 
   [AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro)
-  ------------------------------------------------------------------------- --
 
-  HTML Explanation
+
+## HTML Explanation
 
 We are using [Onsen](https://onsen.io/) for the user interface (UI) of
 this demo app.
+
+```javascript
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 
 ### Startup Page
 
 The following block code represents the UI of the startup page (see the
 screenshot below):
 
-```
+```html
 <h3 style="text-align: center;">Monaca with AdMob Demo</h3>
 
 <div id="fullpage">
@@ -133,7 +141,7 @@ screenshot below):
 </div>
 ```
 
-![Startup Page](/images/sampleapp/admob/1.png){width="337px"}
+{{< figure src="/images/sampleapp/admob/1.png" title="Startup Page">}}
 
 ### Ads Size Dialog
 
@@ -141,7 +149,7 @@ The following block code represents the Ads Size dialog allowing users
 to select various types of AdMob's ads size such as `SMART_BANNER`,
 `MEDIUM_RECTANGLE`, `FULL_BANNER` and so on.
 
-``` {.sourceCode .HTML}
+```ruby
 ...
 <ons-template id="banner_size.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)">
@@ -175,7 +183,7 @@ to select various types of AdMob's ads size such as `SMART_BANNER`,
 ...
 ```
 
-![Ads Size Dialog](/images/sampleapp/admob/3.png){width="337px"}
+{{< figure src="/images/sampleapp/admob/3.png" title="Ads Size Dialog">}}
 
 ### Ads Position Dialog
 
@@ -183,7 +191,7 @@ The following block code represents the Ads Position dialog allowing
 users to select various positions to place the ads such as `TOP_LEFT`,
 `CENTER`, `BOTTOM_RIGHT` and so on.
 
-``` {.sourceCode .HTML}
+``` html
 ...
 <ons-template id="banner_pos.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)" style="width: 90%; height: auto">
@@ -229,10 +237,9 @@ users to select various positions to place the ads such as `TOP_LEFT`,
 ...
 ```
 
-![Ads Position Dialog](/images/sampleapp/admob/4.png){width="337px"}
+{{< figure src="/images/sampleapp/admob/4.png" title="Ads Position Dialog">}}
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 In this section, we will explain some important functions (in `app.js`
 file) used in this sample app.
@@ -244,7 +251,7 @@ following block code initializes the object based on the device's
 platform. The object contains two types of ads such as banner and
 interstitial ads.
 
-``` {.sourceCode .javascript}
+```
 var admobid = {};
 if (/(android)/i.test(navigator.userAgent)){
     console.log('Android');
@@ -265,13 +272,11 @@ if (/(android)/i.test(navigator.userAgent)){
 }
 ```
 
-<div class="admonition note">
 
-All of these ad unit ids are for testing only. For the real ad unit ids,
-you will need to register with AdMob and create your own ad unit ids
-there.
 
-</div>
+{{< note >}}
+    All of these ad unit ids are for testing only. For the real ad unit ids, you will need to register with AdMob and create your own ad unit ids there.
+{{< /note >}}
 
 ### initialization() Function
 

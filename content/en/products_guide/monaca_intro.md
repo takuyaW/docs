@@ -53,10 +53,7 @@ are neither Cordova plugins nor native functions in Live Preview.
 Therefore, the app required those plugins and functions can't be
 previewed properly. Read more &lt;monaca\_ide\_index&gt;.
 
-<figure>
-  <img src="/images/monaca_intro/1.png">
-  <figcaption>Overview of Monaca Cloud IDE</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/1.png" title="Overview of Monaca Cloud IDE" >}}
 
 ### Monaca Localkit
 
@@ -69,10 +66,8 @@ With Monaca Localkit, Monaca users are able to setup their preferred
 development environment on local PC.
 Read more &lt;monaca\_localkit\_index&gt;.
 
-<figure>
-  <img src="/images/monaca_intro/5.png">
-  <figcaption>Overview of Monaca Localkit</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/5.png" title="Overview of Monaca Localkit" >}}
+
 
 ### Monaca CLI
 
@@ -89,10 +84,7 @@ Monaca. With this tool, Monaca users are able to develop an app using
 Visual Studio as the development environment. It’s free if you are a
 Visual Studio Community user. Read more &lt;monaca\_vs\_index&gt;.
 
-<figure>
-  <img src="/images/monaca_intro/vs.png">
-  <figcaption>Overview of Monaca for Visual Studio</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/vs.png" title="Overview of Monaca for Visual Studio" >}}
 
 
 Monaca Debugger
@@ -106,10 +98,7 @@ the development. It needs to be installed on your mobile devices. The
 app will automatically sync all your development projects and run them
 without the build process. Read more &lt;monaca\_debugger\_index&gt;.
 
-<figure>
-  <img src="/images/monaca_intro/2.png" width="350">
-  <figcaption>Monaca Debugger App</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/2.png" title="Monaca Debugger App" width="350">}}
 
 
 Here is a table summarizing the debugging options between Monaca
@@ -138,10 +127,8 @@ refer to Debugging Monaca Apps &lt;debugging\_monaca\_app&gt;.
     </tr>
 </table>
 
-<figure>
-  <img src="/images/monaca_intro/6.png" alt="The Pulpit Rock">
-  <figcaption>Relationship between Monaca Debugger and Monaca Development Tools</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/6.png" title="Relationship between Monaca Debugger and Monaca Development Tools" >}}
+
 
 Monaca Registration Plan
 ------------------------
@@ -187,10 +174,7 @@ Characteristics of hybrid apps:
     WebView component of those platforms. Therefore, one source code can
     run on multiple supported platforms.
 
-<figure>
-  <img src="/images/monaca_intro/4.png">
-  <figcaption>Differences between Native, Hybrid, and Web Apps</figcaption>
-</figure>
+{{< figure src="/images/monaca_intro/4.png" title="Differences between Native, Hybrid, and Web Apps">}}
 
 
 Required knowledge for hybrid app development:
@@ -199,11 +183,6 @@ Required knowledge for hybrid app development:
 * JavaScript for implementing the app
 * JavaScript libraries for accessing the native functions of a device and additional plugins
 
-<div class="admonition note">
-
-iOS/Android apps run on Cordova and use
-[PhoneGap](http://phonegap.com/), a JavaScript library, to access native
-functions of a device. Windows apps run on Windows runtime while Chrome
-apps run on Chrome runtime.
-
-</div>
+{{< note >}}
+    iOS/Android apps run on Cordova and use [PhoneGap](http://phonegap.com/), a JavaScript library, to access native functions of a device. Windows apps run on Windows runtime while Chrome apps run on Chrome runtime.
+{{< /note >}}

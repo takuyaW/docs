@@ -177,3 +177,8 @@ $monospace-bold-weight: 700;
     text-decoration: none;
   }
 }
+
+pre code {
+  font-size: 15px !important;
+  font-family: Menlo, Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', Monaco, 'Droid Sans Mono', monospace;
+}
