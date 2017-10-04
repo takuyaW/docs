@@ -11,7 +11,7 @@ Before getting started, you are required to:
 -   understand types of build &lt;types\_of\_build\_ios&gt; and their
     requirements.
 
-### Types of Build
+### <a name="types_of_build_ios"></a>Types of Build
 
 In Monaca, iOS app has three types of build: debug version, test version
 and release version. The differences between these types of build are as
@@ -28,10 +28,10 @@ development stakeholders.
 
 </div>
 
-Step 1: Configure iOS App in Monaca
------------------------------------
+## Step 1: Configure iOS App in Monaca
 
-### Configure iOS App Settings
+
+### <a name="configure-ios-app-settings"></a> Configure iOS App Settings
 
 1.  From the Monaca Cloud IDE menu, go to
     Config --&gt; iOS App Settings.
@@ -67,7 +67,8 @@ refer to faq05-019.
 
 </div>
 
-### Configure iOS Build Settings
+
+### <a name="configure-ios-build-settings"></a> Configure iOS Build Settings
 
 1.  From the Monaca Cloud IDE menu, go to
     Config --&gt; iOS Build Settings.
@@ -133,6 +134,7 @@ refer to faq05-019.
 >
 > </div>
 
+
 Step 2: Configure iOS App in iOS Dev Center
 -------------------------------------------
 
@@ -161,7 +163,7 @@ Step 2: Configure iOS App in iOS Dev Center
 > -   register\_dev\_device
 > -   register\_provisioning
 
-### Generate Certificates
+### <a name="create_cer"></a> Generate Certificates
 
 There are two types of certificates which can be issued in iOS Dev
 Center:
@@ -210,7 +212,7 @@ Follow similar instruction in order to create a Production certificate.
 
 </div>
 
-### Register App ID
+### <a name="register_appid"></a>Register App ID
 
 App IDs are primarily used when creating development and distribution
 provisioning profiles. You can create a wildcard App ID that matches one
@@ -246,7 +248,7 @@ In order to register your App ID, please follow the instruction below:
     Submit. By now, you have completed your App ID registration into iOS
     Dev Center.
 
-### Register Development Devices
+### <a name="register_dev_device"></a> Register Development Devices
 
 You are required to register your development device(s) before creating
 development and distribution provisioning profiles.
@@ -285,7 +287,7 @@ development, please follow the instruction below:
     Register. By now, you have completed your device registration into
     iOS Dev Center.
 
-### Create Provisioning Profiles
+### <a name="register_provisioning"></a> Create Provisioning Profiles
 
 One last step before building your iOS app is creating a provisioning
 profile. There are two types of provisioning profile:

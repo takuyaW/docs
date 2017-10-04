@@ -1,10 +1,14 @@
-Products Guide
-==============
+---
+title: Products Guide
+---
 
-> maxdepth
->
-> :   2
->
-> monaca\_intro ../monaca\_ide/index ../monaca\_localkit/index
-> ../monaca\_cli/index ../monaca\_vs/index ../debugger/index
-> ../backend/index ../onsenui/index
+# Products Guide
+
+- [Monaca Development Overview](monaca_intro)
+- [Monaca Cloud IDE](monaca_ide)
+- [Monaca Localkit](monaca_localkit)
+- [Monaca CLI](monaca_cli)
+- [Monaca for Visual Studio](monaca_vs)
+- [Monaca Debugger](debugger)
+- [Monaca Backend](backend)
+- [Onsen UI](onsenui)

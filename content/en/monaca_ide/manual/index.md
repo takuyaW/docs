@@ -1,27 +1,20 @@
-Manual
-======
+---
+title: Manual
+---
 
-![](images/1.png)
+# Manual
 
-> width
->
-> :   500px
->
-> class
->
-> :   center
->
+{{<figure src="images/1.png" width="500">}}
+
 Monaca IDE comprises of the interface to work from the development of
 the project to the build consistently. Here, we will describe about
 screen structure, editor's shortcuts and project files management.
 
-> glob
->
-> :   
->
-> maxdepth
->
-> :   2
->
-> overview code\_editor/index dependencies/index version\_control
-> monaca\_ci/index build/index deploy/index
+- [Cloud IDE Overview](overview)
+- [Code Editor](code_editor)
+- [Project Dependencies](dependencies)
+- [Version Control (GitHub)](version_control)
+- [Monaca CI](monaca_ci)
+- [Build](build)
+- [Distribution](deploy)
+

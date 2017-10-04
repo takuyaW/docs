@@ -237,8 +237,7 @@ the keystore:
 3.  Then, go to your Command prompt and type:
 
 > ``` {.sourceCode .javascript}
-> keytool -exportcert -list -v \
-> -alias <your-key-name> -keystore <path-to-production-keystore>
+> keytool -exportcert -alias <your-key-name> -keystore <path-to-production-keystore> | openssl sha1 -binary | openssl base64
 > ```
 >
 > <div class="admonition note">

@@ -14,5 +14,4 @@ site and mailing list.
 >
 > :   2
 >
-> overview ../../monaca\_ide/manual/dependencies/index
-> pairing\_debugging build\_publish
+> overview dependencies pairing\_debugging build\_publish

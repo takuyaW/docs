@@ -5,4 +5,4 @@ Monaca CLI
 >
 > :   2
 >
-> tutorial/index manual/index samples/index faq/index
+> tutorial/index manual/index samples/index

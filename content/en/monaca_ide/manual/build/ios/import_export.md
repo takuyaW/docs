@@ -96,7 +96,7 @@ instruction below:
 > >
 > > :   left
 > >
-### Step 2 :Import Private Key and Certificate into Monaca
+### <a name="import-into-monaca"></a> Step 2 :Import Private Key and Certificate into Monaca
 
 <div class="admonition note">
 

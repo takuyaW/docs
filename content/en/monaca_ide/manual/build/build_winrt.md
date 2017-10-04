@@ -33,7 +33,7 @@ build Windows apps. It's free but you need to have a Microsoft account.
 If you don't have the license, please register
 [here](https://dev.windows.com/en-us/programs/join).
 
-Step 1: Configure Windows App Settings
+## <a name="step-1-configure-windows-app-settings"></a> Step 1: Configure Windows App Settings
 --------------------------------------
 
 1.  From the Monaca Cloud IDE menu, go to

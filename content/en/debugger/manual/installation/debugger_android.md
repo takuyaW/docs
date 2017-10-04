@@ -88,8 +88,7 @@ Monaca Debugger for Android contains both stock and Crosswalk WebView
 engines. The WebView is switched automatically depending on the type of
 WebView is used in each application.
 
-Network Install
----------------
+## <a name="network-android"></a> Network Install
 
 Network Install is a feature provided by Monaca Debugger for Android
 allowing you to install the built app (debug build only) using the

@@ -1,8 +1,9 @@
 Building for Android
 ====================
 
-Types of Build
---------------
+
+
+## <a name="types_of_build_android"></a>Types of Build
 
 In Monaca, Android app has two types of build: debug version and release
 version. The differences between these types of build are as follows:
@@ -31,8 +32,8 @@ file and install it.
 
 </div>
 
-Step 1: Configure Android App
------------------------------
+
+## <a name="step-1-configure-android-app"></a> Step 1: Configure Android App
 
 1.  From the Monaca Cloud IDE menu, go to
     Config --&gt; Android App Settings.
@@ -63,8 +64,7 @@ refer to faq05-019
 
 </div>
 
-Step 2: Configure Android Keystore
-----------------------------------
+## <a name="step-2-configure-android-keystore"></a> Step 2: Configure Android Keystore
 
 A keystore is a binary file that contains a set of private keys. A
 private key represents the entity to be identified with the app, such as
