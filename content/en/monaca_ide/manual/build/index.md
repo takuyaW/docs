@@ -65,7 +65,7 @@ title: Build
     </tr>
 </table>
 
-- [Building for iOS](ios/build_ios)
+- [Building for iOS](ios)
 - [Building for Android](build_android)
 - [Building for Windows](build_winrt)
 - [Common Build and Application Uploader Errors](build_error)

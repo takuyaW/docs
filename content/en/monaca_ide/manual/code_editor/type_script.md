@@ -1,8 +1,10 @@
-TypeScript
-==========
+---
+title: TypeScript
+---
 
-What is TypeScript?
--------------------
+# TypeScript
+
+## What is TypeScript?
 
 [TypeScript](http://www.typescriptlang.org/) , developed by Microsoft,
 is a free and open source programming language. It is a typed superset
@@ -10,49 +12,39 @@ for JavaScript that compiles into plain JavaScript. TypeScript focuses
 on providing useful tools for large scale applications by implementing
 features such as:
 
--   annotation
--   interface
--   arrow
--   modifier
--   inheritance
+-   [Type Annotations](#annotation)
+-   [Interfaces](#interface)
+-   [Arrow Function Expressions](#arrow)
+-   [Access Modifiers](#modifier)
+-   [Inheritance](#inheritance)
 
-<div class="admonition note">
+{{<note>}}
+    In Monaca, Code Suggestion does not support TypeScript.
+{{</note>}}
 
-In Monaca, Code Suggestion does not support TypeScript.
 
-</div>
-
-.ts is the extension of TypeScript files. In Monaca, the TypeScript file
+`.ts` is the extension of TypeScript files. In Monaca, the TypeScript file
 is automatically compiled and creates its JavaScript version after it is
 saved. For example, let's create a TypeScript file in Monaca Cloud IDE
-under `www` folder and name it as test.ts with the following content.
+under `www` folder and name it as `test.ts` with the following content.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.body.innerHTML = "Hello World!";
-```
+{{</highlight>}}
 
-After saving this file, you can see that the test.js file is created.
+After saving this file, you can see that the `test.js` file is created.
 You will be able to find it in the project tree with the same level of
-test.ts.
+`test.ts`.
 
-<div class="admonition warning">
+{{<warning>}}
+    The TypeScript compiler is running when you save a TypeScript file. This compiler will overwrite the JavaScript file without any prompt. Please be careful not to edit the JavaScript file directly.
+{{</warning>}}
 
-The TypeScript compiler is running when you save a TypeScript file. This
-compiler will overwrite the JavaScript file without any prompt. Please
-be careful not to edit the JavaScript file directly.
+{{<warning>}}
+    When you save <code>.ts</code> file, please close <code>.js</code> file that will be generated. If you save <code>main.ts</code> file with <code>main.js</code> file open, <code>main.js</code> file will not be refreshed.
+{{</warning>}}
 
-</div>
-
-<div class="admonition warning">
-
-When you save .ts file, please close .js file that will be generated. If
-you save main.ts file with main.js file open, main.js file will not be
-refreshed.
-
-</div>
-
-Type Annotations
-----------------
+## <a name="annotation"></a> Type Annotations
 
 Type Annotations enable us to check and express our intent in the
 programs we write during compile time. In other words, Type Annotations
@@ -62,10 +54,10 @@ applications, this feature is extremely helpful since we are able to pin
 point the compile-time error.
 
 To demonstrate this feature, let's create a function as below inside the
-test.ts file. In the below code the `num1` and `num2` parameters are
+`test.ts` file. In the below code the `num1` and `num2` parameters are
 designated as numeric values.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function sum(num1:number, num2:number)
 {
   var result;
@@ -74,29 +66,30 @@ function sum(num1:number, num2:number)
 }
 
 console.log (sum(1,3)); //1+3=4
-```
+{{</highlight>}}
 
-Then, call the test.js in the index.html as follow:
 
-    <body>
-      ...
-      <script src="test.js"></script>
-      ...
-    </body>
+Then, call the `test.js` in the `index.html` as follow:
 
-<div class="admonition warning">
+{{<highlight html>}}
+<body>
+  ...
+  <script src="test.js"></script>
+  ...
+</body>
+{{</highlight>}}
 
-Please do not specify TypeScript file as a src attribute in HTML file.
+{{<warning>}}
+    Please do not specify TypeScript file as a src attribute in HTML file.
 Please load as JavaScript file compiled from ".ts file" as above.
-
-</div>
+{{</warning>}}
 
 Afer running the app, the result will be displayed correctly in the
-index.html file since there are no errors found. Now, let's
+`index.html` file since there are no errors found. Now, let's
 intentionally create an error while calling the `sum` function in the
-test.ts file. Please change its content as follows:
+`test.ts` file. Please change its content as follows:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function sum(num1:number, num2:number)
 {
   var result;
@@ -105,29 +98,32 @@ function sum(num1:number, num2:number)
 }
 
 console.log(sum(1,"3")); //wrong variable type
-```
+{{</highlight>}}
 
-![image](images/type_script/1.png){width="600px"}
+{{<figure src="/images/monaca_ide/manual/code_editor/type_script/1.png">}}
 
-When you save test.ts with this error, a notification icon of that error
+
+When you save `test.ts` with this error, a notification icon of that error
 is shown on the left side of the editor at the line containing the
 error. Mouse-over that notification icon to see the error message. In
 this case, the error message is:
 
-    Supplied parameters do not match any signature of call target
 
-Please note that despite the error, the test.js is still created and the
+{{<highlight bash>}}
+Supplied parameters do not match any signature of call target
+{{</highlight>}}
+
+Please note that despite the error, the `test.js` is still created and the
 app is running normally but giving the wrong result.
 
-Interfaces
-----------
+## <a name="interface"></a> Interfaces
 
 With TypeScript, not only that we can declare an interface, but we can
 also use it as a type annotation. In the following example, we create a
 simple interface which is used as an object type. Replace the following
-code into test.ts file.
+code into `test.ts` file.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 interface People
 {
    name: string;
@@ -140,12 +136,12 @@ function info(people : People) {
 }
 
 console.log(info({name:"Monaca", age: 30}));
-```
+{{</highlight>}}
 
 After saving it, there are no errors found. Let's make an error by
 calling the `info` with just one parameter as below:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 interface People
 {
    name: string;
@@ -158,27 +154,29 @@ function info(people : People) {
 }
 
 console.log( info({age: 30}) );
-```
+{{</highlight>}}
 
-When you save test.ts with this error, a notification icon of that error
+When you save `test.ts` with this error, a notification icon of that error
 is shown on the left side of the editor at the line containing the
 error. Mouse-over that notification icon to see the error message. In
 this case, the error message is:
 
-    Supplied parameters do not match any signature of call target:
-    Could not apply type 'People' to argument 1, which is of type '{ age: number; }'
+{{<highlight bash>}}
+Supplied parameters do not match any signature of call target:
+Could not apply type 'People' to argument 1, which is of type '{ age: number; }'
+{{</highlight>}}
 
-Please note that despite the error, the test.js is still created and the
+    
+Please note that despite the error, the `test.js` is still created and the
 app is running normally but giving the wrong result.
 
-Arrow Function Expressions
---------------------------
+## <a name="arrow"></a> Arrow Function Expressions
 
 Arrow Function Expressions are compact ways of defining JavaScript
 functions. Especially, Arrow Function Expressions help you handle the
 scope of the `this` keyword.please see the code example below.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var people =
 {
   name: "Mr.Monaca",
@@ -192,7 +190,8 @@ var people =
   }
 };
 people.popup();
-```
+{{</highlight>}}
+
 
 Then, save it and run the application. Let's observe the output. We can
 see that the value of `this.name` is empty. In order to handle the value
@@ -200,7 +199,7 @@ of `this` keyword, use arrow function `=>` . Therefore, please replace
 `function()` in the `setTimeout` function by the arrow function as
 follow:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var people =
 {
   name: "Mr.Monaca",
@@ -214,20 +213,19 @@ var people =
   }
 };
 people.popup();
-```
+{{</highlight>}}
 
 Now, save it and run the application again. This time the value of
 `this.name` is displayed correctly.
 
-Access Modifiers
-----------------
+## <a name="modifier"></a> Access Modifiers
 
 TypeScript also supports classes and their access modifiers. With
 TypeScript, it is easier for you to control access to Members and
 Classes in JavaScript. Please pay attention to the accessibility of the
 class properties in the code below.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 class Customer {
 
   public userName = "Monaca";
@@ -238,20 +236,22 @@ var user1 = new Customer();
 
 console.log(user1.userName);// no error => Monaca
 console.log(user1.secretID);// error found => could not access user1.secretID!
-```
+{{</highlight>}}
 
-![image](images/type_script/2.png){width="600px"}
+{{<figure src="/images/monaca_ide/manual/code_editor/type_script/2.png">}}
 
 As we could see, the last line of code is the source of the error since
 it tried to access the `secretID` which is the private variable of the
 `Customer` Class. In this case, the error message is:
 
-    The property 'firstName' does not exist on value of type 'People'
+{{<highlight bash>}}
+The property 'firstName' does not exist on value of type 'People'
+{{</highlight>}}
 
 Now, let's try using the access modifier to those variables as shown
 below and observe the differences.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 class Customer {
 
   public userName = "Monaca";
@@ -260,18 +260,17 @@ class Customer {
 
 var user1 = new Customer();
 
-console.log(user1.userName);// no error => Monaca
-console.log(user1.secretID);// no error => 123
-```
+console.log(user1.userName); // no error => Monaca
+console.log(user1.secretID); // no error => 123
+{{</highlight>}}
 
-Inheritance
------------
+## Inheritance
 
 You can also extend an existing class and create a derived class from it
 by using `extends` keyword. The following example shows how to use this
 keyword.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 class People
 {
   name: string;
@@ -315,7 +314,7 @@ class Customer extends People
 var user1 = new Customer("Mr.Monaca", 30, "Monaca", 123);
 console.log(user1.customerInfo());
 console.log(user1.peopleInfo());
-```
+{{</highlight>}}
 
 Let's analyze the above code. There are 3 main things happening up
 there:
@@ -328,3 +327,7 @@ there:
     class's implementation while `peopleInfo()` method directly calls
     the `info()` method of the base class.
 
+See Also: 
+
+- [Editor Shortcuts](../editor)
+- [Emmet](../zen_coding)

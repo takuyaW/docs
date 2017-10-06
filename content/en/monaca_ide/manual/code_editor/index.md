@@ -1,12 +1,9 @@
-Code Editor
-===========
+---
+title: Code Editor
+---
 
-> glob
->
-> :   
->
-> maxdepth
->
-> :   2
->
-> editor type\_script zen\_coding
+# Code Editor
+
+- [Editor Shortcuts](editor)
+- [TypeScript](type_script)
+- [Emmet](zen_coding)
