@@ -133,9 +133,7 @@ CLI version, WebView Engine (Android only) and available plugins.
 
 ![](images/features/12.png%0A%20:width:%20250px%0A%20:align:%20center)
 
-Project Options
----------------
-
+## <a name="debugger-project-options"></a> Project Options
 From the project list inside Monaca Debugger, there is a Project Options
 button for each Monaca.io project.　Inside this Project Options button,
 you can:

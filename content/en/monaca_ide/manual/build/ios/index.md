@@ -1,8 +1,9 @@
-Building for iOS
-================
+---
+title: Building for iOS
+---
 
-> maxdepth
->
-> :   2
->
-> build\_ios import\_export
+
+# Building for iOS
+
+- [Building an iOS App](build_ios)
+- [Build Settings between Monaca and Xcode](import_export)

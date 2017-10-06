@@ -201,8 +201,7 @@ you need to manually specify which plugin to install when you build the
 app. You can manage the plugins to include in the app by enabling in
 Manage Cordova Plugins configuration.
 
-How to make iOS's App ID and Android's Package Name differently.
-----------------------------------------------------------------
+## <a name="faq05-019"></a> How to make iOS's App ID and Android's Package Name differently.
 
 Currently, when you update either iOS's App ID or Android's Package
 Name, both of them will change. In other words, they are configured to

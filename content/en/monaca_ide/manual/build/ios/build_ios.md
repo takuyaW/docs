@@ -1,21 +1,78 @@
-Building an iOS App
-===================
+---
+title: Building an iOS App
+---
 
-Prerequisites
--------------
+
+# Building an iOS App
+
+## Prerequisites
 
 Before getting started, you are required to:
 
--   subscribe to [iOS Developer
-    Program](https://developer.apple.com/programs/ios/).
--   understand types of build &lt;types\_of\_build\_ios&gt; and their
-    requirements.
+-   subscribe to [iOS Developer Program](https://developer.apple.com/programs/ios/).
+-   understand `Types of Build` and their requirements.
 
 ### <a name="types_of_build_ios"></a>Types of Build
 
 In Monaca, iOS app has three types of build: debug version, test version
 and release version. The differences between these types of build are as
 follows:
+
+ <table class="small">
+    <tr>
+        <th width="17%">Types of Build</th>
+        <th>Description</th>
+        <th>Requirement</th>
+        <th width="23%">Installation</th>
+    </tr>
+    <tr>
+        <td><b>Debug Build</b></td>
+        <td>Building the app for installing on development device(s)</td>
+        <td>
+            <ul>
+                <li>Development Certificate</li>
+                <li>Development Provisioning Profile</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>iTune</li>
+                <li><a href="/en/debugger/manual/features/#debugger-project-options">Network Install</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b>Ad Hoc Build</b></td>
+        <td>Building the app for installing on a limited group of devices</td>
+        <td>
+            <ul>
+                <li>Production Certificate</li>
+                <li>Distribution (Ad Hoc) Provisioning Profile</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>iTune</li>
+                <li>QR Code</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b>Release Build</b></td>
+        <td>Building the app for distribution in App Store</td>
+        <td>
+            <ul>
+                <li>Production Certificate</li>
+                <li>Distribution (App Store) Provisioning Profile</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>App Store</li>
+            </ul>
+        </td>
+    </tr>
+</table>
 
 <div class="admonition note">
 
@@ -363,3 +420,9 @@ Step 3: Start Building
 > > :   left
 > >
 
+See Also: 
+
+- [Build Settings between Monaca and Xcode](../ios/import_export/)
+- [Building for Windows](../build_winrt)
+- [Google Play Distribution](../../deploy/google_play)
+- [Build History](../build_history)

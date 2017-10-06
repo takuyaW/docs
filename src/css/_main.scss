@@ -469,8 +469,20 @@ article {
     }
   }
 
+  table {
+    ul {
+      padding-top: 0;
+      li {
+        margin-left: 30px;
+      }
+    }
+  }
+
   table.small {
     font-size: 13px;
+    ul > li {
+        margin-left: 30px;
+    }
   }
 
   p {
