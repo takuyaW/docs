@@ -1,8 +1,10 @@
-Cordova Plugins
-===============
+---
+title: Cordova Plugins
+---
 
-Introduction
-------------
+# Cordova Plugins
+
+## Introduction
 
 Usually, you need native code (Java for Android, Objective-C for iOS,
 etc) to access native device function such as Cameras, FileSystem,
@@ -20,21 +22,18 @@ For more information about Cordova, please refer to
 ### Loading Cordova
 
 You can't use device APIs before Cordova is fully loaded. It is very
-important to use onDeviceReady() function. This function runs when
+important to use `onDeviceReady()` function. This function runs when
 Cordova is loaded.
 
 As a trial, let's start up Camera functions by using device APIs. Please
 copy and paste the code below to your project in Monaca Cloud IDE then
-you can run it on monaca\_debugger\_index.
+you can run it on [Monaca Debugger](/en/debugger/).
 
-<div class="admonition note">
+{{<note>}}
+    This code was written for Cordova 4.1. We apologize in advance in case the code may behave differently on various devices.content
+{{</note>}}
 
-This code was written for Cordova 4.1. We apologize in advance in case
-the code may behave differently on various devices.
-
-</div>
-
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -72,78 +71,58 @@ the code may behave differently on various devices.
     <img id="picture" src="" width="150" height="150">
 </body>
 </html>
-```
+{{</highlight>}}
 
-Changing Cordova Version
-------------------------
 
-<div class="admonition note">
-
-You can't downgrade to older Cordova versions once your projects are
-upgraded. A backup of the project is automatically created before
-conversion.
-
-</div>
+## Changing Cordova Version
 
 For new created projects, the latest Cordova version available in Monaca
 will be automatically applied. However, you can upgrade your existing
 projects to the latest Cordova version as following:
 
-1.  From Monaca Cloud IDE, go to Config --&gt; Manage Cordova Plugins.
+1.  From Monaca Cloud IDE, go to `Config` &rarr; `Manage Cordova Plugins`.
 2.  Select the preferred Cordova Version from the dropdown list as shown
     below.
 
-> ![](images/cordova_plugin/3.png)
->
-> > width
-> >
-> > :   600px
-> >
-> > align
-> >
-> > :   left
-> >
-Cordova Plugins in Monaca
--------------------------
+    {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/3.png">}}
+
+
+{{<note>}}
+    You can't downgrade to older Cordova versions once your projects are upgraded. A backup of the project is automatically created before conversion.
+{{</note>}}
+
+## Cordova Plugins in Monaca
 
 Right from Monaca Cloud IDE, you can easily include standard (core) and
 third-party Cordova plugins.
 
--   Standard Cordova plugins refer to a minimal set of Cordova APIs such
-    as Battery, Camera, Contacts, Devices and so on. Please refer to
-    cordova\_core\_plugins.
--   Third-party Cordova plugins refer to other existing Cordova plugins.
-    There are
-    some third-party Cordova plugins &lt;third\_party\_cordova\_index&gt;
-    which you can add to your project right from Monaca Cloud IDE. You
-    can also import other third-party Cordova plugins. Let's call these
-    imported third-party Cordova plugins as external third-party Cordova
-    plugins.
+- Standard Cordova plugins refer to a minimal set of Cordova APIs such as Battery, Camera, Contacts, Devices and so on. Please refer to [Core Cordova Plugins](/en/reference/cordova_6.5/).
 
-Add/Import Cordova Plugins
---------------------------
+- Third-party Cordova plugins refer to other existing Cordova plugins. There are [some third-party Cordova plugins](/en/reference/third_party_phonegap/) which you can add to your project right from Monaca Cloud IDE. You can also import other third-party Cordova plugins. Let's call these imported third-party Cordova plugins as external third-party Cordova plugins.
+
+## Add/Import Cordova Plugins
 
 In order to add a Cordova plugin into your project, please do as
 follows:
 
-1.  From Monaca Cloud IDE, go to File --&gt; Manage Cordova plugin or
-    Config --&gt; Manage Cordova plugin.
+1.  From Monaca Cloud IDE, go to `File` &rarr; `Manage Cordova plugin` or
+    `Config` &rarr; `Manage Cordova plugin`.
 2.  Then, Manage Cordova Plugins page will be shown. In this page,
     standardard and some third-party Cordova plugins are listed.
-    Mouseover a plugin and click on Enable to add the plugin. If you
+    Mouseover a plugin and click on {{<guilabel name="Enable">}} to add the plugin. If you
     cannot find the plugin you want in the list, you can import other
-    third-party Cordova plugins by using Import Cordova Plugin button. A
+    third-party Cordova plugins by using {{<guilabel name="Import Cordova Plugin">}} button. A
     project containing external third-party Cordova plugin(s) requires a
-    custom built Monaca Debugger. Please refer to
-    debugger\_for\_custom\_plugins.
+    custom built Monaca Debugger. Please refer to [Monaca Debugger with Custom Cordova Plugin](../custom_cordova_plugin/#debugger-for-custom-plugins).
 
-> ![](images/cordova_plugin/1.png){width="600px"}
+    {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/1.png">}}
+
 
 3.  Once a plugin is enabled/imported, you might want to configure it.
-    Mouseover a plugin you want to config and click Config to open a
+    Mouseover a plugin you want to config and click {{<guilabel name="Config">}} to open a
     plugin's settig dialog where you can change the plugin's version and
     set plugin's parameter(s).
 
-> ![](images/cordova_plugin/2.png){width="600px"}
->
-> ![](images/cordova_plugin/4.png){width="600px"}
+    {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/2.png">}}
+
+    {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/4.png">}}

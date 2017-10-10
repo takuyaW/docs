@@ -191,7 +191,7 @@ Screen Orientation File &lt;download/UISupportedInterfaceOrientations.zip&gt;
 
 #### Statusbar Setting
 
-### config.xml
+### <a name="config-xml-ios"></a> config.xml
 
 The config.xml file is a settings file controlling various settings of
 Cordova.

@@ -95,8 +95,7 @@ App Store.
 
 </div>
 
-How to Build Custom Monaca Debugger
------------------------------------
+## <a name="custom-debugger-ios"></a> How to Build Custom Monaca Debugger
 
 ### Preparation
 

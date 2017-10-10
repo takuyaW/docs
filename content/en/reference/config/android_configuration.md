@@ -61,7 +61,7 @@ file carefully.
 
 </div>
 
-### config.xml
+### <a name="config-xml-android"></a> config.xml
 
 The config.xml file is a settings file controlling various settings of
 Cordova.

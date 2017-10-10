@@ -1,8 +1,12 @@
-Project Dependencies
-====================
+---
+title: Project Dependencies
+---
 
-> maxdepth
->
-> :   2
->
-> file\_dir components cordova\_plugin custom\_cordova\_plugin
+
+# Project Dependencies
+
+- [File and Folder Structure](file_dir)
+- [JS/CSS Components](components)
+- [Cordova Plugins](cordova_plugin)
+- [Custom Cordova Plugins](custom_cordova_plugin)
+

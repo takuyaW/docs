@@ -95,8 +95,7 @@ allowing you to install the built app (debug build only) using the
 debugger. For more information, please refer to
 how to use Network Install feature&lt;debugger\_project\_options&gt;.
 
-Build and Install Custom Monaca Debugger
-----------------------------------------
+## <a name="custom-debugger-android"></a> Build and Install Custom Monaca Debugger
 
 1.  From Monaca Cloud IDE menu, go to
     Debug --&gt; Setup Monaca Debugger.
