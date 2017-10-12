@@ -1,8 +1,8 @@
-Monaca Localkit
-===============
+---
+title: Monaca Localkit
+---
 
-> maxdepth
->
-> :   2
->
-> tutorial/index manual/index
+# Monaca Localkit
+
+- [Tutorial](tutorial)
+- [Manual](manual)

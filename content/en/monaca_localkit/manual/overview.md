@@ -131,7 +131,7 @@ You can create a new project based on templates provided by Monaca.
 3.  If the project is created successfully, the new project will be
     shown in the project list.
 
-### Importing a Project
+### <a name="localkit-import"></a> Importing a Project
 
 There are two types of projects you can import into Monaca Localkit:
 

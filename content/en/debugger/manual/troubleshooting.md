@@ -104,8 +104,8 @@ port for each tool. Otherwise, the pair will fail.
 |         |                                  | 2.  type `netstat`.     |
 +---------+----------------------------------+-------------------------+
 
-Inspector Isn't Loaded
-----------------------
+## <a name="troubleshoot-inspector"></a> Inspector Isn't Loaded
+
 
 If the inspector does not open, please try the following actions:
 

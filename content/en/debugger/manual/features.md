@@ -6,8 +6,7 @@ title: Functionalities
 Functionalities
 ===============
 
-Debugger Functions
-------------------
+## <a name="monaca-debugger-features"></a> Debugger Functions
 
 Monaca Debugger provides useful functions for testing/debugging your
 apps. You can find Debugger Functions button when you run a project in

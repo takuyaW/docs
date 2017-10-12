@@ -223,7 +223,7 @@ Monaca Debugger with Monaca Local Development Tools
 Monaca local development tools are Monaca CLI, Monaca Localkit and
 Monaca for Visual Studio.
 
-### Prerequisite for USB Debugging with Monaca
+### <a name="pre-debug-app"></a> Prerequisite for USB Debugging with Monaca
 
 ### USB Debugging with Monaca Local Development Tools
 

@@ -1,21 +1,22 @@
-Part 3: Building Monaca App
-===========================
+---
+title: Building Monaca App
+---
+
+# Part 3: Building Monaca App
 
 In this page, we will cover the two following topics:
 
-1.  localkit\_building\_for\_ios
-2.  localkit\_building\_for\_android
+1.  [Building a Monaca App for iOS](#localkit-building-for-ios)
+2.  [Building a Monaca App for Android](#localkit-building-for-android)
 
 For more information on how to build Monaca Apps for other platforms,
-please refer to build\_index.
+please refer to [Build](/en/monaca_ide/manual/build).
 
-Building a Monaca App for iOS
------------------------------
+## <a name="localkit-building-for-ios"></a> Building a Monaca App for iOS
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for iOS which will be installed on a development device. For
-more information about other types of build, please refer to
-types\_of\_build\_ios.
+more information about other types of build, please refer to [Types of Build](/en/monaca_ide/manual/build/ios/build_ios/#types_of_build_ios).
 
 *Prerequisite*
 
@@ -25,7 +26,7 @@ types\_of\_build\_ios.
     following items which are required to create a Debug build in
     Monaca:
 
--   `App ID` (see How to Register App ID &lt;register\_appID&gt;)
+-   `App ID` (see [How to Register App ID](/en/monaca_ide/manual/build/ios/build_ios/#register_appid))
 -   `Development Certificate` (see
     How to Generate Certificates &lt;create\_cer&gt;)
 -   `Development Provisioning Profile` (see
@@ -123,8 +124,7 @@ There are 3 ways to install the debug built app:
 > 3.  Install via
 >     cofigured deployment services &lt;supported\_services&gt;.
 
-Building a Monaca App for Android
----------------------------------
+## <a name="localkit-building-for-android"></a> Building a Monaca App for Android
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for Android. For more information about other types of build,
@@ -240,3 +240,8 @@ There are 5 ways you can install the built app:
 5.  Install via
     cofigured deployment services &lt;supported\_services&gt;.
 
+See Also:
+
+- [Part 1: Starting a Project](starting_project)
+- [Part 2: Running Monaca Debugger with Monaca Localkit](testing_debugging)
+- [Part 4: Publishing Monaca App](publishing_app)
