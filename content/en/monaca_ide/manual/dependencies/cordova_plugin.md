@@ -91,7 +91,7 @@ projects to the latest Cordova version as following:
     You can't downgrade to older Cordova versions once your projects are upgraded. A backup of the project is automatically created before conversion.
 {{</note>}}
 
-## Cordova Plugins in Monaca
+## <a name="standard-plugins"></a> Cordova Plugins in Monaca
 
 Right from Monaca Cloud IDE, you can easily include standard (core) and
 third-party Cordova plugins.

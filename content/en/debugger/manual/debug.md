@@ -217,8 +217,7 @@ Monaca. Please refer to pre\_debug\_app.
 
 > ![](images/debug/8.png){width="600px"}
 
-Monaca Debugger with Monaca Local Development Tools
----------------------------------------------------
+## <a name="debugger-with-local-tools"></a> Monaca Debugger with Monaca Local Development Tools
 
 Monaca local development tools are Monaca CLI, Monaca Localkit and
 Monaca for Visual Studio.

@@ -3,8 +3,7 @@ title: Debugger Troubleshooting Guide
 ---
 
 
-Fail to Pair Monaca Debugger
-----------------------------
+## <a name="troubleshoot-pair"></a> Fail to Pair Monaca Debugger
 
 Several reasons can be considered when Monaca Debugger fails to pair
 with the host PC such as:
