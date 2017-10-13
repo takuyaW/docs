@@ -1,8 +1,10 @@
-Monaca CLI Overview
-===================
+---
+title: Monaca CLI Overview
+---
 
-Introduction
-------------
+# Monaca CLI Overview
+
+## Introduction
 
 Monaca CLI is one of the local deveopment environments which can be used
 to develop Monaca apps locally. Monaca CLI provides command line
@@ -17,8 +19,7 @@ you can:
     and Angular2 projects.
 -   Remote build your projects without any setups locally.
 
-Transpiling in Monaca CLI
--------------------------
+## Transpiling in Monaca CLI
 
 Some of the modern frameworks have created their own languages in order
 to interact with their products (like JSX), or have just integrated some
@@ -37,8 +38,7 @@ can be triggered in two ways:
 2.  `monaca preview`: runs the transpiler in watch mode and starts an
     HTTP Server in order to display the app’s content.
 
-Getting Started
----------------
+## Getting Started
 
 ### Prerequisite
 
@@ -49,26 +49,30 @@ your PC in order to install Monaca CLI.
 
 Use the following command to install Monaca CLI:
 
-> ``` {.sourceCode .bash}
-> $ npm install -g monaca
-> ```
+{{<highlight bash>}}
+    $ npm install -g monaca
+{{</highlight>}}
 
 On some systems you may have to prefix the command with `sudo` because
 of permission issue:
 
-> ``` {.sourceCode .bash}
-> $ sudo npm install -g monaca
-> ```
+{{<highlight bash>}}
+    $ sudo npm install -g monaca
+{{</highlight>}}
 
-<div class="admonition note">
-
-In order to check the currently installed Monaca CLI's version, use
-`monaca` command. Moreover, if you want to update Monaca CLI, just
-re-install it using the above command.
-
-</div>
+{{<note>}}
+    In order to check the currently installed Monaca CLI’s version, use <code>monaca</code> command. Moreover, if you want to update Monaca CLI, just re-install it using the above command.
+{{</note>}}
 
 ### Step 2: Following CLI Tutorial
 
-After successfully installed Monaca CLI, please follow
-our simple and easy tutorial on how to use Monaca CLI &lt;monaca\_cli\_tutorial&gt;.
+After successfully installed Monaca CLI, please follow our simple and easy tutorial on [how to use Monaca CLI](../../tutorial).
+
+See Also:
+
+- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Commands](../cli_commands)
+- [Project Dependencies](../dependencies)
+- [Pairing and Debugging](../pairing_debugging)
+- [Remote Building and Publishing](../build_publish)
+- [Troubleshooting Guide](../troubleshooting)

@@ -1,8 +1,10 @@
-Monaca CLI
-==========
+---
+title: Monaca CLI
+---
 
-> maxdepth
->
-> :   2
->
-> tutorial/index manual/index samples/index
+# Monaca CLI
+
+- [Tutorial](tutorial)
+- [Manual](manual)
+- [Template](samples)
+

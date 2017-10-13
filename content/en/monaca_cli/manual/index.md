@@ -1,9 +1,12 @@
-Manual
-======
+---
+title: Manual
+---
 
-> maxdepth
->
-> :   2
->
-> overview cli\_commands dependencies pairing\_debugging build\_publish
-> troubleshooting
+# Manual
+
+- [Monaca CLI Overview](overview)
+- [Monaca CLI Commands](cli_commands)
+- [Project Dependencies](dependencies)
+- [Pairing and Debugging](pairing_debugging)
+- [Remote Building and Publishing](build_publish)
+- [Troubleshooting Guide](troubleshooting)

@@ -1,24 +1,19 @@
-Troubleshooting Guide
-=====================
+---
+title: Troubleshooting Guide
+---
 
-Incomplete Files and Folder Structure
--------------------------------------
+# Troubleshooting Guide
 
-Monaca/Cordova projects initially consist of the following files and
-folders
+## Incomplete Files and Folder Structure
 
-> widths
->
-> :   10 30
->
-> -   -   `www/`
->
->     - Storage folder for the main body of the application
-> -   -   `config.xml`
->     -   Cordova configuration file
->
-In this section, we will talk about how to fix your project if `www/` or
-`config.xml` file is missing.
+Monaca/Cordova projects initially consist of the following files and folders:
+
+| File/Folder | Description |
+|-------------|-------------|
+| `www/` |	Storage folder for the main body of the application |
+| `config.xml` |	Cordova configuration file |
+
+In this section, we will talk about how to fix your project if `www/` or `config.xml` file is missing.
 
 ### Missing www Folder
 
@@ -37,12 +32,9 @@ The user should proceed as follows:
 
 ### Missing config.xml File
 
-<div class="admonition note">
-
-This solution will only work if your project is existed on Monaca Cloud
-or you have the backup version of it.
-
-</div>
+{{<note>}}
+    This solution will only work if your project is existed on Monaca Cloud or you have the backup version of it.
+{{</note>}}
 
 1.  The user should create an empty `config.xml` file in the project
     root.
@@ -50,3 +42,12 @@ or you have the backup version of it.
     Cloud or the backup project.
 3.  Paste the content to the empty `config.xml` file.
 
+
+See Also:
+
+- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Overview](../overview)
+- [Project Dependencies](../dependencies)
+- [Monaca CLI Commands](../cli_commands)
+- [Pairing and Debugging](../pairing_debugging)
+- [Remote Building and Publishing](../build_publish)

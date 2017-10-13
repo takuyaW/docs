@@ -1,51 +1,49 @@
-Part 1: Starting a Project
-==========================
+---
+title: Starting a Project
+---
 
-Step 1: Logging into Monaca
----------------------------
+# Part 1: Starting a Project
 
-1.  Open a Command Prompt window (for Windows) or Terminal window (for
-    Mac) and type the following command:
+## Step 1: Logging into Monaca
 
-> ``` {.sourceCode .bash}
-> $ monaca login
-> ```
+1.  Open a Command Prompt window (for Windows) or Terminal window (for Mac) and type the following command:
 
-2.  Then, you will be asked to input email and password of your Monaca
-    account.
+    {{<highlight bash>}}
+    $ monaca login{{</highlight>}}
 
-> ![](images/starting_project/1.png){width="500px"}
+2.  Then, you will be asked to input email and password of your Monaca account.
 
-<div class="admonition note">
+    {{<img src="/images/monaca_cli/tutorial/starting_project/1.png">}}
 
-You can use `monaca signup` command if you need to sign up.
+{{<note>}}
+    You can use <code>monaca signup</code> command if you need to sign up.
+{{</note>}}
 
-</div>
-
-Step 2: Creating a New Project
-------------------------------
+## Step 2: Creating a New Project
 
 1.  Create a new project by using the command below:
 
-> ``` {.sourceCode .bash}
-> $ monaca create PROJECT_DIRECTORY
-> ```
+    {{<highlight bash>}}
+    $ monaca create PROJECT_DIRECTORY{{</highlight>}}
 
 2.  Then, you will be asked to choose either `Sample Apps` or
     `Templates` to create a new Monaca project. In this tutorial, let's
     choose the `Sample Apps` option. Then, select `jQuery TODO App`.
 
-> ![](images/starting_project/2.png){width="600px"}
+    {{<img src="/images/monaca_cli/tutorial/starting_project/2.png">}}
 
 3.  After creating the project, the project's folder will be created on
     your PC. You can then use any local editors to develop your Monaca
     projects.
 
-> ![](images/starting_project/3.png){width="600px"}
+    {{<img src="/images/monaca_cli/tutorial/starting_project/3.png">}}
 
-<div class="admonition note">
+{{<note>}}
+    You can also use Monaca CLI to {{<link href="../../manual/cli_commands/#monaca-import" title="import">}} or {{<link href="../../manual/cli_commands/#monaca-clone" title="clone">}} your existing projects from Monaca Cloud.
+{{</note>}}
 
-You can also use Monaca CLI to import&lt;monaca\_import&gt; or
-clone&lt;monaca\_clone&gt; your existing projects from Monaca Cloud.
+See Also:
 
-</div>
+- [Part 2: Running Monaca Debugger with Monaca CLI](../testing_debugging)
+- [Part 3: Building Monaca App](../building_app)
+- [Part 4: Publishing Monaca App](../publishing_app)

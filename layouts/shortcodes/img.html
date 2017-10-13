@@ -1,6 +1,8 @@
 
-<img src="{{.Get "src"}}" width="{{ .Get "width" }}" class="single_img" />
-
+ {{ if isset .Params "link"}}<a href="{{ index .Params "link"}}">{{ end }}
+    <img src="{{.Get "src"}}" width="{{ .Get "width" }}" class="single_img" />
+{{ if isset .Params "link"}}</a>{{ end }}
+    
 <!-- <figure class="single_img">
         <img width="{{ .Get "width" }}" src="{{ .Get "src" }}" />
         <figcaption>

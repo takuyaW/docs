@@ -1,43 +1,41 @@
-Getting Started with Vue 2 & Onsen UI 2 Template
-================================================
+---
+title: Getting Started with Vue 2 & Onsen UI 2 Template
+---
 
-The new [Vue with Onsen UI
-template](https://github.com/OnsenUI/vue-cordova-webpack) is a great way
+# Getting Started with Vue 2 & Onsen UI 2 Template
+
+
+The new [Vue with Onsen UI template](https://github.com/OnsenUI/vue-cordova-webpack) is a great way
 to approach mobile development and can easily be integrated with Monaca
 CLI in order to take advantage of all its features.
 
 In this page, we will demonstrate how to import Vue with Onsen UI
 template into Monaca CLI.
 
-Step 1: Installing Vue CLI
---------------------------
+## Step 1: Installing Vue CLI
 
 Open a Command Prompt window (for Windows) or Terminal window (for Mac)
 and type the following command:
 
-> ``` {.sourceCode .bash}
-> npm install -g vue-cli
-> ```
+{{<highlight bash>}}
+    npm install -g vue-cli
+{{</highlight>}}
 
-Step 2: Importing the Template
-------------------------------
 
-1.  Create a new project based on the template by using the command
-    below:
+## Step 2: Importing the Template
 
-> ``` {.sourceCode .bash}
-> vue init OnsenUI/vue-cordova-webpack projectName
-> ```
+1.  Create a new project based on the template by using the command below:
+
+    {{<highlight bash>}}
+    vue init OnsenUI/vue-cordova-webpack projectName{{</highlight>}}
 
 2.  Navigate to the project folder and run `npm install`
 
-> ``` {.sourceCode .bash}
-> cd projectName
-> npm install
-> ```
+    {{<highlight bash>}}
+    cd projectName
+    npm install{{</highlight>}}
 
-Step 3: Running the Template in Monaca CLI
-------------------------------------------
+## Step 3: Running the Template in Monaca CLI
 
 With Monaca CLI, you can:
 
@@ -52,9 +50,10 @@ With Monaca CLI, you can:
 
 If you haven't install Monaca CLI yet, please run the following command:
 
-``` {.sourceCode .bash}
-npm install -g monaca
-```
+{{<highlight bash>}}
+    npm install -g monaca
+{{</highlight>}}
+
 
 ### Start Running the Template
 
@@ -64,55 +63,43 @@ advantage of Monaca's features:
 
 1.  Build the template for production and generate `www` files:
 
-> ``` {.sourceCode .bash}
-> npm run build
-> ```
+    {{<highlight bash>}}
+    npm run build{{</highlight>}}
 
-2.  Run in development mode and load the bundles in memory with hot
-    module replacement:
+2.  Run in development mode and load the bundles in memory with hot module replacement:
 
-> ``` {.sourceCode .bash}
-> npm run dev
-> ```
->
-> ![](images/vue_onsen/1.png){width="700px"}
->
-> Or use `monaca demo` to preview your project in iOS and Android
-> simultaneously in a browser:
->
-> ``` {.sourceCode .bash}
-> npm run build:watch  // In a different terminal
-> monaca demo
-> ```
->
-> ![](images/vue_onsen/2.png){width="700px"}
+    {{<highlight bash>}}
+    npm run dev{{</highlight>}}
 
-3.  Want to test your template on a real device? Install [Monaca
-    Debugger](https://monaca.io/debugger.html) and run the following
-    command:
+    {{<img src="/images/monaca_cli/samples/vue_onsen/1.png">}}
 
-> ``` {.sourceCode .bash}
-> npm run build:watch  // In a different terminal
-> monaca debug
-> ```
->
-> ![](images/vue_onsen/3_1.png){width="300px"}
->
-> ![](images/vue_onsen/3_2.png){width="300px"}
+    Or use `monaca demo` to preview your project in iOS and Android simultaneously in a browser:
 
-4.  Then, you can build your template for either iOS and Android easily
-    with this command:
+    {{<highlight bash>}}
+    npm run build:watch  // In a different terminal
+    monaca demo{{</highlight>}}
 
-> ``` {.sourceCode .bash}
-> monaca remote build --browser
-> ```
->
-> ![](images/vue_onsen/4.png){width="700px"}
+    {{<img src="/images/monaca_cli/samples/vue_onsen/2.png">}}
+
+3.  Want to test your template on a real device? Install [Monaca Debugger](https://monaca.io/debugger.html) and run the following command:
+
+    {{<highlight bash>}}
+    npm run build:watch  // In a different terminal
+    monaca debug{{</highlight>}}
+
+    {{<img src="/images/monaca_cli/samples/vue_onsen/3_1.png" width="300">}}
+    {{<img src="/images/monaca_cli/samples/vue_onsen/3_2.png" width="300">}}
+
+4.  Then, you can build your template for either iOS and Android easily with this command:
+
+    {{<highlight bash>}}
+    monaca remote build --browser{{</highlight>}}
+
+    {{<img src="/images/monaca_cli/samples/vue_onsen/4.png">}}
 
 These are just a brief view of what you can do with Monaca CLI. If you
 would like to learn more about it, please refer to the following
 contents:
 
--   monaca\_cli\_tutorial
--   Monaca CLI Manual &lt;monaca\_cli\_manual&gt;
-
+- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Manual](../../manual)
