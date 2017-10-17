@@ -221,7 +221,7 @@ From now on, if the transpiling process fails because of some global
 dependencies missing, just push the reconfigure button and Localkit will
 do all the magic!
 
-### Preference Dialog
+### <a name="localkit-preference"></a> Preference Dialog
 
 1.  From Monaca Localkit menu, go to {{<guilabel name="Preferences">}} (for Mac) or go to {{<menu menu1="File" menu2="Preferences">}} (for Windows).
 

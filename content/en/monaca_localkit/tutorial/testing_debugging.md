@@ -23,8 +23,8 @@ In this page, we describe a step-by-step instruction of how to:
 
 Please install Monaca Debugger on your device.
 
-{{<img src="/images/monaca_localkit/tutorial/testing_debugging/App_Store.jpg" width="100">}}
-{{<img src="/images/monaca_localkit/tutorial/testing_debugging/Google_play.png" width="100">}}
+{{<img src="/images/monaca_localkit/tutorial/testing_debugging/App_Store.jpg" width="100" link="https://itunes.apple.com/us/app/monaca/id550941371?mt=8">}}
+{{<img src="/images/monaca_localkit/tutorial/testing_debugging/Google_play.png" width="100" link="https://play.google.com/store/apps/details?id=mobi.monaca.debugger&hl=en">}}
 
 {{<note>}}
     Please refer to {{<link href="/en/debugger/manual/installation" title="Monaca Debugger Installation">}} for other platforms.

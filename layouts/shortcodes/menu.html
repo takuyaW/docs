@@ -1,1 +1,4 @@
-<span class="guilabel"><b>{{ .Get "menu1" }} &rarr; {{ .Get "menu2" }}</b></span>
+<span class="guilabel">
+    <b>{{ .Get "menu1" }} &rarr; {{ .Get "menu2" }}
+        {{ if isset .Params "menu3"}}&rarr; {{ .Get "menu3" }}{{ end }}
+    {{ if isset .Params "menu4"}}&rarr; {{ .Get "menu4" }}{{ end }}</b></span>

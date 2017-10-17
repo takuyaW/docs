@@ -1,11 +1,10 @@
-Project Dependencies
-====================
+---
+title: Project Dependencies
+---
 
-> maxdepth
->
-> :   2
->
-> ../../monaca\_ide/manual/dependencies/file\_dir
-> ../../monaca\_ide/manual/dependencies/components
-> ../../monaca\_ide/manual/dependencies/cordova\_plugin
-> ../../monaca\_ide/manual/dependencies/custom\_cordova\_plugin
+# Project Dependencies
+
+- [File and Folder Structure](/en/monaca_ide/manual/dependencies/file_dir)
+- [JS/CSS Components](/en/monaca_ide/manual/dependencies/components)
+- [Cordova Plugins](/en/monaca_ide/manual/dependencies/cordova_plugin)
+- [Custom Cordova Plugins](/en/monaca_ide/manual/dependencies/custom_cordova_plugin)
