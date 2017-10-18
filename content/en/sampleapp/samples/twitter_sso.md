@@ -1,5 +1,8 @@
-Twitter Single Sign-on App
-==========================
+---
+title: Twitter Single Sign-on App
+---
+
+# Twitter Single Sign-on App
 
 In this page, you will learn how to use Twitter's Single Sign-On (SSO)
 with Monaca Cloud IDE using Angular 1 and [Onsen UI](https://onsen.io/).
@@ -9,15 +12,16 @@ This plugin uses Twitter's [Fabric](https://fabric.io/) SDK to enable
 SSO with your Android and iOS apps. After a successful authentication,
 the user’s basic information will be displayed in the app.
 
-  *Tested Environment*                                       Android 7.0             iOS 10.1.1
-  ---------------------------------------------------------- ----------------------- ------------
-  .. image:: images/twitter\_s                               so/cover.png            
-  :width: 700px                                                                      
-  :align: center                                                                     
-  .. rst-class:: clear                                                               
-  1\. Prerequisite                                                                   
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                           
-  Getting Twitter Consumer Ke                                y and Consumer Secret   
+*Tested Environment*: 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
+
+{{<figure src="/images/sampleapp/twitter_sso/cover.png">}}
+
+## 1. Prerequisite    
 
 You are required to obtain `Consumer Key` and `Consumer Secret` by
 registering your Monaca app with Twitter Apps page. Please proceed as
@@ -25,24 +29,23 @@ follows:
 
 1.  Go to [Twitter Apps page](https://apps.twitter.com/) and sign in
     with a valid Twitter account.
-2.  Click on Create New App button.
+2.  Click on {{<guilabel name="Create New App">}} button.
 3.  Fill in the information of your app such as: Name, Description,
     Website and Callback URL (optional). Then, tick
-    Yes, I have read and agreed to the Twitter Developer Agreement. and
-    click on Create your Twitter application button.
+    `Yes, I have read and agreed to the Twitter Developer Agreement.` and
+    click on {{<guilabel name="Create your Twitter application">}} button.
 4.  Go to Settings tab and tick
-    Allow this application to be used to Sign in with Twitter. Then,
-    click Update Settings button.
+    `Allow this application to be used to Sign in with Twitter`. Then,
+    click {{<guilabel name="Update Settings">}} button.
+    
+    {{<img src="/images/sampleapp/twitter_sso/twitter_settings.png">}}
 
-> ![](images/twitter_sso/twitter_settings.png){width="700px"}
-
-5.  Go to Keys and Access Tokens tab. Then, you will find the
+5.  Go to *Keys and Access Tokens* tab. Then, you will find the
     `Consumer Key` and `Consumer Secret`.
 
-> ![](images/twitter_sso/twitter_keys.png){width="695px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_keys.png">}}
 
-Getting Fabric API Key
-----------------------
+## <a name="get-fabric-key"></a> Getting Fabric API Key
 
 `Fabric API key` is required by the `twitter-connect-plugin` plugin. To
 get `Fabric API key`, please proceed as follows:
@@ -52,11 +55,13 @@ get `Fabric API key`, please proceed as follows:
     are new to Fabric, please sign up
     [here](https://get.fabric.io/twitter-login).
 2.  Find your API Key in inside `<meta-data>` code block in
-    AndroidManifest.xml file (see the screenshot below).
+    `AndroidManifest.xml` file (see the screenshot below).
 
-> ![](images/twitter_sso/twitter_fabric.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_fabric.png">}}
 
 ### 2. Importing the Project to Monaca Cloud IDE
+
+{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
 
 ### 3. Configuring the Plugin
 
@@ -69,53 +74,48 @@ the user’s basic information will be displayed.
 Before starting to use this plugin, you are required to input the
 `FABRIC_KEY` value within the plugin's configuration as follows:
 
-1.  From Monaca Cloud IDE menu, go to
-    Config --&gt; Manage Cordova Plugins.
-2.  Under the *Enabled Plugins* section, hover over
-    `twitter-connect-plugin` and click Configure button.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Under the *Enabled Plugins* section, hover over `twitter-connect-plugin` and click {{<guilabel name="Configure">}} button.
 
-> ![](images/twitter_sso/twitter_plugin_config.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_config.png">}}
 
-3.  Input the `FABRIC_KEY` value you got in the get\_fabric\_key
+3.  Input the `FABRIC_KEY` value you got in the [Getting Fabric API Key](#get-fabric-key)
     section. See the screenshot below as an example:
 
-> ![](images/twitter_sso/twitter_plugin_fabric.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_fabric.png">}}
 
-4.  Click OK to complete the configuration.
+4.  Click {{<guilabel name="OK">}} to complete the configuration.
 
 ### 4. Editing config.xml File
 
-1.  Open the config.xml file and add the following code within the
+1.  Open the `config.xml` file and add the following code within the
     `<widget>` tag. Please remember to replace your own
     `Twitter Consumer Key` and `Twitter Consumer Secret`.
 
-> ``` {.sourceCode .xml}
-> <preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
-> <preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />
-> ```
+    {{<highlight xml>}}
+    <preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
+    <preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />{{</highlight>}}
 
 2.  Save the file.
 
-### 5. Application Explanation
+## 5. Application Explanation
 
-File Components
----------------
+### File Components
 
-![](images/twitter_sso/twitter_files.png){width="197px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_files.png">}}
 
-  ----------------- ---------------------------------------------------------
-  `index.html`      The startup Page
-  `home.html`       Home Page
-  `css/style.css`   A stylesheet file for the application
-  `js/app.js`       A JavaScript file for implementation of the application
-  ----------------- ---------------------------------------------------------
+| File | Description |
+|------|-------------|
+| `index.html`	| The startup Page |
+| `home.html` | Home Page |
+| `css/style.css` | A stylesheet file for the application |
+| `js/app.js` | A JavaScript file for implementation of the application |
 
-HTML Explanation
-----------------
+### HTML Explanation
 
 **index.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -138,20 +138,17 @@ HTML Explanation
     <ons-navigator id="myNavigator" page="home.html"></ons-navigator>
 </body>
 </html>
-```
+{{</highlight>}}
 
 This file is the startup page of the application. As you can see, within
-the `<body>` tag, there is only one [&lt;ons-navigator&gt;
-&lt;<https://onsen.io/v2/docs/angular1/ons-navigator.html>&gt;]()
-component. It provides page stack management and navigation. The
-attribute page is used to identify the first page in the stack. Since we
+the `<body>` tag, there is only one [ons-navigator](<https://onsen.io/v2/docs/angular1/ons-navigator.html) component. It provides page stack management and navigation. The attribute page is used to identify the first page in the stack. Since we
 have only one main page in this sample application, `home.html` is, of
 course, the first in the page stack and will be loaded as soon as the
 `index.html` file is completed.
 
 **home.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <ons-page ng-controller="HomeCtrl as home" ng-init="CheckLoginStatus()">
     <ons-toolbar>
         <div class="center">Twitter Demo</div>
@@ -181,7 +178,7 @@ course, the first in the page stack and will be loaded as soon as the
         </div>
     </div>
 </ons-page>
-```
+{{</highlight>}}
 
 This page contains two sections which are shown based on the
 `login_status` variable of the user in the application:
@@ -189,20 +186,19 @@ This page contains two sections which are shown based on the
 1.  Login section: This section is shown when there is no existing login
     information found in the device.
 
-> ![image](images/twitter_sso/twitter_home.png){width="300px"}
+    {{<figure src="/images/sampleapp/twitter_sso/twitter_home.png">}}
 
 2.  Profile section: When the existing login info is found, this section
     will be displayed.
 
-> ![image](images/twitter_sso/twitter_profile.png){width="300px"}
+    {{<figure src="/images/sampleapp/twitter_sso/twitter_profile.png">}}
 
-Stylesheet Explanation
-----------------------
+### Stylesheet Explanation
 
 This file consists of the CSS style for the navigation bar and Twitter
 profile image.
 
-``` {.sourceCode .css}
+{{<highlight css>}}
 div.page {
    padding: 5%;
    text-align: center;
@@ -225,12 +221,11 @@ img.profile {
 .button {
     background-color: #1da1f2;
 }
-```
+{{</highlight>}}
 
-JavaScript Explanation
-----------------------
+### JavaScript Explanation
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ons.bootstrap()
 .service('StorageService', function() {
     var setLoginUser = function(user_info) {
@@ -322,32 +317,24 @@ ons.bootstrap()
         });
     }
 });
-```
+{{</highlight>}}
 
 Inside this file, there is an Angular Service, called `StorageService`.
 It stores the login information of the user using the device's Local
 Storage. There is also one controller, called `HomeCtrl`, consists of
 two main functions such as `Login()` and `Logout()`. Inside the
-`Login()` function, TwitterConnect.login() is called asking the user the
+`Login()` function, `TwitterConnect.login()` is called asking the user the
 login with a valid Twitter account information.
-
-<div class="admonition note">
-
-If you have logged in with a Twitter app on your device, the information
-of that account will be grabbed and used in the app automatically (see
-the screenshot below as an example). If you want to log in with a
-different account, please go to your Twitter app and change the account
-there.
-
-</div>
-
-![image](images/twitter_sso/twitter_authentication.png){width="300px"}
+{{<note>}}
+    If you have logged in with a Twitter app on your device, the information of that account will be grabbed and used in the app automatically (see the screenshot below as an example). If you want to log in with a different account, please go to your Twitter app and change the account there.
+{{</note>}}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_authentication.png">}}
 
 However, if you neither have a Twitter app nor log in the existing
 Twitter app on your device, the following authentication screen will
 appear:
 
-![image](images/twitter_sso/twitter_authentication_1.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_authentication_1.png">}}
 
 After a successful login, `StorageService` is called to store the login
 information and the app will be directed back to `home.html` page
@@ -359,11 +346,8 @@ confirmation dialog is shown. If the user selects `Yes`, both
 called to log the user out and remove the login information from the
 device's local storage, respectively.
 
-<div class="admonition note">
+{{<note>}}
+    This <code>Logout()</code> function can only log the user out of this application, not the Twitter application.
+{{</note>}}
 
-This `Logout()` function can only log the user out of this application,
-not the Twitter application.
-
-</div>
-
-![image](images/twitter_sso/twitter_confirmation.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_confirmation.png">}}

@@ -1,8 +1,7 @@
-Samples
-=======
+---
+title: Samples
+---
 
-> maxdepth
->
-> :   2
->
-> ../../sampleapp/samples/backend\_memo
+# Samples
+
+- [Backend Memo](/en/sampleapp/samples/backend_memo)

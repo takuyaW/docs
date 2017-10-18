@@ -6,8 +6,7 @@ There are 2 ways to configure your Android apps:
 1.  Configure via Monaca Cloud IDE &lt;android\_config\_ide&gt;
 2.  Configure via configuration files directly &lt;android\_config\_files&gt;.
 
-Configuration via Monaca Cloud IDE
-----------------------------------
+## <a name="android-config-ide"></a> Configuration via Monaca Cloud IDE
 
 ### Android App Settings Page
 
@@ -127,7 +126,7 @@ Below are available elements and preferences you may need to configure:
 </widget>
 ```
 
-#### *&lt;access&gt; element*
+#### <a name="access-origin-android"></a> *&lt;access&gt; element*
 
   ------------- --------------------------------------------------------------------------------------------------------------------
   Attribute     `origin`

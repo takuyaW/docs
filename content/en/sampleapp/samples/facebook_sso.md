@@ -1,105 +1,104 @@
-Facebook Single Sign-on App
-===========================
+---
+title: Facebook Single Sign-on App
+---
+
+# Facebook Single Sign-on App
 
 In this page, you will learn how to use Facebook's Single Sign-On (SSO)
 with Monaca Cloud IDE using Angular 1 and [Onsen UI](https://onsen.io/).
-The authentication is done by
-[cordova-plugin-facebook4](https://github.com/jeduan/cordova-plugin-facebook4).
-This plugin will use the native Facebook app to perform Single Sign On
+The authentication is done by [cordova-plugin-facebook4](https://github.com/jeduan/cordova-plugin-facebook4). This plugin will use the native Facebook app to perform Single Sign On
 for the user; otherwise, the sign on will degrade gracefully using the
 standard dialog based authentication.
 
-  *Tested Environment*                                       Android 7.0                                      iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  .. image:: images/[facebook]()                             sso/cover.png                                    
-  :width: 700px                                                                                               
-  :align: center                                                                                              
-  .. rst-class:: clear                                                                                        
-  .. \_pre\_facebook\_sso:                                                                                    
-  1\. Prerequisite                                                                                            
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                    
-  `APP_ID` and `APP_NAME`                                    are required by the \`\`cordo                    va-plugin-facebook4\`\` plugin. These two values can be found in the Facebook for Developer console after registering your app. To do so, please proceed as follows:
-  1\. Go to \`Facebook for Deve                              lopers &lt;<https://developers.f>                acebook.com/&gt;\`\_ and log in with your Facebook account.
-  2\. Go to :menuselection:\`My                              Apps --&gt; Add a New App\`.                     
-  .. figure:: images/facebo                                  ok\_sso/add\_new\_app.png                        
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  3\. Input the necessary info                               rmation of your app and clic                     k Create App ID.
-  .. figure:: images/facebo                                  ok\_sso/create\_id.png                           
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  4\. From the Dashboard, go t                               o Settings and y                                 ou will be able to find the `APP_ID` (App ID) and `APP_NAME` (Display Name).
-  5\. Now it's time to add the                               platform(s) of the devices                       which will run your app by clicking + Add Platform button.
-  .. figure:: images/facebo                                  ok\_sso/add\_platform.png                        
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  6\. If your app will run on                                Android, select *Android*.                       
-  .. figure:: images/facebo                                  ok\_sso/android.png                              
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  7\. Fill in the necessary in                               formation as shown below and                     click Save Changes.
-  - Google Play Package Nam                                  e: is the Android's Package                      Name you configured in Monaca Cloud IDE for Android App Settings.
-  - Key Hashes: is the SHA-1                                 fingerprint of the KeyStore                      you configured in Monaca Cloud IDE for Android KeyStore Settings. Please refer to faq05-020.
-  - Enable :guilabel:\`Single                                Sign On\` option.                                
-  .. figure:: images/facebo                                  ok\_sso/android\_setting.png                     
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  8\. If your app will run on                                iOS as well, Click :guilabel                     :+ Add Platform and select *iOS*.
-  9\. Fill in the necessary in                               formation as shown below and                     click Save Changes.
-  - Bundle ID: is the iOS's                                  App ID you configured in Mo                      naca Cloud IDE for iOS App Settings.
-  - Enable :guilabel:\`Single                                Sign On\` option.                                
-  .. figure:: images/facebo                                  ok\_sso/ios\_setting.png                         
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-                                                                                                              
-  2\. Importing the Project to                               Monaca Cloud IDE                                 
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   
-  .. rst-class:: direct-impor                                t                                                
-  \`Import Facebook Single S                                 ign-on App to your Monaca Ac                     count &lt;<https://monaca.mobi/directimport?pid=591abc668034513c335e2ecf>&gt;\`\_
-                                                                                                              
-  3\. Configuring the Plugin                                                                                  
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                 
-  The authentication is done                                 by \`cordova-plugin-facebook4                    &lt;<https://github.com/jeduan/cordova-plugin-facebook4>&gt;\`\_. This plugin will use the native Facebook app to perform Single Sign-on for the user; otherwise, the sign on will degrade gracefully using the standard dialog based authentication.
-  Before starting to use the                                 plugin, you are required to                      input the `APP_ID` and `APP_NAME` values within the plugin's configuration as follows:
-  1\. From Monaca Cloud IDE me                               nu, go to :menuselection:\`Co                    nfig --&gt; Manage Cordova Plugins\`.
-  2\. Under the \*Enabled Plugi                              ns\* section, hover over \`\`co                  rdova-plugin-facebook4\`\` and click Configure button.
-  .. figure:: images/facebo                                  ok\_sso/plugin\_config.png                       
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  3\. Input the `APP_ID` and                                 `APP_NAME` values you got                        in the pre\_facebook\_sso section. See the screenshot below as an example:
-  .. figure:: images/facebo                                  ok\_sso/plugin\_params.png                       
-  :width: 700px                                                                                               
-  :align: left                                                                                                
-  .. rst-class:: clear                                                                                        
-  4\. Click OK to                                            complete the configuration.                      
-                                                                                                              
-  4\. Application Explanation                                                                                 
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^\^\^\^\^                         
-  File Components                                                                                             
+*Tested Environment*: 
 
-![](images/facebook_sso/files.png){width="199px"}
+- Android 7.0
+- iOS 10.1.1
 
-  ----------------- ---------------------------------------------------------
-  `index.html`      The startup Page
-  `home.html`       Login Page
-  `profile.html`    User profile Page
-  `css/style.css`   A stylesheet file for the application
-  `js/app.js`       A JavaScript file for implementation of the application
-  ----------------- ---------------------------------------------------------
+{{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}
+
+{{<figure src="/images/sampleapp/facebook_sso/cover.png">}}
+
+
+## <a name="pre-facebook-sso"></a> 1. Prerequisite
+
+`APP_ID` and `APP_NAME` are required by the `cordova-plugin-facebook4` plugin. These two values can be found in the Facebook for Developer console after registering your app. To do so, please proceed as follows:
+
+1. Go to [Facebook for Developers](https://developers.facebook.com/) and log in with your Facebook account.
+
+2. Go to {{<menu menu1="My Apps" menu2="Add a New App">}}.
+
+    {{<img src="/images/sampleapp/facebook_sso/add_new_app.png">}}
+
+3. Input the necessary information of your app and click {{<guilabel name="Create App ID">}}.
+
+    {{<img src="/images/sampleapp/facebook_sso/create_id.png">}}
+
+4. From the Dashboard, go to *Settings* and you will be able to find the `APP_ID` (App ID) and `APP_NAME` (Display Name).
+
+5. Now it’s time to add the platform(s) of the devices which will run your app by clicking {{<guilabel name="+ Add Platform">}} button.
+
+    {{<img src="/images/sampleapp/facebook_sso/add_platform.png">}}
+
+6. If your app will run on Android, select `Android`.
+
+    {{<img src="/images/sampleapp/facebook_sso/android.png">}}
+
+7. Fill in the necessary information as shown below and click {{<guilabel name="Save Changes">}}:
+
+    - `Google Play Package Name`: is the Android’s Package Name you configured in Monaca Cloud IDE for Android App Settings.
+    - `Key Hashes`: is the SHA-1 fingerprint of the KeyStore you configured in Monaca Cloud IDE for Android KeyStore Settings. Please refer to How to get SHA-1 fingerprint of a keystore created in Monaca Cloud IDE.
+    - Enable `Single Sign On` option.
+
+    {{<img src="/images/sampleapp/facebook_sso/android_setting.png">}}
+
+8. If your app will run on iOS as well, Click {{<guilabel name="+ Add Platform">}} and select `iOS`.
+
+9. Fill in the necessary information as shown below and {{<guilabel name="Save Changes">}}:
+
+    - `Bundle ID`: is the iOS’s App ID you configured in Monaca Cloud IDE for iOS App Settings.
+    - Enable `Single Sign On` option.
+
+    {{<img src="/images/sampleapp/facebook_sso/ios_setting.png">}}
+
+## 2. Importing the Project to Monaca Cloud IDE                                 
+
+{{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}                               
+## 3. Configuring the Plugin                                                                          
+
+The authentication is done by [cordova-plugin-facebook4](https://github.com/jeduan/cordova-plugin-facebook4). This plugin will use the native Facebook app to perform Single Sign-on for the user; otherwise, the sign on will degrade gracefully using the standard dialog based authentication.
+
+Before starting to use the plugin, you are required to input the `APP_ID` and `APP_NAME` values within the plugin’s configuration as follows:
+
+1. From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2. Under the E*nabled Plugins* section, hover over `cordova-plugin-facebook4` and click {{<guilabel name="Configure">}} button.
+
+    {{<img src="/images/sampleapp/facebook_sso/plugin_config.png">}}
+
+3. Input the `APP_ID` and `APP_NAME` values you got in the [Prerequisite](#pre-facebook-sso) section. See the screenshot below as an example:
+
+    {{<img src="/images/sampleapp/facebook_sso/plugin_params.png">}}
+
+4. Click {{<guilabel name="OK">}} to complete the configuration.
+
+## 4. Application Explanation                                                                                 
+### File Components                                                                                             
+{{<figure src="/images/sampleapp/facebook_sso/files.png">}}
+
+| File | Description |
+|------|-------------|
+| `index.html` | The startup Page |
+| `home.html` | Login Page |
+| `profile.html` | User profile Page |
+| `css/style.css` | A stylesheet file for the application |
+| `js/app.js` | A JavaScript file for implementation of the application |
 
 HTML Explanation
 ----------------
 
 **index.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -123,17 +122,16 @@ HTML Explanation
   </body>
 </body>
 </html>
-```
+{{</highlight>}}
 
 This file is the startup page of the application. As you can see within
-the `<body>` tag, there is only one [&lt;ons-navigator&gt;
-&lt;<https://onsen.io/v2/docs/angular1/ons-navigator.html>&gt;]()
+the `<body>` tag, there is only one [ons-navigator](https://onsen.io/v2/docs/angular1/ons-navigator.html)
 component. It provides page stack management and navigation. The
 attribute page is used to identify the first page in the stack.
 
 **home.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <ons-page ng-controller="HomeCtrl">
   <ons-toolbar>
       <div class="center">Facebook Demo</div>
@@ -147,17 +145,17 @@ attribute page is used to identify the first page in the stack.
       </ons-button>
   </div>
 </ons-page>
-```
+{{</highlight>}}
 
 This page is a login page. If there is existing login information found
 in the device, it will be automatically redirected to `profile.html`
 page.
 
-> ![image](images/facebook_sso/home.png){width="300px"}
+{{<figure src="/images/sampleapp/facebook_sso/home.png">}}
 
 **profile.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <ons-page ng-controller="ProfileCtrl">
   <ons-toolbar>
       <div class="center">Facebook Profile</div>
@@ -176,19 +174,18 @@ page.
       </p>
   </div>
 </ons-page>
-```
+{{</highlight>}}
 
 This page is a user's Facebook profile page.
 
-> ![image](images/facebook_sso/profile.png){width="300px"}
+{{<figure src="/images/sampleapp/facebook_sso/profile.png">}}
 
-Stylesheet Explanation
-----------------------
+## Stylesheet Explanation
 
 This file consists of the CSS style for the navigation bar and Facebook
 profile image.
 
-``` {.sourceCode .css}
+{{<highlight css>}}
 div.page {
  padding: 5%;
  text-align: center;
@@ -211,12 +208,11 @@ img.profile {
 .button {
   background-color: #4267b2;
 }
-```
+{{</highlight>}}
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ons.bootstrap()
 .service('StorageService', function() {
   var setLoginUser = function(user_info) {
@@ -331,7 +327,7 @@ ons.bootstrap()
       });
   }
 });
-```
+{{</highlight>}}
 
 Inside this file, there is a service, called `StorageService`, to store
 the login information of the user using the device's Local Storage.
@@ -345,7 +341,7 @@ function is triggered to check if there is any existing login
 information. If the login information is found, the
 `myNavigator.pushPage()` function is called to navigate to
 `profile.html` page showing the user's Facebook profile as found in the
-login information. When the user clicks on Connect to Facebook button,
+login information. When the user clicks on {{<guilabel name="Connect to Facebook">}} button,
 the `Login()` function is triggered. In this function, the
 `facebookConnectPlugin.login()` function is called to show the native
 Facebook authentication dialog. If the login is successful, the login
@@ -354,20 +350,15 @@ information will be stored in the device's local storage via
 `myNavigator.pushPage()` function is called to navigate to
 `profile.html` page.
 
-<div class="admonition note">
-
-If you have logged in with a Facebook app on your device, the
-information of that account will be automatically grabbed and used in
-this app. If you want to login with a different account, please go to
-your Facebook app and change the account there.
-
-</div>
+{{<note>}}
+    If you have logged in with a Facebook app on your device, the information of that account will be automatically grabbed and used in this app. If you want to login with a different account, please go to your Facebook app and change the account there.
+{{</note>}}
 
 However, if you do not have a Facebook app on your device or you have
 not logged in the existing Facebook app on your device, the following
 authentication screen will appear:
 
-![image](images/facebook_sso/authentication.png){width="300px"}
+{{<figure src="/images/sampleapp/facebook_sso/authentication.png">}}
 
 In the `ProfileCtrl` controller, there are 2 functions: `Logout()` and
 `LogoutFromFacebook()`. The `Logout()` function is called when the user
@@ -377,4 +368,4 @@ user selects `Yes`, both `LogoutFromFacebook()` function
 `StorageService` service are called to log the user out and remove the
 login information from the device's local storage, respectively.
 
-![image](images/facebook_sso/confirmation.png){width="300px"}
+{{<figure src="/images/sampleapp/facebook_sso/confirmation.png">}}

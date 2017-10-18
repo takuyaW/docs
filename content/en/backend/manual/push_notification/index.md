@@ -1,12 +1,10 @@
-Push Notification
-=================
+---
+title: Push Notification
+---
 
-> glob
->
-> :   
->
-> maxdepth
->
-> :   2
->
-> overview apns gcm
+# Push Notification
+
+- [Introduction to Push Notification](overview)
+- [iOS App Push Notification Settings](apns)
+- [Android App Push Notification Settings](gcm)
+

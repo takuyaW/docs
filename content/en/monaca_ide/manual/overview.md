@@ -220,7 +220,7 @@ limitations:
 -   Viewport appearance may differ from real devices.
 -   Monaca Backend API and Push Notifications can not be initialized.
 
-## Share
+## <a name="team-tab"></a> Share
 
 {{<note>}}
 

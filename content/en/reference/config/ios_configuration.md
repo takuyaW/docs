@@ -6,8 +6,7 @@ There are 2 ways to configure your iOS apps:
 1.  Configure via Monaca Cloud IDE &lt;ios\_config\_ide&gt;
 2.  Configure via configuration files directly &lt;ios\_config\_files&gt;.
 
-Configuration via Monaca Cloud IDE
-----------------------------------
+## <a name="ios-config-ide"></a> Configuration via Monaca Cloud IDE
 
 ### iOS App Settings Page
 
@@ -279,7 +278,7 @@ Below are available preferences you may need to configure:
     <preference name="UIWebViewDecelerationSpeed" value="normal" />
     ...
 
-#### *access origin*
+#### <a name="access-origin"></a> *access origin*
 
   --------------- -------------------------------------------------------------------------------------------------------
   *Type*          string

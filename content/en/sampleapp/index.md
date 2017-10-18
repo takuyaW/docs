@@ -1,8 +1,8 @@
-Samples & Tips
-==============
+---
+title: Samples & Tips
+---
 
-> maxdepth
->
-> :   2
->
-> samples/index tips/index
+# Samples & Tips
+
+- [Sample Apps & Templates](samples)
+- [Tips & Tricks](tips)
