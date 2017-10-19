@@ -1,19 +1,19 @@
-Playing Sound and Music
-=======================
+---
+title: Playing Sound and Music
+---
+
+# Playing Sound and Music
 
 In Monaca, there are two ways to play sound and music such as:
 
--   html5\_audio (May not Work on iOS Devices)
--   media\_api (Highly Recommended)
+- [Using HTML5 <audio> Tag](#html5-audio) (May not Work on iOS Devices)
+- [Using Cordova Media Plugin](#media-api) (Highly Recommended)
 
-Using HTML5 &lt;audio&gt; Tag
------------------------------
+## <a name="html5-audio"></a> Using HTML5 <audio> Tag
 
-<div class="admonition warning">
-
-The HTML5 `audio` tag may not work properly on iOS devices.
-
-</div>
+{{<warning>}}
+    The HTML5 <code>audio</code> tag may not work properly on iOS devices.
+{{</warning>}}
 
 ### Playing Sound from External Sources
 
@@ -22,7 +22,7 @@ sources by specifying its URL. For example, the following code snippet
 is using `<audio>` tag to play an audio file based on a specified
 source:
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
 <body>
   <!-- Play the music when the Play control is pressed -->
@@ -31,7 +31,7 @@ source:
   <!-- <audio src="http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3" autoplay></audio> -->
 </body>
 ...
-```
+{{</highlight>}}
 
 ### Playing the Sound Located inside a Monaca Project
 
@@ -39,7 +39,7 @@ HTML5 `<audio>` tag can also be used to play sound located locally
 within a Monaca project. For example, the following code snippet is
 using `<audio>` tag to play an audio file located under `www/` folder:
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
 <body>
   <!-- Play the music when the Play control is pressed -->
@@ -48,28 +48,24 @@ using `<audio>` tag to play an audio file located under `www/` folder:
   <!-- <audio src="sample.mp3" autoplay></audio> -->
 </body>
 ...
-```
+{{</highlight>}}
 
-Using Cordova Media Plugin
---------------------------
+## <a name="media-api"></a> Using Cordova Media Plugin
 
 With Cordova Media plugin, you have more functions to control over how
 you play a sound file such as start, pause, stop, resume, set volume and
 so on.
 
-<div class="admonition note">
-
-Before getting started, you are required to enable &lt;add\_plugins&gt;
-`Media` plugin in Monaca Cloud IDE.
-
-</div>
+{{<note>}}
+    Before getting started, you are required to {{<link href="/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins" title="enable">}} Media plugin in Monaca Cloud IDE.onaca Cloud IDE.
+{{</note>}}
 
 ### Playing Sound from External Sources
 
 In the following example, we will show you how use a sound file from an
 external source. You can play, pause and stop the music.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -151,14 +147,14 @@ external source. You can play, pause and stop the music.
     <p id="audio_position"></p>
 </body>
 </html>
-```
+{{</highlight>}}
 
 ### Playing the Sound Located inside a Monaca Project
 
 In the following example, we will show you how use a local sound file
-located under www/ folder. You can play, pause and stop the music.
+located under `www/` folder. You can play, pause and stop the music.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -246,4 +242,4 @@ located under www/ folder. You can play, pause and stop the music.
     <p id="audio_position"></p>
 </body>
 </html>
-```
+{{</highlight>}}

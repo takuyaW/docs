@@ -9,36 +9,14 @@ mobile ads network called, [AdMob](https://www.google.com/admob/). This
 sample app is based on a demo on [AdMob Plugin Pro on
 GitHub](https://github.com/floatinghotpot/cordova-admob-pro).
 
+{{<import pid="5923cb95ff2af25b33815106" title="AdMob Demo">}}
+
 *Tested Environment*: 
 
 - Android 6.2
 - iOS 9.3.5
-  
 
-{{< highlight html >}}
-<section id="main">
-  <div>
-    <h1 id="title">{{ .Title }}</h1>
-    {{ range .Data.Pages }}
-      {{ .Render "summary"}}
-    {{ end }}
-  </div>
-</section>
-{{< /highlight >}}
-
-
-{{< figure src="/images/sampleapp/admob/1.png">}}
-
-
-{{< note >}}
-    [TEST] iOS/Android apps run on Cordova and use [PhoneGap](http://phonegap.com/), a JavaScript library, to access native functions of a device. Windows apps run on Windows runtime while Chrome apps run on Chrome runtime.
-{{< /note >}}
-
-{{< warning >}}
-
-    [TEST] The App ID (set in Monaca App Settings) cannot contain asterisk (`*`); otherwise, the build will fail. This App ID must be the same as the explicit App ID you will register (or have registered) in iOS Dev Center. Read more on register\_appID.
-
-{{< /warning >}}
+{{< figure src="/images/sampleapp/admob/cover.png" title="Banner Ads & Interstitial Ads">}}
 
 ## Prerequisite
 
@@ -49,22 +27,22 @@ register your application with AdMob.
 In order to register your application with AdMob, please do as follows:
 
 1. Sign up with [AdMob Apps](https://apps.admob.com).
-2. Go to MONETIZE tab and click + MONETIZE NEW APP button.
+2. Go to *MONETIZE* tab and click {{<guilabel name="+ MONETIZE NEW APP">}} button.
 
-    {{< figure src="/images/sampleapp/admob/8.png">}}
+    {{<img src="/images/sampleapp/admob/8.png">}}
 
 3.  Then, fill in the necessary information such your app name,
     platform, and type of ads. After completed, your will get an ad id
     for each ad unit. You will need to use this id to call each ad in
     your application. Here is an example:
 
-    {{< figure src="/images/sampleapp/admob/9.png">}}
+    {{<img src="/images/sampleapp/admob/9.png">}}
 
 ## File Components
 
 {{< figure src="/images/sampleapp/admob/7.png">}}
 
-File Name         | Description
+File        | Description
 ------------------|-----------------------------------
 `index.html`      | The startup page
 `js/app.js`       | JavaScript file handling app execution
@@ -87,18 +65,12 @@ File Name         | Description
 We are using [Onsen](https://onsen.io/) for the user interface (UI) of
 this demo app.
 
-```javascript
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-
 ### Startup Page
 
 The following block code represents the UI of the startup page (see the
 screenshot below):
 
-```html
+{{<highlight html>}}
 <h3 style="text-align: center;">Monaca with AdMob Demo</h3>
 
 <div id="fullpage">
@@ -139,7 +111,7 @@ screenshot below):
     <ons-button id="btn_showfull">Show</ons-button>
 
 </div>
-```
+{{</highlight>}}
 
 {{< figure src="/images/sampleapp/admob/1.png" title="Startup Page">}}
 
@@ -149,7 +121,7 @@ The following block code represents the Ads Size dialog allowing users
 to select various types of AdMob's ads size such as `SMART_BANNER`,
 `MEDIUM_RECTANGLE`, `FULL_BANNER` and so on.
 
-```ruby
+{{<highlight html>}}
 ...
 <ons-template id="banner_size.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)">
@@ -181,7 +153,7 @@ to select various types of AdMob's ads size such as `SMART_BANNER`,
     </ons-dialog>
 </ons-template>
 ...
-```
+{{</highlight>}}
 
 {{< figure src="/images/sampleapp/admob/3.png" title="Ads Size Dialog">}}
 
@@ -191,7 +163,7 @@ The following block code represents the Ads Position dialog allowing
 users to select various positions to place the ads such as `TOP_LEFT`,
 `CENTER`, `BOTTOM_RIGHT` and so on.
 
-``` html
+{{<highlight html>}}
 ...
 <ons-template id="banner_pos.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)" style="width: 90%; height: auto">
@@ -235,7 +207,7 @@ users to select various positions to place the ads such as `TOP_LEFT`,
     </ons-dialog>
 </ons-template>
 ...
-```
+{{</highlight>}}
 
 {{< figure src="/images/sampleapp/admob/4.png" title="Ads Position Dialog">}}
 
@@ -251,7 +223,7 @@ following block code initializes the object based on the device's
 platform. The object contains two types of ads such as banner and
 interstitial ads.
 
-```
+{{<highlight javascript>}}
 var admobid = {};
 if (/(android)/i.test(navigator.userAgent)){
     console.log('Android');
@@ -270,13 +242,13 @@ if (/(android)/i.test(navigator.userAgent)){
         interstitial: 'ca-app-pub-6869992474017983/1355127956'
     };
 }
-```
+{{</highlight>}}
 
 
 
-{{< note >}}
+{{<note>}}
     All of these ad unit ids are for testing only. For the real ad unit ids, you will need to register with AdMob and create your own ad unit ids there.
-{{< /note >}}
+{{</note>}}
 
 ### initialization() Function
 
@@ -290,7 +262,7 @@ other functions are called such as:
 -   `onAdFailLoad` event handler: displaying error information when the
     ad is failed to load.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function initialization(){
     AdMob.getAdSettings(function(info){
         console.log('adId: ' + info.adId + '\n' + 'adTrackingEnabled: ' + info.adTrackingEnabled);
@@ -346,13 +318,13 @@ function initialization(){
         AdMob.showInterstitial();
     });
 }
-```
+{{</highlight>}}
 
 ### createSelectedBanner() Function
 
 This function creates an ad based on the configuration.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function createSelectedBanner(){
     AdMob.removeBanner();
     var ads_size = $("#btn_size_txt").text();
@@ -365,42 +337,39 @@ function createSelectedBanner(){
         position: ads_pos
     });
 }
-```
+{{</highlight>}}
 
 ### showBannerAtPosition() Function
 
 This function shows the ad based on the selected ad's position.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showBannerAtPosition(){
     var ads_pos = selected_pos_value;
     if(AdMob) AdMob.showBanner( ads_pos );
 }
-```
+{{</highlight>}}
 
 ### prepareInt() Function
 
 This function prepares an interstitial ad and then shows it once it's
 ready.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function prepareInt(){
     AdMob.prepareInterstitial({
         adId:admobid.interstitial,
         autoShow: $('#autoshow').prop('checked')
     });
 }
-```
+{{</highlight>}}
 
 ### showBannerSize() Function
 
-This function shows a Banner Size dialog ([OnsenUI
-dialog](https://onsen.io/v1/reference/ons-dialog.html)). Various types
-of ads size can be selected such as BANNER, SMART\_BANNER,
-MEDIUM\_RECTANGLE and so on. For more information, please refer to
-[Banner Size](https://firebase.google.com/docs/admob/android/banner).
+This function shows a Banner Size dialog ([OnsenUI dialog](https://onsen.io/v1/reference/ons-dialog.html)). Various types
+of ads size can be selected such as BANNER, SMART\_BANNER, MEDIUM\_RECTANGLE and so on. For more information, please refer to [Banner Size](https://firebase.google.com/docs/admob/android/banner).
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showBannerSize() {
     var dlg = "banner_size.html";
     if (!dialogs[dlg]) {
@@ -418,4 +387,30 @@ function showBannerSize() {
         dialogs[dlg].show();
     }
 }
-```
+{{</highlight>}}
+
+###  showBannerPos() Function
+
+This function shows a Ad’s Position dialog ([OnsenUI dialog](https://onsen.io/v1/reference/ons-dialog.html)).
+
+{{<highlight javascript>}}
+function showBannerPos() {
+    var dlg = "banner_pos.html";
+    if (!dialogs[dlg]) {
+          ons.createDialog(dlg).then(function(dialog) {
+            dialogs[dlg] = dialog;
+            dialog.show();
+
+            $('input[name=radio_pos]').on('change', function() {
+                var selected_value = $('input[name=radio_pos]:checked').val();
+                var selected_text = btnPosLabel(selected_value);
+                $("#btn_pos_txt").text(selected_text);
+                selected_pos_value = selected_value;
+                dialog.hide();
+            });
+        });
+    } else {
+        dialogs[dlg].show();
+    }
+}
+{{</highlight>}}

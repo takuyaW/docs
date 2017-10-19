@@ -131,7 +131,7 @@ Here are the guides about native code development.
 -   [iOS Plugin Development
     Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/ios/plugin.html).
 
-## Import Custom Cordova Plugin
+## <a name="import-cordova-plugin"></a> Import Custom Cordova Plugin
 
 To import a custom Cordova plugin into your Monaca project, please do as
 follows:

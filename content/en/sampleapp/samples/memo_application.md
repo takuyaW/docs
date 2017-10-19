@@ -1,37 +1,38 @@
-Memo Application
-================
+---
+title: Memo Application
+---
 
-This sample app allows user to create a memo application using local
-storage.
+# Memo Application
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ --------------------------------------------------------------------------------------------------------
-                                                                                            
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/4-jqm-memo/www/index.html"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^\^\^           
-  .. image:: images/memo\_appl                               ication/memo\_0.png            
-  :width: 200px                                                                             
-                                                                                            
-  ============================                               ====== =====================   ======================================================================================================
-  `index.html`                                               The Home screen                
-  `js/memo.js`                                               A JavaScript file              handling data manipulation in local storage
-  `js/app.js`                                                A JavaScript file              handling various implementation in the application
+This sample app allows user to create a memo application using local storage.
 
-Required JS/CSS Components
---------------------------
+{{<import pid="5923c5a6013eb09f3fb07bc7" title="Memo Application">}}
 
-  ----------------- --
-  `jQuery`          
-  `jQuery Mobile`   
-  ----------------- --
+*Tested Environment*: 
 
-HTML Explanation
-----------------
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/4-jqm-memo/www/index.html">}}            
+                                               
+## File Components                                                                           
+
+{{<figure src="/images/sampleapp/memo_application/memo_0.png">}}   
+
+| File | Description |
+|------|-------------|
+| `index.html` | The Home screen |
+| `js/memo.js` | A JavaScript file handling data manipulation in local storage |
+| `js/app.js` | A JavaScript file handling various implementation in the application |
+
+## Required JS/CSS Components
+
+- `jQuery`          
+- `jQuery Mobile`   
+
+## HTML Explanation
+
+### index.html
 
 This sample app's user interface is based on jQuery Mobile. In jQuery
 Mobile, multiple pages can be integrated to a single HTML file. In this
@@ -45,93 +46,97 @@ please refer to [jQuery Mobile Demo](http://demos.jquerymobile.com/).
 
 The following content of the HTML body tag of `index.html` file:
 
-    <body>
-      <!-- TOP Page -->
-      <div data-role="page" id="TopPage">
-        <header data-role="header" data-position="fixed">
-          <h1>Monaca Memo</h1>
-          <a href="#AddPage" data-icon="plus" class="ui-btn-right">Add</a>
-        </header>
-        <section data-role="content">
-          <ul id="TopListView" data-role="listview"
-            data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-split-icon="delete">
-          </ul>
-        </section>
-      </div>
-      ...
-    </body>
+{{<highlight html>}}
+<body>
+  <!-- TOP Page -->
+  <div data-role="page" id="TopPage">
+    <header data-role="header" data-position="fixed">
+      <h1>Monaca Memo</h1>
+      <a href="#AddPage" data-icon="plus" class="ui-btn-right">Add</a>
+    </header>
+    <section data-role="content">
+      <ul id="TopListView" data-role="listview"
+        data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-split-icon="delete">
+      </ul>
+    </section>
+  </div>
+  ...
+</body>
+{{</highlight>}}
 
 corresponds to this screenshot of the Top page (Home screen) which
 allows a user to add, view or delete memos:
 
-![](images/memo_application/memo_3.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_3.png" width="300">}}   
 
 The following content of the HTML body tag of `index.html` file:
 
-    <body>
-      ...
-      <!-- Add Memo Page -->
-      <div data-role="page" id="AddPage">
-        <header data-role="header" data-position="fixed">
-          <a data-role="button" data-rel="back" data-icon="back">Back</a>
-          <h1>Add Memo</h1>
-        </header>
-        <section data-role="content">
-          <label for="Memo">Memo:</label>
-          <textarea id="Memo"></textarea>
-          <a data-role="button" data-icon="check" id="SaveBtn">Save</a>
-        </section>
-      </div>
-      ...
-    </body>
+{{<highlight html>}}
+<body>
+  ...
+  <!-- Add Memo Page -->
+  <div data-role="page" id="AddPage">
+    <header data-role="header" data-position="fixed">
+      <a data-role="button" data-rel="back" data-icon="back">Back</a>
+      <h1>Add Memo</h1>
+    </header>
+    <section data-role="content">
+      <label for="Memo">Memo:</label>
+      <textarea id="Memo"></textarea>
+      <a data-role="button" data-icon="check" id="SaveBtn">Save</a>
+    </section>
+  </div>
+  ...
+</body>
+{{</highlight>}}
 
 corresponds to this screenshot of the Add Memo page which allows a user
 to add/save a memo:
 
-![](images/memo_application/memo_2.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_2.png" width="300">}} 
 
 The following content of the HTML body tag of index.html file:
 
-    <body>
-      ...
-      <!-- Detail Page -->
-      <div data-role="page" id="ShowPage">
-        <header data-role="header" data-position="fixed">
-          <a data-role="button" data-rel="back" data-icon="back">Back</a>
-          <h1></h1>
-        </header>
-        <section data-role="content">
-          <p></p>
-        </section>
-      </div>
-    </body>
+{{<highlight html>}}
+<body>
+  ...
+  <!-- Detail Page -->
+  <div data-role="page" id="ShowPage">
+    <header data-role="header" data-position="fixed">
+      <a data-role="button" data-rel="back" data-icon="back">Back</a>
+      <h1></h1>
+    </header>
+    <section data-role="content">
+      <p></p>
+    </section>
+  </div>
+</body>
+{{</highlight>}}
 
 corresponds to this screenshot of the Detail page which allows a user to
 see the full content of each memo:
 
-![](images/memo_application/memo_5.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_5.png" width="300">}}
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 ### app.js
 
-app.js is a JavaScript file handling various implementation of the
-application.
+`app.js` is a JavaScript file handling various implementation of the application.
 
 As soon as the application starts, the `initTopPage()` function is
 called. This function is used to initialize the Top page (Home screen).
 The initialization process is to get all the previously stored memo(s)
-(using the `getMemoList()` function which is defined in the memo.js
+(using the `getMemoList()` function which is defined in the `memo.js`
 file) and put them into a list view. If there is no previously created
 memo (when using the application for the first time), `"No memo found"`
 will be displayed (see below screenshot).
 
-![](images/memo_application/memo_1.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_1.png" width="300">}}
 
 Below is the source code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 ///// Initialize top page
 function initTopPage() {
@@ -156,17 +161,17 @@ function initTopPage() {
     $("#TopListView").listview("refresh");  // Call refresh after manipulating list
 }
 ...
-```
+{{</highlight>}}
 
-On the Top page, when a user clicks on the +Add button, the Add Memo
+On the Top page, when a user clicks on the {{<guilabel name="+Add">}} button, the Add Memo
 page will be shown. After filling in the Memo text box, the
-`onSaveBtn()` function is called when the Save button is clicked. In
+`onSaveBtn()` function is called when the {{<guilabel name="Save">}} button is clicked. In
 this function, the input text will be saved to local storage via the
-`addMemo()` function (defined in the memo.js file) and then it goes back
+`addMemo()` function (defined in the `memo.js` file) and then it goes back
 to the Top page with an updated list. Below is the source code of this
 function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ///// Save memo and return to top page
 function onSaveBtn() {
     var text = $("#Memo").val();
@@ -180,18 +185,18 @@ function onSaveBtn() {
     }
     $.mobile.changePage("#TopPage", { reverse: true });
 }
-```
+{{</highlight>}}
 
 On the Top page, when a user clicks on an item in the list, the
-`onShowLink()` function (defined in the memo.js file) is called. In this
+`onShowLink()` function (defined in the `memo.js` file) is called. In this
 function, the Detail page will be shown and either the title or the full
 content of the selected item will be displayed as shown below:
 
-![](images/memo_application/memo_5.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_5.png" width="300">}}
 
 Below is the source code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ///// Move to detail page
 function onShowLink() {
     var $li = $(this).parent();
@@ -202,21 +207,21 @@ function onShowLink() {
     $("#ShowPage p").html(memoHtml);
     $.mobile.changePage("#ShowPage");
 }
-```
+{{</highlight>}}
 
 On the Top page, a user can delete any item in the list by clicking on
 the delete icon at the end of each item. When the delete icon is
 clicked, the `onDeleteLink()` function is called. In this function, a
 message confirming the deleting action is shown (see below screenshot).
 If the OK button is clicked, the selected item will be deleted from the
-local storage via the `deleteMemo()` function (defined in the memo.js
+local storage via the `deleteMemo()` function (defined in the `memo.js`
 file). Then, it will go back the Top page with an updated list.
 
-![](images/memo_application/memo_4.png){width="250px"}
+{{<figure src="/images/sampleapp/memo_application/memo_4.png" width="300">}}
 
 Below is the source code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ///// Delete memo
 function onDeleteLink() {
     if (!confirm("Are you sure to delete this memo?")) {
@@ -231,11 +236,11 @@ function onDeleteLink() {
     // Return to top
     $.mobile.changePage("#TopPage", { reverse: true });
 }
-```
+{{</highlight>}}
 
 ### memo.js
 
-memo.js file is a JavaScript file handling data manipulation in local
+`memo.js` file is a JavaScript file handling data manipulation in local
 storage. Inside this file, there are 4 functions such as:
 
 1.  `getMemoList()`: get the list of all memo stored in the local

@@ -1,10 +1,13 @@
-Android Configuration
-=====================
+---
+title: Android Configuration
+---
+
+# Android Configuration
 
 There are 2 ways to configure your Android apps:
 
-1.  Configure via Monaca Cloud IDE &lt;android\_config\_ide&gt;
-2.  Configure via configuration files directly &lt;android\_config\_files&gt;.
+1. [Configure via Monaca Cloud IDE](#android-config-ide)
+2. [Configure via configuration files directly](#android-config-files)
 
 ## <a name="android-config-ide"></a> Configuration via Monaca Cloud IDE
 
@@ -14,14 +17,12 @@ The Android App Settings page allows to set several commonly used
 parameter in Android app. Please follow the following instruction in
 order to access the Android App Setting page in Monaca Cloud IDE:
 
-1.  From Monaca Cloud IDE menu, go to
-    Config --&gt; Android App Settings....
-2.  *Android App Configuration* page will appear as shown below. You can
-    then start your configuration.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Android App Settings">}}.
+2.  Android App Configuration page will appear as shown below. You can then start your configuration.
 
-> ![image](images/android/3.png){width="600px"}
+    {{<img src="/images/reference/config/android/3.png">}}
 
-3.  After finishing the configuration, please click Save.
+3.  After finishing the configuration, click {{<guilabel name="Save">}}.
 
 ### Configurable Parameters
 
@@ -43,105 +44,70 @@ configured via the page:
 -   *Display Time*: Specify the duration of showing splashscreen.
 -   *Screen Orientation*: Specify the screen orientation of the app.
 
-Configuration via Configuration Files
--------------------------------------
+## <a name="android-config-files"></a> Configuration via Configuration Files
 
-All the configuration parameters of an Android app are stored in the
-files as follows:
+All the configuration parameters of an Android app are stored in the files as follows:
 
-> -   config\_xml\_android
-> -   manifest\_xml
+- [config.xml](#config-xml-android)
+- [AndroidManifest.xml](#manifest-xml)
 
-<div class="admonition note">
-
-These configurations are critical to the Android app to run. Wrong
-configuration can prevent the app from running properly, please edit the
-file carefully.
-
-</div>
+{{<note>}}
+  These configurations are critical to the Android app to run. Wrong configuration can prevent the app from running properly, please edit the file carefully.
+{{</note>}}
 
 ### <a name="config-xml-android"></a> config.xml
 
-The config.xml file is a settings file controlling various settings of
+The `config.xml` file is a settings file controlling various settings of
 Cordova.
 
-![](images/android/2.png){width="198px"}
+{{<figure src="/images/reference/config/android/2.png">}}
 
 Below are available elements and preferences you may need to configure:
 
 #### *&lt;widget&gt;* element
 
-*version*
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`version` | String | `1.0.0` | A version number which is visible to users
+`android-versionCode` | String | (Automatically set) When `version` attribute is `"1.22.33"`, it will be 102233 (=1 \* 10000 + 22 \* 100 + 33). If the project uses Crosswalk, it will be `2xxxxxx` for ARM architecture and `7xxxxxx` for x86 architecture. | An internal version code. It is used only to determine whether one version is more recent than others. Higher number indicates a more recent version. This version number is not shown to users. |
 
-  ------------- --------------------------------------------
-  Attribute     `version`
-  Type          string
-  Default       `1.0.0`
-  Description   a version number which is visible to users
-  ------------- --------------------------------------------
+*Example*
 
--   Example:
-
-``` {.sourceCode .xml}
-<widget id="com.example.helloworld" version="1.0.0">
-  ...
-</widget>
-```
-
-*android-versionCode*
-
-  ------------- -----------------------------------------------------------------------------------------------------------------------------------
-  Attribute     `android-versionCode`
-  Type          string
-  Default       automatically set. When `version` attribute is `"1.22.33"`, it will be 102233 (=1 \* 10000 + 22 \* 100 + 33). If the project uses
-                Crosswalk, it will be `2xxxxxx` for ARM architecture and `7xxxxxx` for x86 architecture.
-  Description   an internal version code. It is used only to determine whether one version is more recent than others. Higher number indicates a
-                more recent version. This version number is not shown to users.
-  ------------- -----------------------------------------------------------------------------------------------------------------------------------
-
--   Example:
-
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <widget id="com.example.helloworld" version="0.0.1" android-versionCode="7">
   ...
 </widget>
-```
+{{</highlight>}}
 
 #### *&lt;content&gt; element*
 
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
-  Attribute     `src`
-  Type          string
-  Default       `indext.html`
-  Description   the `<content>` element defines the app's starting page in the top-level web assets directory. You can change the starting page
-                by changing the value of the `src` attribute to your preferred URL.
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`src` | String | `indext.html` | The `<content>` element defines the app's starting page in the top-level web assets directory. You can change the starting page by changing the value of the `src` attribute to your preferred URL. |
 
--   Example:
+*Example*
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <widget id="com.example.helloworld" version="1.0.0">
   ...
   <content src="https://monaca.io/" />
 </widget>
-```
+{{</highlight>}}
 
 #### <a name="access-origin-android"></a> *&lt;access&gt; element*
 
-  ------------- --------------------------------------------------------------------------------------------------------------------
-  Attribute     `origin`
-  Type          string
-  Default       `*`
-  Description   it is used to declare access to specific network domains. If set to `*`, you can access all domains from your app.
-  ------------- --------------------------------------------------------------------------------------------------------------------
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`origin` | String | `*` | It is used to declare access to specific network domains. If set to `*`, you can access all domains from your app. |
 
--   Example:
+*Example*
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 ...
 <access origin="*" />
 ...
-```
+{{</highlight>}}
+
 
 #### *&lt;preference&gt; element*
 
@@ -151,176 +117,70 @@ are unique to specific platforms, as listed at the top of this page. The
 following sections detail preferences that apply to more than one
 platform.
 
-#### *KeepRunning*
+Preference Name | Type | Default Value | Description
+----------|------|---------------|-------------------
+`KeepRunning` | Boolean | `true` | Determines whether Cordova will keep running in the background or not. |
+`DisallowOverscroll` | Boolean | `false` | Sets to true if you don’t want the interface to display any feedback when users scroll past the beginning or end of content. 
+`Fullscreen` | Boolean | `false` | Allows you to hide the status bar at the top of the screen. 
+`SplashScreenDelay` | Number | `3000` | Sets the default delay of how long the splashscreen appears in milliseconds. This should be the worst-case expected start time. 
+`LogLevel` | String | `ERROR` | Sets the minimum log level through which log messages from your application will be filtered. There are 5 valid values such as: `ERROR`, `DEBUG`, `WARN`, `INFO` and `VERBOSE`.
+`AndroidPersistentFileLocation`* | String | `Internal` | Sets where to store Android persistent files. There are 2 valid values. `Internal` will put persistent files under the user’s application internal storage directory. `Compatibility` will put persistent files under storage root.
+`ScreenOrientation`** | String | `default` | (Cordova 5.2 or Higher) Sets screen orientation for devices. There are 3 valid values. `default` uses system default screen orientation. `landscape` sets screen orientation to landscape mode. `portrait` sets screen orientation to portrait mode.
 
-  ------------- ------------------------------------------------------------------------
-  Attribute     `value`
-  Type          boolean
-  Default       `true`
-  Description   determines whether Cordova will keep running in the background or not.
-  ------------- ------------------------------------------------------------------------
+*Example*
 
--   Example:
-
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 ...
 <preference name="KeepRunning" value="false" />
-...
-```
-
-#### *DisallowOverscroll*
-
-  ------------- --------------------------------------------------------------------------------------------------------------------------------
-  Attribute     `value`
-  Type          boolean
-  Default       `false`
-  Description   sets to `true` if you don't want the interface to display any feedback when users scroll past the beginning or end of content.
-  ------------- --------------------------------------------------------------------------------------------------------------------------------
-
--   Example:
-
-``` {.sourceCode .xml}
-...
 <preference name="DisallowOverscroll" value="true"/>
-...
-```
-
-#### *Fullscreen*
-
-  ------------- -------------------------------------------------------------
-  Attribute     `value`
-  Type          boolean
-  Default       `false`
-  Description   allows you to hide the status bar at the top of the screen.
-  ------------- -------------------------------------------------------------
-
--   Example:
-
-``` {.sourceCode .xml}
-...
 <preference name="Fullscreen" value="true" />
-...
-```
-
-#### *SplashScreenDelay*
-
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
-  Attribute     `value`
-  Type          number
-  Default       `3000`
-  Description   sets the default delay of how long the splashscreen appears in milliseconds. This should be the worst-case expected start time.
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
-
--   Example:
-
-``` {.sourceCode .xml}
-...
 <preference name="SplashScreenDelay" value="10000" />
-...
-```
-
-#### *LogLevel*
-
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
-  Attribute     `value`
-  Type          string
-  Default       `ERROR`
-  Description   sets the minimum log level through which log messages from your application will be filtered. There are 5 valid values such as:
-                `ERROR`, `DEBUG`, `WARN`, `INFO` and `VERBOSE`.
-  ------------- ---------------------------------------------------------------------------------------------------------------------------------
-
--   Example:
-
-``` {.sourceCode .xml}
-...
 <preference name="loglevel" value="DEBUG" />
-...
-```
-
-#### *AndroidPersistentFileLocation*
-
-  ------------- --------------------------------------------------------------------------------------------------
-  Attribute     `value`
-  Type          string
-  Default       `Internal`
-  Description   sets where to store Android persistent files. There are 2 valid values such as:
-                - `Internal`: will put persistent files under the user's application internal storage directory.
-                - `Compatibility`: will put persistent files under storage root.
-  ------------- --------------------------------------------------------------------------------------------------
-
-<div class="admonition note">
-
-If your application has previously been shipped to users, using an older
-(pre- 3.0.0) version of this plugin, and has stored files in the
-persistent filesystem, then you should set the preference to
-Compatibility if your config.xml does not specify a location for the
-persistent filesystem. Switching the location to "Internal" would mean
-that existing users who upgrade their application may be unable to
-access their previously-stored files, depending on their device.
-
-</div>
-
--   Example:
-
-``` {.sourceCode .xml}
-...
 <preference name="AndroidPersistentFileLocation" value="Internal" />
+<preference name="orientation" value="default"/>
 ...
-```
+{{</highlight>}}
 
-#### *ScreenOrientation* (Cordova 5.2 or Higher)
 
-  ------------- ------------------------------------------------------------------------
-  Attribute     `value`
-  Type          string
-  Default       `default`
-  Description   sets screen orientation for devices. There are 3 valid values such as:
-                - `default`: will use system default screen orientation.
-                - `landscape`: set screen orientation to landscape mode.
-                - `portrait`: set screen orientation to portrait mode.
-  ------------- ------------------------------------------------------------------------
+<b>*</b>: If your application has previously been shipped to users, using an older (pre- 3.0.0) version of this plugin, and has stored files in the persistent filesystem, then you should set the preference to Compatibility if your <code>config.xml</code> does not specify a location for the persistent filesystem. Switching the value of `AndroidPersistentFileLocation` to <code>Internal</code> would mean that existing users who upgrade their application may be unable to access their previously-stored files, depending on their device.
 
--   Global Settings:
+<b>**</b>: There are two use ways to configure `ScreenOrientation` preference: 
 
-``` {.sourceCode .xml}
-<widget>
+1. Global Settings:
+  
+    {{<highlight xml>}}
+    <widget>
       ....
       <preference name="orientation" value="default"/>
       ....
-</widget>
-```
+    </widget>{{</highlight>}}
 
--   Platform Specific Settings:
-
-``` {.sourceCode .xml}
-<widget>
+2. Platform Specific Settings:
+  
+    {{<highlight xml>}}
+    <widget>
       ...
       <platform name="android">
         <preference name="orientation" value="default"/>
       </platform>
-     ...
-</widget>
-```
+      ...
+    </widget>{{</highlight>}}
 
-### AndroidManifest.xml
+### <a name="manifest-xml"></a> AndroidManifest.xml
 
 Basic behaviour of Android applications can be configured by editing
-AndroidManifest.xml file. It is located under `android` folder inside
+`AndroidManifest.xml` file. It is located under `android` folder inside
 your monaca project as shown below:
 
-![](images/android/1.png){width="198px"}
+{{<figure src="/images/reference/config/android/1.png">}}
 
-<div class="admonition note">
+{{<note>}}
+  For Cordova 6.2 or higher, <code>AndroidManifest.xml</code> file is removed from Monaca framework. Therefore, in order to config Android application settings, use {{<link href="../../third_party_phonegap/custom_config" title="Cordova Custom Config Plugin">}}.
+{{</note>}}
 
-For Cordova 6.2 or higher, `AndroidManifest.xml` file is removed from
-Monaca framework. Therefore, in order to config Android application
-settings, use custom\_config\_plugin.
+*AndroidManifest.xml (Main elements)*
 
-</div>
-
-AndroidManifest.xml (Main elements)
-
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <?xml version="1.0" encoding="utf-8"?>
 <manifest>
 
@@ -339,41 +199,44 @@ AndroidManifest.xml (Main elements)
   </application>
 
 </manifest>
-```
+{{</highlight>}}
 
 #### *&lt;manifest&gt;*
 
-Is the root element of AndroidManifest.xml file. The child element of
-`<manifest>` is `<application>` and it must contain xlmns:android and
+Is the root element of `AndroidManifest.xml` file. The child element of
+`<manifest>` is `<application>` and it must contain `xlmns:android` and
 `package` attributes.
 
-``` {.sourceCode .xml}
+Attribute | Type | Description
+----------|------|----------------
+`xmlns:android`	| String | An Android namespace attribute. This attribute must always have this value: `http://schemas.android.com/apk/res/android`.
+`android:versionCode` |	String | An internal version number. It is used only to determine whether one version is more recent than others. Higher number indicates a more recent version. This version number is not shown to users.
+`android:versionName` | String | A version number which is visible to users.
+`package` | String | Package name
+
+Example:
+
+{{<highlight xml>}}
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="%%%VERSION_CODE%%%"
     android:versionName="%%%VERSION_NAME%%%" package="%%%PACKAGE_NAME%%%">
 </manifest>
-```
-
-  Attribute             Description
-  --------------------- ----------------------------------------------------------------------------------------------------------------------------------
-  xmlns:android         an Android namespace attribute. This attribute must always have this value: `http://schemas.android.com/apk/res/android`.
-  android:versionCode   an internal version number. It is used only to determine whether one version is more recent than others. Higher number indicates
-                        a more recent version. This version number is not shown to users.
-  android:versionName   a version number which is visible to users.
+{{</highlight>}}
 
 #### *&lt;uses-sdk&gt;*
 
-Is API level settings of the application. This element is contained in
-`<manifest>`.
+Is API level settings of the application. This element is contained in `<manifest>`.
 
-``` {.sourceCode .xml}
+Attribute | Type | Description
+----------|------|----------------
+`android:minSdkVersion` | Number | Minimum API level required for the application to run. Android uses this value to determine whether the application can be installed in a device.
+`android:targetSdkVersion` | Number | API level that the application targets.
+
+Example:
+
+{{<highlight xml>}}
 <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22" />
-```
-
-  Attribute                  Description
-  -------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------
-  android:minSdkVersion      minimum API level required for the application to run. Android uses this value to determine whether the application can be installed in a device.
-  android:targetSdkVersion   API level that the application targets.
+{{</highlight>}}
 
 #### *&lt;uses-permission&gt;*
 
@@ -382,13 +245,13 @@ is installed. This element is contained in `<manifest>`
 
 *Permissions for Camera*
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-```
+{{</highlight>}}
 
-  Attribute      Description
-  -------------- -------------------------------------------------------------------------------------------------------------------------------------
-  android:name   name of the permissions to be granted for the Android system. The name of the permission can be defined as Camera, Network and etc.
+Attribute | Description
+----------|----------------
+`android:name` | Name of the permissions to be granted for the Android system. The name of the permission can be defined as Camera, Network and etc.
 
 #### *How to Define &lt;uses-permission&gt;*
 

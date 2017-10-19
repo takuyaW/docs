@@ -1,9 +1,13 @@
-API Reference
-=============
+---
+title: API Reference
+---
 
-> maxdepth
->
-> :   2
->
-> monaca\_api/index power\_plugins/index cordova\_6.5/index
-> third\_party\_phonegap/index service\_integration/index config/index
+# API Reference
+
+- [Monaca API](monaca_api)
+- [Core Cordova Plugins](cordova_6.5)
+- [Third-party Cordova Plugins](third_party_phonegap)
+- [Monaca Power Plugins](power_plugins)
+- [Service Integration](service_integration)
+- [Configuration Files](config)
+

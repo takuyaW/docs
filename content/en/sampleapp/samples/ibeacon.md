@@ -1,71 +1,70 @@
-iBeacon
-=======
+---
+title: iBeacon
+---
 
-(Last Updated: 2014/02/05)
+# iBeacon
 
 This sample app uses iBeacon service to detect its proximity to iBeacon
-device. This Monaca app has [Onsen
-UI](https://docs.monaca.io/en/onsenui/) as its UI. When the mobile
-(running this app) gets close enough to a predefined iBeacon device, a
-new page showing its UUID will be displayed.
+device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/onsenui/) as its UI. When the mobile
+(running this app) gets close enough to a predefined iBeacon device, a new page showing its UUID will be displayed.
 
-  *Tested Environment*                                       Android 7.0                          iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------------ --------------------------------------------------------------------------------------------------------------------------------------
-  .. raw:: html                                                                                   
-  &lt;div class="iframe-sample                               s"&gt;                               
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa         tes/24-ibeacon/www/index.html"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                                    
-                                                                                                  
-  .. note:: In order to test t                               his application, you can eit         her build the application or use the custom built Monaca Debugger.
-  Prerequisite                                                                                    
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                        
-  1\. Download the iBeacon plu                               gin from \`here &lt;<https://gith>   ub.com/petermetz/cordova-plugin-ibeacon.git&gt;\_ and import it into Monaca Cloud IDE. See :ref:import\_cordova\_plugin\`.
-  2\. Find at least one iBeaco                               n device.                            
-  3\. Get information of each                                iBeacon device by using its          conresponded utility software. In our case, we use [My Beacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8).
-  4\. Take note of the UUID of                               each iBeacon device.                 
-                                                                                                  
-  File Components                                                                                 
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                        
-  .. image:: images/ibeacon/3                                .png                                 
-  :width: 200px                                                                                   
-  :align: center                                                                                  
-  ======================== ==                                ============================         =======================================================================================================
-  `index.html` S                                             tartup Page (Consists of Con         nect Screen)
-  `top_page.html`                                            Top page of the application          
-  `info_page.html`                                           The page showing information         of each iBeacon
-  `js/app.js`                                                JavaScript file handling app         interactions.
-  `css/style.css`                                            Stylesheet file for the appl         ication
+{{<import pid="5923d13f8034510a419679fa" title="iBeacon">}}
 
-Required JS/CSS Components
---------------------------
+*Tested Environment*: 
 
-  `Onsen UI`                                                 
-  ---------------------------------------------------------- ----------------------------------------------------------------------------------------------------
-  Required Cordova Plugins                                   
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   
-  ============================                               ===================================================================== ============================
-  \`Proximity Beacon Plugin &lt;htt                          ps://github.com/petermetz/cordova-plugin-ibeacon.git&gt;\`\_
-  `Bluetooth`                                                
+- Android 7.0
+- iOS 10.1.1
 
-HTML Explanation
-----------------
+{{<iframeApp src="https://monaca.github.io/project-templates/24-ibeacon/www/index.html">}}
+
+{{<note>}}
+    In order to test this application, you can either build the application or use the custom built Monaca Debugger.
+{{</note>}}
+
+## Prerequisite                                                                                    
+  
+1. Download the iBeacon plugin from [here](https://github.com/petermetz/cordova-plugin-ibeacon.git) and import it into Monaca Cloud IDE. See [Import Custom Cordova Plugin](/en/monaca_ide/manual/dependencies/custom_cordova_plugin/#import-cordova-plugin).
+2. Find at least one iBeacon device.
+3. Get information of each iBeacon device by using its conresponded utility software. In our case, we use [My Beacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8).
+4. Take note of the UUID of each iBeacon device.
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/ibeacon/3.png">}}                                
+                                                                                            
+| File | Description |
+|------|-------------|
+| `index.html` | Startup Page (Consists of Connect Screen) |
+| `top_page.html` | Top page of the application |
+| `info_page.html` | The page showing information of each iBeacon |
+| `js/app.js` | JavaScript file handling app interactions |
+| `css/style.css` | Stylesheet file for the application |
+
+## Required JS/CSS Components
+
+- `Onsen UI`                                                 
+
+## Required Cordova Plugins 
+
+- [Proximity Beacon Plugin](https://github.com/petermetz/cordova-plugin-ibeacon.git)
+- `Bluetooth`
+
+## HTML Explanation
 
 The User Interface of this sample app is based on *Onsen UI*. For more
-information on *Onsen UI* tags and components, please refer to [Onsen UI
-Documentation](https://docs.monaca.io/en/onsenui/).
+information on *Onsen UI* tags and components, please refer to [Onsen UI Documentation](https://docs.monaca.io/en/onsenui/).
 
-The following contents of the HTML body of index.html file loads the
-top-page.html file at startup:
+The following contents of the HTML body of index.html file loads the `top-page.html` file at startup:
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 ...
   <ons-navigator var="myNavigator" page="top-page.html"></ons-navigator>
 ...
-```
+{{</highlight>}}
 
-The following contents of the HTML body of top-page.html file:
+The following contents of the HTML body of `top-page.html` file:
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 <ons-page ng-controller="TopPageCtrl">
   <ons-toolbar>
       <div class="center">iBeacon Testing</div>
@@ -86,16 +85,16 @@ The following contents of the HTML body of top-page.html file:
       </ons-list-item>
   </ons-list>
 </ons-page>
-```
+{{</highlight>}}
 
 corresponds to the screenshot below which allows a user to see a list of
 predefined iBeacon devices with its proximity:
 
-![](images/ibeacon/1.png){width="300px"}
+{{<figure src="/images/sampleapp/ibeacon/1.png" width="300">}}    
 
-The following contents of the HTML body of info-page.html file:
+The following contents of the HTML body of `info-page.html` file:
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 <ons-page ng-controller="InfoPageCtrl">
   <ons-toolbar>
       <div class="left"><ons-back-button>Back</ons-back-button></div>
@@ -119,25 +118,24 @@ The following contents of the HTML body of info-page.html file:
       </ons-list-item>
   </ons-list>
 </ons-page>
-```
+{{</highlight>}}
 
 corresponds to the screenshot below which shows the information (UUID)
 of the closest iBeacon device to the mobile.
 
-![](images/ibeacon/2.png){width="270px"}
+{{<figure src="/images/sampleapp/ibeacon/2.png" width="300">}}    
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 The JavaScript codes of this sample app is based on AngularJS. In
 AngularJS, each page, which requires interactions, contains its own
 controller function. In this sample, we have 2 controller functions:
-TopPageCtrl and InfoPageCtrl corresponded to top-page.html page and
-info-page.html page, respectively. In order to create global vairables
+`TopPageCtrl` and `InfoPageCtrl` corresponded to `top-page.html` page and
+`info-page.html` page, respectively. In order to create global vairables
 used between these controller functions, we create a service function to
 store those global variables as follows:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
   app.service('iBeaconService', function() {
     this.currentBeaconUuid = null;
@@ -216,31 +214,29 @@ store those global variables as follows:
     };
   });
 ...
-```
+{{</highlight>}}
 
 Inside this service function, we are able to:
 
-> -   create an array of all predefined iBeacon devices' information
->     (UUID, proximity, name, icon file and so on).
-> -   create a function to search for iBeacon devices nearby and
->     retrieve the UUID of the closest iBeacon devices.
+- create an array of all predefined iBeacon devices' information (UUID, proximity, name, icon file and so on).
+- create a function to search for iBeacon devices nearby and retrieve the UUID of the closest iBeacon devices.
 
 Next, we will explain each controller function:
 
 ### TopPageCtrl
 
-TopPageCtrl controls the interactions and processes in top-page.html
+`TopPageCtrl` controls the interactions and processes in `top-page.html`
 file. In other words, it searching for nearby iBeacon devices. If the
 predefined iBeacon devices are in range, their proximity and rssi
 (received signal strength indicator) information will be updated.
 Otherwise, their proximity value will appear as `ProximityUnknown` and
 their rssi value will appear as `-63 dBm` (see below screenshot).
 
-![](images/ibeacon/4.png){width="270px"}
+{{<figure src="/images/sampleapp/ibeacon/4.png" width="300">}}    
 
 Below is the JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 app.controller('TopPageCtrl', ['$scope', 'iBeaconService', function($scope, iBeaconService) {
 
@@ -286,23 +282,23 @@ app.controller('TopPageCtrl', ['$scope', 'iBeaconService', function($scope, iBea
 
 }]);
 ...
-```
+{{</highlight>}}
 
 ### InfoPageCtrl
 
-InfoPageCtrl controls the interactions and processes in info-page.html
+`InfoPageCtrl` controls the interactions and processes in `info-page.html`
 file. This controller simply displays the UUID of the closest iBeacon
 device by using the UUID value passing by the `iBeaconService`. By
-"closest", we mean that the proximity of the iBeacon device is
-"Immediate". Otherwise, the info-page.html will not displayed.
+*closest*, we mean that the proximity of the iBeacon device is
+*Immediate*. Otherwise, the `info-page.html` will not displayed.
 
 Below is the JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
   app.controller('InfoPageCtrl', ['$scope', 'iBeaconService', function($scope, iBeaconService) {
       $scope.beacon = iBeaconService.beacons[iBeaconService.currentBeaconUuid];
       $scope.beaconUuid = iBeaconService.currentBeaconUuid;
   }]);
 ...
-```
+{{</highlight>}}

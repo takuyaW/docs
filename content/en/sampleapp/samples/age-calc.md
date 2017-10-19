@@ -1,47 +1,44 @@
-BirthYear App
-=============
+---
+title: BirthYear App
+---
 
-<div class="admonition note">
+# BirthYear App
 
-This sample application is a reprint of an article first featured on
-Think I­T on the 12/26/2012.
+{{<note>}}
+  This sample application is a reprint of an article first featured on Think I­T on the 12/26/2012.
+{{</note>}}
 
-</div>
+The app will calculate a user's birthyear and display it after he/she entered his/her name and age.
 
-The app will calculate a user's birthyear and display it after he/she
-entered his/her name and age.
+{{<import pid="5923d096013eb065012a943a" title="BirthYear App">}}
 
-  *Tested Environment*                                       Android 4.2.2                  iOS 7.1.1
-  ---------------------------------------------------------- ------------------------------ ------------------------------------------------------------------------------------------------------------
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/22-birth-year-app/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
+*Tested Environment*: 
+
+- Android 4.2.2
+- iOS 7.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/22-birth-year-app/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/age-calc/1.png">}}                                
                                                                                             
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/age-calc/                                1.png                          
-  :width: 210px                                                                             
-  :align: center                                                                            
-  ===========================                                ============== =============   ==========================================================================================================
-  `index.html`                                               The startup P                  age
-  `css/style.css`                                            The styleshe                   et used in the application
+| File | Description |
+|------|-------------|
+| `index.html` | The startup Page |
+| `css/style.css` | The stylesheet used in the application |
 
-Required JS/CSS Components
---------------------------
+## Required JS/CSS Components
 
-  ---------- --
-  `jQuery`   
-  ---------- --
+- `jQuery`   
 
-HTML Explanation
-----------------
+## HTML Explanation
 
-The following contents of the HTML body of index.html file is for
+The following contents of the HTML body of `index.html` file is for
 displaying 2 textboxes for the user to input his/her name and age, and a
 button to calculate his/her birthyear. (see screenshot below):
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
   <div data-role="page" id="TopPage">
       <header data-role="header" data-position="fixed">
@@ -59,27 +56,26 @@ button to calculate his/her birthyear. (see screenshot below):
       </section>
   </div>
 ...
-```
+{{</highlight>}}
 
-![](images/age-calc/3.png){width="250px"}
+{{<figure src="/images/sampleapp/age-calc/3.png" width="300">}}   
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 This code creates a function called `calculate`.
 
 After entering your age and name, it stores them in two variables called
-"myname" and "myage" respectively. It then goes on to calculate your
+`myname` and `myage` respectively. It then goes on to calculate your
 birth year based on today's date, and stores it in a variable called
-"birthyear".
+`birthyear`.
 
-Finally it stores the message contents in a variable called "text",
-calls the "navigator.notification.alert" function and displays the
+Finally it stores the message contents in a variable called `text`,
+calls the `navigator.notification.alert` function and displays the
 result as a popup.
 
 The `navigator.notification.alert` function is a Core Cordova Plugins
 function that displays a popup dialog box on the screen. The third
-argument displays the text "Welcome to Monaca!" as the title of the
+argument displays the text `Welcome to Monaca!` as the title of the
 dialog box.
 
-![](images/age-calc/4.png){width="250px"}
+{{<figure src="/images/sampleapp/age-calc/4.png" width="300">}}   

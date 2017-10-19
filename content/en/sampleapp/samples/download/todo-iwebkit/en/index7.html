@@ -1,8 +1,0 @@
-function clearTodo() {
-                navigator.notification.confirm("Are you sure you want to delete all?", function(buttonIndex) {
-                    if (buttonIndex == 1) {
-                        window.localStorage.clear();
-                        location.href = "index.html";
-                    }
-                }, "Delete all TODO", "Yes,No" );
-            }

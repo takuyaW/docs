@@ -10,12 +10,12 @@ The authentication is done by [cordova-plugin-facebook4](https://github.com/jedu
 for the user; otherwise, the sign on will degrade gracefully using the
 standard dialog based authentication.
 
+{{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}
+
 *Tested Environment*: 
 
 - Android 7.0
 - iOS 10.1.1
-
-{{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}
 
 {{<figure src="/images/sampleapp/facebook_sso/cover.png">}}
 

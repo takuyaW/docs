@@ -1,38 +1,52 @@
-Train Catalog App
-=================
+---
+title: Train Catalog App
+---
+
+# Train Catalog App
 
 This sample app is a train catalog which displaying the types trains
 towards Tokaido and Tohoku areas.
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ ------------------------------------------------------------------------------------------------------------
+{{<import pid="5923ccc5ff2af20e3acb2dd1" title="Train Catalog App">}}
+
+*Tested Environment*: 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/20-train-catalog/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/shinkansen/3.png">}}                                
                                                                                             
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/20-train-catalog/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/shinkanse                                n/3.png                        
-  :width: 210px                                                                             
-  :align: center                                                                            
-  ===========================                                ======== ===================   ==========================================================================================================
-  `index.html`                                               The startup page               
-  `css/style.css`                                            The stylesheet fil             e for the application
-  `images/¥*¥*¥*.jpg`                                        Image files used i             n this application
+| File | Description |
+|------|-------------|
+| `index.html` | The startup page |              
+| `css/style.css` | The stylesheet file for the application |
+| `images/*.jpg` | Image files used in this application |
 
-Required JS/CSS Components
---------------------------
+## Required JS/CSS Components
 
-  ---------------- --
-  `jQuerymobile`   
-  ---------------- --
+- `jQuerymobile`   
 
-HTML Explanation
-----------------
+## HTML Explanation
 
 This sample uses the native function of Monaca. Therefore, there are
-multiple HTML pages. First, here is the body of the index.html.
+multiple HTML pages. First, here is the body of the `index.html`.
+
+{{<highlight html>}}
+<div data-role="content">
+  <ul data-role="listview">
+    <li data-role="list-divider">Tokaido Shinkansen Trains</li>
+    <li><a href="#" onclick="showDetail('0kei', 'Series 0')">Series 0</a></li>
+    <li><a href="#" onclick="showDetail('300kei', 'Series 300')">Series 300</a></li>
+    <li><a href="#" onclick="showDetail('700kei', 'Series 700')">Series 700</a></li>
+    <li><a href="#" onclick="showDetail('n700kei', 'Series N700')">Series N700</a></li>
+  </ul>
+  <p id="attribution">Photos by <a href="#" onclick="monaca.invokeBrowser('http://www.flickr.com/photos/kimuchi583/')">kimuchi583</a></p>
+</div>
+{{</highlight>}}
 
 This sample uses jQuery Mobile to display the list screen. Once you tap
 each column, `showDetail` function is called. This function will transit
@@ -40,10 +54,14 @@ to the next page, which will be described later. Also `a` tag uses
 `monaca.invokeBrowser` function in `onclick` attributes. This function
 is used to launch the browser and display the specified URL.
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 The JavaScript code of the Top Screen is not long.
+{{<highlight javascript>}}
+function showDetail(filename, trainname) {
+  monaca.pushPage("detail.html", {}, {filename : filename, trainname : trainname})
+}
+{{</highlight>}}
 
 As mentioned before, `showDetail` is called when the column in the list
 is tapped. Take 2 arguments and assign them to`filename` variable and

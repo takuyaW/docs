@@ -1,31 +1,45 @@
-Omikuji Fortune Telling App
-===========================
+---
+title: Omikuji Fortune Telling App
+---
 
-Omikuji is a Japanese word means “random fortunes”. In Monaca, app
+# Omikuji Fortune Telling App
+
+Omikuji is a Japanese word means `random fortunes`. In Monaca, app
 development is done using HTML and JavaScript just like webpages.
 JavaScript is a scripting language with simple syntax and functions, and
 often used for smartphone development compared to other languages.
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ ----------------------------------------------------------------------------
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/23-omikuji/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
+{{<import pid="5923a1c28034511f6d8a8fe3" title="Omikuji Fortune Telling App">}}
+
+*Tested Environment*: 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/23-omikuji/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/omikuji/1.png">}}                                
                                                                                             
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/omikuji/1                                .png                           
-  :width: 210px                                                                             
-  :align: center                                                                            
-  ===========================                                ======= ====================   =====================================================================
-  `index.html`                                               The startup page               
-  `images/*.png`                                             Image files used i             n this application
+| File | Description |
+|------|-------------|
+| `index.html` | The startup page |               
+| `images/*.png` | Image files used in this application |
 
-HTML Explanation
-----------------
+## HTML Explanation
 
-The contents of the HTML body section are shown below.
+The contents of the HTML body section are shown below:
+
+{{<highlight html>}}
+<div id="hako">
+    <img id="saisyo" src="images/omikuji-box.png" />
+    <img id="kekka" style="display : none;"/>
+</div>
+<div id="bottombar">
+    <img id="button" src="images/omikuji-btn-hajimeru.png" onclick="omikuji()">
+</div>
+{{</highlight>}}
 
 There are two `div` tags spanning lines 1 through 4 and lines 5 through
 7, with their IDs set to `hako` and `bottombar` , respectively. These
@@ -54,19 +68,37 @@ fortune telling start button is tapped, the JavaScript `omikuji()`
 function is called. The omikuji() function prepares the fortune telling
 results and displays them onscreen.
 
-Style Sheet Explanation
------------------------
+## Style Sheet Explanation
 
 The style sheet is included in the HTML `head` tag using the `style`
 tag. The style sheet code itself is shown below. There are three main
 groups of definitions: definitions for the `body` tag, definitions for
 the tag with the ID `hako` , and definitions for the tag with the ID
-`bottombar` .
+`bottombar`.
+
+{{<highlight css>}}
+body {
+    background: url("images/omikuji-bg.png") 100% 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#hako {
+    position: absolute;
+    width: 100%;
+    top: 10%;
+}
+#bottombar {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+{{</highlight>}}
 
 The four properties (`background` , `margin` , `padding` , and
 `text-align`) are applied to set the styling for the `body` tag. The
 `background` property is used to set the background image. In this
-example, the image images/omikuji-bg.png will be enlarged to fill the
+example, the image `images/omikuji-bg.png` will be enlarged to fill the
 `body` tag, i.e., the entire page. The margin and padding properties are
 used to specify the page margins. Since they are both set to `0` in this
 example, there are no margins. The `text-align` property is used to set
@@ -82,25 +114,38 @@ divs will use coordinates relative to their parent tag, the `body` tag.
 The `bottom` and `top` properties set the position from the bottom or
 top.
 
-<div class="admonition note">
+{{<note>}}
+  This app refers to the external style sheet <code>components/loader.css</code>. It contains style sheet definitions used by libraries loaded by Monaca plugins. However, it has no significance here since this sample app does not make use of Monaca plugins included in the style sheets.
+{{</note>}}
 
-This app refers to the external style sheet components/loader.css. It
-contains style sheet definitions used by libraries loaded by Monaca
-plugins. However, it has no significance here since this sample app does
-not make use of Monaca plugins included in the style sheets.
+## JavaScript Explanation
 
-</div>
+The JavaScript code is shown below:
 
-JavaScript Explanation
-----------------------
+{{<highlight javascript>}}
+function omikuji (){
+  var dice = Math.floor(Math.random() * 3);
+  var image_name;
+  if (dice == 0) {
+      image_name = "omikuji-daikichi.png";
+  } else if  (dice == 1) {
+      image_name = "omikuji-chuukichi.png";
+  } else {
+      image_name = "omikuji-hei.png";
+  }
 
-The JavaScript code is shown below.
+  document.getElementById("saisyo").style["display"] = "none";
+  document.getElementById("kekka").src = "images/" + image_name;
+  document.getElementById("kekka").style["display"] = "inline";
+  document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
+}
+{{</highlight>}}
 
 Lines 1 through 16 contain the definition of the `omikuji` function.
 When the start button is tapped, this function will be executed. On line
 2, the `Math.floor` and `Math.random` functions are combined to generate
 a random number from 0 to 3, which is assigned to the dice variable. On
-lines 4 through 11, the variable *image\_name* is assigned an image file
+lines 4 through 11, the variable `image_name` is assigned an image file
 name according to the value of the `dice` variable.
 
 On lines 12 through 15, the `document.getElementById` function is used
@@ -109,9 +154,9 @@ to modify the style sheet and replace images. This is referred to as DOM
 In the following example, the `src` attribute of the element (HTML tag)
 with the ID `kekka` is modified.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.getElementById("kekka").src = "images/" + image_name;
-```
+{{</highlight>}}
 
 Since, as described above, the `image_name` variable is set to the name
 of the image file corresponding to the omikuji result, this technique

@@ -1,5 +1,8 @@
-Break the Bricks
-================
+---
+title: Break the Bricks
+---
+
+# Break the Bricks
 
 This is a sample game based on pixi.js which is a super fast HTML5 2D
 rendering engine that uses webGL with canvas fallback. For more
@@ -8,37 +11,36 @@ information about Pixi, please refer to
 controlls a paddle to prevent a ball from falling while trying to clear
 the bricks. The objective of the game is to clear all the bricks.
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ --------------------------------------------------------------------------------------------------------
-                                                                                            
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/5-monacanoid/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/break\_the                               \_bricks/break\_1.png          
-  :width: 200px                                                                             
-                                                                                            
-  ============================                               ====== =====================   ======================================================================================================
-  `index.html`                                               The Startup page (H            ome page)
-  `js/main.js`                                               A JavaScript file              handling various implementation in the application
-  `css/style.css`                                            Style Sheet for th             e whole application
-  `img/*.png`                                                All image files ne             eded to use this template
-  `res/VT323-Regular.ttf`                                    A true type font               
+{{<import pid="5923a149ff2af2060e324c54" title="Break the Bricks">}}
 
-Required JS/CSS Components
---------------------------
+*Tested Environment*: 
 
-  `Pixi`                                                       
-  ------------------------------------------------------------ --------
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/5-monacanoid/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/break_the_bricks/break_1.png">}}   
+
+| File | Description |
+|------|-------------|
+| `index.html` | The Startup page (Home page) |
+| `js/main.js` | A JavaScript file handling various implementation in the application |
+| `css/style.css` | Style Sheet for the whole application |
+| `img/*.png` | All image files needed to use this template |
+| `res/VT323-Regular.ttf` | A true type font |
+
+## Required JS/CSS Components
+
+- `Pixi`  
                                                                
-  Source Code Explanation                                      
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^
-  js/main.js                                                   
+## Source Code Explanation                                      
 
-main.js is a JavaScript file handling various functionalities of the
+### js/main.js                                                   
+
+`main.js` is a JavaScript file handling various functionalities of the
 application.
 
 Below is the code of `BB` object which is the main object of this
@@ -48,7 +50,7 @@ ball (`addBall()`), creating a paddle (`addPaddle()`), resetting the
 game after it ended (`reset()`), calculating the score (`addScore()`),
 ending the game (`endGame()`) and so on.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var BB = {
     stage: new PIXI.Stage(0x000000),
@@ -302,26 +304,26 @@ var BB = {
     }
 }
 ...
-```
+{{</highlight>}}
 
 When this page is loading, `init()` function is called when Cordova is
 fully loaded or when it's failed to detect the type of the device.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 window.onload = function() {
     if(getUa() === false) init();
     else document.addEventListener("deviceready", init, false);
 }
 ...
-```
+{{</highlight>}}
 
 Here is the code of `init()` function. In this function, BB object is
 rendered according to the type of device you are using. Then, events
 listeners related the paddle are added. Also, it renders the paddle
 position according to each event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function init() {
     // Accelerometer
@@ -382,12 +384,12 @@ function init() {
     requestAnimFrame(animate);
 }
 ...
-```
+{{</highlight>}}
 
 `getUa()` function is used to detect the type of the device. It will
 return `false` when it failed to get this information.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function getUa() {
     if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 ) {
@@ -399,4 +401,4 @@ function getUa() {
     } else return false;
 }
 ...
-```
+{{</highlight>}}

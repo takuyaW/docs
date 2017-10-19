@@ -100,7 +100,7 @@ third-party Cordova plugins.
 
 - Third-party Cordova plugins refer to other existing Cordova plugins. There are [some third-party Cordova plugins](/en/reference/third_party_phonegap/) which you can add to your project right from Monaca Cloud IDE. You can also import other third-party Cordova plugins. Let's call these imported third-party Cordova plugins as external third-party Cordova plugins.
 
-## Add/Import Cordova Plugins
+## <a name="add-plugins"></a> Add/Import Cordova Plugins
 
 In order to add a Cordova plugin into your project, please do as
 follows:

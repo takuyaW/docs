@@ -12,12 +12,12 @@ This plugin uses Twitter's [Fabric](https://fabric.io/) SDK to enable
 SSO with your Android and iOS apps. After a successful authentication,
 the user’s basic information will be displayed in the app.
 
+{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
+
 *Tested Environment*: 
 
 - Android 7.0
 - iOS 10.1.1
-
-{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
 
 {{<figure src="/images/sampleapp/twitter_sso/cover.png">}}
 

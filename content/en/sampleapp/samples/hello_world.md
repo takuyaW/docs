@@ -1,54 +1,55 @@
-Hello World App
-===============
+---
+title: Hello World App
+---
+
+# Hello World App
 
 This sample app is a Core Cordova Plugins Demo showing several device
 functionalities such as camera, contacts, compass and so on.
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ -----------------------------------------------------------------------------------------------------
-                                                                                            
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/0-helloworld/www/index.html"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-                                                                                            
-  .. image:: images/hello\_worl                              d/hello\_3.png                 
-  :width: 200px                                                                             
-                                                                                            
-  ============================                               ======================== ===   ===================================================================================================
-  `index.html`                                               Th                             e Startup page
-  `phonegap-demo.html`                                       T                              he Core Cordova Plugins Demo page
-  \`phonegap-demo/master.css                                 \` T                           he style sheet for the Core Cordova Plugins Demo page
-  `phonegap-demo/main.js`                                    T                              he JavaScript file handling implementation in the Core Cordova Plugins Demo page
-  `css/style.css`                                            T                              he style Sheet for the whole application
-  `img/icon/*.png`                                           A                              ll icon files needed to use this template
+{{<import pid="59239fcc013eb0bc28683312" title="Hello World App">}}
 
-Required JS/CSS Components
---------------------------
+*Tested Environment*: 
 
-  `jQuery`                                                     
-  ------------------------------------------------------------ ------------------
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/0-helloworld/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/hello_world/hello_3.png">}}                                
+                                                                                            
+| File | Description |
+|------|-------------|
+| `index.html` | The Startup page |
+| `phonegap-demo.html` | The Core Cordova Plugins Demo page |
+| `phonegap-demo/master.css` | The style sheet for the Core Cordova Plugins Demo page |
+| `phonegap-demo/main.js` | The JavaScript file handling implementation in the Core Cordova Plugins Demo page |
+| `css/style.css` | The style Sheet for the whole application |
+| `img/icon/*.png` | All icon files needed to use this template |  
+
+## Required JS/CSS Components
+
+- `jQuery`                                                     
                                                                
-  HTML Explanation                                             
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^
-  index.html                                                   
+## HTML Explanation                                             
+  
+### index.html
 
-index.html is the Startup page.
+`index.html` is the Startup page.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <body>
     <h1>HelloWorld!</h1>
     <a class="button--large" href="phonegap-demo.html">Start Demo</a>
 </body>
-```
+{{</highlight>}}
 
 The above html code inside the `<body>` tag is showing a `HelloWorld!`
-phrase and a Start Demo button as shown below.
+phrase and a {{<guilabel name="Start Demo">}} button as shown below.
 
-![](images/hello_world/hello_4.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_4.png" width="300">}}   
 
 ### phonegap-demo.html
 
@@ -67,23 +68,22 @@ phone information and a list of functions as below:
     using.
 -   *Toggle Compass*: Start or stop the phone compass.
 
-![](images/hello_world/hello_2.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_2.png" width="300">}}   
 
 The JavaScript code corresponds to these functions will be explained in
 the next section.
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
-The main.js is a JavaScript file handling the implementation of the Core
-Cordova Plugins Demo page. There are 8 main functions in this file:
+The `main.js` is a JavaScript file handling the implementation of the Core
+Cordova Plugins Demo page. There are `8` main functions in this file:
 
 ### Toggle Accelerometer
 
 Start or stop the measurement of the phone's movement. Below is the
 JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var accelerationWatch = null;
 
@@ -112,22 +112,20 @@ var toggleAccel = function() {
   }
 };
 ...
-```
+{{</highlight>}}
 
-When click on the Toggle Accelerometer button, you can either start or
+When click on the {{<guilabel name="Toggle Accelerometer">}} button, you can either start or
 stop the measurement of the phone's movement. If it is started, the `X`,
 `Y` & `Z` values change; otherwise, they will appear as `0`.
 
-![](images/hello_world/hello_6.png){width="250px"}
-
-![](images/hello_world/hello_5.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/toggle.png">}}
 
 ### Get Location
 
 Get current location of the phone. Below is the JavaScript code of this
 function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var getLocation = function() {
   var suc = function(p) {
@@ -138,60 +136,55 @@ var getLocation = function() {
   navigator.geolocation.getCurrentPosition(suc, locFail);
 };
 ...
-```
+{{</highlight>}}
 
-When click on the Get Location button, a message showing the current
+When click on the {{<guilabel name="Get Location">}} button, a message showing the current
 location of phone will appear as below:
 
-![](images/hello_world/hello_7.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_7.png" width="300">}}
 
 ### Call 411
 
 Call `411`. Below is the JavaScript code of this function:
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
 <a href="tel:411" class="btn large">Call 411</a>
 ...
-```
+{{</highlight>}}
 
-<div class="admonition note">
+{{<note>}}
+  In order to use the <code>href="tel:411"</code>, the following setting is needed in <code>config.xml</code> file:
 
-In order to use the `href="tel:411"`, the following setting is needed in
-config.xml file:
-
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <allow-intent href="tel:*" />
-```
+{{</highlight>}}
+{{</note>}}
 
-</div>
+When click on the {{<guilabel name="Call 411">}} button, a confirmed message of the call is appeared.
 
-When click on the Call 411 button, a confirmed message of the call is
-appeared.
-
-![](images/hello_world/hello_8.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_8.png" width="300">}}
 
 ### Vibrate
 
 Vibrate the phone. Below is the JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var vibrate = function() {
   navigator.notification.vibrate(0);
 };
 ...
-```
+{{</highlight>}}
 
-When click on the Vibrate button, you will notice that your phone
-vibrates.
+When click on the {{<guilabel name="Vibrate">}} button, you will notice that your phone vibrates.
 
 ### Get a Picture
 
 Turn on the phone's camera. Below is the JavaScript code of this
 function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function dump_pic(data) {
   var viewport = document.getElementById('viewport');
@@ -213,22 +206,20 @@ function show_pic() {
   });
 }
 ...
-```
+{{</highlight>}}
 
-When click on the Get a Picture button, the phone camera is turned on.
+When click on the {{<guilabel name="Get a Picture">}} button, the phone camera is turned on.
 If you take a picture and use it, it will be displayed in the page as
 shown below otherwise a message will be displayed (see below):
 
-![](images/hello_world/hello_9.png){width="250px"}
-
-![](images/hello_world/hello_10.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/camera.png">}}
 
 ### Get Phone's Contacts
 
 Get the total number of contacts in the phone and display the third
 contact name. Below is the JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function contacts_success(contacts) {
   alert(contacts.length
@@ -250,20 +241,20 @@ function get_contacts() {
           contacts_failed, obj);
 }
 ...
-```
+{{</highlight>}}
 
-When click on the Get Phone's Contacts button, the total number of
+When click on the {{<guilabel name="Get Phone's Contacts">}} button, the total number of
 contacts in the phone and the third contact name will be displayed as
 follows:
 
-![](images/hello_world/hello_11.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_11.png" width="300">}}
 
 ### Check Network
 
 Check the current type of network the phone is using. Below is the
 JavaScript code of this function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function check_network() {
   var networkState = navigator.network.connection.type;
@@ -280,19 +271,19 @@ function check_network() {
   confirm('Connection type:\n ' + states[networkState]);
 }
 ...
-```
+{{</highlight>}}
 
-When click on the Check Network button, the current network type
+When click on the {{<guilabel name="Check Network">}} button, the current network type
 information will be displayed.
 
-![](images/hello_world/hello_12.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_12.png" width="300">}}
 
 ### Toggle Compass
 
 Start or stop the phone compass. Below is the JavaScript code of this
 function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var watchID = null;
 
@@ -313,12 +304,10 @@ function toggleCompass() {
   }
 }
 ...
-```
+{{</highlight>}}
 
-When click on the Toggle Compass button, you can either start or stop
+When click on the {{<guilabel name="Toggle Compass">}} button, you can either start or stop
 the phone compass. If the compass is started, the value of the compass
 heading changes; otherwise, it will appear as `off`. For example:
 
-![](images/hello_world/hello_13.png){width="250px"}
-
-![](images/hello_world/hello_14.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/compass.png">}}

@@ -1,44 +1,43 @@
-Clock App
-=========
+---
+title: Clock App
+---
 
-<div class="admonition note">
+# Clock App
 
-This sample application is reprinting of [Think IT
-article](http://thinkit.co.jp/story/2013/03/11/3987) relaesed on
-3/11/2013.
-
-</div>
+{{<note>}}
+    This sample application is reprinting of {{<link href="http://thinkit.co.jp/story/2013/03/11/3987" title="Think IT article">}} relaesed on 3/11/2013.
+{{</note>}}
 
 This sample app is a clock app displaying current Date and time.
 
-  *Tested Environment*                                       Android 7.0                    iOS 10.1.1
-  ---------------------------------------------------------- ------------------------------ -----------------------------------------------------------------------------------------------------
-                                                                                            
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/21-clock-app/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  File Components                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/clock/1.p                                ng                             
-  :width: 200px                                                                             
-                                                                                            
-  ========================== =                               ============================   ===================================================================================================
-  `index.html`                                               The Startup page               
-  `js/app.js`                                                The JavaScript file handlin    g implementation in the project
-  `css/style.css`                                            The style Sheet for the pro    ject
-  `images/*.png`                                             All image files needed to u    se this template
+{{<import pid="5923cd8e8034518c22fbdcbf" title="Clock App">}}
 
-HTML Explanation
-----------------
+*Tested Environment*: 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/21-clock-app/www/index.html">}}
+
+## File Components                                           
+
+{{<figure src="/images/sampleapp/clock/1.png">}}                                
+                                                                                            
+| File | Description |
+|------|-------------|
+| `index.html` | The Startup page |              
+| `js/app.js` | The JavaScript file handling implementation in the project |
+| `css/style.css` | The style Sheet for the project |
+| `images/*.png` | All image files needed to use this template |
+
+## HTML Explanation
 
 ### index.html
 
-The following HTML body of index.html file is for displaying the current
+The following HTML body of `index.html` file is for displaying the current
 Date and time (see screenshot below):
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <div id="wrapper">
     <div id="container">
         <img src="images/figure-0.png" class="figure" />
@@ -53,21 +52,19 @@ Date and time (see screenshot below):
     </div>
     <img src="images/logo-monaca.png" style="position: absolute; left: 40px; top: 40px;" />
 </div>
-```
+{{</highlight>}}
 
-![](images/clock/3.png){width="500px"}
+{{<figure src="/images/sampleapp/clock/3.png">}}  
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 ### js/app.js
 
-When the application is loaded, the `clock()` function is called every 1
-seconds (1000 ms) by this statement:
+When the application is loaded, the `clock()` function is called every 1 seconds (`1000 ms`) by this statement:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 setInterval(clock, 1000);
-```
+{{</highlight>}}
 
 The `clock()` function is used to display the current date and time.
 First, it gets the current time (hour, minute and second) and then
@@ -76,7 +73,7 @@ the current date (day, month and year) and then display it in the format
 as defined in `renderDay()` and `renderMonth()` functions (see below
 screenshot). Here is content of the `clock()` function:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function clock() {
     // (3) Obtain "figure" class(image of the number)
     var figures = document.getElementsByClassName('figure');
@@ -101,6 +98,6 @@ function clock() {
     // (8) Display the date
     date.textContent = renderDay(now.getDay()) + ", " + renderMonth(now.getMonth()) + " " + now.getDate() + ", " + now.getFullYear();
 }
-```
+{{</highlight>}}
 
-![](images/clock/4.png){width="500px"}
+{{<figure src="/images/sampleapp/clock/4.png">}}  
