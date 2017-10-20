@@ -119,7 +119,7 @@ platform.
 
 Preference Name | Type | Default Value | Description
 ----------|------|---------------|-------------------
-`KeepRunning` | Boolean | `true` | Determines whether Cordova will keep running in the background or not. |
+`KeepRunning` | Boolean | `true` | Determines whether Cordova will keep running in the background or not. 
 `DisallowOverscroll` | Boolean | `false` | Sets to true if you don’t want the interface to display any feedback when users scroll past the beginning or end of content. 
 `Fullscreen` | Boolean | `false` | Allows you to hide the status bar at the top of the screen. 
 `SplashScreenDelay` | Number | `3000` | Sets the default delay of how long the splashscreen appears in milliseconds. This should be the worst-case expected start time. 
@@ -241,23 +241,47 @@ Example:
 #### *&lt;uses-permission&gt;*
 
 Is permission settings. The permission is granted When the application
-is installed. This element is contained in `<manifest>`
+is installed. This element is contained in `<manifest>`.
 
-*Permissions for Camera*
+Attribute | Type | Description
+----------|------|----------------
+`android:name` | String | Name of the permissions to be granted for the Android system. The name of the permission can be defined as Camera, Network and etc.
 
-{{<highlight xml>}}
-<uses-permission android:name="android.permission.CAMERA"></uses-permission>
-{{</highlight>}}
-
-Attribute | Description
-----------|----------------
-`android:name` | Name of the permissions to be granted for the Android system. The name of the permission can be defined as Camera, Network and etc.
-
-#### *How to Define &lt;uses-permission&gt;*
+*How to Define &lt;uses-permission&gt;*
 
 `<components/loader.js>` needs `ACCESS_NETWORK_STATE` permission to run.
 You may exclude this file from `<uses-permission>` if it's not necessary
 for your application.
+
+{{<highlight xml>}}
+<uses-permission android:name="%%%PERMISSION_NAME%%%"></uses-permission>
+{{</highlight>}}
+
+Permission | PERMISSION_NAME | Description
+-----------|-----------------|------------------
+Access Coarse Location | `android.permission.ACCESS_COARSE_LOCATION` | Allows an app to access current location of a device.
+Access Fine Location | `android.permission.ACCESS_FINE_LOCATION` | Allows an app to use location-based services of a device.
+Access Network State | `android.permission.ACCESS_NETWORK_STATE` | Allows an app to access the Network state.
+Access Location Extra Commands | `android.permission.ACCESS_LOCATION_EXTRA_COMMANDS` | Allows an app to access extra location provider commands.
+Bluetooth | `android.permission.BLUETOOTH` | Allows an app to connect to paired bluetooth devices.
+Bluetooth (Admin)| `android.permission.BLUETOOTH_ADMIN` | Allows an app to discover and pair bluetooth devices.
+Camera | `android.permission.CAMERA` | Allows an app to use the Camera.
+Flashlight | `android.permission.FLASHLIGHT` | Allows access to the flashlight.
+Internet | `android.permission.INTERNET` | Allows an app to use Internet connection.
+Modify Audio Setting | `android.permission.MODIFY_AUDIO_SETTINGS` | Allows an app to change global audio settings.	
+Read Phone State | `android.permission.READ_PHONE_STATE` | Allows read-only access to the phone state.	
+Receive SMS | `android.permission.RECEIVE_SMS` | Allows an app to intercept SMS messages.
+Record Audio | `android.permission.RECORD_AUDIO` | Allows an app to record audio.
+Read Contacts	| `android.permission.READ_CONTACTS` | Allows an app to read the contacts.
+Vibrate | `android.permission.VIBRATE` | Allows an app to use the Vibrator.	
+Write Contacts | `android.permission.WRITE_CONTACTS` | Allows an app the write access to the contacts.
+Write External Storage | `android.permission.WRITE_EXTERNAL_STORAGE` | Allows an app the write access to External Storage.
+
+Example: Permissions for Camera
+
+{{<highlight xml>}}
+<uses-permission android:name="android.permission.CAMERA"></uses-permission>
+{{</highlight>}}
 
 #### *&lt;uses-feature&gt;*
 
@@ -266,66 +290,66 @@ instance. If the application requires Camera feature, the user whose
 device has no camera cannot install the application. This element is
 contained in `<manifest>`.
 
+Attribute | Type | Description
+----------|------|----------------
+`android:name` | String | Feature name
+`android:required` | Boolean | Specifies whether the application requires the feature set in `android:name`. If you set the value to `true`, you are indicating that the application cannot function without the feature. If you set it to `false`, it means that the application prefers to use the feature, but can still function without the feature.
+
+Example: 
+
 The code below specifies that the application needs Camera feature.
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <uses-feature android:name="android.hardware.camera" android:required="true" />
-```
-
-  Attribute          Description
-  ------------------ ------------------------------------------------------------------------------------------------------------------------------
-  android:name       feature name
-  android:required   a boolean value that specifies whether the application requires the feature set in `android:name`. If you set the value to
-                     `true`, you are indicating that the application cannot function without the feature. If you set it to `false`, it means that
-                     the application prefers to use the feature, but can still function without the feature.
+{{</highlight>}}
 
 #### *&lt;application&gt;*
 
 Is an Application tag. This element is contained in `<manifest>`.
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <application android:icon="@drawable/icon"
              android:label="%%%APPLICATION_NAME%%%"
              android:name="mobi.monaca.framework.MonacaApplication">
 </application>
-```
+{{</highlight>}}
 
-  Attribute                   Description
-  --------------------------- ----------------------------------------------------------------------------------------------------------------------
-  android:name                defines a name of the application. It is a fully qualified name of the class that you extend from Application class.
-  android:icon                an icon for the entire application as well as a default icon for each of the application's components
-  android:label               a label for the entire application
-  android:theme               an Application level theme
-  android:screenOrientation   application level Orientation settings
+Attribute | Type | Description
+----------|------|----------------
+`android:name` | String | Defines a name of the application. It is a fully qualified name of the class that you extend from Application class.
+`android:icon` | String | An icon for the entire application as well as a default icon for each of the application's components
+`android:label`| String | A label for the entire application
+`android:theme` | String | An Application level theme
+`android:screenOrientation` | String | Application level Orientation settings
 
 #### *&lt;intent-filter&gt;*
 
 Defines the process of intent filter. This element is contained in
 `<activity>`. The child `<action>` element must be defined.
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <intent-filter>
     <action android:name="android.intent.action.MAIN" />
     <category android:name="android.intent.category.LAUNCHER" />
 </intent-filter>
-```
+{{</highlight>}}
 
 #### *&lt;action&gt;*
 
 Specifies an action for an intent filter. The element is contained in
 `<intent-filter>`.
 
-  Attribute      Description
-  -------------- -------------
-  android:name   action name
+Attribute | Type | Description
+----------|------|----------------
+`android:name` | String | Action name
 
 #### *&lt;category&gt;*
 
 Specifies the category of the intent filter. The element is contained in
 `<intent-filter>`.
 
-  Attribute      Description
-  -------------- ---------------
-  android:name   category name
+Attribute | Type | Description
+----------|------|----------------
+`android:name` | String | Category name
 
 

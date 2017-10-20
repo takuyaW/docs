@@ -89,7 +89,7 @@ iframe {
 }
 
 .iframe-samples {
-  background-image: url(../img/samples/frame.png);
+  background-image: url(/images/samples/frame.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 346px;
@@ -123,6 +123,7 @@ iframe {
   color: #333;
   font-size: 12px;
   text-align: center;
+  list-style-type: none;
 
   a, button {
     margin: 5px;

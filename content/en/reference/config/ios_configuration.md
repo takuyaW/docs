@@ -3,8 +3,8 @@ iOS Configuration
 
 There are 2 ways to configure your iOS apps:
 
-1.  Configure via Monaca Cloud IDE &lt;ios\_config\_ide&gt;
-2.  Configure via configuration files directly &lt;ios\_config\_files&gt;.
+1. [Configure via Monaca Cloud IDE](#ios-config-ide)
+2. [Configure via configuration files directly](#ios-config-files)
 
 ## <a name="ios-config-ide"></a> Configuration via Monaca Cloud IDE
 
@@ -14,16 +14,16 @@ The iOS App Settings page allows to set several commonly used parameter
 in iOS app. Please follow the following instruction in order to access
 the iOS App Setting page in Monaca Cloud IDE:
 
-1.  From Monaca Cloud IDE menu, go to Config &gt; iOS App Settings....
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="iOS App Settings">}}.
 
-> ![image](images/ios/ide_1.png){width="250px"}
+    {{<img src="/images/reference/config/ios/ide_1.png">}}
 
 2.  *iOS App Configuration* page will appear as shown below. You can
     then start your configuration.
 
-> ![image](images/ios/ide_2.png){width="600px"}
+    {{<img src="/images/reference/config/ios/ide_2.png">}}
 
-3.  After finishing the configuration, please click Save button.
+3.  After finishing the configuration, please click {{<guilabel name="Save">}}.
 
 ### Configurable Parameters
 
@@ -44,113 +44,119 @@ the page:
 -   *Fade Splash Screen*: \[Enable by default\]
 -   *Show Splash Screen*: Show splash screen at start of the app.
 
-Configuration via Configuration Files
--------------------------------------
+## <a name="ios-config-files"></a> Configuration via Configuration Files
 
 All the configuration parameters of an iOS app are stored in the files
 as follows:
 
-> -   info\_plist
-> -   config\_xml\_ios
+- [MonacaApp-Info.plist](#info-plist)
+- [config.xml](#config-xml-ios)
 
-<div class="admonition note">
+{{<note>}}
+  These configurations are critical to the iOS app to run. Wrong configuration can prevent the app from running properly, please edit the file carefully.
+{{</note>}}
 
-These configurations are critical to the iOS app to run. Wrong
-configuration can prevent the app from running properly, please edit the
-file carefully.
-
-</div>
-
-### MonacaApp-Info.plist
+### <a name="info-plist"></a> MonacaApp-Info.plist
 
 You can configure your iOS app in MonacaApp-Info.plist file. For
-information on `plist` file, please refer to [Information Property List
-Files
-(Apple)](http://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
-This file is located under `ios` folder inside your monaca project as
-shown below:
+information on `plist` file, please refer to [Information Property List Files (Apple)](http://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
+This file is located under `ios` folder inside your monaca project as shown below:
 
-![](images/ios/1.png){width="250px"}
+{{<figure src="/images/reference/config/ios/1.png">}}
 
-<div class="admonition note">
+{{<note>}}
+  For Cordova 6.2 or higher, <code>MonacaApp-Info.plist</code> file is removed from Monaca framework. Therefore, in order to config iOS application settings, use {{<link href="/en/reference/third_party_phonegap/custom_config" title="Cordova Custom Config Plugin">}}.
+{{</note>}}
 
-For Cordova 6.2 or higher, `MonacaApp-Info.plist` file is removed from
-Monaca framework. Therefore, in order to config iOS application
-settings, use custom\_config\_plugin.
+{{<highlight xml>}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 
-</div>
+<plist>
+  <dict>
+    <key>key</key>
+    <value-type>value</value-type>
+      ...
+    <key>key</key>
+    <array>
+      <value-type>value</value-type>
+      <value-type>value</value-type>
+    </array>
+    ...
+  </dict>
+</plist>
+{{</highlight>}}
 
-MonacaApp-Info.plist (Excerpt)
+Inside `MonacaApp-Info.plist` file, there are 3 main types of elements:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-
-    <plist>
-      <dict>
-        <key>key</key>
-        <value-type>value</value-type>
-          ...
-        <key>key</key>
-        <array>
-          <value-type>value</value-type>
-          <value-type>value</value-type>
-        </array>
-        ...
-      </dict>
-    </plist>
-
-Inside MonacaApp-Info.plist file, there are 3 main types of elements:
-
--   *&lt;key&gt;*: Defines value (plistObject) and a combination of
-    application configuration information.
--   *&lt;array&gt;*: You can have the array of values (plistObject).
--   *&lt;dict&gt;*: Key and combination of value (plistObject) are
-    defined here.
+- `<key>`: Defines value (plistObject) and a combination of application configuration information.
+- `<array>`: You can have the array of values (plistObject).
+- `<dict>`: Key and combination of value (plistObject) are defined here.
 
 For example:
 
-    <plist>
-      <dict>
-        ...
-        <key>XXX</key>
-          <string>The value(plistObject) corresponding to key(XXX)</sting>
-          ...
-        <key>YYY</key>
-          <array>
-            <string>The 1st value(plistObject) corresponding to key(YYY)</string>
-            <string>The 2nd value(plistObject) corresponding to key(YYY)</string>
-            <string>The 3rd value(plistObject) corresponding to key(YYY)</string>
-            <string>The 4th value(plistObject) corresponding to key(YYY)</string>
-          </array>
-        ...
-      </dict>
-    </plist>
+{{<highlight xml>}}
+<plist>
+  <dict>
+    ...
+    <key>XXX</key>
+      <string>The value(plistObject) corresponding to key(XXX)</sting>
+      ...
+    <key>YYY</key>
+      <array>
+        <string>The 1st value(plistObject) corresponding to key(YYY)</string>
+        <string>The 2nd value(plistObject) corresponding to key(YYY)</string>
+        <string>The 3rd value(plistObject) corresponding to key(YYY)</string>
+        <string>The 4th value(plistObject) corresponding to key(YYY)</string>
+      </array>
+    ...
+  </dict>
+</plist>
+{{</highlight>}}
 
-*Type List of Values (plistObject)*
+#### *Type List of Values (plistObject)*
 
-  Types     Description
-  --------- ---------------------------------------------------
-  string    String data type representing text.
-  date      Date data type representing date and time.
-  Integer   Integer number
-  real      Floating data type representing a decimal number.
-  data      Data type
-  true      true boolean
-  false     false boolean
+Types | Description
+------|---------------
+string  |  String data type representing text.
+  date   |   Date data type representing date and time.
+  Integer |  Integer number
+  real   |   Floating data type representing a decimal number.
+  data   |   Data type
+  true   |  true boolean
+  false  |   false boolean
 
-*List of Keys*
 
-Here are some keys and values you may need to configure in your iOS
-apps:
+
+#### *List of Keys*
+
+Key |	Type	| Description
+----|-------------------|--------------------
+CFBundleDevelopmentRegion	| string | Defines a native language of the developer. If the language of the user cannot be found, this value will be used as default.
+CFBundleDisplayName | string | Define a name of the application. It is a fully qualified name of the class that you extend from Application class.
+CFBundleExecutable | string | Defines the application executable file.
+CFBundleIconFile | string | Defines application icon file name.
+CFBundleIconFiles |	<array>string | Defines icon file names used for iOS `3.2` or later. The correct file will be chosen depending on the size of the device screen resolution.
+CFBundleIdentifier | string | Specifies a unique identifier for your application. The identifier must be a Uniform Type Identifier (UTI) as `com.monaca.MyApp`.
+CFBundleInfoDictionaryVersion | string | Is the current version number of `MonacaApp-Info.plist` file.
+CFBundleName | string | Is a short display name of the app. It is limited to `16` characters at most.
+CFBundlePackageType	| string | Is a 4-digit code used to describe application type. Set this value to `APPL` for application project.
+CFBundleShortVersionString | string | Specifies the version number of your application.
+CFBundleSignature | string | Is a 4-digit code used to identify the app developer.
+CFBundleVersion | string | Is a build version number of the application.
+LSRequiresIPhoneOS | true | Indicates whether the application can only be run on iPhone or not.
+UISupportedInterfaceOrientations | <array>string | Specifies screen orientations for iPhone that are supported by the application. For iPad, use `UISupportedInterfaceOrientations~ipad`.
+BackupWebStorage | string | Set to cloud to allow the web storage data to be backed up to iCloud, Set to none to not allow any backups of web storage. default is cloud
+
+Here are some keys and values you may need to configure in your iOS apps:
 
 #### *UISupportedInterfaceOrientations*
 
 Is used to set the screen orientation of your app:
 
--   Settings for iPhone
+- Settings for iPhone
 
-<!-- -->
-
+    {{<highlight xml>}}
     ...
       <key>UISupportedInterfaceOrientations</key>
         <array>
@@ -159,12 +165,11 @@ Is used to set the screen orientation of your app:
           <string>UIInterfaceOrientationPortraitUpsideDown</string>
           <string>UIInterfaceOrientationPortrait</string>
         </array>
-    ...
+    ...{{</highlight>}}
 
--   Settings for iPad
+- Settings for iPad
 
-<!-- -->
-
+    {{<highlight xml>}}
     ...
       <key>UISupportedInterfaceOrientations~ipad</key>
         <array>
@@ -173,158 +178,129 @@ Is used to set the screen orientation of your app:
           <string>UIInterfaceOrientationPortraitUpsideDown</string>
           <string>UIInterfaceOrientationPortrait</string>
         </array>
-    ...
+    ...{{</highlight>}}
 
-*List of Orientation Values*
+#### *List of Orientation Values*
 
-  Value                                      Description
-  ------------------------------------------ ----------------------------------------------------------------------------------
-  UIInterfaceOrientationLandscapeLeft        Landscape orientation aligned to the left side of the Home button.
-  UIInterfaceOrientationLandscapeRight       Landscape orientation aligned to the right side of the Home button.
-  UIInterfaceOrientationPortraitUpsideDown   Portrait orientation
-  UIInterfaceOrientationPortrait             Portrait orientation in opposite direction from the normal portrait orientation.
+Value | Description
+------|---------------------------
+UIInterfaceOrientationLandscapeLeft      |  Landscape orientation aligned to the left side of the Home button.
+UIInterfaceOrientationLandscapeRight     |  Landscape orientation aligned to the right side of the Home button.
+UIInterfaceOrientationPortraitUpsideDown |  Portrait orientation
+UIInterfaceOrientationPortrait           |  Portrait orientation in opposite direction from the normal portrait orientation.
 
 You can download a sample screen orientation file below:
 
-Screen Orientation File &lt;download/UISupportedInterfaceOrientations.zip&gt;
+{{<download href="/download/UISupportedInterfaceOrientations.zip" title="Screen Orientation File">}}
 
-#### Statusbar Setting
+#### *Statusbar Setting*
+
+Value | Type | Default | Description
+------|------|---------|--------------------
+`UIStatusBarHidden` | Boolean | `false` | If set to `true`, the status bar at the top of the application will be hidden. If *UIStatusBarHidden* set to `true` and *UIViewControllerBasedStatusBarAppearance* set to `false`, the status bar at the top of the app will be hidden.
+`UIViewControllerBasedStatusBarAppearance ` | Boolean | `false` | If set to true, the status bar at the top of the application will be hidden.  
 
 ### <a name="config-xml-ios"></a> config.xml
 
-The config.xml file is a settings file controlling various settings of
-Cordova.
+The `config.xml` file is a settings file controlling various settings of Cordova.
 
-![](images/android/2.png){width="250px"}
+{{<figure src="/images/reference/config/android/2.png">}}
 
-Below are available preferences you may need to configure:
+Below are available elements and preferences you may need to configure:
 
-#### *Content*
+#### *&lt;widget&gt;* element
 
-  --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *Type*          string
-  *Default*       `indext.html`
-  *Description*   The `<content>` element defines the app's starting page in the top-level web assets directory. You can change the starting page by changing the value of the `src` attribute to your preferred URL.
-  --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`version` | String | `1.0.0` | A version number which is visible to users
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
+*Example*
+
+{{<highlight xml>}}
+<widget id="com.example.helloworld" version="0.0.1">
+  ...
+</widget>
+{{</highlight>}}
+
+#### *&lt;content&gt; element*
+
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`src` | String | `indext.html` | The `<content>` element defines the app's starting page in the top-level web assets directory. You can change the starting page by changing the value of the `src` attribute to your preferred URL. |
+
+*Example*
+
+{{<highlight xml>}}
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
+  ...
+  <content src="https://monaca.io/" />
+</widget>
+{{</highlight>}}
+
+#### *&lt;access&gt; element*
+
+Attribute | Type | Default Value | Description
+----------|------|---------------|-------------------
+`origin` | String | `*` | Controls access to specific network domains. If set to `*`, you can access all domains from your app. 
+
+*Example*
+
+{{<highlight xml>}}
+...
+<access origin="*" />
+...
+{{</highlight>}}
+
+#### *&lt;preference&gt; element*
+
+The `<preference>` tag sets various options as pairs of name/value
+attributes. Each preference's name is case-insensitive. Many preferences
+are unique to specific platforms, as listed at the top of this page. The
+following sections detail preferences that apply to more than one
+platform.
+
+Preference Name | Type | Default Value | Description
+----------|------|---------------|-------------------
+`DisallowOverScroll` | Boolean | `false` | Set to `true` if you want to disable the rubber-band scrolling for WebView.
+`EnableViewportScale` | Boolean | `false` | Set to `true` to prevent viewport scaling through a `<meta>` tag.
+`AutoHideSplashScreen` | Boolean | `true` | Set to `false` to control the splashscreen when it’s hidden through a JavaScript API.
+`BackupWebStorage` | String | `cloud` | <ul>There are 3 valid values: <li>`none`: disables any backups of web storage.</li><li>`cloud`: allows the web storage data to be backed up to iCloud.<li>`local`: allows only local backups (iTunes sync).</li></ul>
+`UIWebViewDecelerationSpeed` | String | `normal` | <ul>Controls the deceleration speed of momentum scrolling. There are 2 valid values:<li>`normal`: is the default speed for most native apps</li><li>`fast`: is the default speed for Mobile Safari.</li></ul>
+`Orientation`* | String | `default` | <ul>(Cordova 5.2 or Higher) There are 4 valid values:<li>`all`: to specify both portrait & landscape mode you would use the platform specific value all</li><li>`default`: screen orientation will be applied according to system default.</li><li>`landscape`: set screen orientation to landscape mode.</li><li>`portrait`: set screen orientation to portrait mode.</li></ul>
+
+*Example*
+
+{{<highlight xml>}}
+...
+<preference name="DisallowOverscroll" value="false" />
+<preference name="EnableViewportScale" value="false" />
+<preference name="AutoHideSplashScreen" value="true" />
+<preference name="BackupWebStorage" value="cloud" />
+<preference name="UIWebViewDecelerationSpeed" value="normal" />
+<preference name="Orientation" value="portrait" />
+...
+{{</highlight>}}
+
+<b>*</b>: There are two use ways to configure `Orientation` preference: 
+
+1. Global Settings:
+  
+    {{<highlight xml>}}
+    <widget>
+      ....
+      <preference name="orientation" value="default"/>
+      ....
+    </widget>{{</highlight>}}
+
+2. Platform Specific Settings:
+  
+    {{<highlight xml>}}
+    <widget>
       ...
-      <content src="https://monaca.io/" />
-    </widget>
+      <platform name="ios">
+        <preference name="orientation" value="default"/>
+      </platform>
+      ...
+    </widget>{{</highlight>}}
 
-#### *DisallowOverScroll*
-
-  --------------- -----------------------------------------------------------------------------
-  *Type*          boolean
-  *Default*       `false`
-  *Description*   Set to `true` if you want to disable the rubber-band scrolling for WebView.
-  --------------- -----------------------------------------------------------------------------
-
-    ...
-    <preference name="DisallowOverscroll" value="false" />
-    ...
-
-#### *EnableViewportScale*
-
-  --------------- ---------------------------------------------------------------
-  *Type*          boolean
-  *Default*       `false`
-  *Description*   Set to `true` to prevent viewport scaling through a meta tag.
-  --------------- ---------------------------------------------------------------
-
-    ...
-    <preference name="EnableViewportScale" value="false" />
-    ...
-
-#### *AutoHideSplashScreen*
-
-  --------------- ---------------------------------------------------------------------------------------
-  *Type*          boolean
-  *Default*       `true`
-  *Description*   Set to `false` to control the splashscreen when it's hidden through a JavaScript API.
-  --------------- ---------------------------------------------------------------------------------------
-
-    ...
-    <preference name="AutoHideSplashScreen" value="true" />
-    ...
-
-#### *BackupWebStorage*
-
-  --------------- ------------------------------------------------------------------
-  *Type*          string
-  *Default*       `cloud`
-  *Description*   There are 3 valid values:
-                  - `none`: disable any backups of web storage.
-                  - `cloud`: allow the web storage data to be backed up to iCloud.
-                  - `local`: allow only local backups (iTunes sync).
-  --------------- ------------------------------------------------------------------
-
-    ...
-    <preference name="BackupWebStorage" value="cloud" />
-    ...
-
-#### *UIWebViewDecelerationSpeed*
-
-  --------------- ----------------------------------------------------------------------------------
-  *Type*          string
-  *Default*       `normal`
-  *Description*   Controls the deceleration speed of momentum scrolling. There are 2 valid values:
-                  - `normal`: is the default speed for most native apps
-                  - `fast`: is the default speed for Mobile Safari.
-  --------------- ----------------------------------------------------------------------------------
-
-    ...
-    <preference name="UIWebViewDecelerationSpeed" value="normal" />
-    ...
-
-#### <a name="access-origin"></a> *access origin*
-
-  --------------- -------------------------------------------------------------------------------------------------------
-  *Type*          string
-  *Default*       `*`
-  *Description*   Controls access to specific network domains. If set to `*`, you can access all domains from your app.
-  --------------- -------------------------------------------------------------------------------------------------------
-
-    ...
-    <access origin="*" />
-    ...
-
-#### *ScreenOrientation* (Cordova 5.2 or Higher)
-
-  --------------- --------------------------------------------------------------------------------------------------
-  *Type*          string
-  *Default*       `default`
-  *Description*   There are 4 valid values:
-                  - `all`: to specify both portrait & landscape mode you would use the platform specific value all
-                  - `default`: screen orientation will be applied according to system default.
-                  - `landscape`: set screen orientation to landscape mode.
-                  - `portrait`: set screen orientation to portrait mode.
-  --------------- --------------------------------------------------------------------------------------------------
-
-    <widget>
-          ...
-          <platform name="ios">
-            <preference name="Orientation" value="all"/>
-          </platform>
-         ...
-
-> &lt;/widget&gt;
-
-It is also possible to apply the setting for all devices at once;
-however, you can only apply default, landscape and portrait in value.
-"all" is not possible for Global Preferences.
-
-    <widget>
-          ...
-    <preference name="Orientation" value="portrait" />
-         ...
-
-> &lt;/widget&gt;
-
-<div class="admonition note">
-
-</div>
-
-> For android/windows, "default" means all direction, but in iOS only
-> portrait will be applied.

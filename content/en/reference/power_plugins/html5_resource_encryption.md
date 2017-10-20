@@ -1,30 +1,28 @@
-Monaca HTML5 Resource Encryption
-================================
+---
+title: Monaca HTML5 Resource Encryption
+---
+
+# Monaca HTML5 Resource Encryption
 
 This plugin provides the encryption function for HTML5 assets bundled up
 with the built app in Monaca and the decoding function for application
 execution time.
 
-<div class="admonition note">
-
-In order to use this plugin, you are required to subscribe to a valid
-plan. Please refer to [Pricing page](https://monaca.io/pricing.html).
-
-</div>
+{{<note>}}
+In order to use this plugin, you are required to subscribe to a valid plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
+{{</note>}}
 
 This plugin is used differently depending on the Cordova version of your
 project:
 
--   cordova\_6\_2\_projects
--   cordova\_5\_2\_and\_lower\_projects
+- [For Cordova 6.2 Projects](#cordova-6-2-projects)
+- [For Cordova 5.2 or Lower Projects](#cordova-5-2-and-lower-projects)
 
-For Cordova 6.2 Projects
-------------------------
+## <a name="cordova-6-2-projects"></a> For Cordova 6.2 Projects
 
 The plugin for Cordova 6.2 projects has two additional features:
 
-1.  Developers can choose the encrypted directories other than www. For
-    example, “www/data, www/js” etc.
+1.  Developers can choose the encrypted directories other than `www`. For example, `www/data`, `www/js` etc.
 2.  The decryption can now be done manually. In other words, the
     encrypted folder can't be read unless the decrypt function is
     called.
@@ -37,43 +35,32 @@ The plugin for Cordova 6.2 projects has two additional features:
 
 ### Encryption Scheme
 
-  ------------------- --------
-  Encryption Method   AES
-  Key Length          256bit
-  ------------------- --------
+- Encryption Method: `AES`
+- Key Length: `256` bits
 
 ### Adding the Plugin in Monaca Cloud IDE
 
-1.  From Monaca Cloud IDE menu, go to File --&gt; Manage Cordova Plugins
-    or Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the `Encrypt` plugin.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="File" menu2="Manage Cordova Plugins">}}
+    or {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `Encrypt` plugin.
 
-> ![](images/html5_resource_encryption/5.png){width="700px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/5.png">}}
 
 3.  Find the newly added plugin under the *Enabled Plugins* section.
-    Then, hover the plugin and click Configure button.
+    Then, hover the plugin and click {{<guilabel name="Configure">}} button.
 
-> ![](images/html5_resource_encryption/6.png){width="700px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/6.png">}}
 
-4.  Enter parameter(s) for this plugin. Then, click OK button. Available
+4.  Enter parameter(s) for this plugin. Then, click {{<guilabel name="OK">}} button. Available
     parameters are as follows:
 
-> +---------+------------------------------------------------------------+
-> | Paramet | Description                                                |
-> | er      |                                                            |
-> +=========+============================================================+
-> | SECRET  | \[Required\] (String) Password/secret for the encryption.  |
-> +---------+------------------------------------------------------------+
-> | TARGETS | \[Optional\] (String) Target folder of the project files   |
-> |         | to be encrypted. Default folder is `www`.                  |
-> +---------+------------------------------------------------------------+
-> | AUTO\_D | \[Optional\] (Boolean) Auto decryption options:            |
-> | ECRYPT  |                                                            |
-> |         | > -   `1`: (default) for enabling auto decryption          |
-> |         | > -   `0`: for disabling auto decryption                   |
-> +---------+------------------------------------------------------------+
->
-> ![](images/html5_resource_encryption/7.png){width="600px"}
+    Parameter | Type | Description
+    ----------|------|----------------
+    `SECRET` | String | [Required] Password/secret for the encryption.
+    `TARGETS` | String | [Optional] Target folder of the project files to be encrypted. Default folder is `www`.
+    `AUTO_DECRYPT` | Boolean | <ul>[Optional] Auto decryption options:<li>`1`: (default) for enabling auto decryption</li><li>`0`: for disabling auto decryption</li></ul>
+
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/7.png" width="500">}}
 
 ### Manual Decryption
 
@@ -96,19 +83,18 @@ function to decrypt the target folder(s). The hash code can be found in
 the build log as follows:
 
 1.  Build your project (either iOS or Android).
-2.  Once the build is successfully completed, click on here (as shown in
+2.  Once the build is successfully completed, click on `here` (as shown in
     the screenshot below) button to see the build log.
 
-> ![](images/html5_resource_encryption/8.png){width="700px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/8.png">}}
 
 5.  Copy the build log and paste it in any text editor and find the hash
     code which looks like this:
 
-> ``` {.sourceCode .javascript}
-> ...
-> Hash : [4c716d***************************************************ae9f720d]
-> ...
-> ```
+    {{<highlight javascript>}}
+    ...
+    Hash : [4c716d***************************************************ae9f720d]
+    ...{{</highlight>}}
 
 #### Step 3: Calling the Decryption Function
 
@@ -116,7 +102,7 @@ Once you have the hash code, you can start using the decryption
 function. The function needs to be called inside the `deviceready`
 event. For example:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     monaca.Encrypt.setDecryptHash(
@@ -124,15 +110,13 @@ function onDeviceReady() {
         function() {alert('FAIL');},
     "4c716d***************************************************ae9f720d"); // Hash code for decryption
 }
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 In the above example, the hash code is embedded directly in the
 function. For security concern, you can also hide it by loading the
 value from the server and use it under a parameter.
-
-</div>
+{{</note>}}
 
 ### App Store Submission
 
@@ -142,18 +126,9 @@ need to set 2 options when you submit your app for a review. Under the
 Export Compliance section, please choose "Yes" for both questions as
 shown in the screenshot below:
 
-![](images/html5_resource_encryption/4.png)
+{{<figure src="/images/reference/power_plugins/html5_resource_encryption/4.png">}}
 
-> width
->
-> :   630px
->
-> align
->
-> :   center
->
-For Cordova 5.2 or Lower Projects
----------------------------------
+## <a name="cordova-5-2-and-lower-projects"></a> For Cordova 5.2 or Lower Projects
 
 ### Supported Platforms
 
@@ -163,28 +138,26 @@ For Cordova 5.2 or Lower Projects
 
 ### Encryption Scheme
 
-  ------------------- --------
-  Encryption Method   AES
-  Key Length          256bit
-  ------------------- --------
+- Encryption Method: `AES`
+- Key Length: `256` bits
 
 ### Enabling the Plugin in Monaca Cloud IDE
 
-1.  From Monaca Cloud IDE menu, go to File --&gt; Manage Cordova Plugins
-    or Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the `Encrypt` plugin.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="File" menu2="Manage Cordova Plugins">}}
+    or {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `Encrypt` plugin.
 
-> ![](images/html5_resource_encryption/1.png){width="700px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/1.png">}}
 
 3.  Next, you need to setup the encryption password. Find the newly
     added plugin under the *Enabled Plugins* section. Then, hover the
-    plugin and click Configure button.
+    plugin and click {{<guilabel name="Configure">}} button.
 
-> ![](images/html5_resource_encryption/2.png){width="700px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/2.png">}}
 
-4.  Enter the password for this encryption. Then, click OK button.
+4.  Enter the password for this encryption. Then, click {{<guilabel name="OK">}} button.
 
-> ![](images/html5_resource_encryption/3.png){width="400px"}
+    {{<img src="/images/reference/power_plugins/html5_resource_encryption/3.png" width="400">}}
 
 ### App Store Submission
 
@@ -194,14 +167,9 @@ need to set 2 options when you submit your app for a review. Under the
 Export Compliance section, please choose "Yes" for both questions as
 shown in the screenshot below:
 
-![](images/html5_resource_encryption/4.png)
+{{<figure src="/images/reference/power_plugins/html5_resource_encryption/4.png">}}
 
-> width
->
-> :   630px
->
-> align
->
-> :   center
->
+See Also:
 
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

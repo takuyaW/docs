@@ -3,12 +3,5 @@ Top Page (EN)
 
 TEST
 
-> glob
->
-> :   
->
-> maxdepth
->
-> :   2
->
-> tutorial/index manual/index faq/index
+- [Android Configuration](android_configuration)
+- [iOS Configuration](ios_configuration)
