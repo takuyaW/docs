@@ -1,117 +1,105 @@
-User
-====
+---
+title: User
+---
+
+# User
 
 In Monaca, you can add user account functionality to your app by using
 the following Monaca Backend JavaScript APIs.
 
-<div class="admonition note">
+{{<note>}}
+In order to access Backend API, you need to load <code>jQuery</code> and register
+<code>cloud.monaca.mobi</code> in the whitelist by editing each OS's configuaration
+file. For more details, please refer to {{<link href="/en/reference/config/android_configuration/#access-origin-android" title="Access Origin (Android)">}} and {{<link href="/en/reference/config/ios_configuration/#access-origin" title="Access Origin (iOS)">}}.
+{{</note>}}
 
-In order to access Backend API, you need to load `jQuery` and register
-`cloud.monaca.mobi` in the whitelist by editing each OS's configuaration
-file. For more details, please refer to
-Access Origin (Android) &lt;access\_origin\_android&gt; and
-Access Origin (iOS) &lt;access\_origin&gt;.
+Method/Property                                               |Description
+--------------------------------------------------------------|-------------------------------------------
+[monaca.cloud.User.register()](#u-register) | Sign up a user
+[monaca.cloud.User.validate()](#u-validate) | Validate registration parameters
+[monaca.cloud.User.unregister()](#u-unregister) | Unregister the current user
+[monaca.cloud.User.login()](#u-login) | Sign in a user
+[monaca.cloud.User.isAuthenticated()](#u-isauthenticated) | Check whether a user has signed in or not
+[monaca.cloud.User.autoLogin()](#u-autologin) | Sign in a user automatically
+[monaca.cloud.User.logout()](#u-logout) | Sign out a user
+[monaca.cloud.User.updatePassword()](#u-updatepass) | Update password for the current user
+[monaca.cloud.User.sendPasswordResetToken()](#u-sendpass) | Email a token of new password
+[monaca.cloud.User.resetPasswordAndLogin()](#u-resetpass) | Reset password and relogin
+[monaca.cloud.User.getProperty()](#u-getproperty) | Get a property value of a user
+[monaca.cloud.User.getProperties()](#u-getproperties) | Get property values of a user
+[monaca.cloud.User.saveProperty()](#u-saveproperty) | Update a property of a user
+[monaca.cloud.User.saveProperties()](#u-saveproperties) | Update a properties of a user
+[monaca.cloud.User._oid](#u-oid) | Public identifier of a user
 
-</div>
-
-  Method/Property                                                Description
-  -------------------------------------------------------------- -------------------------------------------
-  monaca.cloud.User.register()&lt;u.register&gt;                 Sign up a user
-  monaca.cloud.User.validate()&lt;u.validate&gt;                 Validate registration parameters.
-  monaca.cloud.User.unregister()&lt;u.unregister&gt;             Unregister the current user
-  monaca.cloud.User.login()&lt;u.login&gt;                       Sign in a user
-  monaca.cloud.User.isAuthenticated()&lt;u.isAuthenticated&gt;   Check whether a user has signed in or not
-  monaca.cloud.User.autoLogin()&lt;u.autoLogin&gt;               Sign in a user automatically
-  monaca.cloud.User.logout()&lt;u.logout&gt;                     Sign out a user
-  monaca.cloud.User.updatePassword()&lt;u.updatePass&gt;         Update password for the current user
-  monaca.cloud.User.sendPasswordResetToken()&lt;u.sendPass&gt;   Email a token of new password
-  monaca.cloud.User.resetPasswordAndLogin()&lt;u.resetPass&gt;   Reset password and relogin
-  monaca.cloud.User.getProperty()&lt;u.getProperty&gt;           Get a property value of a user
-  monaca.cloud.User.getProperties()&lt;u.getProperties&gt;       Get property values of a user
-  monaca.cloud.User.saveProperty()&lt;u.saveProperty&gt;         Update a property of a user
-  monaca.cloud.User.saveProperties()&lt;u.saveProperties&gt;     Update a properties of a user
-  monaca.cloud.User.\_oid&lt;u.\_oid&gt;                         Public identifier of a user
-
-User.register()
----------------
+## <a name="u-register"></a> User.register()
 
 Sign a user up with his/her username and password.
 
+{{<syntax>}}
 monaca.cloud.User.register(username: String, password: String, \[properties: Object\]) : \$.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------------- -------------------------------------------------------------------------------------------------------------------------------------------------------
-      `username`     The username for the user.
-      `password`     The password for the user.
-      `properties`   Additional properties of the user. The object needs to be a valid JSON format. The key must not start with an underscore. This parameter is optional.
-      -------------- -------------------------------------------------------------------------------------------------------------------------------------------------------
+Name | Type | Description | Requirement
+-----|------|-------------|---------------
+`username` | String | The username for the user | Must not be a duplicate name of an existing user. Must not include any space characters. Must not be shorter than `X` characters. Must not be longer than `255` characters. It can be an email address.
+`password` | String | The password for the user | Must not include any space characters. Must not be shorter than `Y` characters. Must not be longer than `80` characters.
+`properties` | String | Additional properties of the user. The object needs to be a valid JSON format. The key must not start with an underscore. This parameter is optional. | Key names must consist of `[a-zA-Z0-9]` characters and must start with `[a-zA-Z]`. Data size must not exceed the size limit (`500KB`).
 
-Result Parameter of done() Callback
+{{<note>}}
+<code>X</code> and <code>Y</code> values can be set in Settings page on Monaca Cloud IDE.
+{{</note>}}
 
-:   -------- -------- --------------------------------------
-      `user`   Object   - \_id : {String}
-                        - \_username : {String}
-                        - \_createdAt : {Number} unixtime
-                        - \_updateAt : {Number} unixtime
-                        - and other user-defined properties.
-      -------- -------- --------------------------------------
+*Return Value*
 
-Requirement
+Type | Description
+-----|--------------------------
+[$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to process result.  
 
-:   -------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      `username`     Must not be a duplicate name of an existing user. Must not include any space characters. Must not be shorter than `X` characters. Must not be longer than `255` characters. It can be an email address.
-      `password`     Must not include any space characters. Must not be shorter than `Y` characters. Must not be longer than `80` characters.
-      `properties`   Key names must consist of **\[[a-zA-Z0-9]()\]** characters and must start with **\[a-zA-Z\]**. Data size must not exceed the size limit (`500KB`).
-      -------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Within the `done()` callback, there is a `user` JSON Object which has the following properties:
 
-    <div class="admonition note">
+- `_id` : {String}
+- `_username` : {String}
+- `_createdAt` : {Number} unixtime
+- `_updateAt` : {Number} unixtime
+- and other user-defined properties.
 
-    X and Y values can be set in Settings page on Monaca Cloud IDE.
+*Errors Code*
 
-    </div>
+Errors are returned as error object.
 
-Return Value
+Code | Description
+-----|--------------------------
+`-32602` | Invalid params
 
-:   ------------------------------- ------------------------------------------------------------------
-      [\$.Promise](../other) object   Use `done()`, `fail()` and `always()` methods to process result.
-      ------------------------------- ------------------------------------------------------------------
+*Example*
 
-Errors Code
+The following snippet shows how to create a new user account with the username `"me@example.com"`, password `"password"` and age `21`.
 
-:   Errors are returned as error object.
+{{<highlight javascript>}}
+monaca.cloud.User.register("me@example.com", "password", {age:21})
+.done(function(result)
+{
+   console.log("Welcome, " + result.user._username);
+   console.log("You are " + result.user.age + " years old.");
+}
+)
+.fail(function(err)
+{
+   console.log("Err#" + err.code +": " + err.message);
+});
+{{</highlight>}}
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
-
-Example
-
-:   The following snippet shows how to create a new user account with
-    the username `"me@example.com"`, password `"password"` and age `21`.
-
-    ``` {.sourceCode .javascript}
-    monaca.cloud.User.register("me@example.com", "password", {age:21})
-    .done(function(result)
-    {
-       console.log("Welcome, " + result.user._username);
-       console.log("You are " + result.user.age + " years old.");
-    }
-    )
-    .fail(function(err)
-    {
-       console.log("Err#" + err.code +": " + err.message);
-    });
-    ```
-
-User.validate()
----------------
+## <a name="u-validate"></a> User.validate()
 
 Validate registration parameters.
 
+{{<syntax>}}
 monaca.cloud.User.validate(username: String, properties: Object) : \$.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
 :   -------------- -----------------------------------------------------------------------------
       `username`     The username for the user.
@@ -149,8 +137,7 @@ Example
     });
     ```
 
-User.unregister()
------------------
+## <a name="u-unregister"></a> User.unregister()
 
 Unregister the current user. The current user must be authenticated.
 
@@ -194,8 +181,7 @@ Example
     });
     ```
 
-User.login()
-------------
+## <a name="u-login"></a> User.login()
 
 Sign in a user.
 
@@ -248,8 +234,7 @@ Example
     });
     ```
 
-User.isAuthenticated()
-----------------------
+## <a name="u-isauthenticated"></a> User.isAuthenticated()
 
 Return a boolean value whether the user has logged-in or not.
 
@@ -275,8 +260,7 @@ Example
     }
     ```
 
-User.autoLogin()
-----------------
+## <a name="u-autologin"></a> User.autoLogin()
 
 When the user restarts the app, this function automatically logs in the
 user. It is required to enable auto-login feature with Monaca Cloud IDE.
@@ -330,8 +314,7 @@ Example:
     });
     ```
 
-User.logout()
--------------
+## <a name="u-logout"></a> User.logout()
 
 Sign out the user. The user must be authenticated. When the user signs
 out, auto-login will be disabled.
@@ -375,8 +358,7 @@ Example
     });
     ```
 
-User.updatePassword()
----------------------
+## <a name="u-updatepass"></a> User.updatePassword()
 
 Update password for the current user. The user must be authenticated.
 
@@ -421,8 +403,7 @@ Example:
     });
     ```
 
-User.sendPasswordResetToken()
------------------------------
+## <a name="u-sendpass"></a> User.sendPasswordResetToken()
 
 Send an email with a token to reset the password in case a user could
 not log in because of a forgotten password. Before sending this email,
@@ -475,8 +456,7 @@ Example
     });
     ```
 
-User.resetPasswordAndLogin()
-----------------------------
+## <a name="u-resetpass"></a> User.resetPasswordAndLogin()
 
 Reset the password of the current user and relogin with the new
 password.
@@ -532,8 +512,7 @@ Example
     });
     ```
 
-User.getProperty()
-------------------
+## <a name="u-getproperty"></a> User.getProperty()
 
 Get a property value of the user. The user must be authenticated.
 
@@ -576,8 +555,7 @@ Example:
     })
     ```
 
-User.getProperties()
---------------------
+## <a name="u-getproperties"></a> User.getProperties()
 
 Get an array of property values of the user. The user must be
 authenticated.
@@ -627,8 +605,7 @@ Example:
     })
     ```
 
-User.saveProperty()
--------------------
+## <a name="u-saveproperty"></a> User.saveProperty()
 
 Update a property value of the user. The user must be authenticated.
 
@@ -679,8 +656,7 @@ Example
     })
     ```
 
-User.saveProperties()
----------------------
+## <a name="u-saveproperties"></a> User.saveProperties()
 
 Update an array of property values of a user. The user must be
 authenticated.
@@ -725,8 +701,7 @@ Example
     })
     ```
 
-User.\_oid
-----------
+## <a name="u-oid"></a> User._oid
 
 Public identifier of a user. When the user has logged-in,
 `monaca.cloud.User._oid` is a long string. Otherwise, oid is `null`.

@@ -1,111 +1,114 @@
-Utilities
-=========
+---
+title: Monaca Cloud & Remote Build API Guide
+---
+
+# Utilities
 
 We describe other functions provided by Monaca.
 
-  Method/Property                           Description
-  ----------------------------------------- --------------------------------------------
-  monaca.getDeviceId()&lt;getDeviceId&gt;   Get the unique device ID
-  monaca.baseUrl&lt;baseUrl&gt;             Get absolute URL to www folder.
-  monaca.isAndroid&lt;isAndroid&gt;         Check whether the device is Android or not
-  monaca.isIOS&lt;isIOS&gt;                 Check the device is iOS or not
+Method/Property | Description
+----------------|---------------------
+[monaca.getDeviceId()](#getdeviceid) | Get the unique device ID
+[monaca.baseUrl](#baseurl) | Get absolute URL to www folder.
+[monaca.isAndroid](#isandroid) | Check whether the device is Android or not
+[monaca.isIOS](#isios) | Check the device is iOS or not
 
-monaca.baseUrl - Get absolute URL to www folder.
-------------------------------------------------
-
-Get an absolute URL to *www* folder.
-
-monaca.baseUrl
-
-Return Value
-
-:   ---------------- ---------------------------------
-      `Absolute URI`   The absolute URL of application
-      ---------------- ---------------------------------
-
-Example
-
-:   ``` {.sourceCode .javascript}
-    window.onload = function()
-    {
-      alert(monaca.baseUrl);
-    }
-    ```
-
-monaca.getDeviceId() - Get the unique device ID
------------------------------------------------
+## <a name="getdeviceid"></a> monaca.getDeviceId() - Get the unique device ID
 
 Get the unique device ID which has been created randomly.
 
-<div class="admonition note">
-
+{{<note>}}
 Monaca framework automatically creates a unique device ID at the first
 time app launch.
+{{</note>}}
 
-</div>
-
+{{<syntax>}}
 monaca.getDeviceId(callback)
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ------------ ---------- ------------------------------------------------------------
-      `callback`   Function   A callback function where device ID is the first parameter
-      ------------ ---------- ------------------------------------------------------------
+Parameter | Type | Description
+----------|------|-----------------
+`callback` | Function | A callback function where device ID is the first parameter
 
-Return Value
+*Return Value*
 
-:   -------- --
-      `None`   
-      -------- --
+- `None`   
 
-Example:
+{{<highlight javascript>}}
+monaca.getDeviceId(function(id){
+   console.log('Device ID: ' + id);
+});
+{{</highlight>}}
 
-> ``` {.sourceCode .javascript}
-> monaca.getDeviceId(function(id){
->    console.log('Device ID: ' + id);
-> });
-> ```
+## <a name="baseurl"></a> monaca.baseUrl - Get absolute URL to www folder.
 
-monaca.isAndroid - Check whether the device is Android or not
--------------------------------------------------------------
+Get an absolute URL to *www* folder.
+
+{{<syntax>}}
+monaca.baseUrl
+{{</syntax>}}
+
+*Return Value*
+
+Type | Description
+------|-----------------
+String | The absolute URL of application
+
+*Example*
+
+{{<highlight javascript>}}
+window.onload = function()
+{
+   alert(monaca.baseUrl);
+}
+{{</highlight>}}
+
+
+
+## <a name="isandroid"></a> monaca.isAndroid - Check whether the device is Android or not
 
 Check whether the device is an Android device or not.
 
+{{<syntax>}}
 monaca.isAndroid
+{{</syntax>}}
 
-Return Value
+*Return Value*
 
-:   ----------------- -------------------------------------------------------------
-      `boolean` value   The device is Android device if the return value is *true*.
-      ----------------- -------------------------------------------------------------
+| Type | Description
+------|-----------------
+`boolean` | The device is Android device if the return value is *true*.
 
-Example
+*Example*
 
-:   ``` {.sourceCode .javascript}
-    if(monaca.isAndroid === true){
-      alert("Android!");
-    }
-    ```
+{{<highlight javascript>}}
+if(monaca.isAndroid === true){
+  alert("Android!");
+}
+{{</highlight>}}
 
-monaca.isIOS - Check whether the device is iOS or not
------------------------------------------------------
+## <a name="isios"></a> monaca.isIOS - Check whether the device is iOS or not
 
 Check whether the device is an iOS device or not .
 
+{{<syntax>}}
 monaca.isIOS
+{{</syntax>}}
 
-Return Value
+*Return Value*
 
-:   ----------------- ---------------------------------------------------------
-      `boolean` value   The device is iOS device if the return value is *true*.
-      ----------------- ---------------------------------------------------------
+| Type | Description
+------|-----------------
+`boolean` | The device is iOS device if the return value is *true*.
 
-Example
+*Example*
 
-:   ``` {.sourceCode .javascript}
-    if(monaca.isIOS === true){
-      alert("iOS!");
-    }
-    ```
+{{<highlight javascript>}}
+if(monaca.isIOS === true){
+  alert("iOS!");
+}
+{{</highlight>}}
 
 

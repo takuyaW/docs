@@ -1,35 +1,30 @@
-BarcodeScanner Plugin
-=====================
+---
+title: BarcodeScanner Plugin
+---
 
-<div class="admonition note">
+# BarcodeScanner Plugin
 
+{{<note>}}
 BarcodeScanner Plugin (the built-in plugin on Monaca Cloud IDE) can't be
 used with Android version 6 or higher and it may also not work with
-Cordova 6.5 projects for iOS platform. In this case, please use [the
-external PhoneGap Plugin
-BarcodeScanner](https://github.com/phonegap/phonegap-plugin-barcodescanner).
-In order to import this plugin, you need to subscribe to a valid plan.
-Please refer to [Pricing page](https://monaca.io/pricing.html).
+Cordova 6.5 projects for iOS platform. In this case, please use {{<link href="https://github.com/phonegap/phonegap-plugin-barcodescanner" title="the external PhoneGap Plugin BarcodeScanner">}}.
+In order to import this plugin, you need to subscribe to a valid plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
+{{</note>}}
 
-</div>
+## Enable Plugin in Monaca
 
-Enable Plugin in Monaca
------------------------
-
-1.  From the IDE menu, go to File --&gt; Manage Cordova Plugins or
-    Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the BarcodeScanner to add it into your
+1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `BarcodeScanner` plugin to add it into your
     project.
 
-> ![image](images/barcode_scanner/1.png){width="700px"}
+    {{<img src="/images/reference/third_party_phonegap/barcode_scanner/1.png">}}
 
-BarcodeScanner Demo
--------------------
+## BarcodeScanner Demo
 
 Here is a simple example demonstrating how to use the BarcodeScanner
 plugin with Monaca:
 
-``` {.sourceCode .html}
+{{<highlight javascript>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -62,4 +57,9 @@ plugin with Monaca:
     <input type="button" onClick ="scanBarcode()" value ="Scan" />
 </body>
 </html>
-```
+{{</highlight>}}
+
+See Also:
+
+- [Core Cordova Plugins](../../cordova_6.5)
+- [Monaca Power Plugins](../../power_plugins)

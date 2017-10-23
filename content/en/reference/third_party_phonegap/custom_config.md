@@ -1,5 +1,8 @@
-Cordova Custom Config Plugin
-============================
+---
+title: Cordova Custom Config Plugin
+---
+
+# Cordova Custom Config Plugin
 
 For Cordova 5.2 or lower, basic behaviour of Android or iOS applications
 can be configured by editing AndroidManifest.xml or
@@ -13,17 +16,15 @@ and Android provides hook scripts to update platform configuration files
 based on custom preferences and config-file data defined in `config.xml`
 file that are not supported out-of-the-box by Cordova.
 
-Enable the Plugin in Monaca
----------------------------
+## Enable the Plugin in Monaca
 
-1.  From the IDE menu, go to File --&gt; Manage Cordova Plugins or
-    Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of `Custom Config` to add it into your project.
+1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `Custom Config` plugin to add it into your
+    project.
 
-> ![image](images/custom_config/1.png){width="700px"}
+    {{<img src="/images/reference/third_party_phonegap/custom_config/1.png">}}
 
-Usage
------
+## Usage
 
 There are no run-time source files included in this plugin. It includes
 hook scripts which are used to apply preferences dictated by custom keys
@@ -37,19 +38,18 @@ irreversible. However, if you want the changes made to be reversible,
 you can enable auto-backup/restore functionality by adding the following
 preference inside the top-level `<widget>` element of your `config.xml`:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="cordova-custom-config-autorestore" value="true" />
-```
+{{</highlight>}}
 
-Preferences
------------
+## Preferences
 
 Preferences are set by defining a `<preference>` element in the
 `config.xml` file. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-launchMode" value="singleTop" />
-```
+{{</highlight>}}
 
 While setting the preferences, please be aware of the following points:
 
@@ -62,8 +62,7 @@ While setting the preferences, please be aware of the following points:
     name (e.g. name="ios-somepref") and be defined inside a `<platform>`
     element.
 
-Config Blocks
--------------
+## Config Blocks
 
 `<config-file>` blocks allow platform-specific chunks of the
 configuration to be defined as an XML subtree in the `config.xml` file,
@@ -91,8 +90,7 @@ points:
     the uses-permission `name` attribute), the last defined element will
     be retrieved.
 
-Android
--------
+## Android
 
 The plugin currently supports setting of custom config only in
 `platforms/android/AndroidManifest.xml`. For a list of possible manifest
@@ -107,15 +105,15 @@ All Android-specific config should be placed inside the
 elements in the `AndroidManifest.xml`. For example, if you add the
 following element to the `config.xml`:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/@android:hardwareAccelerated" value="false" />
-```
+{{</highlight>}}
 
 then the following line will be added to `AndroidManifest.xml`:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <manifest android:hardwareAccelerated="false">
-```
+{{</highlight>}}
 
 Sometimes, you may want to remove some default settings in
 `AndroidManifest.xml`. You can do delete them by using the
@@ -125,36 +123,34 @@ node
 `<uses-permission android:name="android.permission.WRITE_CONTACTS" />`
 within `AndroidManifest.xml`:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/uses-permission/[@android:name='android.permission.WRITE_CONTACTS']/@android:name" delete="true" />
-```
+{{</highlight>}}
 
 #### Android Namespace Attribute
 
-<div class="admonition note">
-
-In order to user the `android:` namespace in preferences within your
-`config.xml`, you must include the android namespace attribute on the
-root `<widget>` element.
-
-</div>
+{{<note>}}
+In order to user the <code>android:</code> namespace in preferences within your
+<code>config.xml</code>, you must include the android namespace attribute on the
+root <code>&lt;widget&gt;</code> element.
+{{</note>}}
 
 The namespace attribute fragment is:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 xmlns:android="http://schemas.android.com/apk/res/android"
-```
+{{</highlight>}}
 
 so your `<widget>` element should look something like this:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <widget
     id="com.my.app"
     version="0.0.1"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
-```
+{{</highlight>}}
 
 #### XPath Preferences
 
@@ -164,37 +160,35 @@ The preference name should be prefixed with `android-manifest` then
 follow with an XPath which specifies the element and attribute to apply
 the value to. For example,
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/activity/@android:launchMode" value="singleTask" />
-```
+{{</highlight>}}
 
 This preference specifies that the `launchMode` attribute should be
 given a value of `singleTask` which will be resulted as:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <activity android:launchMode="singleTask">
-```
+{{</highlight>}}
 
 If your manifest contains other activities, you should specify the
 activity name in the XPath. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/activity[@android:name='MainActivity']/@android:launchMode" value="singleTask" />
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
-The activity name for Cordova 4.2.0 and below was `"CordovaApp"` whereas
-Cordova 4.3.0 and above is `"MainActivity"`.
-
-</div>
+{{<note>}}
+The activity name for Cordova 4.2.0 and below was <code>CordovaApp</code> whereas
+Cordova 4.3.0 and above is <code>MainActivity</code>.
+{{</note>}}
 
 If the attribute you are setting is on the root `<manifest>` element,
 just omit the element name and specify the attribute. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/@android:installLocation" value="auto" />
-```
+{{</highlight>}}
 
 ### Android Config Blocks
 
@@ -208,61 +202,53 @@ parent element.
 1.  `target`: must be set to `AndroidManifest.xml`.
 2.  `parent`: defines an Xpath to the parent element in the
     `AndroidManifest.xml` under which the XML subtree block should be
-    inserted.
+    inserted:
 
-    > -   to insert a block under the root `<manifest>` element, use
-    >     `parent="/*"`
-    > -   to insert a block under a descendant of `<manifest>`, use an
-    >     Xpath prefixed with `./`. For example,
-    >     `parent="./application/activity"` will insert the block under
-    >     `/manifest/application/activity`.
+    - to insert a block under the root `<manifest>` element, use `parent="/*"`.
+    - to insert a block under a descendant of `<manifest>`, use an Xpath prefixed with `./`. For example, `parent="./application/activity"` will insert the block under `/manifest/application/activity`.
 
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file target="AndroidManifest.xml" parent="./application">
     <some-element />
 </config-file>
-```
+{{</highlight>}}
 
 will result in `AndroidManifest.xml` with:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <manifest ...>
     <application ...>
         <some-element />
     </application>
 </manifest>
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
-If the specified parent element contains an existing child element of
-the same name as that defined in the XML subtree, the existing element
-will be overwritten.
-
-</div>
+{{<note>}}
+    If the specified parent element contains an existing child element of the same name as that defined in the XML subtree, the existing element will be overwritten.
+{{</note>}}
 
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file target="AndroidManifest.xml">
     <application android:name="MyApp" />
 </config-file>
-```
+{{</highlight>}}
 
 will replace the existing `<application>` element. In this case, it
 would be better to use a preference:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/@android:name" value="MyApp" />
-```
+{{</highlight>}}
 
 ### Android Example
 
 Below is an example of a `config.xml` file for Android configuration:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <platform name="android">
     <!-- custom preferences examples -->
     <preference name="android-manifest/application/activity/@android:windowSoftInputMode" value="stateVisible" />
@@ -298,10 +284,9 @@ Below is an example of a `config.xml` file for Android configuration:
         <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     </config-file>
 </platform>
-```
+{{</highlight>}}
 
-iOS
----
+## iOS
 
 The plugin currently supports custom configuration of the project plist
 (`*-Info.plist`) using config blocks, and project settings
@@ -316,9 +301,9 @@ the `*-Info.plist`. Preferences should be defined in the format:
 `<preference name="ios-SOME_BLOCK_TYPE-SOME_KEY" value="SOME_VALUE" />`.
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-ENABLE_BITCODE" value="NO" />
-```
+{{</highlight>}}
 
 #### Build Configuration Preferences
 
@@ -337,43 +322,43 @@ By default, values will be applied to both "Release" and "Debug"
 by adding a `buildType` attribute to the `<preference>` element in the
 `config.xml`. The value can be either `debug` or `release`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" />
-```
+{{</highlight>}}
 
 By default, both the key (preference name) and value will be
 quote-escaped when inserted into the `XCBuildConfiguration` block. For
 example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" />
-```
+{{</highlight>}}
 
 will appear in `project.pbxproj` as:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 "IPHONEOS_DEPLOYMENT_TARGET" = "7.0";
-```
+{{</highlight>}}
 
 The default quoting can be override by setting the `quote` attribute on
 the `<preference>` element. The valid values are:
 
--   "none": don't quote key or value
--   "key": quote key but not value
--   "value": quote value but not key
--   "both": quote both key and value
+-   `none`: don't quote key or value
+-   `key`: quote key but not value
+-   `value`: quote value but not key
+-   `both`: quote both key and value
 
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" quote="none" />
-```
+{{</highlight>}}
 
 will appear in `project.pbxproj` as:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-```
+{{</highlight>}}
 
 #### .xcconfig files
 
@@ -400,18 +385,18 @@ in the `.xcconfig` file will be overwritten with the value in the
 specific preference in the corresponding `.xcconfig` file, set the
 preference attribute `xcconfigEnforce="false"`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-SOME_PREFERENCE" value="Some value" buildType="debug" xcconfigEnforce="false" />
-```
+{{</highlight>}}
 
 If a preference value doesn't already exist in the corresponding
 `.xcconfig` file, you can force its addition by setting the preference
 attribute `xcconfigEnforce="true"`. This will append it to the
 corresponding `.xcconfig` file. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-SOME_PREFERENCE" value="Some value" buildType="debug" xcconfigEnforce="true" />
-```
+{{</highlight>}}
 
 A backup copy of any modified `.xcconfig` file will be made in
 `plugins/cordova-custom-config/backup/ios`. By default, these backups
@@ -432,24 +417,24 @@ If you set a CODE\_SIGN\_IDENTITY preference in the `config.xml` with
 `buildType="release"`, the plugin will overwrite the defaults in
 `build-release.xcconfig`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" />
-```
+{{</highlight>}}
 
 If you set a CODE\_SIGN\_IDENTITY preference in the `config.xml` with
 `buildType="debug"`, the plugin will overwrite the defaults in
 `build.xcconfig`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" />
-```
+{{</highlight>}}
 
 You can prevent the CODE\_SIGN\_IDENTITY preferences being overwritten
 by setting `xcconfigEnforce="false"`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" xcconfigEnforce="false" />
-```
+{{</highlight>}}
 
 You can force the plugin to add a new entry for CODE\_SIGN\_IDENTITY
 preference with `buildType="debug"` to `build-debug.xcconfig`, rather
@@ -458,9 +443,9 @@ than overwriting the defaults in `build.xcconfig` by setting
 `build.xcconfig`, because `build-debug.xcconfig` overrides
 `build.xcconfig`. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" xcconfigEnforce="true" />
-```
+{{</highlight>}}
 
 ### iOS Config Blocks
 
@@ -476,19 +461,19 @@ has 3 attributes such as:
 
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-```
+{{</highlight>}}
 
 will result in `{PROJECT_NAME}-Info.plist` as:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <plist version="1.0">
     <dict>
         <key>NSLocationAlwaysUsageDescription</key>
     </dict>
 </plist>
-```
+{{</highlight>}}
 
 The value of the preference is set by the child elements of the
 `<config-file>` element. These will appear directly below the preference
@@ -496,30 +481,30 @@ The value of the preference is set by the child elements of the
 
 For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
     <string>
         This app requires constant access to your location in order to track your position, even when the screen is off.
     </string>
 </config-file>
-```
+{{</highlight>}}
 
 will appear in the `plist` file as:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <key>
     NSLocationAlwaysUsageDescription
 </key>
 <string>
     This app requires constant access to your location in order to track your position, even when the screen is off.
 </string>
-```
+{{</highlight>}}
 
 ### iOS Example
 
 Below is an example of a `config.xml` file for iOS configuration:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <platform name="ios">
 
     <!-- Set ENABLE_BITCODE to YES in XCode project file override NO value in /ios/cordova/build.xcconfig -->
@@ -578,18 +563,17 @@ Below is an example of a `config.xml` file for iOS configuration:
         </dict>
     </config-file>
 </platform>
-```
+{{</highlight>}}
 
-Plugin Preferences
-------------------
+## Plugin Preferences
 
 The plugin supports some preferences which are used to customise the
 behaviour of the plugin. Each preference name is prefixed with
 `cordova-custom-config` to avoid name clashes. For example:
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="cordova-custom-config-autorestore" value="true" />
-```
+{{</highlight>}}
 
 The following preferences are currently supported:
 
@@ -603,3 +587,7 @@ The following preferences are currently supported:
     but will proceed and attempt to update any other platforms, before
     allowing the prepare operation to continue.
 
+See Also:
+
+- [Core Cordova Plugins](../../cordova_6.5)
+- [Monaca Power Plugins](../../power_plugins)

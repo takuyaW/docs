@@ -1,32 +1,32 @@
-DatePicker Plugin
-=================
+---
+title: DatePicker Plugin
+---
+
+# DatePicker Plugin
 
 DatePicker plugin lets an app use the native DatePicker control.
 
-Enable Plugin in Monaca
------------------------
+## Enable Plugin in Monaca
 
-1.  From the IDE menu, go to File --&gt; Manage Cordova Plugins or
-    Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the DatePicker to add it into your project.
+1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `Datepicker` plugin to add it into your
+    project.
 
-> ![image](images/datepicker/1.png){width="700px"}
+    {{<img src="/images/reference/third_party_phonegap/datepicker/1.png">}}
 
-Methods
--------
+## Methods
 
 ### For Android
 
-  Function Name        Description
-  -------------------- -------------------------------------------------
-  show(func)           show a DatePicker control.
+Function Name       | Description
+--------------------|-------------------------------------------------
+show(func)          |show a DatePicker control.
 
-DatePicker Demo
----------------
+## DatePicker Demo
 
 ### For Android
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -57,13 +57,13 @@ DatePicker Demo
     <input type="button" onClick ="dateTest()" value ="dateTest()" />
   </body>
 </html>
-```
+{{</highlight>}}
 
 ### For iOS
 
 Please note that, this example only works with iPhone but not iPad.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -150,4 +150,9 @@ Please note that, this example only works with iPhone but not iPad.
     </p>
 </body>
 </html>
-```
+{{</highlight>}}
+
+See Also:
+
+- [Core Cordova Plugins](../../cordova_6.5)
+- [Monaca Power Plugins](../../power_plugins)

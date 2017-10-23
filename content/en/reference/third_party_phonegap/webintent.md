@@ -1,29 +1,28 @@
-WebIntent Plugin (Android)
-==========================
+---
+title: WebIntent Plugin (Android)
+---
+
+# WebIntent Plugin (Android)
 
 WebIntent plugin lets you start an installed application from within
 Monaca application. The following sample will start an app that will
 display a map.
 
-<div class="admonition note">
-
+{{<note>}}
 This plugin is available only to Android platform.
+{{</note>}}
 
-</div>
+## Enable Plugin in Monaca
 
-Enable Plugin in Monaca
------------------------
+1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `WebIntent` plugin to add it into your
+    project.
 
-1.  From the IDE menu, go to File --&gt; Manage Cordova Plugins or
-    Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the WebIntent to add it into your project.
+    {{<img src="/images/reference/third_party_phonegap/webintent/1.png">}}
 
-> ![image](images/webintent/1.png){width="700px"}
+## WebIntent Plugin Demo
 
-WebIntent Plugin Demo
----------------------
-
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -50,12 +49,12 @@ WebIntent Plugin Demo
 
 </body>
 </html>
-```
+{{</highlight>}}
 
 Using `"url"` attribute of the `"startActivity"` function, an app can
 specify the target app to be launched. Here are some examples:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 //Call to the specified phone number
 url: 'tel: phone_number=' + '03-5875-6862'
 
@@ -64,4 +63,9 @@ url: 'tel: phone_number=' + '03-5875-6862'
 
 //Open the information of the 1st person in the contact
     url: 'content://contacts/people/1'
-```
+{{</highlight>}}
+
+See Also:
+
+- [Core Cordova Plugins](../../cordova_6.5)
+- [Monaca Power Plugins](../../power_plugins)

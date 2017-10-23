@@ -1,38 +1,34 @@
-Share Plugin (Android)
-======================
+---
+title: Share Plugin (Android)
+---
+
+# Share Plugin (Android)
 
 Share plugin lets an app to share data with other apps like Gmail,
 DropBox, etc.
 
-<div class="admonition note">
-
+{{<note>}}
 This plugin is available only to Android platform.
+{{</note>}}
 
-</div>
+## Enable Plugin in Monaca
 
-Enable Plugin in Monaca
------------------------
+1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+2.  Click {{<guilabel name="Enable">}} button of the `Share` plugin to add it into your
+    project.
 
-1.  From the IDE menu, go to File --&gt; Manage Cordova Plugins or
-    Config --&gt; Manage Cordova Plugins.
-2.  Click Enable button of the Share to add it into your project.
+    {{<img src="/images/reference/third_party_phonegap/share/1.png">}}
 
-> ![image](images/share/1.png){width="700px"}
+## Methods
 
-Methods
--------
+Function Name| Description
+-------------|----------------------------------------------------------
+show(func)   |Show a list of apps for user to choose and share the data when an app is selected.
 
-  ------------------------------------------------------------------------
-  Function Name Description
-  ------------- ----------------------------------------------------------
-  show(func)    Show a list of apps for user to choose and share the data
-                when an app is selected.
-  ------------------------------------------------------------------------
 
-Share Plugin Demo
------------------
+## Share Plugin Demo
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 
@@ -64,4 +60,9 @@ Share Plugin Demo
   <input type="button" onClick ="shareDemo()" value ="shareDemo" />
 </body>
 </html>
-```
+{{</highlight>}}
+
+See Also:
+
+- [Core Cordova Plugins](../../cordova_6.5)
+- [Monaca Power Plugins](../../power_plugins)
