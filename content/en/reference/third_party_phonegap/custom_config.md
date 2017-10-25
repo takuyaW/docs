@@ -59,7 +59,7 @@ While setting the preferences, please be aware of the following points:
     the specified platform.
 3.  Platform preferences take precedence over common preferences.
 4.  Platform-specific preferences must be prefixed with the platform
-    name (e.g. name="ios-somepref") and be defined inside a `<platform>`
+    name (e.g. `name="ios-somepref"`) and be defined inside a `<platform>`
     element.
 
 ## Config Blocks
