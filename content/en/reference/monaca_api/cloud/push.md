@@ -28,7 +28,7 @@ Name | Type | Description
 
 *Return Value*
 
-- `None`  
+There is no return value. 
 
 *Example*
 
