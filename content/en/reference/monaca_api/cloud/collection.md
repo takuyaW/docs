@@ -23,7 +23,7 @@ Method/Property | Description
 [monaca.cloud.Collection.insert()](#c-insert) | Insert data into a collection
 [monaca.cloud.Collection.updatePermission()](#c-updateper) | Bulk update the permissions of collection items.
 
-## <a name="c-collection"></a> Collection() - Retrieving a Collection
+## <a name="c-collection"></a> Retrieving a Collection
 
 Get a *Collection* object with a specific name. Please note that
 collection is not created automatically. You are required to make a
@@ -51,7 +51,7 @@ The following example indicates how to get a collection object called `"diary"`.
     var Diary = monaca.cloud.Collection("diary"); // returns Collection object
 {{</highlight>}}
 
-## <a name="c-find"></a> Collection.find()
+## <a name="c-find"></a> Finding a Collection
 
 Find all users' data in the collection.
 
@@ -125,7 +125,7 @@ Or just pass the string for the criteria:
     });
 {{</highlight>}}
 
-## <a name="c-findmine"></a> Collection.findMine() - Fetch current user's data
+## <a name="c-findmine"></a> Fetching Current User's Data
 
 Find the current user's data in the collection.
 
@@ -182,7 +182,7 @@ properties: `"title"` and `"body"`.
     });
 {{</highlight>}}
 
-## <a name="c-findone"></a> Collection.findOne() - Fetch an item
+## <a name="c-findone"></a> Fetching an Item
 
 Fetch an item from the Collection. The first item is returned if
 multiple items are matched.
@@ -236,7 +236,7 @@ sort the results by `"_createdAt"` property in descending order.
     });
 {{</highlight>}}
 
-## <a name="c-findonemine"></a> Collection.findOneMine() - Fetch an item of the current user
+## <a name="c-findonemine"></a> Fetching an Item of the Current User
 
 Fetch a current user’s item from the Collection. The first item is
 returned if multiple items are matched.
@@ -290,7 +290,7 @@ sort the results by `"_createdAt"` property in descending order.
     });
 {{</highlight>}}
 
-## <a name="c-insert"></a> Collection.insert() - Inserting an Item
+## <a name="c-insert"></a> Inserting an Item
 
 Insert an item into the *Collection*.
 
@@ -351,7 +351,7 @@ set permission for a user with id of
     });
 {{</highlight>}}
 
-## <a name="c-updateper"></a> Collection.updatePermission() - Bulk update the permissions of collection items.
+## <a name="c-updateper"></a> Bulk Updating the Permissions of Collection Items
 
 Bulk update the permissions of collection items
 
@@ -413,5 +413,16 @@ permission to the `UserX` and read-only permission to the `UserY`.
        console.log("Err#" + err.code +": " + err.message);
     });
 {{</highlight>}}
+
+See Also: 
+
+- [Collection Item](../collection_item)
+- [Colllection Management](../../cloud_management/collection)
+- [Colllection Item Management](../../cloud_management/collection_item)
+- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend API](../../cloud)
+- [Backend Memo](/en/sampleapp/samples/backend_memo)
+- [Backend Management API](../../cloud_management)
+- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
 
 

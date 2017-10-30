@@ -1,238 +1,226 @@
-Device
-======
+---
+title: Device
+---
+
+# Device
 
 Device management can be done with the following JavaScript APIs.
 
-<div class="admonition note">
+{{<note>}}
+In order to access Backend API, you need to load <code>jQuery</code> and register
+<code>cloud.monaca.mobi</code> in the whitelist by editing each OS's configuaration
+file. For more details, please refer to {{<link href="/en/reference/config/android_configuration/#access-origin-android" title="Access Origin (Android)">}} and {{<link href="/en/reference/config/ios_configuration/#access-origin" title="Access Origin (iOS)">}}.
+{{</note>}}
 
-In order to access Backend API, you need to load `jQuery` and register
-`cloud.monaca.mobi` in the whitelist by editing each OS's configuration
-file. For more details, please refer to
-Access Origin (Android) &lt;access\_origin\_android&gt; and
-Access Origin (iOS) &lt;access\_origin&gt;.
+Method/Property | Description
+----------------|--------------------
+[monaca.cloud.Device.getProperty()](#d-getproperty) | Get a property value of device
+[monaca.cloud.Device.getProperties()](#d-getproperties) | Get property values of a device
+[monaca.cloud.Device.saveProperty()](#d-saveproperty) | Update a property of a device
+[monaca.cloud.Device.saveProperties](#d-saveproperties) | Update properties of a device
 
-</div>
-
-  Method/Property                                         Description
-  ------------------------------------------------------- ---------------------------------
-  monaca.cloud.Device.getProperty()&lt;d.getProp&gt;      Get a property value of device
-  monaca.cloud.Device.getProperties()&lt;d.getProps&gt;   Get property values of a device
-  monaca.cloud.Device.saveProperty()&lt;d.saveProp&gt;    Update a property of a device
-  monaca.cloud.Device.saveProperties&lt;d.saveProps&gt;   Update properties of a device
-
-Device.getProperty() - Retrieving a Device Property
----------------------------------------------------
+## <a name="d-getproperty"></a> Retrieving a Device Property
 
 Get a property value of a device.
 
-monaca.cloud.Device.getProperty(name: String) : \$.Promise
+{{<syntax>}}
+monaca.cloud.Device.getProperty(name: String) : $.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------- ------------------
-      `name`   A property name.
-      -------- ------------------
+Name | Type | Description
+-----|------|-------------
+`name` | String | A property name
 
-Result Parameter of done() Callback
+*Return Value*
 
-:   ------------------ ----- --
-      (Property value)   Any   
-      ------------------ ----- --
+Type | Description
+-----|--------------------------
+[$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-Return Value
+Within the `done()` callback, there is the property value.
 
-:   ------------------------------- ---------------------------------------------------------------
-      [\$.Promise](../other) object   Use `done()`, `fail()` and `always()` methods to get results.
-      ------------------------------- ---------------------------------------------------------------
+*Example*
 
-Example
+Refer to the following code for an example of how to get a property value of a device.
 
-:   Refer to the following code for an example of how to get a property
-    value of a device.
+{{<highlight javascript>}}
+monaca.cloud.Device.getProperty("nickname")
+  .done
+    (
+      function(result)
+      { console.log("Device's nickname: " + result); }
+    )
+  .fail
+    (
+      function(err)
+      { /* error handling codes */ }
+    )
+  .always
+    (
+      function()
+      { /* what must be done despite the outcome of the getProperty function */ }
+    );
+{{</highlight>}}
 
-    ``` {.sourceCode .javascript}
-    monaca.cloud.Device.getProperty("nickname")
-      .done
-        (
-          function(result)
-          { console.log("Device's nickname: " + result); }
-        )
-      .fail
-        (
-          function(err)
-          { /* error handling codes */ }
-        )
-      .always
-        (
-          function()
-          { /* what must be done despite the outcome of the getProperty function */ }
-        );
-    ```
-
-Device.getProperties() - Retrieving Device Properties
------------------------------------------------------
+## <a name="d-getproperties"></a> Retrieving Device Properties
 
 Get property values of a device.
 
-monaca.cloud.Device.getProperties(names: Array) : \$.Promise
+{{<syntax>}}
+monaca.cloud.Device.getProperties(names: Array) : $.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   --------- --------------------------
-      `names`   Array of property names.
-      --------- --------------------------
+Name | Type | Description
+-----|------|-------------
+`names` | Array of String | Property names
 
-Result Parameter of done() Callback
+*Return Value*
 
-:   ----------------- ----- --
-      (Property name)   Any   
-      ----------------- ----- --
+Type | Description
+-----|--------------------------
+[$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-Return Value
+Within the `done()` callback, there is a JSON Object containing various properties' values.
 
-:   ------------------------------- ---------------------------------------------------------------
-      [\$.Promise](../other) object   Use `done()`, `fail()` and `always()` methods to get results.
-      ------------------------------- ---------------------------------------------------------------
+*Example*
 
-Example
+Below is how to get the values of 2 properties of a device.
 
-:   Below is how to get the values of 2 properties of a device.
+{{<highlight javascript>}}
+monaca.cloud.Device.getProperties(["nickname", "color"])
+  .done
+    (
+      function(result)
+      {
+        console.log("Properties: " + JSON.stringify(result));
+        console.log("Device's nickname: " + result.nickname);
+      }
+    )
+  .fail
+    (
+      function(err)
+      { /* error handling codes */ }
+    )
+  .always
+    (
+      function()
+      { /* what must be done despite the outcome of the getProperties function */ }
+    );
+{{</highlight>}}
 
-    ``` {.sourceCode .javascript}
-    monaca.cloud.Device.getProperties(["nickname", "color"])
-      .done
-        (
-          function(result)
-          {
-            console.log("Properties: " + JSON.stringify(result));
-            console.log("Device's nickname: " + result.nickname);
-          }
-        )
-      .fail
-        (
-          function(err)
-          { /* error handling codes */ }
-        )
-      .always
-        (
-          function()
-          { /* what must be done despite the outcome of the getProperties function */ }
-        );
-    ```
-
-Device.saveProperty() - Updating a Device Property
---------------------------------------------------
+## <a name="d-saveproperty"></a> Updating a Device Property
 
 Update a property value of a device.
 
-monaca.cloud.Device.saveProperty(name: String, value: String) : \$.Promise
+{{<syntax>}}
+monaca.cloud.Device.saveProperty(name: String, value: String) : $.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   --------- ---------------------------------------------------------------------
-      `name`    A property name.
-      `value`   The value of the corresponded property name to be added or updated.
-      --------- ---------------------------------------------------------------------
+Name | Type | Description | Requirement
+-----|------|-------------|---------------------
+`name` | String | A property name | Must consist of \[`a-zA-Z0-9`\] characters and must start with \[`a-zA-Z`\].
+`value` | String | The value of the corresponded property name to be added or updated |
 
-Requirement
+*Return Value*
 
-:   -------- ------------------------------------------------------------------------------
-      `name`   must consist of \[`a-zA-Z0-9`\] characters and must start with \[`a-zA-Z`\].
-      -------- ------------------------------------------------------------------------------
+Type | Description
+-----|--------------------------
+[$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-Return Value
+*Errors Code*
 
-:   ------------------------------- ---------------------------------------------------------------
-      [\$.Promise](../other) object   Use `done()`, `fail()` and `always()` methods to get results.
-      ------------------------------- ---------------------------------------------------------------
+Errors are returned as [Error](../error) object.
 
-Errors Code
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
 
-:   Errors are returned as error object.
+*Example*
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
+The following example illustrates how to add/update the device's nickname to `"Monaca"`.
 
-Example
+{{<highlight javascript>}}
+monaca.cloud.Device.saveProperty("nickname", "Monaca")
+  .done
+    (
+      function()
+      { console.log("Saved."); }
+    )
+  .fail
+    (
+      function(err)
+      { /* error handling codes */ }
+    )
+  .always
+    (
+      function()
+      { /* what must be done despite the outcome of the saveProperty function */ }
+    );
+{{</highlight>}}
 
-:   The following example illustrates how to add/update the device's
-    nickname to `"Monaca"`.
-
-    ``` {.sourceCode .javascript}
-    monaca.cloud.Device.saveProperty("nickname", "Monaca")
-      .done
-        (
-          function()
-          { console.log("Saved."); }
-        )
-      .fail
-        (
-          function(err)
-          { /* error handling codes */ }
-        )
-      .always
-        (
-          function()
-          { /* what must be done despite the outcome of the saveProperty function */ }
-        );
-    ```
-
-Device.saveProperties() - Updating Device Properties
-----------------------------------------------------
+## <a name="d-saveproperties"></a> Updating Device Properties
 
 Update an array of property values of a device.
 
-monaca.cloud.Device.saveProperties(properties: Object) : \$.Promise
+{{<syntax>}}
+monaca.cloud.Device.saveProperties(properties: Object) : $.Promise
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------------- --------------------------------------------------------
-      `properties`   Additional properties of a device to be added/updated.
-      -------------- --------------------------------------------------------
-
-Requirement
-
-:   -------------- --------------------------------------------------------------------------------------------------------------------------------------------
-      `properties`   Key names must consist of \[`a-zA-Z0-9`\] characters and must start with \[`a-zA-Z`\]. Data size must not exceed the size limit (`500KB`).
-      -------------- --------------------------------------------------------------------------------------------------------------------------------------------
-
-Return Value
-
-:   ------------------------------- ---------------------------------------------------------------
-      [\$.Promise](../other) object   Use `done()`, `fail()` and `always()` methods to get results.
-      ------------------------------- ---------------------------------------------------------------
-
-Errors Code
-
-:   Errors are returned as error object.
-
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
-
-Example
-
-:   The following example illustrates how to add/update 2 properties
-    (`nickname` & `color`) of a device.
-
-    ``` {.sourceCode .javascript}
-    monaca.cloud.Device.saveProperties({"nickname": "Monaca", "color": "#9999FF"})
-     .done
-        (
-          function()
-          { console.log("Saved."); }
-        )
-      .fail
-        (
-          function(err)
-          { /* error handling codes */ }
-        )
-      .always
-        (
-          function()
-          { /* what must be done despite the outcome of the saveProperties function */ }
-        );
-    ```
+Name | Type | Description | Requirement
+-----|------|-------------|---------------------
+`properties` | JSON Object | Additional properties of a device to be added/updated | Key names must consist of [`a-zA-Z0-9`] characters and must start with [`a-zA-Z`]. Data size must not exceed the size limit (`500KB`).
 
 
+*Return Value*
+
+Type | Description
+-----|--------------------------
+[$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
+
+*Errors Code*
+
+Errors are returned as [Error](../error) object.
+
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
+
+*Example*
+
+The following example illustrates how to add/update 2 properties (`nickname` & `color`) of a device.
+
+{{<highlight javascript>}}
+monaca.cloud.Device.saveProperties({"nickname": "Monaca", "color": "#9999FF"})
+  .done
+    (
+      function()
+      { console.log("Saved."); }
+    )
+  .fail
+    (
+      function(err)
+      { /* error handling codes */ }
+    )
+  .always
+    (
+      function()
+      { /* what must be done despite the outcome of the saveProperties function */ }
+    );
+{{</highlight>}}
+
+
+See Also: 
+
+- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend API](../../cloud)
+- [Backend Memo](/en/sampleapp/samples/backend_memo)
+- [Backend Management API](../../cloud_management)
+- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)

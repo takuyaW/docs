@@ -31,7 +31,7 @@ Method/Property                                               |Description
 [monaca.cloud.User.saveProperties()](#u-saveproperties) | Update a properties of a user
 [monaca.cloud.User._oid](#u-oid) | Public identifier of a user
 
-## <a name="u-register"></a> User.register()
+## <a name="u-register"></a> Signing up a User
 
 Sign a user up with his/her username and password.
 
@@ -91,7 +91,7 @@ monaca.cloud.User.register("me@example.com", "password", {age:21})
 });
 {{</highlight>}}
 
-## <a name="u-validate"></a> User.validate()
+## <a name="u-validate"></a> Validating a User
 
 Validate registration parameters.
 
@@ -136,7 +136,7 @@ monaca.cloud.User.validate("me@example.com")
 });
 {{</highlight>}}
 
-## <a name="u-unregister"></a> User.unregister()
+## <a name="u-unregister"></a> Unregistering the Current User
 
 Unregister the current user. The current user must be authenticated.
 
@@ -181,7 +181,7 @@ monaca.cloud.User.unregister("password")
 });
 {{</highlight>}}
 
-## <a name="u-login"></a> User.login()
+## <a name="u-login"></a> Signing in a User
 
 Sign in a user.
 
@@ -233,7 +233,7 @@ monaca.cloud.User.login("me@example.com", "password")
 });
 {{</highlight>}}
 
-## <a name="u-isauthenticated"></a> User.isAuthenticated()
+## <a name="u-isauthenticated"></a> Authenticating a User
 
 Return a boolean value whether the user has logged-in or not.
 
@@ -259,7 +259,7 @@ if (false == monaca.cloud..User.isAuthenticated()) {
 }
 {{</highlight>}}
 
-## <a name="u-autologin"></a> User.autoLogin()
+## <a name="u-autologin"></a> Signing in a User Automatically
 
 When the user restarts the app, this function automatically logs in the
 user. It is required to enable auto-login feature with Monaca Cloud IDE.
@@ -311,7 +311,7 @@ monaca.cloud.User.autoLogin()
 });
 {{</highlight>}}
 
-## <a name="u-logout"></a> User.logout()
+## <a name="u-logout"></a> Signing out a User
 
 Sign out the user. The user must be authenticated. When the user signs
 out, auto-login will be disabled.
@@ -355,7 +355,7 @@ monaca.cloud.User.logout()
 });
 {{</highlight>}}
 
-## <a name="u-updatepass"></a> User.updatePassword()
+## <a name="u-updatepass"></a> Updating the Password of Current User
 
 Update password for the current user. The user must be authenticated.
 
@@ -401,7 +401,7 @@ monaca.cloud.User.updatePassword("oldPassword", "newPassword")
 });
 {{</highlight>}}
 
-## <a name="u-sendpass"></a> User.sendPasswordResetToken()
+## <a name="u-sendpass"></a> Sending a Token of New Password
 
 Send an email with a token to reset the password in case a user could
 not log in because of a forgotten password. Before sending this email,
@@ -451,7 +451,7 @@ monaca.cloud.User.sendPasswordResetToken("username", {emailPropertyName:"email"}
 });
 {{</highlight>}}
 
-## <a name="u-resetpass"></a> User.resetPasswordAndLogin()
+## <a name="u-resetpass"></a> Resetting Password and Reloging
 
 Reset the password of the current user and relogin with the new
 password.
@@ -506,7 +506,7 @@ monaca.cloud.User.resetPasswordAndLogin("username", "newPassword", "000000")
 });
 {{</highlight>}}
 
-## <a name="u-getproperty"></a> User.getProperty()
+## <a name="u-getproperty"></a> Getting a Property of a User
 
 Get a property value of the user. The user must be authenticated.
 
@@ -550,7 +550,7 @@ monaca.cloud.User.login("me.@example.com", "password")
 })
 {{</highlight>}}
 
-## <a name="u-getproperties"></a> User.getProperties()
+## <a name="u-getproperties"></a> Getting Multiple Properties of a User
 
 Get an array of property values of the user. The user must be
 authenticated.
@@ -600,7 +600,7 @@ monaca.cloud.User.login("me@example.com", "password")
 })
 {{</highlight>}}
 
-## <a name="u-saveproperty"></a> User.saveProperty()
+## <a name="u-saveproperty"></a> Updating a Property of a User
 
 Update a property value of the user. The user must be authenticated.
 
@@ -646,7 +646,7 @@ monaca.cloud.User.login("me@example.com", "password")
 })
 {{</highlight>}}
 
-## <a name="u-saveproperties"></a> User.saveProperties()
+## <a name="u-saveproperties"></a> Updating Multiple Properties of a User
 
 Update an array of property values of a user. The user must be
 authenticated.
@@ -692,7 +692,7 @@ monaca.cloud.User.login("me@example.com", "password")
 })
 {{</highlight>}}
 
-## <a name="u-oid"></a> User._oid
+## <a name="u-oid"></a> Getting the Public Identifier of a User
 
 Public identifier of a user. When the user has logged-in,
 `monaca.cloud.User._oid` is a long string. Otherwise, oid is `null`.

@@ -1,199 +1,192 @@
-User Management
-===============
+---
+title: User Management
+---
+
+# User Management
 
 Below are Monaca Backend Management APIs for Users.
 
-  Method                                    Description
-  ----------------------------------------- ---------------------------
-  User.list()&lt;u\_list&gt;                Get a List of Users
-  User.create()&lt;u\_create&gt;            Create a New User Object
-  User.get()&lt;u\_get&gt;                  Get a User's Data
-  User.update()&lt;u\_update&gt;            Update a User's Data
-  User.delete()&lt;u\_delete&gt;            Delete Users
-  User.getPropertyNames()&lt;u\_getPN&gt;   Get Users' Property Names
+Method | Description
+-------|-------------------
+[User.list()](#u-list) | Get a List of Users
+[User.create()](#u-create) | Create a New User Object
+[User.get()](#u-get) | Get a User's Data
+[User.update()](#u-update) | Update a User's Data
+[User.delete()](#u-delete) | Delete Users
+[User.getPropertyNames()](#u-getPropertyNames) | Get Users' Property Names
 
-User.list - Get a List of Users
--------------------------------
+## <a name="u-list"></a> Getting a List of Users
 
 Get a list of users in a User collection.
 
-User.list
+{{<syntax>}}
+User.list(page: Number, itemsInPage: Number, sortPropery: String, [propertyNames: String], [nameFilter: String], [userQuery: String], [userQueryBindParams: Array])
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ======================== ==================
-    ==========================================================================================================================
-    `page` number Page number (starting from 1) `itemsInPage` number
-    Number of items to display on one page. The maximum number of items
-    can be up to `10000`. `sortProperty` string Property to be used for
-    sorting `sortOrder` string Sorting order `"asc"` or `"desc"`
-    (Default: `"asc"`) `propertyNames` string Properties to fetch in
-    addition to system properties (optional) `nameFilter` string Search
-    users by `_username` or `_oid` with this keyword (optional)
-    `userQuery` string Filter target users by a MonaQL&lt;MonaQL&gt;
-    query for user properties. (Optional)
+Name | Type | Description
+-----|------|-------------
+`page` | Number | Page number (starting from `1`) 
+`itemsInPage` | Number | Number of items to display on one page. The maximum number of items can be up to `10000`. 
+`sortProperty` | String | (Default: `asc`) Property to be used for sorting `sortOrder` string Sorting order `asc` or `desc`.
+`propertyNames` | String | [optional] Properties to be fetched in addition to system properties
+`nameFilter` | String | [optional] Search users by `_username` or `_oid` with this keyword
+`userQuery`	| String | [Optional] Filter target users by a [MonaQL](../../cloud/criteria/#monaql) query for user properties. For example: `country == "US" && age > 20`.
+`userQueryBindParams` | Array	| [Optional] Replace the placeholders in userQuery by its values. For example: `["US", 20]` when `userQuery` is `country == ? && age > ?`.
 
-    > **e.g.** 'country == "US" && age &gt; 20'
+*Return Value*
 
-    `userQueryBindParams` array Replace the placeholders in userQuery by
-    its values. (Optional)
+Name | Type | Description
+-----|------|----------------
+`items`      | JSON Object | Users that matched the conditions
+`totalItems` | Number | Number of total users found
 
-    > **e.g.** \["US", 20\] when userQuery is 'country == ? && age &gt;
-    > ?'
+*Errors Code*
 
-    ======================== ==================
-    ==========================================================================================================================
+Errors are returned as [Error](../../cloud/error) object.
 
-Return Value
+Code | Description
+-----|--------------------------
+`-32602` | Invalid params
 
-:   -------------- -----------------
-      `items`        Items returned
-      `totalItems`   Number of items
-      -------------- -----------------
-
-Error Code
-
-:   Errors are returned as ../cloud/error object.
-
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
-
-User.create - Create a new User Object
---------------------------------------
+## <a name="u-create"></a> Creating a New User Object
 
 Create a new User object.
 
-User.create
+{{<syntax>}}
+User.create(username: String, password: String, properties: JSON Object)
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------------- -------- -----------------------------------
-      `username`     string   Username or email address
-      `password`     string   Password
-      `properties`   object   Additional user properties to set
-      -------------- -------- -----------------------------------
+Name | Type | Description
+-----|------|----------------
+`username` | String | Username or email address
+`password` | String | Password
+`properties` | JSON Object | Additional user properties to set
 
-Return Value
+*Return Value*
 
-:   -------- ------------------------
-      `user`   User data (with `_id`)
-      -------- ------------------------
+Name | Type | Description
+-----|------|----------------
+`user` | JSON Object | User data (with `_id`)
 
-Error Code
+*Errors Code*
 
-:   Errors are returned as ../cloud/error object.
+Errors are returned as [Error](../../cloud/error) object.
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
 
-User.get - Get a User Data
---------------------------
+## <a name="u-get"></a> Getting a User's Data
 
 Get a User's data.
 
-User.get
+{{<syntax>}}
+User.get(_id: String)
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ------- -------- -----------
-      `_id`   string   User's id
-      ------- -------- -----------
+Name | Type | Description
+-----|------|----------------
+`_id` | String | User's id
 
-Return Value
+*Return Value*
 
-:   -------- -----------
-      `user`   User data
-      -------- -----------
+Name | Type | Description
+-----|------|----------------
+`user` | JSON Object | User data
 
-Error Code
+*Errors Code*
 
-:   Errors are returned as ../cloud/error object.
+Errors are returned as [Error](../../cloud/error) object.
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
 
-User.update - Update a User Data
---------------------------------
+## <a name="u-update"></a> Updating a User's Data
 
 Update a User's data.
 
-User.update
+{{<syntax>}}
+User.update(_id: Stirng, user: JSON Object)
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------- -------- ------------------------------------------
-      `_id`    string   User's id
-      `user`            User data (`_id` column will be ignored)
-      -------- -------- ------------------------------------------
+Name | Type | Description
+-----|------|----------------
+`_id` | String | User's id
+`user` | JSON Object | User data (`_id` column will be ignored) to be updated
 
-Return Value
+*Return Value*
 
-:   -------- --
-      `None`   
-      -------- --
+There is no return value.
 
-Errors Code
+*Errors Code*
 
-:   Errors are returned as ../cloud/error object.
+Errors are returned as [Error](../../cloud/error) object.
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
 
-User.delete - Delete Users
---------------------------
+## <a name="u-delete"></a> Deleting Users
 
 Delete multiple Users.
 
-User.delete
+{{<syntax>}}
+User.delete(_idList: JSON Object)
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ---------- -------- ---------
-      `idList`   Object   id list
-      ---------- -------- ---------
+Name | Type | Description
+-----|------|----------------
+`idList` | JSON Object | id list of the users to be deleted
 
-Return Value
+*Return Value*
 
-:   -------- --
-      `None`   
-      -------- --
+There is no return value.
 
-Errors Code
+*Errors Code*
 
-:   Errors are returned as ../cloud/error object.
+Errors are returned as [Error](../../cloud/error) object.
 
-      ---------- ----------------
-      `-32602`   Invalid params
-      ---------- ----------------
+Code | Description
+-----|--------------------------
+`-32602` |  Invalid params
 
-User.getPropertyNames - Get Users' Property Names
--------------------------------------------------
+## <a name="u-getPropertyNames"></a> Getting Users' Property Names
 
 Get displayable property names by internally fetching the latest *100*
 users.
 
-User.getPropertyNames
+{{<syntax>}}
+User.getPropertyNames()
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   -------- --
-      `None`   
-      -------- --
+There is no parameter.
 
-Return Value
+*Return Value*
 
-:   --------- ------- -----------------
-      `names`   array   Property names.
-      --------- ------- -----------------
+Name | Type | Description
+-----|------|----------------
+`names` | Array of String | Property names
 
-Errors Code
+See Also: 
 
-:   ------- --
-      `N/A`   
-      ------- --
+- [User API](../../cloud/user)
+- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend API](../../cloud)
+- [Backend Memo](/en/sampleapp/samples/backend_memo)
+- [Backend Management API](../../cloud_management)
+- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
 
 

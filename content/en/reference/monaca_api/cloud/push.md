@@ -11,7 +11,7 @@ Method | Description
 [monaca.cloud.Push.setHandler()](#p-handler) | Set JavaScript handler when receiving push notification
 
 
-## <a name="p-handler"></a> Push.setHandler - Set JavaScript handler when receiving push notification
+## <a name="p-handler"></a> Setting Push Notification Received Handler
 
 Set push handler which is called when an application receives a push
 notification.
