@@ -1,15 +1,14 @@
-Whitelist Plugin (Android Only)
-===============================
+---
+title: Whitelist Plugin (Android Only)
+---
 
-Tested Version:
-[1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
+# Whitelist Plugin (Android Only)
 
-<div class="admonition note">
+Tested Version: [1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-whitelist).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-whitelist">}}.
+{{</note>}}
 
 This plugin implements a whitelist policy for navigating the application
 webview on Cordova 4.0.
@@ -17,9 +16,9 @@ webview on Cordova 4.0.
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-whitelist
-```
+{{</syntax>}}
 
 Supported Platforms
 -------------------
@@ -29,12 +28,10 @@ Supported Platforms
 Adding the Plugin in Monaca
 ---------------------------
 
-<div class="admonition note">
-
+{{<note>}}
 Starting from Cordova 5.2, Whitelist plugin is automatically added in
 Monaca app. It can't be removed.
-
-</div>
+{{</note>}}
 
 Navigation Whitelist
 --------------------
@@ -48,6 +45,7 @@ By default, navigations only to `file://` URLs, are allowed. To allow
 others URLs, you must add `<allow-navigation>` tags to your
 `config.xml`:
 
+{{<highlight xml>}}
     <!-- Allow links to example.com -->
     <allow-navigation href="http://example.com/*" />
 
@@ -64,6 +62,7 @@ others URLs, you must add `<allow-navigation>` tags to your
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
+{{</highlight>}}
 
 Intent Whitelist
 ----------------
@@ -78,6 +77,7 @@ This whitelist does not apply to plugins, only hyperlinks and calls to
 
 In `config.xml`, add `<allow-intent>` tags, like this:
 
+{{<highlight xml>}}
     <!-- Allow links to web pages to open in a browser -->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -101,6 +101,7 @@ In `config.xml`, add `<allow-intent>` tags, like this:
     <!-- Allow all unrecognized URLs to open installed apps
          *NOT RECOMMENDED* -->
     <allow-intent href="*" />
+{{</highlight>}}
 
 Network Request Whitelist
 -------------------------
@@ -108,16 +109,15 @@ Network Request Whitelist
 Controls which network requests (images, XHRs, etc) are allowed to be
 made (via cordova native hooks).
 
-<div class="admonition note">
-
-We suggest you use a 6-5\_content\_security\_policy, which is more
+{{<note>}}
+We suggest you use a {{<link title="Content Security Policy" href="#content-security-policy">}}, which is more
 secure. This whitelist is mostly historical for webviews which do not
 support CSP.
-
-</div>
+{{</note>}}
 
 In `config.xml`, add `<access>` tags, like this:
 
+{{<highlight xml>}}
     <!-- Allow images, xhrs, etc. to google.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
@@ -133,6 +133,7 @@ In `config.xml`, add `<access>` tags, like this:
 
     <!-- Don't block any requests -->
     <access origin="*" />
+{{</highlight>}}
 
 Without any `<access>` tags, only requests to `file://` URLs are
 allowed. However, the default Cordova application includes
@@ -163,6 +164,7 @@ On Android, support for CSP within the system webview starts with KitKat
 
 Here are some example CSP declarations for your `.html` pages:
 
+{{<highlight xml>}}
     <!-- Good default declaration:
         * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
         * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -186,3 +188,9 @@ Here are some example CSP declarations for your `.html` pages:
 
     <!-- Allow iframe to https://cordova.apache.org/ -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

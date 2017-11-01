@@ -1,35 +1,18 @@
-<!--
-# license: Licensed to the Apache Software Foundation (ASF) under one
-#         or more contributor license agreements.  See the NOTICE file
-#         distributed with this work for additional information
-#         regarding copyright ownership.  The ASF licenses this file
-#         to you under the Apache License, Version 2.0 (the
-#         "License"); you may not use this file except in compliance
-#         with the License.  You may obtain a copy of the License at
-#
-#           http://www.apache.org/licenses/LICENSE-2.0
-#
-#         Unless required by applicable law or agreed to in writing,
-#         software distributed under the License is distributed on an
-#         "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#         KIND, either express or implied.  See the License for the
-#         specific language governing permissions and limitations
-#         under the License.
--->
-Whitelist Plugin (Android Only)
-===============================
+---
+title: Whitelist Plugin (Android Only)
+---
+
+# Whitelist Plugin (Android Only)
 
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-whitelist/blob/master/RELEASENOTES.md#100-mar-25-2015">1.0.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> November 20th, 2015</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-whitelist).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-whitelist">}}.
+{{</note>}}
 
 This plugin implements a Whitelist policy for navigating the application
 WebView on Cordova 4.0.
@@ -56,27 +39,30 @@ Permission Settings
 
 ### Page Transition (Navigation Whitelist)
 
-It controls which URLs the WebView itself can be navigated to. It
-applies to top-level navigations and iframes for non-http(s) schemes.
-For `<a>` tag or `window.open('','_self')`, users are able to designate
-the page in Apps’s WebView. If no designation is specified,
-`allow-intent` in http(s) is being designated, the external browswer
-page will be opened. If there is no `allow-intent`, nothing will happen.
+Controls which URLs the WebView itself can be navigated to. Applies to
+top-level navigations only.
 
-&lt;allow-navigation href="\*" /&gt;
+Quirks: on Android it also applies to iframes for non-http(s) schemes.
 
-Parameter
+By default, navigations only to `file://` URLs, are allowed. To allow
+others URLs, you must add `<allow-navigation>` tags to your
+`config.xml`:
 
-:   ------------ -------------------------------------------------------------------------------
-      `href`       default: `"*"` : Allow permission for all addresses.
-      ------------ -------------------------------------------------------------------------------
+{{<syntax>}}
+&#60;allow-navigation href="\*" /&#62;
+{{</syntax>}}
 
-Example
+*Parameter*
 
-:   To allow others URLs, you must add `<allow-navigation>` tags to your
-    `config.xml` file:
+Param | Type | Default | Description
+------|------|---------|-------------
+`href` | String | `*` | Allow permission for all addresses.
 
-    ``` {.sourceCode .xml}
+*Example*
+
+To allow others URLs, you must add `<allow-navigation>` tags to your `config.xml` file:
+
+{{<highlight xml>}}
     <!-- Allow links to example.com -->
     <allow-navigation href="http://example.com/*" />
 
@@ -91,32 +77,36 @@ Example
     <!-- The above is equivalent to these three declarations -->
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
-    <allow-navigation href="data:*" /> 
-    ```
+    <allow-navigation href="data:*" />
+{{</highlight>}}
 
 ### External Applicaton Call (Intent Whitelist)
 
-Permission setting for External Browser or Mail application. If nothing
-is specified, nothing will happen.
+Controls which URLs the app is allowed to ask the system to open. By
+default, no external URLs are allowed.
 
-It controls which URLs the app is allowed to ask the system to open. By
-default, no external URLs are allowed. It equates to sending an intent
-of type BROWSEABLE. This whitelist does not apply to plugins, only
-hyperlinks and calls to `window.open()`.
+On Android, this equates to sending an intent of type BROWSEABLE.
 
+This whitelist does not apply to plugins, only hyperlinks and calls to
+`window.open()`.
+
+In `config.xml`, add `<allow-intent>` tags, like this:
+
+{{<syntax>}}
 &lt;allow-intent href="\*" /&gt;
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ---------- ------------------------------------------------------------------
-      `href`     default: `""` : No external URLs are allowed.
-      ---------- ------------------------------------------------------------------
+Param | Type | Default | Description
+------|------|---------|-------------
+`href` | String | `""` | No external URLs are allowed.
 
-Example
+*Example*
 
-:   In `config.xml`, add `<allow-intent>` tags, like this:
+In `config.xml`, add `<allow-intent>` tags, like this:
 
-    ``` {.sourceCode .xml}
+{{<highlight xml>}}
     <!-- Allow links to web pages to open in a browser -->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -140,7 +130,7 @@ Example
     <!-- Allow all unrecognized URLs to open installed apps
          *NOT RECOMMENDED* -->
     <allow-intent href="*" />
-    ```
+{{</highlight>}}
 
 ### Content (Network Request Whitelist)
 
@@ -154,32 +144,32 @@ are allowed.
 <div class="admonition note">
 
 Android also allows requests to
-`https://ssl.gstatic.com/accessibility/javascript/android/` by default,
+<code>https://ssl.gstatic.com/accessibility/javascript/android/</code> by default,
 since this is required for TalkBack to function properly.
 
 </div>
 
-<div class="admonition note">
-
-We suggest you use a content\_security\_policy, which is more secure.
+{{<note>}}
+We suggest you use a {{<link href="#content-security-policy" title="Content Security Policy">}}, which is more secure.
 This whitelist is mostly historical for webviews which do not support
 CSP.
+{{</note>}}
 
-</div>
-
+{{<syntax>}}
 &lt;access origin="\*" /&gt;
+{{</syntax>}}
 
-Parameter
+*Parameter*
 
-:   ------------ -------------------------------------------------------------------------------
-      `origin`     default: `"*"` : Allow permission for all addresses.
-      ------------ -------------------------------------------------------------------------------
+Param | Type | Default | Description
+------|------|---------|-------------
+`origin` | String | `"*"` | Allow permission for all addresses.
 
-Example
+*Example*
 
-:   In `config.xml`, add `<access>` tags, like this:
+In `config.xml`, add `<access>` tags, like this:
 
-    ``` {.sourceCode .xml}
+{{<highlight xml>}}
     <!-- Allow images, xhrs, etc. to google.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
@@ -195,7 +185,7 @@ Example
 
     <!-- Don't block any requests -->
     <access origin="*" />
-    ```
+{{</highlight>}}
 
 #### Content Security Policy
 
@@ -211,7 +201,9 @@ pages.
 Support for CSP within the system webview starts with KitKat (but is
 available on all versions using Crosswalk WebView).
 
-&lt;meta http-equiv="Content-Security-Policy" content="default-src \*; style-src \* 'unsafe-inline'; script-src \* 'unsafe-inline' 'unsafe-eval'"&gt;
+{{<highlight html>}}
+<meta http-equiv=”Content-Security-Policy” content=”default-src *; style-src * ‘unsafe-inline’; script-src * ‘unsafe-inline’ ‘unsafe-eval’”>
+{{</highlight>}}
 
 <div class="admonition note">
 
@@ -222,11 +214,11 @@ HTML.
 
 </div>
 
-Example
+*Example*
 
 :   Here are some example CSP declarations for your `.html` pages:
 
-    ``` {.sourceCode .xml}
+{{<highlight xml>}}
     <!-- Good default declaration:
         * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
         * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -239,7 +231,7 @@ Example
     <!-- Allow everything but only from the same origin and foo.com -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
 
-    <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that 
+    <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that
         * CSS only from the same origin and inline styles,
         * scripts only from the same origin and inline styles, and eval()
     -->
@@ -250,6 +242,6 @@ Example
 
     <!-- Allow iframe to https://cordova.apache.org/ -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
-    ```
+{{</highlight>}}
 
 

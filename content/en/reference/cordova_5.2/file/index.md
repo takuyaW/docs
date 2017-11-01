@@ -1,35 +1,18 @@
-<!---
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+---
+title: File Plugin
+---
 
-      http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-File Plugin
-===========
+# File Plugin
 
 <div>
   <div  style="float: left;" align="left"><b>Tested Version: </b><a href="https://github.com/apache/cordova-plugin-file/blob/master/RELEASENOTES.md#300-aug-18-2015">3.0.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> November 20th, 015</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-file).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-file">}}.
+{{</note>}}
 
 This plugin implements a File API allowing read/write access to files
 residing on the device.
@@ -69,7 +52,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `File`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `File`
 plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -500,20 +483,20 @@ var my_media = new Media('cdvfile://localhost/temporary/path/to/file.mp3', ...);
 
 When an error is thrown, one of the following codes will be used.
 
-  Code                            Constant
-  ------------------------------- ----------------------------------------------------------------------------------------------------------------------------
-  1                               `NOT_FOUND_ERR`
-  2                               `SECURITY_ERR`
-  3                               `ABORT_ERR`
-  4                               `NOT_READABLE_ERR`
-  5                               `ENCODING_ERR`
-  6                               `NO_MODIFICATION_ALLOWED_ERR`
-  7                               `INVALID_STATE_ERR`
-  8                               `SYNTAX_ERR`
-  9                               `INVALID_MODIFICATION_ERR`
-  10                              `QUOTA_EXCEEDED_ERR`
-  11                              `TYPE_MISMATCH_ERR`
-  12                              `PATH_EXISTS_ERR`
+Code | Constant
+-----|------------------
+`1` | `NOT_FOUND_ERR`
+`2` | `SECURITY_ERR`
+`3` | `ABORT_ERR`
+`4` | `NOT_READABLE_ERR`
+`5` | `ENCODING_ERR`
+`6` | `NO_MODIFICATION_ALLOWED_ERR`
+`7` | `INVALID_STATE_ERR`
+`8` | `SYNTAX_ERR`
+`9` | `INVALID_MODIFICATION_ERR`
+`10` | `QUOTA_EXCEEDED_ERR`
+`11` | `TYPE_MISMATCH_ERR`
+`12` | `PATH_EXISTS_ERR`
 
 ### Configuring the Plugin (Optional)
 

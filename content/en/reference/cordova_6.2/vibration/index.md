@@ -1,15 +1,15 @@
-Vibration Plugin
-================
+---
+title: Vibration Plugin
+---
+
+# Vibration Plugin
 
 Tested Version:
 [2.1.1](https://github.com/apache/cordova-plugin-vibration/releases/tag/2.1.1)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-vibration).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-vibration">}}.
+{{</note>}}
 
 This plugin aligns with the [W3C vibration
 specification](http://www.w3.org/TR/vibration/).
@@ -34,7 +34,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Vibration` plugin in Monaca Cloud IDE.
 
 Supported Platforms

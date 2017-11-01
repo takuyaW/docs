@@ -1,15 +1,14 @@
-Device Motion Plugin
-====================
+---
+title: Device Motion Plugin
+---
 
-Tested Version:
-[1.2.5](https://github.com/apache/cordova-plugin-device-motion/releases/tag/1.2.5)
+# Device Motion Plugin
 
-<div class="admonition note">
+Tested Version: [1.2.5](https://github.com/apache/cordova-plugin-device-motion/releases/tag/1.2.5)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-device-motion).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-device-motion">}}.
+{{</note>}}
 
 This plugin provides access to the device's accelerometer. The
 accelerometer is a motion sensor that detects the change (*delta*) in
@@ -21,24 +20,24 @@ Access is via a global `navigator.accelerometer` object.
 Although the object is attached to the global scoped `navigator`, it is
 not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.accelerometer);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-device-motion
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Device Motion` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -61,13 +60,13 @@ Get the current acceleration along the *x*, *y*, and *z* axes. These
 acceleration values are returned to the `accelerometerSuccess` callback
 function.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.accelerometer.getCurrentAcceleration(accelerometerSuccess, accelerometerError);
-```
+{{</highlight>}}
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(acceleration) {
     alert('Acceleration X: ' + acceleration.x + '\n' +
           'Acceleration Y: ' + acceleration.y + '\n' +
@@ -80,7 +79,7 @@ function onError() {
 }
 
 navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-```
+{{</highlight>}}
 
 #### Android Quirks
 
@@ -111,11 +110,11 @@ The returned watch ID references the accelerometer's watch interval, and
 can be used with `navigator.accelerometer.clearWatch` to stop watching
 the accelerometer.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
                                                        accelerometerError,
                                                        accelerometerOptions);
-```
+{{</highlight>}}
 
 -   **accelerometerOptions**: An object with the following optional
     keys:
@@ -124,7 +123,7 @@ var watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(acceleration) {
     alert('Acceleration X: ' + acceleration.x + '\n' +
           'Acceleration Y: ' + acceleration.y + '\n' +
@@ -139,7 +138,7 @@ function onError() {
 var options = { frequency: 3000 };  // Update every 3 seconds
 
 var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -153,22 +152,22 @@ the success callback every 3 seconds.
 
 Stop watching the `Acceleration` referenced by the `watchID` parameter.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.accelerometer.clearWatch(watchID);
-```
+{{</highlight>}}
 
 -   **watchID**: The ID returned by
     `navigator.accelerometer.watchAcceleration`.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 
 // ... later on ...
 
 navigator.accelerometer.clearWatch(watchID);
-```
+{{</highlight>}}
 
 Objects
 -------
@@ -187,3 +186,7 @@ should be `0`, `0`, and `9.81`.
 -   **z**: Amount of acceleration on the z-axis. (in m/s\^2) *(Number)*
 -   **timestamp**: Creation timestamp in milliseconds. *(DOMTimeStamp)*
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

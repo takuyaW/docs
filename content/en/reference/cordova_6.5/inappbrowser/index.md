@@ -1,30 +1,29 @@
-InAppBrowser Plugin
-===================
+---
+title: InAppBrowser Plugin
+---
 
-Tested Version:
-[1.7.1](https://github.com/apache/cordova-plugin-inappbrowser/releases/tag/1.7.1)
+# InAppBrowser Plugin
 
-<div class="admonition note">
+Tested Version: [1.7.1](https://github.com/apache/cordova-plugin-inappbrowser/releases/tag/1.7.1)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-inappbrowser).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-inappbrowser">}}.
+{{</note>}}
 
 This plugin provides a web browser view that displays when calling
 `cordova.InAppBrowser.open()`.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-```
+{{</highlight>}}
 
 The `cordova.InAppBrowser.open()` function is defined to be a drop-in
 replacement for the `window.open()` function. Existing `window.open()`
 calls can use the InAppBrowser window, by replacing window.open:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.open = cordova.InAppBrowser.open;
-```
+{{</highlight>}}
 
 The InAppBrowser window behaves like a standard web browser, and can't
 access Cordova APIs. For this reason, the InAppBrowser is recommended if
@@ -42,25 +41,31 @@ of another plugin). The hook of `window.open` will be removed in a
 future major release. Until the hook is removed from the plugin, apps
 can manually restore the default behaviour:
 
+{{<highlight javascript>}}
     delete window.open // Reverts the call back to it's prototype's default
+{{</highlight>}}
 
 Although `window.open` is in the global scope, InAppBrowser is not
 available until after the `deviceready` event.
 
+{{<highlight javascript>}}
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         console.log("window.open works well");
     }
+{{</highlight>}}
 
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-inappbrowser
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `InAppBrowser` plugin in Monaca Cloud IDE.
 
 API Reference
@@ -71,7 +76,9 @@ API Reference
 Opens a URL in a new `InAppBrowser` instance, the current browser
 instance, or the system browser.
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open(url, target, options);
+{{</highlight>}}
 
 -   **ref**: Reference to the `InAppBrowser` window when the target is
     set to `'_blank'`. *(InAppBrowser)*
@@ -191,8 +198,10 @@ instance, or the system browser.
 
 #### Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+{{</highlight>}}
 
 #### Windows Quirks
 
@@ -224,10 +233,11 @@ target is set to `'_blank'`.
 
 ### InAppBrowser.addEventListener
 
-> Adds a listener for an event from the `InAppBrowser`. (Only available
-> when the target is set to `'_blank'`)
+Adds a listener for an event from the `InAppBrowser`. (Only available when the target is set to `'_blank'`)
 
+{{<highlight javascript>}}
     ref.addEventListener(eventname, callback);
+{{</highlight>}}
 
 -   **ref**: reference to the `InAppBrowser` window *(InAppBrowser)*
 -   **eventname**: the event to listen for *(String)*
@@ -243,7 +253,7 @@ target is set to `'_blank'`.
 
 ### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var inAppBrowserRef;
 
 function showHelp(url) {
@@ -307,7 +317,7 @@ function executeScriptCallBack(params) {
     }
 
 }
-```
+{{</highlight>}}
 
 #### InAppBrowserEvent Properties
 
@@ -326,15 +336,18 @@ function executeScriptCallBack(params) {
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
+{{</highlight>}}
 
 ### InAppBrowser.removeEventListener
 
-> Removes a listener for an event from the `InAppBrowser`. (Only
-> available when the target is set to `'_blank'`)
+Removes a listener for an event from the `InAppBrowser`. (Only available when the target is set to `'_blank'`)
 
+{{<highlight javascript>}}
     ref.removeEventListener(eventname, callback);
+{{</highlight>}}
 
 -   **ref**: reference to the `InAppBrowser` window. *(InAppBrowser)*
 -   **eventname**: the event to stop listening for. *(String)*
@@ -355,16 +368,20 @@ function executeScriptCallBack(params) {
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
+{{</highlight>}}
 
 ### InAppBrowser.close
 
-> Closes the `InAppBrowser` window.
+Closes the `InAppBrowser` window.
 
+{{<highlight javascript>}}
     ref.close();
+{{</highlight>}}
 
 -   **ref**: reference to the `InAppBrowser` window *(InAppBrowser)*
 
@@ -375,15 +392,18 @@ function executeScriptCallBack(params) {
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     ref.close();
+{{</highlight>}}
 
 ### InAppBrowser.show
 
-> Displays an InAppBrowser window that was opened hidden. Calling this
-> has no effect if the InAppBrowser was already visible.
+Displays an InAppBrowser window that was opened hidden. Calling this has no effect if the InAppBrowser was already visible.
 
+{{<highlight javascript>}}
     ref.show();
+{{</highlight>}}
 
 -   **ref**: reference to the InAppBrowser window (InAppBrowser)
 
@@ -394,16 +414,20 @@ function executeScriptCallBack(params) {
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
+{{</highlight>}}
 
 ### InAppBrowser.hide
 
 Hides the InAppBrowser window. Calling this has no effect if the
 InAppBrowser was already hidden.
 
+{{<highlight javascript>}}
     ref.hide();
+{{</highlight>}}
 
 -   **ref**: reference to the InAppBrowser window (InAppBrowser)
 
@@ -414,16 +438,20 @@ InAppBrowser was already hidden.
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank');
     // some time later...
     ref.hide();
+{{</highlight>}}
 
 ### InAppBrowser.executeScript
 
 Injects JavaScript code into the `InAppBrowser` window. (Only available
 when the target is set to `'_blank'`)
 
+{{<highlight javascript>}}
     ref.executeScript(details, callback);
+{{</highlight>}}
 
 -   **ref**: reference to the `InAppBrowser` window. *(InAppBrowser)*
 -   **injectDetails**: details of the script to run, specifying either a
@@ -445,15 +473,16 @@ when the target is set to `'_blank'`)
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
+{{</highlight>}}
 
 #### Windows Quirks
 
-Due to [MSDN
-docs](https://msdn.microsoft.com/en-us/library/windows.ui.xaml.controls.webview.invokescriptasync.aspx)
+Due to [MSDN docs](https://msdn.microsoft.com/en-us/library/windows.ui.xaml.controls.webview.invokescriptasync.aspx)
 the invoked script can return only string values, otherwise the
 parameter, passed to **callback** will be `[null]`.
 
@@ -462,7 +491,9 @@ parameter, passed to **callback** will be `[null]`.
 Injects CSS into the `InAppBrowser` window. (Only available when the
 target is set to `'_blank'`)
 
+{{<highlight javascript>}}
     ref.insertCSS(details, callback);
+{{</highlight>}}
 
 -   **ref**: reference to the `InAppBrowser` window *(InAppBrowser)*
 -   **injectDetails**: details of the script to run, specifying either a
@@ -479,10 +510,12 @@ target is set to `'_blank'`)
 
 #### Quick Example
 
+{{<highlight javascript>}}
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });
+{{</highlight>}}
 
 Sample: Show help pages with an InAppBrowser
 --------------------------------------------
@@ -493,32 +526,32 @@ leaving the app.
 
 Here's a few snippets that show how you do this.
 
--   [Give users a way to ask for help](#give).
--   [Load a help page](#load).
--   [Let users know that you're getting their page ready](#let).
--   [Show the help page](#show).
--   [Handle page errors](#handle).
+-   [Give users a way to ask for help](#give)
+-   [Load a help page](#load)
+-   [Let users know that you're getting their page ready](#let)
+-   [Show the help page](#show)
+-   [Handle page errors](#handle)
 
-### Give users a way to ask for help
+### <a name="give"></a> Give users a way to ask for help
 
 There's lots of ways to do this in your app. A drop down list is a
 simple way to do that.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <select id="help-select">
     <option value="default">Need help?</option>
     <option value="article">Show me a helpful article</option>
     <option value="video">Show me a helpful video</option>
     <option value="search">Search for other topics</option>
 </select>
-```
+{{</highlight>}}
 
 Gather the users choice in the `onDeviceReady` function of the page and
 then send an appropriate URL to a helper function in some shared library
 file. Our helper function is named `showHelp()` and we'll write that
 function next.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 $('#help-select').on('change', function (e) {
 
     var url;
@@ -542,9 +575,9 @@ $('#help-select').on('change', function (e) {
     showHelp(url);
 
 });
-```
+{{</highlight>}}
 
-### Load a help page
+### <a name="load"></a> Load a help page
 
 We'll use the `open` function to load the help page. We're setting the
 `hidden` property to `yes` so that we can show the browser only after
@@ -553,7 +586,7 @@ while they wait for content to appear. When the `loadstop` event is
 raised, we'll know when the content has loaded. We'll handle that event
 shortly.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showHelp(url) {
 
     var target = "_blank";
@@ -569,23 +602,23 @@ function showHelp(url) {
     inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
 
 }
-```
+{{</highlight>}}
 
-### Let users know that you're getting their page ready
+### <a name="let"></a> Let users know that you're getting their page ready
 
 Because the browser doesn't immediately appear, we can use the
 `loadstart` event to show a status message, progress bar, or other
 indicator. This assures users that content is on the way.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadStartCallBack() {
 
     $('#status-message').text("loading please wait ...");
 
 }
-```
+{{</highlight>}}
 
-### Show the help page
+### <a name="show"></a> Show the help page
 
 When the `loadstopcallback` event is raised, we know that the content
 has loaded and we can make the browser visible. This sort of trick can
@@ -593,7 +626,7 @@ create the impression of better performance. The truth is that whether
 you show the browser before content loads or not, the load times are
 exactly the same.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadStopCallBack() {
 
     if (inAppBrowserRef != undefined) {
@@ -606,7 +639,7 @@ function loadStopCallBack() {
     }
 
 }
-```
+{{</highlight>}}
 
 You might have noticed the call to the `insertCSS` function. This serves
 no particular purpose in our scenario. But it gives you an idea of why
@@ -615,7 +648,7 @@ size of your pages have a certain size. You can use this function to
 insert any CSS style elements. You can even point to a CSS file in your
 project.
 
-### Handle page errors
+### <a name="handle"></a> Handle page errors
 
 Sometimes a page no longer exists, a script error occurs, or a user
 lacks permission to view the resource. How or if you handle that
@@ -629,7 +662,7 @@ parameter of the `executeScript` callback function to see if our attempt
 worked. If it didn't work out for us, we'll just show the error message
 in a `<div>` on the page.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadErrorCallBack(params) {
 
     $('#status-message').text("");
@@ -656,13 +689,14 @@ function executeScriptCallBack(params) {
     }
 
 }
-```
+{{</highlight>}}
 
 More Usage Info
 ---------------
 
 ### Local Urls ( source is in the app package )
 
+{{<highlight javascript>}}
     var iab = cordova.InAppBrowser;
 
     iab.open('local-url.html');                  // loads in the Cordova WebView
@@ -671,9 +705,11 @@ More Usage Info
     iab.open('local-url.html', '_blank');        // loads in the InAppBrowser
     iab.open('local-url.html', 'random_string'); // loads in the InAppBrowser
     iab.open('local-url.html', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}
 
 ### Whitelisted Content
 
+{{<highlight javascript>}}
     var iab = cordova.InAppBrowser;
 
     iab.open('http://whitelisted-url.com');                  // loads in the Cordova WebView
@@ -683,9 +719,11 @@ More Usage Info
     iab.open('http://whitelisted-url.com', 'random_string'); // loads in the InAppBrowser
 
     iab.open('http://whitelisted-url.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}
 
 ### Urls that are not white-listed
 
+{{<highlight javascript>}}
     var iab = cordova.InAppBrowser;
 
     iab.open('http://url-that-fails-whitelist.com');                  // loads in the InAppBrowser
@@ -694,3 +732,9 @@ More Usage Info
     iab.open('http://url-that-fails-whitelist.com', '_blank');        // loads in the InAppBrowser
     iab.open('http://url-that-fails-whitelist.com', 'random_string'); // loads in the InAppBrowser
     iab.open('http://url-that-fails-whitelist.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

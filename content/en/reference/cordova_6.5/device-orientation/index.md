@@ -1,16 +1,14 @@
-Device Orientation Plugin
-=========================
+---
+title: Device Orientation Plugin
+---
 
-Tested Version:
-[1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
+# Device Orientation Plugin
 
-<div class="admonition note">
+Tested Version: [1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs ( GitHub
-)](https://github.com/apache/cordova-plugin-device-orientation)
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-device-orientation">}}.
+{{</note>}}
 
 This plugin provides access to the device's compass. The compass is a
 sensor that detects the direction or heading that the device is pointed,
@@ -21,24 +19,24 @@ Access is via a global `navigator.compass` object. Although the object
 is attached to the global scoped `navigator`, it is not available until
 after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.compass);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-device-orientation
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Device Orientation` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -59,13 +57,13 @@ Methods
 Get the current compass heading. The compass heading is returned via a
 `CompassHeading` object using the `compassSuccess` callback function.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.compass.getCurrentHeading(compassSuccess, compassError);
-```
+{{</highlight>}}
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(heading) {
     alert('Heading: ' + heading.magneticHeading);
 };
@@ -75,7 +73,7 @@ function onError(error) {
 };
 
 navigator.compass.getCurrentHeading(onSuccess, onError);
-```
+{{</highlight>}}
 
 ### navigator.compass.watchHeading
 
@@ -87,9 +85,9 @@ The returned watch ID references the compass watch interval. The watch
 ID can be used with `navigator.compass.clearWatch` to stop watching the
 navigator.compass.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [compassOptions]);
-```
+{{</highlight>}}
 
 `compassOptions` may contain the following keys:
 
@@ -101,7 +99,7 @@ var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [comp
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(heading) {
     var element = document.getElementById('heading');
     element.innerHTML = 'Heading: ' + heading.magneticHeading;
@@ -116,7 +114,7 @@ var options = {
 }; // Update every 3 seconds
 
 var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -134,21 +132,21 @@ with time intervals.
 
 Stop watching the compass referenced by the watch ID parameter.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.compass.clearWatch(watchID);
-```
+{{</highlight>}}
 
 -   **watchID**: The ID returned by `navigator.compass.watchHeading`.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 
 // ... later on ...
 
 navigator.compass.clearWatch(watchID);
-```
+{{</highlight>}}
 
 ### CompassHeading
 
@@ -193,3 +191,7 @@ function when an error occurs.
 -   `CompassError.COMPASS_INTERNAL_ERR`
 -   `CompassError.COMPASS_NOT_SUPPORTED`
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

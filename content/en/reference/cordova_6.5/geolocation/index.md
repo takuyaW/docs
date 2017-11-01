@@ -1,15 +1,14 @@
-Geolocation Plugin
-==================
+---
+title: Geolocation Plugin
+---
 
-Tested Version:
-[2.4.3](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.4.3)
+# Geolocation Plugin
 
-<div class="admonition note">
+Tested Version: [2.4.3](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.4.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-geolocation).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-geolocation">}}.
+{{</note>}}
 
 This plugin provides information about the device's location, such as
 latitude and longitude.
@@ -23,8 +22,7 @@ This API is based on the [W3C Geolocation API
 Specification](http://dev.w3.org/geo/api/spec-source.html), and only
 executes on devices that don't already provide an implementation.
 
-<div class="admonition warning">
-
+{{<warning>}}
 Collection and use of geolocation data raises important privacy issues.
 Your app's privacy policy should discuss how the app uses geolocation
 data, whether it is shared with any other parties, and the level of
@@ -35,33 +33,33 @@ Therefore, in addition to the app's privacy policy, you should strongly
 consider providing a just-in-time notice before the app accesses
 geolocation data (if the device operating system doesn't do so already).
 That notice should provide the same information noted above, as well as
-obtaining the user's permission (e.g., by presenting choices for **OK**
-and **No Thanks**). For more information, please see the [Privacy
-Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).
-
-</div>
+obtaining the user's permission (e.g., by presenting choices for <b>OK</b>
+and <b>No Thanks</b>). For more information, please see the {{<link href="http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html" title="Privacy Guide">}}.
+{{</warning>}}
 
 This plugin defines a global `navigator.geolocation` object (for
 platforms where it is otherwise missing). Although the object is in the
 global scope, features provided by this plugin are not available until
 after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log("navigator.geolocation works well");
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-geolocation
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Geolocation` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -87,11 +85,11 @@ callback with a `Position` object as the parameter. If there is an
 error, the `geolocationError` callback is passed a `PositionError`
 object.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.geolocation.getCurrentPosition(geolocationSuccess,
                                          [geolocationError],
                                          [geolocationOptions]);
-```
+{{</highlight>}}
 
 ##### Parameters
 
@@ -103,7 +101,7 @@ navigator.geolocation.getCurrentPosition(geolocationSuccess,
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // onSuccess Callback
 // This method accepts a Position object, which contains the
 // current GPS coordinates
@@ -127,7 +125,7 @@ function onError(error) {
 }
 
 navigator.geolocation.getCurrentPosition(onSuccess, onError);
-```
+{{</highlight>}}
 
 ##### iOS Quirks
 
@@ -157,11 +155,11 @@ detected. When the device retrieves a new location, the
 parameter. If there is an error, the `geolocationError` callback
 executes with a `PositionError` object as the parameter.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
                                                   [geolocationError],
                                                   [geolocationOptions]);
-```
+{{</highlight>}}
 
 ##### Parameters
 
@@ -180,7 +178,7 @@ var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // onSuccess Callback
 //   This method accepts a `Position` object, which contains
 //   the current GPS coordinates
@@ -202,16 +200,16 @@ function onError(error) {
 // Options: throw an error if no update is received every 30 seconds.
 //
 var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
-```
+{{</highlight>}}
 
 #### geolocationOptions
 
 Optional parameters to customize the retrieval of the geolocation
 `Position`.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
-```
+{{</highlight>}}
 
 ##### Options
 
@@ -244,9 +242,9 @@ specified then no callback is called.
 Stop watching for changes to the device's location referenced by the
 `watchID` parameter.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.geolocation.clearWatch(watchID);
-```
+{{</highlight>}}
 
 ##### Parameters
 
@@ -255,7 +253,7 @@ navigator.geolocation.clearWatch(watchID);
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Options: watch for changes in position, and use the most
 // accurate position acquisition method available.
 //
@@ -264,7 +262,7 @@ var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHi
 // ...later on...
 
 navigator.geolocation.clearWatch(watchID);
-```
+{{</highlight>}}
 
 ### Objects (Read-Only)
 
@@ -346,26 +344,26 @@ and more.
 Here's a "cookbook" of ideas to get you started. In the snippets below,
 we'll show you some basic ways to add these features to your app.
 
--   Get your coordinates &lt;6-5\_coords&gt;.
--   Get the weather forecast &lt;6-5\_weather&gt;.
--   Receive updated weather forecasts as you drive around &lt;6-5\_receive&gt;.
--   See where you are on a map &lt;6-5\_map&gt;.
--   Find stores near you &lt;6-5\_find&gt;.
--   See pictures of things around you &lt;6-5\_things&gt;.
+-   [Get your coordinates](#coords)
+-   [Get the weather forecast](#weather)
+-   [Receive updated weather forecasts as you drive around](#receive)
+-   [See where you are on a map](#map)
+-   [Find stores near you](#find)
+-   [See pictures of things around you](#things)
 
-### Get your geolocation coordinates
+### <a name="coords"></a> Get your geolocation coordinates
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function getWeatherLocation() {
 
     navigator.geolocation.getCurrentPosition
     (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
 }
-```
+{{</highlight>}}
 
-### Get the weather forecast
+### <a name="weather"></a> Get the weather forecast
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Success callback for get geo coordinates
 
 var onWeatherSuccess = function (position) {
@@ -421,11 +419,11 @@ function onWeatherError(error) {
     console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
 }
-```
+{{</highlight>}}
 
-### Receive updated weather forecasts as you drive around
+### <a name="receive"></a> Receive updated weather forecasts as you drive around
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Watch your changing position
 
 function watchWeatherPosition() {
@@ -450,22 +448,22 @@ var onWeatherWatchSuccess = function (position) {
         getWeather(updatedLatitude, updatedLongitude);
     }
 }
-```
+{{</highlight>}}
 
-### See where you are on a map
+### <a name="map"></a> See where you are on a map
 
 Both Bing and Google have map services. We'll use Google's. You'll need
 a key but it's free if you're just trying things out.
 
 Add a reference to the **maps** service.
 
-``` {.sourceCode .html}
+{{<highlight javascript>}}
 <script src="https://maps.googleapis.com/maps/api/js?key=Your_API_Key"></script>
-```
+{{</highlight>}}
 
 Then, add code to use it.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var Latitude = undefined;
 var Longitude = undefined;
 
@@ -543,23 +541,23 @@ function watchMapPosition() {
     return navigator.geolocation.watchPosition
     (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
 }
-```
+{{</highlight>}}
 
-### Find stores near you
+### <a name="find"></a> Find stores near you
 
 You can use the same Google key for this.
 
 Add a reference to the **places** service.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 <script src=
 "https://maps.googleapis.com/maps/api/js?key=Your_API_Key&libraries=places">
 </script>
-```
+{{</highlight>}}
 
 Then, add code to use it.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var Map;
 var Infowindow;
 var Latitude = undefined;
@@ -674,9 +672,9 @@ function watchPlacesPosition() {
     return navigator.geolocation.watchPosition
     (onPlacesWatchSuccess, onPlacesError, { enableHighAccuracy: true });
 }
-```
+{{</highlight>}}
 
-### See pictures of things around you
+### <a name="things"></a> See pictures of things around you
 
 Digital photos can contain geo coordinates that identify where the
 picture was taken.
@@ -685,7 +683,7 @@ Use Flickr API's to find pictures that folks have taken near you. Like
 Google services, you'll need a key, but it's free if you just want to
 try things out.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var Latitude = undefined;
 var Longitude = undefined;
 
@@ -762,4 +760,9 @@ function watchPicturePosition() {
     return navigator.geolocation.watchPosition
     (onPicturesWatchSuccess, onPicturesError, { enableHighAccuracy: true });
 }
-```
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

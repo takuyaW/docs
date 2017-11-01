@@ -1,15 +1,14 @@
-Camera Plugin
-=============
+---
+title: Camera Plugin
+---
 
-Tested Version:
-[2.4.1](https://github.com/apache/cordova-plugin-camera/releases/tag/2.4.1)
+# Camera Plugin
 
-<div class="admonition note">
+Tested Version: [2.4.1](https://github.com/apache/cordova-plugin-camera/releases/tag/2.4.1)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-camera).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-camera">}}.
+{{</note>}}
 
 This plugin defines a global `navigator.camera` object, which provides
 an API for taking pictures and for choosing images from the system's
@@ -18,24 +17,24 @@ image library.
 Although the object is attached to the global scoped `navigator`, it is
 not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.camera);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-camera
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Camera`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Camera`
 plugin in Monaca Cloud IDE.
 
 iOS Quirks
@@ -61,9 +60,9 @@ install.
 
 Example:
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cordova plugin add cordova-plugin-camera --variable CAMERA_USAGE_DESCRIPTION="your usage message" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="your usage message"
-```
+{{</highlight>}}
 
 If you don't pass the variable, the plugin will add an empty string as
 value.
@@ -71,27 +70,25 @@ value.
 API Reference
 -------------
 
--   camera &lt;module\_camera&gt;
-    -   .getPicture(successCallback, errorCallback,
-        options) &lt;6.5\_camera.getPicture&gt;
-    -   .cleanup() &lt;6.5\_camera.cleanup&gt;
-    -   .onError &lt;6.5\_camera.onError&gt; : function
-    -   .onSuccess &lt;6.5\_camera.onSuccess&gt; : function
-    -   .CameraOptions &lt;6.5\_camera.CameraOptions&gt; : Object
--   Camera &lt;module\_cap\_Camera&gt;
-    -   .DestinationType &lt;6.5\_Camera.DestinationType&gt; : enum
-    -   .EncodingType &lt;6.5\_Camera.EncodingType&gt; : enum
-    -   .MediaType &lt;6.5\_Camera.MediaType&gt; : enum
-    -   .PictureSourceType &lt;6.5\_Camera.PictureSourceType&gt; : enum
-    -   .PopoverArrowDirection &lt;6.5\_Camera.PopoverArrowDirection&gt;
-        : enum
-    -   .Direction &lt;6.5\_Camera.Direction&gt; : enum
--   CameraPopoverHandle &lt;6.5\_CameraPopoverHandle&gt;
--   CameraPopoverOptions &lt;6.5\_CameraPopoverOptions&gt;
+-   [camera](#module-camera)
+    -   [.getPicture(successCallback, errorCallback, options)](#camera-getpicture)
+    -   [.cleanup()](#camera-cleanup)
+    -   [.onError](#camera-onerror) : function
+    -   [.onSuccess](#camera-onsuccess) : function
+    -   [.CameraOptions](#camera-cameraoptions) : Object
+-   [Camera](#module-cap-camera)
+    -   [.DestinationType](#camera-destinationtype) : enum
+    -   [.EncodingType](#camera-encodingtype) : enum
+    -   [.MediaType](#camera-mediatype) : enum
+    -   [.PictureSourceType](#camera-picturesourcetype) : enum
+    -   [.PopoverArrowDirection](#camera-popoverarrowdirection) : enum
+    -   [.Direction](#camera-direction) : enum
+-   [CameraPopoverHandle](#camerapopoverhandle)
+-   [CameraPopoverOptions](#camerapopoveroptions)
 
-### camera
+### <a name="module-camera"></a> camera
 
-#### camera.getPicture(successCallback, errorCallback, options)
+#### <a name="camera-getpicture"></a> camera.getPicture(successCallback, errorCallback, options)
 
 Takes a photo using the camera, or retrieves a photo from the device's
 image gallery. The image is passed to the success callback as a
@@ -99,8 +96,7 @@ Base64-encoded `String`, or as the URI for the image file.
 
 The `camera.getPicture` function opens the device's default camera
 application that allows users to snap pictures by default - this
-behavior occurs, when `Camera.sourceType` equals
-Camera.PictureSourceType.CAMERA &lt;6.5\_Camera.PictureSourceType&gt;.
+behavior occurs, when `Camera.sourceType` equals [Camera.PictureSourceType.CAMERA](#camera-picturesourcetype).
 Once the user snaps the photo, the camera application closes and the
 application is restored.
 
@@ -108,8 +104,7 @@ If `Camera.sourceType` is `Camera.PictureSourceType.PHOTOLIBRARY` or
 `Camera.PictureSourceType.SAVEDPHOTOALBUM`, then a dialog displays that
 allows users to select an existing image.
 
-The return value is sent to the
-cameraSuccess &lt;6.5\_camera.onSuccess&gt; callback function, in one of
+The return value is sent to the [cameraSuccess](#camera-onsuccess) callback function, in one of
 the following formats, depending on the specified `cameraOptions`:
 
 -   A `String` containing the Base64-encoded photo image.
@@ -119,18 +114,13 @@ the following formats, depending on the specified `cameraOptions`:
 You can do whatever you want with the encoded image or URI, for example:
 
 -   Render the image in an `<img>` tag, as in the example below
--   Save the data locally (`LocalStorage`,
-    [Lawnchair](http://brianleroux.github.com/lawnchair/), etc.)
+-   Save the data locally (`LocalStorage`, [Lawnchair](http://brianleroux.github.com/lawnchair/), etc.)
 -   Post the data to a remote server
 
-<div class="admonition note">
-
+{{<note>}}
 Photo resolution on newer devices is quite good. Photos selected from
-the device's gallery are not downscaled to a lower quality, even if a
-`quality` parameter is specified. To avoid common memory problems, set
-`Camera.destinationType` to `FILE_URI` rather than `DATA_URL`.
-
-</div>
+the device's gallery are not downscaled to a lower quality, even if a <code>quality</code> parameter is specified. To avoid common memory problems, set <code>Camera.destinationType</code> to <code>FILE_URI</code> rather than <code>DATA_URL</code>.
+{{</note>}}
 
 **Supported Platforms**
 
@@ -138,43 +128,26 @@ the device's gallery are not downscaled to a lower quality, even if a
 -   iOS
 -   Windows
 
-More examples here &lt;camera-getPicture-examples&gt;. Quirks
-here &lt;camera-getPicture-quirks&gt;.
+More examples [here](#camera-getpicture-examples). Quirks [here](#camera-getpicture-quirks).
 
-**Kind**: static method of module\_camera
+**Kind**: static method of [camera](#module-camera)
 
-> widths
->
-> :   10 10 30
->
-> header-rows
->
-> :   1
->
-> -   -   Param
->     -   Type
->
->     - Description
-> -   -   successCallback
->
->     - onSuccess &lt;6.5\_camera.onSuccess&gt; -
-> -   -   errorCallback
->
->     - onError &lt;6.5\_camera.onError&gt; -
-> -   -   options
->     -   CameraOptions &lt;6.5\_camera.CameraOptions&gt;
->     -   CameraOptions
->
+Param | Type | Description
+------|------|--------------------
+`successCallback` | Function | [onSuccess](#camera-onsuccess)
+`errorCallback` | Function | [onError](#camera-onerror)
+`options` | JSON Object | [CameraOptions](#camera-cameraoptions)
+
 **Example**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
-```
+{{</highlight>}}
 
-#### camera.cleanup()
+#### <a name="camera-cleanup"></a> camera.cleanup()
 
 Removes intermediate image files that are kept in temporary storage
-after calling camera.getPicture &lt;6.5\_camera.getPicture&gt;. Applies
+after calling [camera.getPicture](#camera-getpicture). Applies
 only when the value of `Camera.sourceType` equals
 `Camera.PictureSourceType.CAMERA` and the `Camera.destinationType`
 equals `Camera.DestinationType.FILE_URI`.
@@ -183,10 +156,11 @@ equals `Camera.DestinationType.FILE_URI`.
 
 -   iOS
 
-| **Kind**: static method of module\_camera
-| **Example**
+**Kind**: static method of [camera](#module-camera)
 
-``` {.sourceCode .javascript}
+**Example**
+
+{{<highlight javascript>}}
 navigator.camera.cleanup(onSuccess, onFail);
 
 function onSuccess() {
@@ -196,233 +170,160 @@ function onSuccess() {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
-```
+{{</highlight>}}
 
-#### camera.onError : function
+#### <a name="camera-onerror"></a> camera.onError : function
 
 Callback function that provides an error message.
 
-**Kind**: static typedef of module\_camera
+**Kind**: static typedef of [camera](#module-camera)
 
-  Param          Type          Description
-  -------------- ------------- -------------------------------------------------------------------
-  message        string        The message is provided by the device's native code.
+Param | Type | Description
+------|------|--------------
+`message` | String | The message is provided by the device's native code
 
-#### camera.onSuccess : function
+#### <a name="camera-onsuccess"></a> camera.onSuccess : function
 
 Callback function that provides the image data.
 
-**Kind**: static typedef of module\_camera
+**Kind**: static typedef of [camera](#module-camera)
 
-> widths
->
-> :   10 5 30
->
-> header-rows
->
-> :   1
->
-> -   -   Param
->     -   Type
->
->     - Description
-> -   -   imageData
->     -   string
->     -   Base64 encoding of the image data, *or* the image file URI,
->         depending on cameraOptions &lt;6.5\_camera.CameraOptions&gt;
->         in effect.
->
+Param | Type | Description
+------|------|--------------
+`imageData` | String | Base64 encoding of the image data, or the image file URI, depending on [cameraOptions](#camera-cameraoptions) in effect.
+
 **Example**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Show image
 //
 function cameraCallback(imageData) {
    var image = document.getElementById('myImage');
    image.src = "data:image/jpeg;base64," + imageData;
 }
-```
+{{</highlight>}}
 
-#### camera.CameraOptions : Object
+#### <a name="camera-cameraoptions"></a> camera.CameraOptions : Object
 
 Optional parameters to customize the camera settings.
 
--   Quirks &lt;6.5\_CameraOptions-quirks&gt;
+-   [Quirks](#cameraoptions-quirks)
 
-**Kind**: static typedef of module\_camera
+**Kind**: static typedef of [camera](#module-camera)
 
 **Properties**
 
-> widths
->
-> :   10 10 5 30
->
-> header-rows
->
-> :   1
->
-> -   -   Name
->     -   Type
->     -   Default
->
->     - Description
-> -   -   quality
->     -   number
->     -   50
->
->     - Quality of the saved image, expressed as a range of 0-100, where
->     100 is typically full resolution with no loss from file
->     compression. (Note that information about the camera's resolution
->     is unavailable.)
-> -   -   destinationType
->     -   DestinationType &lt;6.5\_Camera.DestinationType&gt;
->     -   FILE\_URI
->
->     - Choose the format of the return value.
-> -   -   sourceType
->     -   PictureSourceType &lt;6.5\_Camera.PictureSourceType&gt;
->     -   CAMERA
->
->     - Set the source of the picture.
-> -   -   allowEdit
->     -   Boolean
->     -   true
->
->     - Allow simple editing of image before selection.
-> -   -   encodingType
->     -   EncodingType &lt;6.5\_Camera.EncodingType&gt;
->     -   JPEG
->
->     - Choose the returned image file’s encoding.
-> -   -   targetWidth
->
->     - number -
->     - Width in pixels to scale image. Must be used with
->     `targetHeight`. Aspect ratio remains constant.
-> -   -   targetHeight
->
->     - number -
->     - Height in pixels to scale image. Must be used with
->     `targetWidth`. Aspect ratio remains constant.
-> -   -   mediaType
->     -   MediaType &lt;6.5\_Camera.MediaType&gt;
->     -   PICTURE
->
->     - Set the type of media to select from. Only works when
->     `PictureSourceType` is `PHOTOLIBRARY` or `SAVEDPHOTOALBUM`.
-> -   -   correctOrientation
->
->     - Boolean -
->     - Rotate the image to correct for the orientation of the device
->     during capture.
-> -   -   saveToPhotoAlbum
->
->     - Boolean -
->     - Save the image to the photo album on the device after capture.
-> -   -   popoverOptions
->
->     - CameraPopoverOptions &lt;6.5\_CameraPopoverOptions&gt; -
->     - iOS-only options that specify popover location in iPad.
-> -   -   cameraDirection
->     -   Direction &lt;6.5\_Camera.Direction&gt;
->     -   BACK
->     -   Choose the camera to use (front- or back-facing).
->
-### Camera
+Name | Type | Default | Description
+-----|------|---------|------------------------
+`quality` | Number | `50` | Quality of the saved image, expressed as a range of `0-100`, where `100` is typically full resolution with no loss from file compression. (Note that information about the camera’s resolution is unavailable.)
+`destinationType` | [DestinationType](#camera-destinationtype) | `FILE_URI` | Choose the format of the return value.
+`sourceType` | [PictureSourceType](#camera-picturesourcetype) | `CAMERA` | Set the source of the picture.
+`allowEdit` | Boolean | `true` | Allow simple editing of image before selection.
+`encodingType` | [EncodingType](#camera-encodingtype) | `JPEG` | Choose the returned image file’s encoding.
+`targetWidth` | Number |  |	Width in pixels to scale image. Must be used with `targetHeight`. Aspect ratio remains constant.
+`targetHeight` | Number	| |	Height in pixels to scale image. Must be used with `targetWidth`. Aspect ratio remains constant.
+`mediaType` | [MediaType](#camera-mediatype) | `PICTURE` | Set the type of media to select from. Only works when `PictureSourceType` is `PHOTOLIBRARY` or `SAVEDPHOTOALBUM`.
+`correctOrientation` | Boolean |  | Rotate the image to correct for the orientation of the device during capture.
+`saveToPhotoAlbum` | Boolean |  | Save the image to the photo album on the device after capture.
+`popoverOptions` | [CameraPopoverOptions](#camerapopoveroptions) |  | iOS-only options that specify popover location in iPad.
+`cameraDirection` | [Direction](#camera-direction) | `BACK` | Choose the camera to use (front- or back-facing).
 
-#### Camera.DestinationType : enum
+### <a name="module-cap-camera"></a> Camera
+
+#### <a name="camera-destinationtype"></a> Camera.DestinationType : enum
 
 Defines the output format of `Camera.getPicture` call.
 
-<div class="admonition note">
-
-On iOSpassing `DestinationType.NATIVE_URI` along with
-`PictureSourceType.PHOTOLIBRARY` or `PictureSourceType.SAVEDPHOTOALBUM`
+{{<note>}}
+On iOSpassing <code>DestinationType.NATIVE_URI</code> along with
+<code>PictureSourceType.PHOTOLIBRARY</code> or <code>PictureSourceType.SAVEDPHOTOALBUM</code>
 will disable any image modifications (resize, quality change, cropping,
 etc.) due to implementation specific.
+{{</note>}}
 
-</div>
+**Kind**: static enum property of [Camera](#module-cap-camera)
 
-| **Kind**: static enum property of module\_cap\_Camera
-| **Properties**
+**Properties**
 
-  Name                                                             Type                                         Default                                         Description
-  ---------------------------------------------------------------- -------------------------------------------- ----------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  DATA\_URL                                                        number                                       0                                               Return base64 encoded string. DATA\_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE\_URI or NATIVE\_URI if possible
-  FILE\_URI                                                        number                                       1                                               Return file uri (<content://media/external/images/media/2> for Android)
-  NATIVE\_URI                                                      number                                       2                                               Return native uri (eg. asset-library://... for iOS)
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`DATA_URL` | Number | `0` | Return *base64* encoded string. `DATA_URL` can be very memory intensive and cause app crashes or out of memory errors. Use `FILE_URI` or `NATIVE_URI` if possible
+`FILE_URI` | Number | `1` | Return file uri (`content://media/external/images/media/2` for Android)
+`NATIVE_URI` | Number | `2` | Return native uri (eg. `asset-library://...` for iOS)
 
-#### Camera.EncodingType : enum
+#### <a name="camera-encodingtype"></a> Camera.EncodingType : enum
 
-| **Kind**: static enum property of module\_cap\_Camera
-| **Properties**
+**Kind**: static enum property of [Camera](#module-cap-camera)
 
-  Name          Type            Default           Description
-  ------------- --------------- ----------------- -------------------------------------------
-  JPEG          number          0                 Return JPEG encoded image
-  PNG           number          1                 Return PNG encoded image
+**Properties**
 
-#### Camera.MediaType : enum
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`JPEG` | Number | `0` | Return JPEG encoded image
+`PNG` | Number | `1` | Return PNG encoded image
 
-| **Kind**: static enum property of module\_cap\_Camera
-| **Properties**
+#### <a name="camera-mediatype"></a> Camera.MediaType : enum
 
-  Name                 Type              Default            Description
-  -------------------- ----------------- ------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------
-  PICTURE              number            0                  Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType
-  VIDEO                number            1                  Allow selection of video only, ONLY RETURNS URL
-  ALLMEDIA             number            2                  Allow selection from all media types
+**Kind**: static enum property of [Camera](#module-cap-camera)
 
-#### Camera.PictureSourceType : enum
+**Properties**
+
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`PICTURE` | Number | `0` | Allow selection of still pictures only. DEFAULT. Will return format specified via `DestinationType`
+`VIDEO` | Number | `1` | Allow selection of video only, ONLY RETURNS URL
+`ALLMEDIA` | Number | `2` | Allow selection from all media types
+
+
+#### <a name="camera-picturesourcetype"></a> Camera.PictureSourceType : enum
 
 Defines the output format of `Camera.getPicture` call.
 
-<div class="admonition note">
-
-On iOS passing `PictureSourceType.PHOTOLIBRARY` or
-`PictureSourceType.SAVEDPHOTOALBUM` along with
-`DestinationType.NATIVE_URI` will disable any image modifications
+{{<note>}}
+On iOS passing <code>PictureSourceType.PHOTOLIBRARY</code> or
+<code>PictureSourceType.SAVEDPHOTOALBUM</code> along with
+<code>DestinationType.NATIVE_URI</code> will disable any image modifications
 (resize, quality change, cropping, etc.) due to implementation specific.
+{{</note>}}
 
-</div>
+**Kind**: static enum property of [Camera](#module-cap-camera)
 
-| **Kind**: static enum property of module\_cap\_Camera
-| **Properties**
+**Properties**
 
-  Name                           Type              Default            Description
-  ------------------------------ ----------------- ------------------ -----------------------------------------------------------------------------------------------------------------------------------------------
-  PHOTOLIBRARY                   number            0                  Choose image from the device's photo library (same as SAVEDPHOTOALBUM for Android)
-  CAMERA                         number            1                  Take picture from camera
-  SAVEDPHOTOALBUM                number            2                  Choose image only from the device's Camera Roll album (same as PHOTOLIBRARY for Android)
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`PHOTOLIBRARY` | Number | `0` | Choose image from the device’s photo library (same as `SAVEDPHOTOALBUM` for Android)
+`CAMERA` | Number | `1` | Take picture from camera
+`SAVEDPHOTOALBUM` | Number | `2` | Choose image only from the device’s Camera Roll album (same as `PHOTOLIBRARY` for Android)
 
-#### Camera.PopoverArrowDirection : enum
+#### <a name="camera-popoverarrowdirection"></a> Camera.PopoverArrowDirection : enum
 
 Matches iOS UIPopoverArrowDirection constants to specify arrow location
 on popover.
 
-| **Kind**: static enum property of module\_cap\_Camera
-| **Properties**
+**Kind**: static enum property of [Camera](#module-cap-camera)
+**Properties**
 
-  Name                  Type           Default
-  --------------------- -------------- ---------------
-  ARROW\_UP             number         1
-  ARROW\_DOWN           number         2
-  ARROW\_LEFT           number         4
-  ARROW\_RIGHT          number         8
-  ARROW\_ANY            number         15
+Name | Type | Default 
+-----|------|---------
+`ARROW_UP` | Number | `1`
+`ARROW_DOWN`| Number | `2`
+`ARROW_LEFT` | Number | `4`
+`ARROW_RIGHT` | Number | `8`
+`ARROW_ANY` | Number | `15`
 
-#### Camera.Direction : enum
+#### <a name="camera-direction"></a> Camera.Direction : enum
 
-| **Kind**: static enum property of module\_camera
+**Kind**: static enum property of [camera](#module-camera)
 
-| **Properties**
+**Properties**
 
-  Name           Type            Default          Description
-  -------------- --------------- ---------------- --------------------------------------------
-  BACK           number          0                Use the back-facing camera
-  FRONT          number          1                Use the front-facing camera
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`BACK` | Number | `0` | Use the back-facing camera
+`FRONT` | Number | `1` | Use the front-facing camera
 
-### CameraPopoverOptions
+### <a name="camerapopoveroptions"></a> CameraPopoverOptions
 
 iOS-only parameters that specify the anchor element location and arrow
 direction of the popover when selecting images from an iPad's library or
@@ -431,49 +332,16 @@ direction of the arrow and orientation of the screen. Make sure to
 account for orientation changes when specifying the anchor element
 location.
 
-> widths
->
-> :   5 10 5 30
->
-> header-rows
->
-> :   1
->
-> -   -   Param
->     -   Type
->     -   Default
->
->     - Description
-> -   -   \[x\]
->     -   Number
->     -   0
->
->     - x pixel coordinate of screen element onto which to anchor the
->     popover.
-> -   -   \[y\]
->     -   Number
->     -   32
->
->     - y pixel coordinate of screen element onto which to anchor the
->     popover.
-> -   -   \[width\]
->     -   Number
->     -   320
->
->     - width, in pixels, of the screen element onto which to anchor the
->     popover.
-> -   -   \[height\]
->     -   Number
->     -   480
->
->     - height, in pixels, of the screen element onto which to anchor
->     the popover.
-> -   -   \[arrowDir\]
->     -   PopoverArrowDirection &lt;6.5\_Camera.PopoverArrowDirection&gt;
->     -   ARROW\_ANY
->     -   Direction the arrow on the popover should point.
->
-### CameraPopoverHandle
+Name | Type | Default | Description
+-----|------|---------|--------------------
+`[x]` | Number | `0` | `x` pixel coordinate of screen element onto which to anchor the popover.
+`[y]` | Number | `32` |	`y` pixel coordinate of screen element onto which to anchor the popover.
+`[width]` | Number | `320` | width, in pixels, of the screen element onto which to anchor the popover.
+`[height]` | Number | `480` | height, in pixels, of the screen element onto which to anchor the popover.
+`[arrowDir]` | [PopoverArrowDirection](#camera-popoverarrowdirection) | `ARROW_ANY` | Direction the arrow on the popover should point.
+
+
+### <a name="camerapopoverhandle"></a> CameraPopoverHandle
 
 A handle to an image picker popover.
 
@@ -483,7 +351,7 @@ A handle to an image picker popover.
 
 **Example**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.camera.getPicture(onSuccess, onFail,
 {
     destinationType: Camera.DestinationType.FILE_URI,
@@ -497,15 +365,15 @@ window.onorientationchange = function() {
     var cameraPopoverOptions = new CameraPopoverOptions(0, 0, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY);
     cameraPopoverHandle.setPosition(cameraPopoverOptions);
 }
-```
+{{</highlight>}}
 
 ### camera.getPicture Errata
 
-#### Example
+#### <a name="camera-getpicture-examples"></a> Example
 
 Take a photo and retrieve the image's file location:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
     destinationType: Camera.DestinationType.FILE_URI });
 
@@ -517,11 +385,11 @@ function onSuccess(imageURI) {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
-```
+{{</highlight>}}
 
 Take a photo and retrieve it as a Base64-encoded image:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 /**
  * Warning: Using DATA_URL is not recommended! The DATA_URL destination
  * type is very memory intensive, even with a low quality setting. Using it
@@ -540,7 +408,7 @@ function onSuccess(imageData) {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
-```
+{{</highlight>}}
 
 #### Preferences (iOS)
 
@@ -549,11 +417,9 @@ function onFail(message) {
     header. This will trigger a request for geolocation permissions if
     set to true.
 
-    ``` {.sourceCode .XML}
-    <preference name="CameraUsesGeolocation" value="false" />
-    ```
+    {{<highlight xml>}}<preference name="CameraUsesGeolocation" value="false" />{{</highlight>}}
 
-#### Android Quirks
+#### <a name="camera-getpicture-quirks"></a> Android Quirks
 
 Android uses intents to launch the camera activity on the device to
 capture images, and on phones with low memory, the Cordova activity may
@@ -571,11 +437,11 @@ Including a JavaScript `alert()` in either of the callback functions can
 cause problems. Wrap the alert within a `setTimeout()` to allow the iOS
 image picker or popover to fully close before the alert displays:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 setTimeout(function() {
     // do your thing here!
 }, 0);
-```
+{{</highlight>}}
 
 #### Windows quirks
 
@@ -593,7 +459,7 @@ More information about Windows Phone 8.1 picker APIs is here: [How to
 continue your Windows Phone app after calling a file
 picker](https://msdn.microsoft.com/en-us/library/windows/apps/dn720490.aspx).
 
-### CameraOptions Errata
+### <a name="cameraoptions-quirks"></a> CameraOptions Errata
 
 #### Android Quirks
 
@@ -640,16 +506,14 @@ The Camera plugin allows you to do things like open the device's Camera
 app and take a picture, or open the file picker and select one. The code
 snippets in this section demonstrate different tasks including:
 
--   Open the Camera app and take a Picture &lt;6.5\_takePicture&gt;
--   Take a picture and return thumbnails &lt;6.5\_getThumbnails&gt;
-    (resized picture)
--   Take a picture and generate a FileEntry object &lt;6.5\_convert&gt;
--   Select a file &lt;6.5\_selectFile&gt; from the picture library
--   Select a JPEG image and
-    return thumbnails &lt;6.5\_getFileThumbnails&gt; (resized image)
--   Select an image and generate a FileEntry object &lt;6.5\_convert&gt;
+-   Open the Camera app and [take a Picture](#takepicture)
+-   Take a picture and [return thumbnails (resized picture)](#getthumbnails)
+-   Take a picture and [generate a FileEntry object](#convert)
+-   [Select a file](#selectfile) from the picture library
+-   Select a JPEG image and [return thumbnails (resized image)](#getfilethumbnails)
+-   Select an image and [generate a FileEntry object](#convert)
 
-### Take a Picture
+### <a name="takepicture"></a> Take a Picture
 
 Before you can take a picture, you need to set some Camera plugin
 options to pass into the Camera plugin's `getPicture` function. Here is
@@ -657,7 +521,7 @@ a common set of recommendations. In this example, you create the object
 that you will use for the Camera options, and set the `sourceType`
 dynamically to support both the Camera app and the file picker.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function setOptions(srcType) {
     var options = {
         // Some common settings are 20, 50, and 100
@@ -672,9 +536,9 @@ function setOptions(srcType) {
     }
     return options;
 }
-```
+{{</highlight>}}
 
-Typically, you want to use a FILE\_URI instead of a DATA\_URL to avoid
+Typically, you want to use a `FILE_URI` instead of a `DATA_URL` to avoid
 most memory issues. JPEG is the recommended encoding type for Android.
 
 You take a picture by passing in the options object to `getPicture`,
@@ -682,7 +546,7 @@ which takes a CameraOptions object as the third argument. When you call
 `setOptions`, pass `Camera.PictureSourceType.CAMERA` as the picture
 source.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function openCamera(selection) {
 
     var srcType = Camera.PictureSourceType.CAMERA;
@@ -700,30 +564,30 @@ function openCamera(selection) {
 
     }, options);
 }
-```
+{{</highlight>}}
 
 Once you take the picture, you can display it or do something else. In
 this example, call the app's `displayImage` function from the preceding
 code.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImage(imgUri) {
 
     var elem = document.getElementById('imageFile');
     elem.src = imgUri;
 }
-```
+{{</highlight>}}
 
 To display the image on some platforms, you might need to include the
 main part of the URI in the Content-Security-Policy `<meta>` element in
 index.html. For example, on Windows 10, you can include `ms-appdata:` in
 your `<meta>` element. Here is an example.
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-```
+{{</highlight>}}
 
-### Take a Picture and Return Thumbnails (Resize the Picture)
+### <a name="getthumbnails"></a> Take a Picture and Return Thumbnails (Resize the Picture)
 
 To get smaller images, you can return a resized image by passing both
 `targetHeight` and `targetWidth` values with your CameraOptions object.
@@ -731,7 +595,7 @@ In this example, you resize the returned image to fit in a 100px by
 100px box (the aspect ratio is maintained, so 100px is either the height
 or width, whichever is greater in the source).
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function openCamera(selection) {
 
     var srcType = Camera.PictureSourceType.CAMERA;
@@ -752,9 +616,9 @@ function openCamera(selection) {
 
     }, options);
 }
-```
+{{</highlight>}}
 
-### Select a File from the Picture Library
+### <a name="selectfile"></a> Select a File from the Picture Library
 
 When selecting a file using the file picker, you also need to set the
 CameraOptions object. In this example, set the `sourceType` to
@@ -762,7 +626,7 @@ CameraOptions object. In this example, set the `sourceType` to
 call `getPicture` just as you did in the previous example, passing in
 the success and error callbacks along with CameraOptions object.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function openFilePicker(selection) {
 
     var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
@@ -778,14 +642,14 @@ function openFilePicker(selection) {
 
     }, options);
 }
-```
+{{</highlight>}}
 
-### Select an Image and Return Thumbnails (resized images)
+### <a name="getfilethumbnails"></a> Select an Image and Return Thumbnails (resized images)
 
 Resizing a file selected with the file picker works just like resizing
 using the Camera app; set the `targetHeight` and `targetWidth` options.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function openFilePicker(selection) {
 
     var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
@@ -808,9 +672,9 @@ function openFilePicker(selection) {
 
     }, options);
 }
-```
+{{</highlight>}}
 
-### Take a picture and get a FileEntry Object
+### <a name="convert"></a> Take a picture and get a FileEntry Object
 
 If you want to do something like copy the image to another location, or
 upload it somewhere using the FileTransfer plugin, you need to get a
@@ -820,20 +684,16 @@ Camera app. If you need to use a FileEntry object, set the
 `destinationType` to `Camera.DestinationType.FILE_URI` in your
 CameraOptions object (this is also the default value).
 
-<div class="admonition note">
-
-You need the [File
-plugin](https://www.npmjs.com/package/cordova-plugin-file) to call
-`window.resolveLocalFileSystemURL`.
-
-</div>
+{{<note>}}
+You need the {{<link href="https://www.npmjs.com/package/cordova-plugin-file" title="File plugin">}} to call <code>window.resolveLocalFileSystemURL</code>.
+{{</note>}}
 
 Here is the call to `window.resolveLocalFileSystemURL`. The image URI is
 passed to this function from the success callback of `getPicture`. The
 success handler of `resolveLocalFileSystemURL` receives the FileEntry
 object.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function getFileEntry(imgUri) {
     window.resolveLocalFileSystemURL(imgUri, function success(fileEntry) {
 
@@ -848,7 +708,7 @@ function getFileEntry(imgUri) {
         createNewFileEntry(imgUri);
     });
 }
-```
+{{</highlight>}}
 
 In the example shown in the preceding code, you call the app's
 `createNewFileEntry` function if you don't get a valid FileEntry object.
@@ -856,18 +716,15 @@ The image URI returned from the Camera app should result in a valid
 FileEntry, but platform behavior on some emulators may be different for
 files returned from the file picker.
 
-<div class="admonition note">
-
-To see an example of writing to a FileEntry, see the [File plugin
-README](https://www.npmjs.com/package/cordova-plugin-file).
-
-</div>
+{{<note>}}
+To see an example of writing to a FileEntry, see the {{<link href="https://www.npmjs.com/package/cordova-plugin-file" title="File plugin README">}}.
+{{</note>}}
 
 The code shown here creates a file in your app's cache (in sandboxed
 storage) named `tempFile.jpeg`. With the new FileEntry object, you can
 copy the image to the file or do something else like upload it.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function createNewFileEntry(imgUri) {
     window.resolveLocalFileSystemURL(cordova.file.cacheDirectory, function success(dirEntry) {
 
@@ -883,4 +740,9 @@ function createNewFileEntry(imgUri) {
 
     }, onErrorResolveUrl);
 }
-```
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

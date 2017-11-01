@@ -1,18 +1,18 @@
-Inappbrowser Plugin
-===================
+---
+title: InAppBrowser Plugin
+---
+
+# InAppBrowser Plugin
 
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-inappbrowser/blob/master/RELEASENOTES.md#050-jun-05-2014">0.5.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](https://github.com/apache/cordova-plugin-inappbrowser/blob/master/README.md).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-inappbrowser">}}.
+{{</note>}}
 
 This plugin provides a web browser view that displays when calling
 `window.open()`, or when opening a link formed as `<a target="_blank">`.
@@ -32,9 +32,8 @@ Plugin ID
 Enable Plugin in Monaca
 -----------------------
 
-In order to use this plugin, please enable
-`org.apache.cordova.inappbrowser` plugin in Monaca Cloud IDE. Please
-refer to standard\_plugins docs for how to enable the plugin in Monaca.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+`org.apache.cordova.inappbrowser` plugin in Monaca Cloud IDE.
 
 window.open
 -----------

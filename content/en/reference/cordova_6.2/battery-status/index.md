@@ -1,15 +1,16 @@
-Battery Status Plugin
-=====================
+---
+title: Battery Status Plugin
+---
+
+# Battery Status Plugin
 
 Tested Version:
 [1.1.2](https://github.com/apache/cordova-plugin-battery-status/releases/tag/1.1.2)
 
-<div class="admonition note">
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-battery-status">}}.
+{{</note>}}
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-battery-status).
-
-</div>
 
 This plugin provides an implementation of an old version of the [Battery
 Status Events
@@ -28,7 +29,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Battery` plugin in Monaca Cloud IDE.
 
 API Reference
@@ -73,7 +74,7 @@ parameter is supported.
 
 Fires when the battery charge percentage reaches the low charge
 threshold. This threshold value is device-specific. Returns an
-object &lt;status\_object&gt; containing battery status.
+[object](#status-object) containing battery status.
 
 #### Example
 
@@ -94,7 +95,7 @@ does not provide an API to detect whether the device is plugged in.
 
 Fires when the battery charge percentage reaches the critical charge
 threshold. This threshold value is device-specific. Returns an
-object &lt;status\_object&gt; containing battery status.
+[object](#status-object) containing battery status.
 
 #### Example
 
@@ -116,3 +117,8 @@ object &lt;status\_object&gt; containing battery status.
 The `batterycritical` event fires on Windows Phone 8.1 irrespective of
 whether the device is plugged in or not. This happens because the OS
 does not provide an API to detect whether the device is plugged in.
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

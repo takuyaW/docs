@@ -1,13 +1,12 @@
-Storage
-=======
+---
+title: Storage
+---
 
-<div class="admonition note">
+# Storage
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](http://docs.phonegap.com/en/3.5.0/cordova_storage_storage.md.html#Storage).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="http://docs.phonegap.com/en/3.5.0/cordova_storage_storage.md.html#Storage">}}.
+{{</note>}}
 
 An overview of storage options for Cordova.
 

@@ -1,15 +1,14 @@
-File Transfer Plugin
-====================
+---
+title: File Transfer Plugin
+---
 
-Tested Version:
-[1.6.3](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.6.3)
+# File Transfer Plugin
 
-<div class="admonition note">
+Tested Version: [1.6.3](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.6.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-file-transfer).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-file-transfer">}}.
+{{</note>}}
 
 This plugin allows you to upload and download files.
 
@@ -17,24 +16,24 @@ This plugin defines global `FileTransfer`, `FileUploadOptions`
 constructors. Although in the global scope, they are not available until
 after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(FileTransfer);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-file-transfer
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Transfer` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -104,7 +103,7 @@ multi-part POST or PUT request, and to download files.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a text file on the device,
 //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
@@ -133,11 +132,11 @@ options.params = params;
 
 var ft = new FileTransfer();
 ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-```
+{{</highlight>}}
 
 ##### Example with Upload Headers and Progress Events (Android and iOS only)
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function win(r) {
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
@@ -170,7 +169,7 @@ ft.onprogress = function(progressEvent) {
     }
 };
 ft.upload(fileURL, uri, win, fail, options);
-```
+{{</highlight>}}
 
 #### download
 
@@ -197,7 +196,7 @@ ft.upload(fileURL, uri, win, fail, options);
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a path on the device,
 //    for example, cdvfile://localhost/persistent/path/to/downloads/
 
@@ -222,7 +221,7 @@ fileTransfer.download(
         }
     }
 );
-```
+{{</highlight>}}
 
 #### abort
 
@@ -232,7 +231,7 @@ FileTransferError object which has an error code of
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a text file on the device,
 //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
@@ -255,7 +254,7 @@ options.mimeType="image/jpeg";
 var ft = new FileTransfer();
 ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
 ft.abort();
-```
+{{</highlight>}}
 
 ### FileUploadResult
 
@@ -326,10 +325,10 @@ Previous versions of this plugin would only accept
 device-absolute-file-paths as the source for uploads, or as the target
 for downloads. These paths would typically be of the form:
 
-``` {.sourceCode .xml}
+{{<highlight bash>}}
 /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
 /storage/emulated/0/path/to/file                                    (Android)
-```
+{{</highlight>}}
 
 For backwards compatibility, these paths are still accepted, and if your
 application has recorded paths like these in persistent storage, then
@@ -348,9 +347,9 @@ URLs instead.
 FileEntry.toURL() and `DirectoryEntry.toURL()` return a filesystem URL
 of the form:
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cdvfile://localhost/persistent/path/to/file
-```
+{{</highlight>}}
 
 which can be used in place of the absolute file path in both
 `download()` and `upload()` methods.
@@ -365,7 +364,7 @@ examples, we demonstrate several tasks like:
 -   [Uploading a file created in your application's root](#uploadFile)
 -   [Downloading the uploaded file](#downloadFile)
 
-### Download a Binary File to the application cache
+### <a name="binaryFile"></a> Download a Binary File to the application cache
 
 Use the File plugin with the File-Transfer plugin to provide a target
 for the files that you download (the target must be a FileEntry object).
@@ -374,7 +373,7 @@ Before you download the file, create a DirectoryEntry object by using
 callback. Use the `getFile` method of DirectoryEntry to create the
 target file.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
     console.log('file system open: ' + fs.name);
@@ -388,14 +387,11 @@ window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
     }, onErrorCreateFile);
 
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
-For persistent storage, pass LocalFileSystem.PERSISTENT to
-requestFileSystem.
-
-</div>
+{{<note>}}
+For persistent storage, pass LocalFileSystem.PERSISTENT to requestFileSystem.
+{{</note>}}
 
 When you have the FileEntry object, download the file using the
 `download` method of the FileTransfer object. The 3rd argument to the
@@ -404,7 +400,7 @@ can use to call the app's `readBinaryFile` function. In this code
 example, the `entry` variable is a new FileEntry object that receives
 the result of the download operation.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function download(fileEntry, uri, readBinaryData) {
 
     var fileTransfer = new FileTransfer();
@@ -438,17 +434,17 @@ function download(fileEntry, uri, readBinaryData) {
         }
     );
 }
-```
+{{</highlight>}}
 
 If you just need to display the image, take the FileEntry to call its
 toURL() function.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImageByFileURL(fileEntry) {
     var elem = document.getElementById('imageElement');
     elem.src = fileEntry.toURL();
 }
-```
+{{</highlight>}}
 
 Depending on your app requirements, you may want to read the file. To
 support operations with binary files, FileReader supports two methods,
@@ -457,7 +453,7 @@ support operations with binary files, FileReader supports two methods,
 you read the file successfully, construct a Blob object using the result
 of the read.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readBinaryFile(fileEntry) {
     fileEntry.file(function (file) {
         var reader = new FileReader();
@@ -475,12 +471,12 @@ function readBinaryFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}
 
 Once you read the file successfully, you can create a DOM URL string
 using `createObjectURL`, and then display the image.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImage(blob) {
 
     // Note: Use window.URL.revokeObjectURL when finished with image.
@@ -490,12 +486,12 @@ function displayImage(blob) {
     var elem = document.getElementById('imageElement');
     elem.src = objURL;
 }
-```
+{{</highlight>}}
 
 As you saw previously, you can call FileEntry.toURL() instead to just
 display the downloaded image (skip the file read).
 
-### Upload a File
+### <a name="uploadFile"></a> Upload a File
 
 When you upload a File using the File-Transfer plugin, use the File
 plugin to provide files for upload (again, they must be FileEntry
@@ -504,7 +500,7 @@ the `getFile` method of DirectoryEntry. In this example, create the file
 in the application's cache (fs.root). Then call the app's writeFile
 function so you have some content to upload.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onUploadFile() {
     window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
@@ -520,12 +516,12 @@ function onUploadFile() {
 
     }, onErrorLoadFs);
 }
-```
+{{</highlight>}}
 
 In this example, create some simple content, and then call the app's
 upload function.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function writeFile(fileEntry, dataObj) {
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function (fileWriter) {
@@ -546,12 +542,12 @@ function writeFile(fileEntry, dataObj) {
         fileWriter.write(dataObj);
     });
 }
-```
+{{</highlight>}}
 
 Forward the FileEntry object to the upload function. To perform the
 actual upload, use the upload function of the FileTransfer object.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function upload(fileEntry) {
     // !! Assumes variable fileURL contains a valid URL to a text file on the device,
     var fileURL = fileEntry.toURL();
@@ -582,9 +578,9 @@ function upload(fileEntry) {
     // http://some.server.com/upload.php
     ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
 };
-```
+{{</highlight>}}
 
-### Download the uploaded file
+### <a name="downloadFile"></a> Download the uploaded file
 
 To download the image you just uploaded, you will need a valid URL that
 can handle the request, for example,
@@ -594,7 +590,7 @@ difference here from previous examples is that we call
 FileReader.readAsText to read the result of the download operation,
 because we uploaded a file with text content.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function download(fileEntry, uri) {
 
     var fileTransfer = new FileTransfer();
@@ -621,12 +617,12 @@ function download(fileEntry, uri) {
         }
     );
 }
-```
+{{</highlight>}}
 
 In the readFile function, call the `readAsText` method of the FileReader
 object.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readFile(fileEntry) {
     fileEntry.file(function (file) {
         var reader = new FileReader();
@@ -642,4 +638,9 @@ function readFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

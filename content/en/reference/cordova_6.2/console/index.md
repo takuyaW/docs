@@ -1,15 +1,14 @@
-Console Plugin
-==============
+---
+title: Console Plugin
+---
 
-Tested Version:
-[1.0.3](https://github.com/apache/cordova-plugin-console/releases/tag/1.0.3)
+# Console Plugin
 
-<div class="admonition note">
+Tested Version: [1.0.3](https://github.com/apache/cordova-plugin-console/releases/tag/1.0.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-console).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-console">}}.
+{{</note>}}
 
 This plugin is meant to ensure that console.log() is as useful as it can
 be. It adds additional function for iOS, Ubuntu, Windows Phone 8, and
@@ -26,13 +25,15 @@ plugin are not available until after the `deviceready` event.
 Plugin ID
 ---------
 
-    cordova-plugin-console
+{{<syntax>}}
+cordova-plugin-console
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
-`Console` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Console`
+plugin in Monaca Cloud IDE.
 
 API Reference
 -------------
@@ -83,3 +84,8 @@ The following formatting options available:
 -   %% - replace with '%'.
 
 Any other char following `%` will format its arg via `toString()`.
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

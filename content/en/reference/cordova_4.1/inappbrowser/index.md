@@ -1,35 +1,18 @@
-<!---
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+---
+title: InAppBrowser Plugin
+---
 
-      http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-Inappbrowser Plugin
-===================
+# InAppBrowser Plugin
 
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-inappbrowser/blob/master/RELEASENOTES.md#054-dec-02-2014">0.5.4</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-inappbrowser).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-inappbrowser">}}.
+{{</note>}}
 
 This plugin provides a web browser view that displays when calling
 `window.open()`.
@@ -63,9 +46,8 @@ Plugin ID
 Enable Plugin in Monaca
 -----------------------
 
-In order to use this plugin, please enable
-`org.apache.cordova.inappbrowser` plugin in Monaca Cloud IDE. Please
-refer to standard\_plugins docs for how to enable the plugin in Monaca.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+`org.apache.cordova.inappbrowser` plugin in Monaca Cloud IDE.
 
 window.open
 -----------

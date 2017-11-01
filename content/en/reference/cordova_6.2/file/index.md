@@ -1,15 +1,15 @@
-File Plugin
-===========
+---
+title: File Plugin
+---
+
+# File Plugin
 
 Tested Version:
 [4.2.0](https://github.com/apache/cordova-plugin-file/releases/tag/4.2.0)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-file).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-file">}}.
+{{</note>}}
 
 This plugin implements a File API allowing read/write access to files
 residing on the device.
@@ -49,7 +49,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `File`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `File`
 plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -119,18 +119,120 @@ device.
 
 #### iOS File System Layout
 
-  Device Path                                                                                                                                                                                             `cordova.file.*`                                                                                                                                                            `iOSExtraFileSystems`                                                                                                                                r/w?                                     persistent?                                                                      OS clears                                                            sync                                     private
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------- -------------------------------------------------------------------------------- -------------------------------------------------------------------- ---------------------------------------- ---------------------------------------------------------
-  /var/mobile/Applications/&lt;UUID&gt;/                                                                                                                                                                  applicationStorageDirectory                                                                                                                                                 -                                                                                                                                                    r                                        N/A                                                                              N/A                                                                  N/A                                      Yes
-  appname.app/                                                                                                                                                                                            applicationDirectory                                                                                                                                                        bundle                                                                                                                                               r                                        N/A                                                                              N/A                                                                  N/A                                      Yes
-  www/                                                                                                                                                                                                    -                                                                                                                                                                           -                                                                                                                                                    r                                        N/A                                                                              N/A                                                                  N/A                                      Yes
-  Documents/                                                                                                                                                                                              documentsDirectory                                                                                                                                                          documents                                                                                                                                            r/w                                      Yes                                                                              No                                                                   Yes                                      Yes
-  NoCloud/                                                                                                                                                                                                -                                                                                                                                                                           documents-nosync                                                                                                                                     r/w                                      Yes                                                                              No                                                                   No                                       Yes
-  Library                                                                                                                                                                                                 -                                                                                                                                                                           library                                                                                                                                              r/w                                      Yes                                                                              No                                                                   Yes?                                     Yes
-  NoCloud/                                                                                                                                                                                                dataDirectory                                                                                                                                                               library-nosync                                                                                                                                       r/w                                      Yes                                                                              No                                                                   No                                       Yes
-  Cloud/                                                                                                                                                                                                  syncedDataDirectory                                                                                                                                                         -                                                                                                                                                    r/w                                      Yes                                                                              No                                                                   Yes                                      Yes
-  Caches/                                                                                                                                                                                                 cacheDirectory                                                                                                                                                              cache                                                                                                                                                r/w                                      Yes\*                                                                            Yes\*\*\*                                                            No                                       Yes
-  tmp/                                                                                                                                                                                                    tempDirectory                                                                                                                                                               -                                                                                                                                                    r/w                                      No\*\*                                                                           Yes\*\*\*                                                            No                                       Yes
+{{<scrollTable>}}
+<table>
+    <tr>
+        <th>Device Path</th>
+        <th>cordova.file.*</th>
+        <th>iosExtraFileSystems</th>
+        <th>r/w?</th>
+        <th>persistent?</th>
+        <th>OS clears</th>
+        <th>sync</th>
+        <th>private</th>
+    </tr>
+    <tr>
+        <td><code>/var/mobile/Applications/&#60;UUID&#62;/</code></td>
+        <td>applicationStorageDirectory</td>
+        <td></td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>appname.app/</code></td>
+        <td>applicationDirectory</td>
+        <td>bundle</td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>www/</code></td>
+        <td></td>
+        <td></td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Documents/</code></td>
+        <td>documentsDirectory</td>
+        <td>documents</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>NoCloud/</code></td>
+        <td></td>
+        <td>documents-nosync</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Library</code></td>
+        <td></td>
+        <td>library</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes?</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>NoCloud/</code></td>
+        <td>dataDirectory</td>
+        <td>library-nosync</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Cloud/</code></td>
+        <td>syncedDataDirectory	</td>
+        <td></td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Caches/</code></td>
+        <td>cacheDirectory</td>
+        <td>cache</td>
+        <td>r/w</td>
+        <td>Yes*</td>
+        <td>No***</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>tmp/</code></td>
+        <td>tempDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>No**</td>
+        <td>Yes***</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+</table>
+{{</scrollTable>}}
 
 \* Files persist across app restarts and upgrades, but this directory
 can be cleared whenever the OS desires. Your app should be able to
@@ -147,17 +249,100 @@ directory as appropriate for your application.
 
 #### Android File System Layout
 
-  Device Path                                                                                                                          `cordova.file.*`                                                                                                                                                                                         `AndroidExtraFileSystems`                                                                                                                                      r/w?                                  persistent?                                                                OS clears                                                       private
-  ------------------------------------------------------------------------------------------------------------------------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------- -------------------------------------------------------------------------- --------------------------------------------------------------- ---------------------------------------------------------------
-  <file:///android_asset/>                                                                                                             applicationDirectory                                                                                                                                                                                                                                                                                                                                                    r                                     N/A                                                                        N/A                                                             Yes
-  /data/data/&lt;app-id&gt;/                                                                                                           applicationStorageDirectory                                                                                                                                                                              -                                                                                                                                                              r/w                                   N/A                                                                        N/A                                                             Yes
-  cache                                                                                                                                CacheDirectory                                                                                                                                                                                           cache                                                                                                                                                          r/w                                   N/A                                                                        Yes\*                                                           Yes
-  files                                                                                                                                dataDirectory                                                                                                                                                                                            files                                                                                                                                                          r/w                                   Yes                                                                        No                                                              Yes
-  Documents                                                                                                                                                                                                                                                                                                                                     documents                                                                                                                                                      r/w                                   Yes                                                                        No                                                              Yes
-  &lt;sdcard&gt;/                                                                                                                      externalRootDirectory                                                                                                                                                                                    sdcard                                                                                                                                                         r/w                                   Yes                                                                        No                                                              No
-  Android/data/&lt;app-id&gt;/                                                                                                         externalApplicationStorageDirectory                                                                                                                                                                      -                                                                                                                                                              r/w                                   Yes                                                                        No                                                              No
-  cache                                                                                                                                externalCacheDirectory                                                                                                                                                                                   cache-external                                                                                                                                                 r/w                                   Yes                                                                        No\*\*                                                          No
-  files                                                                                                                                externalDataDirectory                                                                                                                                                                                    files-external                                                                                                                                                 r/w                                   Yes                                                                        No                                                              No
+{{<scrollTable>}}
+<table>
+    <tr>
+        <th>Device Path</th>
+        <th>cordova.file.*</th>
+        <th>iosExtraFileSystems</th>
+        <th>r/w</th>
+        <th>persistent</th>
+        <th>OS clears</th>
+        <th>private</th>
+    </tr>
+    <tr>
+        <td><code>file:///android_asset/</code></td>
+        <td>applicationDirectory</td>
+        <td>assets</td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>/data/data/&#60;app-id&#62;/</code></td>
+        <td>applicationStorageDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>cache</code></td>
+        <td>cacheDirectory</td>
+        <td>cache</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>Yes*</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>files</code></td>
+        <td>dataDirectory</td>
+        <td>files</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Documents</code></td>
+        <td></td>
+        <td>documents</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>&#60;sdcard&#62;/</code></td>
+        <td>externalRootDirector</td>
+        <td>sdcard</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>Android/data/&#60;app-id&#62;/</code></td>
+        <td>externalApplicationStorageDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>cache</code></td>
+        <td>externalCacheDirectory</td>
+        <td>cache-external</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No**</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>files</code></td>
+        <td>externalDataDirectory</td>
+        <td>files-external</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+</table>
+{{</scrollTable>}}
 
 \* The OS may periodically clear this directory, but do not rely on this
 behavior. Clear the contents of this directory as appropriate for your
@@ -168,33 +353,65 @@ this directory are removed.
 responsible for managing the contents yourself. Should the user purge
 the cache manually, the contents of the directory are removed.
 
-<div class="admonition note">
-
-If external storage can't be mounted, the `cordova.file.external*`
-properties are `null`.
-
-</div>
+{{<note>}}
+If external storage can't be mounted, the <code>cordova.file.external*</code>
+properties are <code>null</code>.
+{{</note>}}
 
 #### Windows File System Layout
 
-+-------------+------------------+----+----------+---------+---------+
-| Device Path | `cordova.file.*` | r/ | persiste | OS      | private |
-|             |                  | w? | nt?      | clears  |         |
-+=============+==================+====+==========+=========+=========+
-| ms-appdata: | applicationDirec | r  | N/A      | N/A     | Yes     |
-| ///         | tory             |    |          |         |         |
-+-------------+------------------+----+----------+---------+---------+
-| > local/    | dataDirectory    | r  | N/A      | N/A     | Yes     |
-+-------------+------------------+----+----------+---------+---------+
-| > temp/     | CacheDirectory   | r/ | No       | Yes     | Yes     |
-|             |                  | w  |          |         |         |
-+-------------+------------------+----+----------+---------+---------+
-| > temp/     | tempDirectory    | r/ | Yes      | No      | Yes     |
-|             |                  | w  |          |         |         |
-+-------------+------------------+----+----------+---------+---------+
-| roaming     | syncedDataDirect | r/ | Yes      | No      | No      |
-|             | ory              | w  |          |         |         |
-+-------------+------------------+----+----------+---------+---------+
+{{<scrollTable>}}
+<table>
+    <tr>
+        <th>Device Path</th>
+        <th>cordova.file.*</th>
+        <th>r/w?</th>
+        <th>persistent?</th>
+        <th>OS clears</th>
+        <th>private</th>
+    </tr>
+    <tr>
+        <td><code>ms-appdata:///</code></td>
+        <td>applicationDirectory</td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>local/</code></td>
+        <td>dataDirectory</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>temp/</code></td>
+        <td>cacheDirectory</td>
+        <td>r/w</td>
+        <td>No</td>
+        <td>Yes*</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>temp/</code></td>
+        <td>tempDirectory</td>
+        <td>r/w</td>
+        <td>No</td>
+        <td>Yes*</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>roaming/</code></td>
+        <td>syncedDataDirectory</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+</table>
+{{</scrollTable>}}
 
 \* The OS may periodically clear this directory
 
@@ -366,14 +583,9 @@ supported by core plugins - for example you can download an mp3 file to
 cdvfile-path via `cordova-plugin-file-transfer` and play it via
 `cordova-plugin-media`.
 
-<div class="admonition note">
-
-See [Where to Store Files](#where-to-store-files), [File System
-Layouts](#file-system-layouts) and [Configuring the
-Plugin](#configuring-the-plugin-optional) for more details about
-available fs roots.
-
-</div>
+{{<note>}}
+See {{<link href="#where-to-store-files" title="Where to Store Files">}}, {{<link title="File System Layouts" href="#file-system-layouts">}} and {{<link title="Configuring the Plugin" href="#configuring-the-plugin-optional">}} for more details about available fs roots.
+{{</note>}}
 
 To use `cdvfile` as a tag' `src` you can convert it to native path via
 `toURL()` method of the resolved fileEntry, which you can get via
@@ -433,20 +645,20 @@ var my_media = new Media('cdvfile://localhost/temporary/path/to/file.mp3', ...);
 
 When an error is thrown, one of the following codes will be used.
 
-  Code                            Constant
-  ------------------------------- ----------------------------------------------------------------------------------------------------------------------------
-  1                               `NOT_FOUND_ERR`
-  2                               `SECURITY_ERR`
-  3                               `ABORT_ERR`
-  4                               `NOT_READABLE_ERR`
-  5                               `ENCODING_ERR`
-  6                               `NO_MODIFICATION_ALLOWED_ERR`
-  7                               `INVALID_STATE_ERR`
-  8                               `SYNTAX_ERR`
-  9                               `INVALID_MODIFICATION_ERR`
-  10                              `QUOTA_EXCEEDED_ERR`
-  11                              `TYPE_MISMATCH_ERR`
-  12                              `PATH_EXISTS_ERR`
+Code | Constant
+-----|------------------
+`1` | `NOT_FOUND_ERR`
+`2` | `SECURITY_ERR`
+`3` | `ABORT_ERR`
+`4` | `NOT_READABLE_ERR`
+`5` | `ENCODING_ERR`
+`6` | `NO_MODIFICATION_ALLOWED_ERR`
+`7` | `INVALID_STATE_ERR`
+`8` | `SYNTAX_ERR`
+`9` | `INVALID_MODIFICATION_ERR`
+`10` | `QUOTA_EXCEEDED_ERR`
+`11` | `TYPE_MISMATCH_ERR`
+`12` | `PATH_EXISTS_ERR`
 
 ### Configuring the Plugin (Optional)
 
@@ -494,18 +706,15 @@ or persistent storage location for your app (sandboxed storage) and to
 store files in other platform-dependent locations. The code snippets in
 this section demonstrate different tasks including:
 
--   Accessing the file system &lt;persistent\_file&gt;
--   Using cross-platform Cordova file URLs to
-    store your files &lt;append\_file\_alternative&gt; (see Where to
-    Store Files for more info)
--   Creating files &lt;persistent\_file&gt; and
-    directories &lt;create\_directories&gt;
--   Writing to files &lt;write\_file&gt;
--   Reading files &lt;read\_file&gt;
--   Appending files &lt;append\_file\_alternative&gt;
--   Display an image file &lt;display\_image&gt;
+-   [Accessing the file system](#persistent-file)
+-   Using cross-platform Cordova file URLs to [store your files](#append-file-alternative) (see Where to Store Files for more info)
+-   Creating [files](#persistent-file) and [directories](#create-directories)
+-   [Writing to files](#write-file)
+-   [Reading files](#read-file)
+-   [Appending files](#append-file-alternative)
+-   [Display an image file](#display-image)
 
-### Create a persistent file
+### <a name="persistent-file"></a> Create a persistent file
 
 Before you use the File plugin APIs, you can get access to the file
 system using `requestFileSystem`. When you do this, you can request
@@ -518,31 +727,31 @@ the app itself), not for general access to any file system location on
 the device. (To access file system locations outside the sandboxed
 storage, use other methods such as window.requestLocalFileSystemURL,
 which support platform-specific locations. For one example of this, see
-Append a File.)
+*Append a File*.)
 
 Here is a request for persistent storage.
 
-<div class="admonition note">
-
+{{<note>}}
 When targeting WebView clients (instead of a browser) or native apps
-(Windows), you dont need to use requestQuota before using persistent
+(Windows), you dont need to use <code>requestQuota</code> before using persistent
 storage.
+{{</note>}}
 
-</div>
+{{<highlight javascript>}}
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+    console.log('file system open: ' + fs.name);
+    fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
 
-        console.log('file system open: ' + fs.name);
-        fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
+        console.log("fileEntry is file?" + fileEntry.isFile.toString());
+        // fileEntry.name == 'someFile.txt'
+        // fileEntry.fullPath == '/someFile.txt'
+        writeFile(fileEntry, null);
 
-            console.log("fileEntry is file?" + fileEntry.isFile.toString());
-            // fileEntry.name == 'someFile.txt'
-            // fileEntry.fullPath == '/someFile.txt'
-            writeFile(fileEntry, null);
+    }, onErrorCreateFile);
 
-        }, onErrorCreateFile);
-
-    }, onErrorLoadFs);
+}, onErrorLoadFs);
+{{</highlight>}}
 
 The success callback receives FileSystem object (fs). Use `fs.root` to
 return a DirectoryEntry object, which you can use to create or get a
@@ -558,57 +767,63 @@ use this to perform file write and file read operations.
 Here is an example of a request for temporary storage. Temporary storage
 may be deleted by the operating system if the device runs low on memory.
 
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-        console.log('file system open: ' + fs.name);
-        createFile(fs.root, "newTempFile.txt", false);
+    console.log('file system open: ' + fs.name);
+    createFile(fs.root, "newTempFile.txt", false);
 
-    }, onErrorLoadFs);
+}, onErrorLoadFs);
+{{</highlight>}}
 
 When you are using temporary storage, you can create or get the file by
 calling `getFile`. As in the persistent storage example, this will give
 you a FileEntry object that you can use for read or write operations.
 
-    function createFile(dirEntry, fileName, isAppend) {
-        // Creates a new file or returns the file if it already exists.
-        dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
+{{<highlight javascript>}}
+function createFile(dirEntry, fileName, isAppend) {
+    // Creates a new file or returns the file if it already exists.
+    dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
 
-            writeFile(fileEntry, null, isAppend);
+        writeFile(fileEntry, null, isAppend);
 
-        }, onErrorCreateFile);
+    }, onErrorCreateFile);
 
-    }
+}
+{{</highlight>}}
 
-### Write to a file
+### <a name="write-file"></a> Write to a file
 
 Once you have a FileEntry object, you can write to the file by calling
 `createWriter`, which returns a FileWriter object in the success
 callback. Call the `write` method of FileWriter to write to the file.
 
-    function writeFile(fileEntry, dataObj) {
-        // Create a FileWriter object for our FileEntry (log.txt).
-        fileEntry.createWriter(function (fileWriter) {
+{{<highlight javascript>}}
+function writeFile(fileEntry, dataObj) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
 
-            fileWriter.onwriteend = function() {
-                console.log("Successful file read...");
-                readFile(fileEntry);
-            };
+        fileWriter.onwriteend = function() {
+            console.log("Successful file write...");
+            readFile(fileEntry);
+        };
 
-            fileWriter.onerror = function (e) {
-                console.log("Failed file read: " + e.toString());
-            };
+        fileWriter.onerror = function (e) {
+            console.log("Failed file write: " + e.toString());
+        };
 
-            // If data object is not passed in,
-            // create a new Blob instead.
-            if (!dataObj) {
-                dataObj = new Blob(['some file data'], { type: 'text/plain' });
-            }
+        // If data object is not passed in,
+        // create a new Blob instead.
+        if (!dataObj) {
+            dataObj = new Blob(['some file data'], { type: 'text/plain' });
+        }
 
-            fileWriter.write(dataObj);
-        });
-    }
+        fileWriter.write(dataObj);
+    });
+}
+{{</highlight>}}
 
-### Read a file
+### <a name="read-file"></a> Read a file
 
 You also need a FileEntry object to read an existing file. Use the file
 property of FileEntry to get the file reference, and then create a new
@@ -616,22 +831,24 @@ FileReader object. You can use methods like `readAsText` to start the
 read operation. When the read operation is complete, `this.result`
 stores the result of the read operation.
 
-    function readFile(fileEntry) {
+{{<highlight javascript>}}
+function readFile(fileEntry) {
 
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function() {
-                console.log("Successful file read: " + this.result);
-                displayFileData(fileEntry.fullPath + ": " + this.result);
-            };
+        reader.onloadend = function() {
+            console.log("Successful file read: " + this.result);
+            displayFileData(fileEntry.fullPath + ": " + this.result);
+        };
 
-            reader.readAsText(file);
+        reader.readAsText(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}
 
-### Append a file using alternative methods
+### <a name="append-file-alternative"></a> Append a file using alternative methods
 
 Of course, you will often want to append existing files instead of
 creating new ones. Here is an example of that. This example shows
@@ -641,18 +858,20 @@ cross-platform Cordova file URL, cordova.file.dataDirectory, to the
 function. The success callback receives a DirectoryEntry object, which
 you can use to do things like create a file.
 
-    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
-        console.log('file system open: ' + dirEntry.name);
-        var isAppend = true;
-        createFile(dirEntry, "fileToAppend.txt", isAppend);
-    }, onErrorLoadFs);
+{{<highlight javascript>}}
+window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
+    console.log('file system open: ' + dirEntry.name);
+    var isAppend = true;
+    createFile(dirEntry, "fileToAppend.txt", isAppend);
+}, onErrorLoadFs);
+{{</highlight>}}
 
 In addition to this usage, you can use `resolveLocalFileSystemURL` to
 get access to some file system locations that are not part of the
-sandboxed storage system. See Where to store Files for more information;
-many of these storage locations are platform-specific. You can also pass
-cross-platform file system locations to `resolveLocalFileSystemURL`
-using the `cdvfile protocol`.
+sandboxed storage system. See *Where to store Files* for more
+information; many of these storage locations are platform-specific. You
+can also pass cross-platform file system locations to
+`resolveLocalFileSystemURL` using the *cdvfile protocol*.
 
 For the append operation, there is nothing new in the `createFile`
 function that is called in the preceding code (see the preceding
@@ -664,31 +883,33 @@ the index value for the position where you want to write. In this
 example, you also test whether the file exists. After calling seek, then
 call the write method of FileWriter.
 
-    function writeFile(fileEntry, dataObj, isAppend) {
-        // Create a FileWriter object for our FileEntry (log.txt).
-        fileEntry.createWriter(function (fileWriter) {
+{{<highlight javascript>}}
+function writeFile(fileEntry, dataObj, isAppend) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
 
-            fileWriter.onwriteend = function() {
-                console.log("Successful file read...");
-                readFile(fileEntry);
-            };
+        fileWriter.onwriteend = function() {
+            console.log("Successful file read...");
+            readFile(fileEntry);
+        };
 
-            fileWriter.onerror = function (e) {
-                console.log("Failed file read: " + e.toString());
-            };
+        fileWriter.onerror = function (e) {
+            console.log("Failed file read: " + e.toString());
+        };
 
-            // If we are appending data to file, go to the end of the file.
-            if (isAppend) {
-                try {
-                    fileWriter.seek(fileWriter.length);
-                }
-                catch (e) {
-                    console.log("file doesn't exist!");
-                }
+        // If we are appending data to file, go to the end of the file.
+        if (isAppend) {
+            try {
+                fileWriter.seek(fileWriter.length);
             }
-            fileWriter.write(dataObj);
-        });
-    }
+            catch (e) {
+                console.log("file doesn't exist!");
+            }
+        }
+        fileWriter.write(dataObj);
+    });
+}
+{{</highlight>}}
 
 ### Store an existing binary file
 
@@ -704,12 +925,14 @@ Before you get the file, get a FileSystem reference using
 cache in the sandboxed file system. Use `fs.root` to get the
 DirectoryEntry object that you need.
 
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-        console.log('file system open: ' + fs.name);
-        getSampleFile(fs.root);
+    console.log('file system open: ' + fs.name);
+    getSampleFile(fs.root);
 
-    }, onErrorLoadFs);
+}, onErrorLoadFs);
+{{</highlight>}}
 
 For completeness, here is the xhr request to get a Blob image. There is
 nothing Cordova-specific in this code, except that you forward the
@@ -717,119 +940,130 @@ DirectoryEntry reference that you already obtained as an argument to the
 saveFile function. You will save the blob image and display it later
 after reading the file (to validate the operation).
 
-    function getSampleFile(dirEntry) {
+{{<highlight javascript>}}
+function getSampleFile(dirEntry) {
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://cordova.apache.org/static/img/cordova_bot.png', true);
-        xhr.responseType = 'blob';
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://cordova.apache.org/static/img/cordova_bot.png', true);
+    xhr.responseType = 'blob';
 
-        xhr.onload = function() {
-            if (this.status == 200) {
+    xhr.onload = function() {
+        if (this.status == 200) {
 
-                var blob = new Blob([this.response], { type: 'image/png' });
-                saveFile(dirEntry, blob, "downloadedImage.png");
-            }
-        };
-        xhr.send();
-    }
+            var blob = new Blob([this.response], { type: 'image/png' });
+            saveFile(dirEntry, blob, "downloadedImage.png");
+        }
+    };
+    xhr.send();
+{{</highlight>}}
 
-<div class="admonition note">
-
-For Cordova 5 security, the preceding code requires that you add the
-domain name, <http://cordova.apache.org>, to the Content-Security-Policy
-element in index.html.
-
-</div>
+{{<note>}}
+For Cordova 5 security, the preceding code requires that you
+add the domain name, <code>http://cordova.apache.org</code>, to the
+<b>Content-Security-Policy</b> element in <code>index.html</code>.
+{{</note>}}
 
 After getting the file, copy the contents to a new file. The current
 DirectoryEntry object is already associated with the app cache.
 
-    function saveFile(dirEntry, fileData, fileName) {
+{{<highlight javascript>}}
+function saveFile(dirEntry, fileData, fileName) {
 
-        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
+    dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
 
-            writeFile(fileEntry, fileData);
+        writeFile(fileEntry, fileData);
 
-        }, onErrorCreateFile);
-    }
+    }, onErrorCreateFile);
+}
+{{</highlight>}}
 
 In writeFile, you pass in the Blob object as the dataObj and you will
 save that in the new file.
 
-    function writeFile(fileEntry, dataObj, isAppend) {
+{{<highlight javascript>}}
+function writeFile(fileEntry, dataObj, isAppend) {
 
-        // Create a FileWriter object for our FileEntry (log.txt).
-        fileEntry.createWriter(function (fileWriter) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
 
-            fileWriter.onwriteend = function() {
-                console.log("Successful file write...");
-                if (dataObj.type == "image/png") {
-                    readBinaryFile(fileEntry);
-                }
-                else {
-                    readFile(fileEntry);
-                }
-            };
+        fileWriter.onwriteend = function() {
+            console.log("Successful file write...");
+            if (dataObj.type == "image/png") {
+                readBinaryFile(fileEntry);
+            }
+            else {
+                readFile(fileEntry);
+            }
+        };
 
-            fileWriter.onerror = function(e) {
-                console.log("Failed file write: " + e.toString());
-            };
+        fileWriter.onerror = function(e) {
+            console.log("Failed file write: " + e.toString());
+        };
 
-            fileWriter.write(dataObj);
-        });
-    }
+        fileWriter.write(dataObj);
+    });
+}
+{{</highlight>}}
 
 After writing to the file, read it and display it. You saved the image
-as binary data, so you can read it using FileReader.readAsArrayBuffer.
+as binary data, so you can read it using `FileReader.readAsArrayBuffer`.
 
-    function readBinaryFile(fileEntry) {
+{{<highlight javascript>}}
+function readBinaryFile(fileEntry) {
 
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function() {
+        reader.onloadend = function() {
 
-                console.log("Successful file write: " + this.result);
-                displayFileData(fileEntry.fullPath + ": " + this.result);
+            console.log("Successful file write: " + this.result);
+            displayFileData(fileEntry.fullPath + ": " + this.result);
 
-                var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
-                displayImage(blob);
-            };
+            var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
+            displayImage(blob);
+        };
 
-            reader.readAsArrayBuffer(file);
+        reader.readAsArrayBuffer(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}
 
 After reading the data, you can display the image using code like this.
-Use window.URL.createObjectURL to get a DOM string for the Blob image.
+Use `window.URL.createObjectURL` to get a DOM string for the Blob image.
 
-    function displayImage(blob) {
+{{<highlight javascript>}}
+function displayImage(blob) {
 
-        // Displays image if result is a valid DOM string for an image.
-        var elem = document.getElementById('imageFile');
-        // Note: Use window.URL.revokeObjectURL when finished with image.
-        elem.src = window.URL.createObjectURL(blob);
-    }
+    // Displays image if result is a valid DOM string for an image.
+    var elem = document.getElementById('imageFile');
+    // Note: Use window.URL.revokeObjectURL when finished with image.
+    elem.src = window.URL.createObjectURL(blob);
+}
+{{</highlight>}}
 
-### Display an image file
+### <a name="display-image"></a> Display an image file
 
 To display an image using a FileEntry, you can call the `toURL` method.
 
-    function displayImageByFileURL(fileEntry) {
-        var elem = document.getElementById('imageFile');
-        elem.src = fileEntry.toURL();
-    }
+{{<highlight javascript>}}
+function displayImageByFileURL(fileEntry) {
+    var elem = document.getElementById('imageFile');
+    elem.src = fileEntry.toURL();
+}
+{{</highlight>}}
 
 If you are using some platform-specific URIs instead of a FileEntry and
 you want to display an image, you may need to include the main part of
 the URI in the Content-Security-Policy element in index.html. For
-example, on Windows 10, you can include `ms-appdata`: in your element.
+example, on Windows 10, you can include `ms-appdata:` in your element.
 Here is an example.
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+{{<highlight html>}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+{{</highlight>}}
 
-### Create Directories
+### <a name="create-directories"></a> Create Directories
 
 In the code here, you create directories in the root of the app storage
 location. You could use this code with any writable storage location
@@ -838,17 +1072,19 @@ location. You could use this code with any writable storage location
 by passing fs.root into this function.
 
 This code creates the /NewDirInRoot/images folder in the application
-cache. For platform-specific values, look at `File System Layouts`.
+cache. For platform-specific values, look at *File System Layouts*.
 
-    function createDirectory(rootDirEntry) {
-        rootDirEntry.getDirectory('NewDirInRoot', { create: true }, function (dirEntry) {
-            dirEntry.getDirectory('images', { create: true }, function (subDirEntry) {
+{{<highlight javascript>}}
+function createDirectory(rootDirEntry) {
+    rootDirEntry.getDirectory('NewDirInRoot', { create: true }, function (dirEntry) {
+        dirEntry.getDirectory('images', { create: true }, function (subDirEntry) {
 
-                createFile(subDirEntry, "fileInNewSubDir.txt");
+            createFile(subDirEntry, "fileInNewSubDir.txt");
 
-            }, onErrorGetDir);
         }, onErrorGetDir);
-    }
+    }, onErrorGetDir);
+}
+{{</highlight>}}
 
 When creating subfolders, you need to create each folder separately as
 shown in the preceding code.

@@ -1,48 +1,47 @@
-Media Plugin
-============
+---
+title: Media Plugin
+---
 
-Tested Version:
-[3.0.1](https://github.com/apache/cordova-plugin-media/releases/tag/3.0.1)
+# Media Plugin
 
-<div class="admonition note">
+Tested Version: [3.0.1](https://github.com/apache/cordova-plugin-media/releases/tag/3.0.1)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-media).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-media">}}.
+{{</note>}}
 
 This plugin provides the ability to record and play back audio files on
 a device.
 
-<div class="admonition note">
-
+{{<note>}}
 The current implementation does not adhere to a W3C specification for
 media capture, and is provided for convenience only. A future
 implementation will adhere to the latest W3C specification and may
 deprecate the current APIs.
-
-</div>
+{{</note>}}
 
 This plugin defines a global `Media` Constructor. Although in the global
 scope, it is not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(Media);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-media
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Media`
-plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+`Media` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
@@ -54,9 +53,9 @@ Supported Platforms
 Media Object
 ------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
-```
+{{</highlight>}}
 
 ### Parameters
 
@@ -69,15 +68,12 @@ var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
 -   **mediaStatus**: (Optional) The callback that executes to indicate
     status changes. *(Function)*
 
-<div class="admonition note">
-
-`cdvfile` path is supported as `src` parameter:
-
-</div>
-
-``` {.sourceCode .javascript}
+{{<note>}}
+<code>cdvfile</code> path is supported as <code>src</code> parameter:
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
-```
+{{</highlight>}}
+{{</note>}}
 
 ### Additional ReadOnly Parameters
 
@@ -120,7 +116,9 @@ The following constants are reported as the only parameter to the
 
 Returns the current amplitude of the current recording.
 
+{{<highlight javascript>}}
     media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 ##### Supported Platforms
 
@@ -136,7 +134,7 @@ Returns the current amplitude of the current recording.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -157,14 +155,16 @@ mediaTimer = setInterval(function () {
         }
     );
 }, 1000);
-```
+{{</highlight>}}
 
 #### media.getCurrentPosition
 
 Returns the current position within an audio file. Also updates the
 `Media` object's `position` parameter.
 
+{{<highlight javascript>}}
     media.getCurrentPosition(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 ##### Parameters
 
@@ -173,9 +173,10 @@ Returns the current position within an audio file. Also updates the
 -   **mediaError**: (Optional) The callback to execute if an error
     occurs.
 
+
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -196,18 +197,21 @@ var mediaTimer = setInterval(function () {
         }
     );
 }, 1000);
-```
+{{</highlight>}}
 
 #### media.getDuration
 
 Returns the duration of an audio file in seconds. If the duration is
 unknown, it returns a value of -1.
 
+{{<highlight javascript>}}
     media.getDuration();
+{{</highlight>}}
+
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -225,19 +229,19 @@ var timerDur = setInterval(function() {
         document.getElementById('audio_duration').innerHTML = (dur) + " sec";
     }
 }, 100);
-```
+{{</highlight>}}
 
 #### media.play
 
 Starts or resumes playing an audio file.
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 media.play();
-```
+{{</highlight>}}
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -255,48 +259,47 @@ function playAudio(url) {
     // Play audio
     my_media.play();
 }
-```
+{{</highlight>}}
 
 ##### iOS Quirks
 
 -   **numberOfLoops**: Pass this option to the `play` method to specify
     the number of times you want the media file to play, e.g.:
 
-        var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
-        myMedia.play({ numberOfLoops: 2 })
+    {{<highlight javascript>}}var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
+myMedia.play({ numberOfLoops: 2 });{{</highlight>}}
 
 -   **playAudioWhenScreenIsLocked**: Pass in this option to the `play`
     method to specify whether you want to allow playback when the screen
     is locked. If set to `true` (the default value), the state of the
     hardware mute button is ignored, e.g.:
 
-        var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
-        myMedia.play({ playAudioWhenScreenIsLocked : true });
-        myMedia.setVolume('1.0');
+    {{<highlight javascript>}}var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
+myMedia.play({ playAudioWhenScreenIsLocked : true });
+myMedia.setVolume('1.0');{{</highlight>}}
 
-    > Note: To allow playback with the screen locked or background audio
-    > you have to add `audio` to `UIBackgroundModes` in the `info.plist`
-    > file. See [Apple
-    > documentation](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23).
-    > Also note that the audio has to be started before going to
-    > background.
+    {{<note>}}
+    To allow playback with the screen locked or background audio you have to add <code>audio</code> to <code>UIBackgroundModes</code> in the <code>info.plist</code> file. See {{<link href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23" title="Apple documentation">}}. Also note that the audio has to be started before going to background.
+    {{</note>}}
 
 -   **order of file search**: When only a file name or simple path is
     provided, iOS searches in the `www` directory for the file, then in
     the application's `documents/tmp` directory:
 
-        var myMedia = new Media("audio/beer.mp3")
-        myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3
+    {{<highlight javascript>}}var myMedia = new Media("audio/beer.mp3")
+myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3{{</highlight>}}
 
 #### media.pause
 
 Pauses playing an audio file.
 
-    media.pause();
+{{<highlight javascript>}}
+media.pause();
+{{</highlight>}}
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -316,13 +319,15 @@ function playAudio(url) {
         my_media.pause();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.pauseRecord
 
 Pauses recording an audio file.
 
-    media.pauseRecord();
+{{<highlight javascript>}}
+media.pauseRecord();
+{{</highlight>}}
 
 ##### Supported Platforms
 
@@ -330,7 +335,7 @@ Pauses recording an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -354,7 +359,7 @@ function recordAudio() {
         mediaRec.pauseRecord();
     }, 5000);
 }
-```
+{{</highlight>}}
 
 #### media.release
 
@@ -363,11 +368,13 @@ particularly important for Android, since there are a finite amount of
 OpenCore instances for media playback. Applications should call the
 `release` function for any `Media` resource that is no longer needed.
 
-    media.release();
+{{<highlight javascript>}}
+media.release();
+{{</highlight>}}
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -375,13 +382,15 @@ var my_media = new Media(src, onSuccess, onError);
 my_media.play();
 my_media.stop();
 my_media.release();
-```
+{{</highlight>}}
 
 #### media.resumeRecord
 
 Resume recording an audio file.
 
-    media.resumeRecord();
+{{<highlight javascript>}}
+media.resumeRecord();
+{{</highlight>}}
 
 ##### Supported Platforms
 
@@ -389,7 +398,7 @@ Resume recording an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -418,13 +427,15 @@ function recordAudio() {
         mediaRec.resumeRecord();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.seekTo
 
 Sets the current position within an audio file.
 
-    media.seekTo(milliseconds);
+{{<highlight javascript>}}
+media.seekTo(milliseconds);
+{{</highlight>}}
 
 ##### Parameters
 
@@ -433,7 +444,7 @@ Sets the current position within an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -442,13 +453,15 @@ var my_media = new Media(src, onSuccess, onError);
 setTimeout(function() {
     my_media.seekTo(10000);
 }, 5000);
-```
+{{</highlight>}}
 
 #### media.setVolume
 
 Set the volume for an audio file.
 
-    media.setVolume(volume);
+{{<highlight javascript>}}
+media.setVolume(volume);
+{{</highlight>}}
 
 ##### Parameters
 
@@ -462,7 +475,7 @@ Set the volume for an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -490,13 +503,15 @@ function playAudio(url) {
         my_media.setVolume('1.0');
     }, 5000);
 }
-```
+{{</highlight>}}
 
 #### media.startRecord
 
 Starts recording an audio file.
 
-    media.startRecord();
+{{<highlight javascript>}}
+media.startRecord();
+{{</highlight>}}
 
 ##### Supported Platforms
 
@@ -506,7 +521,7 @@ Starts recording an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -525,7 +540,7 @@ function recordAudio() {
     // Record audio
     mediaRec.startRecord();
 }
-```
+{{</highlight>}}
 
 ##### Android Quirks
 
@@ -547,7 +562,7 @@ function recordAudio() {
     specified at record time must already exist.
 -   Files can be recorded and played back using the documents URI:
 
-        var myMedia = new Media("documents://beer.mp3")
+    {{<highlight javascript>}}var myMedia = new Media("documents://beer.mp3"){{</highlight>}}
 
 -   Since iOS 10 it's mandatory to add a `NSMicrophoneUsageDescription`
     entry in the info.plist.
@@ -566,8 +581,7 @@ value.
 -   Windows devices can use MP3, M4A and WMA formats for recorded audio.
     However in most cases it is not possible to use MP3 for audio
     recording on *Windows Phone 8.1* devices, because an MP3 encoder is
-    [not shipped with Windows
-    Phone](https://msdn.microsoft.com/en-us/library/windows/apps/windows.media.mediaproperties.mediaencodingprofile.createmp3.aspx).
+    [not shipped with Windows Phone](https://msdn.microsoft.com/en-us/library/windows/apps/windows.media.mediaproperties.mediaencodingprofile.createmp3.aspx).
 -   If a full path is not provided, the recording is placed in the
     `AppData/temp` directory. This can be accessed via the `File` API
     using `LocalFileSystem.TEMPORARY` or `ms-appdata:///temp/<filename>`
@@ -578,11 +592,13 @@ value.
 
 Stops playing an audio file.
 
-    media.stop();
+{{<highlight javascript>}}
+media.stop();
+{{</highlight>}}
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -606,13 +622,15 @@ function playAudio(url) {
         my_media.stop();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.stopRecord
 
 Stops recording an audio file.
 
-    media.stopRecord();
+{{<highlight javascript>}}
+media.stopRecord();
+{{</highlight>}}
 
 ##### Supported Platforms
 
@@ -622,7 +640,7 @@ Stops recording an audio file.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -647,7 +665,7 @@ function recordAudio() {
         mediaRec.stopRecord();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 MediaError Object
 -----------------
@@ -667,3 +685,7 @@ when an error occurs.
 -   `MediaError.MEDIA_ERR_DECODE` = 3
 -   `MediaError.MEDIA_ERR_NONE_SUPPORTED` = 4
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

@@ -1,15 +1,15 @@
-Media Plugin
-============
+---
+title: Media Plugin
+---
+
+# Media Plugin
 
 Tested Version:
 [2.3.0](https://github.com/apache/cordova-plugin-media/releases/tag/2.3.0)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-media).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-media">}}.
+{{</note>}}
 
 This plugin provides the ability to record and play back audio files on
 a device.
@@ -41,8 +41,8 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Media`
-plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+`Media` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
@@ -69,15 +69,12 @@ API Reference
 -   **mediaStatus**: (Optional) The callback that executes to indicate
     status changes. *(Function)*
 
-<div class="admonition note">
-
-`cdvfile` path is supported as `src` parameter:
-
-``` {.sourceCode .javascript}
+{{<note>}}
+<code>cdvfile</code> path is supported as <code>src</code> parameter:
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
-```
-
-</div>
+{{</highlight>}}
+{{</note>}}
 
 #### Constants
 

@@ -4,8 +4,11 @@ title: Network Information Plugin
 
 # Network Information Plugin
 
-Tested Version:
-[1.2.1](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.2.1)
+<div>
+  <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-network-information/blob/master/RELEASENOTES.md#0210-jun-24-2014">0.2.10</a></div>   
+  <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>
+  <br/>
+</div>
 
 {{<note>}}
 This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-network-information">}}.
@@ -19,26 +22,25 @@ and whether the device has an internet connection.
 Plugin ID
 ---------
 
-    cordova-plugin-network-information
+    org.apache.cordova.network-information
 
-Adding the Plugin in Monaca
----------------------------
+Enable Plugin in Monaca
+-----------------------
 
 In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
-`Network Information` plugin in Monaca Cloud IDE.
+`org.apache.cordova.network-information` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
 
 -   Android
 -   iOS
--   Windows
 
-API Reference
--------------
+Connection
+----------
 
-The `connection` object, exposed via `navigator.connection`, provides
-information about the device's cellular and wifi connection.
+> The `connection` object, exposed via `navigator.connection`, provides
+> information about the device's cellular and wifi connection.
 
 ### Properties
 
@@ -60,27 +62,29 @@ information about the device's cellular and wifi connection.
 This property offers a fast way to determine the device's network
 connection state, and type of connection.
 
-#### Quick Example
+**Quick Example**
 
-    function checkConnection() {
-        var networkState = navigator.connection.type;
+``` {.sourceCode .javascript}
+function checkConnection() {
+    var networkState = navigator.connection.type;
 
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.CELL]     = 'Cell generic connection';
-        states[Connection.NONE]     = 'No network connection';
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
-    }
+    alert('Connection type: ' + states[networkState]);
+}
 
-    checkConnection();
+checkConnection();
+```
 
-#### API Change
+**API Change**
 
 Until Cordova 2.3.0, the `Connection` object was accessed via
 `navigator.network.connection`, after which it was changed to
@@ -88,17 +92,11 @@ Until Cordova 2.3.0, the `Connection` object was accessed via
 available at its original location, but is deprecated and will
 eventually be removed.
 
-#### iOS Quirks
+**iOS Quirks**
 
 -   iOS can't detect the type of cellular network connection.
-
-> -   `navigator.connection.type` is set to `Connection.CELL` for all
->     cellular data.
-
-#### Windows Quirks
-
--   When running in the Phone 8.1 emulator, always detects
-    `navigator.connection.type` as `Connection.ETHERNET`.
+    -   `navigator.connection.type` is set to `Connection.CELL` for all
+        cellular data.
 
 Network-related Events
 ----------------------
@@ -108,27 +106,31 @@ Network-related Events
 The event fires when an application goes offline, and the device is not
 connected to the Internet.
 
-    document.addEventListener("offline", yourCallbackFunction, false);
+``` {.sourceCode .javascript}
+document.addEventListener("offline", yourCallbackFunction, false);
+```
 
-#### Details
+**Details**
 
 The `offline` event fires when a previously connected device loses a
 network connection so that an application can no longer access the
 Internet. It relies on the same information as the Connection API, and
-fires when the value of `connection.type` becomes `NONE`.
+fires when the `connection.type` changes from `NONE` to any other value.
 
 Applications typically should use `document.addEventListener` to attach
 an event listener once the `deviceready` event fires.
 
-#### Quick Example
+**Quick Example**
 
-    document.addEventListener("offline", onOffline, false);
+``` {.sourceCode .javascript}
+document.addEventListener("offline", onOffline, false);
 
-    function onOffline() {
-        // Handle the offline event
-    }
+function onOffline() {
+    // Handle the offline event
+}
+```
 
-#### iOS Quirks
+**iOS Quirks**
 
 During initial startup, the first offline event (if applicable) takes at
 least a second to fire.
@@ -138,27 +140,31 @@ least a second to fire.
 This event fires when an application goes online, and the device becomes
 connected to the Internet.
 
-    document.addEventListener("online", yourCallbackFunction, false);
+``` {.sourceCode .javascript}
+document.addEventListener("online", yourCallbackFunction, false);
+```
 
-#### Details
+**Details**
 
 The `online` event fires when a previously unconnected device receives a
 network connection to allow an application access to the Internet. It
 relies on the same information as the Connection API, and fires when the
-`connection.type` changes from `NONE` to any other value.
+value of `connection.type` becomes `NONE`.
 
 Applications typically should use `document.addEventListener` to attach
 an event listener once the `deviceready` event fires.
 
-#### Quick Example
+**Quick Example**
 
-    document.addEventListener("online", onOnline, false);
+``` {.sourceCode .javascript}
+document.addEventListener("online", onOnline, false);
 
-    function onOnline() {
-        // Handle the online event
-    }
+function onOnline() {
+    // Handle the online event
+}
+```
 
-#### iOS Quirks
+**iOS Quirks**
 
 During initial startup, the first `online` event (if applicable) takes
 at least a second to fire, prior to which `connection.type` is

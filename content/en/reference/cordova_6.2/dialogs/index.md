@@ -1,15 +1,15 @@
-Dialogs Plugin
-==============
+---
+title: Dialogs Plugin
+---
+
+# Dialogs Plugin
 
 Tested Version:
 [1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-dialogs).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-dialogs">}}.
+{{</note>}}
 
 This plugin provides access to some native dialog UI elements via a
 global `navigator.notification` object.
@@ -30,7 +30,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Notification` plugin in Monaca Cloud IDE.
 
 API Reference

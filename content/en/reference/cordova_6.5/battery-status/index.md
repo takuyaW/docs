@@ -1,19 +1,16 @@
-Battery Status Plugin
-=====================
+---
+title: Battery Status Plugin
+---
 
-Tested Version:
-[1.2.4](https://github.com/apache/cordova-plugin-battery-status/releases/tag/1.2.4)
+# Battery Status Plugin
 
-<div class="admonition note">
+Tested Version: [1.2.4](https://github.com/apache/cordova-plugin-battery-status/releases/tag/1.2.4)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-battery-status).
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-battery-status">}}.
+{{</note>}}
 
-</div>
-
-This plugin provides an implementation of an old version of the [Battery
-Status Events
-API](http://www.w3.org/TR/2011/WD-battery-status-20110915/). It adds the
+This plugin provides an implementation of an old version of the [Battery Status Events API](http://www.w3.org/TR/2011/WD-battery-status-20110915/). It adds the
 following three events to the `window` object:
 
 -   batterystatus
@@ -27,13 +24,14 @@ fires.
 Plugin ID
 ---------
 
-    cordova-plugin-battery-status
+{{<syntax>}}
+cordova-plugin-battery-status
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
-`Battery` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Battery` plugin in Monaca Cloud IDE.
 
 API Reference
 -------------
@@ -43,23 +41,26 @@ API Reference
 All events in this plugin return an object with the following
 properties:
 
--   **level**: The battery charge percentage (0-100). *(Number)*
--   **isPlugged**: A boolean that indicates whether the device is
-    plugged in. *(Boolean)*
+Property | Type | Description
+-----|------|-------------
+`level` | Number | The battery charge percentage (`0-100`)
+`isPlugged` | Boolean | Indicates whether the device is plugged in
 
 ### batterystatus event
 
-Fires when the battery charge percentage changes by at least 1 percent,
+Fires when the battery charge percentage changes by at least `1 percent`,
 or when the device is plugged in or unplugged. Returns an
 [object](#status-object) containing battery status.
 
 #### Example
 
-    window.addEventListener("batterystatus", onBatteryStatus, false);
+{{<highlight javascript>}}
+window.addEventListener("batterystatus", onBatteryStatus, false);
 
-    function onBatteryStatus(status) {
-        console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
-    }
+function onBatteryStatus(status) {
+    console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
+}
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -69,12 +70,10 @@ or when the device is plugged in or unplugged. Returns an
 
 #### Quirks: Android
 
-<div class="admonition warning">
-
+{{<warning>}}
 The Android implementations are greedy and prolonged use will drain the
 device's battery.
-
-</div>
+{{</warning>}}
 
 #### Quirks: Windows Phone 8.1
 
@@ -89,11 +88,13 @@ threshold. This threshold value is device-specific. Returns an
 
 #### Example
 
-    window.addEventListener("batterylow", onBatteryLow, false);
+{{<highlight javascript>}}
+window.addEventListener("batterylow", onBatteryLow, false);
 
-    function onBatteryLow(status) {
-        alert("Battery Level Low " + status.level + "%");
-    }
+function onBatteryLow(status) {
+    alert("Battery Level Low " + status.level + "%");
+}
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -115,11 +116,13 @@ threshold. This threshold value is device-specific. Returns an
 
 #### Example
 
-    window.addEventListener("batterycritical", onBatteryCritical, false);
+{{<highlight javascript>}}
+window.addEventListener("batterycritical", onBatteryCritical, false);
 
-    function onBatteryCritical(status) {
-        alert("Battery Level Critical " + status.level + "%\nRecharge Soon!");
-    }
+function onBatteryCritical(status) {
+    alert("Battery Level Critical " + status.level + "%\nRecharge Soon!");
+}
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -132,3 +135,8 @@ threshold. This threshold value is device-specific. Returns an
 The `batterycritical` event fires on Windows Phone 8.1 irrespective of
 whether the device is plugged in or not. This happens because the OS
 does not provide an API to detect whether the device is plugged in.
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

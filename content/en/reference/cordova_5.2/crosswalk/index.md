@@ -1,16 +1,19 @@
-  Crosswalk Plugin (Android Only)
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  .. rst-class:: right-menu
-  .. raw:: html
-  &lt;div&gt;
-  &lt;div style="float: left;" align="left"&gt;&lt;b&gt;Tested Version: &lt;/b&gt;&lt;a href="<https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview#130-august-28-2015>"&gt;1.3.0&lt;/a&gt;&lt;/div&gt;
-  &lt;div align="right" style="float: right;"&gt;&lt;b&gt;Last Edited:&lt;/b&gt; November 20th, 2015&lt;/div&gt;
-  &lt;br/&gt;
-  &lt;/div&gt;
-  .. note::
-  This document is based on the original Cordova docs available at [Cordova Docs](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview).
-  This plugin makes your Cordova application uses the [Crosswalk WebView](https://crosswalk-project.org/) instead of the System WebView.
-  What is Crosswalk?
+---
+title: Crosswalk Plugin (Android Only)
+---
+
+# Crosswalk Plugin (Android Only)
+
+Tested Version: [1.3.0](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview/releases/tag/1.3.0)
+  
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview">}}.
+{{</note>}}
+
+
+This plugin makes your Cordova application uses the [Crosswalk WebView](https://crosswalk-project.org/) instead of the System WebView.
+
+## What is Crosswalk?
 
 There are many versions of Android from many manufacturers, this makes
 it very difficult to develop a Cordova app that works consistently
@@ -33,38 +36,42 @@ Plugin ID
     cordova-plugin-crosswalk-webview
 
 Supported Platforms
-===================
+-------------------
 
--   Android 4.0.0 or higher
+-   Android 4.0 or higher
 -   Cordova 5.2 or higher
 
 Adding the Plugin in Monaca
-===========================
+---------------------------
 
 In order to use this plugin, you need to enable `Crosswalk` plugin in
 Monaca Cloud IDE first.
 
-1.  From Monaca Cloud IDE, go to Config --&gt; Cordova Plugins.
-2.  Enable the Crosswalk WebView Engine (see the screenshot below).
+1.  From Monaca Cloud IDE, go to {{<menu menu1="Config" menu2="Cordova Plugins">}}.
+2.  Enable the `Crosswalk WebView Engine` (see the screenshot below).
 
-> ![](../images/crosswalk/1.png){width="600px"}
+    {{<img src="/images/reference/cordova_5.2/crosswalk/1.png">}}
 
-3.  After enabling the Crosswalk WebView Engine, you can also change its
-    version by clicking on Settings button.
+3.  After enabling the Crosswalk WebView Engine, you need to config the
+    architecture type of the plugin by clicking on {{<guilabel name="Configure">}} button.
 
-> ![](../images/crosswalk/2.png){width="600px"}
+    {{<img src="/images/reference/cordova_5.2/crosswalk/2.png">}}
 
-4.  Then, the following dialog will appear. After finishing your
-    configuration, click OK.
+4.  Then, the following dialog will appear. Select the architecture type
+    of the plugin and click {{<guilabel name="OK">}}.
 
-> <div class="admonition note">
->
-> You can change both plugin version or Crosswalk version. However, not
-> all version combination between the two are applicable.
->
-> </div>
->
-> ![](../images/crosswalk/3.png){width="600px"}
+    {{<img src="/images/reference/cordova_5.2/crosswalk/3.png" width="500">}}
+
+{{<note>}}
+You can change both plugin version or Crosswalk version. However, not
+all version combination between the two are applicable. To guarantee the
+stability of your application, we highly recommend you to use the
+default Crosswalk plugin set by Monaca.
+{{</note>}}
 
 Pros and Cons of Crosswalk Plugin
-=================================
+---------------------------------
+
+Advantages | Disadvantages
+-----------|--------------------
+<ul><li>WebView installed on each device has the same version. The problem due to different operations of API has been solved.</li><li>The latest version of WebView (Android 4 is not supported) is being used, performance improvement is expected.</li></ul> | <ul><li>Building a Crosswalk app results in `2 APK` files: one `arm` and one for `x86` CPU architecture. Both of them need to be uploaded to GooglePlay.</li><li>When there is bugs in Crosswalk (Chromium), all devices will be having the same bugs.</li><li>App size can be `+20MB` bigger.</li><li>When there is a serious bug occurs in Crosswalk, the app might stop working until it is solved.</li><li>If there is vulnerability occurrs in Crosswalk(Chromium), there will be a warning in Google Play that the app may be publicly unavailable.</li><li>For Android 5.0 or higher, WebView is made as another app, so it will always needed to be updated. Therefore, Crosswalk’s WebView version maybe out of dated.</li></ul>

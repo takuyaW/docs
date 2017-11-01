@@ -1,15 +1,15 @@
-File Transfer Plugin
-====================
+---
+title: File Transfer Plugin
+---
+
+# File Transfer Plugin
 
 Tested Version:
 [1.5.1](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.5.1)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-file-transfer).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-file-transfer">}}.
+{{</note>}}
 
 This plugin allows you to upload and download files.
 
@@ -30,7 +30,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Transfer` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -78,6 +78,16 @@ multi-part POST or PUT request, and to download files as well.
     recommended for production use. Supported on Android and iOS.
     *(boolean)*
 -   **options**: Optional parameters *(Object)*. Valid keys:
+
+    Key | Description
+    ----|----------------------
+    `fileKey` | The name of the form element. Defaults to file. (DOMString)
+    `fileName` | The file name to use when saving the file on the server. Defaults to image.jpg. (DOMString)
+    `httpMethod` | The HTTP method to use - either PUT or POST. Defaults to POST. (DOMString)
+    `mimeType` | The mime type of the data to upload. Defaults to image/jpeg. (DOMString)
+    `params` | A set of optional key/value pairs to pass in the HTTP request. (Object)
+    `chunkedMode` | Whether to upload the data in chunked streaming mode. Defaults to true. (Boolean)
+    `headers` | A map of header name/header values. Use an array to specify more than one value. On iOS, FireOS, and Android, if a header named Content-Type is present, multipart form data will NOT be used. (Object)
 
 #### Example
 
@@ -326,11 +336,11 @@ Sample: Download and Upload Files
 Use the File-Transfer plugin to upload and download files. In these
 examples, we demonstrate several tasks like:
 
--   Downloading a binary file to the application cache &lt;binary\_file&gt;
--   Uploading a file created in your application's root &lt;upload\_created\_file&gt;
--   Downloading the uploaded file &lt;download\_uploaded\_file&gt;
+-   [Downloading a binary file to the application cache](#binaryFile)
+-   [Uploading a file created in your application's root](#uploadFile)
+-   [Downloading the uploaded file](#downloadFile)
 
-### Download a Binary File to the application cache
+### <a name="binaryFile"></a> Download a Binary File to the application cache
 
 Use the File plugin with the File-Transfer plugin to provide a target
 for the files that you download (the target must be a FileEntry object).
@@ -339,75 +349,78 @@ Before you download the file, create a DirectoryEntry object by using
 callback. Use the `getFile` method of DirectoryEntry to create the
 target file.
 
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-        console.log('file system open: ' + fs.name);
+    console.log('file system open: ' + fs.name);
 
-        // Make sure you add the domain name to the Content-Security-Policy <meta> element.
-        var url = 'http://cordova.apache.org/static/img/cordova_bot.png';
-        // Parameters passed to getFile create a new file or return the file if it already exists.
-        fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
-            download(fileEntry, url, true);
+    // Make sure you add the domain name to the Content-Security-Policy <meta> element.
+    var url = 'http://cordova.apache.org/static/img/cordova_bot.png';
+    // Parameters passed to getFile create a new file or return the file if it already exists.
+    fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
+        download(fileEntry, url, true);
 
-        }, onErrorCreateFile);
+    }, onErrorCreateFile);
 
-    }, onErrorLoadFs);
+}, onErrorLoadFs);
+{{</highlight>}}
 
-<div class="admonition note">
+{{<note>}}
+For persistent storage, pass LocalFileSystem.PERSISTENT to requestFileSystem.
+{{</note>}}
 
-Note For persistent storage, pass LocalFileSystem.PERSISTENT to
-requestFileSystem.
-
-</div>
-
-When you have the FileEntry object, `download` the file using the
-download method of the FileTransfer object. The 3rd argument to the
+When you have the FileEntry object, download the file using the
+`download` method of the FileTransfer object. The 3rd argument to the
 `download` function of FileTransfer is the success callback, which you
 can use to call the app's `readBinaryFile` function. In this code
-example, the entry variable is a new FileEntry object that receives the
-result of the download operation.
+example, the `entry` variable is a new FileEntry object that receives
+the result of the download operation.
 
-    function download(fileEntry, uri, readBinaryData) {
+{{<highlight javascript>}}
+function download(fileEntry, uri, readBinaryData) {
 
-        var fileTransfer = new FileTransfer();
-        var fileURL = fileEntry.toURL();
+    var fileTransfer = new FileTransfer();
+    var fileURL = fileEntry.toURL();
 
-        fileTransfer.download(
-            uri,
-            fileURL,
-            function (entry) {
-                console.log("Successful download...");
-                console.log("download complete: " + entry.toURL());
-                if (readBinaryData) {
-                  // Read the file...
-                  readBinaryFile(entry);
-                }
-                else {
-                  // Or just display it.
-                  displayImageByFileURL(entry);
-                }
-            },
-            function (error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            null, // or, pass false
-            {
-                //headers: {
-                //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                //}
+    fileTransfer.download(
+        uri,
+        fileURL,
+        function (entry) {
+            console.log("Successful download...");
+            console.log("download complete: " + entry.toURL());
+            if (readBinaryData) {
+              // Read the file...
+              readBinaryFile(entry);
             }
-        );
-    }
+            else {
+              // Or just display it.
+              displayImageByFileURL(entry);
+            }
+        },
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("upload error code" + error.code);
+        },
+        null, // or, pass false
+        {
+            //headers: {
+            //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            //}
+        }
+    );
+}
+{{</highlight>}}
 
 If you just need to display the image, take the FileEntry to call its
 toURL() function.
 
-    function displayImageByFileURL(fileEntry) {
-        var elem = document.getElementById('imageFile');
-        elem.src = fileEntry.toURL();
-    }
+{{<highlight javascript>}}
+function displayImageByFileURL(fileEntry) {
+    var elem = document.getElementById('imageElement');
+    elem.src = fileEntry.toURL();
+}
+{{</highlight>}}
 
 Depending on your app requirements, you may want to read the file. To
 support operations with binary files, FileReader supports two methods,
@@ -416,41 +429,45 @@ support operations with binary files, FileReader supports two methods,
 you read the file successfully, construct a Blob object using the result
 of the read.
 
-    function readBinaryFile(fileEntry) {
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+{{<highlight javascript>}}
+function readBinaryFile(fileEntry) {
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function() {
+        reader.onloadend = function() {
 
-                console.log("Successful file read: " + this.result);
-                // displayFileData(fileEntry.fullPath + ": " + this.result);
+            console.log("Successful file read: " + this.result);
+            // displayFileData(fileEntry.fullPath + ": " + this.result);
 
-                var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
-                displayImage(blob);
-            };
+            var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
+            displayImage(blob);
+        };
 
-            reader.readAsArrayBuffer(file);
+        reader.readAsArrayBuffer(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}
 
 Once you read the file successfully, you can create a DOM URL string
 using `createObjectURL`, and then display the image.
 
-    function displayImage(blob) {
+{{<highlight javascript>}}
+function displayImage(blob) {
 
-        // Note: Use window.URL.revokeObjectURL when finished with image.
-        var objURL = window.URL.createObjectURL(blob);
+    // Note: Use window.URL.revokeObjectURL when finished with image.
+    var objURL = window.URL.createObjectURL(blob);
 
-        // Displays image if result is a valid DOM string for an image.
-        var elem = document.getElementById('imageFile');
-        elem.src = objURL;
-    }
+    // Displays image if result is a valid DOM string for an image.
+    var elem = document.getElementById('imageElement');
+    elem.src = objURL;
+}
+{{</highlight>}}
 
 As you saw previously, you can call FileEntry.toURL() instead to just
 display the downloaded image (skip the file read).
 
-### Upload a File
+### <a name="uploadFile"></a> Upload a File
 
 When you upload a File using the File-Transfer plugin, use the File
 plugin to provide files for upload (again, they must be FileEntry
@@ -459,81 +476,87 @@ the `getFile` method of DirectoryEntry. In this example, create the file
 in the application's cache (fs.root). Then call the app's writeFile
 function so you have some content to upload.
 
-    function onUploadFile() {
-        window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+function onUploadFile() {
+    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-            console.log('file system open: ' + fs.name);
-            var fileName = "uploadSource.txt";
-            var dirEntry = fs.root;
-            dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
+        console.log('file system open: ' + fs.name);
+        var fileName = "uploadSource.txt";
+        var dirEntry = fs.root;
+        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
 
-                // Write something to the file before uploading it.
-                writeFile(fileEntry);
+            // Write something to the file before uploading it.
+            writeFile(fileEntry);
 
-            }, onErrorCreateFile);
+        }, onErrorCreateFile);
 
-        }, onErrorLoadFs);
-    }
+    }, onErrorLoadFs);
+}
+{{</highlight>}}
 
 In this example, create some simple content, and then call the app's
 upload function.
 
-    function writeFile(fileEntry, dataObj) {
-        // Create a FileWriter object for our FileEntry (log.txt).
-        fileEntry.createWriter(function (fileWriter) {
+{{<highlight javascript>}}
+function writeFile(fileEntry, dataObj) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
 
-            fileWriter.onwriteend = function () {
-                console.log("Successful file write...");
-                upload(fileEntry);
-            };
+        fileWriter.onwriteend = function () {
+            console.log("Successful file write...");
+            upload(fileEntry);
+        };
 
-            fileWriter.onerror = function (e) {
-                console.log("Failed file write: " + e.toString());
-            };
+        fileWriter.onerror = function (e) {
+            console.log("Failed file write: " + e.toString());
+        };
 
-            if (!dataObj) {
-              dataObj = new Blob(['file data to upload'], { type: 'text/plain' });
-            }
+        if (!dataObj) {
+          dataObj = new Blob(['file data to upload'], { type: 'text/plain' });
+        }
 
-            fileWriter.write(dataObj);
-        });
-    }
+        fileWriter.write(dataObj);
+    });
+}
+{{</highlight>}}
 
 Forward the FileEntry object to the upload function. To perform the
 actual upload, use the upload function of the FileTransfer object.
 
-    function upload(fileEntry) {
-        // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-        var fileURL = fileEntry.toURL();
+{{<highlight javascript>}}
+function upload(fileEntry) {
+    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
+    var fileURL = fileEntry.toURL();
 
-        var success = function (r) {
-            console.log("Successful upload...");
-            console.log("Code = " + r.responseCode);
-            displayFileData(fileEntry.fullPath + " (content uploaded to server)");
-        }
+    var success = function (r) {
+        console.log("Successful upload...");
+        console.log("Code = " + r.responseCode);
+        // displayFileData(fileEntry.fullPath + " (content uploaded to server)");
+    }
 
-        var fail = function (error) {
-            alert("An error has occurred: Code = " + error.code);
-        }
+    var fail = function (error) {
+        alert("An error has occurred: Code = " + error.code);
+    }
 
-        var options = new FileUploadOptions();
-        options.fileKey = "file";
-        options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-        options.mimeType = "text/plain";
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+    options.mimeType = "text/plain";
 
-        var params = {};
-        params.value1 = "test";
-        params.value2 = "param";
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
 
-        options.params = params;
+    options.params = params;
 
-        var ft = new FileTransfer();
-        // SERVER must be a URL that can handle the request, like
-        // http://some.server.com/upload.php
-        ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
-    };
+    var ft = new FileTransfer();
+    // SERVER must be a URL that can handle the request, like
+    // http://some.server.com/upload.php
+    ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
+};
+{{</highlight>}}
 
-### Download the uploaded file
+### <a name="downloadFile"></a> Download the uploaded file
 
 To download the image you just uploaded, you will need a valid URL that
 can handle the request, for example,
@@ -543,48 +566,52 @@ difference here from previous examples is that we call
 FileReader.readAsText to read the result of the download operation,
 because we uploaded a file with text content.
 
-    function download(fileEntry, uri) {
+{{<highlight javascript>}}
+function download(fileEntry, uri) {
 
-        var fileTransfer = new FileTransfer();
-        var fileURL = fileEntry.toURL();
+    var fileTransfer = new FileTransfer();
+    var fileURL = fileEntry.toURL();
 
-        fileTransfer.download(
-            uri,
-            fileURL,
-            function (entry) {
-                console.log("Successful download...");
-                console.log("download complete: " + entry.toURL());
-                readFile(entry);
-            },
-            function (error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            null, // or, pass false
-            {
-                //headers: {
-                //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                //}
-            }
-        );
-    }
+    fileTransfer.download(
+        uri,
+        fileURL,
+        function (entry) {
+            console.log("Successful download...");
+            console.log("download complete: " + entry.toURL());
+            readFile(entry);
+        },
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("upload error code" + error.code);
+        },
+        null, // or, pass false
+        {
+            //headers: {
+            //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            //}
+        }
+    );
+}
+{{</highlight>}}
 
 In the readFile function, call the `readAsText` method of the FileReader
 object.
 
-    function readFile(fileEntry) {
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+{{<highlight javascript>}}
+function readFile(fileEntry) {
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function () {
+        reader.onloadend = function () {
 
-                console.log("Successful file read: " + this.result);
-                // displayFileData(fileEntry.fullPath + ": " + this.result);
+            console.log("Successful file read: " + this.result);
+            // displayFileData(fileEntry.fullPath + ": " + this.result);
 
-            };
+        };
 
-            reader.readAsText(file);
+        reader.readAsText(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}

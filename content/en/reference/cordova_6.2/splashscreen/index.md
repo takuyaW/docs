@@ -1,15 +1,15 @@
-Splashscreen Plugin
-===================
+---
+title: Splashscreen Plugin
+---
+
+# Splashscreen Plugin
 
 Tested Version:
 [3.2.2](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/3.2.2)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-splashscreen).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-splashscreen">}}.
+{{</note>}}
 
 This plugin displays and hides a splash screen during application
 launch.
@@ -22,7 +22,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Splashscreen` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -81,15 +81,15 @@ to disable the splashscreen on `ios` platform you should also add
 
     <preference name="FadeSplashScreenDuration" value="3000"/>
 
-<div class="admonition note">
+`FadeSplashScreenDuration` is included into `SplashScreenDelay`, for
+example if you have the following configuration defined in in the `config.xml` file:
 
-`FadeSplashScreenDuration` is included into SplashScreenDelay, for
-example if you have
-`<preference name="SplashScreenDelay" value="3000" />` and
-`<preference name="FadeSplashScreenDuration" value="1000"/>` defined in
-`config.xml`:
+{{<highlight xml>}}
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="FadeSplashScreenDuration" value="1000"/>
+{{</highlight>}}
 
-</div>
+Then, the following action will happen:
 
 -   00:00 - splashscreen is shown
 -   00:02 - fading has started

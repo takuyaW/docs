@@ -586,3 +586,10 @@ div.small-table {
   }
   
 }
+
+.scroll-table {
+  overflow-x: auto;
+  table {
+    font-size: 12px;
+  }
+}

@@ -1,31 +1,30 @@
-Network Information Plugin
-==========================
+---
+title: Network Information Plugin
+---
 
-Tested Version:
-[1.3.3](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.3.3)
+# Network Information Plugin
 
-<div class="admonition note">
+Tested Version: [1.3.3](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.3.3)
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](https://github.com/apache/cordova-plugin-network-information).
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-network-information">}}.
+{{</note>}}
 
-</div>
-
-This plugin provides an implementation of an old version of the [Network
-Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). It
+This plugin provides an implementation of an old version of the [Network Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). It
 provides information about the device's cellular and wifi connection,
 and whether the device has an internet connection.
 
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-network-information
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Network Information` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -65,7 +64,7 @@ connection state, and type of connection.
 
 ##### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 function checkConnection() {
     var networkState = navigator.connection.type;
 
@@ -83,7 +82,7 @@ function checkConnection() {
 }
 
 checkConnection();
-```
+{{</highlight>}}
 
 ##### API Change
 
@@ -95,7 +94,7 @@ eventually be removed.
 
 ##### iOS Quirks
 
--   &lt;iOS7 can't detect the type of cellular network connection.
+-   iOS7 can't detect the type of cellular network connection.
     -   `navigator.connection.type` is set to `Connection.CELL` for all
         cellular data.
 
@@ -112,7 +111,9 @@ Network-related Events
 The event fires when an application goes offline, and the device is not
 connected to the Internet.
 
+{{<highlight javascript>}}
     document.addEventListener("offline", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### Details
 
@@ -126,13 +127,13 @@ an event listener once the `deviceready` event fires.
 
 #### Quick Example
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 document.addEventListener("offline", onOffline, false);
 
 function onOffline() {
     // Handle the offline event
 }
-```
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -154,9 +155,9 @@ change, so the event does *not* fire.
 This event fires when an application goes online, and the device becomes
 connected to the Internet.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("online", yourCallbackFunction, false);
-```
+{{</highlight>}}
 
 #### Details
 
@@ -170,13 +171,13 @@ an event listener once the `deviceready` event fires.
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("online", onOnline, false);
 
 function onOnline() {
     // Handle the online event
 }
-```
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -193,13 +194,11 @@ using the online and offline events and your network connection status.
 To start with, create a new FileEntry object (data.txt) to use for
 sample data. Call this function from the `deviceready` handler.
 
-<div class="admonition note">
-
+{{<note>}}
 This code example requires the File plugin.
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var dataFileEntry;
 
 function createSomeData() {
@@ -216,22 +215,22 @@ function createSomeData() {
 
     }, onErrorLoadFs);
 }
-```
+{{</highlight>}}
 
 Next, add listeners for the online and offline events in the
 `deviceready` handler.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
-```
+{{</highlight>}}
 
 The app's `onOnline` function handles the online event. In the event
 handler, check the current network state. In this app, treat any
-connection type as good except Connection.NONE. If you have a
+connection type as good except `Connection.NON`E. If you have a
 connection, you try to upload a file.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onOnline() {
     // Handle the online event
     var networkState = navigator.connection.type;
@@ -243,20 +242,18 @@ function onOnline() {
     }
     display('Connection type: ' + networkState);
 }
-```
+{{</highlight>}}
 
 When the online event fires in the preceding code, call the app's
 `tryToUploadFile` function. If the FileTransfer object's upload function
 fails, call the app's `offlineWrite` function to save the current data
 somewhere.
 
-<div class="admonition note">
-
+{{<note>}}
 This example requires the FileTransfer plugin.
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function tryToUploadFile() {
     // !! Assumes variable fileURL contains a valid URL to a text file on the device,
     var fileURL = getDataFileEntry().toURL();
@@ -281,17 +278,15 @@ function tryToUploadFile() {
     // Content-Security-Policy <meta> element in index.html.
     ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
 };
-```
+{{</highlight>}}
 
 Here is the code for the `offlineWrite` function.
 
-<div class="admonition note">
-
+{{<note>}}
 This code examples requires the File plugin.
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function offlineWrite(offlineData) {
     // Create a FileWriter object for our FileEntry.
     dataFileEntry.createWriter(function (fileWriter) {
@@ -308,14 +303,19 @@ function offlineWrite(offlineData) {
         fileWriter.write(offlineData);
     });
 }
-```
+{{</highlight>}}
 
 If the offline event occurs, just do something like notify the user (for
 this example, just log it).
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onOffline() {
     // Handle the offline event
     console.log("lost connection");
 }
-```
+{{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

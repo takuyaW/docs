@@ -1,12 +1,23 @@
-Cordova Core Plugins
-====================
+---
+title: Core Cordova Plugins
+---
 
-> maxdepth
->
-> :   2
->
-> battery-status/index camera/index contacts/index device/index
-> compass/index dialogs/index file/index file-transfer/index
-> geolocation/index globalization/index inappbrowser/index media/index
-> media-capture/index connection/index splashscreen/index
-> statusbar/index vibration/index
+# Core Cordova Plugins
+
+- [Battery Status Plugin](battery-status)
+- [Camera Plugin](camera)
+- [Contacts Plugin](contacts)
+- [Device Plugin](device)
+- [Device Orientation Plugin](device-orientation)
+- [Dialogs Plugin](dialogs)
+- [File Plugin](file)
+- [File Transfer Plugin](file-transfer)
+- [Geolocation Plugin](geolocation)
+- [Globalization Plugin](globalization)
+- [InAppBrowser Plugin](inappbrowser)
+- [Media Plugin](media)
+- [Media Capture Plugin](media-capture)
+- [Network Information Plugin](network-information)
+- [Splashscreen Plugin](splashscreen)
+- [Vibration Plugin](vibration)
+- [StatusBar Plugin](statusbar)

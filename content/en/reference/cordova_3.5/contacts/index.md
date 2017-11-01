@@ -6,13 +6,10 @@ Contacts Plugin
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](https://github.com/apache/cordova-plugin-contacts/blob/master/README.md).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-contacts">}}.
+{{</note>}}
 
 Provides access to the device contacts database.
 
@@ -40,9 +37,8 @@ Plugin ID
 Enable Plugin in Monaca
 -----------------------
 
-In order to use this plugin, please enable `org.apache.cordova.contacts`
-plugin in Monaca Cloud IDE. Please refer to standard\_plugins docs for
-how to enable the plugin in Monaca.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+`Contacts` plugin in Monaca Cloud IDE.
 
 navigator.contacts
 ------------------

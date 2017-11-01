@@ -1,15 +1,15 @@
-Globalization Plugin
-====================
+---
+title: Globalization Plugin
+---
+
+# Globalization Plugin
 
 Tested Version:
 [1.0.3](https://github.com/apache/cordova-plugin-globalization/releases/tag/1.0.3)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-globalization).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-globalization">}}.
+{{</note>}}
 
 This plugin obtains information and performs operations specific to the
 user's locale, language, and timezone. Note the difference between
@@ -40,7 +40,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Globalization` plugin in Monaca Cloud IDE.
 
 API Reference

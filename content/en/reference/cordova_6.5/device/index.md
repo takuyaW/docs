@@ -1,38 +1,37 @@
-Device Plugin
-=============
+---
+title: Device Plugin
+---
 
-Tested Version:
-[1.1.6](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.6)
+# Device Plugin
 
-<div class="admonition note">
+Tested Version: [1.1.6](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.6)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-device).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-device">}}.
+{{</note>}}
 
 This plugin defines a global `device` object, which describes the
 device's hardware and software. Although the object is in the global
 scope, it is not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(device.cordova);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-device
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Device`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Device`
 plugin in Monaca Cloud IDE.
 
 Properties
@@ -71,7 +70,7 @@ versions of the same product.
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Nexus One       returns "Passion" (Nexus One code name)
 //             Motorola Droid  returns "voles"
 // BlackBerry: Torch 9800      returns "9800"
@@ -81,7 +80,7 @@ versions of the same product.
 // OSX:                        returns "x86_64"
 //
 var model = device.model;
-```
+{{</highlight>}}
 
 #### Android Quirks
 
@@ -96,9 +95,9 @@ var model = device.model;
 
 Get the device's operating system name.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.platform;
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -108,7 +107,7 @@ var string = device.platform;
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Depending on the device, a few examples are:
 //   - "Android"
 //   - "BlackBerry 10"
@@ -118,16 +117,16 @@ var string = device.platform;
 //   - "Tizen"
 //   - "Mac OS X"
 var devicePlatform = device.platform;
-```
+{{</highlight>}}
 
 ### device.uuid
 
 Get the device's Universally Unique Identifier
 ([UUID](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.uuid;
-```
+{{</highlight>}}
 
 #### Description
 
@@ -142,7 +141,7 @@ manufacturer and are specific to the device's platform or model.
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android: Returns a random 64-bit integer (as a string, again!)
 //          The integer is generated on the device's first boot
 //
@@ -156,7 +155,7 @@ manufacturer and are specific to the device's platform or model.
 // Tizen: returns the device IMEI (International Mobile Equipment Identity or IMEI is a number
 // unique to every GSM and UMTS mobile phone.
 var deviceID = device.uuid;
-```
+{{</highlight>}}
 
 #### iOS Quirk
 
@@ -174,9 +173,9 @@ another means as it will be retrieved from preferences.
 
 Get the operating system version.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.version;
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -186,7 +185,7 @@ var string = device.version;
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Froyo OS would return "2.2"
 //             Eclair OS would return "2.1", "2.0.1", or "2.0"
 //             Version can also return update level "2.1-update1"
@@ -203,15 +202,15 @@ var string = device.version;
 // OSX:        El Capitan would return "10.11.2"
 //
 var deviceVersion = device.version;
-```
+{{</highlight>}}
 
 ### device.manufacturer
 
 Get the device's manufacturer.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.manufacturer;
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -221,21 +220,21 @@ var string = device.manufacturer;
 
 #### Quick Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Motorola XT1032 would return "motorola"
 // BlackBerry: returns "BlackBerry"
 // iPhone:     returns "Apple"
 //
 var deviceManufacturer = device.manufacturer;
-```
+{{</highlight>}}
 
 ### device.isVirtual
 
 whether the device is running on a simulator.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var isSim = device.isVirtual;
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -248,11 +247,15 @@ var isSim = device.isVirtual;
 Get the device hardware serial number
 ([SERIAL](http://developer.android.com/reference/android/os/Build.html#SERIAL)).
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.serial;
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
 -   Android
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

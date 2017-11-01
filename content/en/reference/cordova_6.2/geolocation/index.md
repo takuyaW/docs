@@ -1,15 +1,15 @@
-Geolocation Plugin
-==================
+---
+title: Geolocation Plugin
+---
+
+# Geolocation Plugin
 
 Tested Version:
 [2.2.0](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.2.0)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-geolocation).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-geolocation">}}.
+{{</note>}}
 
 This plugin provides information about the device's location, such as
 latitude and longitude. Common sources of location information include
@@ -22,8 +22,7 @@ This API is based on the [W3C Geolocation API
 Specification](http://dev.w3.org/geo/api/spec-source.html), and only
 executes on devices that don't already provide an implementation.
 
-<div class="admonition warning">
-
+{{<warning>}}
 Collection and use of geolocation data raises important privacy issues.
 Your app's privacy policy should discuss how the app uses geolocation
 data, whether it is shared with any other parties, and the level of
@@ -34,11 +33,9 @@ Therefore, in addition to the app's privacy policy, you should strongly
 consider providing a just-in-time notice before the app accesses
 geolocation data (if the device operating system doesn't do so already).
 That notice should provide the same information noted above, as well as
-obtaining the user's permission (e.g., by presenting choices for **OK**
-and **No Thanks**). For more information, please see the [Privacy
-Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).
-
-</div>
+obtaining the user's permission (e.g., by presenting choices for <b>OK</b>
+and <b>No Thanks</b>). For more information, please see the {{<link href="http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html" title="Privacy Guide">}}.
+{{</warning>}}
 
 This plugin defines a global `navigator.geolocation` object (for
 platforms where it is otherwise missing).
@@ -59,7 +56,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Geolocation` plugin in Monaca Cloud IDE.
 
 Supported Platforms

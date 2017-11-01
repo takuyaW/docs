@@ -1,15 +1,15 @@
-Device Plugin
-=============
+---
+title: Device Plugin
+---
+
+# Device Plugin
 
 Tested Version:
 [1.1.2](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.2)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-device).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-device">}}.
+{{</note>}}
 
 This plugin defines a global `device` object, which describes the
 device's hardware and software. Although the object is in the global
@@ -23,12 +23,14 @@ scope, it is not available until after the `deviceready` event.
 Plugin ID
 ---------
 
-    cordova-plugin-device
+{{<syntax>}}
+cordova-plugin-device
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Device`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Device`
 plugin in Monaca Cloud IDE.
 
 API Reference

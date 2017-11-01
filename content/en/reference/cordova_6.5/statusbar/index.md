@@ -1,15 +1,14 @@
-StatusBar Plugin
-================
+---
+title: StatusBar Plugin
+---
 
-Tested Version:
-[2.2.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.2.3)
+# StatusBar Plugin
 
-<div class="admonition note">
+Tested Version: [2.2.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.2.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-statusbar).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-statusbar">}}.
+{{</note>}}
 
 The `StatusBar` object provides some functions to customize the iOS and
 Android StatusBar.
@@ -17,12 +16,14 @@ Android StatusBar.
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-statusbar
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `StatusBar` plugin in Monaca Cloud IDE.
 
 Preferences
@@ -33,20 +34,20 @@ Preferences
 -   **StatusBarOverlaysWebView** (boolean, defaults to true). On iOS 7,
     make the statusbar overlay or not overlay the WebView at startup.
 
-        <preference name="StatusBarOverlaysWebView" value="true" />
+    {{<highlight xml>}}<preference name="StatusBarOverlaysWebView" value="true" />{{</highlight>}}
 
 -   **StatusBarBackgroundColor** (color hex string, no default value).
     On iOS 7, set the background color of the statusbar by a hex string
     (\#RRGGBB) at startup. If this value is not set, the background
     color will be transparent.
 
-        <preference name="StatusBarBackgroundColor" value="#000000" />
+    {{<highlight xml>}}<preference name="StatusBarBackgroundColor" value="#000000" />{{</highlight>}}
 
 -   **StatusBarStyle** (status bar style, defaults to lightcontent). On
     iOS 7, set the status bar style. Available options default,
     lightcontent, blacktranslucent, blackopaque.
 
-        <preference name="StatusBarStyle" value="lightcontent" />
+    {{<highlight xml>}}<preference name="StatusBarStyle" value="lightcontent" />{{</highlight>}}
 
 ### Android Quirks
 
@@ -56,11 +57,11 @@ of many iOS 7+ apps), so you may want to set the statusbar color at
 runtime instead via `StatusBar.backgroundColorByHexString` or
 `StatusBar.backgroundColorByName`. One way to do that would be:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 if (cordova.platformId == 'android') {
     StatusBar.backgroundColorByHexString("#333");
 }
-```
+{{</highlight>}}
 
 Hiding at startup
 -----------------
@@ -74,12 +75,12 @@ initially hidden"** to **"YES"** and set **"View controller-based status
 bar appearance"** to **"NO"**. If you edit it manually without Xcode,
 the keys and values are:
 
-``` {.sourceCode .xml}
+{{<highlight javascript>}}
 <key>UIStatusBarHidden</key>
 <true/>
 <key>UIViewControllerBasedStatusBarAppearance</key>
 <false/>
-```
+{{</highlight>}}
 
 Methods
 -------
@@ -87,12 +88,12 @@ Methods
 This plugin defines global `StatusBar` object. Although in the global
 scope, it is not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(StatusBar);
 }
-```
+{{</highlight>}}
 
 -   StatusBar.overlaysWebView
 -   StatusBar.styleDefault
@@ -108,7 +109,9 @@ function onDeviceReady() {
 
 On iOS 7, make the statusbar overlay or not overlay the WebView.
 
+{{<highlight javascript>}}
     StatusBar.overlaysWebView(true);
+{{</highlight>}}
 
 #### Description
 
@@ -121,14 +124,18 @@ style and background color to suit using the other functions.
 
 #### Quick Example
 
+{{<highlight javascript>}}
     StatusBar.overlaysWebView(true);
     StatusBar.overlaysWebView(false);
+{{</highlight>}}
 
 ### StatusBar.styleDefault
 
 Use the default statusbar (dark text, for light backgrounds).
 
+{{<highlight javascript>}}
     StatusBar.styleDefault();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -138,7 +145,9 @@ Use the default statusbar (dark text, for light backgrounds).
 
 Use the lightContent statusbar (light text, for dark backgrounds).
 
+{{<highlight javascript>}}
     StatusBar.styleLightContent();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -148,7 +157,9 @@ Use the lightContent statusbar (light text, for dark backgrounds).
 
 Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
+{{<highlight javascript>}}
     StatusBar.styleBlackTranslucent();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -158,7 +169,9 @@ Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 Use the blackOpaque statusbar (light text, for dark backgrounds).
 
+{{<highlight javascript>}}
     StatusBar.styleBlackOpaque();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -169,11 +182,11 @@ Use the blackOpaque statusbar (light text, for dark backgrounds).
 On iOS 7, when you set StatusBar.statusBarOverlaysWebView to false, you
 can set the background color of the statusbar by color name.
 
+{{<highlight javascript>}}
     StatusBar.backgroundColorByName("red");
+{{</highlight>}}
 
-Supported color names are:
-
-    black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown
+Supported color names are: black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
 
 #### Supported Platforms
 
@@ -184,12 +197,16 @@ Supported color names are:
 
 Sets the background color of the statusbar by a hex string.
 
+{{<highlight javascript>}}
     StatusBar.backgroundColorByHexString("#C0C0C0");
+{{</highlight>}}
 
 CSS shorthand properties are also supported.
 
+{{<highlight javascript>}}
     StatusBar.backgroundColorByHexString("#333"); // => #333333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
+{{</highlight>}}
 
 On iOS 7, when you set StatusBar.statusBarOverlaysWebView to false, you
 can set the background color of the statusbar by a hex string
@@ -204,7 +221,9 @@ can set the background color of the statusbar by a hex string
 
 Hide the statusbar.
 
+{{<highlight javascript>}}
     StatusBar.hide();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -215,7 +234,9 @@ Hide the statusbar.
 
 Shows the statusbar.
 
+{{<highlight javascript>}}
     StatusBar.show();
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -229,9 +250,11 @@ Properties
 
 Read this property to see if the statusbar is visible or not.
 
+{{<highlight javascript>}}
     if (StatusBar.isVisible) {
         // do something
     }
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -245,9 +268,11 @@ Events
 
 Listen for this event to know if the statusbar was tapped.
 
+{{<highlight javascript>}}
     window.addEventListener('statusTap', function() {
         // scroll-up with document.body.scrollTop = 0; or do whatever you want
     });
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -258,6 +283,14 @@ Permissions
 
 ### config.xml
 
+{{<highlight xml>}}
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
+{{</highlight>}}
+
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

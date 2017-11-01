@@ -1,18 +1,18 @@
-Camera Plugin
-=============
+---
+title: Camera Plugin
+---
+
+# Camera Plugin
 
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-camera/blob/master/RELEASENOTES.md#030-jun-05-2014">0.3.0</a></div>
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](https://github.com/apache/cordova-plugin-camera/blob/master/README.md).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-camera">}}.
+{{</note>}}
 
 This plugin provides an API for taking pictures and for choosing images
 from the system's image library.
@@ -20,12 +20,14 @@ from the system's image library.
 Plugin ID
 ---------
 
-    org.apache.cordova.camera
+{{<syntax>}}
+org.apache.cordova.camera
+{{</syntax>}}
 
-Enable Plugin in Monaca
------------------------
+Adding the Plugin in Monaca
+---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt; `Camera`
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Camera`
 plugin in Monaca Cloud IDE.
 
 navigator.camera.getPicture
@@ -71,11 +73,10 @@ You can do whatever you want with the encoded image or URI, for example:
     [Lawnchair](http://brianleroux.github.com/lawnchair/), etc.)
 -   Post the data to a remote server
 
-**NOTE**: Photo resolution on newer devices is quite good. Photos
-selected from the device's gallery are not downscaled to a lower
-quality, even if a `quality` parameter is specified. To avoid common
-memory problems, set `Camera.destinationType` to `FILE_URI` rather than
-`DATA_URL`.
+{{<note>}}
+Photo resolution on newer devices is quite good. Photos selected from
+the device's gallery are not downscaled to a lower quality, even if a <code>quality</code> parameter is specified. To avoid common memory problems, set <code>Camera.destinationType</code> to <code>FILE_URI</code> rather than <code>DATA_URL</code>.
+{{</note>}}
 
 ### Supported Platforms
 

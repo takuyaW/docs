@@ -1,15 +1,15 @@
-StatusBar Plugin
-================
+---
+title: StatusBar Plugin
+---
+
+# StatusBar Plugin
 
 Tested Version:
 [2.1.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.1.3)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-statusbar).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-statusbar">}}.
+{{</note>}}
 
 The `StatusBar` object provides some functions to customize the iOS and
 Android StatusBar.
@@ -22,7 +22,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `StatusBar` plugin in Monaca Cloud IDE.
 
 Preferences

@@ -1,36 +1,18 @@
-<!---
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+---
+title: File Plugin
+---
 
-      http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-File Plugin
-===========
+# File Plugin
 
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-file/blob/master/RELEASENOTES.md#120-jun-05-2014">1.2.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>
   <br/>
 </div>
-<div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](https://github.com/apache/cordova-plugin-file/blob/master/README.md).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-file">}}.
+{{</note>}}
 
 This plugin implements a File API allowing read/write access to files
 residing on the device.
@@ -60,9 +42,7 @@ Plugin ID
 Enable Plugin in Monaca
 -----------------------
 
-In order to use this plugin, please enable `org.apache.cordova.file`
-plugin in Monaca Cloud IDE. Please refer to standard\_plugins docs for
-how to enable the plugin in Monaca.
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `org.apache.cordova.file` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
@@ -130,18 +110,120 @@ device.
 
 ### iOS File System Layout
 
-  Device Path                                                                                                                                                         `cordova.file.*`                                                                                                                `iosExtraFileSystems`                                                                                           r/w?                                 persistent?                                                     OS clears                                               sync                                 private
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------- ------------------------------------ --------------------------------------------------------------- ------------------------------------------------------- ------------------------------------ ------------------------------------------------
-  `/var/mobile/Applications/<UUID>/`                                                                                                                                  applicationStorageDirectory                                                                                                     -                                                                                                               r/o                                  N/A                                                             N/A                                                     N/A                                  Yes
-     `appname.app/`                                                                                                                                                   applicationDirectory                                                                                                            bundle                                                                                                          r/o                                  N/A                                                             N/A                                                     N/A                                  Yes
-        `www/`                                                                                                                                                        -                                                                                                                               -                                                                                                               r/o                                  N/A                                                             N/A                                                     N/A                                  Yes
-     `Documents/`                                                                                                                                                     documentsDirectory                                                                                                              documents                                                                                                       r/w                                  Yes                                                             No                                                      Yes                                  Yes
-        `NoCloud/`                                                                                                                                                    -                                                                                                                               documents-nosync                                                                                                r/w                                  Yes                                                             No                                                      No                                   Yes
-     `Library`                                                                                                                                                        -                                                                                                                               library                                                                                                         r/w                                  Yes                                                             No                                                      Yes?                                 Yes
-        `NoCloud/`                                                                                                                                                    dataDirectory                                                                                                                   library-nosync                                                                                                  r/w                                  Yes                                                             No                                                      No                                   Yes
-        `Cloud/`                                                                                                                                                      syncedDataDirectory                                                                                                             -                                                                                                               r/w                                  Yes                                                             No                                                      Yes                                  Yes
-        `Caches/`                                                                                                                                                     cacheDirectory                                                                                                                  cache                                                                                                           r/w                                  Yes\*                                                           Yes\*\*\*                                               No                                   Yes
-     `tmp/`                                                                                                                                                           tempDirectory                                                                                                                   -                                                                                                               r/w                                  No\*\*                                                          Yes\*\*\*                                               No                                   Yes
+{{<scrollTable>}}
+<table>
+    <tr>
+        <th>Device Path</th>
+        <th>cordova.file.*</th>
+        <th>iosExtraFileSystems</th>
+        <th>r/w?</th>
+        <th>persistent?</th>
+        <th>OS clears</th>
+        <th>sync</th>
+        <th>private</th>
+    </tr>
+    <tr>
+        <td><code>/var/mobile/Applications/&#60;UUID&#62;/</code></td>
+        <td>applicationStorageDirectory</td>
+        <td></td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>appname.app/</code></td>
+        <td>applicationDirectory</td>
+        <td>bundle</td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>www/</code></td>
+        <td></td>
+        <td></td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Documents/</code></td>
+        <td>documentsDirectory</td>
+        <td>documents</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>NoCloud/</code></td>
+        <td></td>
+        <td>documents-nosync</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Library</code></td>
+        <td></td>
+        <td>library</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes?</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>NoCloud/</code></td>
+        <td>dataDirectory</td>
+        <td>library-nosync</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Cloud/</code></td>
+        <td>syncedDataDirectory	</td>
+        <td></td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Caches/</code></td>
+        <td>cacheDirectory</td>
+        <td>cache</td>
+        <td>r/w</td>
+        <td>Yes*</td>
+        <td>No***</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>tmp/</code></td>
+        <td>tempDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>No**</td>
+        <td>Yes***</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+</table>
+{{</scrollTable>}}
 
 \* Files persist across app restarts and upgrades, but this directory
 can be cleared whenever the OS desires. Your app should be able to
@@ -158,17 +240,100 @@ directory as appropriate for your application.
 
 ### Android File System Layout
 
-  Device Path                                                                                                                                 `cordova.file.*`                                                                                                                                                     `AndroidExtraFileSystems`                                                                                                           r/w?                                  persistent?                                                       OS clears                                                 private
-  ------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------- ------------------------------------- ----------------------------------------------------------------- --------------------------------------------------------- ---------------------------------------------------------
-  `file:///android_asset/`                                                                                                                    applicationDirectory                                                                                                                                                                                                                                                                                     r/o                                   N/A                                                               N/A                                                       Yes
-  `/data/data/<app-id>/`                                                                                                                      applicationStorageDirectory                                                                                                                                          -                                                                                                                                   r/w                                   N/A                                                               N/A                                                       Yes
-     `cache`                                                                                                                                  cacheDirectory                                                                                                                                                       cache                                                                                                                               r/w                                   Yes                                                               Yes\*                                                     Yes
-     `files`                                                                                                                                  dataDirectory                                                                                                                                                        files                                                                                                                               r/w                                   Yes                                                               No                                                        Yes
-        `Documents`                                                                                                                                                                                                                                                                                                documents                                                                                                                           r/w                                   Yes                                                               No                                                        Yes
-  `<sdcard>/`                                                                                                                                 externalRootDirectory                                                                                                                                                sdcard                                                                                                                              r/w                                   Yes                                                               No                                                        No
-     `Android/data/<app-id>/`                                                                                                                 externalApplicationStorageDirectory                                                                                                                                  -                                                                                                                                   r/w                                   Yes                                                               No                                                        No
-        `cache`                                                                                                                               externalCacheDirectry                                                                                                                                                cache-external                                                                                                                      r/w                                   Yes                                                               No\*\*                                                    No
-        `files`                                                                                                                               externalDataDirectory                                                                                                                                                files-external                                                                                                                      r/w                                   Yes                                                               No                                                        No
+{{<scrollTable>}}
+<table>
+    <tr>
+        <th>Device Path</th>
+        <th>cordova.file.*</th>
+        <th>iosExtraFileSystems</th>
+        <th>r/w</th>
+        <th>persistent</th>
+        <th>OS clears</th>
+        <th>private</th>
+    </tr>
+    <tr>
+        <td><code>file:///android_asset/</code></td>
+        <td>applicationDirectory</td>
+        <td>assets</td>
+        <td>r</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>/data/data/&#60;app-id&#62;/</code></td>
+        <td>applicationStorageDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>cache</code></td>
+        <td>cacheDirectory</td>
+        <td>cache</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>Yes*</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>files</code></td>
+        <td>dataDirectory</td>
+        <td>files</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>Documents</code></td>
+        <td></td>
+        <td>documents</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><code>&#60;sdcard&#62;/</code></td>
+        <td>externalRootDirector</td>
+        <td>sdcard</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>Android/data/&#60;app-id&#62;/</code></td>
+        <td>externalApplicationStorageDirectory</td>
+        <td></td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>cache</code></td>
+        <td>externalCacheDirectory</td>
+        <td>cache-external</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No**</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><code>files</code></td>
+        <td>externalDataDirectory</td>
+        <td>files-external</td>
+        <td>r/w</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+</table>
+{{</scrollTable>}}
 
 \*\*The OS may periodically clear this directory, but do not rely on
 this behavior. Clear the contents of this directory as appropriate for
@@ -344,20 +509,20 @@ List of Error Codes and Meanings
 
 When an error is thrown, one of the following codes will be used.
 
-  Code                            Constant
-  ------------------------------- ----------------------------------------------------------------------------------------------------------------------------
-  1                               `NOT_FOUND_ERR`
-  2                               `SECURITY_ERR`
-  3                               `ABORT_ERR`
-  4                               `NOT_READABLE_ERR`
-  5                               `ENCODING_ERR`
-  6                               `NO_MODIFICATION_ALLOWED_ERR`
-  7                               `INVALID_STATE_ERR`
-  8                               `SYNTAX_ERR`
-  9                               `INVALID_MODIFICATION_ERR`
-  10                              `QUOTA_EXCEEDED_ERR`
-  11                              `TYPE_MISMATCH_ERR`
-  12                              `PATH_EXISTS_ERR`
+Code | Constant
+-----|------------------
+`1` | `NOT_FOUND_ERR`
+`2` | `SECURITY_ERR`
+`3` | `ABORT_ERR`
+`4` | `NOT_READABLE_ERR`
+`5` | `ENCODING_ERR`
+`6` | `NO_MODIFICATION_ALLOWED_ERR`
+`7` | `INVALID_STATE_ERR`
+`8` | `SYNTAX_ERR`
+`9` | `INVALID_MODIFICATION_ERR`
+`10` | `QUOTA_EXCEEDED_ERR`
+`11` | `TYPE_MISMATCH_ERR`
+`12` | `PATH_EXISTS_ERR`
 
 Configuring the Plugin (Optional)
 ---------------------------------

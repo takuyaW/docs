@@ -1,21 +1,19 @@
-Media Capture Plugin
-====================
+---
+title: Media Capture Plugin
+---
 
-Tested Version:
-[1.4.3](https://github.com/apache/cordova-plugin-media-capture/releases/tag/1.4.3)
+# Media Capture Plugin
 
-<div class="admonition note">
+Tested Version: [1.4.3](https://github.com/apache/cordova-plugin-media-capture/releases/tag/1.4.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-media-capture).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-media-capture">}}.
+{{</note>}}
 
 This plugin provides access to the device's audio, image, and video
 capture capabilities.
 
-<div class="admonition warning">
-
+{{<warning>}}
 Collection and use of images, video, or audio from the device's camera
 or microphone raises important privacy issues. Your app's privacy policy
 should discuss how the app uses such sensors and whether the data
@@ -24,34 +22,35 @@ of the camera or microphone is not apparent in the user interface, you
 should provide a just-in-time notice before the app accesses the camera
 or microphone (if the device operating system doesn't do so already).
 That notice should provide the same information noted above, as well as
-obtaining the user's permission (e.g., by presenting choices for **OK**
-and **No Thanks**). Note that some app marketplaces may require your app
+obtaining the user's permission (e.g., by presenting choices for <b>OK</b>
+and <b>No Thanks</b>). Note that some app marketplaces may require your app
 to provide just-in-time notice and obtain permission from the user prior
 to accessing the camera or microphone. For more information, please see
 the Privacy Guide.
-
-</div>
+{{</warning>}}
 
 This plugin defines global `navigator.device.capture` object. Although
 in the global scope, it is not available until after the `deviceready`
 event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.device.capture);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
+{{<syntax>}}
     cordova-plugin-media-capture
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Capture` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -90,12 +89,12 @@ Encapsulates audio capture configuration options.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // limit capture operation to 3 media files, no longer than 10 seconds each
 var options = { limit: 3, duration: 10 };
 
 navigator.device.capture.captureAudio(captureSuccess, captureError, options);
-```
+{{</highlight>}}
 
 ##### Android Quirks
 
@@ -119,12 +118,12 @@ Encapsulates image capture configuration options.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // limit capture operation to 3 images
 var options = { limit: 3 };
 
 navigator.device.capture.captureImage(captureSuccess, captureError, options);
-```
+{{</highlight>}}
 
 ##### iOS Quirks
 
@@ -144,12 +143,12 @@ navigator.device.capture.captureImage(captureSuccess, captureError, options);
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // limit capture operation to 3 video clips
 var options = { limit: 3 };
 
 navigator.device.capture.captureVideo(captureSuccess, captureError, options);
-```
+{{</highlight>}}
 
 ##### iOS Quirks
 
@@ -167,19 +166,19 @@ navigator.device.capture.captureVideo(captureSuccess, captureError, options);
 
 ##### Example ( Android w/ quality )
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // limit capture operation to 1 video clip of low quality
 var options = { limit: 1, quality: 0 };
 navigator.device.capture.captureVideo(captureSuccess, captureError, options);
-```
+{{</highlight>}}
 
 #### CaptureCallBack
 
 Invoked upon a successful media capture operation.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function captureSuccess( MediaFile[] mediaFiles ) { ... };
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -192,14 +191,16 @@ Each `MediaFile` object describes a captured media file.
 
 ##### Example
 
-    // capture callback
-    function captureSuccess(mediaFiles) {
-        var i, path, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        }
-    };
+{{<highlight javascript>}}
+// capture callback
+function captureSuccess(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
+{{</highlight>}}
 
 #### CaptureError
 
@@ -229,9 +230,9 @@ operation.
 
 Invoked if an error occurs during a media capture operation.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function captureError( CaptureError error ) { ... };
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -245,12 +246,12 @@ appropriate error `code`.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // capture error callback
 var captureError = function(error) {
     navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 };
-```
+{{</highlight>}}
 
 #### ConfigurationData
 
@@ -262,8 +263,7 @@ Describes media capture modes supported by the device. The configuration
 data includes the MIME type, and capture dimensions for video or image
 capture.
 
-The MIME types should adhere to
-[RFC2046](http://www.ietf.org/rfc/rfc2046.txt). Examples:
+The MIME types should adhere to [RFC2046](http://www.ietf.org/rfc/rfc2046.txt). Examples:
 
 -   `video/3gpp`
 -   `video/quicktime`
@@ -282,7 +282,7 @@ The MIME types should adhere to
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // retrieve supported image modes
 var imageModes = navigator.device.capture.supportedImageModes;
 
@@ -295,7 +295,7 @@ for each (var mode in imageModes) {
         selectedmode = mode;
     }
 }
-```
+{{</highlight>}}
 
 Not supported by any platform. All configuration data arrays are empty.
 
@@ -369,11 +369,11 @@ Supports the following `MediaFileData` properties:
 > Start the audio recorder application and return information about
 > captured audio clip files.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.device.capture.captureAudio(
     CaptureCB captureSuccess, CaptureErrorCB captureError,  [CaptureAudioOptions options]
 );
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -401,7 +401,7 @@ object, featuring the `CaptureError.CAPTURE_NO_MEDIA_FILES` error code.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // capture callback
 var captureSuccess = function(mediaFiles) {
     var i, path, len;
@@ -418,7 +418,7 @@ var captureError = function(error) {
 
 // start audio capture
 navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
-```
+{{</highlight>}}
 
 ##### iOS Quirks
 
@@ -427,14 +427,13 @@ navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
 
 #### capture.captureImage
 
-> Start the camera application and return information about captured
-> image files.
+Start the camera application and return information about captured image files.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.device.capture.captureImage(
     CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureImageOptions options]
 );
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -489,7 +488,7 @@ value.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // capture callback
 var captureSuccess = function(mediaFiles) {
     var i, path, len;
@@ -506,18 +505,18 @@ var captureError = function(error) {
 
 // start image capture
 navigator.device.capture.captureImage(captureSuccess, captureError, {limit:2});
-```
+{{</highlight>}}
 
 #### capture.captureVideo
 
 Start the video recorder application and return information about
 captured video clip files.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.device.capture.captureVideo(
     CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureVideoOptions options]
 );
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -545,7 +544,7 @@ object featuring a `CaptureError.CAPTURE_NO_MEDIA_FILES` error code.
 
 ##### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // capture callback
 var captureSuccess = function(mediaFiles) {
     var i, path, len;
@@ -562,18 +561,18 @@ var captureError = function(error) {
 
 // start video capture
 navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
-```
+{{</highlight>}}
 
 #### MediaFile.getFormatData
 
 Retrieves format information about the media capture file.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 mediaFile.getFormatData(
     MediaFileDataSuccessCB successCallback,
     [MediaFileDataErrorCB errorCallback]
 );
-```
+{{</highlight>}}
 
 ##### Description
 
@@ -624,7 +623,7 @@ event](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resum
 
 In your app, you should subscribe to the two possible events like so:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onDeviceReady() {
     // pendingcaptureresult is fired if the capture call is successful
     document.addEventListener('pendingcaptureresult', function(mediaFiles) {
@@ -639,7 +638,7 @@ function onDeviceReady() {
 
 // Only subscribe to events after deviceready fires
 document.addEventListener('deviceready', onDeviceReady);
-```
+{{</highlight>}}
 
 It is up you to track what part of your code these results are coming
 from. Be sure to save and restore your app's state as part of the
@@ -649,3 +648,8 @@ and
 events as appropriate. Please note that these events will only fire on
 the Android platform and only when the Webview was destroyed during a
 capture operation.
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

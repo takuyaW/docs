@@ -1,15 +1,15 @@
-Contacts Plugin
-===============
+---
+title: Contacts Plugin
+---
+
+# Contacts Plugin
 
 Tested Version:
 [2.1.0](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.1.0)
 
-<div class="admonition note">
-
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-contacts).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-contacts">}}.
+{{</note>}}
 
 This plugin defines a global `navigator.contacts` object, which provides
 access to the device contacts database.
@@ -22,8 +22,7 @@ not available until after the `deviceready` event.
         console.log(navigator.contacts);
     }
 
-<div class="admonition warning">
-
+{{<warning>}}
 Collection and use of contact data raises important privacy issues. Your
 app's privacy policy should discuss how the app uses contact data and
 whether it is shared with any other parties. Contact information is
@@ -33,27 +32,25 @@ should strongly consider providing a just-in-time notice before the app
 accesses or uses contact data, if the device operating system doesn't do
 so already. That notice should provide the same information noted above,
 as well as obtaining the user's permission (e.g., by presenting choices
-for `OK` and `No Thanks`). Note that some app marketplaces may require
-the app to provide a just-in-time notice and obtain the user's
+for <b>OK</b> and <b>No Thanks</b>). Note that some app marketplaces may
+require the app to provide a just-in-time notice and obtain the user's
 permission before accessing contact data. A clear and easy-to-understand
 user experience surrounding the use of contact data helps avoid user
 confusion and perceived misuse of contact data. For more information,
-please see the [Privacy
-Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).
-
-</div>
+please see the {{<link href="http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html" title="Privacy Guide">}}.
+{{</warning>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-contacts
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Contacts` plugin in Monaca Cloud IDE.
 
 API Reference

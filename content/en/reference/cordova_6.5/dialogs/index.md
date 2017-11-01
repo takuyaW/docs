@@ -1,39 +1,38 @@
-Dialogs Plugin
-==============
+---
+title: Dialogs Plugin
+---
 
-Tested Version:
-[1.3.3](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.3.3)
+# Dialogs Plugin
 
-<div class="admonition note">
+Tested Version: [1.3.3](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.3.3)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-dialogs).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-dialogs">}}.
+{{</note>}}
 
 This plugin provides access to some native dialog UI elements via a
 global `navigator.notification` object. Although the object is attached
 to the global scoped `navigator`, it is not available until after the
 `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.notification);
 }
-```
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-dialogs
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Notification` plugin in Monaca Cloud IDE.
 
 Methods
@@ -50,9 +49,9 @@ Shows a custom alert or dialog box. Most Cordova implementations use a
 native dialog box for this feature, but some platforms use the browser's
 `alert` function, which is typically less customizable.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.notification.alert(message, alertCallback, [title], [buttonName])
-```
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **alertCallback**: Callback to invoke when alert dialog is
@@ -62,7 +61,7 @@ navigator.notification.alert(message, alertCallback, [title], [buttonName])
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function alertDismissed() {
     // do something
 }
@@ -73,7 +72,7 @@ navigator.notification.alert(
     'Game Over',            // title
     'Done'                  // buttonName
 );
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -85,9 +84,9 @@ navigator.notification.alert(
 
 Displays a customizable confirmation dialog box.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
-```
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **confirmCallback**: Callback to invoke with index of button pressed
@@ -108,7 +107,7 @@ etc.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onConfirm(buttonIndex) {
     alert('You selected button ' + buttonIndex);
 }
@@ -119,7 +118,7 @@ navigator.notification.confirm(
     'Game Over',           // title
     ['Restart','Exit']     // buttonLabels
 );
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -139,9 +138,9 @@ navigator.notification.confirm(
 Displays a native dialog box that is more customizable than the
 browser's `prompt` function.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
-```
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **promptCallback**: Callback to invoke with index of button pressed
@@ -166,7 +165,7 @@ contains the following properties:
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onPrompt(results) {
     alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
 }
@@ -178,7 +177,7 @@ navigator.notification.prompt(
     ['Ok','Exit'],             // buttonLabels
     'Jane Doe'                 // defaultText
 );
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -202,18 +201,18 @@ navigator.notification.prompt(
 
 The device plays a beep sound.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.notification.beep(times);
-```
+{{</highlight>}}
 
 -   **times**: The number of times to repeat the beep. *(Number)*
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Beep twice!
 navigator.notification.beep(2);
-```
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -225,3 +224,7 @@ navigator.notification.beep(2);
 -   Android plays the default **Notification ringtone** specified under
     the **Settings/Sound & Display** panel.
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

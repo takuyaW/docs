@@ -1,15 +1,14 @@
-Contacts Plugin
-===============
+---
+title: Contacts Plugin
+---
 
-Tested Version:
-[2.3.1](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.3.1)
+# Contacts Plugin
 
-<div class="admonition note">
+Tested Version: [2.3.1](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.3.1)
 
-This document is based on the original Cordova docs available at
-[Cordova Docs](https://github.com/apache/cordova-plugin-contacts).
-
-</div>
+{{<note>}}
+This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-contacts">}}.
+{{</note>}}
 
 This plugin defines a global `navigator.contacts` object, which provides
 access to the device contacts database.
@@ -17,15 +16,14 @@ access to the device contacts database.
 Although the object is attached to the global scoped `navigator`, it is
 not available until after the `deviceready` event.
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-console.log(navigator.contacts);
+    function onDeviceReady() {
+    console.log(navigator.contacts);
 }
-```
+{{</highlight>}}
 
-<div class="admonition warning">
-
+{{<warning>}}
 Collection and use of contact data raises important privacy issues. Your
 app's privacy policy should discuss how the app uses contact data and
 whether it is shared with any other parties. Contact information is
@@ -35,27 +33,25 @@ should strongly consider providing a just-in-time notice before the app
 accesses or uses contact data, if the device operating system doesn't do
 so already. That notice should provide the same information noted above,
 as well as obtaining the user's permission (e.g., by presenting choices
-for **OK** and **No Thanks**). Note that some app marketplaces may
+for <b>OK</b> and <b>No Thanks</b>). Note that some app marketplaces may
 require the app to provide a just-in-time notice and obtain the user's
 permission before accessing contact data. A clear and easy-to-understand
 user experience surrounding the use of contact data helps avoid user
 confusion and perceived misuse of contact data. For more information,
-please see the [Privacy
-Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).
-
-</div>
+please see the {{<link href="http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html" title="Privacy Guide">}}.
+{{</warning>}}
 
 Plugin ID
 ---------
 
-``` {.sourceCode .javascript}
+{{<syntax>}}
 cordova-plugin-contacts
-```
+{{</syntax>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please enable &lt;add\_plugins&gt;
+In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
 `Contacts` plugin in Monaca Cloud IDE.
 
 Quirks
@@ -74,9 +70,9 @@ install.
 
 Example:
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cordova plugin add cordova-plugin-contacts --variable CONTACTS_USAGE_DESCRIPTION="your usage message"
-```
+{{</highlight>}}
 
 If you don't pass the variable, the plugin will add an empty string as
 value.
@@ -126,9 +122,9 @@ device contacts database, for which you need to invoke the
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var myContact = navigator.contacts.create({"displayName": "Test User"});
-```
+{{</highlight>}}
 
 ### navigator.contacts.find
 
@@ -183,7 +179,7 @@ ContactFieldType &lt;6.5\_contactfieldtype&gt; object.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
 };
@@ -200,7 +196,7 @@ options.desiredFields = [navigator.contacts.fieldType.id];
 options.hasPhoneNumber = true;
 var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
 navigator.contacts.find(fields, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Windows Quirks
 
@@ -230,25 +226,24 @@ parameter.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.contacts.pickContact(function(contact){
-        console.log('The following contact has been selected:' + JSON.stringify(contact));
-    },function(err){
-        console.log('Error: ' + err);
-    });
-```
+    console.log('The following contact has been selected:' + JSON.stringify(contact));
+},function(err){
+    console.log('Error: ' + err);
+});
+{{</highlight>}}
 
 #### Android Quirks
 
 This plugin launches an external Activity for picking contacts. See the
-[Android Lifecycle
-Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
+[Android Lifecycle Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
 for an explanation of how this affects your application. If the plugin
 returns its result in the `resume` event, then you must first wrap the
 returned object in a `Contact` object before using it. Here is an
 example:
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onResume(resumeEvent) {
     if(resumeEvent.pendingResult) {
         if(resumeEvent.pendingResult.pluginStatus === "OK") {
@@ -259,7 +254,7 @@ function onResume(resumeEvent) {
         }
     }
 }
-```
+{{</highlight>}}
 
 ### Contact
 
@@ -268,12 +263,10 @@ created, stored, or removed from the device contacts database. Contacts
 can also be retrieved (individually or in bulk) from the database by
 invoking the `navigator.contacts.find` method.
 
-<div class="admonition note">
-
+{{<note>}}
 Not all of the contact fields listed above are supported on every device
-platform. Please check each platform's *Quirks* section for details.
-
-</div>
+platform. Please check each platform's <b>Quirks</b> section for details.
+{{</note>}}
 
 #### Properties
 
@@ -320,7 +313,7 @@ platform. Please check each platform's *Quirks* section for details.
 
 #### Save Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contact) {
     alert("Save Success");
 };
@@ -342,21 +335,21 @@ contact.name = name;
 
 // save to device
 contact.save(onSuccess,onError);
-```
+{{</highlight>}}
 
 #### Clone Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // clone the contact object
 var clone = contact.clone();
 clone.name.givenName = "John";
 console.log("Original contact name = " + contact.name.givenName);
 console.log("Cloned contact name = " + clone.name.givenName);
-```
+{{</highlight>}}
 
 #### Remove Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess() {
     alert("Removal Success");
 };
@@ -367,11 +360,11 @@ function onError(contactError) {
 
 // remove the contact from the device
 contact.remove(onSuccess,onError);
-```
+{{</highlight>}}
 
 #### Removing phone number(s) from a saved contact
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Example to create a contact with 3 phone numbers and then remove
 // 2 phone numbers. This example is for illustrative purpose only
 var myContact = navigator.contacts.create({"displayName": "Test User"});
@@ -396,7 +389,7 @@ myContact.save(function (contact_obj) {
         console.log("Contact Remove Operation failed: " + contactError);
     });
 });
-```
+{{</highlight>}}
 
 #### Android 2.X Quirks
 
@@ -451,7 +444,7 @@ a contact. A `Contact` object may include more than one address in a
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // display the address information for all contacts
 
 function onSuccess(contacts) {
@@ -479,7 +472,7 @@ options.filter = "";
 options.multiple = true;
 var filter = ["displayName", "addresses"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android 2.X Quirks
 
@@ -548,7 +541,7 @@ when the **value** contains a base64-encoded image string.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // create a new contact
 var contact = navigator.contacts.create();
 
@@ -561,7 +554,7 @@ contact.phoneNumbers = phoneNumbers;
 
 // save the contact
 contact.save();
-```
+{{</highlight>}}
 
 #### Android Quirks
 
@@ -598,7 +591,7 @@ Contains different kinds of information about a `Contact` object's name.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         alert("Formatted: "  + contacts[i].name.formatted       + "\n" +
@@ -619,7 +612,7 @@ options.filter = "";
 options.multiple = true;
 filter = ["displayName", "name"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android Quirks
 
@@ -666,7 +659,7 @@ objects in an array.
 
 #### Example
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         for (var j = 0; j < contacts[i].organizations.length; j++) {
@@ -688,7 +681,7 @@ options.filter = "";
 options.multiple = true;
 filter = ["displayName", "organizations"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android 2.X Quirks
 
@@ -746,3 +739,7 @@ search in (through `contactFields` parameter). Possible values are:
 -   `navigator.contacts.fieldType.title`
 -   `navigator.contacts.fieldType.urls`
 
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)
