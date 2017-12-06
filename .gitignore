@@ -1,5 +1,2 @@
-/public/
-*.DS_Store
-.idea
-node_modules/
-static/css/
+/public/*
+.DS_Store
