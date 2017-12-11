@@ -2,8 +2,6 @@
 title: StatusBar Plugin
 ---
 
-# StatusBar Plugin
-
 Tested Version: [2.2.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.2.3)
 
 {{<note>}}

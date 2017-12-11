@@ -2,8 +2,6 @@
 title: Network Information Plugin
 ---
 
-# Network Information Plugin
-
 Tested Version:
 [1.2.1](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.2.1)
 

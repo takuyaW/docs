@@ -2,8 +2,6 @@
 title: Monaca Secure Storage
 ---
 
-# Monaca Secure Storage
-
 This plugin provides an encrypted data storage function. If the
 application is uninstalled, saved data will also be deleted.
 

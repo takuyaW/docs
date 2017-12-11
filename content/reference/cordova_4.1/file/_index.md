@@ -2,8 +2,6 @@
 title: File Plugin
 ---
 
-# File Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-file/blob/master/RELEASENOTES.md#132-dec-02-2014">1.3.2</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

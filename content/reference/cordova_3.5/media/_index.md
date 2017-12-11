@@ -2,8 +2,6 @@
 title: Media Plugin
 ---
 
-# Media Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-media/blob/master/RELEASENOTES.md#0211-jun-05-2014">0.2.11</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>

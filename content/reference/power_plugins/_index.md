@@ -3,8 +3,6 @@ title: Monaca Power Plugins
 weight: 40
 ---
 
-# Monaca Power Plugins
-
 With Monaca Power Plugins, we deliver developers the ability to secure
 their work with the latest security technologies.
 

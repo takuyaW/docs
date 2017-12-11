@@ -2,8 +2,6 @@
 title: WebIntent Plugin (Android)
 ---
 
-# WebIntent Plugin (Android)
-
 WebIntent plugin lets you start an installed application from within
 Monaca application. The following sample will start an app that will
 display a map.

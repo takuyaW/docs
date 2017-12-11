@@ -2,8 +2,6 @@
 title: AppsFlyer
 ---
 
-# AppsFlyer
-
 {{<note>}}
 Please note that the AppsFlyer is used differently depending on the
 Cordova version of your project. Please refer to the document carefully.

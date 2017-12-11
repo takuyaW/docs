@@ -2,8 +2,6 @@
 title: Monaca HTML5 Resource Encryption
 ---
 
-# Monaca HTML5 Resource Encryption
-
 This plugin provides the encryption function for HTML5 assets bundled up
 with the built app in Monaca and the decoding function for application
 execution time.

@@ -2,8 +2,6 @@
 title: File Transfer Plugin
 ---
 
-# File Transfer Plugin
-
 Tested Version: [1.6.3](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.6.3)
 
 {{<note>}}

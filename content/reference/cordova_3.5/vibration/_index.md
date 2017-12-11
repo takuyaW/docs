@@ -2,8 +2,6 @@
 title: Vibration Plugin
 ---
 
-# Vibration Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-vibration/blob/master/RELEASENOTES.md#039-jun-05-2014">0.3.9</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>

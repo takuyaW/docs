@@ -2,8 +2,6 @@
 title: Vibration Plugin
 ---
 
-# Vibration Plugin
-
 Tested Version: [2.1.5](https://github.com/apache/cordova-plugin-vibration/releases/tag/2.1.5)
 
 {{<note>}}

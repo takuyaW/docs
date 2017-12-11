@@ -1,10 +1,9 @@
 baseURL = "http://docs.monaca.io/"
 
-DefaultContentLanguage = "en"
 
 title = "Monaca Docs"
 
-theme = "docdock"
+theme = "monaca"
 
 [params]
 disableNavChevron = true
@@ -13,5 +12,7 @@ disableLanguageSwitchingButton = true
 
 [Languages]
 [Languages.en]
+url = "/en/"
 
 [Languages.ja]
+url = "/ja/"

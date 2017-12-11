@@ -2,8 +2,6 @@
 title: Media Plugin
 ---
 
-# Media Plugin
-
 Tested Version:
 [2.3.0](https://github.com/apache/cordova-plugin-media/releases/tag/2.3.0)
 

@@ -2,8 +2,6 @@
 title: DatePicker Plugin
 ---
 
-# DatePicker Plugin
-
 DatePicker plugin lets an app use the native DatePicker control.
 
 ## Enable Plugin in Monaca

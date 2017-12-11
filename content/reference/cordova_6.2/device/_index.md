@@ -2,8 +2,6 @@
 title: Device Plugin
 ---
 
-# Device Plugin
-
 Tested Version:
 [1.1.2](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.2)
 

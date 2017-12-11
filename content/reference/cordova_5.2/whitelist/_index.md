@@ -2,8 +2,6 @@
 title: Whitelist Plugin (Android Only)
 ---
 
-# Whitelist Plugin (Android Only)
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-whitelist/blob/master/RELEASENOTES.md#100-mar-25-2015">1.0.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> November 20th, 2015</div>

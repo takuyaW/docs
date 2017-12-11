@@ -2,8 +2,6 @@
 title: Dialogs Plugin
 ---
 
-# Dialogs Plugin
-
 Tested Version:
 [1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
 

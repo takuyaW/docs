@@ -2,8 +2,6 @@
 title: Globalization Plugin
 ---
 
-# Globalization Plugin
-
 Tested Version:
 [1.0.3](https://github.com/apache/cordova-plugin-globalization/releases/tag/1.0.3)
 

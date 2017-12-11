@@ -2,8 +2,6 @@
 title: Network Information Plugin
 ---
 
-# Network Information Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-network-information/blob/master/RELEASENOTES.md#0210-jun-24-2014">0.2.10</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>

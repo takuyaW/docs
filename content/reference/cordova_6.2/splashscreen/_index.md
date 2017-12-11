@@ -2,8 +2,6 @@
 title: Splashscreen Plugin
 ---
 
-# Splashscreen Plugin
-
 Tested Version:
 [3.2.2](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/3.2.2)
 

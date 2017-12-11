@@ -2,8 +2,6 @@
 title: Device Motion Plugin
 ---
 
-# Device Motion Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-device-motion/blob/master/RELEASENOTES.md#028-jun-05-2014">0.2.8</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>

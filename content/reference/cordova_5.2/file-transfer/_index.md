@@ -2,8 +2,6 @@
 title: File Transfer Plugin
 ---
 
-# File Transfer Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Tested Version: </b><a href="https://github.com/apache/cordova-plugin-file-transfer/blob/master/RELEASENOTES.md#130-sep-18-2015">1.3.0</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> November 20th, 2015</div>

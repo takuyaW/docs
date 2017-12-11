@@ -2,8 +2,6 @@
 title: Contacts Plugin
 ---
 
-# Contacts Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-contacts/blob/master/RELEASENOTES.md#0215-dec-02-2014">0.2.15</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

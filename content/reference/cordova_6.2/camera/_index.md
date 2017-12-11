@@ -2,8 +2,6 @@
 title: Camera Plugin
 ---
 
-# Camera Plugin
-
 Tested Version:
 [2.2.0](https://github.com/apache/cordova-plugin-camera/releases/tag/2.2.0)
 

@@ -2,8 +2,6 @@
 title: InAppBrowser Plugin
 ---
 
-# InAppBrowser Plugin
-
 Tested Version: [1.7.1](https://github.com/apache/cordova-plugin-inappbrowser/releases/tag/1.7.1)
 
 {{<note>}}

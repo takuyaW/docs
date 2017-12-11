@@ -2,8 +2,6 @@
 title: Repro (iOS only)
 ---
 
-# Repro (iOS only)
-
 [Repro](https://repro.io/) is a service which provides the confirmation
 of how a user handles an application by recording the user's actions.
 Currently, it supports iOS only.

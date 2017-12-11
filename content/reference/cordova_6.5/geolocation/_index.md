@@ -2,8 +2,6 @@
 title: Geolocation Plugin
 ---
 
-# Geolocation Plugin
-
 Tested Version: [2.4.3](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.4.3)
 
 {{<note>}}

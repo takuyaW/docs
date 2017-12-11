@@ -2,8 +2,6 @@
 title: SQLCipher Adapter
 ---
 
-# SQLCipher Adapter
-
 SQLCipher Adapter is a Cordova plugin to create and access encrypted
 databases on Android, iOS, and Windows Universal (`8.1`) with API similar
 to HTML5/Web SQL API.

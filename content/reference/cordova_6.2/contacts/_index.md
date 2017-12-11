@@ -2,8 +2,6 @@
 title: Contacts Plugin
 ---
 
-# Contacts Plugin
-
 Tested Version:
 [2.1.0](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.1.0)
 

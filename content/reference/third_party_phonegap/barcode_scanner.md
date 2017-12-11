@@ -2,8 +2,6 @@
 title: BarcodeScanner Plugin
 ---
 
-# BarcodeScanner Plugin
-
 {{<note>}}
 BarcodeScanner Plugin (the built-in plugin on Monaca Cloud IDE) can't be
 used with Android version 6 or higher and it may also not work with

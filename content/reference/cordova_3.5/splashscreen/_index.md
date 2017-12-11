@@ -2,8 +2,6 @@
 title: Splashscreen Plugin
 ---
 
-# Splashscreen Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-splashscreen/blob/master/RELEASENOTES.md#031-jun-05-2014">0.3.1</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 25th Dec 2014</div>

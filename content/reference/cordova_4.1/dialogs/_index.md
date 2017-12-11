@@ -2,8 +2,6 @@
 title: Dialogs Plugin
 ---
 
-# Dialogs Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-dialogs/blob/master/RELEASENOTES.md#0211-dec-02-2014">0.2.11</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

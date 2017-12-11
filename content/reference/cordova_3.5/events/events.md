@@ -1,5 +1,6 @@
-Events
-======
+---
+title: Events
+---
 
 <div class="admonition note">
 

@@ -2,8 +2,6 @@
 title: Cordova Custom Config Plugin
 ---
 
-# Cordova Custom Config Plugin
-
 For Cordova 5.2 or lower, basic behaviour of Android or iOS applications
 can be configured by editing AndroidManifest.xml or
 `MonacaApp-Info.plist` file respectively. However, for Cordova 6.2 or

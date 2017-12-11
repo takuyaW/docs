@@ -2,8 +2,6 @@
 title: Monaca In-App Updater
 ---
 
-# Monaca In-App Updater
-
 This plugin updates HTML5 assets contained in the app without rebuilding
 and packaging the app. You need a Web server to host the update files
 which will be accessed from the app.

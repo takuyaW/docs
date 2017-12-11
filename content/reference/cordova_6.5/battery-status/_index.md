@@ -2,8 +2,6 @@
 title: Battery Status Plugin
 ---
 
-# Battery Status Plugin
-
 Tested Version: [1.2.4](https://github.com/apache/cordova-plugin-battery-status/releases/tag/1.2.4)
 
 {{<note>}}

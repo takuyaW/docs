@@ -2,8 +2,6 @@
 title: Geolocation Plugin
 ---
 
-# Geolocation Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-geolocation/blob/master/RELEASENOTES.md#0311-dec-02-2014">0.3.11</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

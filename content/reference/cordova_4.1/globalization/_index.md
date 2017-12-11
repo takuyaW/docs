@@ -2,8 +2,6 @@
 title: Globalization Plugin
 ---
 
-# Globalization Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-globalization/blob/master/RELEASENOTES.md#028-jun-05-2014">0.2.8</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

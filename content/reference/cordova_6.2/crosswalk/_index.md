@@ -1,8 +1,6 @@
 ---
 title: Crosswalk Plugin (Android Only)
 ---
-
-# Crosswalk Plugin (Android Only)
   
 Tested Version: [1.3.0](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview/releases/tag/1.3.0)
 

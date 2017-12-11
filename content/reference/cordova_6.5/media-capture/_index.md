@@ -2,8 +2,6 @@
 title: Media Capture Plugin
 ---
 
-# Media Capture Plugin
-
 Tested Version: [1.4.3](https://github.com/apache/cordova-plugin-media-capture/releases/tag/1.4.3)
 
 {{<note>}}

@@ -2,8 +2,6 @@
 title: Device Orientation Plugin
 ---
 
-# Device Orientation Plugin
-
 Tested Version: [1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
 
 {{<note>}}

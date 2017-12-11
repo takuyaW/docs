@@ -2,8 +2,6 @@
 title: Device Orientation Plugin
 ---
 
-# Device Orientation Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-device-orientation/blob/master/RELEASENOTES.md#0310-dec-02-2014">0.3.10</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

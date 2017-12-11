@@ -2,8 +2,6 @@
 title: Media Capture Plugin
 ---
 
-# Media Capture Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-media-capture/blob/master/RELEASENOTES.md#035-dec-02-2014">0.3.5</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

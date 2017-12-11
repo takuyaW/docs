@@ -2,8 +2,6 @@
 title: Device Motion Plugin
 ---
 
-# Device Motion Plugin
-
 Tested Version:
 [1.2.1](https://github.com/apache/cordova-plugin-device-motion/releases/tag/1.2.1)
 

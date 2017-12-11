@@ -2,8 +2,6 @@
 title: Whitelist Plugin (Android Only)
 ---
 
-# Whitelist Plugin (Android Only)
-
 Tested Version: [1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
 
 {{<note>}}

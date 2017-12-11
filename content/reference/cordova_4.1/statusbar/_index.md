@@ -2,8 +2,6 @@
 title: StatusBar Plugin
 ---
 
-# StatusBar Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-statusbar/blob/master/RELEASENOTES.md#019-dec-02-2014">0.1.9</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

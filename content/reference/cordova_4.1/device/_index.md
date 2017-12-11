@@ -2,8 +2,6 @@
 title: Device Plugin
 ---
 
-# Device Plugin
-
 <div>
   <div  style="float: left;" align="left"><b>Plugin Version: </b><a href="https://github.com/apache/cordova-plugin-device/blob/master/RELEASENOTES.md#0213-dec-02-2014">0.2.13</a></div>   
   <div align="right" style="float: right;"><b>Last Edited:</b> 27th Jan 2015</div>

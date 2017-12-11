@@ -2,8 +2,6 @@
 title: Share Plugin (Android)
 ---
 
-# Share Plugin (Android)
-
 Share plugin lets an app to share data with other apps like Gmail,
 DropBox, etc.
 

@@ -2,8 +2,6 @@
 title: File Plugin
 ---
 
-# File Plugin
-
 Tested Version:
 [4.2.0](https://github.com/apache/cordova-plugin-file/releases/tag/4.2.0)
 

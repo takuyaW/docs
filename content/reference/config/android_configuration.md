@@ -2,8 +2,6 @@
 title: Android Configuration
 ---
 
-# Android Configuration
-
 There are 2 ways to configure your Android apps:
 
 1. [Configure via Monaca Cloud IDE](#android-config-ide)

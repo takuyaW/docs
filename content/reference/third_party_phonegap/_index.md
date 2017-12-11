@@ -3,8 +3,6 @@ title: Third-party Cordova Plugins
 weight: 30
 ---
 
-# Third-party Cordova Plugins
-
 Third-party Cordova Plugins are Cordova plugins which provide the
 possibility of adding native code into JavaScript code. Monaca provides
 several third-party plugins by default, but you can also import other
