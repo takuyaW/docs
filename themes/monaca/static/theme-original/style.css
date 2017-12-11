@@ -1192,7 +1192,7 @@ pre .copy-to-clipboard:hover {
       position: relative; }
     #sidebar ul li li {
       padding-left: 0.25rem;
-      font-size: 90%; }
+      font-size: 92%; }
     #sidebar ul li li li {
       padding-left: 0.5rem;
       padding-right: 0.5rem; }
@@ -1227,6 +1227,10 @@ pre .copy-to-clipboard:hover {
     width: calc(100% - 8px); }
   #sidebar #shortcuts h3 {
     color: #323232; }
+  #sidebar #select-language {
+    margin: 1rem auto;
+    height: 25px;
+    min-width: 50%; }
   #sidebar .algolia-autocomplete .ds-dropdown-menu {
     min-width: 0;
     max-width: auto;

@@ -215,7 +215,7 @@
 
 		li li {
 			padding-left: 0.25rem;
-			font-size: 90%;
+			font-size: 92%;
 		}
 
 		li li li {
@@ -265,6 +265,12 @@
 
 	#shortcuts h3 {
 		color: $side_text_color;
+	}
+
+	#select-language {
+		margin: 1rem auto;
+		height: 25px;
+		min-width: 50%;
 	}
 
 	//

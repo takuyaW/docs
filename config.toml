@@ -1,18 +1,19 @@
 baseURL = "http://docs.monaca.io/"
 
-
 title = "Monaca Docs"
-
 theme = "monaca"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
 
 [params]
 disableNavChevron = true
 disableHomeIcon = true
-disableLanguageSwitchingButton = true
+disableLanguageSwitchingButton = false
 
 [Languages]
 [Languages.en]
-url = "/en/"
+languageName = "English"
 
 [Languages.ja]
-url = "/ja/"
+languageName = "日本語"

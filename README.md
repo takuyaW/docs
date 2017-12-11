@@ -26,3 +26,8 @@ npm run build-sass && hugo
 ```
 
 This will build the docs into the `public` folder.
+
+## Troubleshooting
+
+### Table of contents shows "HAHAHUGOSHORTCODE"
+This is caused by using shortcodes in a heading on the page. This causes Hugo to parse it incorrectly, and the result is a the table of contents entries containing the string "HAHAHUGOSHORTCODE". It is a [known issue](https://github.com/gohugoio/hugo/issues/4114).
