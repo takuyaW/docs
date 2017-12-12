@@ -2,8 +2,6 @@
 title: Backend API
 ---
 
-# Backend API
-
 JavaScript API for accessing Monaca Backend is described in this
 section.
 

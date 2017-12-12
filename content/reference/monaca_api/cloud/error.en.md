@@ -2,8 +2,6 @@
 title: Error
 ---
 
-# Error
-
 It is an error object containing error code and message.
 
 {{<syntax>}}

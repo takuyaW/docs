@@ -3,8 +3,6 @@ title: Core Cordova Plugins
 weight: 20
 ---
 
-# Core Cordova Plugins
-
 - [Battery Status Plugin](battery-status)
 - [Camera Plugin](camera)
 - [Contacts Plugin](contacts)

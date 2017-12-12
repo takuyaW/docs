@@ -2,8 +2,6 @@
 title: Other APIs
 ---
 
-# Other APIs
-
 Here are some other JavaScript APIs provided by the Monaca Backend.
 
 Method/Property | Description

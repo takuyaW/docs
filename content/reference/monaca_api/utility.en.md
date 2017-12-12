@@ -1,8 +1,6 @@
 ---
-title: Monaca Cloud & Remote Build API Guide
+title: Utilities
 ---
-
-# Utilities
 
 We describe other functions provided by Monaca.
 

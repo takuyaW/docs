@@ -2,8 +2,6 @@
 title: Collection
 ---
 
-# Collection
-
 *Collection* management can be done by using the following functions and
 properties.
 

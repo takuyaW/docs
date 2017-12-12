@@ -2,8 +2,6 @@
 title: Push Notification
 ---
 
-# Push Notification
-
 The following JavaScript API is used to handle the push notifications.
 
 Method | Description

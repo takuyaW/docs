@@ -2,8 +2,6 @@
 title: Criteria
 ---
 
-# Criteria
-
 You can make query with Criteria object.
 
 {{<note>}}

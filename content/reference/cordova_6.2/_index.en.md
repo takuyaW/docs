@@ -3,8 +3,6 @@ title: Core Cordova Plugins
 hidden: true
 ---
 
-# Core Cordova Plugins
-
 - [Battery Status Plugin](battery-status)
 - [Camera Plugin](camera)
 - [Console Plugin](console)

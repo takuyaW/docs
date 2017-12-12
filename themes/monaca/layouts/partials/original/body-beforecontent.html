@@ -112,6 +112,40 @@
   </div>
 {{end}}
 <div id="body-inner">
+
+  <!-- Cordova version dropdown -->
+  {{ if in .URL "reference/cordova_" }}
+    {{ $cordovaUrlRegex := "^.*/reference/cordova_([0-9.]*)/(.*$)" }}
+    {{ $currentPageCordovaVersion := (replaceRE $cordovaUrlRegex "$1" .URL) }}
+    {{ $currentUrlEnd := (replaceRE $cordovaUrlRegex "$2" .URL) }}
+
+    <div class="cordova-select-wrapper">
+      {{T "cordova-version"}}
+      <select id="cordova-version-select">
+        {{range $pg := .Site.Pages}}
+          {{ $pgCordovaVersion := (replaceRE $cordovaUrlRegex "$1" $pg.URL) }}
+          {{ $pgUrlEnd := (replaceRE $cordovaUrlRegex "$2" $pg.URL) }}
+
+          // If the regex fails to match, it will return the original URL. So, if the
+          // result of the regex is the original URL, it is not a Cordova plugin page.
+          {{ $isCordovaPage := (ne $pgCordovaVersion $pg.URL) }}
+
+          // We should only show a Cordova version in the dropdown if we have a page to
+          // show for that particular version. For example, the Crosswalk plugin is not
+          // in the docs below Cordova 5.2.
+          {{ $isSamePluginPage := (eq $currentUrlEnd $pgUrlEnd) }}
+
+          {{ if and ($isCordovaPage) ($isSamePluginPage) }}
+            <option value="{{$pgCordovaVersion}}"
+              {{if eq $currentPageCordovaVersion $pgCordovaVersion}} selected {{ end }} 
+            >{{$pgCordovaVersion}}</option>
+          {{end}}
+        {{end}}
+      </select>
+    </div>
+  {{ end }}
+  <!-- end Cordova version dropdown -->
+
   {{if not .IsHome}}
     <h1>{{.Title}}</h1>
   {{end}}

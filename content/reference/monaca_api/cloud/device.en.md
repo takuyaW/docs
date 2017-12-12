@@ -2,8 +2,6 @@
 title: Device
 ---
 
-# Device
-
 Device management can be done with the following JavaScript APIs.
 
 {{<note>}}

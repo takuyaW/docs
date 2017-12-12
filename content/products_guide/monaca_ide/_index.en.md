@@ -3,8 +3,6 @@ title: Monaca Cloud IDE
 weight: 20
 ---
 
-{{<figure src="images/1.png" width="500">}}
-
 Monaca IDE comprises of the interface to work from the development of
 the project to the build consistently. Here, we will describe about
 screen structure, editor's shortcuts and project files management.

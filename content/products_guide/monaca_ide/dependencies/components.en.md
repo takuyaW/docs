@@ -48,12 +48,12 @@ is include the following descriptors within the `<head>` tag of the HTML
 file.
 
 {{<highlight html>}}
-    <script src="components/loader.js"></script>
-    <link rel="stylesheet" href="components/loader.css">
+<script src="components/loader.js"></script>
+<link rel="stylesheet" href="components/loader.css">
 {{</highlight>}}
 
 
 {{<note>}}
-    If you would like to use images within your libraries, you can directly load those image files from the <code>components</code> folder.
+If you would like to use images within your libraries, you can directly load those image files from the <code>components</code> folder.
 {{</note>}}
 

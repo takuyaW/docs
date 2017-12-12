@@ -1,3 +1,6 @@
+[cordova-version]
+other = "Cordova Version"
+
 [create-header-md]
 other = "Create a _header.md to customize this"
 

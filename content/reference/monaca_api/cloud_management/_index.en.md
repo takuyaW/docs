@@ -2,8 +2,6 @@
 title: Backend Management API
 ---
 
-# Backend Management API
-
 Monaca also allows you to manage your Monaca Backend from your server
 rather than from Monaca IDE. For example, you may create a new user, a
 new collection and send a push notification from your sever to your

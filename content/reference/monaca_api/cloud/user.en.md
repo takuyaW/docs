@@ -2,8 +2,6 @@
 title: User
 ---
 
-# User
-
 In Monaca, you can add user account functionality to your app by using
 the following Monaca Backend JavaScript APIs.
 

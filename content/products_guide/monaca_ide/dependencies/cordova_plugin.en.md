@@ -29,7 +29,7 @@ copy and paste the code below to your project in Monaca Cloud IDE then
 you can run it on [Monaca Debugger](/en/debugger/).
 
 {{<note>}}
-    This code was written for Cordova 4.1. We apologize in advance in case the code may behave differently on various devices.content
+    This code was written for Cordova 4.1. We apologize in advance in case the code may behave differently on various devices.
 {{</note>}}
 
 {{<highlight html>}}

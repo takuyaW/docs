@@ -2,8 +2,6 @@
 title: Collection Item
 ---
 
-# Collection Item
-
 Collection Item management can be done by using the following
 functions and properties.
 

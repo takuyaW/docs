@@ -28,8 +28,7 @@ upgraded. This insures that your app works consistently, regardless of
 the device manufacturer or Android version found in your customer's
 Android 4.0+ device.
 
-Plugin ID
-=========
+## Plugin ID
 
     cordova-plugin-crosswalk-webview
 

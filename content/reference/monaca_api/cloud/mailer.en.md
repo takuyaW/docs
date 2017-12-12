@@ -2,8 +2,6 @@
 title: Mailer
 ---
 
-# Mailer
-
 Mailer allows to send emails to the users.
 
 Method       |   Description                                   

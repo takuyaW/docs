@@ -2,8 +2,6 @@
 title: Monaca Cloud & Remote Build API Guide
 ---
 
-# Monaca Cloud & Remote Build API Guide
-
 You can build a Cordova app using Monaca Cloud & Remote Build API. It
 can also be integrated with other web services. Once integrated, you
 will be able to use cloud services and remote build functions as if you

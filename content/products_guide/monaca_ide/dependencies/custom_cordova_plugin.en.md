@@ -182,15 +182,15 @@ custom Cordova Plugin. Please contact our support team
     Cordova plugin:
 
     {{<highlight javascript>}}
-    <script>
-        document.addEventListener("deviceready", onDeviceReady, false);
-        function onDeviceReady() {
-            window.HelloWorld.say(
+<script>
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        window.HelloWorld.say(
             function(result) { alert( "success: " + result ); },
             function(error) { alert( "error: " + error ); }
-            );
-        }
-    </script>
+        );
+    }
+</script>
     {{</highlight>}}
 
 4.  Now, run the project in the standard Monaca Debugger. You will see

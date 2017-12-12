@@ -16,7 +16,10 @@ var getUrlParameter = function getUrlParameter(sPageURL) {
     }
 };
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
+    $('a[rel="lightbox"]').featherlight({
+        root: 'section#body'
+    });
 
     // Execute actions on images generated from Markdown pages
     var images = $("div#body-inner img").not(".inline");
@@ -78,36 +81,15 @@ jQuery(document).ready(function () {
         $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
     });
 
-});
 
-
-
-// function fallbackMessage(action) {
-//     var actionMsg = '';
-//     var actionKey = (action === 'cut' ? 'X' : 'C');
-
-//     if (/iPhone|iPad/i.test(navigator.userAgent)) {
-//         actionMsg = 'No support :(';
-//     }
-//     else if (/Mac/i.test(navigator.userAgent)) {
-//         actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
-//     }
-//     else {
-//         actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
-//     }
-
-//     return actionMsg;
-// }
-
-jQuery(document).ready(function() {
-    jQuery('#sidebar .category-icon').on('click', function() {
+    $('#sidebar .category-icon').on('click', function() {
         $( this ).toggleClass("fa-angle-down fa-angle-right") ;
         $( this ).parent().parent().children('ul').toggle() ;
         return false;
     });
 
     
-    jQuery('[data-clear-history-toggle]').on('click', function() {
+    $('[data-clear-history-toggle]').on('click', function() {
         sessionStorage.clear();
         location.reload();
         return false;
@@ -117,32 +99,12 @@ jQuery(document).ready(function() {
         var value = ev.currentTarget.value;
         console.log('search ' + value);
     });
-    
-    // var ajax;
-    // jQuery('[data-search-input]').on('input', function() {
-    //     var input = jQuery(this),
-    //         value = input.val(),
-    //         items = jQuery('[data-nav-id]');
-    //     items.removeClass('search-match');
-    //     if (!value.length) {
-    //         $('ul.topics').removeClass('searched');
-    //         items.css('display', 'block');
-    //         sessionStorage.removeItem('search-value');
-    //         $(".highlightable").unhighlight({ element: 'mark' })
-    //         return;
-    //     }
 
-    //     sessionStorage.setItem('search-value', value);
-    //     $(".highlightable").unhighlight({ element: 'mark' }).highlight(value, { element: 'mark' });
+    $('#cordova-version-select').on('input', function(ev) {
+        var selectedCordovaVersion = ev.currentTarget.value;
 
-    //     if (ajax && ajax.abort) ajax.abort();
-
-    //     jQuery('[data-search-clear]').on('click', function() {
-    //         jQuery('[data-search-input]').val('').trigger('input');
-    //         sessionStorage.removeItem('search-input');
-    //         $(".highlightable").unhighlight({ element: 'mark' })
-    //     });
-    // });
+        location.href = location.href.replace(/cordova_[0-9].[0-9]/, 'cordova_' + selectedCordovaVersion);
+    });
 
     $.expr[":"].contains = $.expr.createPseudo(function(arg) {
         return function( elem ) {
@@ -150,97 +112,22 @@ jQuery(document).ready(function() {
         };
     });
 
-    // if (sessionStorage.getItem('search-value')) {
-    //     var searchValue = sessionStorage.getItem('search-value')
-    //     sessionStorage.removeItem('search-value');
-    //     var searchedElem = $('#body-inner').find(':contains(' + searchValue + ')').get(0);
-    //     searchedElem && searchedElem.scrollIntoView();
-    //     $(".highlightable").highlight(searchValue, { element: 'mark' });
-    // }
-
-    // clipboard
-    // var clipInit = false;
-    // $('code').each(function() {
-    //     var code = $(this),
-    //         text = code.text();
-
-    //     if (text.length > 5) {
-    //         if (!clipInit) {
-    //             var text, clip = new Clipboard('.copy-to-clipboard', {
-    //                 text: function(trigger) {
-    //                     text = $(trigger).prev('code').text();
-    //                     return text.replace(/^\$\s/gm, '');
-    //                 }
-    //             });
-
-    //             var inPre;
-    //             clip.on('success', function(e) {
-    //                 e.clearSelection();
-    //                 inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-    //                 $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
-    //             });
-
-    //             clip.on('error', function(e) {
-    //                 inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-    //                 $(e.trigger).attr('aria-label', fallbackMessage(e.action)).addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
-    //                 $(document).one('copy', function(){
-    //                     $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
-    //                 });
-    //             });
-
-    //             clipInit = true;
-    //         }
-
-    //         code.after('<span class="copy-to-clipboard" title="Copy to clipboard"><object class="clippy-icon" type="image/svg+xml" data="'+baseurl+'/images/clippy.svg"/></span>');
-    //         code.next('.copy-to-clipboard').on('mouseleave', function() {
-    //             $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
-    //         });
-    //     }
-    // });
-
-    // // allow keyboard control for prev/next links
-    // jQuery(function() {
-    //     jQuery('.nav-prev').click(function(){
-    //         location.href = jQuery(this).attr('href');
-    //     });
-    //     jQuery('.nav-next').click(function() {
-    //         location.href = jQuery(this).attr('href');
-    //     });
-    // });
-
-    // jQuery(document).keydown(function(e) {
-    //   // prev links - left arrow key
-    //   if(e.which == '37') {
-    //     jQuery('.nav.nav-prev').click();
-    //   }
-
-    //   // next links - right arrow key
-    //   if(e.which == '39') {
-    //     jQuery('.nav.nav-next').click();
-    //   }
-    // });
-
     $('#top-bar a:not(:has(img)):not(.btn)').addClass('highlight');
     $('#body-inner a:not(:has(img)):not(.btn)').addClass('highlight');
 });
 
-jQuery(window).on('load', function() {
+$(window).on('load', function() {
     // store this page in session
-    sessionStorage.setItem(jQuery('body').data('url'), 1);
+    sessionStorage.setItem($('body').data('url'), 1);
 
     // loop through the sessionStorage and see if something should be marked as visited
     for (var url in sessionStorage) {
-        if (sessionStorage.getItem(url) == 1) jQuery('[data-nav-id="' + url + '"]').addClass('visited');
+        if (sessionStorage.getItem(url) == 1) $('[data-nav-id="' + url + '"]').addClass('visited');
     }
 });
 
-$(function() {
-    $('a[rel="lightbox"]').featherlight({
-        root: 'section#body'
-    });
-});
 
-jQuery.extend({
+$.extend({
     highlight: function(node, re, nodeName, className) {
         if (node.nodeType === 3) {
             var match = node.data.match(re);
@@ -265,51 +152,51 @@ jQuery.extend({
     }
 });
 
-jQuery.fn.unhighlight = function(options) {
-    var settings = {
-        className: 'highlight',
-        element: 'span'
-    };
-    jQuery.extend(settings, options);
+// jQuery.fn.unhighlight = function(options) {
+//     var settings = {
+//         className: 'highlight',
+//         element: 'span'
+//     };
+//     jQuery.extend(settings, options);
 
-    return this.find(settings.element + "." + settings.className).each(function() {
-        var parent = this.parentNode;
-        parent.replaceChild(this.firstChild, this);
-        parent.normalize();
-    }).end();
-};
+//     return this.find(settings.element + "." + settings.className).each(function() {
+//         var parent = this.parentNode;
+//         parent.replaceChild(this.firstChild, this);
+//         parent.normalize();
+//     }).end();
+// };
 
-jQuery.fn.highlight = function(words, options) {
-    var settings = {
-        className: 'highlight',
-        element: 'span',
-        caseSensitive: false,
-        wordsOnly: false
-    };
-    jQuery.extend(settings, options);
+// jQuery.fn.highlight = function(words, options) {
+//     var settings = {
+//         className: 'highlight',
+//         element: 'span',
+//         caseSensitive: false,
+//         wordsOnly: false
+//     };
+//     jQuery.extend(settings, options);
 
-    if (!words) { return; }
+//     if (!words) { return; }
 
-    if (words.constructor === String) {
-        words = [words];
-    }
-    words = jQuery.grep(words, function(word, i) {
-        return word != '';
-    });
-    words = jQuery.map(words, function(word, i) {
-        return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-    });
-    if (words.length == 0) { return this; }
-    ;
+//     if (words.constructor === String) {
+//         words = [words];
+//     }
+//     words = jQuery.grep(words, function(word, i) {
+//         return word != '';
+//     });
+//     words = jQuery.map(words, function(word, i) {
+//         return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+//     });
+//     if (words.length == 0) { return this; }
+//     ;
 
-    var flag = settings.caseSensitive ? "" : "i";
-    var pattern = "(" + words.join("|") + ")";
-    if (settings.wordsOnly) {
-        pattern = "\\b" + pattern + "\\b";
-    }
-    var re = new RegExp(pattern, flag);
+//     var flag = settings.caseSensitive ? "" : "i";
+//     var pattern = "(" + words.join("|") + ")";
+//     if (settings.wordsOnly) {
+//         pattern = "\\b" + pattern + "\\b";
+//     }
+//     var re = new RegExp(pattern, flag);
 
-    return this.each(function() {
-        jQuery.highlight(this, re, settings.element, settings.className);
-    });
-};
+//     return this.each(function() {
+//         jQuery.highlight(this, re, settings.element, settings.className);
+//     });
+// };
