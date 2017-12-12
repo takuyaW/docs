@@ -1,10 +1,5 @@
-// main: theme.scss
-
-#sidebar-toggle-span {
-	display: none;
-}
-
 #sidebar-toggle {
+	display: none;
 	padding: 1rem;
 	margin: -1rem 0 -1rem -1rem;
 
@@ -12,8 +7,6 @@
 		display: none !important;
 	}
 }
-
-// responsive
 
 #sidebar {
 	background-color: $side_back_color;
@@ -26,6 +19,8 @@
 	font-size: 90%;
 	line-height: 27px;
     border-right: 1px solid rgba(0,0,0,0.2);
+
+    @include transition(left $time_long_fade ease);
 
 	a {
 		color: $side_link_color;

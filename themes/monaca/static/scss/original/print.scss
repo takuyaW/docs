@@ -1,7 +1,7 @@
 // main: theme.scss
 
 @media print {
-    #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
+    #sidebar, #navigation, #top-bar, .anchor, .copy-to-clipboard {
         display:none;
     }
     #navigation * {

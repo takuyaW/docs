@@ -336,9 +336,6 @@ body {
   background: #fff;
   color: #323232; }
 
-body #chapter h1 {
-  font-size: 3.5rem; }
-
 a {
   color: #5d89cb;
   -webkit-transition: color 0.15s ease;
@@ -363,7 +360,7 @@ pre {
 b, strong, label, th {
   font-weight: 600; }
 
-.default-animation, #header #logo-svg, #header #logo-svg path, #sidebar, #sidebar ul, #body, #body .padding, #body .nav {
+.default-animation, #header #logo-svg, #header #logo-svg path, #body, #body .padding, #body .nav {
   -webkit-transition: all 0.35s ease;
   -moz-transition: all 0.35s ease;
   -ms-transition: all 0.35s ease;
@@ -476,29 +473,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 #body-inner {
   margin-bottom: 5rem; }
-
-#chapter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 2rem 0; }
-
-#chapter #body-inner {
-  padding-bottom: 3rem;
-  max-width: 80%; }
-
-#chapter h3 {
-  font-weight: 300;
-  text-align: center; }
-
-#chapter h1 {
-  font-size: 5rem;
-  border-bottom: 4px solid #F0F2F4; }
-
-#chapter p {
-  text-align: center;
-  font-size: 1.2rem; }
 
 #footer {
   padding: 2rem 1rem 0;
@@ -1032,10 +1006,8 @@ pre .copy-to-clipboard:hover {
     border: 1px solid #a42d2d;
     background: #fae8e8 url(/images/common/icon_warning.png) 20px center no-repeat; }
 
-#sidebar-toggle-span {
-  display: none; }
-
 #sidebar-toggle {
+  display: none;
   padding: 1rem;
   margin: -1rem 0 -1rem -1rem; }
   #sidebar-toggle:after {
@@ -1051,7 +1023,11 @@ pre .copy-to-clipboard:hover {
   font-weight: normal;
   font-size: 90%;
   line-height: 27px;
-  border-right: 1px solid rgba(0, 0, 0, 0.2); }
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.35s ease;
+  -moz-transition: left 0.35s ease;
+  -ms-transition: left 0.35s ease;
+  transition: left 0.35s ease; }
   #sidebar a {
     color: #323232;
     -webkit-transition: color 0.15s ease;
@@ -1285,35 +1261,15 @@ pre .copy-to-clipboard:hover {
   margin-bottom: 0px;
   margin-top: 5px; }
 
-@media only all and (min-width: 48em) and (max-width: 59.938em) {
-  body #chapter h1 {
-    font-size: 3rem; } }
-
-@media only all and (max-width: 47.938em) {
-  body #chapter h1 {
-    font-size: 2rem; } }
-
-@media only all and (max-width: 47.938em) {
-  #sidebar-toggle-span {
-    display: inline; } }
-
 @media only all and (max-width: 59.938em) {
   #body .padding {
     position: static;
-    padding: 15px 3rem; } }
-
-@media only all and (max-width: 47.938em) {
-  #body .padding {
-    padding: 5px 1rem; } }
-
-@media only all and (max-width: 59.938em) {
+    padding: 15px 3rem; }
   #body #navigation {
     position: static;
     margin-right: 0 !important;
     width: 100%;
-    display: table; } }
-
-@media only all and (max-width: 59.938em) {
+    display: table; }
   #body .nav {
     display: table-cell;
     position: static;
@@ -1324,41 +1280,70 @@ pre .copy-to-clipboard:hover {
     line-height: 100px;
     padding-top: 0; }
   #body .nav > i {
-    display: inline-block; } }
-
-@media only all and (max-width: 47.938em) {
-  .two-column-bullet {
-    width: 100%; } }
-
-@media only all and (max-width: 47.938em) {
-  .three-column-bullet {
-    width: 100%; } }
-
-@media only all and (max-width: 47.938em) {
-  .four-column-bullet {
-    width: 100%; } }
-
-@media only all and (max-width: 59.938em) {
+    display: inline-block; }
   #sidebar {
     width: 280px; }
   #body {
     margin-left: 280px; } }
 
 @media only all and (max-width: 47.938em) {
-  #sidebar {
-    width: 280px;
-    left: -280px; }
+  h1 {
+    font-size: 1.625rem; }
+  h2 {
+    font-size: 1.375rem;
+    line-height: 110% !important;
+    margin: 1.5rem 0 1rem 0;
+    text-transform: capitalize; }
+  h3 {
+    font-size: 1.25rem;
+    line-height: 110% !important;
+    margin: 1rem 0 1rem 0; }
+  h4 {
+    font-size: 1.125rem;
+    line-height: 110% !important;
+    margin: 1rem 0 0.5rem 0; }
+  #header img {
+    padding-left: 1rem; }
   #body {
     margin-left: 0;
     width: 100%; }
-  .sidebar-hidden {
+  #body .padding {
+    padding: .5rem 1rem;
+    margin-top: 48px; }
+  #sidebar-toggle {
+    display: inline; }
+  #top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    height: 48px;
+    line-height: 28px;
+    padding: 10px;
+    display: flex;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    -webkit-transition: left 0.35s ease;
+    -moz-transition: left 0.35s ease;
+    -ms-transition: left 0.35s ease;
+    transition: left 0.35s ease; }
+  #breadcrumbs {
+    white-space: nowrap;
+    overflow: auto;
+    padding: 0;
+    opacity: 0; }
+  #sidebar {
+    width: 280px;
+    left: -280px; }
+  .sidebar-open {
     overflow: hidden; }
-  .sidebar-hidden #sidebar {
+  .sidebar-open #sidebar {
     left: 0; }
-  .sidebar-hidden #body {
+  .sidebar-open #body {
     margin-left: 280px;
     overflow: hidden; }
-  .sidebar-hidden #overlay {
+  .sidebar-open #overlay {
     position: absolute;
     left: 0;
     right: 0;
@@ -1366,10 +1351,21 @@ pre .copy-to-clipboard:hover {
     bottom: 0;
     z-index: 10;
     background: rgba(255, 255, 255, 0.5);
-    cursor: pointer; } }
+    cursor: pointer; }
+  .sidebar-open #top-bar {
+    left: 280px; }
+  figure {
+    margin-left: 0;
+    margin-right: 0; }
+  .two-column-bullet {
+    width: 100%; }
+  .three-column-bullet {
+    width: 100%; }
+  .four-column-bullet {
+    width: 100%; } }
 
 @media print {
-  #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
+  #sidebar, #navigation, #top-bar, .anchor, .copy-to-clipboard {
     display: none; }
   #navigation * {
     display: none;

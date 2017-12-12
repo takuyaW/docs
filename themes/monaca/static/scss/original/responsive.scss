@@ -1,52 +1,16 @@
-// main: theme.scss
-
-@media only all and (min-width: 48em) and (max-width: 59.938em) {
-    body #chapter h1 {
-        font-size: 3rem;
-    }
-}
-
-@media only all and (max-width: 47.938em) {
-    body #chapter h1 {
-        font-size: 2rem;
-    }
-}
-
-
-
-@media only all and (max-width: 47.938em) {
-    #sidebar-toggle-span {
-        display: inline;
-    }
-}
-
-
-
 @media only all and (max-width: 59.938em) {
     #body .padding {
         position: static;
         padding: 15px 3rem;
     }
-}
 
-@media only all and (max-width: 47.938em) {
-    #body .padding {
-        padding: 5px 1rem;
-    }
-}
-
-
-@media only all and (max-width: 59.938em) {
     #body #navigation {
         position: static;
         margin-right: 0 !important;
         width: 100%;
         display: table;
     }
-}
 
-
-@media only all and (max-width: 59.938em) {
     #body .nav {
         display: table-cell;
         position: static;
@@ -57,33 +21,11 @@
         line-height: 100px;
         padding-top: 0;
     }
+
     #body .nav > i {
         display: inline-block;
     }
-}
 
-
-
-@media only all and (max-width: 47.938em) {
-    .two-column-bullet {
-        width: 100%;
-    }
-}
-@media only all and (max-width: 47.938em) {
-    .three-column-bullet {
-        width: 100%;
-    }
-}
-@media only all and (max-width: 47.938em) {
-    .four-column-bullet {
-        width: 100%;
-    }
-}
-
-
-
-
-@media only all and (max-width: 59.938em) {
     #sidebar {
         width: 280px;
     }
@@ -92,26 +34,94 @@
     }
 }
 
+
+$mobileTopBarHeight: 48px;
+
 @media only all and (max-width: 47.938em) {
-    #sidebar {
-        width: 280px;
-        left: -280px;
+    h1 {
+        font-size: 1.625rem;
     }
+
+    h2 {
+        font-size: 1.375rem;
+        line-height: 110% !important;
+        margin: 1.5rem 0 1rem 0;
+        text-transform: capitalize;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 110% !important;
+        margin: 1rem 0 1rem 0;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+        line-height: 110% !important;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    #header img {
+        padding-left: 1rem;
+    }
+
     #body {
         margin-left: 0;
         width: 100%;
     }
-    .sidebar-hidden {
+
+    #body .padding {
+        padding: .5rem 1rem;
+        margin-top: $mobileTopBarHeight;
+    }
+
+    #sidebar-toggle {
+        display: inline;
+    }
+
+    #top-bar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
+        height: $mobileTopBarHeight;
+        line-height: $mobileTopBarHeight - 20px;
+        padding: 10px;
+        display: flex;
+
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+
+        @include transition(left $time_long_fade ease)
+    }
+
+    #breadcrumbs {
+        white-space: nowrap;
+        overflow: auto;
+        padding: 0;
+        opacity: 0; // hide until it has been scrolled to the right by JS
+    }
+
+    #sidebar {
+        width: 280px;
+        left: -280px;
+    }
+
+    .sidebar-open {
         overflow: hidden;
     }
-    .sidebar-hidden #sidebar {
+
+    .sidebar-open #sidebar {
         left: 0;
     }
-    .sidebar-hidden #body {
+
+    .sidebar-open #body {
         margin-left: 280px;
         overflow: hidden;
     }
-    .sidebar-hidden #overlay {
+
+    .sidebar-open #overlay {
         position: absolute;
         left: 0;
         right: 0;
@@ -120,5 +130,26 @@
         z-index: 10;
         background: rgba(255, 255, 255, 0.5);
         cursor: pointer;
+    }
+
+    .sidebar-open #top-bar {
+        left: 280px;
+    }
+
+    figure {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .two-column-bullet {
+        width: 100%;
+    }
+
+    .three-column-bullet {
+        width: 100%;
+    }
+
+    .four-column-bullet {
+        width: 100%;
     }
 }

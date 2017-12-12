@@ -2,15 +2,15 @@ $(function () {
     var sidebarStatus = 'open';
 
     $('#overlay').on('click', function() {
-        $(document.body).toggleClass('sidebar-hidden');
-        sidebarStatus = ($(document.body).hasClass('sidebar-hidden') ? 'closed' : 'open');
+        $(document.body).toggleClass('sidebar-open');
+        sidebarStatus = ($(document.body).hasClass('sidebar-open') ? 'open' : 'closed');
 
         return false;
     });
 
     $('[data-sidebar-toggle]').on('click', function() {
-        $(document.body).toggleClass('sidebar-hidden');
-        sidebarStatus = ($(document.body).hasClass('sidebar-hidden') ? 'closed' : 'open');
+        $(document.body).toggleClass('sidebar-open');
+        sidebarStatus = ($(document.body).hasClass('sidebar-open') ? 'open' : 'closed');
 
         return false;
     });
@@ -26,4 +26,10 @@ $(function () {
 
         location.href = location.href.replace(/cordova_[0-9].[0-9]/, 'cordova_' + selectedCordovaVersion);
     });
+
+    // On mobile, we want to scroll the breadcrumbs to the right
+    $('#top-bar #breadcrumbs')
+        .scrollLeft(100000)
+        .css({opacity: 1});
+
 });
