@@ -20,14 +20,6 @@
             var baseurl = "{{.Site.BaseURL}}";
         {{ end }}
 		</script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="text/javascript">
-      docsearch({
-        apiKey: 'cb8771194cfef15ef3d6578f488656b7',
-        indexName: 'monaca',
-        inputSelector: '[data-search-input]'
-      });
-    </script>
     {{- end}}
   </div>
 
@@ -50,10 +42,6 @@
                 </li>
             {{- end}}
         </section>
-
-        {{- if $.Site.Params.showVisitedLinks}}
-            <a id="clear-history" class="" href="#" data-clear-history-toggle=""><i class="fa  fa-history"></i> {{T "Clear-History"}}</a>
-        {{- end}}
 
 		{{- end}}
 

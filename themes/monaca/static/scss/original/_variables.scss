@@ -20,8 +20,8 @@ $side_active_back_color: transparent;
 $side_focus_text_color: $side_text_color;
 $side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
 
-$side_active_text_color: lshift_side($side_focus_text_color, -50%, 10%);
-$side_active_text_hover_color: lshift_side($side_active_text_color, 7%, -7%);
+$side_active_text_color: $primary_color_text;
+$side_active_text_hover_color: darken($primary_color_text, 10%);
 
 // == Main ==
 

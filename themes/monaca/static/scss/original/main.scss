@@ -3,10 +3,11 @@
 
 /* Table of contents */
 
-$toc-width: 15vw;
+$toc_width: 15vw;
+$toc_breakpoint: 1080px;
 
 #body-inner {
-	width: calc(100% - #{$toc-width});
+	width: calc(100% - #{$toc_width});
 	position: relative;
 }
 
@@ -14,7 +15,7 @@ $toc-width: 15vw;
 	position: fixed;
 	top: 5vh;
 	right: 2rem;
-	width: $toc-width;
+	width: $toc_width;
 	z-index: 200;
 	margin: 0;
 	padding: 0 5px;
@@ -34,6 +35,10 @@ $toc-width: 15vw;
 
 #TableOfContents a {
 	color: $main_text_color;
+
+	&:hover {
+		color: lighten($main_text_color, 40%);
+	}
 }
 
 #TableOfContents > ul > li > ul > li > ul li {
@@ -53,7 +58,7 @@ $toc-width: 15vw;
 	display: none;
 }
 
-@media only all and (max-width: 1080px) {
+@media only all and (max-width: $toc_breakpoint) {
 	#TableOfContents {
 		display: none;
 	}
@@ -414,64 +419,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 #header #logo-svg path {
 	fill: #fff;
-}
-
-.searchbox {
-	width: 100% !important; // !important to override the Algolia CSS
-	margin-top: 1rem;
-	position: relative;
-	border: 1px solid $side_highlight_color;
-	background: $side_focus_back_color;
-	border-radius: 4px;
-}
-
-.searchbox label {
-	color: rgba($side_focus_text_color, 0.8);
-	position: absolute;
-	left: 10px;
-	top: 3px;
-}
-
-// .searchbox span {
-//     color: rgba($side_focus_text_color, 0.6);
-//     position: absolute;
-//     right: 10px;
-//     top: 3px;
-//     cursor: pointer;
-//     @include transition(color $time_short_fade ease);
-// }
-
-// .searchbox span:hover {
-//     color: rgba($side_focus_text_color, 0.9);
-//     @include transition(color $time_short_fade ease);
-// }
-
-.searchbox input {
-	display: inline-block;
-	color: $side_focus_text_color;
-	width: 100%;
-	height: 30px;
-	background: transparent;
-	border: 0;
-	padding: 0 25px 0 30px;
-	margin: 0;
-	font-weight: 300;
-}
-
-.searchbox input::-webkit-input-placeholder {
-	color: rgba($side_focus_text_color, 0.6);
-}
-
-.searchbox input::-moz-placeholder {
-	color: rgba($side_focus_text_color, 0.6);
-}
-
-.searchbox input:-moz-placeholder {
-	color: rgba($side_focus_text_color, 0.6);
-}
-
-.searchbox input:-ms-input-placeholder {
-	color: rgba($side_focus_text_color, 0.6);
 }
 
 // sidebar
@@ -1063,10 +1010,6 @@ td {
 	vertical-align: middle;
 }
 
-.featherlight img {
-	margin: 0 !important;
-}
-
 .lifecycle #body-inner ul {
 	list-style: none;
 	margin: 0;
@@ -1212,17 +1155,7 @@ pre .copy-to-clipboard:hover {
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-}
-
-//sidebar
-
-/* Mermaid conflict with rest of HTML https://github.com/vjeantet/hugo-theme-docdock/issues/71 */
-.section {
-	opacity: 1;
-}
-.mermaid .section {
-	opacity: 0.2;
-}
+} 
 
 //sidebar
 
