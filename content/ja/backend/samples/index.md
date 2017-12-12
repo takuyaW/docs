@@ -1,8 +1,5 @@
-サンプルアプリ
-==============
+---
+title: サンプルアプリ
+---
 
-> maxdepth
->
-> :   2
->
-> ../../sampleapp/samples/backend\_memo
+- [バックエンド メモ帳アプリ](/ja/sampleapp/samples/backend_memo)

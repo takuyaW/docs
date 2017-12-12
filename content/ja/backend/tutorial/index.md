@@ -1,8 +1,5 @@
-Monaca Backend Tutorial
-=======================
+---
+title: Monaca バックエンド チュートリアル
+---
 
-> maxdepth
->
-> :   2
->
-> ../../monaca\_ide/tutorial/adding\_backend
+- [Monaca バックエンドのセットアップ](/ja/monaca_ide/tutorial/adding_backend)
