@@ -2,8 +2,6 @@
 title: Storage
 ---
 
-# Storage
-
 {{<note>}}
 This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="http://docs.phonegap.com/en/3.5.0/cordova_storage_storage.md.html#Storage">}}.
 {{</note>}}

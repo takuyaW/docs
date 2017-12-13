@@ -2,8 +2,6 @@
 title: Push Notification
 ---
 
-# Push Notification
-
 {{<note>}}
 For release and ad-hoc builds on Cordova 6.2 platform, please select the release build option when sending push notifications.
 {{</note>}}

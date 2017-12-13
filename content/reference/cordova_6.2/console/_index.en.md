@@ -2,8 +2,6 @@
 title: Console Plugin
 ---
 
-# Console Plugin
-
 Tested Version: [1.0.3](https://github.com/apache/cordova-plugin-console/releases/tag/1.0.3)
 
 {{<note>}}

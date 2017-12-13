@@ -2,8 +2,6 @@
 title: Build Settings between Monaca and Xcode
 ---
 
-# Build Settings between Monaca and Xcode
-
 If you want to develop your Monaca app in both Monaca Cloud IDE and
 Xcode on your Mac OS X, you will need to synchronize the build settings
 (private keys and certificates) of the app you use in these two

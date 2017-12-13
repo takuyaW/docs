@@ -2,8 +2,6 @@
 title: Collection Item Management
 ---
 
-# Collection Item Management
-
 Below are Monaca Backend Management API for CollectionItem.
 
 Method | Description

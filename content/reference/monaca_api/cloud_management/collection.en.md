@@ -2,8 +2,6 @@
 title: Collection Management
 ---
 
-# Collection Management
-
 Below are Monaca Backend Management API for Collections.
 
 Method | Description

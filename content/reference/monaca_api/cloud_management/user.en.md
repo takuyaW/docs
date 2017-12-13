@@ -2,8 +2,6 @@
 title: User Management
 ---
 
-# User Management
-
 Below are Monaca Backend Management APIs for Users.
 
 Method | Description
