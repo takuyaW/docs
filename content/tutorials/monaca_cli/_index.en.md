@@ -17,8 +17,8 @@ Before getting started, you need to:
 1. get a Monaca account. If you don’t have one, please register [here](https://monaca.mobi/en/register/start).
 2. install Monaca CLI. Please follow the installation instruction [here](http://docs.monaca.io/en/monaca_cli/manual/overview/#install-monaca-cli).
 
-- [Part 1: Starting a Project](starting_project)
-- [Part 2: Running Monaca Debugger with Monaca CLI](testing_debugging)
-- [Part 3: Building Monaca App](building_app)
-- [Part 4: Publishing Monaca App](publishing_app)
+- [Part 1: Starting a Project](/en/tutorials/monaca_cli/starting_project)
+- [Part 2: Running Monaca Debugger with Monaca CLI](/en/tutorials/monaca_cli/testing_debugging)
+- [Part 3: Building Monaca App](/en/tutorials/monaca_cli/building_app)
+- [Part 4: Publishing Monaca App](/en/tutorials/monaca_cli/publishing_app)
 {{% /excerpt%}}

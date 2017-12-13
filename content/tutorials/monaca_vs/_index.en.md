@@ -18,8 +18,8 @@ Before getting started with this tutorial, you will need to:
 2. install Monaca for Visual Studio extension. Please follow the installation instruction [here](../manual/overview/#monaca-vs-installation).
 
 
-- [Part 1: Starting a Project](starting_project)
-- [Part 2: Running Monaca Debugger with Monaca for Visual Studio](testing_debugging)
-- [Part 3: Building Monaca App](building_app)
-- [Part 4: Publishing Monaca App](publishing_app)
+- [Part 1: Starting a Project](/en/tutorials/monaca_vs/starting_project)
+- [Part 2: Running Monaca Debugger with Monaca for Visual Studio](/en/tutorials/monaca_vs/testing_debugging)
+- [Part 3: Building Monaca App](/en/tutorials/monaca_vs/building_app)
+- [Part 4: Publishing Monaca App](/en/tutorials/monaca_vs/publishing_app)
 {{%/excerpt%}}
