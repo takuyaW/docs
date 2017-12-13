@@ -49,7 +49,7 @@ To create Push certificates, please proceed as follows:
     {{<img src="/images/backend/apns/4.png">}}
 
 4.  Register your App ID as an Explicit App ID and enable Push
-    Notifications service in iOS Dev Center. Please refer to [Register App ID](/en/monaca_ide/manual/build/ios/build_ios/#register_appid).
+    Notifications service in iOS Dev Center. Please refer to [Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register_appid).
 
     {{<warning>}}
         Push notification can’t be used if your App ID is registered as Wildcard or Push Notifications service is disabled.

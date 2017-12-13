@@ -39,15 +39,15 @@ provides the following functions:
 {{</note>}}
 
 {{<warning>}}
-    Please note that {{<link href="/en/backend" title="Monaca Backend">}} as well as {{<link href="/en/backend/manual/push_notification" title="Push Notification">}} are currently not available in Monaca Localkit yet.
+    Please note that {{<link href="/en/products_guide/backend" title="Monaca Backend">}} as well as {{<link href="/en/products_guide/push_notification" title="Push Notification">}} are currently not available in Monaca Localkit yet.
 {{</warning>}}
 
 ## Installation and Setup
 
-Before getting started, you need to install Monaca Localkit on the computer and [Monaca Debugger](/en/debugger) on the device(s).
+Before getting started, you need to install Monaca Localkit on the computer and [Monaca Debugger](/en/products_guide/debugger) on the device(s).
 
 1. Download the latest version of Monaca Localkit [here](https://monaca.io/localkit.html). Please refer to [GitHub release page](https://github.com/monaca/Localkit/releases) for change logs.
-2. Install Monaca Debugger as described in [Debugger Installation](/en/debugger/manual/installation).
+2. Install Monaca Debugger as described in [Debugger Installation](/en/products_guide/debugger/installation).
 
 ## Usage
 
@@ -240,7 +240,7 @@ do all the magic!
 
 See Also:
 
-- [Monaca Localkit Tutorial](../../tutorial)
+- [Monaca Localkit Tutorial](../tutorial)
 - [Pairing and Debugging](../pairing_debugging)
 - [Remote Building and Publishing](../build_publish)
 - [Troubleshooting Guide](../troubleshooting)

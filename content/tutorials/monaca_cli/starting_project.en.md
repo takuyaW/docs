@@ -38,7 +38,7 @@ weight: 1
     {{<img src="/images/monaca_cli/tutorial/starting_project/3.png">}}
 
 {{<note>}}
-    You can also use Monaca CLI to {{<link href="../../manual/cli_commands/#monaca-import" title="import">}} or {{<link href="../../manual/cli_commands/#monaca-clone" title="clone">}} your existing projects from Monaca Cloud.
+    You can also use Monaca CLI to {{<link href="/en/products_guide/monaca_cli/cli_commands/#monaca-import" title="import">}} or {{<link href="/en/products_guide/monaca_cli/cli_commands/#monaca-clone" title="clone">}} your existing projects from Monaca Cloud.
 {{</note>}}
 
 See Also:

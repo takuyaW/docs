@@ -29,7 +29,7 @@ all applications running on the device.
 In iOS apps developing, you need to follow the instructions provided by
 Apple. Register properly the information of the device and developer,
 and then prepare the necessary files. For a step-by-step guide, please
-refer to [Building an iOS App](/en/monaca_ide/manual/build/ios/build_ios).
+refer to [Building an iOS App](/en/products_guide/monaca_ide/build/ios/build_ios).
 
 ## I was able to build build iOS (iPhone/iPad) apps before, but now I can't successfully build them anymore.
 
@@ -37,12 +37,12 @@ This may caused by the expiry of certificates, reissuing certificates
 requirement, and other factors. Therefore, you need to recreate
 provisioning profiles. Please recreate the required files like
 certificates and provisioning profiles by using the same procedures as
-before, and then use the new files. You may read about [Generate Certificates](/en/monaca_ide/manual/build/ios/build_ios/#create_cer) and [Create Provisioning Profiles](/en/monaca_ide/manual/build/ios/build_ios/#register_provisioning) for more details.
+before, and then use the new files. You may read about [Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#create_cer) and [Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#register_provisioning) for more details.
 
 ## I don't know about how to build iOS apps or the certificates-related procedures.
 
 
-The procedures can be found in [Building an iOS App](/en/monaca_ide/manual/build/ios/build_ios).
+The procedures can be found in [Building an iOS App](/en/products_guide/monaca_ide/build/ios/build_ios).
 
 ## Can I build an application for only iPhone using Monaca?
 
@@ -55,7 +55,7 @@ iPad is selected.
 There are two ways to upload the built app to iTunes Connect for App
 Store submission:
 
-1.  using [Monaca Upload](/en/monaca_ide/manual/deploy/appstore/app_submission) (requires [a valid subscription plan](https://monaca.io/pricing.html))
+1.  using [Monaca Upload](/en/products_guide/monaca_ide/deploy/appstore/app_submission) (requires [a valid subscription plan](https://monaca.io/pricing.html))
 2.  using Application Loader software (Mac OS X only)
 
 ## Are there any examples of applications developed with Monaca that went through Apple's review, and are actually available on the App Store?
@@ -90,7 +90,7 @@ staff.
 ## Tell me how to import/export private keys and certificates that are using Xcode.
 
 You can import private keys on your local Mac, and export Monaca's
-private keys and certificates. For details, please refer to [Build Settings between Monaca and Xcode](/en/monaca_ide/manual/build/ios/import_export).
+private keys and certificates. For details, please refer to [Build Settings between Monaca and Xcode](/en/products_guide/monaca_ide/build/ios/import_export).
 
 ## The built application crashes right after starting up.
 
@@ -139,7 +139,7 @@ the same name.
 ## Can I share my iOS certificates and private key?
 
 Yes, it is possible to share iOS private key and certificates among
-other users and environments. Please refer to [Build Settings between Monaca and Xcode](/en/monaca_ide/manual/build/ios/import_export).
+other users and environments. Please refer to [Build Settings between Monaca and Xcode](/en/products_guide/monaca_ide/build/ios/import_export).
 
 ## Can I share my Android keystore?
 
@@ -149,7 +149,7 @@ keystore which is used to sign application(s) because when a keystore is
 lost, it is impossible to use the same key to re-sign the signed
 package.
 
-How to create and export Android keystore are described in [Configure Android Keystore](/en/monaca_ide/manual/build/build_android/#step-2-configure-android-keystore).
+How to create and export Android keystore are described in [Configure Android Keystore](/en/products_guide/monaca_ide/build/build_android/#step-2-configure-android-keystore).
 
 ## Things to keep in mind when you register applications to the App Store
 

@@ -11,7 +11,7 @@ with the host PC such as:
 1.  Monaca Debugger can see the host PC but fail to pair: this is most
     likely a firewall problem in the host PC. The host PC needs to
     accept TCP connection from the debugger. Port `8001` will be used, and
-    you can change the server port in [Preferences dialog](/en/monaca_localkit/manual/overview/#localkit-preference). Please change the
+    you can change the server port in [Preferences dialog](/en/products_guide/monaca_localkit/overview/#localkit-preference). Please change the
     port or configure your firewall settings to try agian.
 2.  Monaca Debugger does not detect the host PC: please check and see if
     your device and the host PC are connected to the same network. If

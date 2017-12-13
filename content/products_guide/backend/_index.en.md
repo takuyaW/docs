@@ -18,4 +18,4 @@ development on the client part.
 
 - [Backend Control Panel](control_panel)
 - [Backend Operations](control_operations)
-- [Push Notification](push_notification)
+- [Push Notification](/en/products_guide/push_notification)

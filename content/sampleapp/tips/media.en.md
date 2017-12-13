@@ -56,7 +56,7 @@ you play a sound file such as start, pause, stop, resume, set volume and
 so on.
 
 {{<note>}}
-    Before getting started, you are required to {{<link href="/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins" title="enable">}} Media plugin in Monaca Cloud IDE.onaca Cloud IDE.
+    Before getting started, you are required to {{<link href="/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins" title="enable">}} Media plugin in Monaca Cloud IDE.onaca Cloud IDE.
 {{</note>}}
 
 ### Playing Sound from External Sources

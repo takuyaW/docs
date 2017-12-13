@@ -69,7 +69,7 @@ For Basic and Personal plans, you can use the built-in Cordova plugins
 such as ChildBrowser, DatePicker, Bluetooth and so on. Please refer to [Third-party Cordova Plugins](/en/reference/third_party_phonegap) for all the built-in Cordova plugins
 provided by Monaca. However, In order to add Custom Cordova plugin, you
 will need to have a Gold or Platinum plan. To add a custom Cordova
-plugin, please refer to [Custom Cordova Plugins](/en/monaca_ide/manual/dependencies/custom_cordova_plugin).
+plugin, please refer to [Custom Cordova Plugins](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin).
 
 ## Tell me about restrictions for developing Windows Store apps.
 
@@ -142,7 +142,7 @@ was not loaded.
     {{</highlight>}}
 
 {{<warning>}}
-    This method won’t work in Android Debugger downloaded from Google Play. Creating a custom Android debugger will solve this issue. Please refer to {{<link href="/en/debugger/manual/installation/debugger_android/#custom-debugger-and" title="Build and Install Custom Monaca Debugger">}}.
+    This method won’t work in Android Debugger downloaded from Google Play. Creating a custom Android debugger will solve this issue. Please refer to {{<link href="/en/products_guide/debugger/installation/debugger_android/#custom-debugger-and" title="Build and Install Custom Monaca Debugger">}}.
 {{</warning>}}
 
 ## Limitation of version number and version code for Monaca apps
@@ -201,7 +201,7 @@ the existing `id` value. Here is an example of the updated file:
 {{</highlight>}}
 
 {{<note>}}
-    With this kind of configuration, all builds are succeeded except Android’s {{<link href="/en/debugger/manual/installation/debugger_android/#custom-debugger-and" title="custom Debugger build">}}.
+    With this kind of configuration, all builds are succeeded except Android’s {{<link href="/en/products_guide/debugger/installation/debugger_android/#custom-debugger-and" title="custom Debugger build">}}.
 {{</note>}}
 
 ## How to get SHA-1 fingerprint of a keystore created in Monaca Cloud IDE

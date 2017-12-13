@@ -3,7 +3,7 @@ title: "Part 2: Running Monaca Debugger with Monaca Localkit"
 weight: 2
 ---
 
-[Monaca Debugger](/en/debugger) is a powerful
+[Monaca Debugger](/en/products_guide/debugger) is a powerful
 application for testing and debugging your Monaca applications on real
 devices in real time.
 
@@ -26,17 +26,17 @@ Please install Monaca Debugger on your device.
 {{<img src="/images/monaca_localkit/tutorial/testing_debugging/Google_play.png" width="100" link="https://play.google.com/store/apps/details?id=mobi.monaca.debugger&hl=en">}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/installation" title="Monaca Debugger Installation">}} for other platforms.
+    Please refer to {{<link href="/en/products_guide/debugger/installation" title="Monaca Debugger Installation">}} for other platforms.
 {{</note>}}
 
 ## Step 1: Running a Project on Monaca Debugger
 
 1.  Pair the Monaca Debugger with the PC hosting Monaca Localkit. Please
-    refer to [Pairing and Debugging](../../manual/pairing_debugging).
+    refer to [Pairing and Debugging](/en/products_guide/monaca_localkit/pairing_debugging).
 2.  If your pairing is successful, a project list will appear in Monaca
     Debugger and the connected debugger will appear in the Monaca
     Localkit (see screenshots below as an example). However, if you
-    failed the pairing, please refer to [Troubleshoot the Pairing](/en/debugger/manual/troubleshooting).
+    failed the pairing, please refer to [Troubleshoot the Pairing](/en/products_guide/debugger/troubleshooting).
 
     {{<multi_figures title="Monaca Debugger & Monaca Localkit">}}
         {{<img src="/images/monaca_localkit/tutorial/testing_debugging/1.png" width="175">}}
@@ -83,7 +83,7 @@ Please install Monaca Debugger on your device.
 Monaca Localkit allows you to debug your application with [Chrome
 DevTools](https://developer.chrome.com/devtools) using USB connection.
 Before starting this USB debugging, please make sure to
-[enable USB Debugging option](/en/debugger/manual/debug/#pre-debug-app) on your device with
+[enable USB Debugging option](/en/products_guide/debugger/debug/#pre-debug-app) on your device with
 appropriate version of Monaca Debugger.
 
 1.  Run the project on the debugger.
@@ -99,7 +99,7 @@ appropriate version of Monaca Debugger.
     and [JavaScript
     Debugging](https://developer.chrome.com/devtools/docs/javascript-debugging)
     with Chrome DevTools. However, if the Chrome DevTools are failed to
-    open, please refer to [Inspector Isn’t Loaded](/en/debugger/manual/troubleshooting/#troubleshoot-inspector).
+    open, please refer to [Inspector Isn’t Loaded](/en/products_guide/debugger/troubleshooting/#troubleshoot-inspector).
 
     {{<img src="/images/monaca_localkit/tutorial/testing_debugging/9.png">}}
 
@@ -110,7 +110,7 @@ appropriate version of Monaca Debugger.
 {{<figure src="/images/monaca_localkit/tutorial/testing_debugging/10.png">}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/features/#monaca-debugger-features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
+    Please refer to {{<link href="/en/products_guide/debugger/features/#monaca-debugger-features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
 {{</note>}}
 
 See Also:

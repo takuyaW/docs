@@ -234,9 +234,9 @@ In order to start this debugging, please do as follows:
     such as Monaca Localkit, Monaca CLI or Monaca for Visual Studio).
     You may want to refer to:
 
-    -   [Pairing in Monaca Localkit](/en/monaca_localkit/manual/pairing_debugging)
-    -   [Pairing in Monaca CLI](/en/monaca_cli/manual/pairing_debugging)
-    -   [Pairing in Monaca for Visual Studio](/en/monaca_vs/manual/pairing_debugging)
+    -   [Pairing in Monaca Localkit](/en/products_guide/monaca_localkit/pairing_debugging)
+    -   [Pairing in Monaca CLI](/en/products_guide/monaca_cli/pairing_debugging)
+    -   [Pairing in Monaca for Visual Studio](/en/products_guide/monaca_vs/pairing_debugging)
 
 2.  Choose a project to run.
 3.  Click on the debugger menu as shown below:

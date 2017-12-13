@@ -404,7 +404,7 @@ monaca.cloud.User.updatePassword("oldPassword", "newPassword")
 Send an email with a token to reset the password in case a user could
 not log in because of a forgotten password. Before sending this email,
 it is required to create an email template by using Monaca Cloud IDE in
-advance. Please refer to [Mail Template Management](/en/backend/manual/control_operations/#mail-template-management) for how to create an
+advance. Please refer to [Mail Template Management](/en/products_guide/backend/control_operations/#mail-template-management) for how to create an
 email template.
 
 {{<syntax>}}
@@ -708,9 +708,9 @@ var oid = monaca.cloud.User._oid;
 See Also: 
 
 - [User Management](../../cloud_management/user)
-- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend Control Panel](/en/products_guide/backend/control_panel)
 - [Backend API](../../cloud)
 - [Backend Memo](/en/sampleapp/samples/backend_memo)
 - [Backend Management API](../../cloud_management)
-- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
+- [Backend Management API Key](/en/products_guide/backend/control_panel/#backend-management-api-key)
 

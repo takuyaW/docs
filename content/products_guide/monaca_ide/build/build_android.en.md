@@ -20,7 +20,7 @@ version. The differences between these types of build are as follows:
         <td>
             <ul>
                 <li>QR Code</li>
-                <li><a href="/en/debugger/manual/features/#debugger-project-options">Network Install</a></li>
+                <li><a href="/en/products_guide/debugger/features/#debugger-project-options">Network Install</a></li>
                 <li>Sideloading</li>
             </ul>
         </td>

@@ -14,7 +14,7 @@ Debugger.
 > You are required to have a valid plan in order to use Monaca Localkit. Otherwise, it will run in an evaluation mode for 30 days after the first login. Please refer to [Monaca Subscription Plans](https://monaca.mobi/en/pricing) for more details.
 
 <!-- -->
-> Please note that [Backend](/en/backend) as well as [Push Notification](/en/backend/manual/push_notification/) are currently not available in Monaca Localkit yet.
+> Please note that [Backend](/en/products_guide/backend) as well as [Push Notification](/en/products_guide/push_notification/) are currently not available in Monaca Localkit yet.
 
 Before getting started with this tutorial, you need to:
 

@@ -162,8 +162,8 @@ Cordova plugins. Please refer to the following links on how to build
 custom built debugger and the differences between the standard and
 custom built debugger:
 
-- [Monaca Debugger for iOS](/en/debugger/manual/installation/debugger_ios/)
-- [Monaca Debugger for Android](/en/debugger/manual/installation/debugger_android/)
+- [Monaca Debugger for iOS](/en/products_guide/debugger/installation/debugger_ios/)
+- [Monaca Debugger for Android](/en/products_guide/debugger/installation/debugger_android/)
 
 {{<note>}}
     Please make sure to import the custom or external third-party Cordova plugins before building the custom built debugger.
@@ -198,8 +198,8 @@ custom Cordova Plugin. Please contact our support team
 5.  Build a custom built Monaca Debugger. Please refer to the following
     links on how to build a custom built Monaca Debugger:
 
-    - [How to Build Custom Monaca Debugger for iOS](/en/debugger/manual/installation/debugger_ios/#custom-debugger-ios)
-    - [Build and Install Custom Monaca Debugger for Android](/en/debugger/manual/installation/debugger_android/#custom-debugger-android)
+    - [How to Build Custom Monaca Debugger for iOS](/en/products_guide/debugger/installation/debugger_ios/#custom-debugger-ios)
+    - [Build and Install Custom Monaca Debugger for Android](/en/products_guide/debugger/installation/debugger_android/#custom-debugger-android)
 
 6.  Install the custom built Monaca Debugger.
 7.  Open the debugger and check the debuggers' information by clicking

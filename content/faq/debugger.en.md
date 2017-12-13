@@ -10,7 +10,7 @@ functionality of the app on an actual device without building. When
 using Monaca Debugger, any changes made to the code immediately reflect
 to the actual running device. No build and run process are required.
 This would help to speed up the development and testing process. For
-more details, please refer to [Monaca Debugger](/en/debugger).
+more details, please refer to [Monaca Debugger](/en/products_guide/debugger).
 
 ## Are the operations of an app on the Monaca Debugger the same as when the app is installed on an actual device?
 
@@ -23,7 +23,7 @@ apps because of the connection to the Monaca Cloud IDE.
 ## Before building, can I check application operations during development?
 
 Monaca provides utiliy to check the display and operations of
-application which is [Live Preview](/en/monaca_ide/manual/overview/#preview_team_panel) feature on the
+application which is [Live Preview](/en/products_guide/monaca_ide/overview/#preview_team_panel) feature on the
 Monaca Cloud IDE. In addition, you can check application operations on
 the device prior to building by using Monaca Debugger. Both are very
 useful tools for improving development efficiency, so please make the
@@ -97,7 +97,7 @@ Here are some important differences:
 3.  USB debugging support (iOS Only): For iOS devices, USB debugging can
     be only enabled when the app is debug built. Therefore, you cannot
     do USB debugging on Monaca Debugger downloaded from App Store. For
-    more details, please see [Monaca Debugger for iOS](/en/debugger/manual/installation/debugger_ios).
+    more details, please see [Monaca Debugger for iOS](/en/products_guide/debugger/installation/debugger_ios).
 
 ## How can I debug my application?
 
@@ -107,12 +107,12 @@ We are providing 3 different ways to debug your application.
 2.  Debug using Monaca Debugger with Monaca IDE (Weinre)
 3.  Debug using Monaca Debugger with USB debugging
 
-For more details, please refer to [Debugger's Usage](/en/debugger/manual/debug).
+For more details, please refer to [Debugger's Usage](/en/products_guide/debugger/debug).
 
 ## What is a network install?
 
 Network installation is a way to install your debug or ad-hoc built app
-to your devices from Monaca Debugger. For more details, please refer to [Network Install for Android](/en/debugger/manual/installation/debugger_android/#network-and) or [Network Install for iOS](/en/debugger/manual/installation/debugger_ios/#network-ios).
+to your devices from Monaca Debugger. For more details, please refer to [Network Install for Android](/en/products_guide/debugger/installation/debugger_android/#network-and) or [Network Install for iOS](/en/products_guide/debugger/installation/debugger_ios/#network-ios).
 
 ## Changes are not updated in a project on Monaca debugger.
 

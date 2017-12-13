@@ -1,31 +1,27 @@
 ---
 title: Twitter Client
+hidden: true
 ---
 
-This sample app is showing the Twitter Timeline of a specified user. It
-allows user to connect to Twitter from Monaca app by using [OAuth
-protocol](https://dev.twitter.com/docs/auth/oauth) and InAppBrowser. If
-you want to use other APIs, please refer [Twitter
-Documentation](https://dev.twitter.com/docs) .
+This sample app is showing the Twitter Timeline of a specified user. It allows user to connect to Twitter from Monaca app by using [OAuth protocol](https://dev.twitter.com/docs/auth/oauth) and InAppBrowser. If you want to use other APIs, please refer [Twitter Documentation](https://dev.twitter.com/docs) .
 
-| *Tested Environments:* Android 6.2, iOS 10.1
+*Tested Environments:* Android 6.2, iOS 10.1
 
 <div class="iframe-samples">
   <iframe src="https://monaca.github.io/project-templates/14-twitter-client/www/index.html" style="max-width: 150%;"></iframe>
 </div>
-Click here to download the project &lt;download/twitter.zip&gt;
 
-Prerequisite
-------------
+{{<download href="/download/twitter.zip" title="Click here to download project">}}
 
-You are required to obtain *API key* and *API secret* by registering
-your Monaca app with Twitter Developer:
+## Prerequisite
+
+You are required to obtain *API key* and *API secret* by registering your Monaca app with Twitter Developer:
 
 1.  Go to [Twitter Developer Site](https://dev.twitter.com/). Sign in
     with a valid Twitter account. If you don't have one, please sign up.
-2.  Go to My applications. Then, click on Create New App button.
 
-> ![image](images/twitter/site_1.png){width="700px"}
+2.  Go to My applications. Then, click on Create New App button.
+    {{<figure src="/images/sampleapp/twitter/site_1.png">}}
 
 3.  Fill in the information of your app such as: Name, Description,
     Website and Callback URL. Tick Yes, I agree. Then, click
@@ -33,52 +29,38 @@ your Monaca app with Twitter Developer:
 4.  Go to Settings tab and tick
     Allow this application to be used to Sign in with Twitter. (See
     screenshot below)
+    {{<figure src="/images/sampleapp/twitter/site_2.png">}}
 
-> ![image](images/twitter/site_2.png)
->
-> > width
-> >
-> > :   700px
-> >
 5.  Go to API Keys tab and take note of the API key and API secret. You
     will need them later. You can also regenerate the API keys.
+    {{<figure src="/images/sampleapp/twitter/site_3.png">}}
 
-> ![image](images/twitter/site_3.png)
->
-> > width
-> >
-> > :   700px
-> >
-File Components
----------------
+## File Components
 
-![image](images/twitter/twitter_2.png){width="210px"}
+{{<figure src="/images/sampleapp/twitter/twitter_2.png">}}
 
-  ---------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `index.html`                             The startup Page (Consists of Connect Screen)
-  `css/app.css`                            A stylesheet file for the application
-  `css/onsen-css-components-default.css`   A stylesheet file for [Onsen UI](http://onsenui.io/) components
-  `js/jsoauth.js`                          A JavaScript library implementing the [OAuth protocol](https://dev.twitter.com/docs/auth/oauth) which aims to form the basis of custom clients such as Twitter. [See more about jsOAuth](https://github.com/bytespider/jsOAuth)
-  `js/underscore.js`                       A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. [See more about this library](http://underscorejs.org/)
-  ---------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ File                                   | Description
+----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`index.html`                            | The startup Page (Consists of Connect Screen)
+`css/app.css`                           | A stylesheet file for the application
+`css/onsen-css-components-default.css`  | A stylesheet file for [Onsen UI](http://onsenui.io/) components
+`js/jsoauth.js`                         | A JavaScript library implementing the [OAuth protocol](https://dev.twitter.com/docs/auth/oauth) which aims to form the basis of custom clients such as Twitter. [See more about jsOAuth](https://github.com/bytespider/jsOAuth)
+`js/underscore.js`                      | A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. [See more about this library](http://underscorejs.org/)
 
-Required JS/CSS Components
---------------------------
+### Required JS/CSS Components
 
   `jQuery`                                                   
-  ---------------------------------------------------------- ------------------------------
-  Required Cordova Plugins                                   
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   
-  ============================                               ============================
+
+### Required Cordova Plugins                                   
+
   `InAppBrowser`                                             
 
-HTML Explanation
-----------------
+## HTML Explanation
 
 The User Interface for this sample app is based on *Onsen UI
 Components*. For more information on *Onsen UI* tags and components,
 please refer to [Onsen UI
-Documentation](https://docs.monaca.io/en/onsenui/).
+Documentation](https://docs.monaca.io/en/products_guide/onsenui/).
 
 The following contents of the HTML body of index.html file is for the
 navigation bar of the application which has a Twitter icon on the left,
@@ -107,7 +89,7 @@ screenshot below):
 ...
 ```
 
-![](images/twitter/twitter_3.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter/twitter_3.png">}}
 
 The following contents of the HTML body of index.html file is for the
 Connect to Twitter button and a place to load the content of the Twitter
@@ -145,10 +127,9 @@ timeline (see screenshot below):
 ...
 ```
 
-![](images/twitter/twitter_4.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter/twitter_4.png">}}
 
-JavaScript Explanation
-----------------------
+## JavaScript Explanation
 
 The logic behind this app is based on *InAppBrowser* and *OAuth
 protocol*. We use InAppBrowser to open a Twitter authentication page
@@ -236,7 +217,7 @@ URL is successfully loaded), the Access Token is stored inside the oauth
 object and `getTwits()` function is called. After that, the browser is
 closed.
 
-![](images/twitter/twitter_5.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter/twitter_5.png">}}
 
 ### getTwits() function
 
@@ -276,4 +257,4 @@ function showTwits(data) {
 This function is used to display the twit information. It uses
 `underscore.js` library for templating (see screenshot below).
 
-![](images/twitter/twitter_6.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter/twitter_6.png">}}

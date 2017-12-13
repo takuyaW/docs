@@ -44,7 +44,7 @@ The user should proceed as follows:
 
 See Also:
 
-- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Tutorial](../tutorial)
 - [Monaca CLI Overview](../overview)
 - [Project Dependencies](../dependencies)
 - [Monaca CLI Commands](../cli_commands)

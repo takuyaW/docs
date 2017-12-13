@@ -8,10 +8,10 @@ weight: 60
 For your flexibility and convenience during app development process,
 Monaca provides four different development environments such as:
 
-- [Monaca Cloud IDE](/en/monaca_ide)
-- [Monaca Localkit](/en/monaca_localkit)
-- [Monaca CLI](/en/monaca_cli)
-- [Monaca for Visual Studio](/en/monaca_vs)
+- [Monaca Cloud IDE](/en/products_guide/monaca_ide)
+- [Monaca Localkit](/en/products_guide/monaca_localkit)
+- [Monaca CLI](/en/products_guide/monaca_cli)
+- [Monaca for Visual Studio](/en/products_guide/monaca_vs)
 
 You can choose your desired platform and start building your
 application. The following steps are the mobile app development steps
@@ -27,7 +27,7 @@ using Monaca:
 
 Moreover, note that in order to install the built application on iPhone
 or iPad, you need to register iOS Developer Program. For more details,
-please refer to [Building an iOS App](/en/monaca_ide/manual/build/ios/build_ios).
+please refer to [Building an iOS App](/en/products_guide/monaca_ide/build/ios/build_ios).
 
 ## Can I create my own project template?
 
@@ -51,13 +51,13 @@ please do take a look. ([Third-party Cordova Plugins](/en/reference/third_party_
 
 When developing an app with Monaca, you don't need to own a server
 because Monaca provides server functions with backend services. For more
-details, please refer to [Monaca Backend](/en/backend).
+details, please refer to [Monaca Backend](/en/products_guide/backend).
 
 ## Does Monaca support team development?
 
 Yes, Monaca supports team development. Users can share their projects to
 other registered users using the team function in Monaca Cloud IDE. For
-more detail, please refer to [Share](/en/monaca_ide/manual/overview/#team-tab).
+more detail, please refer to [Share](/en/products_guide/monaca_ide/overview/#team-tab).
 
 The usability of this function depends on your usage plan with Monaca.
 
@@ -88,13 +88,13 @@ each resource or enforcing source IP restrictions for access (fee-based). Please
 
 ## Are there any keyboard shortcuts or keybindings that can be used on the Monaca Cloud IDE?
 
-Shortcuts that can be used on Monaca Cloud IDE are listed in [Editor Shortcuts](/en/monaca_ide/manual/code_editor/editor). Also, Monaca can use keybindings like `vim`. You can
+Shortcuts that can be used on Monaca Cloud IDE are listed in [Editor Shortcuts](/en/products_guide/monaca_ide/code_editor/editor). Also, Monaca can use keybindings like `vim`. You can
 set the keybinding from the Environment Settings of the File menu on the
 top of the page of Monaca Cloud IDE.
 
 ## I want to change the background color of the Splash screen.
 
-For the changes to the Splash screen, you can configure from the `Splash Screen Settings` in [Configure iOS App Settings](/en/monaca_ide/manual/build/ios/build_ios/#configure-ios-app-settings) and [Configure Android App](/en/monaca_ide/manual/build/build_android/#step-1-configure-android-app) for iOS and Android, respectively.
+For the changes to the Splash screen, you can configure from the `Splash Screen Settings` in [Configure iOS App Settings](/en/products_guide/monaca_ide/build/ios/build_ios/#configure-ios-app-settings) and [Configure Android App](/en/products_guide/monaca_ide/build/build_android/#step-1-configure-android-app) for iOS and Android, respectively.
 
 ## How do I check my storage usage, backend, API requests and number of push notifications?
 

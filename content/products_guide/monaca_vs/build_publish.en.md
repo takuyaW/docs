@@ -14,7 +14,7 @@ Inside `Remote Build`, there are several important functions such as:
 -   Building configuration: configure necessary information regarding
     application and build for each platform.
 -   Project dependencies: include necessary dependencies
-    ([Cordova plugins](/en/monaca_ide/manual/dependencies/cordova_plugin/#standard-plugins), [JS/CSS Components](/en/monaca_ide/manual/dependencies/components) and [Service Integration](/en/reference/service_integration)) used by the project.
+    ([Cordova plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#standard-plugins), [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components) and [Service Integration](/en/reference/service_integration)) used by the project.
 
 Until this step, we assume that you have successfully developed a
 complete application. Then, you can try building your app and installing
@@ -26,13 +26,13 @@ you will need to create a release build of your app.
 Please refer to the following documentation on how to build and
 distribute your app according to each platform:
 
-- [Building Monaca Apps](../../tutorial/building_app)
-- [Publishing Monaca Apps](/en/monaca_ide/manual/deploy)
+- [Building Monaca Apps](/en/tutorials/monaca_vs/building_app)
+- [Publishing Monaca Apps](/en/products_guide/monaca_ide/deploy)
 
 
 See Also:
 
-- [Monaca for Visual Studio Tutorial](../../tutorial)
+- [Monaca for Visual Studio Tutorial](../tutorial)
 - [Project Dependencies](../dependencies)
 - [Pairing and Debugging](../pairing_debugging)
 - [Monaca for Visual Studio Overview](../overview)

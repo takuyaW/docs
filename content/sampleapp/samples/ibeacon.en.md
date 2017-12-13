@@ -3,7 +3,7 @@ title: iBeacon
 ---
 
 This sample app uses iBeacon service to detect its proximity to iBeacon
-device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/onsenui/) as its UI. When the mobile
+device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/products_guide/onsenui/) as its UI. When the mobile
 (running this app) gets close enough to a predefined iBeacon device, a new page showing its UUID will be displayed.
 
 {{<import pid="5923d13f8034510a419679fa" title="iBeacon">}}
@@ -21,7 +21,7 @@ device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/onsenui/) as it
 
 ## Prerequisite                                                                                    
   
-1. Download the iBeacon plugin from [here](https://github.com/petermetz/cordova-plugin-ibeacon.git) and import it into Monaca Cloud IDE. See [Import Custom Cordova Plugin](/en/monaca_ide/manual/dependencies/custom_cordova_plugin/#import-cordova-plugin).
+1. Download the iBeacon plugin from [here](https://github.com/petermetz/cordova-plugin-ibeacon.git) and import it into Monaca Cloud IDE. See [Import Custom Cordova Plugin](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin/#import-cordova-plugin).
 2. Find at least one iBeacon device.
 3. Get information of each iBeacon device by using its conresponded utility software. In our case, we use [My Beacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8).
 4. Take note of the UUID of each iBeacon device.
@@ -50,7 +50,7 @@ device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/onsenui/) as it
 ## HTML Explanation
 
 The User Interface of this sample app is based on *Onsen UI*. For more
-information on *Onsen UI* tags and components, please refer to [Onsen UI Documentation](https://docs.monaca.io/en/onsenui/).
+information on *Onsen UI* tags and components, please refer to [Onsen UI Documentation](https://docs.monaca.io/en/products_guide/onsenui/).
 
 The following contents of the HTML body of index.html file loads the `top-page.html` file at startup:
 

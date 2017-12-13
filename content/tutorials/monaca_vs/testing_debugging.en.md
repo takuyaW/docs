@@ -3,7 +3,7 @@ title: "Part 2: Running Monaca Debugger with Monaca for Visual Studio"
 weight: 2
 ---
 
-[Monaca Debugger](/en/debugger) is a powerful application for testing and debugging your Monaca applications on real devices in real time.
+[Monaca Debugger](/en/products_guide/debugger) is a powerful application for testing and debugging your Monaca applications on real devices in real time.
 
 When developing Monaca apps on your local PC, assuming that your local
 PC is successfully paired with Monaca Debugger, all changes made to your
@@ -18,7 +18,7 @@ Please install Monaca Debugger on your device.
 {{<img src="/images/monaca_vs/tutorial/testing_debugging/Google_play.png" width="100" link="https://play.google.com/store/apps/details?id=mobi.monaca.debugger&hl=en">}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/installation/" title="Monaca Debugger Installation">}} for other platforms.
+    Please refer to {{<link href="/en/products_guide/debugger/installation/" title="Monaca Debugger Installation">}} for other platforms.
 {{</note>}}
 
 ## Step 1: Running the Project on Monaca Debugger
@@ -39,7 +39,7 @@ Please install Monaca Debugger on your device.
 3.  If your pairing is successful, a project list will appear in Monaca
     Debugger and the connected debugger will appear in the Monaca panel
     (see screenshots below as an example). However, if Monaca Debugger
-    is unable to detect the host PC automatically, please refer to [troubleshooting the Pairing](/en/debugger/manual/troubleshooting).
+    is unable to detect the host PC automatically, please refer to [troubleshooting the Pairing](/en/products_guide/debugger/troubleshooting).
 
     {{<multi_figures title="Monaca Debugger & Monaca Panel within Visual Studio">}}
         {{<img src="/images/monaca_vs/tutorial/testing_debugging/3.png" width="300">}}
@@ -76,7 +76,7 @@ That's it! That's how easy it is to use Monaca Debugger. Please try to
 make more changes to your project and see how it runs on the debugger.
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
+    Please refer to {{<link href="/en/products_guide/debugger/features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
 {{</note>}}
 
 See Also:

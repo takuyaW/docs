@@ -3,7 +3,7 @@ title: "Part 2: Running Monaca Debugger with Monaca CLI"
 weight: 2
 ---
 
-[Monaca Debugger](/en/debugger) is a powerful
+[Monaca Debugger](/en/products_guide/debugger) is a powerful
 application for testing and debugging your Monaca applications on real
 devices in real time.
 
@@ -20,7 +20,7 @@ Please install Monaca Debugger on your device.
 {{<img src="/images/monaca_cli/tutorial/testing_debugging/Google_play.png" width="100" link="https://play.google.com/store/apps/details?id=mobi.monaca.debugger&hl=en">}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/installation/" title="Monaca Debugger Installation">}} for other platforms.
+    Please refer to {{<link href="/en/products_guide/debugger/installation/" title="Monaca Debugger Installation">}} for other platforms.
 {{</note>}}
 
 ## Step 1: Pairing Monaca Debugger with Local PC
@@ -38,7 +38,7 @@ to the following points:
     </ol>
 {{</note>}}
 
-1. In the command window, navigate to your project folder and type [monaca debug](../../manual/cli_commands/#monaca-debug) command to connect to your Monaca Debugger. Then, Monaca CLI will wait for requests from debugger.
+1. In the command window, navigate to your project folder and type [monaca debug](/en/products_guide/monaca_cli/cli_commands/#monaca-debug) command to connect to your Monaca Debugger. Then, Monaca CLI will wait for requests from debugger.
 
     {{<img src="/images/monaca_cli/tutorial/testing_debugging/3.png">}}
 
@@ -55,7 +55,7 @@ to the following points:
 
 4.  If your pairing is successful, your local project name will appear
     under `Local Projects` in Monaca Debugger. However, if you fail the
-    pairing, please refer to [Fail to Pair Monaca Debugger](/en/debugger/manual/troubleshooting/#troubleshoot-pair).
+    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
 
     {{<img src="/images/monaca_cli/tutorial/testing_debugging/4.png" width="300">}}
 

@@ -5,14 +5,14 @@ weight: 4
 
 ## Publishing for App Store
 
-Please refer to [App Store Distribution](/en/monaca_ide/manual/deploy/appstore/).
+Please refer to [App Store Distribution](/en/products_guide/monaca_ide/deploy/appstore/).
 
 ## Publishing for Google Play
 
-Please refer to [Google Play Distribution](/en/monaca_ide/manual/deploy/google_play/).
+Please refer to [Google Play Distribution](/en/products_guide/monaca_ide/deploy/google_play/).
 
 For more information regarding the distribution of Monaca Apps for other
-platforms, please refer to [Distribution](/en/monaca_ide/manual/deploy/).
+platforms, please refer to [Distribution](/en/products_guide/monaca_ide/deploy/).
 
 See Also:
 

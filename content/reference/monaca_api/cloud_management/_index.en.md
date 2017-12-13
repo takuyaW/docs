@@ -13,7 +13,7 @@ specification, please refer to [JSON-RPC 2.0 Specification](http://www.jsonrpc.o
 {{<note>}}
 In order to enable and use Backend Management API, you will need to have
 at least one Backend Management API key from Monaca IDE first. This API
-key will be used within a request header. Please refer to {{<link href="/en/backend/manual/control_panel/#backend-management-api-key" title="Backend Management API Key">}} on how to generate this API key.
+key will be used within a request header. Please refer to {{<link href="/en/products_guide/backend/control_panel/#backend-management-api-key" title="Backend Management API Key">}} on how to generate this API key.
 {{</note>}}
 
 Prior to implementing these APIs, you should be aware of the following
@@ -22,7 +22,7 @@ specifications:
 ## JSON-RPC Endpoint
 
 You can get endpoint URL from Backend Management API
-Key panel in which it is called *Management API URL* (See [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)).
+Key panel in which it is called *Management API URL* (See [Backend Management API Key](/en/products_guide/backend/control_panel/#backend-management-api-key)).
 
 ## JSON-RPC Request
 

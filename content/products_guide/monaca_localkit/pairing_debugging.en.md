@@ -19,7 +19,7 @@ Debugger) first.
 3.  Once logged in, Monaca Debugger should be able to detect the host PC
     as shown below. Then, click {{<guilabel name="Pair">}} button to start the pairing.
     However, if Monaca Debugger is unable to detect the host PC
-    automatically, please refer to [Troubleshoot the Pairing](/en/debugger/manual/troubleshooting/#troubleshoot-pair).
+    automatically, please refer to [Troubleshoot the Pairing](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
 
     {{<img src="/images/monaca_localkit/manual/pairing_debugging/1.png" width="300">}}
 
@@ -46,12 +46,12 @@ Debugger) first.
 
 ## Debugging Monaca Apps with Monaca Localkit
 
-Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/debugger/manual/debug/#debugger-with-local-tools).
+Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/products_guide/debugger/debug/#debugger-with-local-tools).
 
 
 See Also:
 
 - [Monaca Localkit Overview](../overview)
-- [Monaca Localkit Tutorial](../../tutorial)
+- [Monaca Localkit Tutorial](../tutorial)
 - [Remote Building and Publishing](../build_publish)
 - [Troubleshooting Guide](../troubleshooting)

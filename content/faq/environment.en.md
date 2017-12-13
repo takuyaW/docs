@@ -5,11 +5,11 @@ weight: 20
 
 ## What do I need in order to use Monaca?
 
-In order to use [Monaca Cloud IDE](/en/monaca_ide), all you need are a stable Internet connection and a latest [Google Chrome](https://www.google.com/chrome/) browser. You may also need to
+In order to use [Monaca Cloud IDE](/en/products_guide/monaca_ide), all you need are a stable Internet connection and a latest [Google Chrome](https://www.google.com/chrome/) browser. You may also need to
 have a smart mobile device to test your applications. To speed up your
-app development, we highly recommend you to install [Monaca Debugger](/en/debugger) app on your mobile device. It allows you to test your apps instantly on your device without building/installing everytime you make changes to the code.
+app development, we highly recommend you to install [Monaca Debugger](/en/products_guide/debugger) app on your mobile device. It allows you to test your apps instantly on your device without building/installing everytime you make changes to the code.
 
-Monaca users can also develop on their local computers without using Monaca Cloud IDE. This can be done by using [Monaca Localkit](/en/monaca_localkit), [Monaca CLI](/en/monaca_cli) and [Monaca for Visual Studio](/en/monaca_vs).
+Monaca users can also develop on their local computers without using Monaca Cloud IDE. This can be done by using [Monaca Localkit](/en/products_guide/monaca_localkit), [Monaca CLI](/en/products_guide/monaca_cli) and [Monaca for Visual Studio](/en/products_guide/monaca_vs).
 
 ## What knowledge required to develop mobile apps with Monaca?
 
@@ -51,7 +51,7 @@ application file (`*.ipa`) via Application Loader which is only available
 on a Mac.
 
 Fortunately, it's possible to upload your application file directly from
-Monaca Cloud IDE using [Monaca Upload Feature](/en/monaca_ide/manual/deploy/appstore/app_submission). In this case, you don't need a Mac at all to either create or publish iOS apps with Monaca.
+Monaca Cloud IDE using [Monaca Upload Feature](/en/products_guide/monaca_ide/deploy/appstore/app_submission). In this case, you don't need a Mac at all to either create or publish iOS apps with Monaca.
 
 ## I can't open Monaca Cloud IDE.
 
@@ -66,18 +66,18 @@ Chrome browser.
 
 ## Can I use my own development environment to develop Monaca apps?
 
-Yes, you can. Monaca comes with [Monaca Localkit](/en/monaca_localkit) and [Monaca CLI](/en/monaca_cli) which allow you to develop locally using your own preferred IDE or code editor.
+Yes, you can. Monaca comes with [Monaca Localkit](/en/products_guide/monaca_localkit) and [Monaca CLI](/en/products_guide/monaca_cli) which allow you to develop locally using your own preferred IDE or code editor.
 
 ## As a Visual Studio user, can I use Visual Studio to develop Monaca apps?
 
 If you are familiar with Visual Studio, you can develop Monaca apps
-using an extension called [Monaca for Visual Studio](/en/monaca_vs). Most of [Monaca Cloud IDE](/en/monaca_ide)'s features are included in this
+using an extension called [Monaca for Visual Studio](/en/products_guide/monaca_vs). Most of [Monaca Cloud IDE](/en/products_guide/monaca_ide)'s features are included in this
 extension. Therefore, app development with Monaca for Visual Studio is
 very similar to the one with Monaca Cloud IDE.
 
 ## Application does not run on Preview panel in the IDE.
 
-When using [Live Preview](/en/monaca_ide/manual/overview/#preview_team_panel), you should be aware of the
+When using [Live Preview](/en/products_guide/monaca_ide/overview/#preview_team_panel), you should be aware of the
 the following limitations:
 
 -   Cordova Plugin APIs are not available.

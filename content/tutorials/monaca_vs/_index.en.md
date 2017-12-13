@@ -15,7 +15,7 @@ Monaca for Visual Studio is an extension allowing you to develop Monaca applicat
 Before getting started with this tutorial, you will need to:
 
 1. get a Monaca account. If you don’t have one, please register [here](https://monaca.mobi/en/register/start).
-2. install Monaca for Visual Studio extension. Please follow the installation instruction [here](../manual/overview/#monaca-vs-installation).
+2. install Monaca for Visual Studio extension. Please follow the installation instruction [here](/en/products_guide/monaca_vs/overview/#monaca-vs-installation).
 
 
 - [Part 1: Starting a Project](/en/tutorials/monaca_vs/starting_project)

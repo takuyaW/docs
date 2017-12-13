@@ -30,7 +30,7 @@ In the menu bar, there are several main menus such as:
 | [Version Control](#ide-version-control) | Manages version control of your project with GitHub. |
 | Save | Saves the file currently openeded. If no file is opened, this function is disable. |
 | [Preview](#preview_team_panel) | Displays the `Preview` window. |
-| Run on Device | Runs the current project in [Monaca Debugger](/en/debugger/). |
+| Run on Device | Runs the current project in [Monaca Debugger](/en/products_guide/debugger/). |
 | [Share](#share) |	Invites other Monaca users to join the project.
 | [Config](#config) | Opens `Config` submenu. |
 
@@ -181,7 +181,7 @@ In the Project panel, there are 3 main tabs:
 
 Once Monaca Debugger is connected with Monaca Cloud IDE, you can do
 console debugging as well DOM inspection in this panel. For more
-information, please refer to [Monaca Debugger with Monaca Cloud IDE](/en/debugger/manual/debug/#monaca-debug-panel).
+information, please refer to [Monaca Debugger with Monaca Cloud IDE](/en/products_guide/debugger/debug/#monaca-debug-panel).
 
 {{< figure src="/images/monaca_ide/manual/overview/6.png" >}}
 
@@ -237,11 +237,11 @@ The *Share* function allows you to:
         while updating the project, the previous version of the project
         will be overwritten (but it still remains in the file history).
     2.  Another way is to set up a version control system and do the
-        local development using [Monaca Localkit](/en/monaca_localkit/) or
-        [Monaca CLI](/en/monaca_cli/). This requires a higher
+        local development using [Monaca Localkit](/en/products_guide/monaca_localkit/) or
+        [Monaca CLI](/en/products_guide/monaca_cli/). This requires a higher
         skill set, but more collaborative.
     3.  The last option is to use
-        [Monaca for Visual Studio](/en/monaca_vs/). In this
+        [Monaca for Visual Studio](/en/products_guide/monaca_vs/). In this
         case, files can be managed by Visual Studio's built-in Team
         Explorer function. Git, TFS, Visual Studio Online and other
         supported version control system can be used in this case.
@@ -278,10 +278,10 @@ a file, you can select it from the tab.
 
 The editor supports the syntax highlight of JavaScript/HTML5/CSS3. The
 editor also supports JavaScript and CSS autocomplete function,
-[Emmet (Zen Coding)](/en/monaca_ide/manual/code_editor/zen_coding/) and [Typescript](/en/monaca_ide/manual/code_editor/type_script/).
+[Emmet (Zen Coding)](/en/products_guide/monaca_ide/code_editor/zen_coding/) and [Typescript](/en/products_guide/monaca_ide/code_editor/type_script/).
 
 {{<note>}}
-    Please refer to {{< link href="/en/monaca_ide/manual/code_editor/editor/" title="Editor Shortcuts">}} for the list of all shortcuts available in Monaca code editor.
+    Please refer to {{< link href="/en/products_guide/monaca_ide/code_editor/editor/" title="Editor Shortcuts">}} for the list of all shortcuts available in Monaca code editor.
 {{</note>}}
 
 {{< figure src="/images/monaca_ide/manual/overview/12.png" >}}

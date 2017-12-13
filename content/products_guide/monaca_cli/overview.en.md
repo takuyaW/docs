@@ -65,11 +65,11 @@ of permission issue:
 
 ### Step 2: Following CLI Tutorial
 
-After successfully installed Monaca CLI, please follow our simple and easy tutorial on [how to use Monaca CLI](../../tutorial).
+After successfully installed Monaca CLI, please follow our simple and easy tutorial on [how to use Monaca CLI](../tutorial).
 
 See Also:
 
-- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Tutorial](../tutorial)
 - [Monaca CLI Commands](../cli_commands)
 - [Project Dependencies](../dependencies)
 - [Pairing and Debugging](../pairing_debugging)

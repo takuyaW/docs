@@ -32,7 +32,7 @@ are displayed as a pop-up dialogue box.
 ## Prerequisite
 
 In order to send push notifications from Monaca Cloud IDE, you need to
-have a Monaca Backend first. If you don't have one yet, please refer to [Monaca Backend Tutorial](/en/monaca_ide/tutorial/adding_backend) or [Getting Started with Monaca Backend](../../control_panel/#backend-control-panel-getting-started).
+have a Monaca Backend first. If you don't have one yet, please refer to [Monaca Backend Tutorial](/en/tutorials/monaca_ide/adding_backend) or [Getting Started with Monaca Backend](../../backend/control_panel/#backend-control-panel-getting-started).
 
 ## How to Enable Push Notification with Monaca
 

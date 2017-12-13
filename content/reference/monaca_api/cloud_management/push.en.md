@@ -115,11 +115,11 @@ your app. You can easily find this ID with the following instruction:
 See Also: 
 
 - [Push Notification API](../../cloud/push)
-- [Send Push Notification from Monaca](/en/backend/manual/push_notification/overview)
-- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Send Push Notification from Monaca](/en/products_guide/push_notification/overview)
+- [Backend Control Panel](/en/products_guide/backend/control_panel)
 - [Backend API](../../cloud)
 - [Backend Memo](/en/sampleapp/samples/backend_memo)
 - [Backend Management API](../../cloud_management)
-- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
+- [Backend Management API Key](/en/products_guide/backend/control_panel/#backend-management-api-key)
 
 

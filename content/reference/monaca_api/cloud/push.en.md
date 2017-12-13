@@ -41,10 +41,10 @@ monaca.cloud.Push.setHandler(function(data) {
 
 See Also: 
 
-- [Send Push Notification using Monaca](/en/backend/manual/push_notification/overview)
+- [Send Push Notification using Monaca](/en/products_guide/push_notification/overview)
 - [Push Notification API for Backend Management API](../../cloud_management/push)
-- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend Control Panel](/en/products_guide/backend/control_panel)
 - [Backend API](../../cloud)
 - [Backend Memo](/en/sampleapp/samples/backend_memo)
 - [Backend Management API](../../cloud_management)
-- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
+- [Backend Management API Key](/en/products_guide/backend/control_panel/#backend-management-api-key)

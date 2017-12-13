@@ -120,9 +120,9 @@ In Monaca panel, there are several features such as:
 
 ###  Run in Device
 
-This function is available when at least one [Monaca Debugger](/en/debugger) is
+This function is available when at least one [Monaca Debugger](/en/products_guide/debugger) is
 connected to the host PC (running Visual Studio). It will run the
-current project in Monaca Debugger. Please refer to [How to Connect Monaca Debugger with Monaca for Visual Studio](../../tutorial/testing_debugging).
+current project in Monaca Debugger. Please refer to [How to Connect Monaca Debugger with Monaca for Visual Studio](/en/tutorials/monaca_vs/testing_debugging).
 
 {{<multi_figures title="Monaca Debugger is not Connected & Monaca Debugger is Connected">}}
     {{<img src="/images/monaca_vs/manual/introduction/4.png" width="280">}} 
@@ -135,12 +135,12 @@ Just like in Monaca Cloud IDE, this function will open a Build Settings
 window which allows you to configure project settings as well as build
 settings such as:
 
-- [Cordova Plugins](/en/monaca_ide/manual/dependencies/cordova_plugin)
-- [JS/CSS Components](/en/monaca_ide/manual/dependencies/components)
+- [Cordova Plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin)
+- [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components)
 - [Service Integration](/en/reference/service_integration)
-- [Android App and Build Settings](/en/monaca_ide/manual/build/build_android)
-- [iOS App and Build Settings](/en/monaca_ide/manual/build/ios/build_ios)
-- [Windows App Settings](/en/monaca_ide/manual/build/build_winrt)
+- [Android App and Build Settings](/en/products_guide/monaca_ide/build/build_android)
+- [iOS App and Build Settings](/en/products_guide/monaca_ide/build/ios/build_ios)
+- [Windows App Settings](/en/products_guide/monaca_ide/build/build_winrt)
 
 {{<figure src="/images/monaca_vs/manual/introduction/6.png">}} 
 
@@ -155,7 +155,7 @@ project for 4 different platforms as shown in the screenshot below:
 
 While trying to pair/connect Monaca Debugger with the PC hosting Monaca
 within Visual Studio, you might need to configure HTTP Server Port and
-Proxy Server. Please refer to [troubleshooting the Pairing](/en/debugger/manual/troubleshooting/#troubleshoot-pair) on when this
+Proxy Server. Please refer to [troubleshooting the Pairing](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair) on when this
 function is needed.
 
 You can find this function by going to {{<menu menu1="MONACA" menu2="Preferences">}}.
@@ -170,7 +170,7 @@ There are two ways to define the proxy server address as follows:
 
 See Also:
 
-- [Monaca for Visual Studio Tutorial](../../tutorial)
+- [Monaca for Visual Studio Tutorial](../tutorial)
 - [Project Dependencies](../dependencies)
 - [Pairing and Debugging](../pairing_debugging)
 - [Remote Building and Publishing](../build_publish)

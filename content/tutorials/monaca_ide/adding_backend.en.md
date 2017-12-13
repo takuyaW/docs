@@ -52,7 +52,7 @@ Collection is a general purpose storage to keep data in the Backend.
     {{<figure src="/images/monaca_ide/tutorial/adding_backend/7.png">}}
 
 {{<note>}}
-    Please remember to enable {{<guilabel name="Allow JavaScript API to insert data">}} if you want to insert data from your app. For more details about collection management, please refer to {{<link href="/en/backend/manual/control_operations/#collection_management" title="Collection Management">}}.
+    Please remember to enable {{<guilabel name="Allow JavaScript API to insert data">}} if you want to insert data from your app. For more details about collection management, please refer to {{<link href="/en/products_guide/backend/control_operations/#collection_management" title="Collection Management">}}.
 {{</note>}}
 
 After you follow the above steps, you can now start creating your own
@@ -63,8 +63,8 @@ Backend.
 
 See Also:
 
-- [Starting a Project](starting_project/)
-- [Running Monaca Debugger with Monaca Cloud IDE](testing_debugging/)
-- [Building Monaca App](building_app/)
-- [Publishing Monaca App](publishing_app/)
+- [Starting a Project](../starting_project/)
+- [Running Monaca Debugger with Monaca Cloud IDE](../testing_debugging/)
+- [Building Monaca App](../building_app/)
+- [Publishing Monaca App](../publishing_app/)
 - [Sample Apps & Templates](/en/sampleapp/samples)

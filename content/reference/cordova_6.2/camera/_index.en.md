@@ -34,7 +34,7 @@ cordova-plugin-camera
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins) `Camera`
+In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins) `Camera`
 plugin in Monaca Cloud IDE.
 
 API Reference

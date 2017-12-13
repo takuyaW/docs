@@ -37,7 +37,7 @@ to the following points:
 
 4.  If your pairing is successful, your local project’s name will appear
     under Local Projects in Monaca Debugger. However, if you fail the
-    pairing, please refer to [Fail to Pair Monaca Debugger](/en/debugger/manual/troubleshooting/#troubleshoot-pair).
+    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
 
     {{<img src="/images/monaca_cli/manual/pairing_debugging/2.png" width="300">}}
 
@@ -47,7 +47,7 @@ There are two ways to stop the pairing:
 
 ### 1. From the PC
 
-In the same command window on your PC which you are running [monaca debug](monaca-debug) command, please use the following command to stop the
+In the same command window on your PC which you are running [monaca debug](#monaca-debug) command, please use the following command to stop the
 pairing/break the debug process between your PC and Monaca Debugger:
 
 {{<highlight bash>}}
@@ -65,11 +65,11 @@ pairing/break the debug process between your PC and Monaca Debugger:
 
 ## Debugging Monaca Apps with Monaca CLI
 
-Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/debugger/manual/debug/#debugger-with-local-tools).
+Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/products_guide/debugger/debug/#debugger-with-local-tools).
 
 See Also:
 
-- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Tutorial](../tutorial)
 - [Monaca CLI Overview](../overview)
 - [Project Dependencies](../dependencies)
 - [Monaca CLI Commands](../cli_commands)

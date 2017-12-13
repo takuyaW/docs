@@ -28,7 +28,7 @@ Plugin ID
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/monaca_ide/manual/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
 `Notification` plugin in Monaca Cloud IDE.
 
 API Reference

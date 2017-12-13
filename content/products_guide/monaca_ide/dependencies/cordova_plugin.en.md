@@ -26,7 +26,7 @@ Cordova is loaded.
 
 As a trial, let's start up Camera functions by using device APIs. Please
 copy and paste the code below to your project in Monaca Cloud IDE then
-you can run it on [Monaca Debugger](/en/debugger/).
+you can run it on [Monaca Debugger](/en/products_guide/debugger/).
 
 {{<note>}}
     This code was written for Cordova 4.1. We apologize in advance in case the code may behave differently on various devices.

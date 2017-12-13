@@ -3,7 +3,7 @@ title: "Part 2: Running Monaca Debugger with Monaca Cloud IDE"
 weight: 2
 ---
 
-[Monaca Debugger](/en/debugger/) is a powerful
+[Monaca Debugger](/en/products_guide/debugger/) is a powerful
 application for testing and debugging your Monaca applications on real
 devices in real time.
 
@@ -21,7 +21,7 @@ Please install Monaca Debugger on your device.
 
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/installation/" title="Monaca Debugger Installation">}} for other platforms.
+    Please refer to {{<link href="/en/products_guide/debugger/installation/" title="Monaca Debugger Installation">}} for other platforms.
 {{</note>}}
 
 ## Step 1: Running a Project on Monaca Debugger
@@ -58,7 +58,7 @@ debugger.
 
 1.  Run the project on the debugger.
 2.  On Monaca Cloud IDE, make some changes in a project file and save
-    them (please refer to [Edit Project Files](starting_project/#monaca_ide_edit_project). In this example, we edit `index.html` and change the title of page from `Monaca Memo` to `My Memo`. Then, save the change.
+    them (please refer to [Edit Project Files](../starting_project/#monaca_ide_edit_project). In this example, we edit `index.html` and change the title of page from `Monaca Memo` to `My Memo`. Then, save the change.
 
     {{<figure src="/images/monaca_ide/tutorial/testing_debugging/7.png" >}}
 
@@ -72,7 +72,7 @@ debugger.
     {{</multi_figures>}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/debugger/manual/features/" title="Debugger Functionalities">}} to explore the other functions provided by Monaca Debugger.
+    Please refer to {{<link href="/en/products_guide/debugger/features/" title="Debugger Functionalities">}} to explore the other functions provided by Monaca Debugger.
 {{</note>}}
 
 That's it! That's how easy it is to use Monaca Debugger. Please try to
@@ -82,8 +82,8 @@ PRACTICE MAKES PERFECT! Enjoy developing with Monaca!
 
 See Also:
 
-- [Starting a Project](starting_project/)
-- [Setting up Monaca Backend](adding_backend/)
-- [Building Monaca App](building_app/)
-- [Publishing Monaca App](publishing_app/)
+- [Starting a Project](../starting_project/)
+- [Setting up Monaca Backend](../adding_backend/)
+- [Building Monaca App](../building_app/)
+- [Publishing Monaca App](../publishing_app/)
 - [Sample Apps & Templates](/en/sampleapp/samples)

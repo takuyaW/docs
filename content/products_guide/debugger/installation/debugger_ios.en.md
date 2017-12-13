@@ -11,7 +11,7 @@ weight: 20
 
 {{<note>}}
     <ol>If the Cordova version of your project is lower than 5.2, it might not work properly with Monaca Debugger 5.X.X. There are two ways to fix this issue:
-        <li><a href="/en/monaca_ide/manual/dependencies/cordova_plugin/#changing-cordova-version">upgrade Cordova version</a> of your project</li>
+        <li><a href="/en/products_guide/monaca_ide/dependencies/cordova_plugin/#changing-cordova-version">upgrade Cordova version</a> of your project</li>
         <li>use <a href="#custom-debugger-and">Custom Monaca Debugger</a>.</li>
     </ol>
 {{</note>}}
@@ -83,7 +83,7 @@ Monaca also includes some third-party Cordova plugins such as Statusbar,
 DatePicker, BarcodeScanner and so on. For a complete list of currently
 included third-party Cordova plugins, please refer to [Third-party Cordova Plugins](/en/reference/third_party_phonegap).
 
-While developing your project, you may need to add other third-party or [custom Cordova plugins](/en/monaca_ide/manual/dependencies/custom_cordova_plugin) to your project.
+While developing your project, you may need to add other third-party or [custom Cordova plugins](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin) to your project.
 The standard Monaca Debugger (Store Version) doesn't have these newly
 added plugins. For this reason, your project might not run properly in
 the debugger. Therefore, you need to use Custom Monaca Debugger. Custom
@@ -127,7 +127,7 @@ You are required to have:
 -   Developer certificate
 -   Development provisioning profile
 
-Please refer to [Building an iOS App](/en/monaca_ide/manual/build/ios/build_ios) (Step 1 and Step 2) on how to get the
+Please refer to [Building an iOS App](/en/products_guide/monaca_ide/build/ios/build_ios) (Step 1 and Step 2) on how to get the
 above items and make necessary configurations before start building the
 custom debugger. After obtaining the above necessary files, start
 building with the following instruction:

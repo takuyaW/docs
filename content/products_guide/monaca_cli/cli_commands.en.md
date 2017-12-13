@@ -18,7 +18,7 @@ weight: 20
 | [monaca demo](#monaca-demo) |	Display the app appereance on iOS and Android. |
 | [monaca debug](#monaca-debug) |	Run app on device using Monaca Debugger. |
 | [monaca transpile](#monaca-transpile) |	Transpile project source code. |
-| [monaca config](monaca-config) |	Manage Monaca CLI configuration. |
+| [monaca config](#monaca-config) |	Manage Monaca CLI configuration. |
 | [monaca reconfigure](#monaca-reconfigure) |	Generate default project configurations. |
 | [monaca plugin](#monaca-plugin) |	Manage Cordova plugins of a project. |
 | [monaca docs](#monaca-docs) |	Display docs for Monaca CLI, Onsen UI and Tutorials. |
@@ -218,7 +218,7 @@ before the build starts. However, if your project already exists in
 Monaca Cloud, all its local updates/changes will be uploaded to the
 cloud first before the build starts.
 
-Please refer to [Build](/en/monaca_ide/manual/build) for more information on how to:
+Please refer to [Build](/en/products_guide/monaca_ide/build) for more information on how to:
 
 -   config build settings for each platform
 -   types of build
@@ -347,7 +347,7 @@ $ monaca debug
 
 When running this command, you should be prompted to pair your
 debugger with your local PC or see the notification of successful
-network connection (see the screenshots). Otherwise, please refer to [Fail to Pair Monaca Debugger](/en/debugger/manual/troubleshooting/#troubleshoot-pair).
+network connection (see the screenshots). Otherwise, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
 
 {{<multi_figures title="Pairing Dialog & Network Connection Notification">}}
 {{<img src="/images/monaca_cli/manual/cli_commands/1.png" width="300">}}
@@ -496,7 +496,7 @@ $ monaca docs usage
 
 See Also:
 
-- [Monaca CLI Tutorial](../../tutorial)
+- [Monaca CLI Tutorial](../tutorial)
 - [Monaca CLI Overview](../overview)
 - [Project Dependencies](../dependencies)
 - [Pairing and Debugging](../pairing_debugging)

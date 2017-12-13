@@ -37,7 +37,7 @@ follows:
         <td>
             <ul>
                 <li>iTune</li>
-                <li><a href="/en/debugger/manual/features/#debugger-project-options">Network Install</a></li>
+                <li><a href="/en/products_guide/debugger/features/#debugger-project-options">Network Install</a></li>
             </ul>
         </td>
     </tr>
@@ -317,6 +317,6 @@ provisioning profile:
 See Also: 
 
 - [Build Settings between Monaca and Xcode](../import_export)
-- [Building for Windows](../build_winrt)
-- [Google Play Distribution](../../deploy/google_play)
-- [Build History](../build_history)
+- [Building for Windows](../../build_winrt)
+- [Google Play Distribution](../../../deploy/google_play)
+- [Build History](../../build_history)

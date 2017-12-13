@@ -226,10 +226,10 @@ See Also:
 - [Collection Item Management](../collection_item)
 - [Collection API](../../cloud/collection)
 - [Collection Item API](../../cloud/collection_item)
-- [Backend Control Panel](/en/backend/manual/control_panel)
+- [Backend Control Panel](/en/products_guide/backend/control_panel)
 - [Backend API](../../cloud)
 - [Backend Memo](/en/sampleapp/samples/backend_memo)
 - [Backend Management API](../../cloud_management)
-- [Backend Management API Key](/en/backend/manual/control_panel/#backend-management-api-key)
+- [Backend Management API Key](/en/products_guide/backend/control_panel/#backend-management-api-key)
 
 

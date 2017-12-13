@@ -16,14 +16,14 @@ API.
 
 ## Prerequisite
 
-You need to set-up a new backend and attach it to the project. After creating a new project, please follow [Setting up Monaca Backend](/en/monaca_ide/tutorial/adding_backend) for detailed instruction.
+You need to set-up a new backend and attach it to the project. After creating a new project, please follow [Setting up Monaca Backend](/en/tutorials/monaca_ide/adding_backend) for detailed instruction.
 
 After you have created a new backend, please create a new `Memo` collection as follows:
 
 {{<figure src="/images/sampleapp/backend_memo/memo_collection.png">}}  
 
 {{<note>}}
-  Please check <code>Allow JavaScript API to insert data</code>. <code>Read</code> and <code>Write</code> options must not be selected. For more details on how to create Backend, please read {{<link href="/en/backend/manual/control_panel" title="Backend Control Panel">}}.
+  Please check <code>Allow JavaScript API to insert data</code>. <code>Read</code> and <code>Write</code> options must not be selected. For more details on how to create Backend, please read {{<link href="/en/products_guide/backend/control_panel" title="Backend Control Panel">}}.
 {{</note>}}
 
 {{<note>}}

@@ -32,7 +32,7 @@ pair your host PC (running Monaca for Visual Studio) with your device
 3.  If your pairing is successful, a project list will appear in Monaca
     Debugger and the connected debugger will appear in the Monaca panel
     (see screenshots below as an example). However, if Monaca Debugger
-    is unable to detect the host PC automatically, please refer to [troubleshooting the Pairing](/en/debugger/manual/troubleshooting/#troubleshoot-pair).
+    is unable to detect the host PC automatically, please refer to [troubleshooting the Pairing](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
 
     {{<multi_figures title="Monaca Debugger & Monaca Panel within Visual Studio">}}
         {{<img src="/images/monaca_vs/manual/pairing_debugging/3.png" width="300">}} 
@@ -59,12 +59,12 @@ pair your host PC (running Monaca for Visual Studio) with your device
 
 ## Debugging Monaca Apps with Monaca for Visual Studio
 
-Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/debugger/manual/debug/#debugger-with-local-tools).
+Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/products_guide/debugger/debug/#debugger-with-local-tools).
 
 
 See Also:
 
-- [Monaca for Visual Studio Tutorial](../../tutorial)
+- [Monaca for Visual Studio Tutorial](../tutorial)
 - [Project Dependencies](../dependencies)
 - [Remote Building and Publishing](../build_publish)
 - [Monaca for Visual Studio Overview](../overview)

@@ -11,18 +11,18 @@ Inside {{<guilabel name="Remote Build">}} and {{<guilabel name="Settings">}} fun
     (iOS, Android & Windows).
 -   Build & Build Settings: build configuration for each platform (iOS,
     Android & Windows).
--   Project: project dependencies configuration including [Cordova plugins](/en/monaca_ide/manual/dependencies/cordova_plugin/#standard-plugins), [JS/CSS Components](/en/monaca_ide/manual/dependencies/components) and Service Integration.
+-   Project: project dependencies configuration including [Cordova plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#standard-plugins), [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components) and Service Integration.
 
 Please refer to the following documentation on how to build and
 distribute your app according to each platform:
 
-- [Build](/en/monaca_ide/manual/build)
-- [Distribution](/en/monaca_ide/manual/deploy)
+- [Build](/en/products_guide/monaca_ide/build)
+- [Distribution](/en/products_guide/monaca_ide/deploy)
 
 
 See Also:
 
 - [Monaca Localkit Overview](../overview)
-- [Monaca Localkit Tutorial](../../tutorial)
+- [Monaca Localkit Tutorial](../tutorial)
 - [Pairing and Debugging](../pairing_debugging)
 - [Troubleshooting Guide](../troubleshooting)

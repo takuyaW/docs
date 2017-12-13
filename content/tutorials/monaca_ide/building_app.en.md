@@ -10,13 +10,13 @@ Android:
 2. [Building a Monaca App for Android](#building_monaca_for_android)
 
 For more information regarding the building of Monaca Apps for other
-platforms, please refer to [Build](../../manual/build).
+platforms, please refer to [Build](/en/products_guide/monaca_ide/build).
 
 ## Building a Monaca App for iOS
 
 This section will cover an instruction of how to create a Debug Build
 version of your app for iOS which will be installed on the development
-device. For more information about other types of build, please refer to [Types of Build](../../manual/build/ios/build_ios/#types_of_build_ios).
+device. For more information about other types of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/ios/build_ios/#types_of_build_ios).
 
 *Prerequisite*:
 
@@ -28,9 +28,9 @@ device. For more information about other types of build, please refer to [Types 
 You are required to create the following items from iOS Provisioning
 Portal after enrolling iOS Developer Program:
 
--  `App ID` (see [Register App ID](../../manual/build/ios/build_ios/#register_appid) and [Register Development Devices](../../manual/build/ios/build_ios/#register_dev_device))
--  `Developer Certificate` (see [Generate Certificates](../../manual/build/ios/build_ios/#create_cer))
--  `Development Provisioning Profile` (see [Create Provisioning Profiles](../../manual/build/ios/build_ios/#register_provisioning))
+-  `App ID` (see [Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register_appid) and [Register Development Devices](/en/products_guide/monaca_ide/build/ios/build_ios/#register_dev_device))
+-  `Developer Certificate` (see [Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#create_cer))
+-  `Development Provisioning Profile` (see [Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#register_provisioning))
 
 ### Step 1: Configuring iOS App Settings
 
@@ -57,7 +57,7 @@ Portal after enrolling iOS Developer Program:
 
     {{<img src="/images/monaca_ide/tutorial/building_app/ios_2.png">}}
 
-3.  Fill in your Apple ID information (user name & email address) and country. Then, click on {{<guilabel name="Generate Key and CSR">}} button. You can also [import an existing Private Key](../../manual/build/ios/import_export/#import-into-monaca) if you have one.
+3.  Fill in your Apple ID information (user name & email address) and country. Then, click on {{<guilabel name="Generate Key and CSR">}} button. You can also [import an existing Private Key](/en/products_guide/monaca_ide/build/ios/import_export/#import-into-monaca) if you have one.
 
     {{<img src="/images/monaca_ide/tutorial/building_app/ios_3.png" width="600">}}
 
@@ -86,13 +86,13 @@ There are 3 ways to install the debug built app:
 
 1. Download the built app and use iTunes to install the built app on your iOS device.
 2. Install via QR code.
-3. Install via cofigured [deployment services](../../manual/monaca_ci/supported_services).
+3. Install via cofigured [deployment services](/en/products_guide/monaca_ide/monaca_ci/supported_services).
 
 ## Building a Monaca App for Android
 
 This section will cover an instruction of how to create a Debug Build
 version of your app for Android. For more information about other types
-of build, please refer to [Types of Build](../../manual/build/build_android/#types_of_build_android).
+of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/build_android/#types_of_build_android).
 
 ### Step 1: Configuring Android App Settings
 
@@ -153,16 +153,16 @@ In order to configure Android KeyStore in Monaca, please do as follows:
 
 There are 5 ways you can install the built app:
 
-1.  [Network Install](/en/debugger/manual/installation/debugger_android/#network-android).
+1.  [Network Install](/en/products_guide/debugger/installation/debugger_android/#network-android).
 2.  Install via QR Barcode.
 3.  download the built app directly to your computer and install it via USB cable.
 4.  send the URL to download the built app to your registered email address.
-5.  Install via cofigured [deployment services](../../manual/monaca_ci/supported_services).
+5.  Install via cofigured [deployment services](/en/products_guide/monaca_ide/monaca_ci/supported_services).
 
 See Also:
 
-- [Starting a Project](starting_project/)
-- [Running Monaca Debugger with Monaca Cloud IDE](testing_debugging/)
-- [Setting up Monaca Backend](adding_backend/)
-- [Publishing Monaca App](publishing_app/)
+- [Starting a Project](../starting_project/)
+- [Running Monaca Debugger with Monaca Cloud IDE](../testing_debugging/)
+- [Setting up Monaca Backend](../adding_backend/)
+- [Publishing Monaca App](../publishing_app/)
 - [Sample Apps & Templates](/en/sampleapp/samples)

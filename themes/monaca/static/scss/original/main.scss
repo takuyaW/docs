@@ -673,10 +673,10 @@ hr {
 }
 
 .guilabel {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #f5f5f5;
-    padding: 1px 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: #f5f5f5;
+	padding: 1px 5px;
 }
 
 .page-title {
@@ -1154,5 +1154,34 @@ pre .copy-to-clipboard:hover {
 		border: 1px solid #a42d2d;
 		background: #fae8e8 url(/images/common/icon_warning.png) 20px center no-repeat;
 	}
-	
+}
+
+// Sample Apps
+.sample-container {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.sample-item {
+	padding: 10px;
+	margin: 10px 0;
+	min-width: 250px;
+	max-width: 300px;
+	color: #333;
+	font-size: 12px;
+	text-align: center;
+
+	a, button {
+		margin: 5px;
+		font-size: 14px;
+		border: 1px solid #373d47;
+		border-radius: 4px;
+		color: #fff;
+		background-color: #505763;
+		padding: 10px;
+	}
 }

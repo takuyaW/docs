@@ -7,7 +7,7 @@ of how a user handles an application by recording the user's actions.
 Currently, it supports iOS only.
 
 {{<note>}}
-    This Repro service integration is available for all Monaca users. However, if you want to use the latest Repro plugin via {{<link href="https://github.com/reproio/repro-ios-sdk" title="GitHub">}}, you can {{<link href="/en/monaca_ide/manual/dependencies/custom_cordova_plugin/#import-cordova-plugin" title="import">}} it. In order to import this plugin, you need to subscribe to a valid plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
+    This Repro service integration is available for all Monaca users. However, if you want to use the latest Repro plugin via {{<link href="https://github.com/reproio/repro-ios-sdk" title="GitHub">}}, you can {{<link href="/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin/#import-cordova-plugin" title="import">}} it. In order to import this plugin, you need to subscribe to a valid plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
 {{</note>}}
 
 ## Adding Repro Service to Monaca
@@ -52,7 +52,7 @@ to get the token, please do as follows:
     You need to run your application on a real device for Repro to record your action.
 {{</note>}}
 
-1.  Build your Monaca app. Please refer to [Building a Monaca App for iOS](/en/monaca_ide/tutorial/building_app).
+1.  Build your Monaca app. Please refer to [Building a Monaca App for iOS](/en/tutorials/monaca_ide/building_app).
 2.  Install the built app on a real device.
 3.  Start using your app for a few seconds, then press `Home` button.
     Then, the recorded video will be uploaded to Repro server after your

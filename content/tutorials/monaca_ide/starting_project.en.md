@@ -27,7 +27,7 @@ follows:
 
     -   filling in a project's URL
     -   uploading a project package
-    -   or selecting your existing GitHub repository. Please refer to [Version Control (GitHub)](/en/monaca_ide/manual/version_control/) on how to set up GitHub integration with Monaca.
+    -   or selecting your existing GitHub repository. Please refer to [Version Control (GitHub)](/en/products_guide/monaca_ide/version_control/) on how to set up GitHub integration with Monaca.
 
     {{< figure src="/images/monaca_ide/tutorial/starting_project/10.png" title="Create Project" >}}
 
@@ -55,7 +55,7 @@ window without any real devices.
     Some functionalities of applications might not be properly previewed
     because the Preview window has several limitations such as Ajax
     requests, Cordova plugin APIs and so on. For more information, please
-    refer to {{<link href="../../manual/overview#preview_limit" title="Usage and Limitation of Live Preview" >}}.
+    refer to {{<link href="/en/products_guide/monaca_ide/overview#preview_limit" title="Usage and Limitation of Live Preview" >}}.
 {{< /note >}}
 
 1.  From the Monaca Dashboard, open a project. Then, Monaca Cloud IDE
@@ -83,14 +83,14 @@ window without any real devices.
 
 {{< note >}}
     For more information regarding the code editor in Monaca Cloud IDE,
-    please refer to {{<link href="../../manual/overview/#code_editor" title="Code Editor">}}.
+    please refer to {{<link href="/en/products_guide/monaca_ide/overview/#code_editor" title="Code Editor">}}.
 {{< /note >}}
 
 
 See Also:
 
-- [Running Monaca Debugger with Monaca Cloud IDE](testing_debugging/)
-- [Setting up Monaca Backend](adding_backend/)
-- [Building Monaca App](building_app/)
-- [Publishing Monaca App](publishing_app/)
+- [Running Monaca Debugger with Monaca Cloud IDE](../testing_debugging/)
+- [Setting up Monaca Backend](../adding_backend/)
+- [Building Monaca App](../building_app/)
+- [Publishing Monaca App](../publishing_app/)
 - [Sample Apps & Templates](/en/sampleapp/samples)

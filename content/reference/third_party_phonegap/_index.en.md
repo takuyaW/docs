@@ -9,7 +9,7 @@ several third-party plugins by default, but you can also import other
 third-party plugins or your own plugin to Monaca project.
 
 We also provide a way to extend your program using native code. Please
-refer to [Custom Cordova Plugin](/en/monaca_ide/manual/dependencies/custom_cordova_plugin) on how to create and use a native
+refer to [Custom Cordova Plugin](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin) on how to create and use a native
 plugin.
 
 The followings are pre-configured third-party Cordova plugins provided

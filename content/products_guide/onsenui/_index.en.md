@@ -20,7 +20,7 @@ Go to Dashboard and click {{<guilabel name="Create Project">}}.
 {{<figure src="/images/onsenui/choose_template.png">}}
 
 {{<note>}}
-    Currently, Monaca Cloud IDE does not support Onsen UI with Angular 2 framework type since it requires to transpile the source code to Javascript. Therefore, you need to setup the local environment with {{<link href="/en/monaca_cli/manual/overview" title="Monaca CLI">}}.
+    Currently, Monaca Cloud IDE does not support Onsen UI with Angular 2 framework type since it requires to transpile the source code to Javascript. Therefore, you need to setup the local environment with {{<link href="/en/products_guide/monaca_cli/overview" title="Monaca CLI">}}.
 {{</note>}}
 
 ### Where to go from here

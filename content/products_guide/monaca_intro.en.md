@@ -27,7 +27,7 @@ Monaca's top 3 benefits are:
 -   Framework Agnostic: Our open source Angular-driven [Onsen
     Framework](http://onsen.io/) is tightly integrated with Monaca
     tools. However, you can use whatever framework you want. Ionic or
-    PhoneGap developers, for example, can seamlessly use our [Monaca CLI](/en/monaca_cli/) to take advantages of the
+    PhoneGap developers, for example, can seamlessly use our [Monaca CLI](/en/products_guide/monaca_cli/) to take advantages of the
     cloud-powered services without switching or any complicated porting.
     We take OPEN seriously.
 
@@ -46,7 +46,7 @@ Preview (built-in function in Monaca Cloud IDE) allows you to easily
 check the progress of your apps during development. Noticeably, there
 are neither Cordova plugins nor native functions in Live Preview.
 Therefore, the app required those plugins and functions can't be
-previewed properly. [Read more](/en/monaca_ide/).
+previewed properly. [Read more](/en/products_guide/monaca_ide/).
 
 {{< figure src="/images/monaca_intro/1.png" title="Overview of Monaca Cloud IDE" >}}
 
@@ -58,7 +58,7 @@ security and peace-of-mind from your own app development environment by
 combining existing tools such as code editors and version management
 system, with the versatile development support capabilities of Monaca.
 With Monaca Localkit, Monaca users are able to setup their preferred
-development environment on local PC. [Read more](/en/monaca_localkit/).
+development environment on local PC. [Read more](/en/products_guide/monaca_localkit/).
 
 {{< figure src="/images/monaca_intro/5.png" title="Overview of Monaca Localkit" >}}
 
@@ -68,7 +68,7 @@ development environment on local PC. [Read more](/en/monaca_localkit/).
 Monaca CLI provides command line interface to use Monaca Cloud. It
 features the debugger connection, inspector integration, project
 creation and remote building. You can also import projects that exist in
-the cloud when you want to switch your environment to local. [Read more](/en/monaca_cli/).
+the cloud when you want to switch your environment to local. [Read more](/en/products_guide/monaca_cli/).
 
 
 ### Monaca for Visual Studio
@@ -76,7 +76,7 @@ the cloud when you want to switch your environment to local. [Read more](/en/mon
 Monaca for Visual Studio is another local development tool provided by
 Monaca. With this tool, Monaca users are able to develop an app using
 Visual Studio as the development environment. It’s free if you are a
-Visual Studio Community user. [Read more](/en/monaca_vs/).
+Visual Studio Community user. [Read more](/en/products_guide/monaca_vs/).
 
 
 {{< figure src="/images/monaca_intro/vs.png" title="Overview of Monaca for Visual Studio" >}}
@@ -90,7 +90,7 @@ Debugger is an application used to test and debug your Monaca
 applications on real devices without building the applications during
 the development. It needs to be installed on your mobile devices. The
 app will automatically sync all your development projects and run them
-without the build process. [Read more](/en/debugger/).
+without the build process. [Read more](/en/products_guide/debugger/).
 
 
 {{< figure src="/images/monaca_intro/2.png" title="Monaca Debugger App" width="350">}}
@@ -98,7 +98,7 @@ without the build process. [Read more](/en/debugger/).
 
 Here is a table summarizing the debugging options between Monaca
 Debugger and Monaca development tools. For more information, please
-refer to [Debugging Monaca Apps](/en/debugger/manual/debug/).
+refer to [Debugging Monaca Apps](/en/products_guide/debugger/debug/).
 
 
 <table class="small">
@@ -186,6 +186,6 @@ Required knowledge for hybrid app development:
 
 See also:
 
-- [Project Dependencies](/en/monaca_ide/manual/dependencies)
-- [Monaca IDE](/en/monaca_ide)
-- [Monaca Debugger](/en/debugger)
+- [Project Dependencies](/en/products_guide/monaca_ide/dependencies)
+- [Monaca IDE](/en/products_guide/monaca_ide)
+- [Monaca Debugger](/en/products_guide/debugger)
