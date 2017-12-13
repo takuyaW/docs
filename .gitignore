@@ -1,3 +1,7 @@
 node_modules/
 public/
 .DS_Store
+
+# This file is auto-generated from SASS, so we should not commit it, or people will
+# be tempted to make direct modifications to the CSS, which they should not.
+themes/monaca/static/theme-original/style.css
