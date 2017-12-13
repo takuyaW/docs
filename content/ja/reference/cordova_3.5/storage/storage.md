@@ -1,0 +1,48 @@
+ストレージ
+==========
+
+<div class="admonition note">
+
+This document is based on the original Cordova docs available at
+[Cordova
+Docs](http://docs.phonegap.com/en/3.5.0/cordova_storage_storage.md.html#ストレージ).
+
+</div>
+
+Cordova が提供するストレージオプションの概要を記します。
+
+Several storage APIs are available for Cordova applications. See
+[html5rocks](http://www.html5rocks.com/en/features/storage). for a more
+complete overview and examples.
+
+Localストレージ
+---------------
+
+Also known as *web storage*, *simple storage*, or by its alternate
+*session storage* interface, this API provides synchronous key/value
+pair storage, and is available in underlying WebView implementations.
+Refer to [the W3C spec](http://www.w3.org/TR/webstorage/) for details.
+
+**Windows Phone 7 Quirk**: Dot notation is *not* available, so be sure
+to use `setItem` or `getItem` rather than access keys directly from the
+storage object, as in `window.localストレージ.someKey`.
+
+WebSQL
+------
+
+This API is available in the underlying WebView. The [Web SQL Database
+Specification](http://dev.w3.org/html5/webdatabase/) offers more
+full-featured database tables accessed via SQL queries.
+
+次のプラットフォームでは、WebSQL がサポートされています。
+
+-   Android
+-   iOS
+
+他のオプション
+--------------
+
+In addition to the storage APIs listed above, the [File
+API](https://github.com/apache/cordova-plugin-file/blob/master/README.md)
+allows you to cache data on the local file system. Other [Cordova
+plugins](http://plugins.cordova.io/) provide similar storage options.

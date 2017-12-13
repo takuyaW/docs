@@ -1,0 +1,70 @@
+endcallbutton
+----------------
+
+This event fires when the user presses the end call button.
+
+::
+
+    document.addEventListener("endcallbutton", yourCallbackFunction, false);
+
+Details
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The event overrides the default end call behavior.
+
+Applications typically should use ``document.addEventListener`` to
+attach an event listener once the ``deviceready`` event fires.
+
+Supported Platforms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  BlackBerry 10
+
+Quick Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    document.addEventListener("endcallbutton", onEndCallKeyDown, false);
+
+    function onEndCallKeyDown() {
+        // Handle the end call button
+    }
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                          "http://www.w3.org/TR/html4/strict.dtd">
+    <html>
+      <head>
+        <title>End Call Button Example</title>
+
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+        //
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            // Register the event listener
+            document.addEventListener("endcallbutton", onEndCallKeyDown, false);
+        }
+
+        // Handle the end call button
+        //
+        function onEndCallKeyDown() {
+        }
+
+        </script>
+      </head>
+      <body onload="onLoad()">
+      </body>
+    </html>
