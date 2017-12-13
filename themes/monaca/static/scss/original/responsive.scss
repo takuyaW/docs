@@ -1,0 +1,155 @@
+@media only all and (max-width: 59.938em) {
+    #body .padding {
+        position: static;
+        padding: 15px 3rem;
+    }
+
+    #body #navigation {
+        position: static;
+        margin-right: 0 !important;
+        width: 100%;
+        display: table;
+    }
+
+    #body .nav {
+        display: table-cell;
+        position: static;
+        top: auto;
+        width: 50%;
+        text-align: center;
+        height: 100px;
+        line-height: 100px;
+        padding-top: 0;
+    }
+
+    #body .nav > i {
+        display: inline-block;
+    }
+
+    #sidebar {
+        width: 280px;
+    }
+    #body {
+        margin-left: 280px;
+    }
+}
+
+
+$mobileTopBarHeight: 48px;
+
+@media only all and (max-width: 47.938em) {
+    h1 {
+        font-size: 1.625rem;
+    }
+
+    h2 {
+        font-size: 1.375rem;
+        line-height: 110% !important;
+        margin: 1.5rem 0 1rem 0;
+        text-transform: capitalize;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 110% !important;
+        margin: 1rem 0 1rem 0;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+        line-height: 110% !important;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    #header img {
+        padding-left: 1rem;
+    }
+
+    #body {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #body .padding {
+        padding: .5rem 1rem;
+        margin-top: $mobileTopBarHeight;
+    }
+
+    #sidebar-toggle {
+        display: inline;
+    }
+
+    #top-bar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
+        height: $mobileTopBarHeight;
+        line-height: $mobileTopBarHeight - 20px;
+        padding: 10px;
+        display: flex;
+
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+
+        @include transition(left $time_long_fade ease)
+    }
+
+    #breadcrumbs {
+        white-space: nowrap;
+        overflow: auto;
+        padding: 0;
+        opacity: 0; // hide until it has been scrolled to the right by JS
+    }
+
+    #sidebar {
+        width: 280px;
+        left: -280px;
+    }
+
+    .sidebar-open {
+        overflow: hidden;
+    }
+
+    .sidebar-open #sidebar {
+        left: 0;
+    }
+
+    .sidebar-open #body {
+        margin-left: 280px;
+        overflow: hidden;
+    }
+
+    .sidebar-open #overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+    }
+
+    .sidebar-open #top-bar {
+        left: 280px;
+    }
+
+    figure {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .two-column-bullet {
+        width: 100%;
+    }
+
+    .three-column-bullet {
+        width: 100%;
+    }
+
+    .four-column-bullet {
+        width: 100%;
+    }
+}

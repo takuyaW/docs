@@ -1,24 +1,11 @@
 {
-  "name": "monaca-docs",
+  "name": "monaca-docs-new",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-sass": "node-sass themes/monaca/static/scss/original/theme.scss themes/monaca/static/theme-original/style.css",
+    "watch-sass": "node-sass -w themes/monaca/static/scss/original/theme.scss themes/monaca/static/theme-original/style.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/takuyaW/docs.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/takuyaW/docs/issues"
-  },
-  "homepage": "https://github.com/takuyaW/docs#readme",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-sass": "^3.1.0"
+  "dependencies": {
+    "node-sass": "^4.7.2"
   }
 }
