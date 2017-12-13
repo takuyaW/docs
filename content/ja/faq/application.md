@@ -1,5 +1,6 @@
-アプリケーション
-================
+---
+title: アプリケーション
+---
 
 外部の広告ネットワークは使えますか？
 ------------------------------------
@@ -9,8 +10,7 @@
 上に広告を置くことに関して、技術的な制約もありません。なお、広告の掲載時は、広告ネットワーク側の規約に従ってください。
 
 InMobi、mediba ( 日本の会社 )、nend ( 日本の会社 ) であれば、Monaca
-で作成したアプリ内に、広告を載せることができます。nend に関しては、
-../sampleapp/tips/external\_services/nend\_ad をご確認ください。
+で作成したアプリ内に、広告を載せることができます。nend に関しては、[nend ( ネンド広告 )](/ja/sampleapp/tips/external_services/nend_ad)をご確認ください。
 
 外部のバックエンドサービスは使えますか？
 ----------------------------------------
@@ -19,29 +19,24 @@ InMobi、mediba ( 日本の会社 )、nend ( 日本の会社 ) であれば、Mo
 で使用できます。バックエンドサービスを含む、外部の各種サービスを、Monaca
 クラウド IDE 上で組み込むことができます。
 
-Monaca クラウド IDE
-上で、設定 --&gt; 外部サービス連携 --&gt; バックエンド
-を選択して、利用可能なバックエンドサービスを確認できます。希望するバックエンドサービスが置かれていない場合には、設定 --&gt; Cordova プラグインの管理 --&gt; Cordova プラグインのインポート
-から、対象の SDK を Monaca にインポートできます。
+Monaca クラウド IDE上で、{{<menu menu1="設定" menu2="外部サービス連携 " menu3="バックエンド">}}を選択して、利用可能なバックエンドサービスを確認できます。希望するバックエンドサービスが置かれていない場合には、{{<menu menu1="設定" menu2="Cordova プラグインの管理" menu3="Cordova プラグインのインポート">}}から、対象の SDK を Monaca にインポートできます。
 
 Monaca で開発するアプリでは、どんな機能が使えますか？
 -----------------------------------------------------
 
-With Monaca you can develop applications that are able to use all types
-of unique features on smartphones.(Camera, GPS, etc.) Please refer to
-the document below.
+スマートフォン搭載の各種機能 ( Camera、GPS など ) を使ったアプリを開発できます。詳細に関しては、次のドキュメントをご確認ください。
 
--   [Core Cordova Plugins
-    (英語サイト)](http://docs.monaca.io/en/reference/cordova_6.5/)
--   [基本 Cordova プラグイン ( Cordova のコア プラグイン
-    )](http://docs.monaca.io/ja/reference/cordova_6.5/)
--   ../sampleapp/index
+-   [Core Cordova Plugins (英語サイト)](/en/reference/cordova_6.5/)
+-   [基本 Cordova プラグイン (Cordova のコア プラグイン)](/ja/reference/cordova_6.5/)
+-   [サンプル＆Tip](/ja/sampleapp)
 
 Windows ストアアプリには、基本 Cordova
 プラグインを使用できませんが、WinJS を使用できます。
 
 会員管理の各場面で、プッシュ通知機能を使用したいのですが、この機能は実装できますか？
 ------------------------------------------------------------------------------------
+
+[NIFTY cloud mobile backend](http://mb.cloud.nifty.com/)をはじめとする各種バックエンドサービスを使用すれば、会員管理にも役立つ、プッシュ通知機能をプロジェクトに 組み込むことができます。特に、NIFTY cloud mobile backend では、簡単に実装できる API も提供しているので、プッシュ通知機能を手軽にご利用いただけます。
 
 バックグラウンドで動作するアプリは開発できますか？
 --------------------------------------------------
@@ -66,7 +61,9 @@ Monaca では、UIKit を現在サポートしておりません。
 次の meta
 タグをコードに追加すれば、さまざまな画面サイズに対応したアプリを開発できます。
 
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+{{<highlight html>}}
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+{{</highlight>}}
 
 Cordova プラグインは使えますか？
 --------------------------------
@@ -74,7 +71,7 @@ Cordova プラグインは使えますか？
 Free プランでも、Monacaで提供している Cordova プラグイン (
 基本プラグイン、サードパーティー製プラグイン など )
 をご利用いただけます。Monaca でご利用いただけるサードパーティー製の
-Cordova プラグインに関しては、 third\_party\_cordova\_index
+Cordova プラグインに関しては、 [サードパーティー製 Cordova プラグイン](/ja/reference/third_party_phonegap)
 をご確認ください。また、自作のユーザー Cordova
 プラグインを使用する場合には、Pro プラン または
 企業向けプランが必要となります。ユーザー Cordova

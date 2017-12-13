@@ -2,8 +2,6 @@
 title: Application
 ---
 
-# Application
-
 ## Can I use an external ad network?
 
 For Monaca, there is no particular restriction on installing an ad
