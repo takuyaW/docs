@@ -1,5 +1,19 @@
-baseURL = "http://example.org/"
-languageCode = "jp"
-title = "My New Hugo Site"
-paginate = 2
-pygmentsUseClasses=true
+baseURL = "http://docs.monaca.io/"
+
+title = "Monaca Docs"
+theme = "monaca"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[params]
+disableNavChevron = true
+disableHomeIcon = true
+disableLanguageSwitchingButton = false
+
+[Languages]
+[Languages.en]
+languageName = "English"
+
+[Languages.ja]
+languageName = "日本語"

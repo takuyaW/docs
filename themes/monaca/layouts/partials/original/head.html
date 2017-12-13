@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+{{ .Hugo.Generator }}
+
+<title>{{ .Title }} :: {{ .Site.Title }}</title>
+<link rel="shortcut icon" href="{{"images/favicon.ico" | relURL}}" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
+<link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
+<link href="{{"theme-original/style.css" | relURL}}" rel="stylesheet">
+<link rel="stylesheet" href="{{"css/bootstrap.min.css" | relURL}}">
+<style type="text/css">
+  :root #header + #content > #left > #rlblock_left {
+    display:none !important;
+  }
+</style>
+{{ partial "custom-head.html" . }}

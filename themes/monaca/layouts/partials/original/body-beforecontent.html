@@ -1,0 +1,135 @@
+<div id="headermain"></div>
+<nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+      {{ partial "header.html" . }}
+    </div>
+    {{- if not .Site.Params.disableSearch}}
+        <div class="searchbox">
+		    <label for="search-by"><i class="fa fa-search"></i></label>
+		    <input data-search-input id="search-by" type="text" placeholder="{{T "Search-placeholder"}}">
+		</div>
+		<script type="text/javascript">
+        {{ if .Site.IsMultiLingual }}
+            var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
+        {{ else }}
+            var baseurl = "{{.Site.BaseURL}}";
+        {{ end }}
+		</script>
+    {{- end}}
+  </div>
+
+      <ul class="topics">
+        {{- if not .Site.Params.disableHomeIcon}}
+            <li data-nav-id="{{"/" | relLangURL}}" class="dd-item">
+            <a href="{{"/" | relLangURL}}"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+        {{- end}}
+		
+		{{- partial "menu.html" . }}
+		
+		{{- with .Site.Menus.shortcuts}}
+        <section id="shortcuts">
+            {{- range sort . "Weight"}}
+                <li class="" role="">
+                    {{- .Pre -}}
+                    <a href="{{.URL}}" target="_blank" rel="noopener">{{safeHTML .Name}}</a>
+                    {{- .Post -}}
+                </li>
+            {{- end}}
+        </section>
+
+		{{- end}}
+
+    <hr />
+    <li>{{- partial "language-selector.html" . }}</li>
+    
+    </ul>
+
+ <section id="footer">
+      {{- partial "menu-footer.html" . }}
+    </section>
+  </div>
+</nav>
+
+
+<section id="body">
+<div id="overlay"></div>
+
+
+<div class="padding highlightable">
+{{if not .IsHome}}
+  <div id="top-bar">
+    <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <span class="links">
+        {{ template "breadcrumb" dict "page" . "value" .Title }}   
+        </span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+    {{ .TableOfContents }}
+  <!-- /TOC -->
+{{end}}
+{{if .Params.tags }}
+  <div id="tags">
+    {{ range $index, $tag := .Params.tags }}
+      <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
+    {{ end }}
+  </div>
+{{end}}
+<div id="body-inner">
+
+  <!-- Cordova version dropdown -->
+  {{ if in .URL "reference/cordova_" }}
+    {{ $cordovaUrlRegex := "^.*/reference/cordova_([0-9.]*)/(.*$)" }}
+    {{ $currentPageCordovaVersion := (replaceRE $cordovaUrlRegex "$1" .URL) }}
+    {{ $currentUrlEnd := (replaceRE $cordovaUrlRegex "$2" .URL) }}
+
+    <div class="cordova-select-wrapper">
+      {{T "cordova-version"}}
+      <select id="cordova-version-select">
+        {{range $pg := .Site.Pages}}
+          {{ $pgCordovaVersion := (replaceRE $cordovaUrlRegex "$1" $pg.URL) }}
+          {{ $pgUrlEnd := (replaceRE $cordovaUrlRegex "$2" $pg.URL) }}
+
+          // If the regex fails to match, it will return the original URL. So, if the
+          // result of the regex is the original URL, it is not a Cordova plugin page.
+          {{ $isCordovaPage := (ne $pgCordovaVersion $pg.URL) }}
+
+          // We should only show a Cordova version in the dropdown if we have a page to
+          // show for that particular version. For example, the Crosswalk plugin is not
+          // in the docs below Cordova 5.2.
+          {{ $isSamePluginPage := (eq $currentUrlEnd $pgUrlEnd) }}
+
+          {{ if and ($isCordovaPage) ($isSamePluginPage) }}
+            <option value="{{$pgCordovaVersion}}"
+              {{if eq $currentPageCordovaVersion $pgCordovaVersion}} selected {{ end }} 
+            >{{$pgCordovaVersion}}</option>
+          {{end}}
+        {{end}}
+      </select>
+    </div>
+  {{ end }}
+  <!-- end Cordova version dropdown -->
+
+  {{if not .IsHome}}
+    <h1>{{.Title}}</h1>
+  {{end}}
+
+{{define "breadcrumb"}}
+{{ if .page.Parent}}
+{{$value := (printf "<a href='%s'>%s</a> > %s" .page.Parent.URL .page.Parent.Title .value)}}
+{{ template "breadcrumb" dict "page" .page.Parent "value" $value }} 
+{{else}}
+ {{.value|safeHTML}}
+{{end}}
+{{end}}
