@@ -1031,6 +1031,22 @@ pre .copy-to-clipboard:hover {
     background-color: #505763;
     padding: 10px; }
 
+.iframe-samples {
+  background-image: url(/images/samples/frame.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 346px;
+  height: 717px;
+  margin: auto;
+  border: none;
+  margin-top: 20px; }
+  .iframe-samples iframe {
+    margin-top: 107px;
+    margin-left: 30px;
+    width: 285px;
+    height: 505px;
+    border: none; }
+
 #sidebar-toggle {
   display: none;
   padding: 1rem;

@@ -1185,3 +1185,22 @@ pre .copy-to-clipboard:hover {
 		padding: 10px;
 	}
 }
+
+.iframe-samples {
+    background-image: url(/images/samples/frame.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 346px;
+    height: 717px;
+    margin: auto;
+    border: none;
+    margin-top: 20px;
+
+    iframe {
+		margin-top: 107px;
+		margin-left: 30px;
+		width: 285px;
+		height: 505px;
+		border: none;
+	}
+}
