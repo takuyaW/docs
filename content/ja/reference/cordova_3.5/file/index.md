@@ -73,8 +73,8 @@ File API \] : <http://www.w3.org/TR/FileAPI/>
 -   Android
 -   iOS
 
-\* \*These platforms do not support `FileReader.readAsArrayBuffer` nor
-`FileWriter.write(blob)`.\*
+\* \*の付いたプラットフォームでは、`FileReader.readAsArrayBuffer` と
+`FileWriter.write(blob)` は使用できません。\*
 
 ファイルの保存場所
 ------------------
@@ -137,9 +137,9 @@ v1.2.0 以降、ファイルシステムのディレクトリーへのパスを�
 ファイルシステムの概要
 ----------------------
 
-Although technically an implementation detail, it can be very useful to
-know how the `cordova.file.*` properties map to physical paths on a real
-device.
+実装方法によっては異なることもありますが、`cordova.file.*`
+プロパティーと端末内の物理パスの関係 ( マップ方法 )
+を理解しておくことは有意義です。
 
 ### iOS のファイルシステムの概要
 
@@ -167,12 +167,10 @@ device.
 |                 | rectory     |           | / |      |     | e | s  |
 |                 |             |           | w |      |     | s |    |
 +-----------------+-------------+-----------+---+------+-----+---+----+
-|       `NoCloud/ | -           | documents | > | w |  | > | | > | >  |
-| `               |             | -no同期の有無 |   | Yes |  No |   | |  |
-|                 |             |           | | |      |     | | | Ye |
-|                 |             |           |   |      |     |   | s  |
-|                 |             |           | r |      |     | N |    |
-|                 |             |           | / |      |     | o |    |
+|       `NoCloud/ | -           | documents | r | Yes  | No  | N | Ye |
+| `               |             | -nosync   | / | |    | |   | o | s  |
+|                 |             | |         | w |      |     | | |    |
+|                 |             |           | | |      |     |   |    |
 +-----------------+-------------+-----------+---+------+-----+---+----+
 |    `Library`    | -           | applicati |   | > |  | > | | > | >  |
 |                 |             | onStorage |   | r/w  |  Ye |   | |  |
@@ -186,29 +184,20 @@ device.
 |                 |             |           |   |      |     |   | Ye |
 |                 |             |           |   |      |     |   | s  |
 +-----------------+-------------+-----------+---+------+-----+---+----+
-|       `NoCloud/ | dataDirecto | applicati | - | 有無 | | r |   | >  |
-| `               | ry          | onStorage | n |      | /w  |   | |  |
-|                 |             | Directory | o |      |   | |   | No |
-|                 |             |           | 同 |     |   Y |   | >  |
-|                 |             |           | 期 |     | es  |   |    |
-|                 |             |           | の |     |     |   | |  |
-|                 |             |           |   |      |     |   | >  |
-|                 |             |           |   |      |     |   |    |
-|                 |             |           |   |      |     |   | No |
-|                 |             |           |   |      |     |   | >  |
-|                 |             |           |   |      |     |   |    |
-|                 |             |           |   |      |     |   | |  |
-|                 |             |           |   |      |     |   | >  |
+|       `NoCloud/ | dataDirecto | applicati | - | > |  | > | | > | >  |
+| `               | ry          | onStorage | n | r/w  |  Ye |   | |  |
+|                 |             | Directory | o |      | s   | | | No |
+|                 |             |           | s |      |     |   | >  |
+|                 |             |           | y |      |     | N |    |
+|                 |             |           | n |      |     | o | |  |
+|                 |             |           | c |      |     |   | >  |
 |                 |             |           |   |      |     |   |    |
 |                 |             |           |   |      |     |   | Ye |
 |                 |             |           |   |      |     |   | s  |
 +-----------------+-------------+-----------+---+------+-----+---+----+
-|       `Cloud/`  | 同期の有無edData | > | - | > | w | | > | | > | s  |
-|                 | Directory   |           |   | Yes  |  No |   | |  |
-|                 |             |           | | |      |     | | | Ye |
-|                 |             |           |   |      |     |   | s  |
-|                 |             |           | r |      |     | Y |    |
-|                 |             |           | / |      |     | e |    |
+|       `Cloud/`  | syncedDataD | -         | r | Yes  | No  | Y | Ye |
+|                 | irectory    |           | / |      |     | e | s  |
+|                 |             |           | w |      |     | s |    |
 +-----------------+-------------+-----------+---+------+-----+---+----+
 |       `Caches/` | cacheDirect | cache     | r | Yes\ | Yes | N | Ye |
 |                 | ory         |           | / | *    | \*\ | o | s  |
@@ -219,18 +208,17 @@ device.
 |                 |             |           | w |      | *\* |   |    |
 +-----------------+-------------+-----------+---+------+-----+---+----+
 
-\* Files persist across app restarts and upgrades, but this directory
-can be cleared whenever the OS desires. Your app should be able to
-recreate any content that might be deleted.
+\*
+アプリの再起動後・アップグレード後でも、このディレクトリーに置かれたファイルには影響が出ません。ただし、このディレクトリーのコンテンツの削除は、OS
+側で、自由にできます。よって、削除された場合でも、アプリ側で再作成できる必要があります。
 
-\*\* Files may persist across app restarts, but do not rely on this
-behavior. Files are not guaranteed to persist across updates. Your app
-should remove files from this directory when it is applicable, as the OS
-does not guarantee when (or even if) these files are removed.
+\*\*
+アプリの再起動時でも、ごくまれな例外を除き、このディレクトリーに置かれたファイルには影響はでません。アップデート時には、ファイルは消去されてしまう場合があります。可能であれば、このディレクトリーのファイルは、アプリ側の任意のタイミングで削除できるようにしましょう。デフォルトのままだと、削除のタイミング、または、削除するか否かの決定は、OS
+側で行われます。
 
-\*\*\* The OS may clear the contents of this directory whenever it feels
-it is necessary, but do not rely on this. You should clear this
-directory as appropriate for your application.
+\*\*\* このディレクトリーのコンテンツの削除は、必要に応じて、OS
+側が行います。しかし、この OS
+側の挙動に頼らずに、アプリが正常に動作するよう、開発者側で、必要に応じて削除できるようにしましょう。
 
 ### Android のファイルシステムの概要
 
@@ -246,14 +234,12 @@ directory as appropriate for your application.
         `cache`                                                                                                                               externalCacheDirectry                                                                                                                                                cache-external                                                                                                                      r/w                                   Yes                                                               No\*\*                                                    No
         `files`                                                                                                                               externalDataDirectory                                                                                                                                                files-external                                                                                                                      r/w                                   Yes                                                               No                                                        No
 
-\*\*The OS may periodically clear this directory, but do not rely on
-this behavior. Clear the contents of this directory as appropriate for
-your application. Should a user purge the cache manually, the contents
-of this directory are removed.
+\*\*このディレクトリーのコンテンツの削除は、定期的に、OS
+側で行われます。しかし、この OS
+側の挙動に頼らずに、アプリが正常に動作するよう、開発者側で、必要に応じて削除しましょう。また、ディレクトリーのコンテンツまたはキャッシュの削除は、ユーザー側でも、手動で行えるべきです。
 
-\*\*The OS does not clear this directory automatically; you are
-responsible for managing the contents yourself. Should the user purge
-the cache manually, the contents of the directory are removed.
+\*\*このディレクトリーのコンテンツの削除は、OS
+側では行われません。コンテンツの処理は、開発者側で行います。また、ディレクトリーのコンテンツまたはキャッシュの削除は、ユーザー側でも、手動で行えるべきです。
 
 **注意**: 外部ストレージがマウントされない場合、`cordova.file.external*`
 プロパティーは、`null` になります。
@@ -305,9 +291,8 @@ SD
 "Internal"
 に場所を変更してしまうと、既存ユーザーがアプリをアップグレードしたときに、以前に保存したファイルに、アクセスできなくなります。
 
-If your application is new, or has never previously stored files in the
-persistent filesystem, then the `Internal` setting is generally
-recommended.
+ここ最近で開発されたアプリの場合、または、永続的なファイルシステムにファイルを以前保存したことがなかった場合、`Internal`
+の設定を推奨します。
 
 iOS 特有の動作
 --------------
@@ -334,10 +319,10 @@ iOS 端末には、永続的なファイル ( persistent file )
 ディレクトリーは、本来、エクスポートを行うドキュメントをまとめて置くために使用されます
 )。
 
-It is now possible to choose whether to store files in the documents or
-applicationStorageDirectory directory, with a preference in your
-application's `config.xml` file. To do this, add one of these two lines
-to `config.xml`:
+現在では、アプリの `config.xml` ファイルの preference
+設定を使用して、Documents ディレクトリーまたは Library
+ディレクトリーのいずれかに、ファイルを保存するか選択できます。この設定を行う場合、次の記述のいずれかを、`config.xml`
+ファイルに追加します。
 
     <preference name="iosPersistentFileLocation" value="Library" />
 
@@ -368,11 +353,18 @@ Firefox OS 自体は、File System API をサポートしていませんが、in
 -   `copyTo` と `moveTo`
     メソッドは、ディレクトリーに対しては使用できません。
 
-The following data paths are supported: \* `applicationDirectory` - Uses
-`xhr` to get local files that are packaged with the app. \*
-`dataDirectory` - For persistent app-specific data files. \*
-`cacheDirectory` - Cached files that should survive app restarts (Apps
-should not rely on the OS to delete files in here).
+次のパスを使用できます。
+
+\* `applicationDirectory` -
+アプリのパッケージに含まれているローカルファイル ( local file )
+へアクセスする場合には、`xhr` を使用します。
+
+\* `dataDirectory` - 永続的なデータファイル用 ( アプリ毎 ) です。
+
+\* `cacheDirectory` - キャッシュファイル用 (
+アプリの再起動後でも残っているファイル ) です (
+ディレクトリー内のコンテンツの削除は、OS
+に頼らずに、アプリ側で行うことを推奨します )。
 
 アップグレード時の注意点
 ------------------------
@@ -455,7 +447,7 @@ URL を返すように変わりました (
 Android に関しては、`config.xml`
 内のタグを使用して、インストール対象のファイルシステムを指定できます。デフォルトでは、すべてのファイルシステムのルートディレクトリーを利用できます。
 
-    <preference name="iosExtraFilesystems" value="applicationStorageDirectory,applicationStorageDirectory-no同期の有無,documents,documents-no同期の有無,cache,bundle,root" />
+    <preference name="iosExtraFilesystems" value="applicationStorageDirectory,applicationStorageDirectory-nosync,documents,documents-nosync,cache,bundle,root" />
     <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,root" />
 
 ### Android
@@ -490,8 +482,9 @@ files 」 ファイルシステム内の 「 /Documents/ 」 のサブディレ�
     ディスク上のアプリ本体の格納先、読み取り専用 )。
 -   `root`: 端末のすべてのファイルシステム
 
-By default, the applicationStorageDirectory and documents directories
-can be 同期の有無ed to iCloud. You can also request two additional
-filesystems, `applicationStorageDirectory-no同期の有無` and
-`documents-no同期の有無`, which represent a special non-同期の有無ed
-directory within the `/Library` or `/Documents` filesystem.
+デフォルトでは、 `/Library` と `/Documents` ディレクトリーは、iCloud
+と同期できます。また、 `applicationStorageDirectory-nosync` と
+`applicationStorageDirectory-nosync` の 2
+つのファイルシステムも追加して使用できます。これらのファイルシステムは、それぞれ、
+/Library と /Documents
+ファイルシステム下に置かれますが、同期の対象外となるディレクトリーです。

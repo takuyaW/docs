@@ -48,11 +48,13 @@
 サポート対象のプラットフォーム
 ------------------------------
 
-navigator.notification.vibrate - Amazon Fire OS - Android - BlackBerry
-10 - Firefox OS - iOS - Windows Phone 7 and 8
+navigator.notification.vibrate が使用できるプラットフォーム - Amazon
+Fire OS - Android - BlackBerry 10 - Firefox OS - iOS - Windows Phone 7
+と 8
 
-navigator.notification.vibrateWithPattern,navigator.notification.cancelVibration
-- Android
+navigator.notification.vibrateWithPattern と
+navigator.notification.cancelVibration が使用できるプラットフォーム -
+Android
 
 notification.vibrate
 --------------------
@@ -70,8 +72,8 @@ notification.vibrate
 
 ### iOS 特有の動作
 
--   **time**: Ignores the specified time and vibrates for a pre-set
-    amount of time.
+-   **time**:
+    指定された時間を無視して、代わりに、システム側の設定を使用して振動させます。
 
         navigator.notification.vibrate();
         navigator.notification.vibrate(2500);   // 2500 is ignored
@@ -83,11 +85,13 @@ notification.vibrateWithPattern
 
     navigator.notification.vibrateWithPattern(pattern, repeat)
 
--   **pattern**: Sequence of durations (in milliseconds) for which to
-    turn on or off the vibrator. *(Array of Numbers)*
--   **repeat**: Optional index into the pattern array at which to start
-    repeating (will repeat until canceled), or -1 for no repetition
-    (default). *(Number)*
+-   **pattern**: 振動をオフ・オンにする時間 ( ミリ秒単位 )
+    の組み合わせです。 *( 数値の配列 )*
+-   **repeat**: pattern で使用した配列と併用し、「 繰り返し処理 」
+    を行うための任意の数値です (
+    停止処理が行われるまで、処理を繰り返します
+    )。繰り返し処理をさせない場合には、-1 を指定します ( デフォルト )。
+    *( 数値 )*
 
 ### 例
 

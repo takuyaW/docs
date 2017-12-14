@@ -14,10 +14,9 @@ Cordovaのドキュメント](https://github.com/apache/cordova-plugin-device-or
 
 </div>
 
-This plugin provides access to the device's compass. The compass is a
-sensor that detects the direction or heading that the device is pointed,
-typically from the top of the device. It measures the heading in degrees
-from 0 to 359.99, where 0 is north.
+このプラグインを使用して、端末のコンパスにアクセスします。コンパスは、端末が指し示す方向・方位を検知するセンサーの
+1 種です。通常、端末の上部最先端を起点として、0 から 359.99
+度の角度で方位を示します。0 は、北を意味します。
 
 プラグイン ID
 -------------

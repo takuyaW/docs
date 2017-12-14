@@ -32,16 +32,16 @@
 
 </div>
 
-This plugin provides access to the device's compass. The compass is a
-sensor that detects the direction or heading that the device is pointed,
-typically from the top of the device. It measures the heading in degrees
-from 0 to 359.99, where 0 is north.
+このプラグインを使用して、端末のコンパスにアクセスします。コンパスは、端末が指し示す方向・方位を検知するセンサーの
+1 種です。通常、端末の上部最先端を起点として、0 から 359.99
+度の角度で方位を示します。0 は、北を意味します。
 
 グローバルオブジェクト 「 `navigator.compass` 」
 を使用して、情報を取得します。
 
-Although the object is attached to the global scoped `navigator`, it is
-not available until after the `deviceready` event.
+このオブジェクトは、グローバルスコープ ( `navigator` )
+に属していますが、使用できるのは、`deviceready`
+イベントの発火後になります。
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -77,8 +77,9 @@ MonacaでCordovaプラグインを使用する方法につきましては standa
 navigator.compass.getCurrentHeading
 -----------------------------------
 
-Get the current compass heading. The compass heading is returned via a
-`CompassHeading` object using the `compassSuccess` callback function.
+コンパスの現在の方位を取得します。コンパスの方位は、`CompassHeading`
+オブジェクトから取得できます。また、このオブジェクトは、`compassSuccess`
+コールバック関数で使用します。
 
     navigator.compass.getCurrentHeading(compassSuccess, compassError);
 
@@ -97,23 +98,24 @@ Get the current compass heading. The compass heading is returned via a
 navigator.compass.watchHeading
 ------------------------------
 
-Gets the device's current heading at a regular interval. Each time the
-heading is retrieved, the `headingSuccess` callback function is
-executed.
+端末の方位を、一定の間隔で取得します。方位情報を取得するたび、`headingSuccess`
+コールバック関数が実行されます。
 
-The returned watch ID references the compass watch interval. The watch
-ID can be used with `navigator.compass.clearWatch` to stop watching the
-navigator.compass.
+返された watch ID
+を使用して、コンパスの監視状態を確認できます。navigator.compass
+を停止するときには、`navigator.compass.clearWatch` に、この watchID
+を渡します。
 
     var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [compassOptions]);
 
 `compassOptions` には、次のパラメーターを使用できます
 
--   **frequency**: How often to retrieve the compass heading in
-    milliseconds. *(Number)* (Default: 100)
--   **filter**: The change in degrees required to initiate a
-    watchHeading success callback. When this value is set, **frequency**
-    is ignored. *(Number)*
+-   **frequency**: 方位情報の取得頻度です ( ミリ秒単位、デフォルトでは
+    100 )。 *(Number)*
+-   **filter**: watchHeading
+    の成功時のコールバック関数を実行するか否かの しきい値
+    となる、角度の変化です。値を設定した場合、\**frequency*\*
+    は無視されます。 *(Number)*
 
 ### 例
 
@@ -134,16 +136,16 @@ navigator.compass.
 
 ### Browser 特有の動作
 
-Values for current heading are randomly generated in order to simulate
-the compass.
+方位の値は、コンパスセンサーをシュミレートするために、ランダムに生成されています。
 
 ### iOS 特有の動作
 
-Only one `watchHeading` can be in effect at one time in iOS. If a
-`watchHeading` uses a filter, calling `getCurrentHeading` or
-`watchHeading` uses the existing filter value to specify heading
-changes. Watching heading changes with a filter is more efficient than
-with time intervals.
+iOS では、1 度に 1 つの `watchHeading` のみ有効です。`watchHeading` で
+filter を設定した場合、`getCurrentHeading` または `watchHeading`
+のいずれを呼び出したときでも、設定された filter
+値を使用して、方位の変化を特定します。これは、filter
+を使用した方位の監視の方が、時間の間隔 ( frequency )
+を使用するより、有効な方法のためです。
 
 ### Amazon Fire OS 特有の動作
 
@@ -173,48 +175,47 @@ watchID パラメーターを使用して、方位の監視を停止します。
 CompassHeading
 --------------
 
-A `CompassHeading` object is returned to the `compassSuccess` callback
-function.
+`CompassHeading` オブジェクトは、`compassSuccess`
+コールバック関数に渡されます。
 
 ### プロパティー
 
--   **magneticHeading**: The heading in degrees from 0-359.99 at a
-    single moment in time. *(Number)*
--   **trueHeading**: The heading relative to the geographic North Pole
-    in degrees 0-359.99 at a single moment in time. A negative value
-    indicates that the true heading can't be determined. *(Number)*
--   **headingAccuracy**: The deviation in degrees between the reported
-    heading and the true heading. *(Number)*
--   **timestamp**: The time at which this heading was determined.
-    *(milliseconds)*
+-   **magneticHeading**: ある瞬間の磁方位 ( 磁北を基準 )。0 から 359.99
+    度の方位角で表します。 *(Number)*
+-   **trueHeading**: ある瞬間の真方位 ( 真北を基準 )。0 から 359.99
+    度の方位角で表します。負の値は、真方位の値が定まっていないことを示します。
+    *(Number)*
+-   **headingAccuracy**: 取得した磁方位と真方位との角度の差 ( 偏角 )
+    *(Number)*
+-   **timestamp**: 方位を取得した時間 *(milliseconds)*
 
 ### Amazon Fire OS 特有の動作
 
--   `trueHeading` is not supported, but reports the same value as
-    `magneticHeading`
--   `headingAccuracy` is always 0 because there is no difference between
-    the `magneticHeading` and `trueHeading`
+-   `trueHeading` は使用できません。`magneticHeading`
+    と同じ値が返ってきます。
+-   `trueHeading` と `magneticHeading`
+    が同じ値になるため、`headingAccuracy` は、常に 0 となります。
 
 ### Android 特有の動作
 
--   The `trueHeading` property is not supported, but reports the same
-    value as `magneticHeading`.
--   The `headingAccuracy` property is always 0 because there is no
-    difference between the `magneticHeading` and `trueHeading`.
+-   `trueHeading` は使用できません。`magneticHeading`
+    と同じ値が返ってきます。
+-   `trueHeading` と `magneticHeading`
+    が同じ値になるため、`headingAccuracy` は、常に 0 となります。
 
 ### iOS 特有の動作
 
--   The `trueHeading` property is only returned for location services
-    enabled via `navigator.geolocation.watchLocation()`.
--   For iOS 4 devices and above, heading factors in the device's current
-    orientation, and does not reference its absolute position, for apps
-    that supports that orientation.
+-   位置情報サービスを有効にした場合のみ、`navigator.geolocation.watchLocation()`
+    経由で、`trueHeading` プロパティーを取得できます。
+-   iOS 4
+    以降の端末では、アプリ側でオリエンテーションをサポートしている場合には、端末の現在のオリエンテーションの中に、方位の要素も組み込まれています。また、この場合、絶対位置
+    ( absolute position ) は使用しません。
 
 CompassError
 ------------
 
-A `CompassError` object is returned to the `compassError` callback
-function when an error occurs.
+エラーが発生した場合、`CompassError` オブジェクトが `compassError`
+コールバック関数に渡されます。
 
 ### プロパティー
 

@@ -3,9 +3,9 @@
 
 <div class="admonition note">
 
-This document is based on the original Cordova docs available at
-[Cordova
-Docs](http://docs.phonegap.com/en/3.5.0/cordova_events_events.md.html#イベント).
+このドキュメントは [Adobe
+Cordovaのドキュメント](https://github.com/apache/cordova-plugin-device-motion/blob/master/README.md)
+を翻訳したものになります。
 
 </div>
 
@@ -21,15 +21,15 @@ Cordova のライフサイクルにおいて使用されるイベントです。
 -   menubutton&lt;menubutton&gt;
 -   searchbutton&lt;searchbutton&gt;
 
-イベント added by [org.apache.cordova.battery-status](https://github.com/apache/cordova-plugin-battery-status/blob/master/README.md)
-------------------------------------------------------------------------------------------------------------------------------------
+[org.apache.cordova.battery-status](https://github.com/apache/cordova-plugin-battery-status/blob/master/doc/ja/index.md) から提供のイベント群
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 -   batterycritical
 -   batterylow
 -   batterystatus
 
-イベント added by [org.apache.cordova.network-information](https://github.com/apache/cordova-plugin-network-information/blob/master/README.md)
-----------------------------------------------------------------------------------------------------------------------------------------------
+[org.apache.cordova.network-information](https://github.com/apache/cordova-plugin-network-information/blob/master/doc/ja/index.md) から提供のイベント群
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -   online
 -   offline

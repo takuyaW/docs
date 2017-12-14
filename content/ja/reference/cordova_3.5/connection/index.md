@@ -14,10 +14,10 @@ Cordovaのドキュメント](https://github.com/apache/cordova-plugin-network-i
 
 </div>
 
-This plugin provides an implementation of an old version of the [Network
-Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). It
-provides information about the device's cellular and wifi connection,
-and whether the device has an internet connection.
+このプラグインでは、旧バージョンの [Network Information
+API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
+が使用されています。このプラグインを使用すれば、セルラー ( Cellular )
+情報、WiFi 接続情報などのインターネット接続情報を取得できます。
 
 プラグイン ID
 -------------
@@ -40,8 +40,9 @@ MonacaでCordovaプラグインを使用する方法につきましては standa
 Connection
 ----------
 
-> The `connection` object, exposed via `navigator.connection`, provides
-> information about the device's cellular and wifi connection.
+> `connection` オブジェクトを使用して、セルラー、WiFi
+> 接続などのネットワーク情報を取得します ( `navigator.connection`
+> 経由で情報にアクセスします )。
 
 ### プロパティー
 
@@ -60,8 +61,7 @@ Connection
 
 ### connection.type
 
-This property offers a fast way to determine the device's network
-connection state, and type of connection.
+このプロパティーを使用して、ネットワーク接続の状態と接続のタイプを確認します。
 
 **例**
 
@@ -87,11 +87,10 @@ checkConnection();
 
 **API の変更点**
 
-Until Cordova 2.3.0, the `Connection` object was accessed via
-`navigator.network.connection`, after which it was changed to
-`navigator.connection` to match the W3C specification. It's still
-available at its original location, but is deprecated and will
-eventually be removed.
+Cordova 2.3.0 までは、`navigator.network.connection` 経由で `Connection`
+オブジェクトにアクセスしていましたが、W3C
+の仕様に準拠するため、`navigator.connection` 経由に変更しました。
+`navigator.network.connection` は利用できますが、将来的には廃止します。
 
 **iOS 特有の動作**
 
@@ -104,8 +103,7 @@ eventually be removed.
 
 ### offline
 
-The event fires when an application goes offline, and the device is not
-connected to the Internet.
+アプリがオフラインになったときに、このイベントが発火します。端末は、インターネットに接続されていません。
 
 ``` {.sourceCode .javascript}
 document.addEventListener("offline", yourCallbackFunction, false);
@@ -113,13 +111,16 @@ document.addEventListener("offline", yourCallbackFunction, false);
 
 **詳細**
 
-The `offline` event fires when a previously connected device loses a
-network connection so that an application can no longer access the
-Internet. It relies on the same information as the Connection API, and
-fires when the `connection.type` changes from `NONE` to any other value.
+デバイスのネットワーク接続が切れたときに、`offline` ( オフライン )
+イベントが発火します ( `connection.type` が `NONE`
+に変わったときに発火します
+)。ネットワーク接続が切れているため、アプリは、インターネットへアクセスできません。Connection
+API と同じ情報を使用します。
 
-Applications typically should use `document.addEventListener` to attach
-an event listener once the `deviceready` event fires.
+原則、イベントリスナーの登録には、 `document.addEventListener`
+を使用します。また、JavaScript
+からネイティブ機能へのアクセスは、`deviceready`
+イベントの発火後に行います。
 
 **例**
 
@@ -133,13 +134,12 @@ function onOffline() {
 
 **iOS 特有の動作**
 
-During initial startup, the first offline event (if applicable) takes at
-least a second to fire.
+初回起動時は、`offline` ( オフライン ) イベントが発火するまで (
+発火の条件が揃ってること )、最低 1 秒かかります。
 
 ### online
 
-This event fires when an application goes online, and the device becomes
-connected to the Internet.
+アプリがオンラインになったときに、このイベントが発火します。端末は、インターネットに接続されています。
 
 ``` {.sourceCode .javascript}
 document.addEventListener("online", yourCallbackFunction, false);
@@ -147,13 +147,15 @@ document.addEventListener("online", yourCallbackFunction, false);
 
 **詳細**
 
-The `online` event fires when a previously unconnected device receives a
-network connection to allow an application access to the Internet. It
-relies on the same information as the Connection API, and fires when the
-value of `connection.type` becomes `NONE`.
+端末がネットワークに接続して、アプリからインターネットが使用できる状態になったときに、`online`
+( オンライン ) イベントが発火します ( `connection.type` が `NONE`
+から他の値に変わったときに発火します )。Connection API
+と同じ情報を使用します。
 
-Applications typically should use `document.addEventListener` to attach
-an event listener once the `deviceready` event fires.
+原則、イベントリスナーの登録には、 `document.addEventListener`
+を使用します。また、JavaScript
+からネイティブ機能へのアクセスは、`deviceready`
+イベントの発火後に行います。
 
 **例**
 
@@ -167,6 +169,6 @@ function onOnline() {
 
 **iOS 特有の動作**
 
-During initial startup, the first `online` event (if applicable) takes
-at least a second to fire, prior to which `connection.type` is
-`UNKNOWN`.
+初回起動時は、`online` ( オンライン ) イベントが発火するまで (
+発火の条件が揃ってること )、最低 1 秒かかります ( `connection.type` が
+`UNKNOWN` になる前に )。

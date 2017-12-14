@@ -1,9 +1,3 @@
----
-title: "Build_release_ios"
-date: 2017-08-31T15:49:03+09:00
-draft: false 
----
-
 iOS アプリの作成 (リリース用)
 =============================
 
@@ -27,7 +21,7 @@ iOS アプリの作成 (リリース用)
 秘密鍵に付ける名前 ) ・ メールアドレス ( Apple ID ) ・
 国コードを入力します。
 
-> ![](/images/build_ios/modal_make_key_csr.png?width=50%)
+> ![](images/build_ios/modal_make_key_csr.png){width="700px"}
 
 秘密鍵の作成後、その秘密鍵に関連付けされた CSR
 ファイルが同時に作成されます。
@@ -56,14 +50,14 @@ Center で証明書を発行するときに使用します。
 >
 > プロビジョニングファイルの項目にファイルが設定されていることを確認し、「ビルドを開始する」ボタンをクリックします。
 >
-> ![](/images/build_ios/select_provisioning.png)
+> ![](images/build_ios/select_provisioning.png){width="700px"}
 
 5. ビルド
 ---------
 
 > ビルドが完了するまで、数十分かかりますので、しばらく待ちます。ビルドが完了すると、次の画面が表示されます。
 >
-> ![](/images/build_ios/build_release_success.png)
+> ![](images/build_ios/build_release_success.png){width="700px"}
 
 6. アプリのインストール
 -----------------------
@@ -73,5 +67,4 @@ Center で証明書を発行するときに使用します。
 > 1.  ビルドしたアプリをパソコンに直接ダウンロードし、Appleの「[Application
 >     Loader](http://help.apple.com/itc/apploader/e3) 」を利用する
 > 2.  Monacaのデプロイサービスを利用する(有料)
-
 

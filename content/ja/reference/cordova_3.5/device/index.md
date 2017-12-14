@@ -14,9 +14,9 @@ Cordovaのドキュメント](https://github.com/apache/cordova-plugin-device/bl
 
 </div>
 
-This plugin defines a global `device` object, which describes the
-device's hardware and software. Although the object is in the global
-scope, it is not available until after the `deviceready` event.
+このプラグインでは、グローバルオブジェクト 「 `device` 」
+を使用し、端末側のハードウェアとソフトウェア情報を取り扱います。このオブジェクトは、グローバルスコープに属していますが、使用できるのは、`deviceready`
+イベントの発火後になります。
 
 ``` {.sourceCode .javascript}
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -60,9 +60,9 @@ device.cordova
 device.model
 ------------
 
-The `device.model` returns the name of the device's model or product.
-The value is set by the device manufacturer and may be different across
-versions of the same product.
+`device.model` を使用して、端末のモデル名 ( model ) または製品名 (
+product )
+を取得します。これらの値は、端末の製造元が設定するため、同じ製品でも、異なるバージョン間では、値が異なる場合があります。
 
 ### サポート対象のプラットフォーム
 
@@ -82,18 +82,18 @@ var model = device.model;
 
 ### Android 特有の動作
 
--   Gets the [product
-    name](http://developer.android.com/reference/android/os/Build.html#PRODUCT)
-    instead of the [model
-    name](http://developer.android.com/reference/android/os/Build.html#MODEL),
-    which is often the production code name. For example, the Nexus One
-    returns `Passion`, and Motorola Droid returns `voles`.
+-   [モデル名](http://developer.android.com/reference/android/os/Build.html#MODEL)
+    ( model )
+    の代わりに、[製品名](http://developer.android.com/reference/android/os/Build.html#PRODUCT)
+    ( product )
+    を取得します。製品名は、ほとんどの場合、製品のコードネームになります。たとえば、Nexus
+    One では `Passion` を返し、 Motorola Droid では `voles` を返します。
 
 device.name
 -----------
 
-**WARNING**: `device.name` is deprecated as of version 2.3.0. Use
-`device.model` instead.
+**注意:** バージョン 2.3.0 では `device.name`
+を使用しません。代わりに`device.model` をお使いください。
 
 device.platform
 ---------------
@@ -124,8 +124,9 @@ var devicePlatform = device.platform;
 device.uuid
 -----------
 
-Get the device's Universally Unique Identifier
-([UUID](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
+端末の UUID ( Universally Unique Identifier ) を取得します ( UUID
+に関しては、[こちら](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)
+を参照のこと )
 
 ``` {.sourceCode .javascript}
 var string = device.uuid;
@@ -133,8 +134,8 @@ var string = device.uuid;
 
 ### 解説
 
-The details of how a UUID is generated are determined by the device
-manufacturer and are specific to the device's platform or model.
+UUID
+の生成方法は、端末の製造元が決定し、端末のプラットフォームまたはモデル毎に、値が割り振られます。
 
 ### サポート対象のプラットフォーム
 
@@ -163,11 +164,10 @@ var deviceID = device.uuid;
 
 ### iOS 特有の動作
 
-The `uuid` on iOS is not unique to a device, but varies for each
-application, for each installation. It changes if you delete and
-re-install the app, and possibly also when you upgrade iOS, or even
-upgrade the app per version (apparent in iOS 5.1). The `uuid` is not a
-reliable value.
+iOS の
+`uuid`は各デバイスで一意ではありませんが、各アプリ・各インストールで一意となります。アプリを削除し、再インストールした場合、この値は変化します。また、iOS
+のバージョンアップ、アプリのバージョンアップをしたときにも変更される可能性があります(
+iOS 5.1 で現象を確認 ) 。`uuid` は不変の値ではありません。
 
 device.version
 --------------
