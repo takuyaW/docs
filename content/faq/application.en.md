@@ -11,7 +11,7 @@ please use them according to the agreements of each ad network company.
 
 If they are InMobi, mediba (Japanese) or nend (Japanese), you can
 display the ads in apps created by Monaca. In regard to nend, please
-refer to [nend](/en/sampleapp/tips/external_services/nend_ad).
+refer to [nend](/en/sampleapp/tips/nend_ad).
 
 ## Can I use external backend service?
 
@@ -85,7 +85,7 @@ For more details, please refer to [HTML, CSS, and JavaScript features and differ
 
 Yes, you can. However, you need to make configuration differently on iOS and Android. 
 
-*Android*
+### Android
 
 There are two ways to make an app runs in fullscreen mode:
 
@@ -93,11 +93,9 @@ There are two ways to make an app runs in fullscreen mode:
 
 2. By `config.xml` file: input the following line within the file: 
 
-    {{<highlight xml>}}
-        <preference name="Fullscreen" value="true"/>
-    {{</highlight>}}
+    {{<highlight xml>}}<preference name="Fullscreen" value="true"/>{{</highlight>}}
 
-*iOS*
+### iOS
 
 You need to use [StatusBar Plugin](/en/reference/cordova_6.5/statusbar) to hide the native status bar. 
 
@@ -133,13 +131,11 @@ was not loaded.
     for the starting page in the `<content>` tag. The default value is
     `index.html`. See the example below:
 
-    {{<highlight xml>}}
-    <?xml version="1.0" encoding="UTF-8"?>
-    <widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
-        ...
-        <content src="https://monaca.io/" />
-    </widget>
-    {{</highlight>}}
+    {{<highlight xml>}}<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
+    ...
+    <content src="https://monaca.io/" />
+</widget>{{</highlight>}}
 
 {{<warning>}}
     This method won’t work in Android Debugger downloaded from Google Play. Creating a custom Android debugger will solve this issue. Please refer to {{<link href="/en/products_guide/debugger/installation/debugger_android/#custom-debugger-and" title="Build and Install Custom Monaca Debugger">}}.
@@ -192,7 +188,7 @@ Name, both of them will change. In other words, they are configured to
 be the same. However, it is possible to make them different.
 
 In order to create iOS's App ID and Android's Package Name differently,
-please update the `<widget>` tag in config.xml file by adding the values
+please update the `<widget>` tag in `config.xml` file by adding the values
 for `android-packageName` and `ios-CFBundleIdentifier` while removing
 the existing `id` value. Here is an example of the updated file:
 

@@ -18,8 +18,8 @@ applications with Monaca.
 
     {{<img src="/images/backend/apns/1.png">}}
 
-2.  Under iOS section, select {{<guilabel name="Generate Key and Make CSR">}} of *Development*
-    or *Production Push Certificate* as you prefer.
+2.  Under iOS section, select {{<guilabel name="Generate Key and Make CSR">}} of **Development**
+    or **Production Push Certificate** as you prefer.
 
     {{<img src="/images/backend/apns/2.png">}}
 
