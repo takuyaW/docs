@@ -88,12 +88,13 @@ navigator.contacts.find
 パラメーターに指定されている `contactSuccess`
 コールバック関数に渡されます。
 
-The \**contactFields\** parameter specifies the fields to be used as a
-search qualifier, and only those results are passed to the
-\**contactSuccess\** callback function. A zero-length
-\**contactFields\** parameter is invalid and results in
-`ContactError.INVALID_ARGUMENT_ERROR`. A \**contactFields\** value of
-`"*"` returns all contact fields.
+\**contactFields\**
+パラメーターを使用して、検索時に使用する項目を指定します。また、ここから得た検索結果だけが
+\**contactSuccess\** コールバック関数へ引き渡されます。
+\**contactFields\** パラメーターに空文字列 ( ゼロレングス/zero-length )
+を設定した場合、無効となり、結果として、`ContactError.INVALID_ARGUMENT_ERROR`
+となります。 \**contactFields\** の値を `"*"`
+に設定した場合、連絡先に関するすべての項目を返します。
 
 **contactFindOptions.filter**文字列を使用して、連絡先データベースの検索時に絞り込みを行います。この値を設定した場合、\**contactFields*\*
 で指定した項目に対して、絞り込み検索 (大・小文字を区別しない、部分一致 )
@@ -102,9 +103,10 @@ search qualifier, and only those results are passed to the
 
 ### パラメーター
 
--   \**contactFields\**: Contact fields to use as a search qualifier.
-    The resulting `Contact` object only features values for these
-    fields. *(DOMString\[\])* \[Required\]
+-   **contactFields**:
+    検索時に使用する連絡先の項目。検索結果として返された `Contact`
+    オブジェクトが格納している値は、ここで指定した項目に関する値のみとなります。\*(DOMString\[\])\*
+    \[必須\]
 -   **contactSuccess**: 成功時のコールバックです。Contact
     オブジェクト群が入れられた配列 ( オブジェクトはデータベースから取得
     ) が渡されます。 \[ 必須 \]
@@ -480,8 +482,8 @@ ContactOrganization
 
 -   **pref**: 最優先にする値を格納する `ContactOrganization`
     であれば、`true` に設定します。 *(boolean)*
--   **type**: A string that indicates what type of field this is, *home*
-    for example. \_(DOMString)
+-   **type**: 項目のタイプを示した文字列です。例 : *home* ( 自宅用 )
+    *(DOMString)*
 -   **name**: 組織名です。 *(DOMString)*
 -   **department**: 所属する部署名です。 *(DOMString)*
 -   **title**: 役職名です。 *(DOMString)*

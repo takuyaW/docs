@@ -55,8 +55,8 @@ navigator.notification.vibrate(2500);
 iOS 特有の動作
 --------------
 
--   **time**: Ignores the specified time and vibrates for a pre-set
-    amount of time.
+-   **time**:
+    指定された時間を無視して、代わりに、システム側の設定を使用して振動させます。
 
     ``` {.sourceCode .javascript}
     navigator.notification.vibrate();

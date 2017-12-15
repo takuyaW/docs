@@ -69,9 +69,11 @@ navigator.globalization.dateToString(date, successCallback, errorCallback, optio
 
 `date` パラメーターは、`Date` 型です。
 
-If there is an error formatting the date, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.FORMATTING\_ERROR`.
+日付のフォーマット時 ( date パラメーターを文字列に変換するとき )
+にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用し、`errorCallback`
+が実行されます。このときに使用されるエラーコードは、`GlobalizationError.FORMATTING_ERROR`
+となります。
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -92,9 +94,10 @@ expected code is `GlobalizationError.FORMATTING\_ERROR`.
 
 ### 例
 
-If the browser is set to the `en\_US` locale, this displays a popup
-dialog with text similar to `date: 9/25/2012 4:21PM` using the default
-options:
+ブラウザーのロケールを
+`en\_US`に設定した場合、以下のオプションを使用して、
+`date: 9/25/2012 4:21PM` 形式のテキストをポップアップ
+ダイアログに表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.dateToString(
@@ -145,9 +148,11 @@ navigator.globalization.getCurrencyPattern(currencyCode, successCallback, errorC
 `currencyCode` パラメーターには、ISO 4217 通貨コードの `文字列`
 を使用します ( 例 : 「 USD 」 )。
 
-If there is an error obtaining the pattern, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.FORMATTING\_ERROR`.
+パターン ( pattern )
+の取得時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用して、`errorCallback`
+を実行します。このときに使用するエラーコードは、`GlobalizationError.FORMATTING\_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -156,9 +161,8 @@ expected code is `GlobalizationError.FORMATTING\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale and the selected currency
-is United States Dollars, this example displays a popup dialog with text
-similar to the results that follow:
+ブラウザーのロケールを `en\_US` に設定して、また、通貨を
+USドルに選択した場合、以下の結果をポップアップ ダイアログに表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getCurrencyPattern(
@@ -204,9 +208,10 @@ navigator.globalization.getDateNames(successCallback, errorCallback, options);
 群、週の最初の曜日から始まる )
 のいずれかが入っています。どちらが入るかは、オプション設定によります。
 
-If there is an error obtaining the names, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.UNKNOWN\_ERROR`.
+月または曜日名の取得時にエラーが発生した場合、
+`GlobalizationError`オブジェクトをパラメーターとして使用して、
+`errorCallback`を実行します。このときに使用するエラーコードは、`GlobalizationError.UNKNOWN\_ERROR`
+となり
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -225,9 +230,9 @@ expected code is `GlobalizationError.UNKNOWN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this example displays a
-series of twelve popup dialogs, one per month, with text similar to
-`month: January`:
+ブラウザーのロケールを `en\_US` に設定した場合、一連の 12 個 ( 1個あたり
+ひと月 ) のポップアップ ダイアログ上に、`month: January`
+に形式のテキストを表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getDateNames(
@@ -263,15 +268,16 @@ navigator.globalization.getDatePattern(successCallback, errorCallback, options);
     \#35](http://unicode.org/reports/tr35/tr35-4.html)
     に準拠しています。 *(String)*
 -   **timezone**: クライアントのタイムゾーンの略称 *(String)*
--   **utc\_offset**: The current difference in seconds between the
-    client's time zone and coordinated universal time. *(Number)*
--   **dst\_offset**: The current daylight saving time offset in seconds
-    between the client's non-daylight saving's time zone and the
-    client's daylight saving's time zone. *(Number)*
+-   **utc\_offset**: クライアントのタイムゾーンと協定世界時 ( UTC )
+    間のオフセット ( 秒単位 ) *(Number)*
+-   **dst\_offset**: クライアントのタイムゾーンにおいて、夏時間 ( DST )
+    を適用および不適用している場合のオフセット ( 秒単位 ) *(Number)*
 
-If there is an error obtaining the pattern, the `errorCallback` executes
-with a `GlobalizationError` object as a parameter. The error's expected
-code is `GlobalizationError.PATTERN\_ERROR`.
+パターン ( pattern )
+の取得時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用して、`errorCallback`
+を実行します。このときに使用するエラーコードは、`GlobalizationError.PATTERN\_ERROR`
+となります。
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -290,8 +296,9 @@ code is `GlobalizationError.PATTERN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this example displays a
-popup dialog with text such as `pattern: M/d/yyyy h:mm a`:
+ブラウザーのロケールを `en\_US`
+に設定した場合、ポップアップダイアログ上に、 `pattern: M/d/yyyy h:mm a`
+形式のテキストを表示します。
 
 ``` {.sourceCode .javascript}
 function checkDatePattern() {
@@ -320,9 +327,11 @@ navigator.globalization.getFirstDayOfWeek(successCallback, errorCallback);
 に曜日を渡します。このオブジェクトの `value` プロパティーに、曜日を示す
 `番号` が格納されています。
 
-If there is an error obtaining the pattern, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.UNKNOWN\_ERROR`.
+パターン ( pattern )
+の取得時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用して、`errorCallback`
+を実行します。このときに使用するエラーコードは、`GlobalizationError.UNKNOWN\_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -333,8 +342,9 @@ expected code is `GlobalizationError.UNKNOWN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this displays a popup
-dialog with text similar to `day: 1`.
+ブラウザーのロケールを `en\_US`
+に設定した場合、ポップアップダイアログ上に、 `day: 1`
+に似たテキストを表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getFirstDayOfWeek(
@@ -356,9 +366,10 @@ navigator.globalization.getLocaleName(successCallback, errorCallback);
 locale ID ) を `successCallback` に渡します。このオブジェクトの `value`
 プロパティーには、`文字列形式` の値が格納されています。
 
-If there is an error getting the locale, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.UNKNOWN\_ERROR`.
+ロケールの取得時にエラーが発生した場合、
+`GlobalizationError`オブジェクトをパラメーターとして使用して、
+`errorCallback`を実行します。このときに使用するエラーコードは、`GlobalizationError.UNKNOWN\_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -367,8 +378,9 @@ expected code is `GlobalizationError.UNKNOWN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this displays a popup
-dialog with the text `locale: en\_US`.
+ブラウザーのロケールを `en\_US`
+に設定した場合、ポップアップダイアログ上に、 `locale: en\_US`
+のテキストを表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getLocaleName(
@@ -416,9 +428,11 @@ navigator.globalization.getNumberPattern(successCallback, errorCallback, options
 -   **grouping**: パース処理とフォーマット処理使用する、区切り記号 (
     grouping symbol/separtor ) *(String)*
 
-If there is an error obtaining the pattern, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.PATTERN\_ERROR`.
+パターン ( pattern )
+の取得時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用して、`errorCallback`
+を実行します。このときに使用するエラーコードは、`GlobalizationError.PATTERN\_ERROR`
+となります。
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -436,8 +450,8 @@ expected code is `GlobalizationError.PATTERN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this should display a
-popup dialog with text similar to the results that follow:
+ブラウザーのロケールを `en\_US`
+に設定した場合、ポップアップダイアログ上に、以下と同じような結果のテキストを表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getNumberPattern(
@@ -481,9 +495,10 @@ navigator.globalization.getPreferredLanguage(successCallback, errorCallback);
 に渡します。このオブジェクトは、`言語識別子` の値を設定した `value`
 プロパティーを格納しています。
 
-If there is an error getting the language, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.UNKNOWN\_ERROR`.
+言語情報の取得時にエラーが発生した場合、
+`GlobalizationError`オブジェクトをパラメーターとして使用して、
+`errorCallback`を実行します。このときに使用するエラーコードは、`GlobalizationError.UNKNOWN\_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -492,8 +507,9 @@ expected code is `GlobalizationError.UNKNOWN\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this should display a
-popup dialog with the text `language: English`:
+ブラウザーのロケールを `en\_US`
+に設定した場合、ポップアップダイアログ上に、 `language: English`
+のテキストを表示します。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.getPreferredLanguage(
@@ -523,9 +539,9 @@ navigator.globalization.isDayLightSavingsTime(date, successCallback, errorCallba
 
 `date` パラメーターは、`Date` 型です。
 
-If there is an error reading the date, then the `errorCallback`
-executes. The error's expected code is
-`GlobalizationError.UNKNOWN\_ERROR`.
+日付の読み込み時にエラーが発生した場合、`errorCallback`
+が実行されます。このときに使用されるエラーコードは、`GlobalizationError.UNKNOWN_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -560,9 +576,10 @@ navigator.globalization.numberToString(number, successCallback, errorCallback, o
 `successCallback` に渡されます。このオブジェクトの `value`
 プロパティーには、`文字列` の値が格納されています。
 
-If there is an error formatting the number, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.FORMATTING\_ERROR`.
+数値のフォーマット時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用し、`errorCallback`
+が実行されます。このときに使用されるエラーコードは、`GlobalizationError.FORMATTING_ERROR`
+となります。
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -580,8 +597,9 @@ expected code is `GlobalizationError.FORMATTING\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this displays a popup
-dialog with text similar to `number: 3.142`:
+ブラウザーのロケール設定が `en-US`
+の場合、次の記述をすれば、ポップアップダイアログ上に、`number: 3.142`
+と表示されます。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.numberToString(
@@ -630,9 +648,10 @@ navigator.globalization.stringToDate(dateString, successCallback, errorCallback,
 のいずれかを設定できます。 `options.selector`
 には、`date`、`time`、`date and time` のいずれかを設定できます。
 
-If there is an error parsing the date string, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.PARSING\_ERROR`.
+文字列としてフォーマットされている日付のパース処理時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用し、`errorCallback`
+が実行されます。このときに使用されるエラーコードは、`GlobalizationError.PARSING_ERROR`
+となります。
 
 ### サポート対象のプラットフォーム
 
@@ -641,10 +660,10 @@ expected code is `GlobalizationError.PARSING\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this displays a popup
-dialog with text similar to `month:8 day:25 year:2012`. Note that the
-month integer is one less than the string, as the month integer
-represents an array index.
+ブラウザーのロケールを `en_US`
+に設定した場合、ポップアップダイアログ上に、`month:8 day:25 year:2012`
+形式のテキストが表示されます。月を示す整数は、配列のインデックスを指すため、実際の文字列の数より、「
+1 」 だけ少ない数となります。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.stringToDate(
@@ -673,9 +692,10 @@ navigator.globalization.stringToNumber(string, successCallback, errorCallback, o
 に数値を渡します。このオブジェクトの `value`
 プロパティーには、結果の数値が格納されています。
 
-If there is an error parsing the number string, then the `errorCallback`
-executes with a `GlobalizationError` object as a parameter. The error's
-expected code is `GlobalizationError.PARSING\_ERROR`.
+文字列としてフォーマットされている数値のパース処理時にエラーが発生した場合、`GlobalizationError`
+オブジェクトをパラメーターとして使用し、`errorCallback`
+が実行されます。このときに使用されるエラーコードは、`GlobalizationError.PARSING_ERROR`
+となります。
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
@@ -693,8 +713,9 @@ expected code is `GlobalizationError.PARSING\_ERROR`.
 
 ### 例
 
-When the browser is set to the `en\_US` locale, this should display a
-popup dialog with text similar to `number: 1234.56`:
+ブラウザーのロケール設定が `en-US`
+の場合、次の記述をすれば、ポップアップダイアログ上に、`number: 1234.56`
+形式のテキストが表示されます。
 
 ``` {.sourceCode .javascript}
 navigator.globalization.stringToNumber(

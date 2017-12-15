@@ -33,18 +33,19 @@
 -   Android
 -   iOS
 
-\* \*Do not support `onprogress` nor `abort()`\*
+\* \*の付いたプラットフォームでは、「 onprogress 」 と 「 abort() 」
+は使用できません。\*
 
 FileTransfer
 ------------
 
-The `FileTransfer` object provides a way to upload files using an HTTP
-multi-part POST request, and to download files as well.
+ファイルのアップロード ( HTTP multi-part POST リクエストを使用 )
+とダウンロードを行うときに、`FileTransfer` オブジェクトを使用します。
 
 ### プロパティー
 
--   **onprogress**: Called with a `ProgressEvent` whenever a new chunk
-    of data is transferred. *(Function)*
+-   **onprogress**: データの送受信時に、`ProgressEvent`
+    を渡して呼び出す関数。 *(Function)*
 
 ### メソッド
 
@@ -57,36 +58,45 @@ multi-part POST request, and to download files as well.
 
 **パラメーター**:
 
--   **fileURL**: Filesystem URL representing the file on the device. For
-    backwards compatibility, this can also be the full path of the file
-    on the device. (See [Backwards Compatibility
-    Notes](#backwards-compatibility-notes) below)
--   **server**: URL of the server to receive the file, as encoded by
-    `encodeURI()`.
--   **successCallback**: A callback that is passed a `Metadata` object.
-    *(Function)*
--   **errorCallback**: A callback that executes if an error occurs
-    retrieving the `Metadata`. Invoked with a `FileTransferError`
-    object. *(Function)*
--   **trustAllHosts**: Optional parameter, defaults to `false`. If set
-    to `true`, it accepts all security certificates. This is useful
-    since Android rejects self-signed security certificates. Not
-    recommended for production use. Supported on Android and iOS.
-    *(boolean)*
+-   **fileURL**: 端末上のファイルの位置を指し示す、ファイルシステムの
+    URL ( FileSystem URL
+    )。後方互換性を考慮する場合には、端末上のファイルへのフルパス ( full
+    path ) を使用することもできます ( このページ内の
+    [\[後方互換性に関するメモ書き\]](#backwards-compatibility-notes)
+    も併せてご確認ください )。
+-   **server**: ファイルを受け取るサーバーの URL ( `encodeURI()`
+    を使用して、エンコード )。
+-   **successCallback**: `Metadata`
+    オブジェクトを渡して実行するコールバック関数。 *(Function)*
+-   **errorCallback**: `Metadata`
+    の取得時にエラーが発生した場合に実行するコールバック関数。`FileTransferError`
+    オブジェクトを使用して呼び出します。 *(Function)*
+-   **trustAllHosts**: 任意のパラメーター。デフォルトは `false`
+    です。`true`
+    に設定した場合、すべてのセキュリティー証明書を許可します。Android
+    では、自己署名 ( self-signed )
+    したセキュリティー証明書を拒否するので、この方法は有用です。正式リリース版または商用のアプリには推奨しません。Android
+    と iOS で使用できます。 *(boolean)*
 -   **options**: 任意のパラメーター。使用できる key は、次のとおりです。
     *(Object)*
--   **fileKey**: The name of the form element. Defaults to `file`.
+-   **fileKey**: form 要素の name 属性。デフォルトは、`file` です。
     (DOMString)
--   **fileName**: The file name to use when saving the file on the
-    server. Defaults to `image.jpg`. (DOMString)
--   **mimeType**: The mime type of the data to upload. Defaults to
-    `image/jpeg`. (DOMString)
--   **params**: A set of optional key/value pairs to pass in the HTTP
-    request. (Object)
--   **chunkedMode**: Whether to upload the data in chunked streaming
-    mode. Defaults to `true`. (Boolean)
--   **headers**: A map of header name/header values. Use an array to
-    specify more than one value. (Object)
+-   **fileName**:
+    サーバーにファイルを保存するときに使用するファイル名。デフォルトは、`image.jpg`
+    です。 (DOMString)
+-   **mimeType**: アップロードするデータの MIME
+    タイプ。デフォルトは、`image/jpeg` です。 (DOMString)　
+-   **params**: HTTP リクエスト内に任意で設定する key と value
+    の組み合わせ (Object)
+-   **chunkedMode**: チャンク/チャンクド形式のストリーミング ( chunked
+    streaming mode )
+    を使用して、データのアップロードを行うか否かの設定。デフォルトは、`true`
+    です。 (Boolean)
+-   **headers**:
+    ヘッダーのプロパティー名とその値の組み合わせ。値が複数ある場合には、配列を使用します。iOS、FireOS、Android
+    では、Content-Type
+    が記述されている場合には、マルチパートフォームデータ形式 ( multipart
+    form data ) は使用されません。 (Object)
 
 **例**
 
@@ -161,14 +171,14 @@ ft.upload(fileURL, uri, win, fail, options);
 
 ### FileUploadResult
 
-A `FileUploadResult` object is passed to the success callback of the
-`FileTransfer` object's `upload()` method.
+`FileUploadResult` オブジェクトは、`FileTransfer` オブジェクトの
+`upload()` メソッドの成功時のコールバックに渡されます。
 
 **プロパティー**
 
--   **bytesSent**: The number of bytes sent to the server as part of the
-    upload. (long)
--   **responseCode**: The HTTP response code returned by the server.
+-   **bytesSent**: アップロード時に、サーバーに送られたバイト ( byte )
+    数 (long)
+-   **responseCode**: サーバーから返ってきた HTTP レスポンスコード
     (long)
 -   **response**: サーバーから返ってきた HTTP レスポンス (DOMString)
 -   **headers**: サーバーから返ってきた HTTP レスポンスのヘッダー
@@ -183,24 +193,28 @@ A `FileUploadResult` object is passed to the success callback of the
 
 **パラメーター**:
 
--   **source**: URL of the server to download the file, as encoded by
-    `encodeURI()`.
--   **target**: Filesystem url representing the file on the device. For
-    backwards compatibility, this can also be the full path of the file
-    on the device. (See [Backwards Compatibility
-    Notes](#backwards-compatibility-notes) below)
--   **successCallback**: A callback that is passed a `FileEntry` object.
-    *(Function)*
--   **errorCallback**: A callback that executes if an error occurs when
-    retrieving the `Metadata`. Invoked with a `FileTransferError`
-    object. *(Function)*
--   **trustAllHosts**: Optional parameter, defaults to `false`. If set
-    to `true`, it accepts all security certificates. This is useful
-    because Android rejects self-signed security certificates. Not
-    recommended for production use. Supported on Android and iOS.
-    *(boolean)*
--   **options**: Optional parameters, currently only supports headers
-    (such as Authorization (Basic Authentication), etc).
+-   **source**: ファイルのダウンロード元となるサーバーの URL (
+    `encodeURI()` を使用して、エンコード )。
+-   **fileURL**: 端末上のファイルの位置を指し示す、ファイルシステムの
+    URL ( FileSystem URL
+    )。後方互換性を考慮する場合には、端末上のファイルへのフルパス ( full
+    path ) を使用することもできます ( このページ内の
+    [\[後方互換性に関するメモ書き\]](#backwards-compatibility-notes)
+    も併せてご確認ください )。
+-   **successCallback**: `FileEntry`
+    オブジェクトを渡して実行するコールバック。 *(Function)*
+-   **errorCallback**: `Metadata`
+    の取得時にエラーが発生した場合に実行するコールバック関数。`FileTransferError`
+    オブジェクトを使用して呼び出します。 *(Function)*
+-   **trustAllHosts**: 任意のパラメーター。デフォルトは `false`
+    です。`true`
+    に設定した場合、すべてのセキュリティー証明書を許可します。Android
+    では、自己署名 ( self-signed )
+    したセキュリティー証明書を拒否するので、この方法は有用です。正式リリース版または商用のアプリには推奨しません。Android
+    と iOS で使用できます。 *(boolean)*
+-   **options**: 任意のパラメーター。現時点では、headers
+    のみ使用できます ( BASIC 認証などを指定できる Authorization
+    ヘッダーなどを設定できます )。
 
 **例**
 
@@ -233,9 +247,9 @@ fileTransfer.download(
 
 ### abort
 
-Aborts an in-progress transfer. The onerror callback is passed a
-FileTransferError object which has an error code of
-FileTransferError.ABORT\_ERR.
+実行中のファイルの送受信を中止します。 FileTransferError
+オブジェクトを使用して、失敗時のコールバックが呼び出されます。このオブジェクトには、FileTransferError.ABORT\_ERR
+エラーコードが格納されています。
 
 **例**
 
@@ -266,8 +280,8 @@ ft.abort();
 
 ### FileTransferError
 
-A `FileTransferError` object is passed to an error callback when an
-error occurs.
+エラー発生時、`FileTransferError`
+オブジェクトが失敗時のコールバックに渡されます。
 
 **プロパティー**
 
@@ -279,8 +293,9 @@ error occurs.
     このプロパティーには、アップロード時にはアップロード先の
     URL、ダウンロード時には端末上のファイルの保存場所が格納されるようです。
     \]
--   **http\_status**: HTTP status code. This attribute is only available
-    when a response code is received from the HTTP connection. (Number)
+-   **http\_status**: HTTP ステータスコード。HTTP
+    接続の状態を示すレスポンスコードを受け取った場合のみ、この属性を使用できます。
+    (Number)
 
 **定数**
 
@@ -291,31 +306,33 @@ error occurs.
 
 ### 後方互換性に関するメモ書き
 
-Previous versions of this plugin would only accept
-device-absolute-file-paths as the source for uploads, or as the target
-for downloads. These paths would typically be of the form
+このプラグインの以前のバージョンでは、アップロード時のソースまたはダウンロード時のターゲットには、ファイルの保存場所への端末固有の絶対パス
+( device-absolute-file-location )
+を使用していました。典型的なパスの形式は、次のとおりでした。
 
     /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
     /storage/emulated/0/path/to/file                                    (Android)
 
-For backwards compatibility, these paths are still accepted, and if your
-application has recorded paths like these in persistent storage, then
-they can continue to be used.
+後方互換性を考慮して、これらの形式のパスは今でも使用できます。また、永続的なストレージに、これらのパスを保存して使用していた場合でも、継続して、これらの形式のパスを使用できます。
 
-These paths were previously exposed in the `fullPath` property of
-`FileEntry` and `DirectoryEntry` objects returned by the File plugin.
-New versions of the File plugin, however, no longer expose these paths
-to JavaScript.
+以前は、これらのパスは、ファイル操作プラグイン ( File プラグイン )
+が返す `FileEntry` と `DirectoryEntry` オブジェクトの `fullPath`
+プロパティー内で、JavaScript
+側にも暴露されていました。新しいバーションのファイル操作プラグイン (
+File プラグイン ) では、この問題も解消され、JavaScript
+側へは暴露されません。
 
-If you are upgrading to a new (1.0.0 or newer) version of File, and you
-have previously been using `entry.fullPath` as arguments to `download()`
-or `upload()`, then you will need to change your code to use filesystem
-URLs instead.
+ファイル操作プラグイン ( File プラグイン ) のバージョンを 1.0.0
+以降にアップグレードして、加えて、以前は、`download()` または `upload()`
+への引数に `entry.fullPath`
+を使用していた場合には、代わりに、ファイルシステムの URL ( Filesystem
+URL ) を使用するように、コードを変更する必要があります。
 
-`FileEntry.toURL()` and `DirectoryEntry.toURL()` return a filesystem URL
-of the form
+`FileEntry.toURL()` と `DirectoryEntry.toURL()` では、ファイルシステムの
+URL ( Filesystem URL ) を、次の形式で返します。
 
     cdvfile://localhost/persistent/path/to/file
 
-which can be used in place of the absolute file path in both
-`download()` and `upload()` methods.
+`download()` と `upload()`
+の両メソッド内において、ファイルへの絶対パスを指定する代わりに、この URL
+を使用できます。

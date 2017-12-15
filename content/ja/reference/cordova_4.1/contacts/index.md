@@ -31,32 +31,26 @@
 
 </div>
 
-This plugin defines a global `navigator.contacts` object, which provides
-access to the device contacts database.
+このプラグインでは、グローバルオブジェクト 「 `navigator.contacts` 」
+を使用し、端末側の住所録のデータベースにアクセスします。
 
-Although the object is attached to the global scoped `navigator`, it is
-not available until after the `deviceready` event.
+このオブジェクトは、グローバルスコープ ( `navigator` )
+に属していますが、使用できるのは、`deviceready`
+イベントの発火後になります。
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         console.log(navigator.contacts);
     }
 
-**WARNING**: Collection and use of contact data raises important privacy
-issues. Your app's privacy policy should discuss how the app uses
-contact data and whether it is shared with any other parties. Contact
-information is considered sensitive because it reveals the people with
-whom a person communicates. Therefore, in addition to the app's privacy
-policy, you should strongly consider providing a just-in-time notice
-before the app accesses or uses contact data, if the device operating
-system doesn't do so already. That notice should provide the same
-information noted above, as well as obtaining the user's permission
-(e.g., by presenting choices for **OK** and **No Thanks**). Note that
-some app marketplaces may require the app to provide a just-in-time
-notice and obtain the user's permission before accessing contact data. A
-clear and easy-to-understand user experience surrounding the use of
-contact data helps avoid user confusion and perceived misuse of contact
-data. For more information, please see the Privacy Guide.
+**注意** :
+住所録データの取得・利用には、個人情報保護の観点から、細心の注意が必要です。住所録データの取り扱い方法と第三者への情報提供に関しては、個人情報の取り扱いポリシーの策定時に議論されるべき問題です。個人情報の中でも、とりわけ住所録の情報は、交友関係などの個人のプライバシーに深く関わることから、その取り扱いには、特に注意が求められます。そのため、アプリのプライバシーに関するポリシーの策定に加え、アプリが住所録にアクセスまたは利用する場合には、事前にユーザーへの通知および許諾を得る必要があります。端末のオペレーティング
+システム側でこの通知および許諾の要求を行ってない場合には、開発者側で改善する必要があります。また、ユーザーへの通知および許諾の要求を行う場合には、必ず、個人情報の取り扱いに関するポリシーの開示および使用方法に関する同意の意思表示を求める必要があります
+( **許可する**、または、\**許可しない*\*
+のように、明示的に判断できる必要があります
+)。また、住所録へアクセスする前に、ユーザーへの通知および許諾を得ることを配布の条件とする、アプリのマーケットプレースも一部に存在します。住所録データの取り扱いの説明に関しては、ユーザーの不安や困惑を取り除くため、内容を明快に理解できるよう、考慮が求められます。詳細は、『
+プライバシーに関する注意点 』 ( Apache Cordova のドキュメント )
+をご確認ください。
 
 プラグイン ID
 -------------
@@ -92,11 +86,14 @@ navigator.contacts
 navigator.contacts.create
 -------------------------
 
-The `navigator.contacts.create` method is synchronous, and returns a new
-`Contact` object.
+`navigator.contacts.create`
+メソッドは、同期的に処理されます。また、`Contact`
+オブジェクトを返します。
 
-This method does not retain the Contact object in the device contacts
-database, for which you need to invoke the `Contact.save` method.
+このメソッドで作成した Contact
+オブジェクトが保持する情報は、そのままでは、端末側の住所録データベースには保存されません。
+Contact オブジェクトを端末に保存する場合には、`Contact.save`
+メソッドを使用します。
 
 ### サポート対象のプラットフォーム
 
@@ -111,44 +108,52 @@ database, for which you need to invoke the `Contact.save` method.
 navigator.contacts.find
 -----------------------
 
-The `navigator.contacts.find` method executes asynchronously, querying
-the device contacts database and returning an array of `Contact`
-objects. The resulting objects are passed to the `contactSuccess`
-callback function specified by the **contactSuccess** parameter.
+`navigator.contacts.find`
+メソッドは、非同期的に実行され、住所録データベースへの問い合わせ、および、その結果として、
+`Contact`
+オブジェクト群を配列に入れ、返します。また、その返ってきたオブジェクトは、\**contactSuccess*\*
+パラメーターに指定されている `contactSuccess`
+コールバック関数に渡されます。
 
-The **contactFields** parameter specifies the fields to be used as a
-search qualifier. A zero-length **contactFields** parameter is invalid
-and results in `ContactError.INVALID_ARGUMENT_ERROR`. A
-**contactFields** value of `"*"` searches all contact fields.
+**contactFields**
+パラメーターを使用して、検索時に使用する検索項目を指定します。\**contactFields*\*
+のパラメーターに、空の文字列を使用することはできません。また、その場合、結果として、`ContactError.INVALID_ARGUMENT_ERROR`
+が返ってきます。 **contactFields** の値に、 `"*"`
+を入力した場合、住所録のすべての項目を検索します。
 
-The **contactFindOptions.filter** string can be used as a search filter
-when querying the contacts database. If provided, a case-insensitive,
-partial value match is applied to each field specified in the
-**contactFields** parameter. If there's a match for *any* of the
-specified fields, the contact is returned. Use
-**contactFindOptions.desiredFields** parameter to control which contact
-properties must be returned back.
+住所録データベースへの問い合わせ時に、\**contactFindOptions.filter*\*
+の文字列を使用すれば、結果を絞り込めます。この値を使用した場合、\**contactFields*\*
+パラメーター で指定した項目に対して、追加の絞り込み条件 (
+大・小文字の区別なし、部分一致 )
+が適用されます。指定した項目内で一致する *内容がある*
+場合には、その住所録を返します。また、
+**contactFindOptions.desiredFields**
+パラメーターを使用すれば、返ってくる住所録のプロパティーを指定できます。
 
 ### パラメーター
 
--   **contactFields**: Contact fields to use as a search qualifier.
-    *(DOMString\[\])* \[Required\]
--   **contactSuccess**: Success callback function invoked with the array
-    of Contact objects returned from the database. \[Required\]
--   **contactError**: Error callback function, invoked when an error
-    occurs. \[Optional\]
--   **contactFindOptions**: Search options to filter navigator.contacts.
-    \[Optional\]
+-   **contactFields**: 検索時に使用する、住所録の検索項目です。 *(
+    DOMString\[\])* \[ 必須 \]
+-   **contactSuccess**: 成功時のコールバックです。Contact
+    オブジェクト群が入れられた配列 ( オブジェクトはデータベースから取得
+    ) が渡されます。 \[ 必須 \]
+-   **contactError**:
+    失敗時のコールバックです。エラー発生時に実行されます。 \[ 任意 \]
+-   **contactFindOptions**: navigator.contacts
+    を絞り込むための検索オプションです。 \[ 任意 \]
 
     検索オプションは次のとおりです。
 
-    -   **filter**: The search string used to find navigator.contacts.
-        *(DOMString)* (Default: `""`)
-    -   **multiple**: Determines if the find operation returns multiple
-        navigator.contacts. *(Boolean)* (Default: `false`)
-        -   **desiredFields**: Contact fields to be returned back. If
-            specified, the resulting `Contact` object only features
-            values for these fields. *(DOMString\[\])* \[Optional\]
+    -   **filter**: 検索時に使用する文字列です。 *(DOMString)* (
+        デフォルトでは `""` )
+    -   **multiple**: 複数の navigator.contacts
+        を、検索結果として返すようにするための真偽値を設定します。
+        *(Boolean)* ( デフォルトでは `false` )
+        -   **desiredFields**:
+            返ってくる住所録の項目を指定します。指定した場合、結果として返される
+            `Contact`
+            オブジェクトには、指定された項目の値のみ格納されています。
+            *(DOMString\[\])* \[ 任意 \]
 
 ### サポート対象のプラットフォーム
 
@@ -177,17 +182,17 @@ properties must be returned back.
 navigator.contacts.pickContact
 ------------------------------
 
-The `navigator.contacts.pickContact` method launches the Contact Picker
-to select a single contact. The resulting object is passed to the
-`contactSuccess` callback function specified by the **contactSuccess**
-parameter.
+`navigator.contacts.pickContact`
+メソッドを使用すると、住所録の一覧が表示され、その中から対象の住所録を選択できます。また、結果として返ってきたオブジェクトは、\**contactSuccess*\*
+パラメーターに指定されている `contactSuccess`
+コールバック関数に渡されます。
 
 ### パラメーター
 
--   **contactSuccess**: Success callback function invoked with the
-    single Contact object. \[Required\]
--   **contactError**: Error callback function, invoked when an error
-    occurs. \[Optional\]
+-   **contactSuccess**: 成功時のコールバックです。Contact オブジェクトが
+    1 つ渡されます。 \[ 必須 \]
+-   **contactError**:
+    失敗時のコールバックです。エラー発生時に実行されます。 \[ 任意 \]
 
 ### サポート対象のプラットフォーム
 
@@ -205,51 +210,50 @@ parameter.
 Contact
 -------
 
-The `Contact` object represents a user's contact. Contacts can be
-created, stored, or removed from the device contacts database. Contacts
-can also be retrieved (individually or in bulk) from the database by
-invoking the `navigator.contacts.find` method.
+`Contact`
+オブジェクトは、住所録の情報を処理するときに使用されます。住所録は、作成・保存・削除できます
+( 端末側の住所録用のデータベース上
+)。また、住所録は、`navigator.contacts.find`
+を使用して、データベース上で検索 ( retrieve、個々または一括で取得可 )
+できます。
 
-**NOTE**: Not all of the contact fields listed above are supported on
-every device platform. Please check each platform's *Quirks* section for
-details.
+**注意** :
+ここで紹介している住所録の項目は、一部のプラットフォームでは使用できません。各プラットフォームのサポート状況に関しては、各
+*プラットフォーム特有の動作* の記載内容をご確認ください。
 
 ### プロパティー
 
 -   **id**: グローバルな一意の識別子です。 *(DOMString)*
--   **displayName**: The name of this Contact, suitable for display to
-    end users. *(DOMString)*
--   **name**: An object containing all components of a persons name.
+-   **displayName**: Contact の名称です ( 各 Contact に設定
+    )。ユーザーに対して表示する場合に使用できます。 *(DOMString)*
+-   **name**: 個人の名に関する、すべての要素を格納するオブジェクトです。
     *(ContactName)*
--   **nickname**: A casual name by which to address the contact.
-    *(DOMString)*
--   **phoneNumbers**: An array of all the contact's phone numbers.
-    *(ContactField\[\])*
--   **emails**: An array of all the contact's email addresses.
-    *(ContactField\[\])*
--   **addresses**: An array of all the contact's addresses.
-    *(ContactAddress\[\])*
--   **ims**: An array of all the contact's IM addresses.
-    *(ContactField\[\])*
--   **organizations**: An array of all the contact's organizations.
+-   **nickname**: 住所録で使用するニックネームです。 *(DOMString)*
+-   **phoneNumbers**: 電話番号を格納する配列です。 *(ContactField\[\])*
+-   **emails**: メールアドレスを格納する配列です。 *(ContactField\[\])*
+-   **addresses**: 住所を格納する配列です。 *(ContactAddress\[\])*
+-   **ims**: IM ( インスタント メッセンジャー )
+    アドレスを格納する配列です。 *(ContactField\[\])*
+-   **organizations**: 所属組織名を格納する配列です。
     *(ContactOrganization\[\])*
 -   **birthday**: 誕生日です。 *(Date)*
 -   **note**: メモ書きです。 *(DOMString)*
 -   **photos**: 写真を格納する配列です。 *(ContactField\[\])*
--   **categories**: An array of all the user-defined categories
-    associated with the contact. *(ContactField\[\])*
--   **urls**: An array of web pages associated with the contact.
+-   **categories**: ユーザー定義のカテゴリーを格納する配列です。
+    *(ContactField\[\])*
+-   **urls**: Web ページのリンク先を格納する配列です。
     *(ContactField\[\])*
 
 ### メソッド
 
--   **clone**: Returns a new `Contact` object that is a deep copy of the
-    calling object, with the `id` property set to `null`.
--   **remove**: Removes the contact from the device contacts database,
-    otherwise executes an error callback with a `ContactError` object.
--   **save**: Saves a new contact to the device contacts database, or
-    updates an existing contact if a contact with the same **id**
-    already exists.
+-   **clone**: 呼び出し元 ( コピー元 ) のオブジェクトのディープコピー (
+    deep copy ) である、新規の `Contact` オブジェクトを返します。`id`
+    プロパティーは `null` に設定されています。
+-   **remove**:
+    住所録データベースから、対象の住所録を削除します。削除が失敗した場合は、`ContactError`
+    オブジェクトを使用して、失敗時のコールバック関数が呼び出されます。
+-   **save**: 新しい住所録を、住所録データベースに保存します。同じ
+    **id** を持つ住所録が存在する場合には、既存の住所録を更新します。
 
 ### サポート対象のプラットフォーム
 
@@ -304,42 +308,42 @@ details.
 
 ### Android 2.X 特有の動作
 
--   **categories**: Not supported on Android 2.X devices, returning
-    `null`.
+-   **categories**: Android 2.X
+    端末では、このプロパティーは使用できません。 `null` を返します。
 
 ### FirefoxOS 特有の動作
 
--   **categories**: Partially supported. Fields **pref** and **type**
-    are returning `null`
+-   **categories**: 部分的に使用できます。 **pref** と **type**
+    項目に関しては、 `null` を返します。
 -   **ims**: 使用できません。
 -   **photos**: 使用できません。
 
 ### iOS 特有の動作
 
--   **displayName**: Not supported on iOS, returning `null` unless there
-    is no `ContactName` specified, in which case it returns the
-    composite name, **nickname** or `""`, respectively.
--   **birthday**: Must be input as a JavaScript `Date` object, the same
-    way it is returned.
--   **photos**: Returns a File URL to the image, which is stored in the
-    application's temporary directory. Contents of the temporary
-    directory are removed when the application exits.
--   **categories**: This property is currently not supported, returning
-    `null`.
+-   **displayName**: iOS では使用できません。 `ContactName`
+    を指定しない場合、 `null` を返します。指定した場合、連結させた名前 (
+    composite name )、\**nickname*\*、`""` のいづれかを返します。
+-   **birthday**: JavaScript の `Date`
+    オブジェクトとして取り扱う必要があります ( 入力時・取得時の両方 )。
+-   **photos**: アプリの tmp ディレクトリーに保存された画像を指す File
+    URL を返します。なお、tmp
+    ディレクトリーに置かれたコンテンツは、アプリを閉じたときに削除されます。
+-   **categories**: 使用できません。 `null` を返します。
 
 ContactAddress
 --------------
 
-The `ContactAddress` object stores the properties of a single address of
-a contact. A `Contact` object may include more than one address in a
-`ContactAddress[]` array.
+`ContactAddress` オブジェクトを使用して、住所録中の 「 住所 」
+に関連したプロパティー群を格納します。1 つの `Contact`
+オブジェクトには、`ContactAddress[]`
+の配列を使用して、複数の住所を格納できます。
 
 ### プロパティー
 
--   **pref**: Set to `true` if this `ContactAddress` contains the user's
-    preferred value. *(boolean)*
--   **type**: A string indicating what type of field this is, *home* for
-    example. *(DOMString)*
+-   **pref**: 最優先にする値を格納する `ContactAddress` であれば、`true`
+    に設定します。 *(boolean)*
+-   **type**: 項目のタイプを示した文字列です。例 : *home* ( 自宅用 )
+    *(DOMString)*
 -   **formatted**: 表示用の住所です。 *(DOMString)*
 -   **streetAddress**: 番地です。 *(DOMString)*
 -   **locality**: 市区町村です。 *(DOMString)*
@@ -398,8 +402,8 @@ a contact. A `Contact` object may include more than one address in a
 ContactError
 ------------
 
-The `ContactError` object is returned to the user through the
-`contactError` callback function when an error occurs.
+エラーの発生時には、`contactError` コールバック関数から、`ContactError`
+オブジェクトが返されます。
 
 ### プロパティー
 
@@ -418,29 +422,30 @@ The `ContactError` object is returned to the user through the
 ContactField
 ------------
 
-The `ContactField` object is a reusable component that represents
-contact fields generically. Each `ContactField` object contains a
-`value`, `type`, and `pref` property. A `Contact` object stores several
-properties in `ContactField[]` arrays, such as phone numbers and email
-addresses.
+`ContactField`
+オブジェクトは、再利用可能で、汎用的なコンポーネントです。住所録の各項目の値を格納するために使用します。各
+`ContactField` オブジェクトには、`value`、`type`、`pref` プロパティーを
+1 つずつ格納できます。`ContactField[]`
+の配列を使用して、電話番号・メールアドレスのような、複数登録する必要があるプロパティーを格納します。
 
-In most instances, there are no pre-determined values for a
-`ContactField` object's **type** attribute. For example, a phone number
-can specify **type** values of *home*, *work*, *mobile*, *iPhone*, or
-any other value that is supported by a particular device platform's
-contact database. However, for the `Contact` **photos** field, the
-**type** field indicates the format of the returned image: **url** when
-the **value** attribute contains a URL to the photo image, or *base64*
-when the **value** contains a base64-encoded image string.
+`ContactField` オブジェクトの **type**
+属性に関しては、多くの場合、事前に定義された値はありません。\**type*\*
+に設定する値として、たとえば、電話番号に関しては、
+*home*、\*work\*、\*mobile\*、 *iPhone*
+があります。または、特定のプラットフォームで使用されている住所録データベースがサポートしている、他の値も設定できます。ただし、`Contact`
+の **photos** 項目に関しては、\**type*\*
+属性を使用して、返される画像の形式を設定します。 **value**
+属性に、写真の画像の URL を格納する場合には *url* を、Base64
+形式の画像の文字列を格納する場合には *base64* を設定します。
 
 ### プロパティー
 
--   **type**: A string that indicates what type of field this is, *home*
-    for example. *(DOMString)*
--   **value**: The value of the field, such as a phone number or email
-    address. *(DOMString)*
--   **pref**: Set to `true` if this `ContactField` contains the user's
-    preferred value. *(boolean)*
+-   **type**: 項目のタイプを示した文字列です。例 : *home* ( 自宅用 )
+    *(DOMString)*
+-   **value**: 項目の値です。例 : *電話番号*、\*メールアドレス\*
+    *(DOMString)*
+-   **pref**: 最優先にする値を格納する `ContactField` であれば、`true`
+    に設定します。 *(boolean)*
 
 ### サポート対象のプラットフォーム
 
@@ -474,7 +479,8 @@ when the **value** contains a base64-encoded image string.
 ContactName
 -----------
 
-Contains different kinds of information about a `Contact` object's name.
+C`Contact` オブジェクトが保持する 「 名前 」
+に関する、さまざまな情報を格納します。
 
 ### プロパティー
 
@@ -482,10 +488,8 @@ Contains different kinds of information about a `Contact` object's name.
 -   **familyName**: 姓です。 *(DOMString)*
 -   **givenName**: 名です。 *(DOMString)*
 -   **middleName**: ミドルネームです。 *(DOMString)*
--   **honorificPrefix**: The contact's prefix (example *Mr.* or *Dr.*)
-    *(DOMString)*
--   **honorificSuffix**: The contact's suffix (example *Esq.*).
-    *(DOMString)*
+-   **honorificPrefix**: 接頭敬称です。例 : *Mr.*、\*Dr.\* *(DOMString)*
+-   **honorificSuffix**: 接尾敬称です。例 *Esq.* *(DOMString)*
 
 ### サポート対象のプラットフォーム
 
@@ -517,28 +521,29 @@ Contains different kinds of information about a `Contact` object's name.
 
 ### Android 特有の動作
 
--   **formatted**: Partially supported, and read-only. Returns a
-    concatenation of `honorificPrefix`, `givenName`, `middleName`,
-    `familyName`, and `honorificSuffix`.
+-   **formatted**:
+    部分的に使用できますが、読み取り専用です。`honorificPrefix`、`givenName`、`middleName`、`familyName`、`honorificSuffix`
+    を連結して返します。
 
 ### iOS 特有の動作
 
--   **formatted**: Partially supported. Returns iOS Composite Name, but
-    is read-only.
+-   **formatted**: 部分的に使用できます。読み取り専用の iOS の連結名 (
+    Composite Name ) を返します。
 
 ContactOrganization
 -------------------
 
-The `ContactOrganization` object stores a contact's organization
-properties. A `Contact` object stores one or more `ContactOrganization`
-objects in an array.
+`ContactOrganization`
+オブジェクトを使用して、組織に関するプロパティーを格納します。 `Contact`
+オブジェクトは、単数または複数の `ContactOrganization`
+オブジェクトを配列形式で保持します。
 
 ### プロパティー
 
--   **pref**: Set to `true` if this `ContactOrganization` contains the
-    user's preferred value. *(boolean)*
--   **type**: A string that indicates what type of field this is, *home*
-    for example. \_(DOMString)
+-   **pref**: 最優先にする値を格納する `ContactOrganization`
+    であれば、`true` に設定します。 *(boolean)*
+-   **type**: 項目のタイプを示した文字列です。例 : *home* ( 自宅用 )
+    *(DOMString)*
 -   **name**: 組織名です。 *(DOMString)*
 -   **department**: 所属する部署名です。 *(DOMString)*
 -   **title**: 役職名です。 *(DOMString)*
@@ -579,10 +584,10 @@ objects in an array.
 
 -   **pref**: iOS 端末では使用できず、`false` を返します。
 -   **type**: iOS 端末では使用できず、`null` を返します。
--   **name**: Partially supported. The first organization name is stored
-    in the iOS **kABPersonOrganizationProperty** field.
--   **department**: Partially supported. The first department name is
-    stored in the iOS **kABPersonDepartmentProperty** field.
--   **title**: Partially supported. The first title is stored in the iOS
-    **kABPersonJobTitleProperty** field.
+-   **name**: 部分的に使用できます。最初の組織名は、iOS の
+    **kABPersonOrganizationProperty** 項目に格納されます。
+-   **department**: 部分的に使用できます。最初の部署名は、iOS の
+    **kABPersonDepartmentProperty** 項目に格納されます。
+-   **title**: 部分的に使用できます。1 つ目の役職は、iOS の
+    **kABPersonJobTitleProperty** 項目に格納されます。
 

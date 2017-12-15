@@ -40,20 +40,21 @@ MonacaでCordovaプラグインを使用する方法につきましては standa
 navigator.notification.alert
 ----------------------------
 
-Shows a custom alert or dialog box. Most Cordova implementations use a
-native dialog box for this feature, but some platforms use the browser's
-`alert` function, which is typically less customizable.
+アラートまたはダイアログを、カスタマイズして表示します。多くの場合、Cordova
+では、ネイティブ側のダイアログを使用していますが、プラットフォームによっては、ブラウザー側の
+`alert` 関数を使用しており、
+カスタマイズが制限されている場合があります。
 
 ``` {.sourceCode .javascript}
 navigator.notification.alert(message, alertCallback, [title], [buttonName])
 ```
 
 -   **message**: ダイアログのメッセージ *(String)*
--   **alertCallback**: Callback to invoke when alert dialog is
-    dismissed. *(Function)*
+-   **alertCallback**: アラートダイアログを閉じたときに呼ぶコールバック
+    *(Function)*
 -   **title**: ダイアログのタイトル ( *String*、任意、デフォルトでは
     `Alert` )
--   **buttonName**: Button name. *(String)* (Optional, defaults to `OK`)
+-   **buttonName**: ボタンの名前 ( *String*、任意、デフォルトでは `OK` )
 
 ### 例
 
@@ -77,15 +78,15 @@ navigator.notification.alert(
 
 ### Windows Phone 7 と 8 特有の動作
 
--   There is no built-in browser alert, but you can bind one as follows
-    to call `alert()` in the global scope:
+-   ブラウザー標準の alert 関数はありません。`alert()`
+    を実行する場合には、次のように記述します ( グローバルスコープ )。
 
     ``` {.sourceCode .javascript}
     window.alert = navigator.notification.alert;
     ```
 
--   Both `alert` and `confirm` are non-blocking calls, results of which
-    are only available asynchronously.
+-   `alert` と `confirm` は、どちらも非同期処理 ( non-blocking call )
+    です。よって処理結果も、非同期的にのみ、利用できます。
 
 navigator.notification.confirm
 ------------------------------
@@ -97,22 +98,23 @@ navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels]
 ```
 
 -   **message**: ダイアログのメッセージ *(String)*
--   **confirmCallback**: Callback to invoke with index of button pressed
-    (1, 2, or 3) or when the dialog is dismissed without a button press
-    (0). *(Function)*
--   **title**: Dialog title. *(String)* (Optional, defaults to
-    `Confirm`)
--   **buttonLabels**: Array of strings specifying button labels.
-    *(Array)* (Optional, defaults to \[`OK,Cancel`\])
+-   **confirmCallback**: 押されたボタンのインデックス ( 1、2、3 )
+    に応じて、または、ボタンを押さずにダイアログを閉じたときに ( 0
+    )、呼ばれるコールバック *(Function)*
+-   **title**: ダイアログのタイトル ( *String*、任意、デフォルトでは
+    `Confirm` )
+-   **buttonLabels**: ボタンの名前の配列 ( *Array*、任意、デフォルトでは
+    \[`OK,Cancel`\])
 
 ### confirmCallback
 
-The `confirmCallback` executes when the user presses one of the buttons
-in the confirmation dialog box.
+確認用ダイアログ上に表示されたボタンを押したときに、 `confirmCallback`
+が実行されます。
 
-The callback takes the argument `buttonIndex` *(Number)*, which is the
-index of the pressed button. Note that the index uses one-based
-indexing, so the value is `1`, `2`, `3`, etc.
+このコールバックは、引数として、`buttonIndex` (
+押されたボタンのインデックス、\*Number\* ) を取ります。インデックスは、1
+から始まり、値は、`1`、`2`、`3`、となります ( 1 オリジンインデックス方式
+)。
 
 ### 例
 
@@ -137,32 +139,34 @@ navigator.notification.confirm(
 navigator.notification.prompt
 -----------------------------
 
-Displays a native dialog box that is more customizable than the
-browser's `prompt` function.
+ネイティブのダイアログを表示します ( ブラウザー標準の `prompt`
+関数よりも、カスタマイズが容易 )。
 
 ``` {.sourceCode .javascript}
 navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
 ```
 
 -   **message**: ダイアログのメッセージ *(String)*
--   **promptCallback**: Callback to invoke when a button is pressed.
+-   **promptCallback**: ボタンを押したときに呼び出すコールバック
     *(Function)*
 -   **title**: ダイアログのタイトル ( *String*、任意、デフォルトでは
     `Prompt` )
--   **buttonLabels**: Array of strings specifying button labels
-    *(Array)* (Optional, defaults to `["OK","Cancel"]`)
--   **defaultText**: Default textbox input value (`String`) (Optional,
-    Default: empty string)
+-   **buttonLabels**: ボタンの名前の配列 ( *Array*、任意、デフォルトでは
+    \[`OK,Cancel`\] )
+-   **defaultText**: テキストボックスのデフォルトの入力値 (
+    `String`、任意、デフォルトでは空の文字列 )
 
 ### promptCallback
 
-The `promptCallback` executes when the user presses one of the buttons
-in the prompt dialog box. The `results` object passed to the callback
-contains the following properties:
+prompt ダイアログ上に表示されたボタンを押したときに、`promptCallback`
+が実行されます。次のプロパティーを格納した `results`
+オブジェクトが、このコールバックに渡されます。
 
--   **buttonIndex**: The index of the pressed button. *(Number)* Note
-    that the index uses one-based indexing, so the value is `1`, `2`,
-    `3`, etc.
+-   このコールバックは、引数として、`buttonIndex` (
+    押されたボタンのインデックス、\*Number\* )
+    を取ります。インデックスは、1
+    から始まり、値は、`1`、`2`、`3`、となります ( 1
+    オリジンインデックス方式 )。
 -   **input1**: prompt ダイアログに入力されたテキスト *(String)*
 
 ### 例
@@ -188,10 +192,10 @@ navigator.notification.prompt(
 
 ### Android 特有の動作
 
--   Android supports a maximum of three buttons, and ignores any more
-    than that.
--   On Android 3.0 and later, buttons are displayed in reverse order for
-    devices that use the Holo theme.
+-   Android では、最大 3
+    個のボタンを使用できます。それ以上のボタンは無視します。
+-   Android 3.0 以上の場合、Holo
+    テーマを使用している端末では、ボタンの表示が逆順になります。
 
 navigator.notification.beep
 ---------------------------
@@ -218,6 +222,6 @@ navigator.notification.beep(2);
 
 ### Android 特有の動作
 
--   Android plays the default **Notification ringtone** specified under
-    the **Settings/Sound & Display** panel.
+-   Android では、デフォルトの **着信音** を鳴らします \[
+    **設定/音と通知 ( または、ディスプレイ )** 画面で設定 \]。
 

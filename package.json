@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build-sass": "node-sass themes/monaca/static/scss/original/theme.scss themes/monaca/static/theme-original/style.css",
-    "watch-sass": "node-sass -w themes/monaca/static/scss/original/theme.scss themes/monaca/static/theme-original/style.css"
+    "watch-sass": "npm run build-sass && npm run build-sass -- -w"
   },
   "dependencies": {
     "node-sass": "^4.7.2"

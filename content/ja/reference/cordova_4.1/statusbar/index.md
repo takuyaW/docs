@@ -50,34 +50,38 @@ peference を使用したカスタマイズ設定 -----------
 
 ### config.xml
 
--   **StatusBarOverlaysWebView** (boolean, defaults to true). On iOS 7,
-    make the statusbar overlay or not overlay the WebView at startup.
+-   **StatusBarOverlaysWebView** ( 真偽値、デフォルトでは true
+    )。アプリの起動時、WebView 上にステータスバーを置くか (
+    overlay/オーバーレイ ) 否かを設定します。iOS 7 が対象です。
 
         <preference name="StatusBarOverlaysWebView" value="true" />
 
--   **StatusBarBackgroundColor** (color hex string, defaults to
-    \#000000). On iOS 7, set the background color of the statusbar by a
-    hex string (\#RRGGBB) at startup.
+-   **StatusBarBackgroundColor** ( 16
+    進数の文字列で示すカラーコード、デフォルトは \#000000
+    )。アプリ起動時のスタータスバーの背景色を、16進数の文字列 ( \#RRGGBB
+    ) で設定します。iOS 7 が対象です。
 
         <preference name="StatusBarBackgroundColor" value="#000000" />
 
--   **StatusBarStyle** (status bar style, defaults to lightcontent). On
-    iOS 7, set the status bar style. Available options default,
-    lightcontent, blacktranslucent, blackopaque.
+-   **StatusBarStyle** ( ステータスバーのスタイル、デフォルトは
+    lightcontent )。ステータスバーのスタイル ( 色 ) を設定します。
+    default、lightcontent、blacktranslucent、blackopaque
+    のいずれかを設定できます。iOS 7 が対象です。
 
         <preference name="StatusBarStyle" value="lightcontent" />
 
 アプリ起動時の非表示設定
 ------------------------
 
-During runtime you can use the StatusBar.hide function below, but if you
-want the StatusBar to be hidden at app startup, you must modify your
-app's Info.plist file.
+アプリの実行中は、後述する StatusBar.hide
+関数を使用できます。また、アプリ起動時にステータスバーを非表示にしたい場合は、アプリの
+Info.plist ファイルの内容を変更する必要があります。
 
-Add/edit these two attributes if not present. Set **"Status bar is
-initially hidden"** to **"YES"** and set **"View controller-based status
-bar appearance"** to **"NO"**. If you edit it manually without Xcode,
-the keys and values are:
+非表示設定にする属性を適宜変更する必要があります ( 属性がない場合は追加
+)。\**"Status bar is initially hidden"*\* 項目を **"YES"**
+に設定して、次に、\**"View controller-based status bar appearance"*\*
+項目を **"NO"** に設定します。Xcode
+を使用せずに、手動で変更を行う場合には、次のキーと値を追加します。
 
     <key>UIStatusBarHidden</key>
     <true/>
@@ -90,8 +94,8 @@ the keys and values are:
 このプラグインでは、グローバルオブジェクト 「 `StatusBar` 」
 を使用します。
 
-Although in the global scope, it is not available until after the
-`deviceready` event.
+グローバルスコープに属していますが、使用できるのは、`deviceready`
+イベントの発火後になります。
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -132,8 +136,8 @@ iOS 7 のステータスバーを上書きします ( WebView の上書きでは
 
 ### 解説
 
-On iOS 7, set to false to make the statusbar appear like iOS 6. Set the
-style and background color to suit using the other functions.
+iOS 7 のステータスバーを、iOS 6 のように表示したい場合、false
+に設定します。
 
 ### サポート対象のプラットフォーム
 
@@ -193,8 +197,9 @@ blackOpaque のステータスバーを使用します ( 白の文字、不透�
 StatusBar.backgroundColorByName
 -------------------------------
 
-On iOS 7, when you set StatusBar.statusBarOverlaysWebView to false, you
-can set the background color of the statusbar by color name.
+StatusBar.statusBarOverlaysWebView を false にした場合 ( iOS 7 上で iOS
+6 のようなステータスバーを使用
+)、色の名前を指定して、ステータスバーの背景色を設定できます。
 
     StatusBar.backgroundColorByName("red");
 
@@ -218,12 +223,12 @@ CSS のショートハンド プロパティー ( 簡略化表記 ) も使用で
     StatusBar.backgroundColorByHexString("#333"); // => #333333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
 
-On iOS 7, when you set StatusBar.statusBarOverlaysWebView to false, you
-can set the background color of the statusbar by a hex string
-(\#RRGGBB).
+StatusBar.statusBarOverlaysWebView を false にした場合 ( iOS 7 上で iOS
+6 のようなステータスバーを使用 )、16 進数の文字列 ( \#RRGGBB )
+を使用して、ステータスバーの背景色を設定できます。
 
-On WP7 and WP8 you can also specify values as \#AARRGGBB, where AA is an
-alpha value
+WP7 と WP8 の場合、\#AARRGGBB 形式でも、指定を行えます ( AA
+は透明度を示すアルファ値 )。
 
 ### サポート対象のプラットフォーム
 
