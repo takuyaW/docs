@@ -21,7 +21,7 @@ see:
     {{<img src="/images/debugger/manual/features/2.png" width="300">}}  
 {{</multi_figures>}}
 
-### Screenshot
+### <a name="screenshot"></a> Screenshot
 
 While using Monaca Debugger, you can also take screenshots and save them
 on the device's storage. In the screenshot screen, you can:
@@ -31,14 +31,14 @@ on the device's storage. In the screenshot screen, you can:
 
     {{<img src="/images/debugger/manual/features/4.png" width="300">}}  
 
-###  App Log
+### <a name="app-log"></a> App Log
 
 Monaca Debugger allows you to see the log of the app which will show the
 progress and errors of the app while running.
 
 {{<figure src="/images/debugger/manual/features/3.png" width="300">}}  
 
-###  Inspector
+### <a name="debugger-inspector"></a> Inspector
 
 Inspector function allows you to debug/inspect your project using
 [Chrome Dev Tools](https://developer.chrome.com/devtools/index). Before
@@ -62,8 +62,8 @@ Inside Debugger Menu, there are:
 Shows a list of all Monaca projects which can be run on Monaca Debugger.
 There are two types of projects in Monaca Debugger such as:
 
--   Monaca.io projects: projects created in Monaca Cloud IDE.
--   Local projects: projects created in [Monaca Localkit](/en/products_guide/monaca_localkit) or [Monaca CLI](/en/products_guide/monaca_cli) and stored in your local PC. Local projects appear only when the debugger is paired with Monaca Localkit/CLI.
+-   `Monaca.io projects`: projects created in Monaca Cloud IDE.
+-   `Local projects`: projects created in [Monaca Localkit](/en/products_guide/monaca_localkit) or [Monaca CLI](/en/products_guide/monaca_cli) and stored in your local PC. Local projects appear only when the debugger is paired with Monaca Localkit/CLI.
 
 {{<figure src="/images/debugger/manual/features/9.png" width="300">}}  
 

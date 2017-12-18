@@ -1,11 +1,12 @@
-インストール方法
-================
+---
+title: インストール方法
+weight: 20
+---
 
 複数のプラットフォーム ( Android、Android 仮想端末、iOS、Chrome など )
 上に、Monaca デバッガーをインストールできます。
 
-> maxdepth
->
-> :   1
->
-> debugger\_android debugger\_ios debugger\_chrome debugger\_emulator
+- [Android 向けの Monaca デバッガー](debugger_android)
+- [iOS 向け Monaca デバッガー](debugger_ios)
+- [Chrome 向け Monaca デバッガー](debugger_chrome)
+- [Android エミュレーター向け Monaca デバッガー](debugger_emulator)

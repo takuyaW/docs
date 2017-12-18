@@ -1,101 +1,61 @@
-機能の概要
-==========
+---
+title: 機能の概要
+weight: 10
+---
 
-デバッガーの機能
-----------------
+## デバッガーの機能
 
-Monaca
-デバッガーでは、アプリの検証に役立つ、多彩な機能を提供しています。Monaca
-デバッガー上でプロジェクトを実行すると、画面の右下に \[
-デバッガーメニュー \]
+Monaca デバッガーでは、アプリの検証に役立つ、多彩な機能を提供しています。Monaca
+デバッガー上でプロジェクトを実行すると、画面の右下に [ デバッガーメニュー ]
 ボタンが表示されます。メニューボタンをクリックすると、次のようなメニュー画面が表示されます。現在使用できる機能は、次のとおりです。
 
-> -   戻るボタン
-> -   更新ボタン
-> -   スクリーンショット ボタン &lt;screenshot&gt;
-> -   アプリログの表示ボタン &lt;app\_log&gt;
-> -   インスぺタの実行ボタン &lt;debugger\_on\_ios&gt;
->
-> ![](images/features/1.png)
->
-> > width
-> >
-> > :   250px
-> >
-> > align
-> >
-> > :   left
-> >
-> ![](images/features/2.png)
->
-> > width
-> >
-> > :   250px
-> >
-> > align
-> >
-> > :   left
-> >
-### スクリーンショット機能
+- 戻るボタン
+- 更新ボタン
+- [スクリーンショット ボタン](#screenshot)
+- [アプリログの表示ボタン](#app-log)
+- [インスぺタの実行ボタン](#debugger-inspector)
+
+{{<multi_figures>}}
+    {{<img src="/images/debugger/manual/features/1.png" width="300">}}  
+    {{<img src="/images/debugger/manual/features/2.png" width="300">}}  
+{{</multi_figures>}}
+
+### <a name="screenshot"></a> スクリーンショット機能
 
 Monaca
 デバッガーを使用することで、スクリーンショットを取得してデバイスのストレージに保存することもできます。
 スクリーンショット画面では、次のことができます。
 
-> -   編集 : スクリーンショットのキャプチャー、コメントの手書き入力
-> -   デバイスのストレージへ保存。
->
-> ![](images/features/4.png)
->
-> > width
-> >
-> > :   250px
-> >
-> > align
-> >
-> > :   left
-> >
-### アプリログ
+-   編集 : スクリーンショットのキャプチャー、コメントの手書き入力
+-   デバイスのストレージへ保存。
+
+    {{<img src="/images/debugger/manual/features/4.png" width="300">}}  
+
+### <a name="app-log"></a> アプリログ
 
 Monaca
 デバッガー上で、アプリのログを確認できます。ログには、実行中のアプリのエラーと進行状況が出力されます。
 
-![](images/features/3.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/3.png" width="300">}}  
 
-### インスペクタ機能
+### <a name="debugger-inspector"></a> インスペクタ機能
 
-インスペクタ機能を使用すると、[Chrome Dev
-Tools](https://developer.chrome.com/devtools/index)
+インスペクタ機能を使用すると、[Chrome Dev Tools](https://developer.chrome.com/devtools/index)
 を使用してプロジェクトをデバッグ・検査することができます。
 インスペクタ機能を使用する前に、端末のUSBデバッグを有効にする必要があります。
-詳細は、USB デバッグの事前準備 &lt;pre\_debug\_app&gt;
+詳細は、[USB デバッグの事前準備](../debug/#pre-debug-app)
 をご確認ください。
 
-![](images/features/7.png)
+{{<figure src="/images/debugger/manual/features/7.png">}}  
 
-> width
->
-> :   700px
->
-> align
->
-> :   center
->
-<div class="admonition note">
-
-Monaca Localkit &lt;monaca\_cli\_index&gt; または
-Monaca CLI &lt;monaca\_cli\_index&gt;
-の使用時のみ、このインスペクタ機能を利用できます。詳細は、Monaca Localkit を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 ) &lt;localkit\_debug\_app&gt;
-または
-Monaca CLI を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 ) &lt;cli\_debug\_app&gt;
-をご確認ください。
-
-</div>
+{{<note>}}
+    {{<link href="/en/products_guide/monaca_localkit" title="Monaca Localkit">}} または {{<link href="/en/products_guide/monaca_cli" title="Monaca CLI">}} の使用時のみ、このインスペクタ機能を利用できます。詳細は、{{<link href="../debug/#debugger-with-local-tools" title="Monaca Localkit を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} または {{<link href="ja/products_guide/monaca_cli/pairing_debugging/#cli-debug-app" title="Monaca CLI を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} をご確認ください。
+{{</note>}}
 
 デバッガーのメニュー
 --------------------
 
-![](images/features/8.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/8.png" width="300">}}  
 
 Inside デバッガーのメニュー, there are:
 
@@ -105,16 +65,10 @@ Monaca デバッガー上で実行可能な Monaca
 プロジェクトの一覧を表示します。一覧上のプロジェクトには、2
 つのサブカテゴリーがあります。
 
-> -   Monaca.io プロジェクト : Monaca クラウド IDE
->     上で作成されたプロジェクトの一覧を表示します。
-> -   ローカルプロジェクト : ローカル環境用の開発ツール (
->     Monaca Localkit &lt;monaca\_localkit\_index&gt; または
->     Monaca CLI &lt;monaca\_cli\_index&gt; )
->     を使用して作成し、ローカルに保存されているプロジェクトの一覧です。なお、Monaca
->     Localkit ( または Monaca CLI )
->     とデバッガーがペアリングされているときのみ、ローカルプロジェクトの一覧は表示されます。
+-   `Monaca.io プロジェクト` : Monaca クラウド IDE 上で作成されたプロジェクトの一覧を表示します。
+-   `ローカルプロジェクト` : ローカル環境用の開発ツール ( [Monaca Localkit](/ja/products_guide/monaca_localkit) または [Monaca CLI](/ja/products_guide/monaca_cli) ) を使用して作成し、ローカルに保存されているプロジェクトの一覧です。なお、Monaca Localkit ( または Monaca CLI ) とデバッガーがペアリングされているときのみ、ローカルプロジェクトの一覧は表示されます。
 
-![](images/features/9.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/9.png" width="300">}}  
 
 ### ローカルコンピュータ
 
@@ -123,11 +77,11 @@ Monaca デバッガー上で実行可能な Monaca
 Locakit または Monaca CLI
 がインストールされ、デバッガーに現在接続されているローカルのコンピューターです。各開発ツールとのペアリング方法は、次のリンクをご確認ください。
 
-> -   Monaca Localkit と Monaca デバッガーのペアリング方法 &lt;localkit\_pairing\_debugging&gt;
-> -   Monaca CLI  と Monaca デバッガーのペアリング方法 &lt;cli\_pairing\_debugging&gt;
-> -   Monaca for Visual Studio と Monaca デバッガーのペアリング方法 &lt;monaca\_vs\_testing\_debugging&gt;
+- [Monaca Localkit と Monaca デバッガーのペアリング方法](/ja/products_guide/monaca_localkit/pairing_debugging)
+- [Monaca CLI  と Monaca デバッガーのペアリング方法](/ja/products_guide/monaca_cli/pairing_debugging)
+- [Monaca for Visual Studio と Monaca デバッガーのペアリング方法](/ja/products_guide/monaca_vs/pairing_debugging)
 
-![](images/features/10.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/10.png" width="300">}}  
 
 ### デバッガーの設定
 
@@ -140,7 +94,7 @@ Locakit または Monaca CLI
 Storage とは、端末のメモリー ( LocalStorage )
 上に、プロジェクト側で作成・保存したデータを指します。
 
-> ![](images/features/11.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/11.png" width="300">}}  
 
 ### デバッガーについて
 
@@ -148,7 +102,7 @@ Storage とは、端末のメモリー ( LocalStorage )
 バージョン番号、WebView エンジン ( Android のみ
 )、利用可能なプラグインの一覧などです。
 
-![](images/features/12.png){width="250px"}
+{{<figure src="/images/debugger/manual/features/12.png" width="300">}}  
 
 プロジェクトオプション
 ----------------------
@@ -165,25 +119,23 @@ Monaca デバッガー上のプロジェクト一覧の \[ Monaca.io プロジ�
 -   ネットワークインストール : Monaca
     デバッガー経由で、ビルド済みアプリを、端末にインストールします。
 
-    ![](images/features/13.png){width="250px"}
+    {{<multi_figures>}}
+        {{<img src="/images/debugger/manual/features/13.png" width="300">}}  
+        {{<img src="/images/debugger/manual/features/14.png" width="300">}}  
+    {{</multi_figures>}}
 
-    ![](images/features/14.png){width="250px"}
+{{<note>}}
+    ネットワークインストールを行う前に、Monaca クラウド IDE 上で、プロジェクトをビルドして、デバッグビルド版のアプリを作成する必要があります。詳細は、{{<link href="/ja/products_guide/monaca_ide/build/ios/build_ios/#types_of_build_ios" title="iOS 向けアプリのデバッグビルド">}} または {{<link href="/ja/products_guide/monaca_ide/build/build_android/#types_of_build_android" title="Android 向けアプリのデバッグビルド">}} をご確認ください。
+{{</note>}}
 
-<div class="admonition note">
+{{<note>}}
+    ネットワークインストールは、iOS デバッガーでは、{{<link href="/ja/products_guide/debugger/installation/debugger_ios/#custom-debugger-ios" title="カスタムビルド版デバッガー">}} でのみ使用できます。App Store 版のデバッガーでは、ネットワークインストールは使用できません。
+{{</note>}}
 
-ネットワークインストールを行う前に、Monaca クラウド IDE
-上で、プロジェクトをビルドして、デバッグビルド版のアプリを作成する必要があります。詳細は、iOS 向けアプリのデバッグビルド &lt;types\_of\_build\_ios&gt;
-または
-Android 向けアプリのデバッグビルド &lt;types\_of\_build\_android&gt;
-をご確認ください。
 
-</div>
+参考ページ
 
-<div class="admonition note">
+- [使用例](../debug)
+- [インストール方法](../installation)
+- [トラブルシューティング ガイド](../troubleshooting)
 
-ネットワークインストールは、iOS
-デバッガーでは、カスタムビルド版デバッガー &lt;custom\_debugger\_ios&gt;
-でのみ使用できます。App Store
-版のデバッガーでは、ネットワークインストールは使用できません。
-
-</div>
