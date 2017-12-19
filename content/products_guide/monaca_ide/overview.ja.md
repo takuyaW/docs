@@ -1,22 +1,39 @@
-クラウド IDE の概要
-===================
+---
+title: 概要
+weight: 10
+---
 
 Monaca クラウド IDE は、5 つの領域から構成されています。
 
-1.  menu\_bar
-2.  file\_tree
-3.  debug\_panel
-4.  preview\_team\_panel
-5.  code\_editor
+1. [メニューバー](#menu_bar)
+2. [プロジェクトパネル](#file_tree)
+3. [デバッグパネル](#debug_panel)
+4. [ライブプレビュー](#preview_team_panel)
+5. [コードエディター](#code_editor)
 
-![](images/overview/1.png){width="700px"}
+
+{{< figure src="/images/monaca_ide/manual/overview/1.png" >}}
 
 メニューバー
 ------------
 
-![](images/overview/2.png){width="700px"}
+{{< figure src="/images/monaca_ide/manual/overview/2.png" >}}   
 
 バー上のメニューを解説します。
+
+| メニュー | 説明|
+|---------|-----|
+| [ファイル](#file) | `ファイル` サブメニューを開きます。 |
+| [編集](#edit)	| `編集` サブメニューを開きます。 |
+| [表示](#view)	| `表示` サブメニューを開きます。 |
+| [デバッグ](#debug) | `デバッグ` サブメニューを開きます。 |
+| [ビルド](#build) | `ビルド` サブメニューを開きます。 |
+| [バージョン管理](#ide-version-control) | GitHub に接続して、プロジェクトのバージョン管理を行えます。 |
+| 保存 | 現在開いているドキュメントを保存します。ドキュメントを開いていない場合、クリックできません。 |
+| [プレビュー](#preview_team_panel) | プレビューウィンドウを表示します ( [ライブプレビュー](#preview-tab) を参照のこと )。 |
+| 実機デバッグ | Monaca デバッガー上で、プロジェクトを実行します。 |
+| [共有設定](#share) |	他の Monaca ユーザーをプロジェクトに招待します。|
+| [設定](#config) | `設定` サブメニューを開きます。 |
 
 ### ファイル
 

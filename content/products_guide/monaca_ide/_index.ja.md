@@ -1,28 +1,17 @@
-マニュアル
-==========
+---
+title: Monaca クラウド IDE
+weight: 20
+---
 
-![](images/1.png)
+{{< figure src="/images/monaca_ide/manual/1.png" >}}
 
-> width
->
-> :   500px
->
-> class
->
-> :   center
->
-Monaca クラウド IDE
-では、プロジェクトの開発からビルドまでを、総合的にサポートするインターフェースを提供しています。ここでは、Monaca
-クラウド IDE
-の画面構成、エディターの機能、プロジェクトファイルの管理方法について解説します。
+Monaca クラウド IDE では、プロジェクトの開発からビルドまでを、総合的にサポートするインターフェースを提供しています。ここでは、Monaca クラウド IDE の画面構成、エディターの機能、プロジェクトファイルの管理方法について解説します。
 
-> glob
->
-> :   
->
-> maxdepth
->
-> :   2
->
-> overview changes code\_editor/index dependencies/index
-> version\_control/index monaca\_ci/index build/index deploy/index
+- [概要](overview)
+- [新しい Monaca クラウド IDE の変更点](changes)
+- [コードエディター](code_editor)
+- [プロジェクトの構成](dependencies)
+- [バージョン管理](version_control)
+- [Monaca CI](monaca_cli)
+- [ビルド](build)
+- [配布方法](deploy)

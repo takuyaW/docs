@@ -1,5 +1,5 @@
 ---
-title: Cloud IDE Overview
+title: Overview
 weight: 10
 ---
 
