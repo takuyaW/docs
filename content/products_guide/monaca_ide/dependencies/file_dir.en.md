@@ -109,8 +109,8 @@ Each component will create its own folder within (one level below)
 
 The `config.xml` file is a settings file controlling various settings of Cordova. Please refer to the following documentations regarding how to edit `config.xml` file for Android and iOS:
 
--   [config.xml for Android](/en/reference/config/android_configuration/#config-xml-android)
--   [config.xml for iOS](/en/reference/config/ios_configuration/#config-xml-ios)
+-   [config.xml for Android]({{<ref "android_configuration.en.md#config-xml">}})
+-   [config.xml for iOS]({{<ref "ios_configuration.en.md#config-xml">}})
 
 
 {{<note>}}
@@ -120,6 +120,5 @@ The `config.xml` file is a settings file controlling various settings of Cordova
 
 See Also: 
 
-- [Cordova Custom Config Plugin](/en/reference/third_party_phonegap/custom_config/)
-- [iOS Configuration](/en/reference/config/ios_configuration/)
-- [Android Configuration](/en/reference/config/android_configuration/)
+- [Third-party Cordova Plugins](/ja/reference/third_party_phonegap/)
+- [Core Cordova Plugins](ja/reference/cordova_6.5/)

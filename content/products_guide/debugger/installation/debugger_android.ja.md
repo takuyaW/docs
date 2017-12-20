@@ -38,7 +38,7 @@ Debuggerの両方ともに含まれていません。
                 <li><a href="http://www.amazon.com/Asial-Corporation-Monaca-Debugger/dp/B00H1M1518">Amazon App Store</a></li>
             </ol>
         </td>
-        <td><a href="#custom-debugger-android">カスタムビルド版 Monaca デバッガーのビルドとインストール</a> を参照のこと</td>
+        <td><a href="#カスタムビルド版-monaca-デバッガーのビルドとインストール">カスタムビルド版 Monaca デバッガーのビルドとインストール</a> を参照のこと</td>
     </tr>
         <tr>
         <td><a href="#cordova-android">Cordova プラグイン</a></td>
@@ -82,7 +82,7 @@ Debuggerの両方ともに含まれていません。
     </tr>
 </table>
 
-## <a name="cordova-android"></a> Cordova プラグイン
+## Cordova プラグイン
 
 Monaca デバッガーには、「 基本 Cordova プラグイン 」 および 「
 サードパーティー製 Cordova プラグイン 」
@@ -106,7 +106,7 @@ IDE 上で 「 ビルド 」 して、端末にインストールします ( Mon
 デバッガーは、アプリです )。詳細は、[カスタムビルド版 Monaca デバッガーのビルドとインストール](#custom-debugger-android)
 をご確認ください。
 
-## <a name="usb-android"></a> USB デバッグ
+## USB デバッグ
 
 Android 向けの Monaca デバッガーでは、USB
 デバッグをサポートしており、Google Chrome
@@ -123,17 +123,17 @@ Android 向けの Monaca デバッガーでは、USB
 詳細は、[Android 向けアプリのデバッグ方法 ( Monaca デバッガーと USB デバッグを使用 )]({{<ref "debug.ja.md#usb-debugging-android">}})
 をご確認ください。
 
-## <a name="localkit-android"></a> Localkit のインスぺクタ機能
+## Localkit のインスぺクタ機能
 
 Windows と Mac OS の両方で、このインスペクタ機能を使用できます。
 
-## <a name="webview-android"></a> WebView
+## WebView
 
 Android 向けのデバッガーには、Stock と Crosswalk の両方の WebView
 エンジンが実装されています。アプリ側で使用する WebView
 の種類により、自動で、WebView が切り替わります。
 
-## <a name="network-android"></a> ネットワーク インストール
+## ネットワーク インストール
 
 Android 向けの Monaca
 デバッガーでは、デバッガー経由で、ビルド済みのアプリ (
@@ -141,7 +141,7 @@ Android 向けの Monaca
 [ネットワーク インストール ( [ インスト ] の解説  )]({{<ref "features.ja.md#debugger-project-options">}})
 機能を、ご確認ください。
 
-## <a name="custom-debugger-android"></a> カスタムビルド版 Monaca デバッガーのビルドとインストール
+## カスタムビルド版 Monaca デバッガーのビルドとインストール
 
 1.  Monaca クラウド IDE メニューから、{{<menu menu1="デバッグ" menu2="デバッガーの説明とインストール">}} を選択します。
 2.  {{<menu menu1="Android 向けデバッガーインストール" menu2="ビルドしてインストール" >}}を選択します。

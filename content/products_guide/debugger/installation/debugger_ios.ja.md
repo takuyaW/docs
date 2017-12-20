@@ -34,7 +34,7 @@ Debuggerの両方ともに含まれていません。
         <td>
             <a href="https://itunes.apple.com/jp/app/monaca/id550941371?mt=8">App Store</a>
         </td>
-        <td><a href="#custom-debugger-ios">カスタムビルド版 Monaca デバッガーのビルドとインストール</a> を参照のこと</td>
+        <td><a href="#カスタムビルド版-monaca-デバッガーのビルド方法">カスタムビルド版 Monaca デバッガーのビルドとインストール</a> を参照のこと</td>
     </tr>
         <tr>
         <td><a href="#cordova-ios">Cordova プラグイン</a></td>
@@ -73,7 +73,7 @@ Debuggerの両方ともに含まれていません。
     </tr>
 </table>
 
-## <a name="cordova-ios"></a> Cordova プラグイン
+## Cordova プラグイン
 
 Monaca デバッガーには、「 基本 Cordova プラグイン 」 および 「
 サードパーティー製 Cordova プラグイン 」
@@ -97,7 +97,7 @@ IDE 上で 「 ビルド 」 して、端末にインストールします ( Mon
 デバッガーは、アプリです )。詳細は、[カスタムビルド版 Monaca デバッガーのビルドとインストール](#custom-debugger-android)
 をご確認ください。
 
-## <a name="usb-ios"></a> USB デバッグ
+## USB デバッグ
 
 iOS 向けの Monaca デバッガーでは、USB デバッグをサポートしており、
 Safari
@@ -114,11 +114,11 @@ Safari
 詳細は、[iOS アプリのデバッグ方法 ( Monaca デバッガーと USB デバッグを使用 )]({{<ref "debug.ja.md#usb-debugging-ios">}})
 をご確認ください。
 
-## <a name="localkit-ios"></a> Localkit のインスぺクタ機能
+## Localkit のインスぺクタ機能
 
 Windows と Mac OS の両方で、このインスペクタ機能を使用できます。
 
-## <a name="network-ios"></a> ネットワーク インストール
+## ネットワーク インストール
 
 iOS 向けの Monaca デバッガーでは、デバッガー経由で、ビルド済みのアプリ (
 デバッグビルド版のみ ) をインストールできます。詳細は、
@@ -130,7 +130,7 @@ App Store から入手した iOS 向けの Monaca
 デバッガーでは、この機能は使用できません。
 {{</note>}}
 
-## <a name="custom-debugger-ios"></a> How to Build カスタムビルド版Monacaデバッガー
+## カスタムビルド版 Monaca デバッガーのビルド方法
 
 ### 事前準備
 

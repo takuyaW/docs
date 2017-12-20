@@ -7,8 +7,8 @@ In this page, we will describe how to use Monaca Debugger with Monaca
 Cloud IDE and other Monaca local development tools such as Monaca
 Localkit, Monaca CLI and Monaca for Visual Studio:
 
-- [Monaca Debugger with Monaca Cloud IDE](#debugger-with-ide)
-- [Monaca Debugger with Monaca Local Development Tools](#debugger-with-local-tools)
+- [Monaca Debugger with Monaca Cloud IDE](#monaca-debugger-with-monaca-cloud-ide)
+- [Monaca Debugger with Monaca Local Development Tools](#monaca-debugger-with-monaca-local-development-tools)
 
 {{<note>}}
     Before starting, please install Monaca Debugger on your device or emulator. Please refer to {{<link href="../installation" title="How to Install Monaca Debugger">}} for more information.

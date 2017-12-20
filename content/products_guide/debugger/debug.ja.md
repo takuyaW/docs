@@ -7,8 +7,8 @@ Monaca 提供の各種開発ツール ( Monaca クラウド IDE、Monaca
 Localkit、Monaca CLI、Monaca for Visual Studio ) と Monaca
 デバッガーの連携方法に関して、ここでは解説します。
 
-- [Monaca クラウド IDE と Monaca デバッガーとの連携 ( Web 経由 )](#debugger-with-ide)
-- [Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携](#debugger-with-local-tools)
+- [Monaca クラウド IDE と Monaca デバッガーとの連携 ( Web 経由 )](#monaca-クラウド-ide-と-monaca-デバッガーとの連携-web-経由)
+- [Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携](#monaca-提供のローカル環境用の開発ツールと-monaca-デバッガーとの連携)
 
 {{<note>}}
 最初に、端末またはエミュレーター上に、Monaca
@@ -16,7 +16,7 @@ Localkit、Monaca CLI、Monaca for Visual Studio ) と Monaca
 をご確認ください。
 {{</note>}}
 
-## <a name="debugger-with-ide"></a> Monaca クラウド IDE と Monaca デバッガーとの連携 ( Web 経由 )
+## Monaca クラウド IDE と Monaca デバッガーとの連携 ( Web 経由 )
 
 Monaca クラウド IDE
 および各ブラウザー標準のリモートデバッグ機能を使用した、Monaca
@@ -26,7 +26,7 @@ Monaca クラウド IDE
 -   [USB デバッグ](#debugger-usb-debug): DOM の解析、Console
     を使用したデバッグ、JavaScript のデバッグ
 
-### <a name="debugger-debug-panel"></a> Monaca デバッグパネル
+### Monaca デバッグパネル
 
 Monaca クラウド IDE の デバッグパネルには、Web
 アプリ向けのデバッグツールとして人気のある [Weinre ( WEb INspector REmote )](https://people.apache.org/~pmuellr/weinre/docs/latest/)
@@ -128,7 +128,7 @@ DOM ( Document Object Model )
 
 {{<figure src="/images/debugger/manual/debug/5.png" title="デバッグパネル上での DOM 解析">}}
 
-### <a name="debugger-usb-debug"></a> USB デバッグ
+### USB デバッグ
 
 USB デバッグを有効化すると、次の操作を行えます。
 
@@ -149,7 +149,7 @@ USB デバッグ使用時に利用できるデバッグ方法は、次のとお�
     端末を使用している場合には、[Chrome のリモートデバッグ機能](#usb-debugging-android)
     を利用できます。
 
-#### <a name="usb-debugging-ios"></a> Safari のリモートデバッグ機能 ( iOS と Mac が対象 )
+#### Safari のリモートデバッグ機能 ( iOS と Mac が対象 )
 
 {{<note>}}
     USB デバッグを使用してデバッグをする場合、事前に行う設定がいくつかあります。詳細は、 {{<link href="#pre-debug-app" title="USB デバッグの事前準備">}} をご確認ください。
@@ -175,7 +175,7 @@ USB デバッグ使用時に利用できるデバッグ方法は、次のとお�
 
     {{<figure src="/images/debugger/manual/debug/10.png">}}
 
-#### <a name="usb-debugging-android"></a> Chrome のリモートデバッグ機能 ( Google Chrome ブラウザーを使用した Android アプリ開発が対象 )
+#### Chrome のリモートデバッグ機能 ( Google Chrome ブラウザーを使用した Android アプリ開発が対象 )
 
 {{<note>}}
     USB デバッグを使用してデバッグをする場合、事前に行う設定がいくつかあります。詳細は、 {{<link href="#pre-debug-app" title="USB デバッグの事前準備">}} をご確認ください。
@@ -196,7 +196,7 @@ USB デバッグ使用時に利用できるデバッグ方法は、次のとお�
 
     {{<figure src="/images/debugger/manual/debug/8.png">}}
 
-## <a name="debugger-with-local-tools"></a> Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携
+## Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携
 
 Monaca 提供のローカル環境用の開発ツールには、Monaca CLI、Monaca
 Localkit、Monaca for Visual Studio があります。

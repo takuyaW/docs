@@ -31,7 +31,7 @@ weight: 20
         <td>Installation</td>
         <td><a href="https://itunes.apple.com/us/app/monaca/id550941371?mt=8">App Store</a>
         </td>
-        <td>Refer to <a href="#custom-debugger-ios">Build and Install Custom Monaca Debugger</a></td>
+        <td>Refer to <a href="#how-to-build-custom-monaca-debugger">Build and Install Custom Monaca Debugger</a></td>
     </tr>
         <tr>
         <td><a href="#cordova-ios">Cordova Plugins</a></td>
@@ -117,7 +117,7 @@ debugger. For more information, please refer to [how to use Network Install feat
     This feature is not available for Monaca Debugger for iOS available at App Store.
 {{</note>}}
 
-## <a name="custom-debugger-ios"></a> How to Build Custom Monaca Debugger
+## How to Build Custom Monaca Debugger
 
 ### Preparation
 
