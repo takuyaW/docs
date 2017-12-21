@@ -87,7 +87,7 @@ to complete.
 
 After approved by Amazon, your app will be published on the Amazon
 Appstore for Android. The release date will be the specified date and
-time you have set [in Step 6 in  Register the Apps in Amazon AppStore](#register-app-in-amazon), or as soon as it’s approved if you haven’t set any date or time yet.
+time you have set [in Step 6 of Register the Apps in Amazon AppStore](#register-the-apps-in-amazon-appstore), or as soon as it’s approved if you haven’t set any date or time yet.
 
 {{<figure src="/images/monaca_ide/manual/deploy/amazon_store/4.png">}}
 

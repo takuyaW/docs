@@ -7,7 +7,7 @@ weight: 70
 
 <table>
     <tr>
-        <th width="17%">Cordova Version</th>
+        <th width="25%">Cordova Version</th>
         <th>Android</th>
         <th width="20%">iOS</th>
     </tr>

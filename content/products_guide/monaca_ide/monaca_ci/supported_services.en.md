@@ -36,7 +36,7 @@ documentation](https://deploygate.com/docs/api).
 3.  Then, a Profile page will be shown. You will be able to find the API
     key at the end of the page.
 
-    {{<img src="/images/monaca_ide/manual/monaca_ci/supported_services/2.png">}}
+    {{<img src="/images/monaca_ide/manual/monaca_ci/supported_services/2.png" width="600">}}
 
 ### HockeyApp
 
@@ -45,8 +45,7 @@ with beta distribution, crash reporting, user metrics, feedback, and
 powerful workflow integrations.
 
 You may need to use the following parameters in the JSON recipe script
-for Monaca CI. For more information, please refer to [HockeyApp API
-documentation](https://support.hockeyapp.net/kb/api/api-apps).
+for Monaca CI. For more information, please refer to [HockeyApp API documentation](https://support.hockeyapp.net/kb/api/api-apps).
 
 <table>
     <tr>
@@ -108,6 +107,15 @@ documentation](https://support.hockeyapp.net/kb/api/api-apps).
     <tr>
         <td><code>teams</code></td>
         <td>[Optional] restrict download to comma-separated list of team IDs. For example:
+            <ul>
+                <li><code>teams=12,23,42</code>with 12, 23 and 42 being the database IDs of your teams</li>
+            </ul>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code>users</code></td>
+        <td>[Optional] restrict download to comma-separated list of user IDs. For example:
             <ul>
                 <li><code>users=1224,5678</code>with 1224 and 5678 being the database IDs of your users</li>
             </ul>

@@ -39,7 +39,7 @@ If you don't have the license, please register
 
     <table class="small">
         <tr>
-            <td width="15%">Package Certificate Key</td>
+            <td width="25%">Package Certificate Key</td>
             <td>This certificate is used when Monaca compiles to Windows app. It will also be used when doing side-loading or submitting to Windows Store. It will be generated automatically in the first Windows build if it does not exist. If you want to upload existing certificate file, it should be a <code>PKCS#7</code> format without password.</td>
         </tr>
         <tr>
@@ -82,7 +82,7 @@ If you don't have the license, please register
 
 ## Step 2: Start Building
 
-1.  From the Monaca Cloud IDE menu, go to `Build` &rarr; `Build App for Windows`.
+1.  From the Monaca Cloud IDE menu, go to {{<menu menu1="Build" menu2="Build App for Windows">}}.
 2.  Click {{<guilabel name="Start Build">}}.
 
     {{<img src="/images/monaca_ide/manual/build/winrt/2.png">}}

@@ -1,16 +1,14 @@
 ---
 title: Building an iOS App
+weight: 10
 ---
-
-
-# Building an iOS App
 
 ## Prerequisites
 
 Before getting started, you are required to:
 
 -   subscribe to [iOS Developer Program](https://developer.apple.com/programs/ios/).
--   understand `Types of Build` and their requirements.
+-   understand [Types of Build](#types-of-build) and their requirements.
 
 ### Types of Build
 
@@ -37,7 +35,7 @@ follows:
         <td>
             <ul>
                 <li>iTune</li>
-                <li><a href="/en/products_guide/debugger/features/#debugger-project-options">Network Install</a></li>
+                <li><a href="/en/products_guide/debugger/features/#project-options">Network Install</a></li>
             </ul>
         </td>
     </tr>
@@ -75,7 +73,7 @@ follows:
 </table>
 
 {{<note>}}
-    Ad Hoc distribution is a way to distribute your applications without going through the App Store. Currently, up to *100* applications which are built by using Ad Hoc provisioning profile can be shared with other iOS devices through Ad Hoc distribution. However, the application distribution from the developer organization will be limited to the development stakeholders.
+    Ad Hoc distribution is a way to distribute your applications without going through the App Store. Currently, up to <b>100</b> applications which are built by using Ad Hoc provisioning profile can be shared with other iOS devices through Ad Hoc distribution. However, the application distribution from the developer organization will be limited to the development stakeholders.
 {{</note>}}
 
 ##  Step 1: Configure iOS App in Monaca
@@ -103,13 +101,13 @@ follows:
     {{<img src="/images/monaca_ide/manual/build/build_ios/1.png">}}
 
     {{<warning>}}
-        The App ID (set in Monaca App Settings) cannot contain asterisk (<b>*</b>); otherwise, the build will fail. This App ID must be the same as the explicit App ID you will register (or have registered) in iOS Dev Center. Read more on {{<link href="#register_appid" title="Register App ID">}}.
+        The App ID (set in Monaca App Settings) cannot contain asterisk (<b>*</b>); otherwise, the build will fail. This App ID must be the same as the explicit App ID you will register (or have registered) in iOS Dev Center. Read more on {{<link href="#register-app-id" title="Register App ID">}}.
     {{</warning>}}
 
 3.  After finishing the configurations, click {{<guilabel name="Save">}}.
 
 {{<note>}}
-    Currently, when you update either iOS’s App ID or Android’s Package Name, both of them will change. In other words, they are configured to be the same. However, it is possible to make them different. Please refer to {{<link href="/en/faq/application/#faq05-019" title="How to make iOS’s App ID and Android’s Package Name differently">}}.
+    Currently, when you update either iOS’s App ID or Android’s Package Name, both of them will change. In other words, they are configured to be the same. However, it is possible to make them different. Please refer to {{<link href="/en/faq/application/#how-to-make-ios-s-app-id-and-android-s-package-name-differently" title="How to make iOS’s App ID and Android’s Package Name differently">}}.
 {{</note>}}
 
 
@@ -127,15 +125,15 @@ follows:
     {{<img src="/images/monaca_ide/manual/build/build_ios/3.png" width="500">}}
 
     {{<note>}}
-        If you import an existing private key, you will also need to upload the certificate associated with this private key to Monaca. Please refer to {{<link href="../import_export/#import-into-monaca" title="Import Private Key and Certificate into Monaca">}}.
+        If you import an existing private key, you will also need to upload the certificate associated with this private key to Monaca. Please refer to {{<link href="../import_export/#step-2-import-private-key-and-certificate-into-monaca" title="Import Private Key and Certificate into Monaca">}}.
     {{</note>}}
 
 3.  After creating a new private key, CRS file associated with the
     private key is also created. Download the CRS file by clicking on
     {{<guilabel name="Export">}} button. It will be used to issue the certificates later in
     iOS Dev Center.
-4.  [Issue certificates in iOS Dev Center](#create_cer) and download them.
-5.  [Create provisioning profiles in iOS Dev Center](#register_provisioning) and download them.
+4.  [Issue certificates in iOS Dev Center](#generate-certificates) and download them.
+5.  [Create provisioning profiles in iOS Dev Center](#create-provisioning-profiles) and download them.
 6.  Upload the certificates and corresponding provisioning profiles to
     Monaca Cloud.
 
@@ -160,10 +158,10 @@ follows:
 
 4.  In this page, we are going to do 4 important things:
 
-    - [Generate Certificates](#create_cer)
-    - [Register App ID](#register_appid)
-    - [Register Development Devices](#register_dev_device)
-    - [Create Provisioning Profiles](#register_provisioning)
+    - [Generate Certificates](#generate-certificates)
+    - [Register App ID](#register-app-id)
+    - [Register Development Devices](#register-development-devices)
+    - [Create Provisioning Profiles](#create-provisioning-profiles)
 
 ###  Generate Certificates
 
@@ -224,8 +222,8 @@ In order to register your App ID, please follow the instruction below:
 
         <table class="small">
             <tr>
-                <td width="17%">Explicit App ID</td>
-                <td>Register an explicit App ID if you plan to incorporate app services such as a Game Center, In-App Purchase, Data Protection, and iCloud, or just want a provisioning profile unique to a single app. Enter a unique string in the Bundle ID field of Explicit App ID which should match with the Bundle ID of your app. The App ID must match the one you set in Monaca Cloud IDE as shown in <a href="#config-ios-app">Configure iOS App Settings</a>.</td>
+                <td width="15%">Explicit App ID</td>
+                <td>Register an explicit App ID if you plan to incorporate app services such as a Game Center, In-App Purchase, Data Protection, and iCloud, or just want a provisioning profile unique to a single app. Enter a unique string in the Bundle ID field of Explicit App ID which should match with the Bundle ID of your app. The App ID must match the one you set in Monaca Cloud IDE as shown in <a href="#configure-ios-app-settings">Configure iOS App Settings</a>.</td>
             </tr>
             <tr>
                 <td>Wildcard App ID</td>
@@ -316,7 +314,7 @@ provisioning profile:
 
 See Also: 
 
-- [Build Settings between Monaca and Xcode](../import_export)
+- [Building for Android](../../build_android)
 - [Building for Windows](../../build_winrt)
-- [Google Play Distribution](../../../deploy/google_play)
+- [App Store Distribution](../../../deploy/appstore)
 - [Build History](../../build_history)

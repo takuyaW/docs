@@ -10,7 +10,7 @@ version. The differences between these types of build are as follows:
 
 <table>
     <tr>
-        <th width="17%">Types of Build</th>
+        <th width="20%">Types of Build</th>
         <th>Description</th>
         <th width="30%">Installation</th>
     </tr>
@@ -20,7 +20,7 @@ version. The differences between these types of build are as follows:
         <td>
             <ul>
                 <li>QR Code</li>
-                <li><a href="/en/products_guide/debugger/features/#debugger-project-options">Network Install</a></li>
+                <li><a href="/en/products_guide/debugger/features/#project-options">Network Install</a></li>
                 <li>Sideloading</li>
             </ul>
         </td>
@@ -38,15 +38,13 @@ version. The differences between these types of build are as follows:
 </table>
 
 {{<note>}}
-    Sideloading means installing an application package in APK format onto
-an Android device. After building your app, you can download the APK
-file and install it.
+    サイドローディング ( Sideloading ) とは、一般的にはファイルのアップロード・ダウンロードを指しますが、ここでは、アプリのパッケージ ( APK 形式 ) を、マーケットを経由せずに、端末にインストールすることを指します。ビルド後、APK ファイルを直にダウロードして、インストールします。
 {{</note>}}
 
 
 ##  Step 1: Configure Android App
 
-1.  From the Monaca Cloud IDE menu, go to `Config` &rarr; `Android App Settings`.
+1.  From the Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Android App Settings">}}.
 2.  Fill in the necessary information of your app:
 
     - General settings:
@@ -116,7 +114,7 @@ file and install it.
     Currently, when you update either iOS's App ID or Android's Package
 Name, both of them will change. In other words, they are configured to
 be the same. However, it is possible to make them different. Please
-refer to {{<link href="/en/faq/application/#faq05-019" title="How to make iOS’s App ID and Android’s Package Name differently">}}.
+refer to {{<link href="/en/faq/application/#how-to-make-ios-s-app-id-and-android-s-package-name-differently" title="How to make iOS’s App ID and Android’s Package Name differently">}}.
 {{</note>}}
 
 ##  Step 2: Configure Android Keystore
