@@ -11,8 +11,5 @@ Connect を使用します。iTunes Connect 上では、アプリの提出に必
 での配布基準に適合しているかが審査されます。アプリの提出後、審査終了までには、通常、2
 週間程度かかります。
 
-> maxdepth
->
-> :   2
->
-> itunes\_connect app\_submission
+- [iTunes Connect ガイド](itunes_connect)
+- [Monaca 提供のアップロード機能](app_submission)

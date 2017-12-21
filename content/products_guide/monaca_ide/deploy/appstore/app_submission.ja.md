@@ -3,86 +3,45 @@ title: Monaca 提供のアップロード機能
 weight: 20
 ---
 
-<div class="admonition note">
+{{<note>}}
+    このアップロード機能を使用するためには、対応するプランへの加入が必要です。詳細は、 {{<link href="https://ja.monaca.io/pricing.html" title="こちら">}} をご確認ください。
+{{</note>}}
 
-このアップロード機能を使用するためには、対応するプランへの加入が必要です。詳細は、[こちら](https://ja.monaca.io/pricing.html)
-をご確認ください。
+{{<note>}}
+    プロジェクトを他のメンバーと共有している場合には、プロジェクトのオーナーだけがアップロード機能を使用できます。
+{{</note>}}
 
-</div>
+{{<warning>}}
+    アクティベーション コードを使用し、アカウントをアップグレードさせて、アップロード機能を使用する場合には、アップグレード後のプランがこの機能をサポートしている必要があります。なにかご質問がございましたら、こちらの {{<link href="https://monaca.mobi/ja/support/inquiry" title="相談窓口">}} までご連絡ください。
+{{</warning>}}
 
-<div class="admonition note">
-
-プロジェクトを他のメンバーと共有している場合には、プロジェクトのオーナーだけがアップロード機能を使用できます。
-
-</div>
-
-<div class="admonition warning">
-
-アクティベーション
-コードを使用し、アカウントをアップグレードさせて、アップロード機能を使用する場合には、アップグレード後のプランがこの機能をサポートしている必要があります。なにかご質問がございましたら、こちらの
-[相談窓口](https://monaca.mobi/ja/support/inquiry) までご連絡ください。
-
-</div>
 
 Monaca 提供のアップロード機能を使用すれば、Monaca クラウド IDE から
 iTunes Connect
 に、アプリをアップロードできます。手順は、次のとおりです。
 
 1.  リリースビルド版のアプリを Monaca
-    上で作成します。詳細は、building\_for\_ios をご確認ください。
+    上で作成します。詳細は、[iOS アプリのビルド]({{<ref "build_ios.ja.md">}}) をご確認ください。
 2.  リリースビルド版アプリの作成後、次の画面が表示されます。次に、アップロードボタン
     ( 下のスクリーンショットの赤枠部分 ) をクリックします。
 
-> ![](images/app_submission/1.png)
->
-> > width
-> >
-> > :   400px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{<img src="/images/monaca_ide/manual/deploy/app_submission/1.png" width="500">}}
+    
 3.  アプリのアップロード用のウィンドウが表示されます。次へ
     をクリックします。
 
-> ![](images/app_submission/2.png)
->
-> > width
-> >
-> > :   600px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{<img src="/images/monaca_ide/manual/deploy/app_submission/2.png">}}
 4.  有効な Apple アカウント情報を入力して、次へ をクリックします。
 
-> ![](images/app_submission/3.png)
->
-> > width
-> >
-> > :   600px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{<img src="/images/monaca_ide/manual/deploy/app_submission/3.png">}}
+
 5.  iTunes Connect
     上でアプリの登録を事前に行っておく必要があります。詳細は、こちら &lt;apply\_itune\_connect&gt;
     をご確認ください。ここでは、登録済みであることを前提として、iTunes Connect にアプリ情報を登録しました。
     にチェックを入れます。次に、Upload をクリックします。
 
-> ![](images/app_submission/4.png)
->
-> > width
-> >
-> > :   600px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{<img src="/images/monaca_ide/manual/deploy/app_submission/4.png">}}
+
 6.  アップロードが完了するまで、しばらく待ちます。
 
 > <div class="admonition note">
