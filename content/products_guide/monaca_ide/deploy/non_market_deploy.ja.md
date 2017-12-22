@@ -18,10 +18,10 @@ App Store を経由せずに、アプリの配布を行う場合があります�
     経由以外の方法でアプリを配布できる方が、都合がよい場合があります。
 
 {{<note>}}
-    社内だけの配布でも、{{<link href="https://developer.apple.com/programs/ios/enterprise/" title="iOS Developer Enterprise Program">}} アカウントに登録する必要があります。
+    社内だけの配布でも、{{<link href="https://developer.apple.com/programs/enterprise/" title="Apple Developer Enterprise Program">}} アカウントに登録する必要があります。
 {{</note>}}
 
-iOS Developer Proram と iOS Developer Enterprise Program
+Apple Developer Proram と Apple Developer Enterprise Program
 の比較表を、次に記します。
 
   | Apple Developer Program | Apple Developer Enterprise Program
@@ -62,7 +62,9 @@ App Store 経由以外でアプリを入手した場合、次のいずれかの�
 ### Apple Configurator 2 を使用してインストールする（ Mac のみ ）
 
 1.  App Store から `Apple Configurator 2` をインストールします。
+
 2.  端末と PC を接続します。
+
 3.  `Apple Configurator 2` を開き、端末を選択します。
     端末が表示されない場合は、端末が Mac
     に正常に接続されていることを確認してください。
@@ -81,8 +83,11 @@ App Store 経由以外でアプリを入手した場合、次のいずれかの�
 をインストールできます。
 
 1.  端末と PC を接続します。
+
 2.  Xcode を開き、{{<menu menu1="Window" menu2="Devices">}} を選択します。
+
 3.  Devices 画面が表示されます。アプリをインストールする端末を選択します。
+
 4.  右下の Installed Apps に、 `.ipa` ファイルをドラッグ &
     ドロップします。
 
@@ -99,11 +104,16 @@ iTunes を再設計し、iPhone や iPad 用のアプリを購入するための
 
 1.  デバッグビルドまたは Ad Hoc ビルドで、アプリをビルドします。iOS
     のビルド手順に関しては、 [iOS アプリのビルド]({{<ref "build_ios.ja.md">}}) をご確認ください。
+
 2.  ビルド完了後、 `.ipa` ファイルをダウンロードします。
+
 3.  iTunes を開き、`Apps` を選択します。
+
 4.  ダウンロードした `.ipa` ファイルを、App 上に、ドラッグ &
     ドロップします。
+
 5.  端末と iTunes を接続して、ホーム画面上に、アプリの一覧を表示します。
+
 6.  対象アプリの {{<guilabel name="インストール">}} ボタンをクリックして、次に、{{<guilabel name="同期">}}
     ボタンをクリックします。次に、例を示します。
 
@@ -116,8 +126,11 @@ OTA ( Over-The-Air/ワイヤレス通信 ) 配布形式であれば、HTTPS
 
 1.  デバッグビルドまたは Ad Hoc ビルドで、アプリをビルドします。iOS
     のビルド手順に関しては、 [iOS アプリのビルド]({{<ref "build_ios.ja.md">}}) をご確認ください。
+
 2.  ビルド完了後、 `.ipa` ファイルをダウンロードします。
+
 3.  ダウンロード元となるサイトに、 `.ipa` ファイルをアップロードします。
+
 4.  ビルド済みアプリ用の `.plist` ファイルを作成します。 `.plist`
     の内容を、次に記します。
 
@@ -167,6 +180,7 @@ OTA ( Over-The-Air/ワイヤレス通信 ) 配布形式であれば、HTTPS
 5.  ダウンロード元となるサイトに、 `.plist`
     ファイルをアップロードします。HTTPS
     プロトコル経由で、このファイルにアクセスできることを確認します。
+
 6.  アップロードした `.plist` ファイルへのリンクを組み込んだ Web
     ページを作成します。次の例のように、 `itms-services://`
     プロトコルも使用します。
@@ -194,6 +208,7 @@ Google Play ストア、Amazon AppStore
     アプリのリリース前には、さまざまな検証を行います。このため、複数のテストユーザーに、App
     Store
     経由以外の方法でアプリを配布できる方が、都合がよい場合があります。
+
 2.  プライベートでの使用 :
     不特定多数への配布を目的とせず、プライベートでアプリを使用します。
 
@@ -206,8 +221,10 @@ ADB ( Android Debug Bridge/Android デバッグ ブリッジ ) は、コマン�
 事前準備:
 
 -   Android SDK を、PC 上にインストールします。
+
 -   Android SDK のインストール後、システム環境変数の設定で、ADB
     へのパスを追加します。
+
 -   USB
     デバッグを有効化します。次に、セキュリティー設定を変更して、Google
     Play ストアではなく、指定するソースから、アプリ ( 提供元不明のアプリ
@@ -218,8 +235,11 @@ ADB
 
 1.  デバックビルド形式で、アプリをビルドします。Android
     のビルド手順に関しては、 [Android アプリのビルド]({{<ref "build_android.ja.md">}}) をご確認ください。
+
 2.  ビルド完了後、 `.apk` ファイルをダウンロードします。
+
 3.  USB を使用して、PC と端末間を接続します。
+
 4.  PC 上で、次のコマンドを実行します。 `.apk`
     ファイルへのパスは、正しく入力します。
 
@@ -231,8 +251,11 @@ ADB
 
 1.  デバックビルド形式で、アプリをビルドします。Android
     のビルド手順に関しては、 [Android アプリのビルド]({{<ref "build_android.ja.md">}}) をご確認ください。
+
 2.  ビルド完了後、 `.apk` ファイルをダウンロードします。
+
 3.  ビルド後にダウンロードしたファイルを、ダウンロード元となるサイトにアップロードします。
+
 4.  端末からアップロードしたファイルへのリンクをクリックして、アプリのインストールを開始します。
 
 {{<note>}}
