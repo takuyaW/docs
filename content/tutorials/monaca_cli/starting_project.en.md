@@ -7,8 +7,7 @@ weight: 1
 
 1.  Open a Command Prompt window (for Windows) or Terminal window (for Mac) and type the following command:
 
-    {{<highlight bash>}}
-    $ monaca login{{</highlight>}}
+    {{<highlight bash>}}$ monaca login{{</highlight>}}
 
 2.  Then, you will be asked to input email and password of your Monaca account.
 
@@ -22,8 +21,7 @@ weight: 1
 
 1.  Create a new project by using the command below:
 
-    {{<highlight bash>}}
-    $ monaca create PROJECT_DIRECTORY{{</highlight>}}
+    {{<highlight bash>}}$ monaca create PROJECT_DIRECTORY{{</highlight>}}
 
 2.  Then, you will be asked to choose either `Sample Apps` or
     `Templates` to create a new Monaca project. In this tutorial, let's

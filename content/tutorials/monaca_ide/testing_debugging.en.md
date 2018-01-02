@@ -58,7 +58,7 @@ debugger.
 
 1.  Run the project on the debugger.
 2.  On Monaca Cloud IDE, make some changes in a project file and save
-    them (please refer to [Edit Project Files](../starting_project/#monaca_ide_edit_project). In this example, we edit `index.html` and change the title of page from `Monaca Memo` to `My Memo`. Then, save the change.
+    them (please refer to [Edit Project Files](../starting_project/#step-4-editing-a-project). In this example, we edit `index.html` and change the title of page from `Monaca Memo` to `My Memo`. Then, save the change.
 
     {{<figure src="/images/monaca_ide/tutorial/testing_debugging/7.png" >}}
 

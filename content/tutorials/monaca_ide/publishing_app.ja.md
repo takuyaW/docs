@@ -1,15 +1,18 @@
-パート 5 : Monaca アプリの配布申請
-==================================
+---
+title: "パート 5 : Monaca アプリの配布申請"
+weight: 5
+---
+
 
 App Store への申請
 ------------------
 
-app\_store\_distribution をご確認ください。
+[App Store での配布](/ja/products_guide/monaca_ide/deploy/appstore/) をご確認ください。
 
 Google Play への申請
 --------------------
 
-google\_play\_distribution をご確認ください。
+[Google Play での配布]({{<ref "google_play.ja.md">}}) をご確認ください。
 
 他のプラットフォーム向けの Monaca アプリの配布申請に関しては、
-distribution\_index をご確認ください。
+[配布方法](/ja/products_guide/monaca_ide/deploy/) をご確認ください。

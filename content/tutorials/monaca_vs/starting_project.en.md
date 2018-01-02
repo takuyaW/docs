@@ -17,9 +17,9 @@ log into Monaca first:
 
 There are 3 ways to start a Monaca project in Visual Studio:
 
-1.  [creating a new project based on templates provided by Monaca](#monaca-vs-new-project)
+1.  [creating a new project based on templates provided by Monaca](#creating-a-new-project)
 2.  opening an existing Cordova project
-3.  [importing an existing Monaca project](#monaca-vs-import-existing-project)
+3.  [importing an existing Monaca project](#importing-a-existing-monaca-project)
 
 ###  Creating a New Project
 

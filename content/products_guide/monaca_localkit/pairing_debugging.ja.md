@@ -22,7 +22,7 @@ Monaca Localkit が実行中であること ) と端末 ( Monaca
     を認識しているか確認します。次に、 {{<guilabel name="ペアリング">}}
     をクリックして、ペアリングします。Monaca デバッガーがホスト PC
     を自動認識していない場合には、
-    [ペアリング方法](/ja/products_guide/debugger/troubleshooting/#troubleshoot-pair) をご確認ください。
+    [ペアリング方法](/ja/products_guide/debugger/troubleshooting/#monaca-デバッガーとのペアリングが失敗する場合) をご確認ください。
 
     {{<img src="/images/monaca_localkit/manual/pairing_debugging/1.png" width="300">}}
 
@@ -59,7 +59,7 @@ Monaca Localkit が実行中であること ) と端末 ( Monaca
 Monaca Localkit を使用した、Monaca アプリのデバッグ
 ---------------------------------------------------
 
-[Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携]({{<ref "debug.ja.md#debugger-with-local-tools">}}) をご確認ください。
+[Monaca 提供のローカル環境用の開発ツールと Monaca デバッガーとの連携]({{<ref "debug.ja.md#monaca-提供のローカル環境用の開発ツールと-monaca-デバッガーとの連携">}}) をご確認ください。
 
 参考ページ
 

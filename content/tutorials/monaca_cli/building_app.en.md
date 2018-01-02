@@ -5,8 +5,8 @@ weight: 3
 
 In this page, we will cover the two following topics:
 
-1.  [Building a Monaca App for iOS](#cli-building-for-ios)
-2.  [Building a Monaca App for Android](#cli-building-for-android)
+1.  [Building a Monaca App for iOS](#building-a-monaca-app-for-ios)
+2.  [Building a Monaca App for Android](#building-a-monaca-app-for-android)
 
 For more information on how to build Monaca Apps for other platforms,
 please refer to [Build](/en/products_guide/monaca_ide/build).
@@ -15,7 +15,7 @@ please refer to [Build](/en/products_guide/monaca_ide/build).
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for iOS which will be installed on a development device. For
-more information about other types of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/ios/build_ios/#types_of_build_ios).
+more information about other types of build, please refer to [Types of Build]({{<ref "build_ios.en.md#types-of-build">}}).
 
 ### Prerequisite
 
@@ -25,19 +25,18 @@ more information about other types of build, please refer to [Types of Build](/e
     following items which are required to create a Debug build in
     Monaca:
 
--   `App ID` (see [How to Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register_appid))
--   `Development Certificate` (see [How to Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#create_cer))
--   `Development Provisioning Profile` (see [How to Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#register_provisioning))
+-   `App ID` (see [How to Register App ID]({{<ref "build_ios.en.md#register-app-id">}}))
+-   `Development Certificate` (see [How to Generate Certificates]({{<ref "build_ios.en.md#generate-certificates">}}))
+-   `Development Provisioning Profile` (see [How to Create Provisioning Profiles]({{<ref "build_ios.en.md#create-provisioning-profiles">}}))
 
 ### Step 1: Configuring iOS App Settings
 
-1.  In the command window, navigate to your project folder and use [monaca remote build](/en/products_guide/monaca_cli/cli_commands/#monaca-remote-build) command. This command will automatically
+1.  In the command window, navigate to your project folder and use [monaca remote build]({{<ref "cli_commands.en.md#monaca-remote-build">}}) command. This command will automatically
     upload your local project files to Monaca Cloud. Please type the
     following command to open an interactive build interface in your
     browser.
 
-    {{<highlight bash>}}
-    $ monaca remote build --browser{{</highlight>}}
+    {{<highlight bash>}}$ monaca remote build --browser{{</highlight>}}
 
 2.  From the build interface under the `App Settings` on the left menu, select {{<guilabel name="iOS">}}.
 3.  Fill in the necessary information of your app:
@@ -65,7 +64,7 @@ more information about other types of build, please refer to [Types of Build](/e
 2.  Click on Generate Key and CSR button and fill in your Apple ID
     information (user name and email address) and country. Then, click
     Generate Key and CSR button. After that, you will be asked to
-    download the CSR file. You can also [import an existing Private Key](/en/products_guide/monaca_ide/build/ios/import_export/#import-into-monaca) if you
+    download the CSR file. You can also [import an existing Private Key]({{<ref "import_export.en.md#step-2-import-private-key-and-certificate-into-monaca">}}) if you
     have one.
 
     {{<img src="/images/monaca_cli/tutorial/building_app/ios_2.png">}}   
@@ -99,14 +98,13 @@ There are 3 ways to install the debug built app:
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for Android. For more information about other types of build,
-please refer to [Types of Build](/en/products_guide/monaca_ide/build/build_android/#types_of_build_android).
+please refer to [Types of Build]({{<ref "build_android.en.md#types-of-build">}}).
 
 ### Step 1: Configuring Android App Settings
 
 1.  In the command window, navigate to your project folder and type [monaca remote build](/en/products_guide/monaca_cli/cli_commands/#monaca-remote-build) command. This command will automatically upload your local project files to Monaca Cloud. Please type the following command to open an interactive build interface in your browser.
 
-    {{<highlight bash>}}
-    $ monaca remote build --browser{{</highlight>}}
+    {{<highlight bash>}}$ monaca remote build --browser{{</highlight>}}
 
 2.  From the build interface under the `App Settings` on the left menu, select {{<guilabel name="Android">}}.
 3.  Fill in the necessary information of your app:
@@ -172,7 +170,7 @@ follows:
 
 There are 5 ways you can install the built app:
 
-1.  [Network Install](/en/products_guide/debugger/installation/debugger_android/#network-android).
+1.  [Network Install]({{<ref "debugger_android.en.md#network-install">}})
 2.  Install via QR Barcode.
 3.  download the built app directly to your computer and install it via
     USB cable.

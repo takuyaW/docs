@@ -62,7 +62,7 @@ Please install Monaca Debugger on your device.
 
 1.  Run the project on the debugger.
 2.  Let's make some changes in a project file and save them (read more
-    on [Edit Project Files](../starting_project/#edit-project-localkit)). For example,
+    on [Edit Project Files](../starting_project/#step-4-editing-the-project-files)). For example,
     try to change the title of the application in `index.html` file or
     the style of page in `style.css` file. Please notice that,
     {{<guilabel name="Live Reload">}} toggle button is enable by default. This allows the real-time
@@ -83,7 +83,7 @@ Please install Monaca Debugger on your device.
 Monaca Localkit allows you to debug your application with [Chrome
 DevTools](https://developer.chrome.com/devtools) using USB connection.
 Before starting this USB debugging, please make sure to
-[enable USB Debugging option](/en/products_guide/debugger/debug/#pre-debug-app) on your device with
+[enable USB Debugging option](/en/products_guide/debugger/debug/#prerequisite-for-usb-debugging-with-monaca) on your device with
 appropriate version of Monaca Debugger.
 
 1.  Run the project on the debugger.
@@ -99,7 +99,7 @@ appropriate version of Monaca Debugger.
     and [JavaScript
     Debugging](https://developer.chrome.com/devtools/docs/javascript-debugging)
     with Chrome DevTools. However, if the Chrome DevTools are failed to
-    open, please refer to [Inspector Isn’t Loaded](/en/products_guide/debugger/troubleshooting/#troubleshoot-inspector).
+    open, please refer to [Inspector Isn’t Loaded](/en/products_guide/debugger/troubleshooting/#inspector-isn-t-loaded).
 
     {{<img src="/images/monaca_localkit/tutorial/testing_debugging/9.png">}}
 
@@ -110,7 +110,7 @@ appropriate version of Monaca Debugger.
 {{<figure src="/images/monaca_localkit/tutorial/testing_debugging/10.png">}}
 
 {{<note>}}
-    Please refer to {{<link href="/en/products_guide/debugger/features/#monaca-debugger-features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
+    Please refer to {{<link href="/en/products_guide/debugger/features" title="Functionalities">}} to explore the other functions provided by Monaca Debugger.
 {{</note>}}
 
 See Also:

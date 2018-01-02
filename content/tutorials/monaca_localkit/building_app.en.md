@@ -5,8 +5,8 @@ weight: 3
 
 In this page, we will cover the two following topics:
 
-1.  [Building a Monaca App for iOS](#localkit-building-for-ios)
-2.  [Building a Monaca App for Android](#localkit-building-for-android)
+1.  [Building a Monaca App for iOS](#building-a-monaca-app-for-ios)
+2.  [Building a Monaca App for Android](#building-a-monaca-app-for-android)
 
 For more information on how to build Monaca Apps for other platforms,
 please refer to [Build](/en/products_guide/monaca_ide/build).
@@ -15,19 +15,19 @@ please refer to [Build](/en/products_guide/monaca_ide/build).
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for iOS which will be installed on a development device. For
-more information about other types of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/ios/build_ios/#types_of_build_ios).
+more information about other types of build, please refer to [Types of Build]({{<ref "build_ios.en.md#types-of-build">}}).
 
 *Prerequisite*
 
-1.  You must enroll in [Apple Developer
-    Program](https://developer.apple.com/programs/).
+1.  You must enroll in [Apple Developer Program](https://developer.apple.com/programs/).
+
 2.  After enrolling in the program, you will be able to create the
     following items which are required to create a Debug build in
     Monaca:
 
--   `App ID` (see [How to Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register_appid))
--   `Development Certificate` (see [How to Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#create_cer))
--   `Development Provisioning Profile` (see [How to Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#register_provisioning))
+-   `App ID` (see [How to Register App ID]({{<ref "build_ios.en.md#register-app-id">}}))
+-   `Development Certificate` (see [How to Generate Certificates]({{<ref "build_ios.en.md#generate-certificates">}}))
+-   `Development Provisioning Profile` (see [How to Create Provisioning Profiles]({{<ref "build_ios.en.md#create-provisioning-profiles">}}))
 
 ### Step 1: Configuring iOS App Settings
 
@@ -64,9 +64,9 @@ more information about other types of build, please refer to [Types of Build](/e
 
 3.  Click on {{<guilabel name="Generate Key and CSR">}} button and fill in your Apple ID
     information (user name and email address) and country. Then, click {{<guilabel name="Generate Key and CSR">}} button. After that, you will be asked to download the CSR file. You can also
-    [import an existing Private Key](/en/products_guide/monaca_ide/build/ios/import_export/#import-into-monaca) if you have one.
+    [import an existing Private Key]({{<ref "import_export.en.md#step-2-import-private-key-and-certificate-into-monaca">}}) if you have one.
 
-    {{<img src="/images/monaca_localkit/tutorial/building_app/ios_11.png">}}
+    {{<img src="/images/monaca_localkit/tutorial/building_app/ios_11.png" width="500">}}
 
 {{<note>}}
     If you import an existing private key, you need to use the certificates which are issued based on that imported private key. However, if you create a new private key and CRS file, you will need to use the new CRS file to issue new certificates.
@@ -97,7 +97,7 @@ There are 3 ways to install the debug built app:
 
 In this section, we will talk about how to create a Debug Build of your
 Monaca app for Android. For more information about other types of build,
-please refer to [Types of Build](/en/products_guide/monaca_ide/build/build_android/#types_of_build_android).
+please refer to [Types of Build]({{<ref "build_android.en.md#types-of-build">}}).
 
 ### Step 1: Configuring Android App Settings
 
@@ -176,7 +176,7 @@ follows:
 
 There are 5 ways you can install the built app:
 
-1.  [Network Install](/en/products_guide/debugger/installation/debugger_android/#network-android)
+1.  [Network Install]({{<ref "debugger_android.en.md#network-install">}})
 2.  Install via QR Barcode.
 3.  download the built app directly to your computer and install it via
     USB cable.

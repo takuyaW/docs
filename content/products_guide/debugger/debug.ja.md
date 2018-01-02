@@ -201,7 +201,7 @@ USB デバッグ使用時に利用できるデバッグ方法は、次のとお�
 Monaca 提供のローカル環境用の開発ツールには、Monaca CLI、Monaca
 Localkit、Monaca for Visual Studio があります。
 
-### <a name="pre-debug-app"></a> USB デバッグの事前準備
+### USB デバッグの事前準備
 
 <table class="small">
     <tr>

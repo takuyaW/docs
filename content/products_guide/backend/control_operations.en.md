@@ -7,7 +7,7 @@ Monaca Backend has 4 main operations which can be found at Backend
 Control Panel as follows:
 
 - [User Management](#user-management)
-- [Collection Management](#collection_management)
+- [Collection Management](#collection-management)
 - [Mail Template Management](#mail-template-management)
 - [Push Notification](/en/products_guide/push_notification/overview)
 

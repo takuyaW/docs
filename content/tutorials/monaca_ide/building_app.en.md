@@ -6,8 +6,8 @@ weight: 4
 In this tutorial, we only cover the building of Monaca Apps for iOS and
 Android:
 
-1. [Building a Monaca App for iOS](#building_monaca_for_ios)
-2. [Building a Monaca App for Android](#building_monaca_for_android)
+1. [Building a Monaca App for iOS](#building-a-monaca-app-for-ios)
+2. [Building a Monaca App for Android](#building-a-monaca-app-for-android)
 
 For more information regarding the building of Monaca Apps for other
 platforms, please refer to [Build](/en/products_guide/monaca_ide/build).
@@ -16,25 +16,25 @@ platforms, please refer to [Build](/en/products_guide/monaca_ide/build).
 
 This section will cover an instruction of how to create a Debug Build
 version of your app for iOS which will be installed on the development
-device. For more information about other types of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/ios/build_ios/#types_of_build_ios).
+device. For more information about other types of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/ios/build_ios/#types-of-build).
 
 *Prerequisite*:
 
--   You must enroll in [iOS Developer
+-   You must enroll in [Apple Developer
     Program](https://developer.apple.com/programs/ios/).
 
 *Requirement*
 
 You are required to create the following items from iOS Provisioning
-Portal after enrolling iOS Developer Program:
+Portal after enrolling Apple Developer Program:
 
--  `App ID` (see [Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register_appid) and [Register Development Devices](/en/products_guide/monaca_ide/build/ios/build_ios/#register_dev_device))
--  `Developer Certificate` (see [Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#create_cer))
--  `Development Provisioning Profile` (see [Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#register_provisioning))
+-  `App ID` (see [Register App ID](/en/products_guide/monaca_ide/build/ios/build_ios/#register-app-id) and [Register Development Devices](/en/products_guide/monaca_ide/build/ios/build_ios/#register-development-devices))
+-  `Developer Certificate` (see [Generate Certificates](/en/products_guide/monaca_ide/build/ios/build_ios/#generate-certificates))
+-  `Development Provisioning Profile` (see [Create Provisioning Profiles](/en/products_guide/monaca_ide/build/ios/build_ios/#create-provisioning-profiles))
 
 ### Step 1: Configuring iOS App Settings
 
-1.  From Monaca Cloud IDE menu, go to `Config` &rarr; `iOS App Settings...`.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="iOS App Settings...">}}.
 2.  Fill in the necessary information of your app:
 
     - `Application Name`: a name representing your app publicly such as in the Market.
@@ -52,12 +52,12 @@ Portal after enrolling iOS Developer Program:
 
 ### Step 2: Configuring iOS Build Settings
 
-1.  From Monaca Cloud IDE menu, go to `Config` &rarr; `iOS Build Settings...`.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="iOS Build Settings...">}}.
 2.  Click on {{<guilabel name="Generate Key and CSR">}} button.
 
     {{<img src="/images/monaca_ide/tutorial/building_app/ios_2.png">}}
 
-3.  Fill in your Apple ID information (user name & email address) and country. Then, click on {{<guilabel name="Generate Key and CSR">}} button. You can also [import an existing Private Key](/en/products_guide/monaca_ide/build/ios/import_export/#import-into-monaca) if you have one.
+3.  Fill in your Apple ID information (user name & email address) and country. Then, click on {{<guilabel name="Generate Key and CSR">}} button. You can also [import an existing Private Key](/en/products_guide/monaca_ide/build/ios/import_export/#step-2-import-private-key-and-certificate-into-monaca) if you have one.
 
     {{<img src="/images/monaca_ide/tutorial/building_app/ios_3.png" width="600">}}
 
@@ -71,7 +71,7 @@ Portal after enrolling iOS Developer Program:
 
 ### Step 3: Building the App
 
-1.  From the Monaca Cloud IDE menu, go to `Build` &rarr; `Build App for iOS`.
+1.  From the Monaca Cloud IDE menu, go to {{<menu menu1="Build" menu2="Build App for iOS">}}.
 2.  Select the `Debug Build` option and the corresponding provisioning profile. Then, click {{<guilabel name="Start Build">}} button.
 
     {{<img src="/images/monaca_ide/tutorial/building_app/ios_6.png">}}
@@ -92,11 +92,11 @@ There are 3 ways to install the debug built app:
 
 This section will cover an instruction of how to create a Debug Build
 version of your app for Android. For more information about other types
-of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/build_android/#types_of_build_android).
+of build, please refer to [Types of Build](/en/products_guide/monaca_ide/build/build_android/#types-of-build).
 
 ### Step 1: Configuring Android App Settings
 
-1.  From Monaca Cloud IDE menu, go to `Config` &rarr; `Android App Settings...`.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Android App Settings...">}}.
 2.  Fill in the necessary information of your app:
 
     - `Application Name`: a name representing your app publicly such as in the Market.
@@ -119,7 +119,7 @@ for code-sign an application.
 
 In order to configure Android KeyStore in Monaca, please do as follows:
 
-1.  From Monaca Cloud IDE menu, go to `Config` &rarr; `Android KeyStore Settings...`.
+1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Android KeyStore Settings...">}}.
 2.  You will need to generate a new KeyStore if you haven't created
     one yet. The KeyStore can either be created or imported. In this
     tutorial, we assume that you need to create a new KeyStore.
@@ -140,7 +140,7 @@ In order to configure Android KeyStore in Monaca, please do as follows:
 
 ### Step 3: Building the App
 
-1.  From the Monaca Cloud IDE menu, go to `Build` &rarr; `Build App for Android`.
+1.  From the Monaca Cloud IDE menu, go to {{<menu menu1="Build" menu2="Build App for Android">}}.
 2.  Select `Debug Build` option and click on {{<guilabel name="Start Build">}} button.
 
     {{<img src="/images/monaca_ide/tutorial/building_app/android_4.png">}}
@@ -153,11 +153,11 @@ In order to configure Android KeyStore in Monaca, please do as follows:
 
 There are 5 ways you can install the built app:
 
-1.  [Network Install](/en/products_guide/debugger/installation/debugger_android/#network-android).
-2.  Install via QR Barcode.
-3.  download the built app directly to your computer and install it via USB cable.
-4.  send the URL to download the built app to your registered email address.
-5.  Install via cofigured [deployment services](/en/products_guide/monaca_ide/monaca_ci/supported_services).
+1.  [Network Install](/en/products_guide/debugger/installation/debugger_android/#network-install)
+2.  Install via QR Barcode
+3.  download the built app directly to your computer and install it via USB cable
+4.  send the URL to download the built app to your registered email address
+5.  Install via cofigured [deployment services](/en/products_guide/monaca_ide/monaca_ci/supported_services)
 
 See Also:
 

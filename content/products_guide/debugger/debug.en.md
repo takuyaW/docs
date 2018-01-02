@@ -22,7 +22,7 @@ with Monaca Cloud IDE such as:
 -   [Monaca Debug Panel](#debugger-debug-panel): DOM inspection and console debugging.
 -   [USB Debugging](#debugger-usb-debug): DOM inspection, console and JavaScript debugging.
 
-### <a name="debugger-debug-panel"></a> Monaca Debug Panel
+### Monaca Debug Panel
 
 A popular Web debugging tool, [Weinre (WEb INspector REmote)](https://people.apache.org/~pmuellr/weinre/docs/latest/), is
 embedded in debug panel of Monaca Cloud IDE. This tool allows you to
@@ -117,7 +117,7 @@ For more information, please refer to [DOM Inspection and Style Editing](https:/
 
 {{<figure src="/images/debugger/manual/debug/5.png" title="DOM Inspection inside Debug Panel">}}
 
-### <a name="debugger-usb-debug"></a> USB Debugging
+### USB Debugging
 
 With USB debugging, you can:
 
@@ -133,7 +133,7 @@ device you use:
 1.  If you are using iOS device, you can use [Safari Remote Debugging](#usb-debugging-ios).
 2.  If you are using Android device, you can use [Chrome Remote Debugging](#usb-debugging-android).
 
-#### <a name="usb-debugging-ios"></a> *Safari Remote Debugging (for iOS and Mac only)*
+#### Safari Remote Debugging (for iOS and Mac only)
 
 {{<note>}}
     You are required to do some setups before using USB debugging with Monaca. Please refer to {{<link href="#pre-debug-app" title="Prerequisite for USB Debugging with Monaca">}}.
@@ -154,7 +154,7 @@ device you use:
 
     {{<figure src="/images/debugger/manual/debug/10.png">}}
 
-#### <a name="usb-debugging-android"></a> <b>Chrome Remote Debugging (for Android with Google Chrome Browser)</b>
+#### Chrome Remote Debugging (for Android with Google Chrome Browser)
 
 {{<note>}}
     You are required to do some setups before using USB debugging with Monaca. Please refer to {{<link href="#pre-debug-app" title="Prerequisite for USB Debugging with Monaca">}}.
@@ -180,7 +180,7 @@ device you use:
 Monaca local development tools are Monaca CLI, Monaca Localkit and
 Monaca for Visual Studio.
 
-### <a name="pre-debug-app"></a>  Prerequisite for USB Debugging with Monaca
+### Prerequisite for USB Debugging with Monaca
 
 <table class="small">
     <tr>

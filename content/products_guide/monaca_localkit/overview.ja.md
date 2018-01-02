@@ -29,7 +29,7 @@ Monaca Localkit
 
 {{<note>}}
     {{<link href="../../monaca_ide" title="Monaca クラウド IDE">}} と Monaca Localkit
-間では、プロジェクトの同期は行われず、それぞれのツールに置かれているプロジェクトは、独立しています。ただし、{{<link href="#localkit-import" title="Monaca クラウド IDE から Monaca Localkit へ、プロジェクトをインポート">}}
+間では、プロジェクトの同期は行われず、それぞれのツールに置かれているプロジェクトは、独立しています。ただし、{{<link href="#プロジェクトのインポート" title="Monaca クラウド IDE から Monaca Localkit へ、プロジェクトをインポート">}}
 できます。
 {{</note>}}
 
@@ -88,7 +88,7 @@ Monaca Localkit
 
 3.  プロジェクトの作成後、プロジェクト一覧上に、作成したプロジェクトが表示されていることを確認します。
 
-### <a name="localkit-import">プロジェクトのインポート</a>
+### プロジェクトのインポート
 
 次のいずれかの方法で、プロジェクトをインポートできます。
 
