@@ -1,28 +1,25 @@
-音楽の再生方法
-==============
+---
+title: 音楽の再生方法
+weight: 10
+---
 
 Monaca で音楽を再生する場合は、次の 2 通りの作成方法があります。
 
--   html5\_audio (iOS 端末では、動作しない可能性があります)
--   media\_api (推奨)
+-   [HTML5 の &lt;audio&gt; タグを使用する](#html5-の-lt-audio-gt-タグを使用する) (iOS 端末では、動作しない可能性があります)
+-   [Media プラグインを使用する](#media-プラグインを使用する) (推奨)
 
-HTML 5 の &lt;audio&gt; タグを使用する。
-----------------------------------------
+## HTML5 の &lt;audio&gt; タグを使用する
 
-<div class="admonition warning">
-
-HTML5の `audio` タグは、iOS端末では正常に動作しない可能性があります。
-
-</div>
+{{<note>}}
+HTML5の <code>audio</code> タグは、iOS端末では正常に動作しない可能性があります。
+{{</note>}}
 
 ### 音の再生 ( 外部の音源を使用 )
 
-HTML5の `<audio>`
-タグは、URLを指定することによって、外部の音源を再生することができます。
-たとえば、次のコードでは `<audio>`
-タグを使用して、指定された音源ファイルを再生しています。
+HTML5の `<audio>` タグは、URLを指定することによって、外部の音源を再生することができます。
+たとえば、次のコードでは `<audio>` タグを使用して、指定された音源ファイルを再生しています。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
 <body>
   <!-- Play the music when the Play control is pressed -->
@@ -31,16 +28,14 @@ HTML5の `<audio>`
   <!-- <audio src="http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3" autoplay></audio> -->
 </body>
 ...
-```
+{{</highlight>}}
 
 ### 音の再生 ( Monaca プロジェクト内の音源を使用 )
 
-HTML5 `<audio>`
-タグは、Monacaプロジェクト内に配置された音源を再生するためにも使用できます。
-たとえば、次のコードは `<audio>` タグを使って `www/`
-フォルダの下にある音源ファイルを再生しています。
+HTML5 `<audio>` タグは、Monacaプロジェクト内に配置された音源を再生するためにも使用できます。
+たとえば、次のコードは `<audio>` タグを使って `www/` フォルダの下にある音源ファイルを再生しています。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
 <body>
   <!-- Play the music when the Play control is pressed -->
@@ -49,27 +44,22 @@ HTML5 `<audio>`
   <!-- <audio src="sample.mp3" autoplay></audio> -->
 </body>
 ...
-```
+{{</highlight>}}
 
-Media プラグインを使用する。
-----------------------------
+## Media プラグインを使用する
 
-Media
-プラグインでは、開始、一時停止、停止、再開、音量の設定など、音源ファイルの再生方法を制御する機能があります。
+Media プラグインでは、開始、一時停止、停止、再開、音量の設定など、音源ファイルの再生方法を制御する機能があります。
 
-<div class="admonition note">
-
-はじめに、Monaca クラウドIDE で `Media` プラグインを
-有効 &lt;add\_plugins&gt; にする必要があります。
-
-</div>
+{{<note>}}
+    はじめに、Monaca クラウドIDE で <code>Media</code> プラグインを {{<link href="/ja/products_guide/monaca_ide/dependencies/cordova_plugin/#cordova-プラグイン-の追加とインポート" title="有効">}} にする必要があります。
+{{</note>}}
 
 ### 音の再生 ( 外部の音源を使用 )
 
 次の例では、外部の音源ファイルを使用する方法を示します。
 音源の再生、一時停止、停止することができます。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -151,14 +141,14 @@ Media
     <p id="audio_position"></p>
 </body>
 </html>
-```
+{{</highlight>}}
 
 ### 音の再生 ( Monaca プロジェクト内の音源を使用 )
 
-次の例では、 www/ フォルダの下にある音源ファイルの使い方を示します。
+次の例では、`www/` フォルダの下にある音源ファイルの使い方を示します。
 音源の再生、一時停止、停止することができます。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -246,4 +236,4 @@ Media
     <p id="audio_position"></p>
 </body>
 </html>
-```
+{{</highlight>}}

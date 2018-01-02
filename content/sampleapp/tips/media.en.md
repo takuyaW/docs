@@ -5,10 +5,10 @@ weight: 10
 
 In Monaca, there are two ways to play sound and music such as:
 
-- [Using HTML5 <audio> Tag](#html5-audio) (May not Work on iOS Devices)
-- [Using Cordova Media Plugin](#media-api) (Highly Recommended)
+- [Using HTML5 &lt;audio&gt; Tag](#using-html5-lt-audio-gt-tag) (May not Work on iOS Devices)
+- [Using Cordova Media Plugin](#using-cordova-media-plugin) (Highly Recommended)
 
-##  Using HTML5 <audio> Tag
+##  Using HTML5 &lt;audio&gt; Tag
 
 {{<warning>}}
     The HTML5 <code>audio</code> tag may not work properly on iOS devices.
@@ -56,7 +56,7 @@ you play a sound file such as start, pause, stop, resume, set volume and
 so on.
 
 {{<note>}}
-    Before getting started, you are required to {{<link href="/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins" title="enable">}} Media plugin in Monaca Cloud IDE.onaca Cloud IDE.
+    Before getting started, you are required to {{<link href="/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-import-cordova-plugins" title="enable">}} Media plugin in Monaca Cloud IDE.onaca Cloud IDE.
 {{</note>}}
 
 ### Playing Sound from External Sources

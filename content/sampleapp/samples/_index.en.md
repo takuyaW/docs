@@ -1,5 +1,6 @@
 ---
 title: Sample Apps & Templates
+weight: 10
 ---
 
 ## Sample Apps
