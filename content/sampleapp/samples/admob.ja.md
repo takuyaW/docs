@@ -1,5 +1,7 @@
-AdMob のデモ用アプリ
-====================
+---
+title: AdMob のデモ用アプリ
+weight: 30
+---
 
 このページでは、Monaca
 を使用して、[AdMob](https://www.google.com/admob/) (

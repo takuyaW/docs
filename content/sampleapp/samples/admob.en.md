@@ -1,5 +1,6 @@
 ---
 title: AdMob Demo
+weight: 30
 ---
 
 In this page, we will show how to integrate Monaca with the most common

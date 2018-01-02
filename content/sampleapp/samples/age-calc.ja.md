@@ -1,5 +1,7 @@
-誕生年の計算アプリ
-==================
+---
+title: 誕生年の計算アプリ
+weight: 130
+---
 
 <div class="admonition note">
 

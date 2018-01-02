@@ -1,5 +1,6 @@
 ---
 title: TODO App
+weight: 100
 ---
 
 The application allows you to add a todo list.

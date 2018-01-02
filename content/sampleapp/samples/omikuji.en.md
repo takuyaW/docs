@@ -1,5 +1,6 @@
 ---
 title: Omikuji Fortune Telling App
+weight: 140
 ---
 
 Omikuji is a Japanese word means `random fortunes`. In Monaca, app

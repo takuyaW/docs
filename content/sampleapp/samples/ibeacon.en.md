@@ -1,5 +1,6 @@
 ---
 title: iBeacon
+weight: 150
 ---
 
 This sample app uses iBeacon service to detect its proximity to iBeacon

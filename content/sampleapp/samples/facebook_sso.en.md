@@ -1,5 +1,6 @@
 ---
 title: Facebook Single Sign-on App
+weight: 20
 ---
 
 In this page, you will learn how to use Facebook's Single Sign-On (SSO)

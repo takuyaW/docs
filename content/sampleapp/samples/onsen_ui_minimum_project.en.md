@@ -1,5 +1,6 @@
 ---
 title: Onsen UI Minimum Template
+weight: 160
 ---
 
 This is a minimum template for [Onsen UI](https://onsen.io/) application.

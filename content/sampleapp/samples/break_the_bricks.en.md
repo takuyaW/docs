@@ -1,5 +1,6 @@
 ---
 title: Break the Bricks
+weight: 70
 ---
 
 This is a sample game based on pixi.js which is a super fast HTML5 2D

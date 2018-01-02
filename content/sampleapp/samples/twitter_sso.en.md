@@ -1,5 +1,6 @@
 ---
 title: Twitter Single Sign-on App
+weight: 10
 ---
 
 In this page, you will learn how to use Twitter's Single Sign-On (SSO)

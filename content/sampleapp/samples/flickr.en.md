@@ -1,5 +1,6 @@
 ---
 title: Flickr Sample
+weight: 90
 ---
 
 This sample app shows how to retrieve pictures from Flickr and displays them as a slide show.

@@ -1,5 +1,6 @@
 ---
 title: RSS Reader App
+weight: 50
 ---
 
 This is an RSS reader application using jQuery.

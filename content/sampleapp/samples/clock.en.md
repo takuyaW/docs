@@ -1,5 +1,6 @@
 ---
 title: Clock App
+weight: 120
 ---
 
 {{<note>}}

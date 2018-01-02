@@ -1,5 +1,6 @@
 ---
 title: Memo Application
+weight: 60
 ---
 
 This sample app allows user to create a memo application using local storage.

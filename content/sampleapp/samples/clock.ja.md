@@ -1,5 +1,7 @@
-時計アプリ
-==========
+---
+title: 時計アプリ
+weight: 120
+---
 
 <div class="admonition note">
 

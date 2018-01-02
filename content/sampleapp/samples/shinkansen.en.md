@@ -1,5 +1,6 @@
 ---
 title: Train Catalog App
+weight: 110
 ---
 
 This sample app is a train catalog which displaying the types trains

@@ -1,5 +1,7 @@
-Facebook アプリ ( シングルサインオンを使用 )
-============================================
+---
+title: Facebook アプリ (シングルサインオンを使用)
+weight: 20
+---
 
 ここでは、Facebook 上でのシングルサインオン ( Single Sign-On/SSO )
 の方法を解説します。Angular 1 と [Onsen UI](https://onsen.io/)

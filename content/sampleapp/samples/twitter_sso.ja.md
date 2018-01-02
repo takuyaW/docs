@@ -1,5 +1,7 @@
-Twitter アプリ ( シングルサインオンを使用 )
-===========================================
+---
+title: Twitter アプリ (シングルサインオンを使用)
+weight: 10
+---
 
 ここでは、Twitter 上でのシングルサインオン ( Single Sign-On/SSO )
 の方法を解説します。Angular 1 と [Onsen UI](https://ja.onsen.io/)

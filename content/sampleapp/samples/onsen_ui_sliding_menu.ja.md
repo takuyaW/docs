@@ -1,5 +1,7 @@
-Onsen UI スライディングメニュー
-===============================
+---
+title: Onsen UI スライディングメニュー
+weight: 180
+---
 
 [Onsen UI
 スライディングメニュー](https://ja.onsen.io/v1/reference/ons-sliding-menu.html)

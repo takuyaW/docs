@@ -1,5 +1,6 @@
 ---
 title: Hello World App
+weight: 40
 ---
 
 This sample app is a Core Cordova Plugins Demo showing several device

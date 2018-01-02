@@ -1,5 +1,7 @@
-Onsen UI ナビ付 タブバー
-========================
+---
+title: Onsen UI ナビ付 タブバー
+weight: 170
+---
 
 [Onsen UI タブバー](https://ja.onsen.io/v2/api/js/ons-tabbar.html) と
 [ナビゲーター](https://ja.onsen.io/v2/api/js/ons-navigator.html)

@@ -1,5 +1,6 @@
 ---
 title: Onsen UI Sliding Menu
+weight: 180
 ---
 
 This is a template using [Onsen UI sliding menu](https://onsen.io/v1/reference/ons-sliding-menu.html).

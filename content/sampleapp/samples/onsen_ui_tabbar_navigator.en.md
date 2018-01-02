@@ -1,5 +1,6 @@
 ---
 title: Onsen UI Tabbar Navigation
+weight: 170
 ---
 
 This is a template using [Onsen UI tabbar](https://onsen.io/v2/api/js/ons-tabbar.html) and
