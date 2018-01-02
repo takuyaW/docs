@@ -4,8 +4,8 @@ weight: 40
 ---
 
 {{%excerpt%}}
-- [File and Folder Structure](file_dir)
-- [JS/CSS Components](components)
-- [Cordova Plugins](cordova_plugin)
-- [Custom Cordova Plugins](custom_cordova_plugin)
+- [File and Folder Structure](/en/products_guide/monaca_ide/dependencies/file_dir)
+- [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components)
+- [Cordova Plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin)
+- [Custom Cordova Plugins](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin)
 {{%/excerpt%}}

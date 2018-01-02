@@ -24,10 +24,9 @@ to the following points:
     Monaca account information. Make sure you are using the same account
     information you are using with Monaca CLI.
 2.  In the command window on your PC, navigate to your project folder
-    and use [monaca debug](#monaca-debug) command to connect to your Monaca Debugger:
+    and use [monaca debug]({{<ref "cli_commands.en.md#monaca-debug">}}) command to connect to your Monaca Debugger:
 
-    {{<highlight bash>}}
-    $ monaca debug{{</highlight>}}
+    {{<highlight bash>}}$ monaca debug{{</highlight>}}
 
 3.  Then, a popup message prompting you to pair Monaca Debugger with the
     host PC will appear. After this, your application should be running
@@ -37,7 +36,7 @@ to the following points:
 
 4.  If your pairing is successful, your local project’s name will appear
     under Local Projects in Monaca Debugger. However, if you fail the
-    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
+    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#fail-to-pair-monaca-debugger).
 
     {{<img src="/images/monaca_cli/manual/pairing_debugging/2.png" width="300">}}
 
@@ -47,11 +46,11 @@ There are two ways to stop the pairing:
 
 ### 1. From the PC
 
-In the same command window on your PC which you are running [monaca debug](#monaca-debug) command, please use the following command to stop the
+In the same command window on your PC which you are running [monaca debug]({{<ref "cli_commands.en.md#monaca-debug">}}) command, please use the following command to stop the
 pairing/break the debug process between your PC and Monaca Debugger:
 
 {{<highlight bash>}}
-    ctrl + c
+ctrl + c
 {{</highlight>}}
 
 ### 2. From Monaca Debugger
@@ -65,7 +64,7 @@ pairing/break the debug process between your PC and Monaca Debugger:
 
 ## Debugging Monaca Apps with Monaca CLI
 
-Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/products_guide/debugger/debug/#debugger-with-local-tools).
+Please refer to [Monaca Debugger with Monaca Local Development Tools](/en/products_guide/debugger/debug/#monaca-debugger-with-monaca-local-development-tools).
 
 See Also:
 

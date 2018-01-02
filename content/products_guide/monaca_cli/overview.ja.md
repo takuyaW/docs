@@ -1,5 +1,7 @@
-Monaca CLI の概要
-=================
+---
+title: 概要
+weight: 10
+---
 
 はじめに
 --------
@@ -52,27 +54,24 @@ Monaca CLI のご利用には、[Node.js](https://nodejs.org/) が必要です (
 
 次のコマンドを使用して、Monaca CLI をインストールします。
 
-> ``` {.sourceCode .bash}
-> $ npm install -g monaca
-> ```
+{{<highlight bash>}}
+$ npm install -g monaca
+{{</highlight>}}
 
 いくつかのシステムでは、インストールする権限が必要になるため、コマンドの前に
 sudo を追加する必要があります。
 
-> ``` {.sourceCode .bash}
-> $ sudo npm install -g monaca
-> ```
+{{<highlight bash>}}
+$ sudo npm install -g monaca
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 現在インストールされている Monaca CLI のバージョンを確認する場合には、
-`monaca` コマンドを使用します。また、最新の Monaca CLI
+<code>monaca</code> コマンドを使用します。また、最新の Monaca CLI
 にアップグレードする場合には、上記のコマンドを使用して、再度、インストールを行います。
-
-</div>
+{{</note>}}
 
 ### ステップ 2 : チュートリアルの確認
 
-Monaca CLI のインストール後は、こちらの
-Monaca CLI チュートリアル &lt;monaca\_cli\_tutorial&gt;
+Monaca CLI のインストール後は、こちらの [Monaca CLI チュートリアル](../tutorial)
 の内容に沿って、Monaca CLI を使用してみましょう。

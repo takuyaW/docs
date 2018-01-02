@@ -1,8 +1,6 @@
-テンプレート
-============
+---
+title: テンプレート
+weight: 80
+---
 
-> maxdepth
->
-> :   2
->
-> vue\_onsen
+- [Vue 2 & Onsen UI 2 入門](vue_onsen)
