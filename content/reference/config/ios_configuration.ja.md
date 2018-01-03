@@ -5,8 +5,8 @@ weight: 20
 
 iOS アプリの設定には、2 通りの方法があります。
 
-1.  Monaca クラウド IDE 経由で設定する方法 &lt;ios\_config\_ide&gt;
-2.  設定ファイルを編集する方法 &lt;ios\_config\_files&gt;
+1.  [Monaca クラウド IDE 経由で設定する方法](#monaca-クラウド-ide-経由で設定する方法)
+2.  [設定ファイルを編集する方法](#設定ファイルの編集)
 
 Monaca クラウド IDE 経由で設定する方法
 --------------------------------------
@@ -17,17 +17,15 @@ iOS アプリの設定画面では、iOS
 アプリに適用するパラメーターを設定できます。次の手順に従い、Monaca
 クラウド IDE の iOS アプリの設定画面を表示します。
 
-1.  Monaca クラウド IDE メニュー上で、 設定 --&gt; iOS アプリ設定
-    を選択します。
+1.  Monaca クラウド IDE メニュー上で、 {{<menu menu1="設定" menu2="iOS アプリ設定">}} を選択します。
 
-> ![image](images/ios/ide_1.png){width="250px"}
+    {{<img src="/images/reference/config/ios/ide_1.png">}}
 
-2.  *iOS アプリ設定*
-    画面が、次のように表示されます。こちらの画面で設定を行います。
+2.  `iOS アプリ設定` 画面が、次のように表示されます。こちらの画面で設定を行います。
 
-> ![image](images/ios/ide_2.png){width="600px"}
+    {{<img src="/images/reference/config/ios/ide_2.png">}}
 
-3.  設定後、 保存する ボタンをクリックします。
+3.  設定後、 {{<guilabel name="保存する">}} ボタンをクリックします。
 
 ### 設定できるパラメーター
 
@@ -36,17 +34,21 @@ iOS
 ( 権限 )
 の設定など、多岐にわたります。画面上で設定できるパラメーターの一覧を、次に記します。
 
--   *許可する外部 URL* : アプリから接続できる URL
+-   `許可する外部 URL` : アプリから接続できる URL
     を指定します。デフォルトでは `*`
     に設定され、全てのドメインへの接続を許可しています。
--   *オーバースクロールを無効* : WebView
+
+-   `オーバースクロールを無効` : WebView
     上でバウンスを無効にしたい場合には、有効にします。デフォルトは有効です。
--   *ビューポート制御を有効* :
+
+-   `ビューポート制御を有効` :
     デフォルトは有効です。無効にした場合、アプリ内に設定された、viewport
     の meta タグを無視します。
--   *スプラッシュ画像をフェードアウト* :
+
+-   `スプラッシュ画像をフェードアウト` :
     デフォルトでは、有効化されています。
--   *スプラッシュにスピナーを表示* : アプリの起動時に、スプラッシュ画面
+
+-   `スプラッシュにスピナーを表示` : アプリの起動時に、スプラッシュ画面
     ( スピナー ) を表示します。
 
 設定ファイルの編集
@@ -54,64 +56,48 @@ iOS
 
 iOS アプリのパラメーターは、次のファイル内に記述されています。
 
-> -   info\_plist
-> -   config\_xml\_ios
+- [MonacaApp-Info.plist](#monacaapp-info-plist)
+- [config.xml](#config-xml)
 
-<div class="admonition note">
-
-iOS
-アプリの挙動に関する設定が、上記のファイル内に記述されています。誤って設定した場合、アプリが動作しなくなる恐れがあります。編集する場合には、細心の注意が必要です。
-
-</div>
+{{<note>}}
+  iOS アプリの挙動に関する設定が、上記のファイル内に記述されています。誤って設定した場合、アプリが動作しなくなる恐れがあります。編集する場合には、細心の注意が必要です。
+{{</note>}}
 
 ### MonacaApp-Info.plist
 
 iOS アプリの設定を行うには、 MonacaApp-Info.plist ファイルを編集します。
-`plist` ファイルの情報に関しては、 [Information Property List Files (
-Apple
-)](http://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)
-をご確認ください。このファイルは、次のように、Monaca プロジェクトの
-`ios` フォルダー下に置かれています。
+`plist` ファイルの情報に関しては、 [Information Property List Files ( Apple )](http://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) をご確認ください。このファイルは、次のように、Monaca プロジェクトの `ios` フォルダー下に置かれています。
 
-![](images/ios/1.png){width="250px"}
+{{<figure src="/images/reference/config/ios/1.png">}}
 
-<div class="admonition note">
+{{<note>}}
+  Cordova 6.2 以降をサポートする Monaca フレームワークでは、<code>MonacaApp-Info.plist</code> ファイルを使用しないように、仕様が変更されました。よって、iOS アプリの設定をカスタマイズする場合には、 {{<link href="/ja/reference/third_party_phonegap/custom_config" title="Custom Config プラグイン">}} を使用する必要があります。
+{{</note>}}
 
-Cordova 6.2 以降をサポートする Monaca
-フレームワークでは、`MonacaApp-Info.plist`
-ファイルを使用しないように、仕様が変更されました。よって、iOS
-アプリの設定をカスタマイズする場合には、custom\_config\_plugin
-を使用する必要があります。
+{{<highlight xml>}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 
-</div>
+<plist>
+  <dict>
+    <key>key</key>
+    <value-type>value</value-type>
+      ...
+    <key>key</key>
+    <array>
+      <value-type>value</value-type>
+      <value-type>value</value-type>
+    </array>
+    ...
+  </dict>
+</plist>
+{{</highlight>}}
 
-MonacaApp-Info.plist ( 抜粋 )
+`MonacaApp-Info.plist` ファイル内には、3 つの主な要素があります。
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-
-    <plist>
-      <dict>
-        <key>key</key>
-        <value-type>value</value-type>
-          ...
-        <key>key</key>
-        <array>
-          <value-type>value</value-type>
-          <value-type>value</value-type>
-        </array>
-        ...
-      </dict>
-    </plist>
-
-MonacaApp-Info.plist ファイル内には、3 つの主な要素があります。
-
--   *&lt;key&gt;*: value ( plistObject )
-    とアプリの設定情報間の紐付けをします。
--   *&lt;array&gt;*: 配列を使用して、value ( plistObject )
-    を格納できます。
--   *&lt;dict&gt;*: key と value ( plistObject )
-    の組み合わせを、&lt;dict&gt; 内に置きます。
+- `<key>` : value ( plistObject ) とアプリの設定情報間の紐付けをします。
+- `<array>` : 配列を使用して、value ( plistObject ) を格納できます。
+- `<dict>` : key と value ( plistObject ) の組み合わせを、<dict> 内に置きます。
 
 例 :
 
