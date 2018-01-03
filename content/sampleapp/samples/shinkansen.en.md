@@ -8,7 +8,7 @@ towards Tokaido and Tohoku areas.
 
 {{<import pid="5923ccc5ff2af20e3acb2dd1" title="Train Catalog App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1
@@ -56,6 +56,7 @@ is used to launch the browser and display the specified URL.
 ## JavaScript Explanation
 
 The JavaScript code of the Top Screen is not long.
+
 {{<highlight javascript>}}
 function showDetail(filename, trainname) {
   monaca.pushPage("detail.html", {}, {filename : filename, trainname : trainname})

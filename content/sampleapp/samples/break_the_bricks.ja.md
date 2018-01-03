@@ -3,48 +3,42 @@ title: ブロック崩しゲーム
 weight: 70
 ---
 
-pixi.js を使用したサンプルゲームです。 pixi.js は、非常に高速な、HTML5
-の 2D レンダリング エンジンです。WebGL を基盤としています \[ WebGL
-未対応のブラウザーでは、Canvas にフォールバック ( fallback / 切り替え )
-します \]。Pixi の詳細は、
-[こちら](https://github.com/GoodBoyDigital/pixi.js)
-をご確認ください。このゲームでは、ボールが画面下に落ちないように、パドルを操作しながら、煉瓦状に積まれたブロックを崩していきます。すべてのブロックを崩し終えたところで、ゲームクリアとなります。
+pixi.js を使用したサンプルゲームです。 pixi.js は、非常に高速な、HTML5 の 2D レンダリング エンジンです。WebGL を基盤としています [ WebGL
+未対応のブラウザーでは、Canvas にフォールバック ( fallback / 切り替え ) します ]。Pixi の詳細は、
+[こちら](https://github.com/GoodBoyDigital/pixi.js) をご確認ください。このゲームでは、ボールが画面下に落ちないように、パドルを操作しながら、煉瓦状に積まれたブロックを崩していきます。すべてのブロックを崩し終えたところで、ゲームクリアとなります。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                             
-  ---------------------------------------------------------- -------------------------------------- --------------------------------------------------------------------------------------------------------
+{{<import pid="5923a149ff2af2060e324c54" title="Break the Bricks">}}
+
+**テスト環境**
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/5-monacanoid/www/index.html">}}
                                                                                                     
-  .. raw:: html                                                                                     
-  &lt;div class="iframe-sample                               s"&gt;                                 
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa           tes/5-monacanoid/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                                      
-                                                                                                    
-  ファイル構成                                                                                      
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                          
-  .. image:: images/break\_the                               \_bricks/break\_1.png                  
-  :width: 200px                                                                                     
-                                                                                                    
-  ============================                               ====== =====================           ======================================================================================================
-  `index.html`                                               スタート画面のページ ( ホーム画面の    ページ )
-  `js/main.js`                                               アプリ内でさまざまな処理を行う Ja      vaScript ファイル
-  `css/style.css`                                            アプリに適用する共通スタイルシート     
-  `img/*.png`                                                このテンプレートで使用する、すべての   イメージファイル
-  `res/VT323-Regular.ttf`                                    TrueType のフォント                    
+## ファイル構成                                                                                      
+
+ファイル | 説明 
+------|-------------
+`index.html` | スタート画面のページ ( ホーム画面のページ )
+`js/main.js` | アプリ内でさまざまな処理を行う JavaScript ファイル
+`css/style.css` | アプリに適用する共通スタイルシート
+`img/*.png`	| このテンプレートで使用する、すべてのイメージファイル
+`res/VT323-Regular.ttf`	| TrueType のフォン
 
 必要な JS/CSS コンポーネント
 ----------------------------
 
-  `Pixi`                                                       
-  ------------------------------------------------------------ --------
-                                                               
-  ソースコードの解説                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^
-  js/main.js                                                   
+-  `Pixi`
 
-main.js は、アプリ内のさまざまな処理を定義している JavaScript
+## ソースコードの解説                                           
+
+### js/main.js                                                   
+
+`main.js` は、アプリ内のさまざまな処理を定義している JavaScript
 ファイルです。
 
-`BB`
-オブジェクトのコードを次に記します。こちらが、アプリで使用する、メインのオブジェクトとなります。プロパティーには、スクリーンサイズ用
+`BB` オブジェクトのコードを次に記します。こちらが、アプリで使用する、メインのオブジェクトとなります。プロパティーには、スクリーンサイズ用
 ( screenSize )、パドル用 ( paddle )、ボール用 ( balls )、ブロック用 (
 blocks )、スコア用 ( score )
 などがあります。メソッドには、マップの作成用 ( `setMap()`
@@ -52,7 +46,7 @@ blocks )、スコア用 ( score )
 )、ゲームのリセット用 ( `reset()` )、スコアの計算用 ( `addScore()`
 )、ゲームの終了用 ( `endGame()` ) などがあります。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var BB = {
     stage: new PIXI.Stage(0x000000),
@@ -306,26 +300,25 @@ var BB = {
     }
 }
 ...
-```
+{{</highlight>}}
 
 このページの読み込みが開始されると、 `init()` が呼び出されます。Cordova
 側の準備が完了したとき、または、端末の種類を検知できなかったとき、いずれの場合でも、`init()`
 が呼び出されます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 window.onload = function() {
     if(getUa() === false) init();
     else document.addEventListener("deviceready", init, false);
 }
 ...
-```
+{{</highlight>}}
 
-`init()`
-関数のコードを次に記します。この関数では、使用されている端末の種類に応じた、BB
+`init()` 関数のコードを次に記します。この関数では、使用されている端末の種類に応じた、BB
 オブジェクトのレンダリングを行います。次に、パドルに対して、リスナーを設定します。そして、各イベントに応じて、パドルの位置を決めます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function init() {
     // Accelerometer
@@ -386,12 +379,12 @@ function init() {
     requestAnimFrame(animate);
 }
 ...
-```
+{{</highlight>}}
 
 `getUa()` 関数を使用して、端末の種類を検知します。検知できない場合には、
 `false` を返します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function getUa() {
     if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 ) {
@@ -403,4 +396,4 @@ function getUa() {
     } else return false;
 }
 ...
-```
+{{</highlight>}}

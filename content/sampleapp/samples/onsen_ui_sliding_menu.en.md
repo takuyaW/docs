@@ -5,7 +5,7 @@ weight: 180
 
 This is a template using [Onsen UI sliding menu](https://onsen.io/v1/reference/ons-sliding-menu.html).
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 4.2.2
 - iOS 7.1.1
@@ -48,20 +48,20 @@ user swipe the page right. This page contains a list of 2 items: Page 1
 
 {{<figure src="/images/sampleapp/onsen_ui_sliding_menu/sliding_3.png" width="300">}}   
 
-While the behind-page (menu.html) of the sliding menu element is always
-the same, its above-page is changed to navigator1.html or
-navigator2.html when the Page 1 or Page 2 is selected, respectively.
+While the behind-page (`menu.html`) of the sliding menu element is always
+the same, its above-page is changed to `navigator1.html` or
+`navigator2.html` when the Page 1 or Page 2 is selected, respectively.
 
 ### page1.html
 
-page1.html has several lines of text, a Toggle Menu button and an image
+`page1.html` has several lines of text, a Toggle Menu button and an image
 file. (See the screenshot below)
 
 {{<figure src="/images/sampleapp/onsen_ui_sliding_menu/sliding_2.png" width="300">}}   
 
 ### page2.html
 
-page2.html has only a line of text (`Page 2`) and a Toggle Menu button.
+`page2.html` has only a line of text (`Page 2`) and a Toggle Menu button.
 (See the screenshot below)
 
 {{<figure src="/images/sampleapp/onsen_ui_sliding_menu/sliding_4.png" width="300">}}   

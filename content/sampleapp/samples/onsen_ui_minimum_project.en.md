@@ -5,7 +5,7 @@ weight: 160
 
 This is a minimum template for [Onsen UI](https://onsen.io/) application.
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 4.2.2
 - iOS 7.1.1

@@ -1,5 +1,6 @@
 ---
 title: iOS Configuration
+weight: 20
 ---
 
 There are 2 ways to configure your iOS apps:
@@ -239,7 +240,7 @@ Attribute | Type | Default Value | Description
 </widget>
 {{</highlight>}}
 
-####  *&lt;access&gt; element*
+#### &lt;access&gt; element
 
 Attribute | Type | Default Value | Description
 ----------|------|---------------|-------------------

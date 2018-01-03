@@ -3,45 +3,41 @@ title: 時計アプリ
 weight: 120
 ---
 
-<div class="admonition note">
-
-このサンプルアプリは、2013年3月11日付の [Think
-IT](http://thinkit.co.jp/story/2013/03/11/3987)
-に掲載された記事を転載したものです。
-
-</div>
+{{<note>}}
+    このサンプルアプリは、2013年3月11日付の {{<link href="http://thinkit.co.jp/story/2013/03/11/3987" title="Think IT">}} に掲載された記事を転載したものです。
+{{</note>}}
 
 現在の日付と時間を表示する時計アプリのサンプルです。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                                             
-  ---------------------------------------------------------- ------------------------------------------------------ -----------------------------------------------------------------------------------------------------
-                                                                                                                    
-  .. raw:: html                                                                                                     
-  &lt;div class="iframe-sample                               s"&gt;                                                 
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa                           tes/21-clock-app/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                                                      
-                                                                                                                    
-  ファイル構成                                                                                                      
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                          
-  .. image:: images/clock/1.p                                ng                                                     
-  :width: 200px                                                                                                     
-                                                                                                                    
-  ========================== =                               ============================                           ===================================================================================================
-  `index.html`                                               スタート画面のページ                                   
-  `js/app.js`                                                プロジェクト内のさまざまな処理を行う JavaScri          pt ファイル
-  `css/style.css`                                            プロジェクトのスタイルシート ファイル                  
-  `images/*.png`                                             このテンプレートで使用する、すべてのイメージファイル   
+{{<import pid="5923cd8e8034518c22fbdcbf" title="Clock App">}}
+
+**テスト環境** 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/21-clock-app/www/index.html">}}                                                                                                    
+## ファイル構成
+
+{{<figure src="/images/sampleapp/clock/1.png">}}  
+
+ファイル | 説明
+--------------|-----------------------------------
+`index.html` | スタート画面のページ
+`js/app.js` | プロジェクト内のさまざまな処理を行う JavaScript ファイル
+`css/style.css` | プロジェクトのスタイルシート ファイル
+`images/*.png` | このテンプレートで使用する、すべてのイメージファイル
 
 HTML の解説
 -----------
 
 ### index.html
 
-index.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 )
+`index.html` ファイル内の次の記述 ( HTML の &lt;body&gt; 内 )
 で、現在の日付と時間を表示します ( 下のスクリーンショットを参照のこと
 )。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <div id="wrapper">
     <div id="container">
         <img src="images/figure-0.png" class="figure" />
@@ -56,21 +52,21 @@ index.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 )
     </div>
     <img src="images/logo-monaca.png" style="position: absolute; left: 40px; top: 40px;" />
 </div>
-```
+{{</highlight>}}
 
-![](images/clock/3.png){width="500px"}
+{{<figure src="/images/sampleapp/clock/3.png">}}  
 
 JavaScript の解説
 -----------------
 
 ### js/app.js
 
-アプリが起動した後、 次の記述により、 `clock()` 関数が 1 秒 ( 1000 ms )
+アプリが起動した後、 次の記述により、 `clock()` 関数が 1 秒 ( `1000 ms` )
 毎に呼び出されます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 setInterval(clock, 1000);
-```
+{{</highlight>}}
 
 `clock()`
 関数を使用して、現在の日付と時間を表示します。最初に、現在の時間 (
@@ -80,7 +76,7 @@ setInterval(clock, 1000);
 下のスクリーンショットを参照のこと )。`clock()`
 関数の内容を次に示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function clock() {
     // (3) Obtain "figure" class(image of the number)
     var figures = document.getElementsByClassName('figure');
@@ -105,6 +101,6 @@ function clock() {
     // (8) Display the date
     date.textContent = renderDay(now.getDay()) + ", " + renderMonth(now.getMonth()) + " " + now.getDate() + ", " + now.getFullYear();
 }
-```
+{{</highlight>}}
 
-![](images/clock/4.png){width="500px"}
+{{<figure src="/images/sampleapp/clock/4.png">}}  

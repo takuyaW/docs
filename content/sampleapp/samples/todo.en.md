@@ -7,7 +7,7 @@ The application allows you to add a todo list.
 
 {{<import pid="5923a0bf013eb0662bca5a15" title="TODO App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1

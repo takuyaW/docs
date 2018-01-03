@@ -8,28 +8,40 @@ weight: 140
 を使用します。JavaScript
 は、簡素な構文と関数群でプログラムを構築できるスクリプト言語です。他の言語と比較すると、スマートフォーン向けの開発のときに、多く使用されています。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                     
-  ---------------------------------------------------------- ------------------------------ ----------------------------------------------------------------------------
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/23-omikuji/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  ファイル構成                                                                              
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-  .. image:: images/omikuji/1                                .png                           
-  :width: 210px                                                                             
-  :align: center                                                                            
-  ===========================                                ======= ====================   =====================================================================
-  `index.html`                                               スタート画面のページ           
-  `images/*.png`                                             アプリで使用する画像ファイル   
+{{<import pid="5923a1c28034511f6d8a8fe3" title="Omikuji Fortune Telling App">}}
+
+**テスト環境**
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/23-omikuji/www/index.html">}}
+
+## ファイル構成                                           
+
+{{<figure src="/images/sampleapp/omikuji/1.png">}}                                
+
+ファイル | 説明
+--------------|-----------------------------------
+`index.html` | スタート画面のページ           
+`images/*.png` | アプリで使用する画像ファイル   
 
 HTML の解説
 -----------
 
 HTML の &lt;body&gt; 内の記述は、次のとおりです。
 
-1～4 行目と 5～7 行目を `div` タグでそれぞれ囲み、ID として、`hako` と
+{{<highlight html>}}
+<div id="hako">
+    <img id="saisyo" src="images/omikuji-box.png" />
+    <img id="kekka" style="display : none;"/>
+</div>
+<div id="bottombar">
+    <img id="button" src="images/omikuji-btn-hajimeru.png" onclick="omikuji()">
+</div>
+{{</highlight>}}
+
+`1～4` 行目と `5～7` 行目を `div` タグでそれぞれ囲み、ID として、`hako` と
 `bottombar` をそれぞれ設定します。これらの ＩＤ
 は、後述するスタイルシートで参照されます。
 
@@ -65,6 +77,25 @@ HTML 内に組み込んだもので、ファイルを読み込んだ段階では
 を持つタグに適用するスタイル、 `bottombar` の ID
 を持つタグに適用するスタイルとなります。
 
+{{<highlight css>}}
+body {
+    background: url("images/omikuji-bg.png") 100% 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#hako {
+    position: absolute;
+    width: 100%;
+    top: 10%;
+}
+#bottombar {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+{{</highlight>}}
+
 `body`
 タグに適用するスタイルとして、`background`、`margin`、`padding`、`text-align`
 の 4 つのプロパティーを使用します。 `background`
@@ -84,35 +115,49 @@ HTML 内に組み込んだもので、ファイルを読み込んだ段階では
 `body` タグに対する座標となります。 `bottom` と `top`
 プロパティーを使用して、下と上から始まる位置を、それぞれ指定します。
 
-<div class="admonition note">
-
-このアプリでは、外部のスタイルシート ( components/loader.css )
-ファイルを参照しています。こちらのファイルは、Monaca
-プラグインで読み込んだライブラリーが使用するスタイルシートを記述しておくファイルです。今回のサンプルでは、スタイルシートを使用する
-Monaca プラグインを使用していないため、特に意味はありません。
-
-</div>
+{{<note>}}
+  このアプリでは、外部のスタイルシート (  <code>components/loader.css</code> ) ファイルを参照しています。こちらのファイルは、Monaca プラグインで読み込んだライブラリーが使用するスタイルシートを記述しておくファイルです。今回のサンプルでは、スタイルシートを使用する Monaca プラグインを使用していないため、特に意味はありません。
+{{</note>}}
 
 JavaScript の解説
 -----------------
 
 JavaScript コードを解説します。
 
-1～16 行目は、`omikuji` 関数の定義です。\[ はじめる \]
+{{<highlight javascript>}}
+function omikuji (){
+  var dice = Math.floor(Math.random() * 3);
+  var image_name;
+  if (dice == 0) {
+      image_name = "omikuji-daikichi.png";
+  } else if  (dice == 1) {
+      image_name = "omikuji-chuukichi.png";
+  } else {
+      image_name = "omikuji-hei.png";
+  }
+
+  document.getElementById("saisyo").style["display"] = "none";
+  document.getElementById("kekka").src = "images/" + image_name;
+  document.getElementById("kekka").style["display"] = "inline";
+  document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
+}
+{{</highlight>}}
+
+`1～16` 行目は、`omikuji` 関数の定義です。\[ はじめる \]
 ボタンをタップすると、この関数が実行されます。2 行目では `Math.floor`
 関数と `Math.random` 関数を組み合わせ、0 から 3 までの乱数を生成し、
 `dice` 変数に代入します。4～11 行目では、 `dice`
 変数の値に応じて、画像ファイル名を、 *image\_name* 変数に代入します。
 
-12～15 行目では、 `document.getElementById`
+`12～15` 行目では、 `document.getElementById`
 関数を使用して、スタイルシートの変更と画像の差し替えを行います。この処理は、DOM
 ( Document Object Model ) 操作と呼ばれ、HTML
 の内容を、動的に書き換える仕組みです。次の例では、 `kekka` の ID
 を持つ要素 ( HTML タグ ) の `src` 属性を変更しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.getElementById("kekka").src = "images/" + image_name;
-```
+{{</highlight>}}
 
 上述したように、`image_name`
 変数には、おみくじ結果を反映した画像ファイル名が指定されるため、この記法を使用して、おみくじ結果のイメージを、画面上に表示できます。

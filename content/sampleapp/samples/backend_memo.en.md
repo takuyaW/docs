@@ -3,12 +3,11 @@ title: Backend Memo
 weight: 80
 ---
 
-This sample app allows user to create a memo app using Monaca Backend
-API.
+This sample app allows user to create a memo app using Monaca Backend API.
 
 {{<import pid="5923c8f6013eb0ce4ab3b899" title="Backend Memo">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1
@@ -28,7 +27,7 @@ After you have created a new backend, please create a new `Memo` collection as f
 {{</note>}}
 
 {{<note>}}
-  In order to access Backend API, you need to register <code>cloud.monaca.mobi</code> in the whitelist by editing each OSs configuration file. For more details, please refer to {{<link href="/en/reference/config/android_configuration/#access-origin-android" title="Access Origin (Android)">}} and {{<link href="/en/reference/config/ios_configuration/#access-origin" title="Access Origin (iOS)">}}.
+  In order to access Backend API, you need to register <code>cloud.monaca.mobi</code> in the whitelist by editing each OSs configuration file. For more details, please refer to {{<link href="/en/reference/config/android_configuration/#lt-access-gt-element" title="Access Origin (Android)">}} and {{<link href="/en/reference/config/ios_configuration/#lt-access-gt-element" title="Access Origin (iOS)">}}.
 {{</note>}}
 
 ## File Components                                           
@@ -42,8 +41,8 @@ After you have created a new backend, please create a new `Memo` collection as f
 
 ## Required JS/CSS Components
 
-- `jQuerymobile`                                               
-                                                               
+- `jQuerymobile`
+
 ## HTML Explanation                                             
 
 For the User Interface of this sample app, we use jQuery Mobile. In jQuery Mobile, multiple pages can be integrated to a single HTML file. In this app, for example, both login screen and register screen are defined within index.html. Specifically, pages are expressed by `div` tags in which the `data-role` attribute is set to `page`. The role of the tags is expressed by the `data-role` attribute in this manner. For example, `data-role` can also specify as `header`, `content` , or `listview`. For more information on jQuery Mobile tags and components, please refer to [jQuery Mobile Demo](http://jquerymobile.com/demos/1.2.0/).

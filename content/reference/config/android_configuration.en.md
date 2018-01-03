@@ -1,5 +1,6 @@
 ---
 title: Android Configuration
+weight: 10
 ---
 
 There are 2 ways to configure your Android apps:
@@ -92,7 +93,7 @@ Attribute | Type | Default Value | Description
 </widget>
 {{</highlight>}}
 
-####  *&lt;access&gt; element*
+#### &lt;access&gt; element
 
 Attribute | Type | Default Value | Description
 ----------|------|---------------|-------------------

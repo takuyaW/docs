@@ -4,60 +4,55 @@ weight: 40
 ---
 
 このサンプルアプリは、基本 Cordova
-プラグインのデモ用アプリですす。デモとして、複数の端末機能 (
-カメラ、連絡帳、コンパスなど ) を実装させています。
+プラグインのデモ用アプリですす。デモとして、複数の端末機能 ( カメラ、連絡帳、コンパスなど ) を実装させています。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                     
-  ---------------------------------------------------------- ------------------------------ -----------------------------------------------------------------------------------------------------
-                                                                                            
-  .. raw:: html                                                                             
-  &lt;div class="iframe-sample                               s"&gt;                         
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa   tes/0-helloworld/www/index.html"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                              
-                                                                                            
-  ファイル構成                                                                              
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                  
-                                                                                            
-  .. image:: images/hello\_worl                              d/hello\_3.png                 
-  :width: 200px                                                                             
-                                                                                            
-  ============================                               ======================== ===   ===================================================================================================
-  `index.html`                                               スタ                           ート画面のページ
-  `phonegap-demo.html`                                       基                             本 Cordova プラグイン デモ画面ページ
-  \`phonegap-demo/master.css                                 \` 基                          本 Cordova プラグイン デモ画面ページのスタイルシート
-  `phonegap-demo/main.js`                                    基                             本 Cordova プラグイン デモ画面ページ上の一連の処理を行う JavaScript ファイル
-  `css/style.css`                                            ア                             プリに適用する共通スタイルシート
-  `img/icon/*.png`                                           ア                             イコン用のファイル
+{{<import pid="59239fcc013eb0bc28683312" title="Hello World App">}}
 
-必要な JS/CSS コンポーネント
-----------------------------
+**テスト環境** 
 
-  `jQuery`                                                     
-  ------------------------------------------------------------ ------------------
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/0-helloworld/www/index.html">}}
+
+## ファイル構成
+
+{{<figure src="/images/sampleapp/hello_world/hello_3.png">}}                                
+                                                                                            
+ ファイル | 説明 
+------|-------------
+`index.html` | スタート画面のページ
+`phonegap-demo.html` | 基本 Cordova プラグイン デモ画面ページ
+`phonegap-demo/master.css` | 基本 Cordova プラグイン デモ画面ページのスタイルシート
+`phonegap-demo/main.js` | 基本 Cordova プラグイン デモ画面ページ上の一連の処理を行う JavaScript ファイル
+`css/style.css` | アプリに適用する共通スタイルシート
+`img/icon/*.png` | アイコン用のファイル
+
+## 必要な JS/CSS コンポーネント
+
+- `jQuery`                                                     
                                                                
-  HTML の解説                                                  
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^
-  index.html                                                   
+## HTML の解説                                                  
 
-index.html はスタート画面のページです。ソースコードを次に記します。
+### index.html                                                   
 
-``` {.sourceCode .html}
+`index.html` はスタート画面のページです。ソースコードを次に記します。
+
+{{<highlight html>}}
 <body>
     <h1>HelloWorld!</h1>
     <a class="button--large" href="phonegap-demo.html">Start Demo</a>
 </body>
-```
+{{</highlight>}}
 
-上記 HTML コードの `<body>` タグ内の記述で、`HelloWorld!` と Start Demo
+上記 HTML コードの `<body>` タグ内の記述で、`HelloWorld!` と {{<guilabel name="Start Demo">}}
 ボタンの表示を、次のように行います。
 
-![](images/hello_world/hello_4.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_4.png" width="300">}}   
 
 ### phonegap-demo.html
 
-phonegap-demo.html
-を使用して、携帯端末の基本情報と次に列挙した機能を、基本 Cordova
-プラグイン デモ画面ページに表示します。
+`phonegap-demo.html` を使用して、携帯端末の基本情報と次に列挙した機能を、基本 Cordova プラグイン デモ画面ページに表示します。
 
 -   *加速度センサーの切り替え*: 携帯端末の加速度の計測の開始と停止
 -   *位置情報の取得*: 携帯端末の現在の位置情報の取得
@@ -71,14 +66,14 @@ phonegap-demo.html
     携帯端末が接続を行っている、現在のネットワークタイプの確認
 -   *コンパスの切り替え*: 携帯端末の方位計測 ( コンパス ) の開始と停止
 
-![](images/hello_world/hello_2.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_2.png" width="300">}}   
 
 これらの機能を記述した JavaScript コードに関しては、後ほど説明します。
 
 JavaScript の解説
 -----------------
 
-main.js は、基本 Cordova プラグイン
+`main.js` は、基本 Cordova プラグイン
 デモ画面ページで使用する一連の処理を記述した JavaScript
 ファイルです。このファイルでは、前述した 8 個の機能を記述しています。
 
@@ -87,7 +82,7 @@ main.js は、基本 Cordova プラグイン
 携帯端末の動きの計測を開始または停止します。この関数の JavaScript
 コードは次のとおりです。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var accelerationWatch = null;
 
@@ -116,20 +111,18 @@ var toggleAccel = function() {
   }
 };
 ...
-```
+{{</highlight>}}
 
-When click on the 加速度センサーの切り替え button, you can either start
-or stop the measurement of the phone's movement. If it is started, the
-`X`, `Y` & `Z` values change; otherwise, they will appear as `0`.
+{{<guilabel name="Toggle Accelerometer">}} ボタンをクリックすると、携帯端末の動きの計測を、開始または停止できます。開始すると `X` , `Y` , `Z` の値が更新されます。停止の場合には `0` となります。
 
-![](images/hello_world/toggle.png){width="700px"}
+{{<figure src="/images/sampleapp/hello_world/toggle.png">}}
 
 ### 位置情報の取得
 
 携帯端末の位置情報を取得します。この関数の JavaScript
 コードは次のとおりです。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var getLocation = function() {
   var suc = function(p) {
@@ -140,59 +133,54 @@ var getLocation = function() {
   navigator.geolocation.getCurrentPosition(suc, locFail);
 };
 ...
-```
+{{</highlight>}}
 
-Get Location
-ボタンをクリックすると、現在の位置情報を示したメッセージが次のように表示されます。
+{{<guilabel name="Get Location">}} ボタンをクリックすると、現在の位置情報を示したメッセージが次のように表示されます。
 
-![](images/hello_world/hello_7.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_7.png" width="300">}}
 
 ### 電話 ( 411 )
 
 `411` に電話します。この関数の JavaScript コードを次に記します。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 ...
-<a href="tel:411" class="btn large">電話 ( 411 )</a>
+<a href="tel:411" class="btn large">Call 411</a>
 ...
-```
+{{</highlight>}}
 
-<div class="admonition note">
+{{<note>}}
+  <code>href="tel:411"</code> を使うためには、以下の設定が必要です <code>config.xml</code>。
 
-`href=\"tel:411\"` を使うためには、以下の設定が必要です config.xml 。
-
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <allow-intent href="tel:*" />
-```
+{{</highlight>}}
+{{</note>}}
 
-</div>
+{{<guilabel name="Call 411">}} ボタンをクリックすると、電話するかを確認するメッセージを表示します。
 
-Call 411
-ボタンをクリックすると、電話するかを確認するメッセージを表示します。
-
-![](images/hello_world/hello_8.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_8.png" width="300">}}
 
 ### バイブレーション
 
-バイブレーション the phone. Below is the JavaScript code of this
-function:
+携帯端末を振動させます。この関数の JavaScript コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var vibrate = function() {
   navigator.notification.vibrate(0);
 };
 ...
-```
+{{</highlight>}}
 
-Vibrate ボタンをクリックすると、携帯端末が振動します。
+{{<guilabel name="Vibrate">}} ボタンをクリックすると、携帯端末が振動します。
 
 ### 写真の撮影
 
 携帯端末搭載のカメラを起動します。この関数の JavaScript
 コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function dump_pic(data) {
   var viewport = document.getElementById('viewport');
@@ -214,22 +202,18 @@ function show_pic() {
   });
 }
 ...
-```
+{{</highlight>}}
 
-Get a Picture
-ボタンをクリックすると、携帯端末のカメラが起動します。写真を撮り、画面上に表示する場合には、次のスクリーンショット
-( 画像 1 枚目、赤い囲み )
-のようになります。表示しない場合には、メッセージが次 ( 画像 2 枚目 )
-のように表示されます。
+{{<guilabel name="Get a Picture">}} ボタンをクリックすると、携帯端末のカメラが起動します。写真を撮り、画面上に表示する場合には、次のスクリーンショット ( 画像 1 枚目、赤い囲み ) のようになります。表示しない場合には、メッセージが次 ( 画像 2 枚目 ) のように表示されます。
 
-![](images/hello_world/camera.png){width="700px"}
+{{<figure src="/images/sampleapp/hello_world/camera.png">}}
 
 ### 連絡先の取得
 
 携帯端末内に保存された連絡先の総数、および、取得したデータの 3
 番目の連絡先を表示します。この関数の JavaScript コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function contacts_success(contacts) {
   alert(contacts.length
@@ -251,20 +235,17 @@ function get_contacts() {
           contacts_failed, obj);
 }
 ...
-```
+{{</highlight>}}
 
-Get Phone's Contacts
-ボタンをクリックすると、携帯端末に保存された連絡先の総数、および、取得したデータの
-3 番目に位置する連絡先を、次のように表示します。
+{{<guilabel name="Get Phone's Contacts">}} ボタンをクリックすると、携帯端末に保存された連絡先の総数、および、取得したデータの 3 番目に位置する連絡先を、次のように表示します。
 
-![](images/hello_world/hello_11.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_11.png" width="300">}}
 
 ### ネットワークの確認
 
-携帯端末が現在使用してるネットワークの種類を確認します。この関数の
-JavaScript コードを次に記します。
+携帯端末が現在使用してるネットワークの種類を確認します。この関数の JavaScript コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 function check_network() {
   var networkState = navigator.network.connection.type;
@@ -281,19 +262,18 @@ function check_network() {
   confirm('Connection type:\n ' + states[networkState]);
 }
 ...
-```
+{{</highlight>}}
 
-Check Network
-ボタンをクリックすると、現在接続しているネットワークの種類を表示します。
+{{<guilabel name="Check Network">}} ボタンをクリックすると、現在接続しているネットワークの種類を表示します。
 
-![](images/hello_world/hello_12.png){width="250px"}
+{{<figure src="/images/sampleapp/hello_world/hello_12.png" width="300">}}
 
 ### コンパスの切り替え
 
 携帯端末のコンパスを開始または停止します。この関数の JavaScript
 コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 var watchID = null;
 
@@ -314,10 +294,8 @@ function toggleCompass() {
   }
 }
 ...
-```
+{{</highlight>}}
 
-Toggle Compass
-ボタンをクリックすると、携帯端末の方位計測を、開始または停止できます。方位計測を開始すると、値が更新されます。停止の場合には
-`off` となります。下のスクリーンショットをご確認ください。
+{{<guilabel name="Toggle Compass">}} ボタンをクリックすると、携帯端末の方位計測を、開始または停止できます。方位計測を開始すると、値が更新されます。停止の場合には `off` となります。下のスクリーンショットをご確認ください。
 
-![](images/hello_world/compass.png){width="700px"}
+{{<figure src="/images/sampleapp/hello_world/compass.png">}}

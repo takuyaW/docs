@@ -3,73 +3,74 @@ title: iBeacon
 weight: 150
 ---
 
-( 最終更新日 : 2014/02/05 )
-
 iBeacon ( アイビーコン ) サービスを組み込んだサンプルアプリです。iBeacon
-発信機との距離を検知します。こちらの Monaca アプリでは、[Onsen
-UI](https://docs.monaca.io/ja/onsenui/) を使用して、UI
+発信機との距離を検知します。こちらの Monaca アプリでは、[Onsen UI](https://docs.monaca.io/ja/onsenui/) を使用して、UI
 を構築しています。iBeacon 発信機の射程内に携帯端末が入ると、発信機の
-UUID が画面上に表示されます (
-このサンプルでは、アプリが起動中であること、発信機は端末側に登録済みであることが必要です
-)。
+UUID が画面上に表示されます ( このサンプルでは、アプリが起動中であること、発信機は端末側に登録済みであることが必要です )。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                                         
-  ---------------------------------------------------------- -------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------
-  .. raw:: html                                                                                                 
-  &lt;div class="iframe-sample                               s"&gt;                                             
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa                       tes/24-ibeacon/www/index.html"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                                                  
-                                                                                                                
-  .. note:: アプリをビルドするか、または、カスタ             ムビルドされた Monaca デバッガーを使用すれば、ア   プリの検証を行えます。
-  事前準備                                                                                                      
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                      
-  1\. iBeacon プラグインを \`こちら &lt;htt                  ps://github.com/petermetz/co                       rdova-plugin-ibeacon.git&gt;\_ からダウンロードして、Monaca クラウド IDE 上にインポートします。詳細は、 :ref:import\_cordova\_plugin\` をご確認ください。
-  2\. 対象とする iBeacon 発信機を決めます (                  最低限 1 つ )。                                    
-  3\. 専用のユーティリティー ソフトウェアを使用して、        iBeacon 発信機側の情報を入手します。ここでは、     [MyBeacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8) を使用します。
-  4\. iBeacon 発信機の UUID のメモを取り                     ます。                                             
-                                                                                                                
-  ファイル構成                                                                                                  
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                      
-  .. image:: images/ibeacon/3                                .png                                               
-  :width: 200px                                                                                                 
-  :align: center                                                                                                
-  ======================== ==                                ============================                       =======================================================================================================
-  `index.html` ス                                            タート画面のページ ( 接続画面で構成 )              
-  `top_page.html`                                            アプリのトップページ                               
-  `info_page.html`                                           iBeacon 発信機側の情報を表示するページ             
-  `js/app.js`                                                アプリの動作を制御する JavaScript のファイル       
-  `css/style.css`                                            アプリのスタイルシート                             
+{{<import pid="5923d13f8034510a419679fa" title="iBeacon">}}
+
+**テスト環境** 
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/24-ibeacon/www/index.html">}}
+
+{{<note>}}
+    アプリをビルドするか、または、カスタムビルドされた Monaca デバッガーを使用すれば、アプリの検証を行えます。
+{{</note>}}
+
+## 事前準備
+
+1. iBeacon プラグインを [こちら](https://github.com/petermetz/cordova-plugin-ibeacon.git) からダウンロードして、Monaca クラウド IDE 上にインポートします。詳細は、 [ユーザー Cordova プラグインのインポート]({{<ref "custom_cordova_plugin.ja.md#ユーザー-cordova-プラグインのインポート">}}) をご確認ください。
+
+2. 対象とする iBeacon 発信機を決めます ( 最低限 1 つ )。
+
+3. 専用のユーティリティー ソフトウェアを使用して、iBeacon 発信機側の情報を入手します。ここでは、 [MyBeacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8) を使用します。
+
+4. iBeacon 発信機の UUID のメモを取ります。
+
+## ファイル構成
+
+{{<figure src="/images/sampleapp/ibeacon/3.png">}}                                
+
+ファイル | 説明
+--------------|-----------------------------------
+`index.html` | スタート画面のページ ( 接続画面で構成 )              
+`top_page.html` | アプリのトップページ                               
+`info_page.html` | iBeacon 発信機側の情報を表示するページ             
+`js/app.js` | アプリの動作を制御する JavaScript のファイル       
+`css/style.css` | アプリのスタイルシート                             
 
 必要な JS/CSS コンポーネント
 ----------------------------
 
-  `Onsen UI`                                                 
-  ---------------------------------------------------------- ----------------------------------------------------------------------------------------------------
-  必要な Cordova プラグイン                                  
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   
-  ============================                               ===================================================================== ============================
-  \`iBeacon Plugin &lt;<https://gith>                        ub.com/petermetz/cordova-plugin-ibeacon.git&gt;\`\_
-  `Bluetooth`                                                
+- `Onsen UI`      
+
+## 必要な Cordova プラグイン                                  
+
+- [Proximity Beacon Plugin](https://github.com/petermetz/cordova-plugin-ibeacon.git)
+- `Bluetooth`       
 
 HTML の解説
 -----------
 
-ユーザー インターフェースには、\*Onsen UI\* を使用しています。 *Onsen
-UI* のタグとそのコンポーネントの詳細は、[Onsen UI
-ドキュメント](https://docs.monaca.io/ja/onsenui/) をご確認ください。
+ユーザー インターフェースには、Onsen UI を使用しています。 *Onsen
+UI* のタグとそのコンポーネントの詳細は、[Onsen UI ドキュメント](https://docs.monaca.io/ja/onsenui/) をご確認ください。
 
 index.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で、
-top-page.html ファイルを起動時に読み込みます。
+`top-page.html` ファイルを起動時に読み込みます。
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 ...
   <ons-navigator var="myNavigator" page="top-page.html"></ons-navigator>
 ...
-```
+{{</highlight>}}
 
-top-page.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で ...
+`top-page.html` ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で ...
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 <ons-page ng-controller="TopPageCtrl">
   <ons-toolbar>
       <div class="center">iBeacon Testing</div>
@@ -90,16 +91,16 @@ top-page.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で .
       </ons-list-item>
   </ons-list>
 </ons-page>
-```
+{{</highlight>}}
 
 次のスクリーンショットのように、登録済みの iBeacon
 発信機の一覧と距離情報を表示します。
 
-![](images/ibeacon/1.png){width="300px"}
+{{<figure src="/images/sampleapp/ibeacon/1.png" width="300">}}    
 
-info-page.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で ...
+`info-page.html` ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で ...
 
-``` {.sourceCode .xml}
+{{<highlight html>}}
 <ons-page ng-controller="InfoPageCtrl">
   <ons-toolbar>
       <div class="left"><ons-back-button>Back</ons-back-button></div>
@@ -123,12 +124,12 @@ info-page.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で 
       </ons-list-item>
   </ons-list>
 </ons-page>
-```
+{{</highlight>}}
 
 次のスクリーンショットのように、最も近接する iBeacon 発信機の情報 ( UUID
 ) を表示します。
 
-![](images/ibeacon/2.png){width="270px"}
+{{<figure src="/images/sampleapp/ibeacon/2.png" width="300">}}    
 
 JavaScript の解説
 -----------------
@@ -136,13 +137,12 @@ JavaScript の解説
 このサンプルアプリの JavaScript には、AngularJS
 を使用しています。AngularJS
 では、連携するページのそれぞれに、コントローラー関数を設置します。このサンプルでは、
-TopPageCtrl 、 InfoPageCtrl の 2
-つのコントローラー関数を使用しており、それぞれ、 top-page.html ページ、
-info-page.html
-ページに紐付けされています。これらのコントローラー関数間で使用するグローバル変数を作成するため、グローバル変数を格納する
+`TopPageCtrl` 、 `InfoPageCtrl` の 2
+つのコントローラー関数を使用しており、それぞれ、 `top-page.html` ページ、
+`info-page.html` ページに紐付けされています。これらのコントローラー関数間で使用するグローバル変数を作成するため、グローバル変数を格納する
 service 関数を、次のように、1 つ作成します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
   app.service('iBeaconService', function() {
     this.currentBeaconUuid = null;
@@ -221,20 +221,19 @@ service 関数を、次のように、1 つ作成します。
     };
   });
 ...
-```
+{{</highlight>}}
 
 service 関数内で行っていることを、解説します。
 
-> -   登録済み iBeacon 発信機の情報 (
->     UUID、距離、名称、アイコンファイルなど ) を格納する配列の作成。
-> -   近接する iBeacon 発信機の検知、および、最も近接する発信機の UUID
->     の取得を行う関数の作成。
+-   登録済み iBeacon 発信機の情報 ( UUID、距離、名称、アイコンファイルなど ) を格納する配列の作成。
+
+-   近接する iBeacon 発信機の検知、および、最も近接する発信機の UUID の取得を行う関数の作成。
 
 各コントローラーに関して解説します。
 
 ### TopPageCtrl
 
-TopPageCtrl は、 top-page.html
+`TopPageCtrl` は、 `top-page.html`
 ファイル内の各種処理を行っています。近接する iBeacon
 発信機の検知を、主に行っています。登録済みの iBeacon
 発信機が検知された場合、その proximity ( 近接度 ) と rssi (
@@ -243,11 +242,11 @@ TopPageCtrl は、 top-page.html
 `ProximityUnknown` になり、rssi　値は `-63 dBm` になります (
 下のスクリーンショットを参照のこと )。
 
-![](images/ibeacon/4.png){width="270px"}
+{{<figure src="/images/sampleapp/ibeacon/4.png" width="300">}}    
 
 この関数の JavaScript コードを、次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
 app.controller('TopPageCtrl', ['$scope', 'iBeaconService', function($scope, iBeaconService) {
 
@@ -293,24 +292,24 @@ app.controller('TopPageCtrl', ['$scope', 'iBeaconService', function($scope, iBea
 
 }]);
 ...
-```
+{{</highlight>}}
 
 ### InfoPageCtrl
 
-InfoPageCtrl は、 info-page.html
+`InfoPageCtrl` は、 `info-page.html`
 ファイル内の各種処理を行っています。このコントローラ関数では、主に、
 `iBeaconService` 経由で渡された UUID 値を使用して、最も近接する iBeacon
 発信機の UUID を表示します。この解説で使用している 「 最も近接 」
 とは、iBeacon 用語の 「 Immediate 」 ( 3 段階評価の最も近いこと )
-を意味します。これ以外の場合には、 info-page.html が表示されません。
+を意味します。これ以外の場合には、 `info-page.html` が表示されません。
 
 この関数の JavaScript コードを、次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ...
   app.controller('InfoPageCtrl', ['$scope', 'iBeaconService', function($scope, iBeaconService) {
       $scope.beacon = iBeaconService.beacons[iBeaconService.currentBeaconUuid];
       $scope.beaconUuid = iBeaconService.currentBeaconUuid;
   }]);
 ...
-```
+{{</highlight>}}

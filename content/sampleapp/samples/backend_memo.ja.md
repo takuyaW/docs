@@ -5,142 +5,129 @@ weight: 80
 
 Monaca バックエンド API を使用するメモ帳アプリを作成します。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                                              
-  ---------------------------------------------------------- ------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                     
-  .. raw:: html                                                                                                      
-  &lt;div class="iframe-sample                               s"&gt;                                                  
-  &lt;iframe src="<https://mon>                              aca.github.io/project-templa                            tes/16-backend-memo/www/index.html" style="max-width: 150%;"&gt;&lt;/iframe&gt;
-  &lt;/div&gt;                                                                                                       
-  事前準備                                                                                                           
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                           
-  バックエンドを新規にセットアップして、プロジェクトに紐     付けする必要があります。新規プロジェクトの作成後、 :r   ef:cloud\_ide\_adding\_backend 記載の内容に従い、バックエンドとプロジェクトの紐付け処理を行います。
-  バックエンドを作成した後、次のように、`Memo`               コレクションを作成します。                              
-  .. image:: images/backend\_m                               emo/memo\_collection.png                                
-  :width: 320px                                                                                                      
-  .. note:: :guilabel:\`JavaSc                               ript からのアイテム追加を許可する\` にチェックを入      れます。Read と Write オプションは必要ありません。
-                                                                                                                     
-  バックエンドの作成方法の詳細は、 :ref:\`backe              nd\_control\_panel\` をご確認ください。                 
-                                                                                                                     
-  .. note:: バックエンド API にアクセスする                  ためには、各 OS の設定ファイルを編集して、\`\`clo       ud.monaca.mobi\`\` ドメインをアプリのホワイトリストに追加する必要があります。詳細は、 Access Origin ( Android ) &lt;access\_origin\_android&gt; と Access Origin ( iOS ) &lt;access\_origin&gt; をご確認ください。
-                                                                                                                     
-  ファイル構成                                                                                                       
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                                                           
-  .. image:: images/backend\_m                               emo/1.png                                               
-  :width: 210px                                                                                                      
-  :align: center                                                                                                     
-  ================== ========                                ============================                            ======================================================================================================
-  `index.html` スタート画面の                                ページ                                                  
-  `js/app.js` アプリ内の処理                                 を記述した JavaScript ファイル                          
+{{<import pid="5923c8f6013eb0ce4ab3b899" title="Backend Memo">}}
+
+**テスト環境**
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<iframeApp src="https://monaca.github.io/project-templates/16-backend-memo/www/index.html">}}
+
+## 事前準備
+
+バックエンドを新規にセットアップして、プロジェクトに紐付けする必要があります。新規プロジェクトの作成後、 [パート 3 : Monaca バックエンドのセットアップ](/ja /tutorials/monaca_ide/adding_backend) 記載の内容に従い、バックエンドとプロジェクトの紐付け処理を行います。
+
+バックエンドを作成した後、次のように、`Memo` コレクションを作成します。
+
+{{<figure src="/images/sampleapp/backend_memo/memo_collection.png">}}  
+
+{{<note>}}
+  <code>JavaScript からのアイテム追加を許可する</code> にチェックを入れます。<code>Read</code> と <code>Write</code>  オプションは必要ありません。バックエンドの作成方法の詳細は、{{<link href="/ja/products_guide/backend/control_panel" title=" バックエンド管理パネル">}} をご確認ください。
+{{</note>}}
+
+{{<note>}}
+  バックエンド API にアクセスするためには、各 OS の設定ファイルを編集して、 <code>cloud.monaca.mobi</code> ドメインをアプリのホワイトリストに追加する必要があります。詳細は、 {{<link href="/ja/reference/config/android_configuration/#lt-access-gt-要素" title="Access Origin (Android)">}} と {{<link href="/ja/reference/config/ios_configuration/#lt-access-gt-要素" title="Access Origin (iOS)">}} をご確認ください。
+{{</note>}}
+
+## ファイル構成          
+
+{{<figure src="/images/sampleapp/backend_memo/1.png">}}    
+
+ファイル | 説明 
+------|-------------
+`index.html` | スタート画面のページ
+`js/app.js` | アプリ内の処理を記述した JavaScript ファイル                                           
 
 必要な JS/CSS コンポーネント
 ----------------------------
 
-  `jQuerymobile`                                               
-  ------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                               
-  HTML の解説                                                  
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                 
-  このサンプルアプリの UI には、jQuery Mobi                    le を使います。jQuery Mobile では複数のページを、1 つの HTML ファイル内にまとめて記述できます。このアプリでは、例えば、ログイン画面と登録画面の両方を index.html に定義しています。各ページは、 `data-role` 属性が `page` と指定されている `div` タグを使用して、定義します。このように、 `data-role` 属性を使用して、 `div タグ` ごとに役割を決定できます。 `data-role` には、他にも、`header`、`content`、`listview` などの値を指定できます。jQuery Mobile のタグ定義とコンポーネントについては、 [jQuery Mobile デモ](http://jquerymobile.com/demos/1.2.0/) に詳細がありますので、こちらをご確認ください。
-  次の記述 ( HTML の &lt;body&gt; 内 ) は .                    ..
-  ::                                                           
-  &lt;body&gt;                                                 
-  &lt;!-- Login Page --&gt;                                    
-  &lt;div data-role="page" id=                                 "LoginPage"&gt;
-  &lt;header data-role="head                                   er" data-position="fixed"&gt;
-  &lt;h1&gt;Monaca Memo&lt;/h1&gt;                             
-  &lt;/header&gt;                                              
-  &lt;section data-role="c                                     ontent"&gt;
-  &lt;h1&gt;Sign in&lt;/h1&gt;                                 
-  Email:                                                       
-  &lt;input type="text"                                        id="login\_email"&gt;
-  Password:                                                    
-  &lt;input type="passwo                                       rd" id="login\_password"&gt;
-  New to Monaca Memo?                                          
-  &lt;a href="\#RegisterP                                      age" data-role="button" data-mini="true" data-inline="true" data-theme="b"&gt;Register&lt;/a&gt;
-  &lt;a href="\#" id="Log                                      inBtn" data-role="button" data-inline="false" data-theme="b"&gt;Login&lt;/a&gt;
-  &lt;/section&gt;                                             
-  &lt;/div&gt;                                                 
-  ...                                                          
-  &lt;/body&gt;                                                
-  次のバックエンド メモ帳アプリのログイン画面となります        ( ユーザー登録が済んでいる場合 )。
-  .. figure:: images/backend\_m                                emo/login.png
-  :width: 250px                                                
-  :align: center                                               
-                                                               
-  次の記述 ( HTML の &lt;body&gt; 内 ) は .                    ..
-  ::                                                           
-  ...                                                          
-  &lt;!-- Register Page --&gt;                                 
-  &lt;div data-role="page" id="R                               egisterPage"&gt;
-  &lt;header data-role="header                                 " data-position="fixed"&gt;
-  &lt;h1&gt;Monaca Memo&lt;/h1&gt;                             
-  &lt;/header&gt;                                              
-  &lt;section data-role="con                                   tent"&gt;
-  &lt;h1&gt;Sign up&lt;/h1&gt;                                 
-  Email:                                                       
-  &lt;input type="text" id                                     ="reg\_email"&gt;
-  Password:                                                    
-  &lt;input type="password                                     " id="reg\_password"&gt;
-  &lt;a href="\#" id="Regis                                    terBtn" data-role="button" data-inline="false" data-theme="b"&gt;Register&lt;/a&gt;
-  &lt;/section&gt;                                             
-  &lt;/div&gt;                                                 
-  ...                                                          
-  次のバックエンド メモ帳アプリのユーザー登録画面となりま      す。
-  .. figure:: images/backend\_m                                emo/signup.png
-  :width: 250px                                                
-  :align: center                                               
-  この HTML 中では、他にも複数のページを定義していま           す。スクリーンショットを次に示します。
-  .. figure:: images/backend                                   \_memo/list\_memo.png
-  :width: 180px                                                
-  :align: left                                                 
-  一覧ページ                                                   
-  .. figure:: images/backend                                   \_memo/confirm\_logout.png
-  :width: 180px                                                
-  :align: left                                                 
-  ログアウト確認ダイアログ                                     
-  .. figure:: images/backend                                   \_memo/confirm\_delete.png
-  :width: 180px                                                
-  :align: left                                                 
-  削除確認ダイアログ                                           
-  .. rst-class:: clear                                         
-  .. figure:: images/backend                                   \_memo/add\_memo.png
-  :width: 180px                                                
-  :align: left                                                 
-  追加ページ                                                   
-  .. figure:: images/backend                                   \_memo/add\_success.png
-  :width: 180px                                                
-  :align: left                                                 
-  メモ追加成功ダイアログ                                       
-                                                               
-  .. figure:: images/backend                                   \_memo/view\_memo.png
-  :width: 180px                                                
-  :align: left                                                 
-  メモの閲覧ページ                                             
-                                                               
-  .. figure:: images/backend                                   \_memo/edit\_memo.png
-  :width: 180px                                                
-  :align: left                                                 
-  編集ページ                                                   
-  .. figure:: images/backend                                   \_memo/update\_success.png
-  :width: 180px                                                
-  :align: left                                                 
-  更新成功ダイアログ                                           
-  .. rst-class:: clear                                         
-                                                               
-  JavaScript の解説                                            
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^   \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
-  このアプリは、7 つの機能を実装しています。 \*ログイン        *、*ログアウト\*、\*ユーザー登録\*、\*メモ追加\*、\*メモ編集\*、\*メモ削除\*、\*メモ閲覧\* です。
-  新規ユーザー登録                                             
+- `jQuerymobile`                                               
 
-`onRegisterBtn()` は、\*ユーザー登録ページ\* で Register
+## HTML の解説                                                  
+
+このサンプルアプリの UI には、jQuery Mobile を使います。jQuery Mobile では複数のページを、1 つの HTML ファイル内にまとめて記述できます。このアプリでは、例えば、ログイン画面と登録画面の両方を index.html に定義しています。各ページは、 `data-role` 属性が `page` と指定されている `div` タグを使用して、定義します。このように、 `data-role` 属性を使用して、 `div タグ` ごとに役割を決定できます。 `data-role` には、他にも、`header`、`content`、`listview` などの値を指定できます。jQuery Mobile のタグ定義とコンポーネントについては、 [jQuery Mobile デモ](http://jquerymobile.com/demos/1.2.0/) に詳細がありますので、こちらをご確認ください。
+
+次の記述 ( HTML の <body> 内 ) は ...
+
+{{<highlight html>}}
+<body>
+  <!-- Login Page -->
+  <div data-role="page" id="LoginPage">
+    <header data-role="header" data-position="fixed">
+      <h1>Monaca Memo</h1>
+    </header>
+      <section data-role="content">
+      <h1>Sign in</h1>
+      Email:
+        <input type="text" id="login_email">
+      Password:
+        <input type="password" id="login_password">
+      New to Monaca Memo?
+        <a href="#RegisterPage" data-role="button" data-mini="true" data-inline="true" data-theme="b">Register</a>
+        <a href="#" id="LoginBtn" data-role="button" data-inline="false" data-theme="b">Login</a>
+      </section>
+  </div>
+  ...
+</body>
+{{</highlight>}}
+
+次のバックエンド メモ帳アプリのログイン画面となります ( ユーザー登録が済んでいる場合 )。
+
+{{<figure src="/images/sampleapp/backend_memo/login.png" width="300">}}      
+
+次の記述 ( HTML の <body> 内 ) は ...
+
+{{<highlight html>}}
+...
+<!-- Register Page -->
+<div data-role="page" id="RegisterPage">
+  <header data-role="header" data-position="fixed">
+    <h1>Monaca Memo</h1>
+  </header>
+    <section data-role="content">
+    <h1>Sign up</h1>
+    Email:
+      <input type="text" id="reg_email">
+    Password:
+      <input type="password" id="reg_password">
+      <a href="#" id="RegisterBtn" data-role="button" data-inline="false" data-theme="b">Register</a>
+    </section>
+</div>
+...
+{{</highlight>}}
+
+次のバックエンド メモ帳アプリのユーザー登録画面となります。
+
+{{<figure src="/images/sampleapp/backend_memo/signup.png" width="300">}}  
+
+この HTML 中では、他にも複数のページを定義しています。スクリーンショットを次に示します。
+
+{{<multi_figures>}}
+  {{<img src="/images/sampleapp/backend_memo/list_memo.png" width="180">}}  
+  {{<img src="/images/sampleapp/backend_memo/confirm_logout.png" width="180">}}  
+  {{<img src="/images/sampleapp/backend_memo/confirm_delete.png" width="180">}}  
+  {{<img src="/images/sampleapp/backend_memo/add_memo.png" width="180">}}
+  {{<img src="/images/sampleapp/backend_memo/add_success.png" width="180">}}  
+  {{<img src="/images/sampleapp/backend_memo/view_memo.png" width="180">}}
+  {{<img src="/images/sampleapp/backend_memo/edit_memo.png" width="180">}}
+  {{<img src="/images/sampleapp/backend_memo/update_success.png" width="180">}}
+{{</multi_figures>}}
+
+## JavaScript の解説                                            
+
+このアプリは、7 つの機能を実装しています。 *ログイン* 、*ログアウト* 、*ユーザー登録* 、*メモ追加* 、*メモ編集* 、*メモ削除* 、*メモ閲覧* です。
+                                        
+### 新規ユーザー登録
+
+`onRegisterBtn()` は、*ユーザー登録ページ* で Register
 ボタンを押したときに呼ばれる関数です。`monaca.cloud.User.register()`
 関数の引数として、入力された `email` と `password`
 が使われます。この関数を使用して、 Monaca
 バックエンドにユーザーを登録できます。登録が成功した場合、ユーザーは自動的にログイン済みの状態になります。ユーザー登録時の
 JavaScript コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onRegisterBtn()
 {
   var email = $("#reg_email").val();
@@ -157,11 +144,11 @@ function onRegisterBtn()
       console.log('Registration failed!');
     });
 }
-```
+{{</highlight>}}
 
 ### ログイン と コレクションデータの取得
 
-Login ボタンを押したときに、 `onLoginBtn()`
+{{<guilabel name="Login">}} ボタンを押したときに、 `onLoginBtn()`
 を呼び出します。この関数では、 `monaca.cloud.User.login()` ( Monaca
 バックエンド API ) を使用して、既存ユーザーのログインを行います。Monaca
 バックエンド内にユーザーが存在する場合には、 `getMemoList()`
@@ -172,7 +159,7 @@ Login ボタンを押したときに、 `onLoginBtn()`
 `TopListView` に追加されます。この機能の JavaScript
 コードを次に記します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onLoginBtn()
 {
   var email = $("#login_email").val();
@@ -220,18 +207,17 @@ function getMemoList()
     })
   .fail(function(err){ alert('failed to find the collection' + err.text); return null; });
 }
-```
+{{</highlight>}}
 
 結果として、次のような一覧ページが表示されます。
 
-![](images/backend_memo/no_memo.png){width="250px"}
+{{<figure src="/images/sampleapp/backend_memo/no_memo.png" width="300">}}  
 
 ### ログアウト処理
 
-`monaca.cloud.User.logout()`
-関数を使用して、ユーザーのログアウトを行います。ユーザーが正常にログアウトできた場合、ログインページにリダイレクトされます。
+`monaca.cloud.User.logout()` 関数を使用して、ユーザーのログアウトを行います。ユーザーが正常にログアウトできた場合、ログインページにリダイレクトされます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onLogoutBtn()
 {
   MC.User.logout()
@@ -246,7 +232,7 @@ function onLogoutBtn()
       alert('Logout failed!');
     });
 }
-```
+{{</highlight>}}
 
 ### メモの追加
 
@@ -258,7 +244,7 @@ function onLogoutBtn()
 バックエンド API ) を使用して、 `Memo`
 コレクションに、コレクションアイテムを挿入します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSaveBtn()
 {
   var title = $("#title").val();
@@ -289,7 +275,7 @@ function addMemo(title,content) {
   })
   .fail(function(err){ console.log('Insert failed!');})
 }
-```
+{{</highlight>}}
 
 ### メモの更新
 
@@ -299,7 +285,7 @@ function addMemo(title,content) {
 `monaca.cloud.collectionItem.update()` を呼び出して、 `Memo`
 コレクション中の対象アイテムを更新します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onEditBtn()
 {
   var title = $("#title_show").text();
@@ -343,7 +329,7 @@ function editMemo(id, new_title, new_content){
     })
     .fail(function(err){ console.log(JSON.stringify(err)); return null; });
 }
-```
+{{</highlight>}}
 
 ### メモの削除
 
@@ -352,7 +338,7 @@ function editMemo(id, new_title, new_content){
 `monaca.cloud.collectionItem.delete()`
 関数を使用して、メモを削除します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onDeleteBtn(id)
 {
   currentMemoID = id;
@@ -372,4 +358,4 @@ function deleteMemo()
     })
     .fail(function(err){ console.log(JSON.stringify(err)); return null; });
 }
-```
+{{</highlight>}}

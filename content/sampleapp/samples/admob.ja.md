@@ -3,26 +3,17 @@ title: AdMob のデモ用アプリ
 weight: 30
 ---
 
-このページでは、Monaca
-を使用して、[AdMob](https://www.google.com/admob/) (
-モバイルアド/広告ネットワーク )
-の実装方法を解説します。この解説で使用しているデモ用アプリは、[AdMob
-Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro) (
-Github 上 ) を参考にして、構築されています。
+このページでは、Monaca を使用して、[AdMob](https://www.google.com/admob/) ( モバイルアド/広告ネットワーク ) の実装方法を解説します。この解説で使用しているデモ用アプリは、[AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro) ( Github 上 ) を参考にして、構築されています。
 
-  *テスト環境* Android 6.2                    iOS 9.3.5                                     
-  ------------------------------------------- --------------------------------------------- --
-  .. figure:: images/admob/                   1.png                                         
-  :width: 337px                                                                             
-  :align: left                                                                              
-  バナー広告 ( 上部 ) とインタースティシ      ャル広告 ( 下部 ) の設定                      
-  .. figure:: images/admob/                   2.png                                         
-  :width: 337px                                                                             
-  :align: left                                                                              
-  インタースティシャル広告 ( ページの遷移時   などに表示される、全画面表示の広告 ) の表示   
-  .. rst-class:: clear                                                                      
-                                                                                            
-  事前準備                                                                                  
+{{<import pid="5923cb95ff2af25b33815106" title="AdMob Demo">}}
+
+**テスト環境** 
+
+- Android 6.2
+- iOS 9.3.5
+
+{{< figure src="/images/sampleapp/admob/cover.png" title="Banner Ads & Interstitial Ads">}}                                                                                            
+## 事前準備                                                                                  
 
 このデモで使用している AdMob の広告ユニット ID ( Ad Unit ID )
 は検証用です。実際に使用する広告がある場合には、AdMob
@@ -31,60 +22,41 @@ Github 上 ) を参考にして、構築されています。
 AdMob サイト上でのアプリの登録方法を、次に記します。
 
 1.  [AdMob Apps](https://apps.admob.com) にサインアップします。
-2.  収益化 タブを選択して、+ 新しいアプリを収益化 ボタンをクリックします
-    ( 2 回目のアプリ登録であれば、こちらのボタンが表示されます )。
 
-> ![](images/admob/8.png)
->
-> > width
-> >
-> > :   700px
-> >
-> > align
-> >
-> > :   left
-> >
+2.  `収益化` タブを選択して、{{<guilabel name="+ 新しいアプリを収益化">}} ボタンをクリックします ( 2 回目のアプリ登録であれば、こちらのボタンが表示されます )。
+
+    {{<img src="/images/sampleapp/admob/8.png">}}
+
 3.  必要な情報 ( アプリ名、プラットフォーム、広告フォーマットなど )
     を入力します。入力後、広告ユニットの ID
     が表示されます。アプリ上で広告を表示するときに、この ID
     が必要になります。
 
-> ![](images/admob/9.png)
->
-> > width
-> >
-> > :   630px
-> >
-> > align
-> >
-> > :   left
-> >
+    {{<img src="/images/sampleapp/admob/9.png">}}
+
 ファイル構成
 ------------
 
-![](images/admob/7.png){width="216px"}
+{{< figure src="/images/sampleapp/admob/7.png">}}
 
-  ----------------- ----------------------------------------------------------
-  `index.html`      スタート画面のページ
-  `js/app.js`       アプリの実行時にさまざまな処理を行う JavaScript ファイル
-  `css/style.css`   アプリのスタイルシート
-  ----------------- ----------------------------------------------------------
+ファイル | 説明
+--------------|-----------------------------------
+`index.html`  |    スタート画面のページ
+`js/app.js`   |    アプリの実行時にさまざまな処理を行う JavaScript ファイル
+`css/style.css` |  アプリのスタイルシート
 
 必要な JS/CSS コンポーネント
 ----------------------------
 
-  ---------- --
-  `jQuery`   
-  `Onsen`    
-  ---------- --
+- `jQuery`   
+- `Onsen`    
 
 必要な Cordova プラグイン
 -------------------------
 
-  [AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro)   
-  ------------------------------------------------------------------------- --
-                                                                            
-  HTML の解説                                                               
+- [AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro)                                               
+
+## HTML の解説                                                               
 
 このデモ用アプリでは、[Onsen UI](https://onsen.io/) を使用して、UI
 を構築しています。
@@ -93,12 +65,11 @@ AdMob サイト上でのアプリの登録方法を、次に記します。
 
 次のコードを使用して、プロジェクトの起動時に表示されるページを構築しています。
 
-``` {.sourceCode .HTML}
-...
-<h3 style="text-align: center;">Monaca with AdMob のデモ用アプリ</h3>
+{{<highlight html>}}
+<h3 style="text-align: center;">Monaca with AdMob Demo</h3>
 
 <div id="fullpage">
-    <h3>バナー広告 ( 上部 ) とインタースティシャル広告 ( 下部 ) の設定</h3>
+    <h3>Banner Ads</h3>
 
     <ons-input type="checkbox" id='overlap'>  overlap</ons-input>
     &nbsp;&nbsp;&nbsp;
@@ -128,17 +99,16 @@ AdMob サイト上でのアプリの登録方法を、次に記します。
     </ons-row>
     <hr />
 
-    <h3>インタースティシャル広告 ( ページの遷移時などに表示される、全画面表示の広告 ) の表示</h3>
+    <h3>Interstitial Ads</h3>
     <ons-input id="autoshow" type="checkbox" checked>  auto show when ready</ons-input>
     <br/><br/>
     <ons-button id="btn_prepare">Prepare</ons-button>
     <ons-button id="btn_showfull">Show</ons-button>
 
 </div>
-...
-```
+{{</highlight>}}
 
-![起動時のページ](images/admob/1.png){width="337px"}
+{{< figure src="/images/sampleapp/admob/1.png" title="起動時のページ">}}
 
 ### 広告サイズの設定ダイアログ
 
@@ -146,7 +116,7 @@ AdMob サイト上でのアプリの登録方法を、次に記します。
 の広告サイズ ( `SMART_BANNER`、`MEDIUM_RECTANGLE`、`FULL_BANNER` など )
 を選択できます。
 
-``` {.sourceCode .HTML}
+{{<highlight html>}}
 ...
 <ons-template id="banner_size.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)">
@@ -178,16 +148,16 @@ AdMob サイト上でのアプリの登録方法を、次に記します。
     </ons-dialog>
 </ons-template>
 ...
-```
+{{</highlight>}}
 
-![広告サイズの設定ダイアログ](images/admob/3.png){width="337px"}
+{{<figure src="/images/sampleapp/admob/3.png" title="広告サイズの設定ダイアログ">}}
 
 ### 広告の表示位置の設定ダイアログ
 
 広告の表示位置の設定ダイアログには、次のコードが使用されています。このダイアログ上では、広告の表示位置
 ( `TOP_LEFT`、`CENTER`、`BOTTOM_RIGHT` など ) を選択できます。
 
-``` {.sourceCode .HTML}
+{{<highlight html>}}
 ...
 <ons-template id="banner_pos.html">
     <ons-dialog var="dialog" cancelable mask-color="rgba(0, 0, 0, 0.7)" style="width: 90%; height: auto">
@@ -231,9 +201,9 @@ AdMob サイト上でのアプリの登録方法を、次に記します。
     </ons-dialog>
 </ons-template>
 ...
-```
+{{</highlight>}}
 
-![広告の表示位置の設定ダイアログ](images/admob/4.png){width="337px"}
+{{<figure src="/images/sampleapp/admob/4.png" title="広告の表示位置の設定ダイアログ">}}
 
 JavaScript の解説
 -----------------
@@ -248,7 +218,7 @@ ID ( Ad Unit ID )
 を指定しています。いずれの場合でも、インタースティシャル広告とバナー広告の
 2 種類を、オブジェクトに格納しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var admobid = {};
 if (/(android)/i.test(navigator.userAgent)){
     console.log('Android');
@@ -267,16 +237,11 @@ if (/(android)/i.test(navigator.userAgent)){
         interstitial: 'ca-app-pub-6869992474017983/1355127956'
     };
 }
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
-このデモに使用されている広告ユニット ID ( Ad Unit ID ) は、検証用の ID
-です。製品版に使用する広告ユニット ID は、別途、AdMob
-サイトで作成する必要があります。その場合には、AdMob
-サイトへ行き、アカウントの登録作業から行ってください。
-
-</div>
+{{<note>}}
+    このデモに使用されている広告ユニット ID ( Ad Unit ID ) は、検証用の ID です。製品版に使用する広告ユニット ID は、別途、AdMob サイトで作成する必要があります。その場合には、AdMob サイトへ行き、アカウントの登録作業から行ってください。
+{{</note>}}
 
 ### initialization() 関数
 
@@ -289,7 +254,7 @@ Cordova と AdMob プラグインの読み込み完了後に、`initialization()
 -   `onAdFailLoad` イベントハンドラー:
     広告の読み込み失敗時、エラーの詳細を表示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function initialization(){
     AdMob.getAdSettings(function(info){
         console.log('adId: ' + info.adId + '\n' + 'adTrackingEnabled: ' + info.adTrackingEnabled);
@@ -345,13 +310,13 @@ function initialization(){
         AdMob.showInterstitial();
     });
 }
-```
+{{</highlight>}}
 
 ### createSelectedBanner() 関数
 
 この関数では、設定情報に基づき、広告を表示しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function createSelectedBanner(){
     AdMob.removeBanner();
     var ads_size = $("#btn_size_txt").text();
@@ -364,42 +329,38 @@ function createSelectedBanner(){
         position: ads_pos
     });
 }
-```
+{{</highlight>}}
 
 ### showBannerAtPosition() 関数
 
 この関数では、選択された表示位置に基づき、広告を表示しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showBannerAtPosition(){
     var ads_pos = selected_pos_value;
     if(AdMob) AdMob.showBanner( ads_pos );
 }
-```
+{{</highlight>}}
 
 ### prepareInt() 関数
 
 この関数では、インタースティシャル広告を読み込み、次に、表示しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function prepareInt(){
     AdMob.prepareInterstitial({
         adId:admobid.interstitial,
         autoShow: $('#autoshow').prop('checked')
     });
 }
-```
+{{</highlight>}}
 
 ### showBannerSize() 関数
 
-この関数を使用して、バナーサイズの設定ダイアログ ( [OnsenUI
-のダイアログを使用](https://onsen.io/v1/reference/ons-dialog.html) )
-を表示します。この設定ダイアログ上では、広告サイズ (
-BANNER、SMART\_BANNER、MEDIUM\_RECTANGLE など )
-を選択できます。バナーサイズの詳細は、[こちら](https://firebase.google.com/docs/admob/android/banner)
-( 「 Banner Size 」 欄 ) をご確認ください。
+この関数を使用して、バナーサイズの設定ダイアログ ( [OnsenUI のダイアログを使用](https://onsen.io/v1/reference/ons-dialog.html) )
+を表示します。この設定ダイアログ上では、広告サイズ ( BANNER、SMART\_BANNER、MEDIUM\_RECTANGLE など ) を選択できます。バナーサイズの詳細は、[こちら](https://firebase.google.com/docs/admob/android/banner) ( 「 Banner Size 」 欄 ) をご確認ください。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showBannerSize() {
     var dlg = "banner_size.html";
     if (!dialogs[dlg]) {
@@ -417,15 +378,14 @@ function showBannerSize() {
         dialogs[dlg].show();
     }
 }
-```
+{{</highlight>}}
 
 ### showBannerPos() 関数
 
-この関数を使用して、広告の表示位置の設定ダイアログ ( [OnsenUI
-のダイアログを使用](https://onsen.io/v1/reference/ons-dialog.html) )
+この関数を使用して、広告の表示位置の設定ダイアログ ( [OnsenUI のダイアログを使用](https://onsen.io/v1/reference/ons-dialog.html) )
 を表示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showBannerPos() {
     var dlg = "banner_pos.html";
     if (!dialogs[dlg]) {
@@ -445,4 +405,4 @@ function showBannerPos() {
         dialogs[dlg].show();
     }
 }
-```
+{{</highlight>}}

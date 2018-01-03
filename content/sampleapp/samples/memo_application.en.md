@@ -7,7 +7,7 @@ This sample app allows user to create a memo application using local storage.
 
 {{<import pid="5923c5a6013eb09f3fb07bc7" title="Memo Application">}}
 
-*Tested Environment*: 
+**Tested Environment** 
 
 - Android 7.0
 - iOS 10.1.1
@@ -212,7 +212,7 @@ On the Top page, a user can delete any item in the list by clicking on
 the delete icon at the end of each item. When the delete icon is
 clicked, the `onDeleteLink()` function is called. In this function, a
 message confirming the deleting action is shown (see below screenshot).
-If the OK button is clicked, the selected item will be deleted from the
+If the {{<guilabel name="OK">}} button is clicked, the selected item will be deleted from the
 local storage via the `deleteMemo()` function (defined in the `memo.js`
 file). Then, it will go back the Top page with an updated list.
 

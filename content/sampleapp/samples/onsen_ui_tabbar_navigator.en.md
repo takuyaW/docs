@@ -6,7 +6,7 @@ weight: 170
 This is a template using [Onsen UI tabbar](https://onsen.io/v2/api/js/ons-tabbar.html) and
 [navigator](https://onsen.io/v2/api/js/ons-navigator.html).
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 4.2.2
 - iOS 7.1.1
@@ -30,7 +30,7 @@ This is a template using [Onsen UI tabbar](https://onsen.io/v2/api/js/ons-tabbar
 ## Required JS/CSS Components
 
 - `Onsen UI`                                       
-                                                   
+
 ## HTML Explanation                                 
 
 ### index.html                                       

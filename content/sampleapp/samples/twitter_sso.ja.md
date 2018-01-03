@@ -12,58 +12,63 @@ weight: 10
 iOS アプリ上での SSO
 を可能にしています。認証成功後、ユーザーの基本情報がアプリ上に表示されます。
 
-  *テスト環境* Android 7.0                                   iOS 10.1.1                 
-  ---------------------------------------------------------- -------------------------- --
-  .. image:: images/twitter\_s                               so/cover.png               
-  :width: 700px                                                                         
-  :align: center                                                                        
-  .. rst-class:: clear                                                                  
-  1\. 事前準備                                                                          
-  \^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^                              
-  Twitter の Consumer Key と Co                              nsumer Secret の確認方法   
+{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
+
+**テスト環境**
+
+- Android 7.0
+- iOS 10.1.1
+
+{{<figure src="/images/sampleapp/twitter_sso/cover.png">}}
+
+## 事前準備
+
+### Twitter の Consumer Key と Consumer Secret の確認方法
 
 『 Twitter Apps 』 ページ上で Monaca アプリを登録すると、`Consumer Key`
 と `Consumer Secret` が発行されます。
 
 1.  [Twitter Apps ページ](https://apps.twitter.com/) へ移動して、Twitter
     アカウントを使用してサインインします。
-2.  Create New App ボタンをクリックします。
+
+2.  {{<guilabel name="Create New App">}} ボタンをクリックします。
+
 3.  Name ( アプリ名 )、Description ( アプリの説明 )、Website (
     アプリのダウンロード元となる URL )、Callback URL (
     認証成功後に表示されるページ。こちらは任意 )
-    を入力します。次に、Yes, I have read and agreed to the Twitter Developer Agreement.
-    にチェックを入れ、Create your Twitter application
+    を入力します。次に、`Yes, I have read and agreed to the Twitter Developer Agreement.`
+    にチェックを入れ、{{<guilabel name="Create your Twitter application">}}
     ボタンをクリックします。
-4.  Settings
-    タブを選択して、Allow this application to be used to Sign in with Twitter
-    にチェックを入れます。次に、Update Settings ボタンをクリックします。
 
-> ![](images/twitter_sso/twitter_settings.png){width="700px"}
+4.  `Settings` タブを選択して、`Allow this application to be used to Sign in with Twitter`
+    にチェックを入れます。次に、{{<guilabel name="Update Settings">}} ボタンをクリックします。
 
-5.  Keys and Access Tokens タブを選択して、`Consumer Key` と
+    {{<img src="/images/sampleapp/twitter_sso/twitter_settings.png">}}
+
+5.  `Keys and Access Tokens` タブを選択して、`Consumer Key` と
     `Consumer Secret` を確認します。
 
-> ![](images/twitter_sso/twitter_keys.png){width="695px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_keys.png">}}
 
-Fabric API Key の取得方法
--------------------------
+### Fabric API Key の取得方法
 
 `twitter-connect-plugin` プラグインを使用するときに、`Fabric API key`
 が必要となります。`Fabric API key` の取得方法を次に記します。
 
-1.  Fabric アカウントにログインした状態で、[Crashlytics
-    のページ](https://fabric.io/kits/android/crashlytics/install)
+1.  Fabric アカウントにログインした状態で、[Crashlytics のページ](https://fabric.io/kits/android/crashlytics/install)
     を開きます。Fabric
     のアカウントへは、[こちら](https://get.fabric.io/twitter-login)
     からサインアップできます。
-2.  AndroidManifest.xml ファイルの `<meta-data>` ブロック内に、API Key
+2.  `AndroidManifest.xml` ファイルの `<meta-data>` ブロック内に、API Key
     が表示されます ( 次のスクリーンショットのように表示されます )。
 
-> ![](images/twitter_sso/twitter_fabric.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_fabric.png">}}
 
-### 2. Monaca クラウド IDE へのプロジェクトのインポート
+## Monaca クラウド IDE へのプロジェクトのインポート
 
-### 3. プラグインの設定
+{{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
+
+## プラグインの設定
 
 認証処理には、[twitter-connect-plugin](https://github.com/ManifestWebDesign/twitter-connect-plugin)
 プラグインを使用します。このプラグインでは、Twitter の
@@ -75,52 +80,47 @@ iOS アプリ上での SSO
 画面上で `FABRIC_KEY` 値を設定する必要があります。
 
 1.  Monaca クラウド IDE のメニューから、
-    設定 --&gt; Cordova プラグインの管理 を選択します。
+    {{<menu menu1="設定" menu2="Cordova プラグインの管理">}} を選択します。
 2.  *有効なプラグイン* 欄に行きます。`twitter-connect-plugin`
-    上にマウスポインターを持っていき、設定 ボタンをクリックします。
+    上にマウスポインターを持っていき、{{<guilabel name="設定">}} ボタンをクリックします。
 
-> ![](images/twitter_sso/twitter_plugin_config.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_config.png">}}
 
-3.  `FABRIC_KEY` 値を入力します ( get\_fabric\_key を参照のこと
+3.  `FABRIC_KEY` 値を入力します ( [Fabric API Key の取得方法](#fabric-api-key-の取得方法) を参照のこと
     )。次のスクリーンショットをご確認ください。
 
-> ![](images/twitter_sso/twitter_plugin_fabric.png){width="700px"}
+    {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_fabric.png">}}
 
-4.  OK ボタンをクリックして、設定を保存します。
+4.  {{<guilabel name="OK">}} ボタンをクリックして、設定を保存します。
 
-### 4. config.xml ファイルの設定
+## config.xml ファイルの設定
 
-1.  config.xml ファイルを開いて、`<widget>`
-    タグ内に次のコードを追加します。`Twitter Consumer Key` と
-    `Twitter Consumer Secret` の値は適宜置き換えます。
+1.  `config.xml` ファイルを開いて、`<widget>` タグ内に次のコードを追加します。`Twitter Consumer Key` と `Twitter Consumer Secret` の値は適宜置き換えます。
 
-> ``` {.sourceCode .xml}
-> <preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
-> <preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />
-> ```
+    {{<highlight xml>}}
+<preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
+<preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />{{</highlight>}}
 
 2.  ファイルを保存します。
 
-### 5. アプリの解説
+## アプリの解説
 
-ファイル構成
-------------
+### ファイル構成
 
-![](images/twitter_sso/twitter_files.png){width="197px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_files.png">}}
 
-  ----------------- ----------------------------------------------------------
-  `index.html`      スタート画面のページ
-  `home.html`       ホームページ
-  `css/style.css`   アプリのスタイルシート
-  `js/app.js`       アプリの実行時にさまざまな処理を行う JavaScript ファイル
-  ----------------- ----------------------------------------------------------
+| ファイル | 説明|
+|------|-------------|
+| `index.html`	| スタート画面のページ |
+| `home.html` | ホームページ |
+| `css/style.css` | アプリのスタイルシート |
+| `js/app.js` | アプリの実行時にさまざまな処理を行う JavaScript ファイル |
 
-HTML の解説
------------
+### HTML の解説
 
-**index.html**
+#### index.html
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -143,23 +143,14 @@ HTML の解説
     <ons-navigator id="myNavigator" page="home.html"></ons-navigator>
 </body>
 </html>
-```
+{{</highlight>}}
 
-アプリ起動時の開始地点となるページです。[&lt;ons-navigator&gt;
-&lt;<https://onsen.io/v2/docs/angular1/ons-navigator.html>&gt;]()
-コンポーネントを `<body>`
-タグで囲っています。このコンポーネントを使用して、ページ遷移を処理します
-(
-ページスタックの管理と実際の遷移処理をこのコンポーネントが行ってくれます
-)。\`page\`
-属性には、スタック内に置く最初のページを指定します。このサンプルアプリで表示用のページとして使用するのは、`home.html`
-のみです。`home.html`
-ページは、ページスタック内に置かれる最初のページとして指定されています。`index.html`
-ファイルの処理完了後、`home.html` ページが直ちに表示されます。
+アプリ起動時の開始地点となるページです。[ons-navigator](<https://onsen.io/v2/docs/angular1/ons-navigator.html) コンポーネントを `<body>` タグで囲っています。このコンポーネントを使用して、ページ遷移を処理します
+( ページスタックの管理と実際の遷移処理をこのコンポーネントが行ってくれます )。page 属性には、スタック内に置く最初のページを指定します。このサンプルアプリで表示用のページとして使用するのは、`home.html` のみです。`home.html` ページは、ページスタック内に置かれる最初のページとして指定されています。`index.html` ファイルの処理完了後、`home.html` ページが直ちに表示されます。
 
 **home.html**
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <ons-page ng-controller="HomeCtrl as home" ng-init="CheckLoginStatus()">
     <ons-toolbar>
         <div class="center">Twitter Demo</div>
@@ -189,26 +180,25 @@ HTML の解説
         </div>
     </div>
 </ons-page>
-```
+{{</highlight>}}
 
-このページには2つのセクションがあります。2つのセクションは変数「login\_status」により表示・非表示を切り替えます。
+このページには2つのセクションがあります。2つのセクションは変数「login_status」により表示・非表示を切り替えます。
 
 1.  ログイン セクション:
     このセクションは、ログイン情報が存在しなかった場合に表示されます。
 
-> ![image](images/twitter_sso/twitter_home.png){width="300px"}
+    {{<figure src="/images/sampleapp/twitter_sso/twitter_home.png">}}
 
 2.  プロフィール セクション:
     このセクションは、ログイン情報が見つかった場合に表示されます。
 
-> ![image](images/twitter_sso/twitter_profile.png){width="300px"}
+    {{<figure src="/images/sampleapp/twitter_sso/twitter_profile.png">}}
 
-スタイルシートの解説
---------------------
+### スタイルシートの解説
 
 このCSSは、ナビゲーションバーとツイッタープロフィール画像のCSSです。
 
-``` {.sourceCode .css}
+{{<highlight css>}}
 div.page {
    padding: 5%;
    text-align: center;
@@ -231,12 +221,11 @@ img.profile {
 .button {
     background-color: #1da1f2;
 }
-```
+{{</highlight>}}
 
-JavaScript の解説
------------------
+### JavaScript の解説
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 ons.bootstrap()
 .service('StorageService', function() {
     var setLoginUser = function(user_info) {
@@ -328,26 +317,24 @@ ons.bootstrap()
         });
     }
 });
-```
+{{</highlight>}}
 
 このファイル内では、Angular
 サービスである`StorageService`を利用しています。ログイン情報を端末のローカルストレージに保存するためです。また、
 `Login()`と`Logout()`をもつ「HomeCtrl」を定義しています。ログイン処理の中では、「TwitterConnect.login()」を実行しユーザーにログインすることを求めます。
 
-<div class="admonition note">
-
+{{<note>}}
 同一の端末上で Twitter
 に以前にもログインしていた場合、アカウント情報が再利用されます。異なるアカウントを使用する場合には、Twitter
-アプリを起動させ、別アカウントを使用してログインします。\[ここも確認必要\]
+アプリを起動させ、別アカウントを使用してログインします。[ここも確認必要]
+{{</note>}}
 
-</div>
-
-![image](images/twitter_sso/twitter_authentication.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_authentication.png">}}
 
 端末上に Twitter アプリがインストールされていない場合、または、端末上の
 Twitter に一度もログインしていなかった場合、次の認証画面が表示されます。
 
-![image](images/twitter_sso/twitter_authentication_1.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_authentication_1.png">}}
 
 ログインが成功したあと、ログイン情報を保存するため `StorageService`
 が呼ばれ、ログインしたユーザー情報を表示するため `home.html`
@@ -358,11 +345,8 @@ Twitter に一度もログインしていなかった場合、次の認証画面
 `TwitterConnect.logout()` と `StorageService`
 が呼ばれ、ユーザーのログアウトと端末ローカルストレージからのログイン情報削除が行われます。
 
-<div class="admonition note">
+{{<note>}}
+    <code>Logout()</code> は、ユーザーをこのアプリからのみログアウトさせるだけで、Twitterアプリからのログアウトではありません。
+{{</note>}}
 
-`Logout()`
-は、ユーザーをこのアプリからのみログアウトさせるだけで、Twitterアプリからのログアウトではありません。
-
-</div>
-
-![image](images/twitter_sso/twitter_confirmation.png){width="300px"}
+{{<figure src="/images/sampleapp/twitter_sso/twitter_confirmation.png">}}
