@@ -1,5 +1,6 @@
 ---
 title: Monaca Cloud & Remote Build API Guide
+weight: 10
 ---
 
 You can build a Cordova app using Monaca Cloud & Remote Build API. It
@@ -19,27 +20,27 @@ APIs in your Node.js project, please do as follows:
 1.  Install `monaca-lib`.
 
     {{<highlight bash>}}
-    $ npm install monaca-lib{{</highlight>}}
+$ npm install monaca-lib{{</highlight>}}
 
 2.  Call this module in your js file:
 
     {{<highlight javascript>}}
-    var Monaca = require('monaca-lib').Monaca;{{</highlight>}}
+var Monaca = require('monaca-lib').Monaca;{{</highlight>}}
 
 3.  You can now use any Monaca Cloud & Remote Build API in your js file
     now. For example:
 
     {{<highlight javascript>}}
-    var Monaca = require('monaca-lib').Monaca;
-    var monaca = new Monaca();
-    monaca.login('some@email.com', 'password').then(
-        function() {
-            console.log('Succesfully logged in!');
-        },
-        function(error) {
-            console.log('Login failed: ' + error);
-        }
-    );{{</highlight>}}
+var Monaca = require('monaca-lib').Monaca;
+var monaca = new Monaca();
+monaca.login('some@email.com', 'password').then(
+    function() {
+        console.log('Succesfully logged in!');
+    },
+    function(error) {
+        console.log('Login failed: ' + error);
+    }
+);{{</highlight>}}
 
 ## Monaca Cloud & Remote Build API Usage
 
@@ -52,5 +53,4 @@ follows:
 -   Sync with Monaca Cloud project.
 -   Transpile local project.
 
-Please refer to `src/monaca.js` file in the `monaca-lib` regarding the
-list of all availabe APIs and their usage.
+Please refer to `monaca-lib/src/monaca.js` file regarding the list of all availabe APIs and their usage.

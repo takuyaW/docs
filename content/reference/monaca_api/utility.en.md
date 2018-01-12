@@ -1,17 +1,18 @@
 ---
 title: Utilities
+weight: 40
 ---
 
 We describe other functions provided by Monaca.
 
 Method/Property | Description
 ----------------|---------------------
-[monaca.getDeviceId()](#getdeviceid) | Get the unique device ID
-[monaca.baseUrl](#baseurl) | Get absolute URL to www folder.
-[monaca.isAndroid](#isandroid) | Check whether the device is Android or not
-[monaca.isIOS](#isios) | Check the device is iOS or not
+[monaca.getDeviceId()](#monaca-getdeviceid) | Get the unique device ID
+[monaca.baseUrl](#monaca-baseurl) | Get absolute URL to www folder.
+[monaca.isAndroid](#monaca-isandroid) | Check whether the device is Android or not
+[monaca.isIOS](#monaca-isios) | Check the device is iOS or not
 
-##  monaca.getDeviceId() - Get the unique device ID
+## monaca.getDeviceId()
 
 Get the unique device ID which has been created randomly.
 
@@ -20,19 +21,21 @@ Monaca framework automatically creates a unique device ID at the first
 time app launch.
 {{</note>}}
 
-{{<syntax>}}
+{{<highlight bash>}}
 monaca.getDeviceId(callback)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Parameter | Type | Description
 ----------|------|-----------------
 `callback` | Function | A callback function where device ID is the first parameter
 
-*Return Value*
+**Return Value**
 
-- `None`   
+- None
+
+**Example**
 
 {{<highlight javascript>}}
 monaca.getDeviceId(function(id){
@@ -40,21 +43,21 @@ monaca.getDeviceId(function(id){
 });
 {{</highlight>}}
 
-##  monaca.baseUrl - Get absolute URL to www folder.
+## monaca.baseUrl
 
-Get an absolute URL to *www* folder.
+Get an absolute URL to `www` folder.
 
-{{<syntax>}}
+{{<highlight bash>}}
 monaca.baseUrl
-{{</syntax>}}
+{{</highlight>}}
 
-*Return Value*
+**Return Value**
 
 Type | Description
 ------|-----------------
 String | The absolute URL of application
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 window.onload = function()
@@ -63,23 +66,21 @@ window.onload = function()
 }
 {{</highlight>}}
 
-
-
-##  monaca.isAndroid - Check whether the device is Android or not
+## monaca.isAndroid
 
 Check whether the device is an Android device or not.
 
-{{<syntax>}}
+{{<highlight bash>}}
 monaca.isAndroid
-{{</syntax>}}
+{{</highlight>}}
 
-*Return Value*
+**Return Value**
 
 | Type | Description
 ------|-----------------
-`boolean` | The device is Android device if the return value is *true*.
+boolean | The device is Android device if the return value is *true*.
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 if(monaca.isAndroid === true){
@@ -87,21 +88,21 @@ if(monaca.isAndroid === true){
 }
 {{</highlight>}}
 
-##  monaca.isIOS - Check whether the device is iOS or not
+## monaca.isIOS
 
 Check whether the device is an iOS device or not .
 
-{{<syntax>}}
+{{<highlight bash>}}
 monaca.isIOS
-{{</syntax>}}
+{{</highlight>}}
 
-*Return Value*
+**Return Value**
 
 | Type | Description
 ------|-----------------
 `boolean` | The device is iOS device if the return value is *true*.
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 if(monaca.isIOS === true){

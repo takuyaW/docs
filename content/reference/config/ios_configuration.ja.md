@@ -101,222 +101,218 @@ iOS アプリの設定を行うには、 MonacaApp-Info.plist ファイルを編
 
 例 :
 
-    <plist>
-      <dict>
-        ...
-        <key>XXX</key>
-          <文字列>The value(plistObject) corresponding to key(XXX)</sting>
-          ...
-        <key>YYY</key>
-          <array>
-            <文字列>The 1st value(plistObject) corresponding to key(YYY)</文字列>
-            <文字列>The 2nd value(plistObject) corresponding to key(YYY)</文字列>
-            <文字列>The 3rd value(plistObject) corresponding to key(YYY)</文字列>
-            <文字列>The 4th value(plistObject) corresponding to key(YYY)</文字列>
-          </array>
-        ...
-      </dict>
-    </plist>
+{{<highlight xml>}}
+<plist>
+  <dict>
+    ...
+    <key>XXX</key>
+      <string>The value(plistObject) corresponding to key(XXX)</sting>
+      ...
+    <key>YYY</key>
+      <array>
+        <string>The 1st value(plistObject) corresponding to key(YYY)</string>
+        <string>The 2nd value(plistObject) corresponding to key(YYY)</string>
+        <string>The 3rd value(plistObject) corresponding to key(YYY)</string>
+        <string>The 4th value(plistObject) corresponding to key(YYY)</string>
+      </array>
+    ...
+  </dict>
+</plist>
+{{</highlight>}}
 
-*Value ( plistObject ) の型の一覧*
+#### Value ( plistObject ) の型の一覧
 
-  型 解           説
-  --------------- ----------------------
-  文字列 文字列   
-  date            日付および時刻を表示
-  integer         integer number
-  real            浮動小数点データ
-  data            データ
-  true            true 真偽値
-  false           false 真偽値
+型 | 解説
+------|---------------
+文字列 | 文字列   
+date | 日付および時刻を表示
+integer | 整数
+real | 浮動小数点データ
+data | データ
+true | 真 ( boolean )
+false | 偽 ( boolean )
 
-*Key の一覧*
+#### Key の一覧
+
+key | plistObject の型 | 解説
+----|-----------------|-------------------
+CFBundleDevelopmentRegion	| 文字列 | 開発者の母国語を指定します。ユーザー側の使用する言語が不明な場合、デフォルトとして、この値を使用します。
+CFBundleDisplayName	| 文字列 | アプリ名を指定します。完全修飾名 ( Fully Qualified Class Name / FQCN ) を指定します ( クラスは、Application クラスを継承していること ) 。
+CFBundleExecutable	| 文字列 | アプリの実行可能ファイルを指定します。
+CFBundleIconFile	| 文字列 | アプリのアイコンのファイル名を指定します。
+CFBundleIconFiles	| \<array\>string	| アイコンのファイル名を指定します ( iOS 3.2 以降の端末用 )。端末の画面解像度に応じて、適切なファイルが選択されます。
+CFBundleIdentifier	| 文字列 | アプリの識別子を指定します。Uniform Type Identifier ( UTI ) を使用します ( 例 ： 「 com.monaca.MyApp 」 )。
+CFBundleInfoDictionaryVersion	| 文字列 | `MonacaApp-Info.plist` ファイルの現バージョン番号です。
+CFBundleName	| 文字列 | アプリの短縮表示名です。`16` 文字以下で記述します。
+CFBundlePackageType	| 文字列 | アプリのタイプを識別する 4 文字のコードです。アプリの場合、「 APPL 」 と指定します。
+CFBundleShortVersionString	| 文字列 | アプリのバージョン番号を指定します。
+CFBundleSignature	| 文字列 | アプリの開発者を識別する 4 文字のコードです。
+CFBundleVersion	| 文字列 | アプリのビルド番号です。
+LSRequiresIPhoneOS	| true	| アプリがサポートする端末を、iPhone のみにするか指定します。
+UISupportedInterfaceOrientations	| \<array\>string	| アプリでサポートする、画面の方向を指定します ( iPhone 向け )。iPad の場合、「 UISupportedInterfaceOrientations~ipad 」を使用します。
+BackupWebStorage	| 文字列 | cloud に設定されている場合、データのバックアップを、iCloud へすることができます。 none に設定されている場合、iCloud へのバックアップはできません。デフォルトは、 cloud です。
 
 iOS アプリで設定すべき Key と Value を、次に記します。
 
-#### *UISupportedInterfaceOrientations*
+#### UISupportedInterfaceOrientations
 
 画面の方向を指定します。
 
 -   iPhone の場合
 
-<!-- -->
-
-    ...
-      <key>UISupportedInterfaceOrientations</key>
-        <array>
-          <文字列>UIInterfaceOrientationLandscapeLeft</文字列>
-          <文字列>UIInterfaceOrientationLandscapeRight</文字列>
-          <文字列>UIInterfaceOrientationPortraitUpsideDown</文字列>
-          <文字列>UIInterfaceOrientationPortrait</文字列>
-        </array>
-    ...
+    {{<highlight xml>}}
+...
+  <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+...{{</highlight>}}
 
 -   iPad の場合
 
-<!-- -->
+    {{<highlight xml>}}
+...
+  <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+...{{</highlight>}}
 
-    ...
-      <key>UISupportedInterfaceOrientations~ipad</key>
-        <array>
-          <文字列>UIInterfaceOrientationLandscapeLeft</文字列>
-          <文字列>UIInterfaceOrientationLandscapeRight</文字列>
-          <文字列>UIInterfaceOrientationPortraitUpsideDown</文字列>
-          <文字列>UIInterfaceOrientationPortrait</文字列>
-        </array>
-    ...
+#### 画面方向に関する設定値 ( Value )
 
-*画面方向に関する設定値 ( Value )*
-
-  Value                                      解説
-  ------------------------------------------ ----------------------------------------------------------------------------------
-  UIInterfaceOrientationLandscapeLeft        ホームボタンを左側にして、横向き表示
-  UIInterfaceOrientationLandscapeRight       ホームボタンを右側にして、横向き表示
-  UIInterfaceOrientationPortraitUpsideDown   縦向き表示
-  UIInterfaceOrientationPortrait             縦向き表示 in opposite direction from the normal portrait orientation.
+Value	| 解説
+------|------------------
+UIInterfaceOrientationLandscapeLeft	| ホームボタンを左側にして、横向き表示
+UIInterfaceOrientationLandscapeRight	| ホームボタンを右側にして、横向き表示
+UIInterfaceOrientationPortraitUpsideDown	| 縦向き表示
+UIInterfaceOrientationPortrait	| 通常の縦向き表示とは逆方向に、縦向き表示
 
 表示方向の設定に関するサンプルを、こちらからダウンロードできます。
 
-サンプルファイル &lt;download/UISupportedInterfaceOrientations.zip&gt;
+{{<download href="/download/UISupportedInterfaceOrientations.zip" title="サンプルファイル">}}
 
 #### ステータスバーの設定
 
+Value | 型  | デフォルト値 | 解説
+------|-----|------------|--------------------
+UIStatusBarHidden | Boolean | `false` | `true` に設定した場合、アプリの画面上部のステータスバーが非表示になります。`UIStatusBarHidden` を `true` に設定して、 `UIViewControllerBasedStatusBarAppearance` を `false` に設定した場合、アプリの画面上部のステータスバーは、非表示となります。
+UIViewControllerBasedStatusBarAppearance | Boolean | `false` | `true` に設定した場合、アプリの画面上部のステータスバーが非表示になります。[ステータスバーの制御プラグイン](/ja/reference/cordova_6.5/statusbar) ( StatusBar プラグイン ) を使用する場合には、`true` に設定します。
+
 ### config.xml
 
-config.xml 設定ファイルを使用して、Cordova
+`config.xml` 設定ファイルを使用して、Cordova
 のさまざまな設定を管理します。
 
-![](images/android/2.png){width="250px"}
+{{<figure src="/images/reference/config/android/2.png">}}
 
 設定可能な要素と preference を次に記します。必要に応じて設定します。
 
-#### *Content*
+#### &lt;widget&gt; 要素
 
-  ---------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *型* 文字              列
-  *デフォルト* \`        indext.html\`
-  *解説* \`\`&lt;conte   nt&gt;`要素では、アプリ起動時のページを指定します ( 通常、Web アセットを置いた、最上位のディレクトリーにこのページは置かれます )。`src\`\` 属性の値に、他の URL を指定すれば、起動時のページを変更できます。
-  ---------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+属性 | 型  | デフォルト値 | 解説
+----|-----|------------|-------------------
+`version` | 文字列 | `1.0.0` | A version number which is visible to users
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
-      ...
-      <content src="https://monaca.io/" />
-    </widget>
+**例**
 
-#### *DisallowOverScroll*
+{{<highlight xml>}}
+<widget id="com.example.helloworld" version="0.0.1">
+  ...
+</widget>
+{{</highlight>}}
 
-  --------------- -----------------------------------------------------------------------------------------
-  *型* 真         偽値
-  *デフォルト*    `false`
-  *解説* \`true   \` に指定した場合、ラバーバンド スクロール ( rubber-band scrolling ) が無効になります。
-  --------------- -----------------------------------------------------------------------------------------
+#### \<content\> 要素
 
-    ...
-    <preference name="DisallowOverscroll" value="false" />
-    ...
+属性 | 型  | デフォルト値 | 解説
+----|-----|------------|-------------------
+`src` | 文字列 | `indext.html` | `<content>` 要素では、アプリ起動時のページを指定します ( 通常、Web アセットを置いた、最上位のディレクトリーにこのページは置かれます )。 `src` 属性の値に、他の URL を指定すれば、起動時のページを変更できます。
 
-#### *EnableViewportScale*
+**例**
 
-  --------------- ---------------------------------------------------------------------------------
-  *型* 真         偽値
-  *デフォルト*    `false`
-  *解説* \`true   \` に指定した場合、ビューポートのスケール方法を指定した meta タグを無視します。
-  --------------- ---------------------------------------------------------------------------------
-
-    ...
-    <preference name="EnableViewportScale" value="false" />
-    ...
-
-#### *AutoHideSplashScreen*
-
-  ----------------- ----------------------------------------------------------------------------------
-  *型* 真偽         値
-  *デフォルト* \`   true\`
-  *解説* \`false    \` に指定した場合、JavaScript API を使用して、スプラッシュ画像の制御を行えます。
-  ----------------- ----------------------------------------------------------------------------------
-
-    ...
-    <preference name="AutoHideSplashScreen" value="true" />
-    ...
-
-#### *BackupWebStorage*
-
-  ------------------------- --------------------------------------------------------------------------
-  *型* 文字                 列
-  *デフォルト* \`           cloud\`
-  *解説* 次のいずれかの値   を設定できます。
-                            - `none` : バックアップを無効にします。
-                            - `cloud` : iCloud へのバックアップを許可します。
-                            - `local` : ローカルへのバックアップ ( iTunes Sync 経由 ) を許可します。
-  ------------------------- --------------------------------------------------------------------------
-
-    ...
-    <preference name="BackupWebStorage" value="cloud" />
-    ...
-
-#### *UIWebViewDecelerationSpeed*
-
-  ------------------------- ------------------------------------------------------
-  *型* 文字                 列
-  *デフォルト* \`           normal\`
-  *解説* 慣性スクロールの   減速度を指定します。2 つのオプションがあります。
-                            - `normal`: デフォルトでは、こちらを選択します。
-                            - `fast`: Mobile Safari の場合、こちらを選択します。
-  ------------------------- ------------------------------------------------------
-
-    ...
-    <preference name="UIWebViewDecelerationSpeed" value="normal" />
-    ...
+{{<highlight xml>}}
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
+  ...
+  <content src="https://monaca.io/" />
+</widget>
+{{</highlight>}}
 
 #### &lt;access&gt; 要素
 
-  ------------------------- -----------------------------------------------------------------------------------------------------
-  *型* 文字                 列
-  *デフォルト* \`           \*\`
-  *解説* アクセスできるネ   ットワークドメインを指定します。 `*` に指定した場合、どのドメインにも、アプリからアクセスできます。
-  ------------------------- -----------------------------------------------------------------------------------------------------
+属性 | 型  | デフォルト値 | 解説
+----|-----|------------|-------------------
+`origin` | 文字列 | `*` | アクセスできるネットワークドメインを指定します。 `*` に指定した場合、どのドメインにも、アプリからアクセスできます。your app. 
 
-    ...
-    <access origin="*" />
-    ...
+**例**
 
-#### *ScreenOrientation* ( Cordova 5.2 以上 )
+{{<highlight xml>}}
+...
+<access origin="*" />
+...
+{{</highlight>}}
 
-  ------------------------- ----------------------------------------------------------------------------------------------------------
-  *型* 文字                 列
-  *デフォルト* \`           default\`
-  *解説* 画面のオリエンテ   ーションを設定します。次の 4 つの値を設定できます。
-                            - `all`: この設定では、portrait と landscape の両方を使用できます ( プラットフォーム毎の設定時に使用 )。
-                            - `default`: システム側のデフォルトのオリエンテーションを使用します。
-                            - `landscape`: landscape ( 横向き ) のオリエンテーションを使用します。
-                            - `portrait`: portrait ( 縦向き ) のオリエンテーションを使用します。
-  ------------------------- ----------------------------------------------------------------------------------------------------------
+#### &lt;preference&gt; 要素
 
-    <widget>
-          ...
-          <platform name="ios">
-            <preference name="Orientation" value="all"/>
-          </platform>
-         ...
+The `<preference>` tag sets various options as pairs of name/value
+attributes. Each preference's name is case-insensitive. Many preferences
+are unique to specific platforms, as listed at the top of this page. The
+following sections detail preferences that apply to more than one
+platform.
 
-> &lt;/widget&gt;
+Preference Name | 型  | デフォルト値 | 解説
+----------|------|---------------|-------------------
+`DisallowOverScroll` | 真偽値 | `false` | `true` に指定した場合、ラバーバンド スクロール ( rubber-band scrolling ) が無効になります。
+`EnableViewportScale` | 真偽値 | `false` | `true` に指定した場合、ビューポートのスケール方法を指定した `meta` タグを無視します。
+`AutoHideSplashScreen` | 真偽値 | `true` | `false` に指定した場合、JavaScript API を使用して、スプラッシュ画像の制御を行えます。
+`BackupWebStorage` | 文字列 | `cloud` | 次のいずれかの値を設定できます。 <ul><li>`none`: バックアップを無効にします。</li><li>`cloud`: iCloud へのバックアップを許可します。<li>`local`: ローカルへのバックアップ ( iTunes Sync 経由 ) を許可します。</li></ul>
+`UIWebViewDecelerationSpeed` | 文字列 | `normal` | 慣性スクロールの減速度を指定します。2 つのオプションがあります。 <ul><li>`normal`: デフォルトでは、こちらを選択します。</li><li>`fast`: Mobile Safari の場合、こちらを選択します。</li></ul>
+`Orientation`* | 文字列 | `default` | 画面のオリエンテーションを設定します。次の `4` つの値を設定できます。 <ul><li>`all`: この設定では、portrait と landscape の両方を使用できます ( プラットフォーム毎の設定時に使用 )。</li><li>`default`: システム側のデフォルトのオリエンテーションを使用します。</li><li>`landscape`: landscape ( 横向き ) のオリエンテーションを使用します。</li><li>`portrait`: portrait ( 縦向き ) のオリエンテーションを使用します。</li></ul>
 
-全端末に適用される、グローバルな設定 ( Global Preference )
-も使用できますが、設定できる値は、default、landscape、portrait
-のみです。all は、グローバルな設定には使用できません。
+**例**
 
-    <widget>
-          ...
-    <preference name="Orientation" value="portrait" />
-         ...
+{{<highlight xml>}}
+...
+<preference name="DisallowOverscroll" value="false" />
+<preference name="EnableViewportScale" value="false" />
+<preference name="AutoHideSplashScreen" value="true" />
+<preference name="BackupWebStorage" value="cloud" />
+<preference name="UIWebViewDecelerationSpeed" value="normal" />
+<preference name="Orientation" value="portrait" />
+...
+{{</highlight>}}
 
-> &lt;/widget&gt;
+<b>*</b>: There are two use ways to configure `Orientation` preference: 
 
-<div class="admonition note">
+1. 全プラットフォーム共通の設定方法
+  
+    {{<highlight xml>}}
+<widget>
+  ....
+  <preference name="orientation" value="default"/>
+  ....
+</widget>{{</highlight>}}
 
-</div>
+    {{<note>}}
+      全端末に適用される、グローバルな設定 ( Global Preference ) も使用できますが、設定できる値は、<code>default</code>、 <code>landscape</code>、 <code>portrait</code> のみです。<code>all</code> は、グローバルな設定には使用できません。
+    {{</note>}}
 
-> "default" を設定した場合、Android と Windows
-> ではすべてのオリエンテーションが使用でき、iOS では portrait
-> のみ適用されます。
+2. プラットフォーム毎の設定方法
+  
+    {{<highlight xml>}}
+<widget>
+  ...
+  <platform name="ios">
+    <preference name="orientation" value="default"/>
+  </platform>
+  ...
+</widget>{{</highlight>}}
+
+{{<note>}}
+  <code>default</code> を設定した場合、Android と Windows ではすべてのオリエンテーションが使用でき、iOS では <code>portrait</code> のみ適用されます。
+{{</note>}}

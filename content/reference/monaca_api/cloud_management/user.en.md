@@ -1,46 +1,48 @@
 ---
 title: User Management
+weight: 10
 ---
 
 Below are Monaca Backend Management APIs for Users.
 
 Method | Description
 -------|-------------------
-[User.list()](#u-list) | Get a List of Users
-[User.create()](#u-create) | Create a New User Object
-[User.get()](#u-get) | Get a User's Data
-[User.update()](#u-update) | Update a User's Data
-[User.delete()](#u-delete) | Delete Users
-[User.getPropertyNames()](#u-getPropertyNames) | Get Users' Property Names
+[User.list()](#user-list) | Get a List of Users
+[User.create()](#user-create) | Create a New User Object
+[User.get()](#user-get) | Get a User's Data
+[User.update()](#user-update) | Update a User's Data
+[User.delete()](#user-delete) | Delete Users
+[User.getPropertyNames()](#user-getpropertynames) | Get Users' Property Names
 
-##  Getting a List of Users
+## User.list()
 
 Get a list of users in a User collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.list(page: Number, itemsInPage: Number, sortPropery: String, [propertyNames: String], [nameFilter: String], [userQuery: String], [userQueryBindParams: Array])
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `page` | Number | Page number (starting from `1`) 
 `itemsInPage` | Number | Number of items to display on one page. The maximum number of items can be up to `10000`. 
-`sortProperty` | String | (Default: `asc`) Property to be used for sorting `sortOrder` string Sorting order `asc` or `desc`.
+`sortProperty` | String | Property to be used for sorting 
+`sortOrder` | String | (Default: `asc`) Sorting order `asc` or `desc`.
 `propertyNames` | String | [optional] Properties to be fetched in addition to system properties
 `nameFilter` | String | [optional] Search users by `_username` or `_oid` with this keyword
-`userQuery`	| String | [Optional] Filter target users by a [MonaQL](../../cloud/criteria/#monaql) query for user properties. For example: `country == "US" && age > 20`.
+`userQuery`	| String | [Optional] Filter target users by a [MonaQL](../../cloud/criteria#monaca-query-language) query for user properties. For example: `country == "US" && age > 20`.
 `userQueryBindParams` | Array	| [Optional] Replace the placeholders in userQuery by its values. For example: `["US", 20]` when `userQuery` is `country == ? && age > ?`.
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `items`      | JSON Object | Users that matched the conditions
 `totalItems` | Number | Number of total users found
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -48,15 +50,15 @@ Code | Description
 -----|--------------------------
 `-32602` | Invalid params
 
-##  Creating a New User Object
+## User.create()
 
 Create a new User object.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.create(username: String, password: String, properties: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
@@ -64,13 +66,13 @@ Name | Type | Description
 `password` | String | Password
 `properties` | JSON Object | Additional user properties to set
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `user` | JSON Object | User data (with `_id`)
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -78,27 +80,27 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Getting a User's Data
+## User.get()
 
 Get a User's data.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.get(_id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `_id` | String | User's id
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `user` | JSON Object | User data
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -106,26 +108,26 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Updating a User's Data
+## User.update()
 
 Update a User's data.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.update(_id: Stirng, user: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `_id` | String | User's id
 `user` | JSON Object | User data (`_id` column will be ignored) to be updated
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -133,25 +135,25 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Deleting Users
+## User.delete()
 
 Delete multiple Users.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.delete(_idList: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `idList` | JSON Object | id list of the users to be deleted
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -159,20 +161,19 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Getting Users' Property Names
+## User.getPropertyNames()
 
-Get displayable property names by internally fetching the latest *100*
-users.
+Get displayable property names by internally fetching the latest `100` users.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 User.getPropertyNames()
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no parameter.
+- None
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------

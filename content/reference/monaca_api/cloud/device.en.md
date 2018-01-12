@@ -1,5 +1,6 @@
 ---
 title: Device
+weight: 60
 ---
 
 Device management can be done with the following JavaScript APIs.
@@ -12,26 +13,26 @@ file. For more details, please refer to {{<link href="/en/reference/config/andro
 
 Method/Property | Description
 ----------------|--------------------
-[monaca.cloud.Device.getProperty()](#d-getproperty) | Get a property value of device
-[monaca.cloud.Device.getProperties()](#d-getproperties) | Get property values of a device
-[monaca.cloud.Device.saveProperty()](#d-saveproperty) | Update a property of a device
-[monaca.cloud.Device.saveProperties](#d-saveproperties) | Update properties of a device
+[monaca.cloud.Device.getProperty()](#device-getproperty) | Get a property value of device
+[monaca.cloud.Device.getProperties()](#device-getproperties) | Get property values of a device
+[monaca.cloud.Device.saveProperty()](#device-saveproperty) | Update a property of a device
+[monaca.cloud.Device.saveProperties()](#device-saveproperties) | Update properties of a device
 
-##  Retrieving a Device Property
+## Device.getProperty()
 
 Get a property value of a device.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Device.getProperty(name: String) : $.Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `name` | String | A property name
 
-*Return Value*
+**Return Value**
 
 Type | Description
 -----|--------------------------
@@ -39,44 +40,44 @@ Type | Description
 
 Within the `done()` callback, there is the property value.
 
-*Example*
+**Example**
 
 Refer to the following code for an example of how to get a property value of a device.
 
 {{<highlight javascript>}}
 monaca.cloud.Device.getProperty("nickname")
-  .done
-    (
-      function(result)
-      { console.log("Device's nickname: " + result); }
-    )
-  .fail
-    (
-      function(err)
-      { /* error handling codes */ }
-    )
-  .always
-    (
-      function()
-      { /* what must be done despite the outcome of the getProperty function */ }
-    );
+.done
+(
+    function(result)
+    { console.log("Device's nickname: " + result); }
+)
+.fail
+(
+    function(err)
+    { /* error handling codes */ }
+)
+.always
+(
+    function()
+    { /* what must be done despite the outcome of the getProperty function */ }
+);
 {{</highlight>}}
 
-##  Retrieving Device Properties
+## Device.getProperties()
 
 Get property values of a device.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Device.getProperties(names: Array) : $.Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `names` | Array of String | Property names
 
-*Return Value*
+**Return Value**
 
 Type | Description
 -----|--------------------------
@@ -84,54 +85,54 @@ Type | Description
 
 Within the `done()` callback, there is a JSON Object containing various properties' values.
 
-*Example*
+**Example**
 
 Below is how to get the values of 2 properties of a device.
 
 {{<highlight javascript>}}
 monaca.cloud.Device.getProperties(["nickname", "color"])
-  .done
-    (
-      function(result)
-      {
+.done
+(
+    function(result)
+    {
         console.log("Properties: " + JSON.stringify(result));
         console.log("Device's nickname: " + result.nickname);
-      }
-    )
-  .fail
-    (
-      function(err)
-      { /* error handling codes */ }
-    )
-  .always
-    (
-      function()
-      { /* what must be done despite the outcome of the getProperties function */ }
-    );
+    }
+)
+.fail
+(
+    function(err)
+    { /* error handling codes */ }
+)
+.always
+(
+    function()
+    { /* what must be done despite the outcome of the getProperties function */ }
+);
 {{</highlight>}}
 
-##  Updating a Device Property
+## Device.saveProperty()
 
 Update a property value of a device.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Device.saveProperty(name: String, value: String) : $.Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description | Requirement
 -----|------|-------------|---------------------
 `name` | String | A property name | Must consist of \[`a-zA-Z0-9`\] characters and must start with \[`a-zA-Z`\].
 `value` | String | The value of the corresponded property name to be added or updated |
 
-*Return Value*
+**Return Value**
 
 Type | Description
 -----|--------------------------
 [$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../error) object.
 
@@ -139,51 +140,50 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-*Example*
+**Example**
 
 The following example illustrates how to add/update the device's nickname to `"Monaca"`.
 
 {{<highlight javascript>}}
 monaca.cloud.Device.saveProperty("nickname", "Monaca")
-  .done
-    (
-      function()
-      { console.log("Saved."); }
-    )
-  .fail
-    (
-      function(err)
-      { /* error handling codes */ }
-    )
-  .always
-    (
-      function()
-      { /* what must be done despite the outcome of the saveProperty function */ }
-    );
+.done
+(
+    function()
+    { console.log("Saved."); }
+)
+.fail
+(
+    function(err)
+    { /* error handling codes */ }
+)
+.always
+(
+    function()
+    { /* what must be done despite the outcome of the saveProperty function */ }
+);
 {{</highlight>}}
 
-##  Updating Device Properties
+## Device.saveProperties()
 
 Update an array of property values of a device.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Device.saveProperties(properties: Object) : $.Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description | Requirement
 -----|------|-------------|---------------------
 `properties` | JSON Object | Additional properties of a device to be added/updated | Key names must consist of [`a-zA-Z0-9`] characters and must start with [`a-zA-Z`]. Data size must not exceed the size limit (`500KB`).
 
-
-*Return Value*
+**Return Value**
 
 Type | Description
 -----|--------------------------
 [$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../error) object.
 
@@ -191,29 +191,28 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-*Example*
+**Example**
 
 The following example illustrates how to add/update 2 properties (`nickname` & `color`) of a device.
 
 {{<highlight javascript>}}
 monaca.cloud.Device.saveProperties({"nickname": "Monaca", "color": "#9999FF"})
-  .done
-    (
-      function()
-      { console.log("Saved."); }
-    )
-  .fail
-    (
-      function(err)
-      { /* error handling codes */ }
-    )
-  .always
-    (
-      function()
-      { /* what must be done despite the outcome of the saveProperties function */ }
-    );
+.done
+(
+    function()
+    { console.log("Saved."); }
+)
+.fail
+(
+    function(err)
+    { /* error handling codes */ }
+)
+.always
+(
+    function()
+    { /* what must be done despite the outcome of the saveProperties function */ }
+);
 {{</highlight>}}
-
 
 See Also: 
 

@@ -1,5 +1,6 @@
 ---
 title: Criteria
+weight: 50
 ---
 
 You can make query with Criteria object.
@@ -12,60 +13,62 @@ file. For more details, please refer to {{<link href="/en/reference/config/andro
 
 Method/Property | Description
 ----------------|--------------------
-[monaca.cloud.Criteria()](#c-criteria) | Create a criteria object
-[MonaQL](#monaql) | Monaca Query Language
+[monaca.cloud.Criteria()](#creating-a-criteria-object) | Create a criteria object
+[MonaQL](#monaca-query-language) | Monaca Query Language
 
 ##  Creating a Criteria Object
 
 Get a criteria object with a specific name.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Criteria(query: String[ bindParams: Array]) : criteriaObject
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
-`query` | String | A query string written in [MonaQL](#monaql)
+`query` | String | A query string written in [MonaQL](#monaca-query-language)
 `bindParams` | Array of String | Values to bind
 
-*Return Value*
+**Return Value**
 
-- A criteria object is returned.   
+- Criteria object
 
-*Example*
+**Example**
 
-Below are samples of Criteria and [MonaQL](#monaql). In MonaQL, `?` is a place holder. It is replaced with `bindParams`.
+Below are samples of Criteria and [MonaQL](#monaca-query-language). In MonaQL, `?` is a place holder. It is replaced with `bindParams`.
 
 {{<highlight javascript>}}
-    var Criteria0 = monaca.cloud.Criteria('a == 12 && (b == 34 || c == 56)');
-    var Critetia1 = monaca.cloud.Criteria(
-      'a == 12 && !(b == 34 || c == 56)'
-    ); // a == 12 && (b != 34 && c != 56)
+var Criteria0 = monaca.cloud.Criteria('a == 12 && (b == 34 || c == 56)');
+var Critetia1 = monaca.cloud.Criteria(
+  'a == 12 && !(b == 34 || c == 56)'
+); // a == 12 && (b != 34 && c != 56)
 
-    var Critetia2 = monaca.cloud.Criteria(
-      'name IN ["John", "Smith"]'
-    ); // name == "John" || name == "Smith"
-    var Critetia3 = monaca.cloud.Criteria(
-      'name NIN ["John", "Smith"]'
-    ); // name != "John" && name != "Smith"
+var Critetia2 = monaca.cloud.Criteria(
+  'name IN ["John", "Smith"]'
+); // name == "John" || name == "Smith"
+var Critetia3 = monaca.cloud.Criteria(
+  'name NIN ["John", "Smith"]'
+); // name != "John" && name != "Smith"
 
-    var Criteria4 = monaca.cloud.Criteria(
-      'name == ? && age > ?',
-      ["John", 20]
-    ); // name == "John" && age > 20
+var Criteria4 = monaca.cloud.Criteria(
+  'name == ? && age > ?',
+  ["John", 20]
+); // name == "John" && age > 20
 
-    var names = ["John", "Smith"];
-    var Criteria5 = monaca.cloud.Criteria(
-      'name IN ?',
-      [names]
-    ); // name == "John" || name == "Smith"
+var names = ["John", "Smith"];
+var Criteria5 = monaca.cloud.Criteria(
+  'name IN ?',
+  [names]
+); // name == "John" || name == "Smith"
 {{</highlight>}}
 
 ##  Monaca Query Language
 
 This is complete list of MonaQL operators and value types.
+
+### Operators
 
 Operator  |Description
 ----------|--------------------------------------
@@ -81,6 +84,8 @@ Operator  |Description
 `!()`     | Make group and reverse boolean value
 `&&`      | Logical AND
 <code>&#124;&#124;</code> | Logical OR
+
+### Value Types
 
 Values           |Description
 -----------------|-----------------------------------------
