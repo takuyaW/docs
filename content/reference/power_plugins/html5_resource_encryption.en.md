@@ -1,5 +1,6 @@
 ---
 title: Monaca HTML5 Resource Encryption
+weight: 10
 ---
 
 This plugin provides the encryption function for HTML5 assets bundled up
@@ -13,8 +14,8 @@ In order to use this plugin, you are required to subscribe to a valid plan. Plea
 This plugin is used differently depending on the Cordova version of your
 project:
 
-- [For Cordova 6.2 Projects](#cordova-6-2-projects)
-- [For Cordova 5.2 or Lower Projects](#cordova-5-2-and-lower-projects)
+- [For Cordova 6.2 Projects](#for-cordova-6-2-projects)
+- [For Cordova 5.2 or Lower Projects](#for-cordova-5-2-or-lower-projects)
 
 ##  For Cordova 6.2 Projects
 
@@ -56,7 +57,7 @@ The plugin for Cordova 6.2 projects has two additional features:
     ----------|------|----------------
     `SECRET` | String | [Required] Password/secret for the encryption.
     `TARGETS` | String | [Optional] Target folder of the project files to be encrypted. Default folder is `www`.
-    `AUTO_DECRYPT` | Boolean | <ul>[Optional] Auto decryption options:<li>`1`: (default) for enabling auto decryption</li><li>`0`: for disabling auto decryption</li></ul>
+    `AUTO_DECRYPT` | Boolean | [Optional] Auto decryption options: <ul><li>`1`: (default) for enabling auto decryption</li><li>`0`: for disabling auto decryption</li></ul>
 
     {{<img src="/images/reference/power_plugins/html5_resource_encryption/7.png" width="500">}}
 
@@ -65,7 +66,7 @@ The plugin for Cordova 6.2 projects has two additional features:
 You can also manually decrypt the configured target folder. The target
 folder is encrypted and can't be read until the
 `monaca.Encrypt.setDecryptHash()` function is executed. In other words,
-it can not be read with the script tag in index.html file.
+it can not be read with the script tag in `index.html` file.
 
 Please follow the steps below on how to use manual decryption:
 
@@ -90,9 +91,9 @@ the build log as follows:
     code which looks like this:
 
     {{<highlight javascript>}}
-    ...
-    Hash : [4c716d***************************************************ae9f720d]
-    ...{{</highlight>}}
+...
+Hash : [4c716d***************************************************ae9f720d]
+...{{</highlight>}}
 
 #### Step 3: Calling the Decryption Function
 

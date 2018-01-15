@@ -1,5 +1,6 @@
 ---
 title: Monaca Secure Storage
+weight: 30
 ---
 
 This plugin provides an encrypted data storage function. If the
@@ -23,6 +24,7 @@ application is uninstalled, saved data will also be deleted.
 # Adding the Plugin in Monaca Cloud IDE
 
 1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+
 2.  Click {{<guilabel name="Enable">}} button of the `SecureStorage` to add it into
     your project.
 

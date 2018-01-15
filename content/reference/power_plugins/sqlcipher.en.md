@@ -1,5 +1,6 @@
 ---
 title: SQLCipher Adapter
+weight: 40
 ---
 
 SQLCipher Adapter is a Cordova plugin to create and access encrypted
@@ -19,6 +20,7 @@ to HTML5/Web SQL API.
 ## Adding the Plugin in Monaca Cloud IDE
 
 1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+
 2.  Click {{<guilabel name="Enable">}} button of the `SqlCipher` to add it into your
     project.
 
@@ -31,20 +33,20 @@ to HTML5/Web SQL API.
 If you try to open a database that doesn’t exist, the API will create
 it.
 
-{{<syntax>}}
-var db = window.sqlitePlugin.openDatabase({name: "myDatabase.db", \[key: "your-password-here"\], \[location: 1\]});
-{{</syntax>}}
+{{<highlight javascript>}}
+var db = window.sqlitePlugin.openDatabase({name: "myDatabase.db", [key: "your-password-here"], [location: 1]});
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Parameter | Type | Description
 ----------|------|----------------
 `name` | String | Your database’s name. The database file name should include the extension, if desired.
 `key` | String | Your database’s password.
-`location` | String | It is used to select the database subdirectory location (iOS only) with the following choices:<ul><li>`0`: (default) *Documents* -  visible to iTunes and backed up by iCloud.</li><li>`1`: *Library* - backed up by iCloud, NOT visible to iTunes.</li><li>`2`: *Library/LocalDatabase* - NOT visible to iTunes and NOT backed up by iCloud.</li>
+`location` | String | It is used to select the database subdirectory location (iOS only) with the following choices: <ul><li>`0`: (default) *Documents* -  visible to iTunes and backed up by iCloud.</li><li>`1`: *Library* - backed up by iCloud, NOT visible to iTunes.</li><li>`2`: *Library/LocalDatabase* - NOT visible to iTunes and NOT backed up by iCloud.</li>
 </ul>
 
-*Example*
+**Example**
 
 The following code illustrates an example with *PRAGMA* feature. First, a table is created and a single entry is added. Then, a query to count the inserted item to see if it's added as expected.
 
@@ -82,22 +84,23 @@ function onDeviceReady() {
   });
 }
 {{</highlight>}}
+
 {{<note>}}
-<b>PRAGMA</b> statements must be executed in <code>executeSql()</code> on the database object (i.e. <code>db.executeSql()</code>) and *NOT* within a transaction.
+<b>PRAGMA</b> statements must be executed in <code>executeSql()</code> on the database object (i.e. <code>db.executeSql()</code>) and <b>NOT</b> within a transaction.
 {{</note>}}
 
 ### Deleting a Database
 
-{{<syntax>}}
+{{<highlight javascript>}}
 window.sqlitePlugin.deleteDatabase({name: "myDatabase.db", location: 1}, successCb, errorCb);
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Parameter | Type | Description
 ----------|------|----------------
 `name` | String | Your database’s name. The database file name should include the extension, if desired.
-`location` | String | It is used to select the database subdirectory location (iOS only) with the following choices:<ul><li>`0`: (default) *Documents* -  visible to iTunes and backed up by iCloud.</li><li>`1`: *Library* - backed up by iCloud, NOT visible to iTunes.</li><li>`2`: *Library/LocalDatabase* - NOT visible to iTunes and NOT backed up by iCloud.</li></ul>
+`location` | String | It is used to select the database subdirectory location (iOS only) with the following choices: <ul><li>`0`: (default) *Documents* -  visible to iTunes and backed up by iCloud.</li><li>`1`: *Library* - backed up by iCloud, NOT visible to iTunes.</li><li>`2`: *Library/LocalDatabase* - NOT visible to iTunes and NOT backed up by iCloud.</li></ul>
 `successCb` | Function | A callback when the database is deleted successfully.
 `errorCb` | Function | A callback when the database is failed to be deleted.
 
