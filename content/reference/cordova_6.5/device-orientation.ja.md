@@ -1,45 +1,40 @@
-端末のオリエンテーション検知 プラグイン
-=======================================
+---
+title: 端末のオリエンテーション検知 プラグイン
+weight: 70
+---
 
-テスト環境 ( バージョン番号 ) :
-[1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
+テスト環境 ( バージョン番号 ) : [1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-device-motion)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-device-orientation">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、端末のコンパスにアクセスします。コンパスは、端末が指し示す方向・方位を検知するセンサーの
-1 種です。通常、端末の上部最先端を起点として、0 から 359.99
-度の角度で方位を示します。0 は、北を意味します。
+`1` 種です。通常、端末の上部最先端を起点として、`0` から `359.99`
+度の角度で方位を示します。`0` は、北を意味します。
 
 このプラグインは、グローバルな `navigator.compass`
 オブジェクトを定義します。 グローバルスコープでは、`deviceready`
 イベントの発火後まで使用できません。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(navigator.compass);
 }
-```
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-device-orientation
-```
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Device Orientation` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Device Orientation` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -60,13 +55,13 @@ cordova-plugin-device-orientation
 オブジェクトから取得できます。また、このオブジェクトは、`compassSuccess`
 コールバック関数で使用します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.compass.getCurrentHeading(compassSuccess, compassError);
-```
+{{</highlight>}}
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(heading) {
     alert('Heading: ' + heading.magneticHeading);
 };
@@ -76,7 +71,7 @@ function onError(error) {
 };
 
 navigator.compass.getCurrentHeading(onSuccess, onError);
-```
+{{</highlight>}}
 
 ### navigator.compass.watchHeading
 
@@ -88,9 +83,9 @@ navigator.compass.getCurrentHeading(onSuccess, onError);
 を停止するときには、`navigator.compass.clearWatch` に、この watchID
 を渡します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [compassOptions]);
-```
+{{</highlight>}}
 
 `compassOptions` には、次のパラメーターを使用できます
 
@@ -103,7 +98,7 @@ var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [comp
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(heading) {
     var element = document.getElementById('heading');
     element.innerHTML = 'Heading: ' + heading.magneticHeading;
@@ -118,7 +113,7 @@ var options = {
 }; // Update every 3 seconds
 
 var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -137,21 +132,21 @@ filter を設定した場合、`getCurrentHeading` または `watchHeading`
 
 watchID パラメーターを使用して、方位の監視を停止します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.compass.clearWatch(watchID);
-```
+{{</highlight>}}
 
 -   **watchID**: `navigator.compass.watchHeading` が返す ID
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 
 // ... later on ...
 
 navigator.compass.clearWatch(watchID);
-```
+{{</highlight>}}
 
 ### CompassHeading
 

@@ -1,5 +1,6 @@
 ---
 title: Dialogs Plugin
+weight: 80
 ---
 
 Tested Version: [1.3.3](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.3.3)
@@ -23,14 +24,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-dialogs
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Notification` plugin in Monaca Cloud IDE.
 
 Methods

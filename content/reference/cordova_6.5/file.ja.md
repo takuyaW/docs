@@ -1,15 +1,14 @@
-ファイル操作 プラグイン
-=======================
+---
+title: ファイル操作 プラグイン
+weight: 90
+---
 
 テスト環境 ( バージョン番号 ) :
 [4.3.3](https://github.com/apache/cordova-plugin-file/releases/tag/4.3.3)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-file) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-file">}} をご確認ください。
+{{</note>}}
 
 このプラグインでは、独自の File API ( 以後、「 ファイル操作 API 」
 と呼称します ) を使用して、端末内のファイルへアクセス (
@@ -17,55 +16,47 @@
 します。このプラグインは、以下を含むいくつかの仕様に基づいています。
 
 -   [The HTML5 File API](http://www.w3.org/TR/FileAPI/)
--   [The Directories and System extensions
-    Latest](http://www.w3.org/TR/2012/WD-file-system-api-20120417/)
-    なお、このプラグインで使用されているコードのほとんどは、[an earlier
-    spec](http://www.w3.org/TR/2011/WD-file-system-api-20110419/)
+-   [The Directories and System extensions Latest](http://www.w3.org/TR/2012/WD-file-system-api-20120417/)
+    なお、このプラグインで使用されているコードのほとんどは、[an earlier spec](http://www.w3.org/TR/2011/WD-file-system-api-20110419/)
     の仕様がまだサポートされていた頃に作成されたものです。
--   [FileWriter
-    spec](http://dev.w3.org/2009/dap/file-system/file-writer.html)
+-   [FileWriter spec](http://dev.w3.org/2009/dap/file-system/file-writer.html)
     も実装しています。
 
-<div class="admonition note">
-
+{{<note>}}
 W3C FileSystem仕様はWebブラウザでは推奨されていませんが、FileSystem
 APIは、このプラグインを使用することでCordovaアプリケーションにおいてブラウザプラットフォームを除き、
-*Supported Platforms* にあるプラットフォームでサポートされます。
+<b>Supported Platforms</b> にあるプラットフォームでサポートされます。
+{{</note>}}
 
-</div>
-
-プラグインの使い方については、このページの下部にある [sample](#sample)
+プラグインの使い方については、このページの下部にある [sample](#サンプルコード-ファイルの作成-ディレクトリーの作成-ファイルへの書き込み-ファイルの読み込み-ファイルへの追記)
 を参照してください。 その他の例（ブラウザ中心）については、HTML5 Rocksの
 [FileSystem](http://www.html5rocks.com/en/tutorials/file/filesystem/)
 を参照してください。 他のストレージオプションの概要については、Cordovaの
-[storage
-guide](http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html)
+[storage guide](http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html)
 を参照してください。
 
 このプラグインは、グローバルな `cordova.file` オブジェクトを定義します。
 グローバルスコープでは、`deviceready`
 イベントの発火後まで使用できません。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(cordova.file);
 }
-```
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-file
-```
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`File` プラグインを 有効 &lt;add\_plugins&gt;
-にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`File` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -80,7 +71,7 @@ cordova-plugin-file
 
 v1.2.0 以降、ファイルシステムのディレクトリーへのパスを示す URL
 が使用できるようになりました。この URL
-の形式は、\*<file:///path/to/spot/*>
+の形式は、*<file:///path/to/spot/>*
 です。また、`window.resolveLocalFileSystemURL()`
 を使用すれば、次のような `DirectoryEntry` に、この URL
 を変換することもできます。
@@ -88,6 +79,7 @@ v1.2.0 以降、ファイルシステムのディレクトリーへのパスを�
 -   `cordova.file.applicationDirectory` -
     アプリのインストール先となる、読み取り専用のディレクトリーです。 (
     *iOS*、\*Android\*、\*BlackBerry 10\*、\*OSX\*、\*windows\* )
+     
 -   `cordova.file.applicationStorageDirectory` - アプリのサンドボックス
     ( sandbox ) のルートディレクトリーです。iOS と Windows
     では、このディレクトリーは読み取り専用です ( ただし、iOS の
@@ -95,39 +87,49 @@ v1.2.0 以降、ファイルシステムのディレクトリーへのパスを�
     など、特定のサブディレクトリーに関しては、読み取りと書き込みができます
     )。このディレクトリーに格納されているすべてのデータは、対象のアプリのみが利用できます。
     ( *iOS*、\*Android\*、\*BlackBerry 10\*、\*OSX\* )
+
 -   `cordova.file.dataDirectory` - アプリのサンドボックス ( sandbox )
     内の永続的およびプライベートなデータストレージです。内蔵のメモリーが使用されます。Android
     の場合、外部のメモリーが必要なときは、`.externalDataDirectory`
     を使用します。また、iOS の場合、このディレクトリーは、iCloud
     間とは同期されません ( `.syncedDataDirectory` を使用します )。 (
     *iOS*、\*Android\*、\*BlackBerry 10\*、\*windows\* )
+
 -   `cordova.file.cacheDirectory` -
     キャッシュしたデータファイルまたは他のファイル (
     アプリ側で再作成可能な、なんらかのファイル )
     用のディレクトリーです。端末側のストレージが不足する場合には、OS
     側が、これらのファイルを削除します。ファイルの削除は、本来であれば、アプリ側で制御すべき処理です。
     ( *iOS*、\*Android\*、\*BlackBerry 10\*、\*OSX\*、\*windows\* )
+
 -   `cordova.file.externalApplicationStorageDirectory` -
     アプリが使用する、外部ストレージ上の領域 ( 親のディレクトリー )
     です。 ( *Android* )
+
 -   `cordova.file.externalDataDirectory` -
     外部ストレージ上の領域内で、アプリが使用するデータファイルを置く領域
     ( 子のディレクトリー ) です。 ( *Android* )
+
 -   `cordova.file.externalCacheDirectory` -
     外部ストレージ上の領域内で、アプリがキャッシュに使用する領域 (
     子のディレクトリー ) です。 ( *Android* )
+
 -   `cordova.file.externalRootDirectory` - 外部ストレージ ( SD カード )
     のルートです。 ( *Android*、\*BlackBerry 10\* )
+
 -   `cordova.file.tempDirectory` - Temp ディレクトリーです。OS
     側がコンテンツを自由に削除できますが、このような挙動に頼るのではなく、このディレクトリーの処理は、アプリ側で常に行うべきです。
     ( *iOS*、\*OSX\*、\*windows\* )
+
 -   `cordova.file.syncedDataDirectory` -
     同期対象である、アプリのファイルを格納します ( 例 : iCloud 間 )。 (
     *iOS*、\*windows\* )
+
 -   `cordova.file.documentsDirectory` -
     対象のアプリだけが使用する、プライベートなファイルです。ただし、他のアプリ間ともなんらかの関係があります
     ( 例 : OFFICE ファイルなど )。\*OSX\* では、ユーザーの `~/Documents`
     ディレクトリーとなります。 ( *iOS*、\*OSX\* )
+
 -   `cordova.file.sharedDirectory` -
     すべてのアプリ間で共有できる、グローバルなファイルを置けます。 (
     *BlackBerry 10* )
@@ -141,259 +143,62 @@ v1.2.0 以降、ファイルシステムのディレクトリーへのパスを�
 
 ### iOS のファイルシステムの概要
 
-> widths
->
-> :   10 10 10 5 5 5 5 5
->
-> header-rows
->
-> :   1
->
-> -   -   端末上のパス
->     -   cordova.file.\*
->     -   iosExtraFileSystems
->     -   r/w
->     -   永続性の有無
->     -   OS 側で削除
->     -   同期の有無
->
->     - プライベート
-> -   -   `/var/mobile/Applicati ons/<UUID>/`
->
->     - applicationStorageDirectory -
->     -   r
->     -   N/A
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   -   `appname.app/`
->     -   applicationDirectory
->     -   bundle
->     -   r
->     -   N/A
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   - `www/` --
->     -   r
->     -   N/A
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   -   `Documents/`
->     -   documentsDirectory
->     -   documents
->     -   r/w
->     -   Yes
->     -   No
->     -   Yes
->
->     - Yes
-> -   - `NoCloud/` -
->     -   documents-nosync
->     -   r/w
->     -   Yes
->     -   No
->     -   No
->
->     - Yes
-> -   -   `Cloud/`
->
->     - syncedDataDirectory -
->     -   r/w
->     -   Yes
->     -   No
->     -   Yes
->
->     - Yes
-> -   -   `Caches/`
->     -   cacheDirectory
->     -   cache
->     -   r/w
->     -   Yes\*
->     -   Yes\*\*\*
->     -   No
->
->     - Yes
-> -   -   `tmp/`
->
->     - tempDirectory -
->     -   r/w
->     -   No\*\*
->     -   Yes\*\*\*
->     -   No
->     -   Yes
->
-\*
-アプリの再起動後・アップグレード後でも、このディレクトリーに置かれたファイルには影響が出ません。ただし、このディレクトリーのコンテンツの削除は、OS
+端末上のパス | cordova.file.* | iosExtraFileSystems | r/w	| 永続性の有無 | OS 側で削除 | 同期の有無 | プライベート
+-----------|----------------|---------------------|-----|------------|------------|----------|-----------------
+`/var/mobile/Applicati ons/<UUID>/` | applicationStorageDirectory | | r | N/A | N/A | N/A | Yes
+`appname.app/` | applicationDirectory | bundle | r | N/A | N/A | N/A | Yes
+`www/` |  |  | r | N/A | N/A | N/A | Yes
+`Documents/` | documentsDirectory | documents | r/w | Yes | No | Yes | Yes
+`NoCloud/` |  | documents-nosync | r/w | Yes | No | No | Yes
+`Cloud/` | syncedDataDirectory |  | r/w | Yes | No | Yes | Yes
+`Caches/` | cacheDirectory | cache | r/w | Yes* | Yes*** | No | Yes
+`tmp/` | tempDirectory | | r/w | No** | Yes*** | No | Yes
+
+\* アプリの再起動後・アップグレード後でも、このディレクトリーに置かれたファイルには影響が出ません。ただし、このディレクトリーのコンテンツの削除は、OS
 側で、自由にできます。よって、削除された場合でも、アプリ側で再作成できる必要があります。
 
-\*\*
-アプリの再起動時でも、ごくまれな例外を除き、このディレクトリーに置かれたファイルには影響はでません。アップデート時には、ファイルは消去されてしまう場合があります。可能であれば、このディレクトリーのファイルは、アプリ側の任意のタイミングで削除できるようにしましょう。デフォルトのままだと、削除のタイミング、または、削除するか否かの決定は、OS
+** アプリの再起動時でも、ごくまれな例外を除き、このディレクトリーに置かれたファイルには影響はでません。アップデート時には、ファイルは消去されてしまう場合があります。可能であれば、このディレクトリーのファイルは、アプリ側の任意のタイミングで削除できるようにしましょう。デフォルトのままだと、削除のタイミング、または、削除するか否かの決定は、OS
 側で行われます。
 
-\*\*\* このディレクトリーのコンテンツの削除は、必要に応じて、OS
+*** このディレクトリーのコンテンツの削除は、必要に応じて、OS
 側が行います。しかし、この OS
 側の挙動に頼らずに、アプリが正常に動作するよう、開発者側で、必要に応じて削除できるようにしましょう。
 
 ### Android のファイルシステムの概要
 
-> widths
->
-> :   10 10 10 5 5 5 5
->
-> header-rows
->
-> :   1
->
-> -   -   端末上のパス
->     -   cordova.file.\*
->     -   iosExtraFileSystems
->     -   r/w
->     -   永続性の有無
->     -   OS 側で削除
->
->     - プライベート
-> -   -   `file:///android_asset/`
->     -   applicationDirectory
->     -   assets
->     -   r
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   -   `/data/data/<app-id>/`
->
->     - applicationStorageDirectory -
->     -   r/w
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   -   `cache`
->     -   cacheDirectory
->     -   cache
->     -   r/w
->     -   Yes
->     -   Yes\*
->
->     - Yes
-> -   -   `files`
->     -   dataDirectory
->     -   files
->     -   r/w
->     -   Yes
->     -   No
->
->     - Yes
-> -   - `Documents` -
->     -   documents
->     -   r/w
->     -   Yes
->     -   No
->
->     - Yes
-> -   -   `<sdcard>/`
->     -   externalRootDirectory
->     -   sdcard
->     -   r/w
->     -   Yes
->     -   No
->
->     - No
-> -   -   `Android/data/<app-id>/`
->
->     - externalApplicationStorageDirectory -
->     -   r/w
->     -   Yes
->     -   No
->
->     - No
-> -   -   `cache`
->     -   externalCacheDirectory
->     -   cache-external
->     -   r/w
->     -   Yes
->     -   No\*\*
->
->     - No
-> -   -   `files`
->     -   externalDataDirectory
->     -   files-external
->     -   r/w
->     -   Yes
->     -   No
->     -   No
->
+端末上のパス | cordova.file.* | iosExtraFileSystems | r/w | 永続性の有無 | OS 側で削除 | プライベート
+-----------|----------------|---------------------|-----|------------|------------|------------------
+`file:///android_asset/` | applicationDirectory | assets | r | N/A | N/A | Yes
+`/data/data/<app-id>/` | applicationStorageDirectory |  | r/w | N/A | N/A | Yes
+`cache` | cacheDirectory | cache | r/w | Yes | Yes* | Yes
+`files` | dataDirectory | files | r/w | Yes | No | Yes
+`Documents`|  |	documents | r/w | Yes | No | Yes
+`<sdcard>/` | externalRootDirectory | sdcard | r/w | Yes | No | No
+`Android/data/<app-id>/` | externalApplicationStorageDirectory |  | r/w | Yes | No | No
+`cache` | externalCacheDirectory | cache-external | r/w | Yes | No** | No
+`files` | externalDataDirectory | files-external | r/w | Yes | No | No
+
 \* このディレクトリーのコンテンツの削除は、定期的に、OS
 側で行われます。しかし、この OS
 側の挙動に頼らずに、アプリが正常に動作するよう、開発者側で、必要に応じて削除しましょう。また、ディレクトリーのコンテンツまたはキャッシュの削除は、ユーザー側でも、手動で行えるべきです。
 
-\*\* このディレクトリーのコンテンツの削除は、OS
+** このディレクトリーのコンテンツの削除は、OS
 側では行われません。コンテンツの処理は、開発者側で行います。また、ディレクトリーのコンテンツまたはキャッシュの削除は、ユーザー側でも手動で行えるべきです。
 
-<div class="admonition note">
-
-外部のストレージがマウントできない場合には、`cordova.file.external\\*`
-プロパティーは `null` になります。
-
-</div>
+{{<note>}}
+外部のストレージがマウントできない場合には、<code>cordova.file.external\\*</code> プロパティーは <code>null</code> になります。
+{{</note>}}
 
 ### Windows のファイルシステムの概要
 
-> widths
->
-> :   10 10 5 5 5 5
->
-> header-rows
->
-> :   1
->
-> -   -   端末上のパス
->     -   cordova.file.\*
->     -   r/w?
->     -   永続性の有無
->     -   OS 側で削除
->
->     - プライベート
-> -   -   `ms-appdata:///`
->     -   applicationDirectory
->     -   r
->     -   N/A
->     -   N/A
->
->     - Yes
-> -   -   `local/`
->     -   dataDirectory
->     -   r/w
->     -   Yes
->     -   No
->
->     - Yes
-> -   -   `local/`
->     -   cacheDirectory
->     -   r/w
->     -   No
->     -   Yes\*
->
->     - Yes
-> -   -   `local/`
->     -   tempDirectory
->     -   r/w
->     -   No
->     -   Yes\*
->
->     - Yes
-> -   -   `roaming/`
->     -   syncedDataDirectory
->     -   r/w
->     -   Yes
->     -   No
->     -   Yes
->
+端末上のパス | cordova.file.* | r/w? | 永続性の有無 | OS 側で削除 | プライベート
+-----------|----------------|------|------------|------------|------------------
+`ms-appdata:///` | applicationDirectory | r | N/A | N/A | Yes
+`local/` | dataDirectory | r/w | Yes | No | Yes
+`local/` | cacheDirectory | r/w | No | Yes* | Yes
+`local/` | tempDirectory | r/w | No | Yes* | Yes
+`roaming/` | syncedDataDirectory | r/w | Yes | No | Yes
+
 \* 定期的に、OS 側が、このディレクトリー内を削除します。
 
 後方互換
@@ -401,13 +206,10 @@ v1.2.0 以降、ファイルシステムのディレクトリーへのパスを�
 
 ### Android 特有の動作
 
-Android の永続的な保存場所 ( Persistent Stroge )
-\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~
+##### Android の永続的な保存場所 ( Persistent Stroge )
 
 Android 端末には、永続的なファイル ( persistent file )
-の保存に使用できる場所が複数あります。さまざまな想定および用法に関しての議論は、[こちらのページ
-( 英語
-)](http://developer.android.com/guide/topics/data/data-storage.html)
+の保存に使用できる場所が複数あります。さまざまな想定および用法に関しての議論は、[こちらのページ ( 英語 )](http://developer.android.com/guide/topics/data/data-storage.html)
 をご確認ください。
 
 このプラグインの旧バーションでは、端末が SD カード (
@@ -430,9 +232,10 @@ SD
 をそのまま使用して、ファイルを保存するか選択することができます。この設定を行うには、次の記述のいずれかを、`config.xml`
 ファイルに追加します。
 
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+{{<highlight xml>}}
+<preference name="AndroidPersistentFileLocation" value="Internal" />
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+{{</highlight>}}
 
 この記述を追加しない場合、ファイル操作プラグイン ( File プラグイン )
 では、デフォルトとして、`Internal` ( 内部 )
@@ -474,12 +277,13 @@ Marchmallow
     がサポートしている他の `cordova.file.*` プロパティーを使用します (
     `applicationDirectory` と `applicationStorageDirectory`
     のみ、読み取り専用です )。
+
 -   `FileReader.readAsText(blob, encoding)`
+
 -   `encoding` パラメーターは使用できません。UTF-8
     形式のエンコーディングが常に使用されます。
 
-iOS の永続的な保存場所 ( Persistent Stroge )
-\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~
+#### iOS の永続的な保存場所 ( Persistent Stroge )
 
 iOS 端末には、永続的なファイル ( persistent file )
 の保存に使用できる場所が 2 つあります。1 つ目は Documents
@@ -496,9 +300,10 @@ iOS 端末には、永続的なファイル ( persistent file )
 ディレクトリーのいずれかに、ファイルを保存するか選択できます。この設定を行う場合、次の記述のいずれかを、`config.xml`
 ファイルに追加します。
 
-    <preference name="iosPersistentFileLocation" value="Library" />
-
-    <preference name="iosPersistentFileLocation" value="Compatibility" />
+{{<highlight xml>}}
+<preference name="iosPersistentFileLocation" value="Library" />
+<preference name="iosPersistentFileLocation" value="Compatibility" />
+{{</highlight>}}
 
 この記述を追加しない場合、ファイル操作プラグイン ( File プラグイン )
 では、デフォルトとして、`Compatibility` を使用します。なお、preference
@@ -524,8 +329,10 @@ iOS 端末には、永続的なファイル ( persistent file )
 端末固有のファイル保存場所への絶対パス ( device-absolute-file-location )
 」 を保存していました。典型的なパスは、次のようになっていました。
 
-    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
-    /storage/emulated/0/path/to/file                                    (Android)
+{{<highlight bash>}}
+/var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
+/storage/emulated/0/path/to/file                                    (Android)
+{{</highlight>}}
 
 また、これらのパスは、`Entry` オブジェクトの `toURL()`
 メソッドを使用しても取得できました。
@@ -535,7 +342,9 @@ v1.0.0 では、\*HTML
 属性には置かれます。よって、上記の 2 つのパスは、`FileEntry`
 オブジェクトの `fullPath` では、次のようになっています。
 
-    /path/to/file
+{{<highlight bash>}}
+/path/to/file
+{{</highlight>}}
 
 現在でもアプリ側で 「 端末固有の絶対パス ( device-absolute-paths ) 」
 を使用し、加えて、以前は、`Entry` オブジェクトの `fullPath`
@@ -564,9 +373,9 @@ v1.1.0 では、`toURL()` の戻り値は、可能であれば、file:// 形式�
 を使用できます。このメソッドでは、次の形式の ファイルシステム URL (
 FileSystem URL ) を返します。
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cdvfile://localhost/persistent/path/to/file
-```
+{{</highlight>}}
 
 この形式で、ファイルを、一意に識別できます。
 
@@ -585,16 +394,10 @@ File Transfer プラグイン ) を使用して、mp3 ファイルを、cdvfile
 形式で指定された場所へダウンロードすることができます。また、`メディア操作プラグイン`
 ( Media プラグイン ) を使用すれば、そのファイルを再生できます。
 
-<div class="admonition note">
-
-使用できるファイルシステムのルートに関しては、「
-[ファイルの保存場所](#where-to-store-files) 」、「
-[ファイルシステムの一覧 ( 外部サイト
-)](https://www.npmjs.com/package/cordova-plugin-file#file-system-layouts)
-」、「 [プラグインの設定](#configuring-the-plugin-optional) 」
-をご確認ください。
-
-</div>
+{{<note>}}
+使用できるファイルシステムのルートに関しては、「 {{<link href="#ファイルの保存場所" title="ファイルの保存場所">}} 」、「
+{{<link title="ファイルシステムの一覧 ( 外部サイト)" href="https://www.npmjs.com/package/cordova-plugin-file#file-system-layouts">}} 」、「 {{<link title="プラグインの設定" href="#プラグインの設定-任意">}} をご確認ください。
+{{</note>}}
 
 タグの `src` に `cdvfile` を使用する場合、取得した fileEntry の
 `toURL()` メソッドを使用すれば、`cdvfile` のパスをネイティブパス (
@@ -603,9 +406,9 @@ native path ) に変換することができます。fileEntry
 を使用して取得できます。下に例を示しています。また、 `cdvfile://`
 のパスをDOM内で直接使うこともできます。使用例です。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <img src="cdvfile://localhost/persistent/img/logo.png" />
-```
+{{</highlight>}}
 
 この方法を使用する場合には、次の Content Security
 ルールが追加で必要となります。
@@ -613,39 +416,39 @@ native path ) に変換することができます。fileEntry
 -   index ページの `Content-Security-Policy` の meta タグに、`cdvfile:`
     スキームを追加します。
 
-    ``` {.sourceCode .html}
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:``\ **cdvfile:**\ ``https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    ```
+    {{<highlight html>}}<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:``\ **cdvfile:**\ ``https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">{{</highlight>}}
 
 -   `<access origin=\"cdvfile://*\" />` を `config.xml` に追加します。
 
 **cdvfile:// からネイティブパス ( native path ) への変換**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 resolveLocalFileSystemURL('cdvfile://localhost/temporary/path/to/file.mp4', function(entry) {
     var nativePath = entry.toURL();
     console.log('Native URI: ' + nativePath);
     document.getElementById('video').src = nativePath;
-```
+}
+{{</highlight>}}
 
 **ネイティブパス ( native path ) から cdvfile:// への変換**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 resolveLocalFileSystemURL(nativePath, function(entry) {
     console.log('cdvfile URI: ' + entry.toInternalURL());
-```
+}
+{{</highlight>}}
 
 **基本 Cordova プラグイン ( Cordova コアプラグイン ) で cdvfile
 を使用する場合**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 fileTransfer.download(uri, 'cdvfile://localhost/temporary/path/to/file.mp3', function (entry) { ...
-```
+{{</highlight>}}
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/path/to/file.mp3', ...);
 my_media.play();
-```
+{{</highlight>}}
 
 ### cdvfile 特有の動作
 
@@ -657,20 +460,20 @@ my_media.play();
 
 エラーが投げられた場合、次のいずれかのコードが使用されています。
 
-  コード                          | 定数
-  ------------------------------- ----------------------------------------------------------------------------------------------------------------------------
-  1                               `NOT_FOUND_ERR`
-  2                               `SECURITY_ERR`
-  3                               `ABORT_ERR`
-  4                               `NOT_READABLE_ERR`
-  5                               `ENCODING_ERR`
-  6                               `NO_MODIFICATION_ALLOWED_ERR`
-  7                               `INVALID_STATE_ERR`
-  8                               `SYNTAX_ERR`
-  9                               `INVALID_MODIFICATION_ERR`
-  10                              `QUOTA_EXCEEDED_ERR`
-  11                              `TYPE_MISMATCH_ERR`
-  12                              `PATH_EXISTS_ERR`
+コード | 定数
+-----|------------------
+`1` | `NOT_FOUND_ERR`
+`2` | `SECURITY_ERR`
+`3` | `ABORT_ERR`
+`4` | `NOT_READABLE_ERR`
+`5` | `ENCODING_ERR`
+`6` | `NO_MODIFICATION_ALLOWED_ERR`
+`7` | `INVALID_STATE_ERR`
+`8` | `SYNTAX_ERR`
+`9` | `INVALID_MODIFICATION_ERR`
+`10` | `QUOTA_EXCEEDED_ERR`
+`11` | `TYPE_MISMATCH_ERR`
+`12` | `PATH_EXISTS_ERR`
 
 プラグインの設定 ( 任意 )
 -------------------------
@@ -679,8 +482,10 @@ my_media.play();
 Android に関しては、`config.xml`
 内のタグを使用して、インストール対象のファイルシステムを指定できます。デフォルトでは、すべてのファイルシステムのルートディレクトリーを利用できます。
 
-    <preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
-    <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
+{{<highlight xml>}}
+<preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
+<preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
+{{</highlight>}}
 
 ### Android
 
@@ -728,16 +533,13 @@ files 」 ファイルシステム内の 「 /Documents/ 」 のサブディレ�
 サンドボックス化された、アプリのストレージを使用
 )、ならびに、プラットフォーム側が指定する、他のストレージへファイルを保存できます。下に例示しているコードでは、次の処理方法を確認できます。
 
--   ファイルシステムへのアクセス &lt;6.5\_persistent\_file&gt;
--   Cordova の FILE URL を使用した、
-    ファイルの保存 &lt;6.5\_append\_file\_alternative&gt; (
-    詳細は、上記の 「 ファイルの保存場所 」 を参照のこと )
--   ファイル &lt;6.5\_persistent\_file&gt; と
-    ディレクトリー &lt;6.5\_create\_directories&gt; の作成
--   ファイルへの書き込み &lt;6.5\_write\_file&gt;
--   ファイルの読み込み &lt;6.5\_read\_file&gt;
--   ファイルへの追記 &lt;6.5\_append\_file\_alternative&gt;
--   画像ファイルの表示 &lt;6.5\_display\_image&gt;
+-   [ファイルシステムへのアクセス](#永続的なファイルの作成)
+-   Cordova の FILE URL を使用した、 [ファイルの保存](#既存のバイナリーファイルの保存) ( 詳細は、上記の 「 ファイルの保存場所 」 を参照のこと )
+-   [ファイル](#永続的なファイルの作成) と [ディレクトリー](#ディレクトリーの作成) の作成
+-   [ファイルへの書き込み](#ファイルへの書き込み)
+-   [ファイルの読み込み](#ファイルの読み込み)
+-   [ファイルへの追記](#既存のバイナリーファイルの保存)
+-   [画像ファイルの表示](#画像ファイルの表示)
 
 ### 永続的なファイルの作成
 
@@ -757,16 +559,14 @@ files 」 ファイルシステム内の 「 /Documents/ 」 のサブディレ�
 次のコードでは、永続的なストレージを作成しています ( PERSISTENT を指定
 )。
 
-<div class="admonition note">
-
+{{<note>}}
 WebView クライアント向け ( ブラウザーではなく )
 またはネイティブアプリ向け ( Windows )
 に開発をしている場合、永続的なストレージを使用するときでも、
-`requestQuota` を使用する必要はありません。
+<code>requestQuota</code> を使用する必要はありません。
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
     console.log('file system open: ' + fs.name);
@@ -780,7 +580,7 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
     }, onErrorCreateFile);
 
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
 成功時のコールバックには、FileSystem オブジェクト ( fs )
 が渡されます。DirectoryEntry
@@ -799,20 +599,20 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 )。端末上のメモリーが少なくなった場合、OS
 側がこのストレージを削除することもあります。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
     console.log('file system open: ' + fs.name);
     createFile(fs.root, "newTempFile.txt", false);
 
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
 一時的なストレージを使用する場合、`getFile`
 を実行して、ファイルの作成/取得を行えます。永続的なストレージと同様、このメソッドを使用して、FileEntry
 オブジェクトの作成/取得を行えます。作成/取得後は、ファイルの読み込み・ファイルへの書き込みを行えます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function createFile(dirEntry, fileName, isAppend) {
     // Creates a new file or returns the file if it already exists.
     dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
@@ -822,7 +622,7 @@ function createFile(dirEntry, fileName, isAppend) {
     }, onErrorCreateFile);
 
 }
-```
+{{</highlight>}}
 
 ### ファイルへの書き込み
 
@@ -831,7 +631,7 @@ FileEntry オブジェクトの作成/取得後は、`createWriter`
 オブジェクトが渡されるので、FileWriter の `write`
 メソッドを実行して、ファイルへの書き込みを行います。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function writeFile(fileEntry, dataObj) {
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function (fileWriter) {
@@ -854,7 +654,7 @@ function writeFile(fileEntry, dataObj) {
         fileWriter.write(dataObj);
     });
 }
-```
+{{</highlight>}}
 
 ### ファイルの読み込み
 
@@ -865,7 +665,7 @@ function writeFile(fileEntry, dataObj) {
 などのメソッドを使用できます。読み込み処理の完了後、`this.result`
 には、処理結果が保存されています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readFile(fileEntry) {
 
     fileEntry.file(function (file) {
@@ -880,11 +680,9 @@ function readFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}
 
-ファイルへの追記 (
-ファイルシステムへのアクセス時には、上記とは異なるメソッドを使用してみます
-) ----------------------------------------
+### ファイルへの追記 ( ファイルシステムへのアクセス時には、上記とは異なるメソッドを使用してみます )
 
 ファイルの新規作成ではなく、既存のファイルに対して内容を追記したい場合もあります。この例では、window.resolveLocalFileSystemURL
 を使用した追記方法を記します。ここでは、cordova.file.dataDirectory (
@@ -892,13 +690,13 @@ Cordova の File URL )
 を使用します。成功時のコールバックに、DirectoryEntry
 オブジェクトが返ってくるので、このオブジェクトを使用して追記処理を行います。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
     console.log('file system open: ' + dirEntry.name);
     var isAppend = true;
     createFile(dirEntry, "fileToAppend.txt", isAppend);
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
 また、サンドボックス化されたファイルシステム以外へアクセスする場合にも、`resolveLocalFileSystemURL`
 を使用できます。詳細は、上記の 「 *ファイルの保存場所* 」
@@ -915,7 +713,7 @@ FileWriter オブジェクトの取得後、`seek`
 メソッドを呼び出し、追記位置を指定します。また、ここでは、ファイルが存在するかも確認しています。seek
 の処理完了後、FileWriter の write メソッドを実行します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function writeFile(fileEntry, dataObj, isAppend) {
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function (fileWriter) {
@@ -941,7 +739,7 @@ function writeFile(fileEntry, dataObj, isAppend) {
         fileWriter.write(dataObj);
     });
 }
-```
+{{</highlight>}}
 
 ### 既存のバイナリーファイルの保存
 
@@ -956,14 +754,14 @@ function writeFile(fileEntry, dataObj, isAppend) {
 には、サンドボックス化されたファイルシステム内のキャッシュへの情報が格納されています。次に、`fs.root`
 を使用して、必要な DirectoryEntry オブジェクトを取得します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
     console.log('file system open: ' + fs.name);
     getSampleFile(fs.root);
 
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
 getSampleFile 内の処理を記述します。ここでは、XHR
 リクエストを使用して、Blob 形式の画像を取得しています。saveFile
@@ -972,7 +770,7 @@ getSampleFile 内の処理を記述します。ここでは、XHR
 固有のコードは特にありません。この後の処理で、Blob
 形式の画像の保存、ならびに、ファイルの読み込みと表示を、それぞれ行っていきます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function getSampleFile(dirEntry) {
 
     var xhr = new XMLHttpRequest();
@@ -987,15 +785,15 @@ function getSampleFile(dirEntry) {
         }
     };
     xhr.send();
-}
+{{</highlight>}}
 
-*Note* Cordova 5 以降、セキュリティー上の理由により、次のコードの実行には、Content-Security-Policy 要素内で、http://cordova.apache.org を設定する必要があります ( index.html 内 )。
-```
+{{<note>}}
+Cordova 5 以降、セキュリティー上の理由により、次のコードの実行には、Content-Security-Policy 要素内で、 <code>http://cordova.apache.org</code> を設定する必要があります ( <code>index.html</code> 内 )。
+{{</note>}}
 
-ファイルの取得後、新規作成したファイルへコンテンツをコピーします。下の
-DirectoryEntry オブジェクトは、キャッシュ先にすでに紐づけされています。
+ファイルの取得後、新規作成したファイルへコンテンツをコピーします。下の `DirectoryEntry` オブジェクトは、キャッシュ先にすでに紐づけされています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function saveFile(dirEntry, fileData, fileName) {
 
     dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
@@ -1004,12 +802,12 @@ function saveFile(dirEntry, fileData, fileName) {
 
     }, onErrorCreateFile);
 }
-```
+{{</highlight>}}
 
-writeFile では、引数として、Blob オブジェクト ( dataObj )
+writeFile では、引数として、`Blob` オブジェクト ( `dataObj` )
 を渡し、新規のファイル上に保存します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function writeFile(fileEntry, dataObj, isAppend) {
 
     // Create a FileWriter object for our FileEntry (log.txt).
@@ -1032,12 +830,11 @@ function writeFile(fileEntry, dataObj, isAppend) {
         fileWriter.write(dataObj);
     });
 }
-```
+{{</highlight>}}
 
-ファイルへの書き込み終了後、ファイルの読み込みと表示をします。バイナリー形式のデータとして画像を保存しているので、FileReader.readAsArrayBuffer
-を使用して、データを読み込みます。
+ファイルへの書き込み終了後、ファイルの読み込みと表示をします。バイナリー形式のデータとして画像を保存しているので、`FileReader.readAsArrayBuffer` を使用して、データを読み込みます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readBinaryFile(fileEntry) {
 
     fileEntry.file(function (file) {
@@ -1056,13 +853,13 @@ function readBinaryFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}
 
 データの読み込み後、次のようなコードを使用すれば、画像を表示できます。Blob
-形式の画像 ( 表示用 ) を取得するため、window.URL.createObjectURL
+形式の画像 ( 表示用 ) を取得するため、 `window.URL.createObjectURL`
 を使用します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImage(blob) {
 
     // Displays image if result is a valid DOM string for an image.
@@ -1070,28 +867,28 @@ function displayImage(blob) {
     // Note: Use window.URL.revokeObjectURL when finished with image.
     elem.src = window.URL.createObjectURL(blob);
 }
-```
+{{</highlight>}}
 
 ### 画像ファイルの表示
 
 FileEntry を使用して画像を表示する場合には、`toURL`
 メソッドを使用できます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImageByFileURL(fileEntry) {
     var elem = document.getElementById('imageFile');
     elem.src = fileEntry.toURL();
 }
-```
+{{</highlight>}}
 
 プラットフォームにより異なる URI を使用して ( FileEntry の代わりに
 )、画像を表示させる場合、index.html の Content-Security-Policy
 要素に、URI のホストを指定します。Windows 10 では、`ms-appdata:`
 を使用します。次に例を記します。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-```
+{{</highlight>}}
 
 ### ディレクトリーの作成
 
@@ -1106,7 +903,7 @@ function displayImageByFileURL(fileEntry) {
 フォルダーを作成しています。各プラットフォームのファイルシステムの詳細は、上記の
 「 *ファイルシステムの概要* 」 をご確認ください。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function createDirectory(rootDirEntry) {
     rootDirEntry.getDirectory('NewDirInRoot', { create: true }, function (dirEntry) {
         dirEntry.getDirectory('images', { create: true }, function (subDirEntry) {
@@ -1116,6 +913,6 @@ function createDirectory(rootDirEntry) {
         }, onErrorGetDir);
     }, onErrorGetDir);
 }
-```
+{{</highlight>}}
 
 サブディレクトリーを作成する場合には、上記のコードのように、各フォルダーをそれぞれ作成する必要があります。

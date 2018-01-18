@@ -1,5 +1,6 @@
 ---
 title: File Plugin
+weight: 90
 ---
 
 Tested Version: [4.3.3](https://github.com/apache/cordova-plugin-file/releases/tag/4.3.3)
@@ -13,13 +14,9 @@ residing on the device. This plugin is based on several specs, including
 :
 
 -   [The HTML5 File API](http://www.w3.org/TR/FileAPI/)
--   [The Directories and System extensions
-    Latest](http://www.w3.org/TR/2012/WD-file-system-api-20120417/)
-    Although most of the plugin code was written when [an earlier
-    spec](http://www.w3.org/TR/2011/WD-file-system-api-20110419/) was
-    current.
--   It also implements the [FileWriter
-    spec](http://dev.w3.org/2009/dap/file-system/file-writer.html)
+-   [The Directories and System extensions Latest](http://www.w3.org/TR/2012/WD-file-system-api-20120417/)
+    Although most of the plugin code was written when [an earlier spec](http://www.w3.org/TR/2011/WD-file-system-api-20110419/) was current.
+-   It also implements the [FileWriter spec](http://dev.w3.org/2009/dap/file-system/file-writer.html)
 
 {{<note>}}
 While the W3C FileSystem spec is deprecated for web browsers, the
@@ -29,9 +26,7 @@ exception of the Browser platform.
 {{</note>}}
 
 To get a few ideas how to use the plugin, check out the
-[sample](#sample) at the bottom of this page. For additional examples
-(browser focused), see the HTML5 Rocks' [FileSystem article.](http://www.html5rocks.com/en/tutorials/file/filesystem/) For
-an overview of other storage options, refer to Cordova's [storage guide](http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html).
+[sample](#sample-create-files-and-directories-write-read-and-append-files) at the bottom of this page. For additional examples (browser focused), see the HTML5 Rocks' [FileSystem article.](http://www.html5rocks.com/en/tutorials/file/filesystem/) For an overview of other storage options, refer to Cordova's [storage guide](http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html).
 
 This plugin defines global `cordova.file` object. Although in the global
 scope, it is not available until after the `deviceready` event.
@@ -46,15 +41,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-file
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins) `File`
-plugin in Monaca Cloud IDE.
+In order to use this plugin, please In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) `File` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
@@ -68,46 +62,57 @@ Where to Store Files
 --------------------
 
 As of v1.2.0, URLs to important file-system directories are provided.
-Each URL is in the form \*<file:///path/to/spot/*>, and can be converted
+Each URL is in the form *<file:///path/to/spot/>*, and can be converted
 to a `DirectoryEntry` using `window.resolveLocalFileSystemURL()`.
 
 -   `cordova.file.applicationDirectory` - Read-only directory where the
     application is installed. (*iOS*, *Android*, *BlackBerry 10*, *OSX*,
     *windows*)
+
 -   `cordova.file.applicationStorageDirectory` - Root directory of the
     application's sandbox; on iOS & windows this location is read-only
     (but specific subdirectories \[like `/Documents` on iOS or
     `/localState` on windows\] are read-write). All data contained
     within is private to the app. (*iOS*, *Android*, *BlackBerry 10*,
     *OSX*)
+
 -   `cordova.file.dataDirectory` - Persistent and private data storage
     within the application's sandbox using internal memory (on Android,
     if you need to use external memory, use `.externalDataDirectory`).
     On iOS, this directory is not synced with iCloud (use
     `.syncedDataDirectory`). (*iOS*, *Android*, *BlackBerry 10*,
     *windows*)
+
 -   `cordova.file.cacheDirectory` - Directory for cached data files or
     any files that your app can re-create easily. The OS may delete
     these files when the device runs low on storage, nevertheless, apps
     should not rely on the OS to delete files in here. (*iOS*,
     *Android*, *BlackBerry 10*, *OSX*, *windows*)
+
 -   `cordova.file.externalApplicationStorageDirectory` - Application
     space on external storage. (*Android*)
+
 -   `cordova.file.externalDataDirectory` - Where to put app-specific
     data files on external storage. (*Android*)
+
 -   `cordova.file.externalCacheDirectory` - Application cache on
     external storage. (*Android*)
+
 -   `cordova.file.externalRootDirectory` - External storage (SD card)
     root. (*Android*, *BlackBerry 10*)
+
 -   `cordova.file.tempDirectory` - Temp directory that the OS can clear
     at will. Do not rely on the OS to clear this directory; your app
     should always remove files as applicable. (*iOS*, *OSX*, *windows*)
+
 -   `cordova.file.syncedDataDirectory` - Holds app-specific files that
     should be synced (e.g. to iCloud). (*iOS*, *windows*)
+
 -   `cordova.file.documentsDirectory` - Files private to the app, but
     that are meaningful to other application (e.g. Office files). Note
     that for *OSX* this is the user's `~/Documents` directory. (*iOS*,
     *OSX*)
+
 -   `cordova.file.sharedDirectory` - Files globally available to all
     applications (*BlackBerry 10*)
 
@@ -425,8 +430,8 @@ application's `config.xml` file. To do this, add one of these two lines
 to `config.xml`:
 
 {{<highlight xml>}}
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+<preference name="AndroidPersistentFileLocation" value="Internal" />
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 {{</highlight>}}
 
 Without this line, the File plugin will use `Internal` as the default.
@@ -471,7 +476,9 @@ storage is not mounted, it would ask for permission to write to
     other `cordova.file.*` properties defined for iOS (only
     `applicationDirectory` and `applicationStorageDirectory` are
     read-only).
+
 -   `FileReader.readAsText(blob, encoding)`
+
 -   The `encoding` parameter is not supported, and UTF-8 encoding is
     always in effect.
 
@@ -491,8 +498,8 @@ library directory, with a preference in your application's `config.xml`
 file. To do this, add one of these two lines to `config.xml`:
 
 {{<highlight xml>}}
-    <preference name="iosPersistentFileLocation" value="Library" />
-    <preference name="iosPersistentFileLocation" value="Compatibility" />
+<preference name="iosPersistentFileLocation" value="Library" />
+<preference name="iosPersistentFileLocation" value="Compatibility" />
 {{</highlight>}}
 
 Without this line, the File plugin will use `Compatibility` as the
@@ -522,8 +529,8 @@ device-absolute-file-location in the `fullPath` property of `Entry`
 objects. These paths would typically look like
 
 {{<highlight bash>}}
-    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
-    /storage/emulated/0/path/to/file                                    (Android)
+/var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
+/storage/emulated/0/path/to/file                                    (Android)
 {{</highlight>}}
 
 These paths were also returned by the `toURL()` method of the `Entry`
@@ -534,7 +541,7 @@ to the root of the HTML filesystem*. So, the above paths would now both
 be represented by a `FileEntry` object with a `fullPath` of
 
 {{<highlight bash>}}
-    /path/to/file
+/path/to/file
 {{</highlight>}}
 
 If your application works with device-absolute-paths, and you previously
@@ -560,7 +567,7 @@ you can use `toInternalURL()` now. This method will now return
 filesystem URLs of the form
 
 {{<highlight bash>}}
-    cdvfile://localhost/persistent/path/to/file
+cdvfile://localhost/persistent/path/to/file
 {{</highlight>}}
 
 which can be used to identify the file uniquely.
@@ -702,13 +709,13 @@ or persistent storage location for your app (sandboxed storage) and to
 store files in other platform-dependent locations. The code snippets in
 this section demonstrate different tasks including:
 
--   [Accessing the file system](#persistent-file)
--   Using cross-platform Cordova file URLs to [store your files](#append-file-alternative) (see Where to Store Files for more info)
--   Creating [files](#persistent-file) and [directories](#create-directories)
--   [Writing to files](#write-file)
--   [Reading files](#read-file)
--   [Appending files](#append-file-alternative)
--   [Display an image file](#display-image)
+-   [Accessing the file system](#create-a-persistent-file)
+-   Using cross-platform Cordova file URLs to [store your files](#append-a-file-using-alternative-methods) (see Where to Store Files for more info)
+-   Creating [files](#create-a-persistent-file) and [directories](#create-directories)
+-   [Writing to files](#write-to-a-file)
+-   [Reading files](#read-a-file)
+-   [Appending files](#append-a-file-using-alternative-methods)
+-   [Display an image file](#display-an-image-file)
 
 ###  Create a persistent file
 

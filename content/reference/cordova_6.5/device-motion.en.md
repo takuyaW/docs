@@ -1,5 +1,6 @@
 ---
 title: Device Motion Plugin
+weight: 60
 ---
 
 Tested Version: [1.2.5](https://github.com/apache/cordova-plugin-device-motion/releases/tag/1.2.5)
@@ -28,14 +29,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-device-motion
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Device Motion` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -85,8 +86,7 @@ The accelerometer is called with the `SENSOR_DELAY_UI` flag, which
 limits the maximum readout frequency to something between 20 and 60 Hz,
 depending on the device. Values for **period** corresponding to higher
 frequencies will result in duplicate samples. More details can be found
-in the [Android API
-Guide](http://developer.android.com/guide/topics/sensors/sensors_overview.html#sensors-monitor).
+in the [Android API Guide](http://developer.android.com/guide/topics/sensors/sensors_overview.html#sensors-monitor).
 
 #### iOS Quirks
 
@@ -141,8 +141,8 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 #### iOS Quirks
 
 The API calls the success callback function at the interval requested,
-but restricts the range of requests to the device between 40ms and
-1000ms. For example, if you request an interval of 3 seconds, (3000ms),
+but restricts the range of requests to the device between `40ms` and
+`1000ms`. For example, if you request an interval of 3 seconds, (`3000ms`),
 the API requests data from the device every 1 second, but only executes
 the success callback every 3 seconds.
 

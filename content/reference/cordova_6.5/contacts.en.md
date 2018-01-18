@@ -1,5 +1,6 @@
 ---
 title: Contacts Plugin
+weight: 30
 ---
 
 Tested Version: [2.3.1](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.3.1)
@@ -42,15 +43,14 @@ please see the {{<link href="http://cordova.apache.org/docs/en/latest/guide/appd
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-contacts
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
-`Contacts` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) `Contacts` plugin in Monaca Cloud IDE.
 
 Quirks
 ------

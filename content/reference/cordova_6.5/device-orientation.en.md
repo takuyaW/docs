@@ -1,5 +1,6 @@
 ---
 title: Device Orientation Plugin
+weight: 70
 ---
 
 Tested Version: [1.0.7](https://github.com/apache/cordova-plugin-device-orientation/releases/tag/1.0.7)
@@ -11,7 +12,7 @@ This document is based on the original Cordova docs available at {{<link title="
 This plugin provides access to the device's compass. The compass is a
 sensor that detects the direction or heading that the device is pointed,
 typically from the top of the device. It measures the heading in degrees
-from 0 to 359.99, where 0 is north.
+from `0` to `359.99`, where `0` is north.
 
 Access is via a global `navigator.compass` object. Although the object
 is attached to the global scoped `navigator`, it is not available until
@@ -27,14 +28,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-device-orientation
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Device Orientation` plugin in Monaca Cloud IDE.
 
 Supported Platforms

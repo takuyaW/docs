@@ -1,5 +1,6 @@
 ---
 title: Device Plugin
+weight: 50
 ---
 
 Tested Version: [1.1.6](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.6)
@@ -22,14 +23,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-device
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins) `Device`
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) `Device`
 plugin in Monaca Cloud IDE.
 
 Properties
@@ -82,12 +83,7 @@ var model = device.model;
 
 #### Android Quirks
 
--   Gets the [product
-    name](http://developer.android.com/reference/android/os/Build.html#PRODUCT)
-    instead of the [model
-    name](http://developer.android.com/reference/android/os/Build.html#MODEL),
-    which is often the production code name. For example, the Nexus One
-    returns `Passion`, and Motorola Droid returns `voles`.
+-   Gets the [product name](http://developer.android.com/reference/android/os/Build.html#PRODUCT) instead of the [model name](http://developer.android.com/reference/android/os/Build.html#MODEL), which is often the production code name. For example, the Nexus One returns `Passion`, and Motorola Droid returns `voles`.
 
 ### device.platform
 

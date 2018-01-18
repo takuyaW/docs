@@ -1,40 +1,36 @@
-端末情報の取得 プラグイン
-=========================
+---
+title: 端末情報の取得 プラグイン
+weight: 50
+---
 
-テスト環境 ( バージョン番号 ) :
-[1.1.6](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.6)
+テスト環境 ( バージョン番号 ) : [1.1.6](https://github.com/apache/cordova-plugin-device/releases/tag/1.1.6)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-device) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-device">}} をご確認ください。
+{{</note>}}
 
 このプラグインでは、グローバルオブジェクト 「 `device` 」
 を使用し、端末側のハードウェアとソフトウェア情報を取り扱います。このオブジェクトは、グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(device.cordova);
 }
-```
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-device
-```
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Device` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Device` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 プロパティー
 ------------
@@ -60,9 +56,7 @@ cordova-plugin-device
 
 ### device.model
 
-`device.model` を使用して、端末のモデル名 ( model ) または製品名 (
-product )
-を取得します。これらの値は、端末の製造元が設定するため、同じ製品でも、異なるバージョン間では、値が異なる場合があります。
+`device.model` を使用して、端末のモデル名 ( model ) または製品名 ( product ) を取得します。これらの値は、端末の製造元が設定するため、同じ製品でも、異なるバージョン間では、値が異なる場合があります。
 
 #### サポート対象のプラットフォーム
 
@@ -72,7 +66,7 @@ product )
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Nexus One       returns "Passion" (Nexus One code name)
 //             Motorola Droid  returns "voles"
 // BlackBerry: Torch 9800      returns "9800"
@@ -82,24 +76,19 @@ product )
 // OSX:                        returns "x86_64"
 //
 var model = device.model;
-```
+{{</highlight>}}
 
 #### Android 特有の動作
 
--   [モデル名](http://developer.android.com/reference/android/os/Build.html#MODEL)
-    ( model )
-    の代わりに、[製品名](http://developer.android.com/reference/android/os/Build.html#PRODUCT)
-    ( product )
-    を取得します。製品名は、ほとんどの場合、製品のコードネームになります。たとえば、Nexus
-    One では `Passion` を返し、 Motorola Droid では `voles` を返します。
+-   [モデル名](http://developer.android.com/reference/android/os/Build.html#MODEL) ( model ) の代わりに、[製品名](http://developer.android.com/reference/android/os/Build.html#PRODUCT) ( product ) を取得します。製品名は、ほとんどの場合、製品のコードネームになります。たとえば、Nexus One では `Passion` を返し、 Motorola Droid では `voles` を返します。
 
 ### device.platform
 
 端末側のオペレーティングシステム名を取得します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.platform;
-```
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -109,7 +98,7 @@ var string = device.platform;
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Depending on the device, a few examples are:
 //   - "Android"
 //   - "BlackBerry 10"
@@ -119,7 +108,7 @@ var string = device.platform;
 //   - "Tizen"
 //   - "Mac OS X"
 var devicePlatform = device.platform;
-```
+{{</highlight>}}
 
 ### device.uuid
 
@@ -127,9 +116,9 @@ var devicePlatform = device.platform;
 に関しては、[こちら](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)
 を参照のこと )。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.uuid;
-```
+{{</highlight>}}
 
 #### 解説
 
@@ -144,7 +133,7 @@ UUID
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android: Returns a random 64-bit integer (as a string, again!)
 //          The integer is generated on the device's first boot
 //
@@ -158,7 +147,7 @@ UUID
 // Tizen: returns the device IMEI (International Mobile Equipment Identity or IMEI is a number
 // unique to every GSM and UMTS mobile phone.
 var deviceID = device.uuid;
-```
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -173,9 +162,9 @@ iOS の `uuid` には、identifierForVendor
 
 オペレーティングシステムのバージョンを取得します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.version;
-```
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -185,7 +174,7 @@ var string = device.version;
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Froyo OS would return "2.2"
 //             Eclair OS would return "2.1", "2.0.1", or "2.0"
 //             Version can also return update level "2.1-update1"
@@ -202,15 +191,15 @@ var string = device.version;
 // OSX:        El Capitan would return "10.11.2"
 //
 var deviceVersion = device.version;
-```
+{{</highlight>}}
 
 ### device.manufacturer
 
 端末の製造元を確認できます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.manufacturer;
-```
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -220,21 +209,21 @@ var string = device.manufacturer;
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // Android:    Motorola XT1032 would return "motorola"
 // BlackBerry: returns "BlackBerry"
 // iPhone:     returns "Apple"
 //
 var deviceManufacturer = device.manufacturer;
-```
+{{</highlight>}}
 
 ### device.isVirtual
 
 シミュレーター上で実行されている端末か否かを判別します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var isSim = device.isVirtual;
-```
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -248,9 +237,9 @@ var isSim = device.isVirtual;
 [SERIAL](http://developer.android.com/reference/android/os/Build.html#SERIAL)
 を参照のこと )。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var string = device.serial;
-```
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 

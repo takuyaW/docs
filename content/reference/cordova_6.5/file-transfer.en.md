@@ -1,5 +1,6 @@
 ---
 title: File Transfer Plugin
+weight: 100
 ---
 
 Tested Version: [1.6.3](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.6.3)
@@ -24,15 +25,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-file-transfer
-{{</syntax>}}
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
-`Transfer` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) both `File Transfer` and `File` plugins in Monaca Cloud IDE because `File Transfer` plugin is depending on `File` plugin.
 
 Supported Platforms
 -------------------
@@ -67,8 +67,7 @@ multi-part POST or PUT request, and to download files.
 -   **fileURL**: Filesystem URL representing the file on the device or a
     [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme). For
     backwards compatibility, this can also be the full path of the file
-    on the device. (See [Backwards Compatibility
-    Notes](#backwards-compatibility-notes) below)
+    on the device. (See [Backwards Compatibility Notes](#backwards-compatibility-notes) below)
 -   **server**: URL of the server to receive the file, as encoded by
     `encodeURI()`.
 -   **successCallback**: A callback that is passed a `FileUploadResult`
@@ -224,7 +223,7 @@ fileTransfer.download(
 #### abort
 
 Aborts an in-progress transfer. The onerror callback is passed a
-FileTransferError object which has an error code of
+`FileTransferError` object which has an error code of
 `FileTransferError.ABORT_ERR`.
 
 ##### Example
@@ -358,9 +357,9 @@ Sample: Download and Upload Files
 Use the File-Transfer plugin to upload and download files. In these
 examples, we demonstrate several tasks like:
 
--   [Downloading a binary file to the application cache](#binaryFile)
--   [Uploading a file created in your application's root](#uploadFile)
--   [Downloading the uploaded file](#downloadFile)
+-   [Downloading a binary file to the application cache](#download-a-binary-file-to-the-application-cache)
+-   [Uploading a file created in your application's root](#upload-a-file)
+-   [Downloading the uploaded file](#download-the-uploaded-file)
 
 ###  Download a Binary File to the application cache
 
@@ -617,7 +616,7 @@ function download(fileEntry, uri) {
 }
 {{</highlight>}}
 
-In the readFile function, call the `readAsText` method of the FileReader
+In the `readFile` function, call the `readAsText` method of the `FileReader`
 object.
 
 {{<highlight javascript>}}

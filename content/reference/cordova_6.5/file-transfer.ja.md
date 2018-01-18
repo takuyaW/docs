@@ -1,16 +1,14 @@
-ファイル転送 プラグイン
-=======================
+---
+title: ファイル転送 プラグイン
+weight: 100
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.6.3](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.6.3)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-file-transfer)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-file-transfer">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、ファイルのアップロードとダウンロードを行えます。
 
@@ -19,27 +17,25 @@
 を使用します。なお、グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(FileTransfer);
 }
-```
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-file-transfer
-```
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-`ファイル転送 プラグイン` は、 `ファイル操作プラグイン`
-に依存しているため、はじめに Monaca クラウド IDEで、`File` プラグインを
-有効 &lt;add\_plugins&gt; にし、 次に `File Transfe`
-プラグインを有効にしてください。
+`ファイル転送 プラグイン` は、 `ファイル操作プラグイン` に依存しているため、はじめに Monaca クラウド IDEで、`File` プラグインを
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にし、 次に `File Transfe` プラグインを有効にしてください。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -72,12 +68,11 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 
 **パラメーター**:
 
--   **fileURL**: 端末上のファイルの位置または [data
-    URI](https://en.wikipedia.org/wiki/Data_URI_scheme)
+-   **fileURL**: 端末上のファイルの位置または [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme)
     を指し示すファイルシステムの URL。
     後方互換性を考慮する場合には、端末上のファイルへのフルパス ( full
     path ) を使用することもできます ( このページ内の
-    [\[後方互換性に関するメモ書き\]](#backwards-compatibility-notes)
+    [[ 後方互換性に関するメモ書き ]](#後方互換性に関するメモ書き)
     も併せてご確認ください )。
 -   **server**: ファイルを受け取るサーバーの URL ( `encodeURI()`
     を使用して、エンコード )。
@@ -117,7 +112,7 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 
 ##### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a text file on the device,
 //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
@@ -146,11 +141,11 @@ options.params = params;
 
 var ft = new FileTransfer();
 ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-```
+{{</highlight>}}
 
 ##### 例 アップロード時の Headers と ProgressEvent の使用例 ( Android と iOS 専用 )
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function win(r) {
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
@@ -183,7 +178,7 @@ ft.onprogress = function(progressEvent) {
     }
 };
 ft.upload(fileURL, uri, win, fail, options);
-```
+{{</highlight>}}
 
 #### download
 
@@ -195,7 +190,7 @@ ft.upload(fileURL, uri, win, fail, options);
     ( Filesystem URL
     )。後方互換性を考慮する場合には、ここには、端末上のファイルへのフルパスを使用することもできます　(
     後方互換性に関しては、下の
-    [後方互換性に関するメモ書](#backwards-compatibility-notes)
+    [後方互換性に関するメモ書](#後方互換性に関するメモ書き)
     を参照のこと )。
 -   **successCallback**: `FileEntry`
     オブジェクトを渡して実行するコールバック。 *(Function)*
@@ -214,7 +209,7 @@ ft.upload(fileURL, uri, win, fail, options);
 
 ##### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a path on the device,
 //    for example, cdvfile://localhost/persistent/path/to/downloads/
 
@@ -239,17 +234,17 @@ fileTransfer.download(
         }
     }
 );
-```
+{{</highlight>}}
 
 #### abort
 
-実行中のファイルの送受信を中止します。 FileTransferError
-オブジェクトを使用して、失敗時のコールバックが呼び出されます。このオブジェクトには、FileTransferError.ABORT\_ERR
+実行中のファイルの送受信を中止します。 `FileTransferError`
+オブジェクトを使用して、失敗時のコールバックが呼び出されます。このオブジェクトには、 `FileTransferError.ABORT_ERR`
 エラーコードが格納されています。
 
 ##### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // !! Assumes variable fileURL contains a valid URL to a text file on the device,
 //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
@@ -272,7 +267,7 @@ options.mimeType="image/jpeg";
 var ft = new FileTransfer();
 ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
 ft.abort();
-```
+{{</highlight>}}
 
 ### FileUploadResult
 
@@ -354,10 +349,10 @@ ft.abort();
 ( device-absolute-file-location )
 を使用していました。典型的なパスの形式は、次のとおりでした。
 
-``` {.sourceCode .xml}
+{{<highlight bash>}}
 /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
 /storage/emulated/0/path/to/file                                    (Android)
-```
+{{</highlight>}}
 
 後方互換性を考慮して、これらの形式のパスは今でも使用できます。また、永続的なストレージに、これらのパスを保存して使用していた場合でも、継続して、これらの形式のパスを使用できます。
 
@@ -377,9 +372,9 @@ URL ) を使用するように、コードを変更する必要があります�
 FileEntry.toURL() と `DirectoryEntry.toURL()` では、ファイルシステムの
 URL ( Filesystem URL ) を、次の形式で返します。
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cdvfile://localhost/persistent/path/to/file
-```
+{{</highlight>}}
 
 `download()` と `upload()`
 の両メソッド内において、ファイルへの絶対パスを指定する代わりに、この URL
@@ -390,24 +385,24 @@ cdvfile://localhost/persistent/path/to/file
 
 ファイル転送プラグインを使用して、ファイルのアップロードとダウンロードを行います。ここでは、次の処理を行います。
 
--   [アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード](#binaryFile)
--   [ファイルのアップロード](#uploadFile)
--   [ファイルのダウンロード](#downloadFile)
+-   [アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード](#アプリのキャッシュ用ディレクトリーへ-バイナリーファイルをダウンロード)
+-   [ファイルのアップロード](#ファイルのアップロード)
+-   [ファイルのダウンロード](#ファイルのダウンロード-ここでは-先ほどの例で使用したファイルをダウンロードします)
 
 ### アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード
 
-ファイル操作プラグイン ( File プラグイン )
-とファイル転送プラグインを併用して、target
+ファイル操作プラグイン ( `File` プラグイン )
+とファイル転送プラグインを併用して、 `target`
 の作成/取得とファイルのダウンロードを行います ( ダウンロード時の target
 とは、「 端末上のファイルの位置を指し示す、ファイルシステムの URL 」
-であり、この例では、FileEntry オブジェクトを指します
+であり、この例では、`FileEntry` オブジェクトを指します
 )。ファイルをダウンロードする前に、`resolveLocalFileSystemURL`
-を使用して、DirectoryEntry
-オブジェクトを作成/取得します。成功時のコールバックでは、DirectoryEntry
+を使用して、 `DirectoryEntry`
+オブジェクトを作成/取得します。成功時のコールバックでは、`DirectoryEntry`
 の `fs.root.getFile` メソッドを使用して、ダウンロード先となるファイル (
-FileEntry ) を作成/取得します。
+`FileEntry` ) を作成/取得します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
     console.log('file system open: ' + fs.name);
@@ -421,24 +416,22 @@ window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
     }, onErrorCreateFile);
 
 }, onErrorLoadFs);
-```
+{{</highlight>}}
 
-<div class="admonition note">
+{{<note>}}
+永続的なストレージを使用する場合には、<code>requestFileSystem</code>
+の実行時に、<code>LocalFileSystem.PERSISTENT</code> を指定します。
+{{</note>}}
 
-永続的なストレージを使用する場合には、requestFileSystem
-の実行時に、LocalFileSystem.PERSISTENT を指定します。
-
-</div>
-
-FileEntry オブジェクトの作成/取得後、FileTransfer オブジェクトの
+`FileEntry` オブジェクトの作成/取得後、 `FileTransfer` オブジェクトの
 `download` メソッドを使用して、ファイルを `ダウンロード`
-します。FileTransfer の `download`
+します。 `FileTransfer` の `download`
 メソッドの第三引数は、成功時のコールバックです。このコールバック内で、`readBinaryFile`
 関数を使用しています。また、ここで使用している変数 `entry`
-には、download の処理結果として受けとった、新規の FileEntry
+には、 `download` の処理結果として受けとった、新規の `FileEntry`
 オブジェクトが格納されています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function download(fileEntry, uri, readBinaryData) {
 
     var fileTransfer = new FileTransfer();
@@ -472,26 +465,26 @@ function download(fileEntry, uri, readBinaryData) {
         }
     );
 }
-```
+{{</highlight>}}
 
-画像を単に表示する場合には、次のように、FileEntry を渡して、FileEntry
-自身の toURL() 関数を呼び出します。
+画像を単に表示する場合には、次のように、 `FileEntry` を渡して、 `FileEntry`
+自身の `toURL()` 関数を呼び出します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImageByFileURL(fileEntry) {
     var elem = document.getElementById('imageElement');
     elem.src = fileEntry.toURL();
 }
-```
+{{</highlight>}}
 
 バイナリーファイルの読み込み後に、なんらかの処理をする場合、FileReader
 の `readAsBinaryString` と `readAsArrayBuffer` の 2
 つのメソッドを使用できます。ここでは、`readAsArrayBuffer`
-を使用し、FileEntry
-オブジェクトをこのメソッドに渡します。ファイルの読み込み後は、その処理結果を使用して、Blob
+を使用し、`FileEntry`
+オブジェクトをこのメソッドに渡します。ファイルの読み込み後は、その処理結果を使用して、 `Blob`
 オブジェクトを作成します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readBinaryFile(fileEntry) {
     fileEntry.file(function (file) {
         var reader = new FileReader();
@@ -509,12 +502,12 @@ function readBinaryFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}
 
 ファイルの読み込み後、`createObjectURL` を使用すれば、DOM 上で使用できる
 URL を取得できます。次に、この URL を使用して、画像を表示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function displayImage(blob) {
 
     // Note: Use window.URL.revokeObjectURL when finished with image.
@@ -524,23 +517,23 @@ function displayImage(blob) {
     var elem = document.getElementById('imageElement');
     elem.src = objURL;
 }
-```
+{{</highlight>}}
 
-上記で示したように、ダウンロードした画像を単に表示するのであれば、FileEntry.toURL()
+上記で示したように、ダウンロードした画像を単に表示するのであれば、 `FileEntry.toURL()`
 を使用することもできます。
 
 ### ファイルのアップロード
 
 ファイル転送プラグインを使用してファイルをアップロードする場合、アップロード対象となるファイルを取得するときには、ファイル操作プラグイン
-( File プラグイン ) を使用します (
-ダウンロード時と同じく、ファイルは、FileEtnry オブジェクトとなります
-)。アップロード前に、DirectoryEntry の `getFile`
+( `File` プラグイン ) を使用します (
+ダウンロード時と同じく、ファイルは、 `FileEtnry` オブジェクトとなります
+)。アップロード前に、 `DirectoryEntry` の `getFile`
 を使用して、アップロード用のファイルを作成/取得します。ここでは、アプリのキャッシュ用ディレクトリー
-( fs.root )
-内にファイルを作成しています。次に、アップロードするコンテンツを渡して、writeFile
+( `fs.root` )
+内にファイルを作成しています。次に、アップロードするコンテンツを渡して、 `writeFile`
 関数を実行します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onUploadFile() {
     window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
@@ -556,12 +549,12 @@ function onUploadFile() {
 
     }, onErrorLoadFs);
 }
-```
+{{</highlight>}}
 
-この例では、FileWrite オブジェクトを作成/取得して、次に、upload
+この例では、 `FileWrite` オブジェクトを作成/取得して、次に、 `upload`
 関数を実行しています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function writeFile(fileEntry, dataObj) {
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function (fileWriter) {
@@ -582,13 +575,13 @@ function writeFile(fileEntry, dataObj) {
         fileWriter.write(dataObj);
     });
 }
-```
+{{</highlight>}}
 
-ここでは、upload 関数へ FileEntry
-オブジェクトを渡しています。なお、実際のアップロード処理には、FileTransfer
-オブジェクトの upload 関数を使用します。
+ここでは、 `upload` 関数へ `FileEntry`
+オブジェクトを渡しています。なお、実際のアップロード処理には、 `FileTransfer`
+オブジェクトの `upload` 関数を使用します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function upload(fileEntry) {
     // !! Assumes variable fileURL contains a valid URL to a text file on the device,
     var fileURL = fileEntry.toURL();
@@ -619,25 +612,24 @@ function upload(fileEntry) {
     // http://some.server.com/upload.php
     ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
 };
-```
+{{</highlight>}}
 
-ファイルのダウンロード (
-ここでは、先ほどの例で使用したファイルをダウンロードします )
-\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
+### ファイルのダウンロード ( ここでは、先ほどの例で使用したファイルをダウンロードします )
+
 
 先ほどアップロードしたテキストを、今度は、ダウンロードします ( 「
 ファイルのアップロード 」 を参照のこと )。必要なものは、有効な URL です
 ( ダウンロード元を指す
 URL、たとえば、http://some.server.com/download.php
-)。FileTransfer.download メソッドの成功時のハンドラーには、FileEntry
+)。 `FileTransfer.download` メソッドの成功時のハンドラーには、 `FileEntry`
 オブジェクトが渡されます。上記のダウンロードの例 ( 「
 バイナリーファイルのダウンロード 」 を参照のこと )
-と異なる点として、ここでは、ダウンロードの処理結果を読み込むときに、FileReader.readAsText
+と異なる点として、ここでは、ダウンロードの処理結果を読み込むときに、 `FileReader.readAsText`
 を使用しています。これは、先ほどのアップロードの例　( 「
 ファイルのアップロード 」 を参照のこと )
 では、テキスト形式のコンテンツとして、ファイルがアップロードされているためです。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function download(fileEntry, uri) {
 
     var fileTransfer = new FileTransfer();
@@ -664,12 +656,12 @@ function download(fileEntry, uri) {
         }
     );
 }
-```
+{{</highlight>}}
 
-readFile 関数内で、FileReader オブジェクトの `readAsText`
+`readFile` 関数内で、`FileReader` オブジェクトの `readAsText`
 メソッドを実行します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function readFile(fileEntry) {
     fileEntry.file(function (file) {
         var reader = new FileReader();
@@ -685,4 +677,4 @@ function readFile(fileEntry) {
 
     }, onErrorReadFile);
 }
-```
+{{</highlight>}}

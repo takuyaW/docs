@@ -1,5 +1,6 @@
 ---
 title: Crosswalk Plugin (Android Only)
+weight: 40
 ---
 
 Tested Version: [2.3.0](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview/releases/tag/2.3.0)
@@ -31,9 +32,9 @@ Android 4.0+ device.
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-crosswalk-webview
-{{</syntax>}}
+{{</highlight>}}
 
 Supported Platforms
 -------------------
@@ -74,7 +75,7 @@ Pros and Cons of Crosswalk Plugin
 
 Advantages | Disadvantages
 -----------|--------------------
-<ul><li>WebView installed on each device has the same version. The problem due to different operations of API has been solved.</li><li>The latest version of WebView (Android 4 is not supported) is being used, performance improvement is expected.</li></ul> | <ul><li>Building a Crosswalk app results in `2 APK` files: one `arm` and one for `x86` CPU architecture. Both of them need to be uploaded to GooglePlay.</li><li>When there is bugs in Crosswalk (Chromium), all devices will be having the same bugs.</li><li>App size can be `+20MB` bigger.</li><li>When there is a serious bug occurs in Crosswalk, the app might stop working until it is solved.</li><li>If there is vulnerability occurrs in Crosswalk(Chromium), there will be a warning in Google Play that the app may be publicly unavailable.</li><li>For Android 5.0 or higher, WebView is made as another app, so it will always needed to be updated. Therefore, Crosswalk’s WebView version maybe out of dated.</li></ul>
+<ul><li>WebView installed on each device has the same version. The problem due to different operations of API has been solved.</li><br /><li>The latest version of WebView (Android 4 is not supported) is being used, performance improvement is expected.</li></ul> | <ul><li>Building a Crosswalk app results in `2 APK` files: one `arm` and one for `x86` CPU architecture. Both of them need to be uploaded to GooglePlay.</li><br /><li>When there is bugs in Crosswalk (Chromium), all devices will be having the same bugs.</li><br /><li>App size can be `+20MB` bigger.</li><br /><li>When there is a serious bug occurs in Crosswalk, the app might stop working until it is solved.</li><br /><li>If there is vulnerability occurrs in Crosswalk(Chromium), there will be a warning in Google Play that the app may be publicly unavailable.</li><br /><li>For Android 5.0 or higher, WebView is made as another app, so it will always needed to be updated. Therefore, Crosswalk’s WebView version maybe out of dated.</li></ul>
 
 See Also:
 

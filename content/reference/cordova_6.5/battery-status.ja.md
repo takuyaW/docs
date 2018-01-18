@@ -29,7 +29,7 @@ cordova-plugin-battery-status
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Battery` プラグインを
-[有効]({{<ref "cordova_plugin.ja.md#add-import-cordova-plugins">}}) にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 API の解説
 ----------
@@ -38,21 +38,25 @@ API の解説
 
 このプラグインのすべてのイベントは、次のプロパティを持つオブジェクトを返します。
 
--   **level**: バッテリー充電率 (0-100) *(Number)*
--   **isPlugged**: 端末が充電中かを示す真偽値 *(Boolean)*
+プロパティ | 型 | 解説
+-----|------|-------------
+`level` | 数値 | バッテリー充電率 (`0-100`)
+`isPlugged` | 真偽値 | 端末が充電中かを示す真偽値
 
 ### batterystatus イベント
 
 バッテリの充電率が少なくとも1パーセント変化したとき、または端末の充電を開始、または停止されたときに発火します。
-バッテリーの状態を含む [object](#status-object) を返します。
+バッテリーの状態を含む [object](#ステータス-オブジェクト) を返します。
 
 #### 例
 
-    window.addEventListener("batterystatus", onBatteryStatus, false);
+{{<highlight javascript>}}
+window.addEventListener("batterystatus", onBatteryStatus, false);
 
-    function onBatteryStatus(status) {
-        console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
-    }
+function onBatteryStatus(status) {
+    console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
+}
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -62,30 +66,28 @@ API の解説
 
 #### Android 特有の動作
 
-<div class="admonition warning">
-
-Android
-の組み合わせは、バッテリーを多く消費するため、長時間の使用には注意が必要です。
-
-</div>
+{{<warning>}}
+Android の組み合わせは、バッテリーを多く消費するため、長時間の使用には注意が必要です。
+{{</warning>}}
 
 #### Windows Phone 8.1 特有の動作
 
 Windows Phone 8.1 では、`isPlugged` パラメーターは *使用できません*。
-`level` パラメーターは *使用できます*。
+`level` パラメーターは **使用できます**。
 
 ### batterylow イベント
 
-バッテリー残量が非常に少なくなった場合に、このイベントが発火します。しきい値は、端末によって異なります。バッテリーの状態を示すプロパティーが格納された
-[object](#status-object) を返します。
+バッテリー残量が非常に少なくなった場合に、このイベントが発火します。しきい値は、端末によって異なります。バッテリーの状態を示すプロパティーが格納された [object](#ステータス-オブジェクト) を返します。
 
 #### 例
 
-    window.addEventListener("batterylow", onBatteryLow, false);
+{{<highlight javascript>}}
+window.addEventListener("batterylow", onBatteryLow, false);
 
-    function onBatteryLow(status) {
-        alert("Battery Level Low " + status.level + "%");
-    }
+function onBatteryLow(status) {
+    alert("Battery Level Low " + status.level + "%");
+}
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -102,15 +104,17 @@ Windows Phone 8.1 では、端末が充電中か否かを検知する API
 ### batterycritical イベント
 
 バッテリー充電率が臨界充電しきい値に達した場合に、このイベントが発火します。しきい値は、端末によって異なります。バッテリーの状態を示すプロパティーが格納された
-[object](#status-object) を返します。
+[object](#ステータス-オブジェクト) を返します。
 
 #### 例
 
-    window.addEventListener("batterycritical", onBatteryCritical, false);
+{{<highlight javascript>}}
+window.addEventListener("batterycritical", onBatteryCritical, false);
 
-    function onBatteryCritical(status) {
-        alert("Battery Level Critical " + status.level + "%\nRecharge Soon!");
-    }
+function onBatteryCritical(status) {
+    alert("Battery Level Critical " + status.level + "%\nRecharge Soon!");
+}
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 

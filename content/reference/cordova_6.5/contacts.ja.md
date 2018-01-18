@@ -1,15 +1,13 @@
-住所録の取得 プラグイン
-=======================
+---
+title: 住所録の取得 プラグイン
+weight: 30
+---
 
-テスト環境 ( バージョン番号 ) :
-[2.3.1](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.3.1)
+テスト環境 ( バージョン番号 ) : [2.3.1](https://github.com/apache/cordova-plugin-contacts/releases/tag/2.3.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-contacts) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-contacts">}} をご確認ください。
+{{</note>}}
 
 このプラグインでは、グローバルオブジェクト 「 `navigator.contacts` 」
 を使用し、端末側の住所録のデータベースにアクセスします。
@@ -18,39 +16,32 @@
 に属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-console.log(navigator.contacts);
+    function onDeviceReady() {
+    console.log(navigator.contacts);
 }
-```
+{{</highlight>}}
 
-<div class="admonition warning">
-
+{{<warning>}}
 住所録データの取得・利用には、個人情報保護の観点から、細心の注意が必要です。住所録データの取り扱い方法と第三者への情報提供に関しては、個人情報の取り扱いポリシーの策定時に議論されるべき問題です。個人情報の中でも、とりわけ住所録の情報は、交友関係などの個人のプライバシーに深く関わることから、その取り扱いには、特に注意が求められます。そのため、アプリのプライバシーに関するポリシーの策定に加え、アプリが住所録にアクセスまたは利用する場合には、事前にユーザーへの通知および許諾を得る必要があります。端末のオペレーティング
 システム側でこの通知および許諾の要求を行ってない場合には、開発者側で改善する必要があります。また、ユーザーへの通知および許諾の要求を行う場合には、必ず、個人情報の取り扱いに関するポリシーの開示および使用方法に関する同意の意思表示を求める必要があります
-( **許可する**、または、\**許可しない*\*
+( <b>許可する</b>、または、<b>許可しない</b>
 のように、明示的に判断できる必要があります
-)。また、住所録へアクセスする前に、ユーザーへの通知および許諾を得ることを配布の条件とする、アプリのマーケットプレースも一部に存在します。住所録データの取り扱いの説明に関しては、ユーザーの不安や困惑を取り除くため、内容を明快に理解できるよう、考慮が求められます。詳細は、
-[プライバシー
-ガイド](http://cordova.apache.org/docs/ja/6.x/guide/appdev/privacy/index.html)
-をご確認ください。
-
-</div>
+)。また、住所録へアクセスする前に、ユーザーへの通知および許諾を得ることを配布の条件とする、アプリのマーケットプレースも一部に存在します。住所録データの取り扱いの説明に関しては、ユーザーの不安や困惑を取り除くため、内容を明快に理解できるよう、考慮が求められます。詳細は、 {{<link href="http://cordova.apache.org/docs/ja/6.x/guide/appdev/privacy/index.html" title="プライバシーガイド">}} をご確認ください。
+{{</warning>}}
 
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-contacts
-```
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Contacts` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Contacts` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 後方互換
 --------
@@ -67,9 +58,9 @@ iOS 10以降は、 `info.plist` に `NSContactsUsageDescription`
 
 例 :
 
-``` {.sourceCode .javascript}
+{{<highlight bash>}}
 cordova plugin add cordova-plugin-contacts --variable CONTACTS_USAGE_DESCRIPTION="your usage message"
-```
+{{</highlight>}}
 
 変数を渡さない場合は、プラグインは空の文字列を値として追加します。
 
@@ -78,8 +69,7 @@ cordova plugin add cordova-plugin-contacts --variable CONTACTS_USAGE_DESCRIPTION
 -   **Windows 10 以前：** `find` や `pickContact`
     メソッドから返された連絡先は、すべて読み取り専用になります。そのため、アプリはそれらを変更することはできません。`find`
     メソッドは、Windows Phone 8.1 端末でのみ利用可能です。
--   *\* Windows 10 以上:*\*
-    連絡先は保存され、アプリローカル連絡先の保存場所に保存されます。連絡先は削除することもできます。
+-   **Windows 10 以上:** 連絡先は保存され、アプリローカル連絡先の保存場所に保存されます。連絡先は削除することもできます。
 
 API の解説
 ----------
@@ -116,9 +106,9 @@ API の解説
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var myContact = navigator.contacts.create({"displayName": "Test User"});
-```
+{{</highlight>}}
 
 ### navigator.contacts.find
 
@@ -182,7 +172,7 @@ var myContact = navigator.contacts.create({"displayName": "Test User"});
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
 };
@@ -199,7 +189,7 @@ options.desiredFields = [navigator.contacts.fieldType.id];
 options.hasPhoneNumber = true;
 var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
 navigator.contacts.find(fields, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Windows 特有の動作
 
@@ -228,24 +218,23 @@ navigator.contacts.find(fields, onSuccess, onError, options);
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.contacts.pickContact(function(contact){
-        console.log('The following contact has been selected:' + JSON.stringify(contact));
-    },function(err){
-        console.log('Error: ' + err);
-    });
-```
+    console.log('The following contact has been selected:' + JSON.stringify(contact));
+},function(err){
+    console.log('Error: ' + err);
+});
+{{</highlight>}}
 
 #### Android 特有の動作
 
 このプラグインは連絡先を選択するための外部アクティビティを起動します。
-これがアプリに与える影響については、 [Android Lifecycle
-Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
+これがアプリに与える影響については、 [Android Lifecycle Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
 を参照してください。 プラグインがその結果を `resume`
 イベントに返す場合、返されたオブジェクトをまず `Contact`
 オブジェクトでラップしてから使用する必要があります。 次に例を示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onResume(resumeEvent) {
     if(resumeEvent.pendingResult) {
         if(resumeEvent.pendingResult.pluginStatus === "OK") {
@@ -256,7 +245,7 @@ function onResume(resumeEvent) {
         }
     }
 }
-```
+{{</highlight>}}
 
 ### Contact
 
@@ -267,12 +256,10 @@ function onResume(resumeEvent) {
 を使用して、データベース上で検索 ( retrieve、個々または一括で取得可 )
 できます。
 
-<div class="admonition note">
-
+{{<note>}}
 ここで紹介している住所録の項目は、一部のプラットフォームでは使用できません。各プラットフォームのサポート状況に関しては、各
 *プラットフォーム特有の動作* の記載内容をご確認ください。
-
-</div>
+{{</note>}}
 
 #### プロパティー
 
@@ -316,7 +303,7 @@ function onResume(resumeEvent) {
 
 #### Save 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contact) {
     alert("Save Success");
 };
@@ -338,21 +325,21 @@ contact.name = name;
 
 // save to device
 contact.save(onSuccess,onError);
-```
+{{</highlight>}}
 
 #### Clone 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // clone the contact object
 var clone = contact.clone();
 clone.name.givenName = "John";
 console.log("Original contact name = " + contact.name.givenName);
 console.log("Cloned contact name = " + clone.name.givenName);
-```
+{{</highlight>}}
 
 #### Remove 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess() {
     alert("Removal Success");
 };
@@ -363,12 +350,12 @@ function onError(contactError) {
 
 // remove the contact from the device
 contact.remove(onSuccess,onError);
-```
+{{</highlight>}}
 
 #### 保存した連絡先から電話番号を削除する例
 
-``` {.sourceCode .javascript}
-// 例 to create a contact with 3 phone numbers and then remove
+{{<highlight javascript>}}
+// Example to create a contact with 3 phone numbers and then remove
 // 2 phone numbers. This example is for illustrative purpose only
 var myContact = navigator.contacts.create({"displayName": "Test User"});
 var phoneNumbers = [];
@@ -392,7 +379,7 @@ myContact.save(function (contact_obj) {
         console.log("Contact Remove Operation failed: " + contactError);
     });
 });
-```
+{{</highlight>}}
 
 #### Android 2.X 特有の動作
 
@@ -448,7 +435,7 @@ myContact.save(function (contact_obj) {
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // display the address information for all contacts
 
 function onSuccess(contacts) {
@@ -476,7 +463,7 @@ options.filter = "";
 options.multiple = true;
 var filter = ["displayName", "addresses"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android 2.X 特有の動作
 
@@ -546,7 +533,7 @@ navigator.contacts.find(filter, onSuccess, onError, options);
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 // create a new contact
 var contact = navigator.contacts.create();
 
@@ -559,7 +546,7 @@ contact.phoneNumbers = phoneNumbers;
 
 // save the contact
 contact.save();
-```
+{{</highlight>}}
 
 #### Android 特有の動作
 
@@ -584,7 +571,7 @@ contact.save();
 -   **familyName**: 姓です。 *(DOMString)*
 -   **givenName**: 名です。 *(DOMString)*
 -   **middleName**: ミドルネームです。 *(DOMString)*
--   **honorificPrefix**: 接頭敬称です。例 : *Mr.*、\*Dr.\* *(DOMString)*
+-   **honorificPrefix**: 接頭敬称です。例 : *Mr.* 、*Dr.* *(DOMString)*
 -   **honorificSuffix**: 接尾敬称です。例 *Esq.* *(DOMString)*
 
 #### サポート対象のプラットフォーム
@@ -595,7 +582,7 @@ contact.save();
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         alert("Formatted: "  + contacts[i].name.formatted       + "\n" +
@@ -616,7 +603,7 @@ options.filter = "";
 options.multiple = true;
 filter = ["displayName", "name"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android 特有の動作
 
@@ -664,7 +651,7 @@ navigator.contacts.find(filter, onSuccess, onError, options);
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         for (var j = 0; j < contacts[i].organizations.length; j++) {
@@ -686,7 +673,7 @@ options.filter = "";
 options.multiple = true;
 filter = ["displayName", "organizations"];
 navigator.contacts.find(filter, onSuccess, onError, options);
-```
+{{</highlight>}}
 
 #### Android 2.X 特有の動作
 
