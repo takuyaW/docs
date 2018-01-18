@@ -105,32 +105,10 @@ window.sqlitePlugin.deleteDatabase({name: "myDatabase.db", location: 1}, success
 パラメーター | 型 | 解説
 ----------|------|----------------
 `name` | 文字列 | データベース名です。データベースのファイル名に、拡張子を付記することもできます。
-`location` | 文字列 | データベース用に使用するサブディレクトリーを指定します ( iOS のみ )。次の選択肢があります。 <ul><li>`0`: (default) *Documents* -  visible to iTunes and backed up by iCloud.</li><li>`1`: *Library* - backed up by iCloud, NOT visible to iTunes.</li><li>`2`: *Library/LocalDatabase* - NOT visible to iTunes and NOT backed up by iCloud.</li></ul>
-`successCb` | コールバック | A callback when the database is deleted successfully.
-`errorCb` | コールバック | A callback when the database is failed to be deleted.
+`location` | 文字列 | データベース用に使用するサブディレクトリーを指定します ( iOS のみ )。次の選択肢があります。 <ul><li>`0` ( デフォルト ) : *Documents* - iTunes 側から認識可、iCloud によるバックアップ可</li><li>`1` : *Library* - iCloud によるバックアップ可、iTunes 側から認識不可 </li><li>`2` : *Library/LocalDatabase* - iTunes 側から認識不可、iCloud によるバックアップ不可</li></ul>
+`successCb` | コールバック | データベースの削除が成功したときのコールバックです。
+`errorCb` | コールバック | データベースの削除が失敗したときのコールバックです。
 
-:   +--------+-------------------------------------------------------------+
-    | `name` | データベース名です。データベースのファイル名に、拡張子を付記することもできます。 |
-    +--------+-------------------------------------------------------------+
-    | `locat | データベース用に使用するサブディレクトリーを指定します (    |
-    | ion`   | iOS のみ )。次の選択肢があります。                          |
-    |        |                                                             |
-    |        | > -                |
-    |        | > -   `1` : *Library* - iCloud によるバックアップ可、iTunes |
-    |        | >     側から認識不可                                        |
-    |        | > -   `2` : *Library/LocalDatabase* - iTunes                |
-    |        | >     側から認識不可、iCloud によるバックアップ不可         |
-    +--------+-------------------------------------------------------------+
-    | `succe | データベースの削除が成功したときのコールバックです。        |
-    | ssCb`  |                                                             |
-    +--------+-------------------------------------------------------------+
-    | `error | データベースの削除が失敗したときのコールバックです。        |
-    | Cb`    |                                                             |
-    +--------+-------------------------------------------------------------+
-
-<div class="admonition note">
-
-この API は、Windows 8.1 以上/Windows Phone 8.1
-以上向けアプリの開発には使用できません。
-
-</div>
+{{<note>}}
+  この API は、Windows 8.1 以上/Windows Phone 8.1 以上向けアプリの開発には使用できません。
+{{</note>}}

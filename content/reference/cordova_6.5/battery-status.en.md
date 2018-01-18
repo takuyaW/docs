@@ -1,11 +1,12 @@
 ---
 title: Battery Status Plugin
+weight: 10
 ---
 
 Tested Version: [1.2.4](https://github.com/apache/cordova-plugin-battery-status/releases/tag/1.2.4)
 
 {{<note>}}
-This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-battery-status">}}.
+    This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-battery-status">}}.
 {{</note>}}
 
 This plugin provides an implementation of an old version of the [Battery Status Events API](http://www.w3.org/TR/2011/WD-battery-status-20110915/). It adds the
@@ -22,14 +23,14 @@ fires.
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-battery-status
-{{</syntax>}}
+{{</highlight>}}
 
-Adding the Plugin in Monaca
+Adding the Plugin
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins) `Battery` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) `Battery` plugin in Monaca Cloud IDE.
 
 API Reference
 -------------
