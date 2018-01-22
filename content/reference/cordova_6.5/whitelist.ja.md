@@ -1,16 +1,13 @@
-ホワイトリストへの登録 プラグイン ( Android 専用 )
-==================================================
+---
+title: ホワイトリストへの登録 プラグイン ( Android 専用 )
+weight: 200
+---
 
-テスト環境 ( バージョン番号 ) :
-[1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
+テスト環境 ( バージョン番号 ) : [1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-whitelist)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-whitelist">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、WebView ( Cordova 4.0 以降 )
 上のページ遷移に対して、ホワイトリスト ポリシー ( アクセスできる URL
@@ -19,9 +16,9 @@
 プラグイン ID
 -------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 cordova-plugin-whitelist
-```
+{{</highlight>}}
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -31,12 +28,10 @@ cordova-plugin-whitelist
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-<div class="admonition note">
-
+{{<note>}}
 Whitelist プラグインは、Cordova 5.2 から、Monaca
 アプリに自動で組み込まれます。削除はできません。
-
-</div>
+{{</note>}}
 
 ページ遷移時に適用される設定
 ----------------------------
@@ -50,6 +45,7 @@ Android では、http(s) スキーマを使用していない iframe にも適�
 を使用する場合、たとえば、次のように `<allow-navigation>`
 を指定して、`config.xml` に追加します。
 
+{{<highlight xml>}}
     <!-- Allow links to example.com -->
     <allow-navigation href="http://example.com/*" />
 
@@ -66,6 +62,7 @@ Android では、http(s) スキーマを使用していない iframe にも適�
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
+{{</highlight>}}
 
 外部アプリの呼び出し時に適用される設定
 --------------------------------------
@@ -81,6 +78,7 @@ Android における、「 BROWSABLE 」 設定に相当します。
 
 次のように、 `config.xml` ファイルに `<allow-intent>` タグを追加します。
 
+{{<highlight xml>}}
     <!-- Allow links to web pages to open in a browser -->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -104,6 +102,7 @@ Android における、「 BROWSABLE 」 設定に相当します。
     <!-- Allow all unrecognized URLs to open installed apps
          *NOT RECOMMENDED* -->
     <allow-intent href="*" />
+{{</highlight>}}
 
 コンテンツのリクエスト時に適用される設定 ( ネットワーク
 リクエスト用のホワイトリストの設定 )
@@ -112,16 +111,15 @@ Android における、「 BROWSABLE 」 設定に相当します。
 ネットワーク リクエスト ( 画像、XHR など )
 に関して、どのリクエストを許可するか制御できます。
 
-<div class="admonition note">
-
-セキュリティー強化の点から、6-5\_content\_security\_policy
+{{<note>}}
+セキュリティー強化の点から、 {{<link title="コンテンツ セキュリティー ポリシー" href="#コンテンツ-セキュリティー-ポリシー">}}
 も使用することを推奨しています。こちらのホワイトリスト設定は、CSP
 をサポートしていない WebView 向けです。
-
-</div>
+{{</note>}}
 
 次のように、 `config.xml` ファイルに `<access>` タグを追加します。
 
+{{<highlight xml>}}
     <!-- Allow images, xhrs, etc. to google.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
@@ -137,6 +135,7 @@ Android における、「 BROWSABLE 」 設定に相当します。
 
     <!-- Don't block any requests -->
     <access origin="*" />
+{{</highlight>}}
 
 `<access>` タグを設定しない場合、 `file://`
 形式のURLへのリクエストのみ許可されます。デフォルトでは、
@@ -166,6 +165,7 @@ Crosswalk WebView では、すべてのバージョンで利用できます )。
 
 CSP 宣言の例を、次に記します ( `.html` ページに記述 )。
 
+{{<highlight xml>}}
     <!-- Good default declaration:
         * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
         * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -189,3 +189,4 @@ CSP 宣言の例を、次に記します ( `.html` ページに記述 )。
 
     <!-- Allow iframe to https://cordova.apache.org/ -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
+{{</highlight>}}

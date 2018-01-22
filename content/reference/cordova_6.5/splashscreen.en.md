@@ -1,5 +1,6 @@
 ---
 title: Splashscreen Plugin
+weight: 170
 ---
 
 Tested Version: [4.0.3](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/4.0.3)
@@ -14,14 +15,14 @@ launch.
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-splashscreen
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-splashscreen
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Splashscreen` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -214,15 +215,15 @@ If you choose to use legacy launch images, you will use the following
 syntax in `config.xml`:
 
 {{<highlight xml>}}
-    <splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
-    <splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
-    <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
-    <splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-    <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
-    <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-    <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
-    <splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
-    <splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
+<splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
+<splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+<splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+<splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+<splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+<splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+<splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+<splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
+<splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
 {{</highlight>}}
 
 Technically the filename for the `src` attribute can be anything you
@@ -256,7 +257,7 @@ concept. If you specify `src="res/windows/splashscreen.png"` the
 following files will be copied into the application's images folder: :
 
 {{<highlight bash>}}
-    ``res/windows/splashscreen.png`` | ``res/windows/splashscreen.scale-100.png``, ``res/windows/splashscreen.scale-125.png``, etc.
+``res/windows/splashscreen.png`` | ``res/windows/splashscreen.scale-100.png``, ``res/windows/splashscreen.scale-125.png``, etc.
 {{</highlight>}}
 
 The following are supported:

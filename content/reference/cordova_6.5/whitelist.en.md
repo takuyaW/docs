@@ -1,5 +1,6 @@
 ---
 title: Whitelist Plugin (Android Only)
+weight: 200
 ---
 
 Tested Version: [1.3.1](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.3.1)
@@ -14,9 +15,9 @@ webview on Cordova 4.0.
 Plugin ID
 ---------
 
-{{<syntax>}}
+{{<highlight javascript>}}
 cordova-plugin-whitelist
-{{</syntax>}}
+{{</highlight>}}
 
 Supported Platforms
 -------------------

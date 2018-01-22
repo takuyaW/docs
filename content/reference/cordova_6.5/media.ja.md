@@ -1,49 +1,45 @@
-メディア操作 プラグイン
-=======================
+---
+title: メディア操作 プラグイン
+weight: 140
+---
 
-テスト環境 ( バージョン番号 ) :
-[3.0.1](https://github.com/apache/cordova-plugin-media/releases/tag/3.0.1)
+テスト環境 ( バージョン番号 ) : [3.0.1](https://github.com/apache/cordova-plugin-media/releases/tag/3.0.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-media) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-media">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、オーディオファイルの再生と録音を行います。
 
-<div class="admonition note">
-
+{{<note>}}
 現在の実装方式は、W3C の仕様 ( メディアキャプチャーに関して )
 に準拠しておらず、利便上提供しているものです。リリース予定の次期の実装方式では、最新の
 W3C の仕様に準拠する予定です。また、その場合には、現在の API
 を廃止することもあります。
-
-</div>
+{{</note>}}
 
 このプラグインは、グローバルな `Media`
 コンストラクタを定義します。グローバルスコープでは、`deviceready`
 イベントの発火後まで使用できません。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log(Media);
 }
-```
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-media
+{{<highlight javascript>}}
+cordova-plugin-media
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Media` プラグインを 有効 &lt;add\_plugins&gt;
-にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Media` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -55,9 +51,9 @@ function onDeviceReady() {
 メディアオブジェクト
 --------------------
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
-```
+{{</highlight>}}
 
 ### パラメーター
 
@@ -71,15 +67,13 @@ var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
     ステータスが変化したことを示すときに使用されるコールバック
     *(Function)*
 
-<div class="admonition note">
-
-`src` パラメーターには、`cdvfile` パスを使用できます。
-
-</div>
-
-``` {.sourceCode .javascript}
+{{<note>}}
+<code>src</code> パラメーターには、<code>cdvfile</code> パスを使用できます。
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
-```
+{{</highlight>}}
+{{</note>}}
+
 
 ### Additional ReadOnly パラメーター
 
@@ -122,7 +116,9 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 録音している音の振幅 ( amplitude ) を返します。
 
-    media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+{{<highlight javascript>}}
+media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 ##### サポート対象のプラットフォーム
 
@@ -137,7 +133,7 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -158,14 +154,16 @@ mediaTimer = setInterval(function () {
         }
     );
 }, 1000);
-```
+{{</highlight>}}
 
 #### media.getCurrentPosition
 
 オーディオファイル内の現在の再生位置を返します。また、`Media`
 オブジェクト内の `position` パラメーターを更新します。
 
-    media.getCurrentPosition(mediaSuccess, [mediaError]);
+{{<highlight javascript>}}
+media.getCurrentPosition(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 ##### パラメーター
 
@@ -175,7 +173,7 @@ mediaTimer = setInterval(function () {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -196,18 +194,20 @@ var mediaTimer = setInterval(function () {
         }
     );
 }, 1000);
-```
+{{</highlight>}}
 
 #### media.getDuration
 
 オーディオファイルの再生時間を、秒単位で返します。再生時間が不明の場合には、「
 -1 」 の値を返します。
 
-    media.getDuration();
+{{<highlight javascript>}}
+media.getDuration();
+{{</highlight>}}
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -225,19 +225,19 @@ var timerDur = setInterval(function() {
         document.getElementById('audio_duration').innerHTML = (dur) + " sec";
     }
 }, 100);
-```
+{{</highlight>}}
 
 #### media.play
 
 オーディオファイルの再生を、開始または再開します。
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 media.play();
-```
+{{</highlight>}}
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -255,49 +255,51 @@ function playAudio(url) {
     // Play audio
     my_media.play();
 }
-```
+{{</highlight>}}
 
 ##### iOS 特有の動作
 
 -   **numberOfLoops**: このオプションを `play`
     メソッドに渡して、メディアファイルの再生回数を指定します。次に例を示します。
 
-        var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
-        myMedia.play({ numberOfLoops: 2 })
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
+myMedia.play({ numberOfLoops: 2 });{{</highlight>}}
 
 -   **playAudioWhenScreenIsLocked**: このオプションを `play`
     メソッドに渡して、画面にロックがかかった状態でも、再生を続行するか指定します。
     `true` ( デフォルトはこちら )
     に設定した場合、ハードウェア側のミュートボタンの設定を無視します。次に例を示します。
 
-        var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
-        myMedia.play({ playAudioWhenScreenIsLocked : true });
-        myMedia.setVolume('1.0');
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
+myMedia.play({ playAudioWhenScreenIsLocked : true });
+myMedia.setVolume('1.0');{{</highlight>}}
 
-    > Note: To allow playback with the screen locked or background audio
-    > you have to add `audio` to `UIBackgroundModes` in the `info.plist`
-    > file. See [Apple
-    > documentation](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23).
-    > Also note that the audio has to be started before going to
-    > background.
+    {{<note>}}
+    To allow playback with the screen locked or background audio you have to add <code>audio</code> to <code>UIBackgroundModes</code> in the <code>info.plist</code> file. See {{<link href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23" title="Apple documentation">}}. Also note that the audio has to be started before going to background.
+    {{</note>}}
 
 -   **ファイルの検索順序**: ファイル名のみまたは不完全なパス ( simple
     path ) を指定している場合、iOS では、最初に、`www`
     ディレクトリー内を検索して、見つからなければ、次に、アプリの
     `documents/tmp` ディレクトリーを検索します。
 
-        var myMedia = new Media("audio/beer.mp3")
-        myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3
+    {{<highlight javascript>}}
+var myMedia = new Media("audio/beer.mp3")
+myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3{{</highlight>}}
 
 #### media.pause
 
 オーディオファイルの再生を一時停止します。
 
-    media.pause();
+{{<highlight javascript>}}
+media.pause();
+{{</highlight>}}
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -317,13 +319,15 @@ function playAudio(url) {
         my_media.pause();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.pauseRecord
 
 オーディオファイルの録音を一時停止します。
 
-    media.pauseRecord();
+{{<highlight javascript>}}
+media.pauseRecord();
+{{</highlight>}}
 
 ##### サポート対象のプラットフォーム
 
@@ -331,7 +335,7 @@ function playAudio(url) {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -355,22 +359,21 @@ function recordAudio() {
         mediaRec.pauseRecord();
     }, 5000);
 }
-```
+{{</highlight>}}
 
 #### media.release
 
 オペレーティングシステム側のオーディオリソースを解放 ( release )
 します。特に、Android では、メディア再生に割り当てることができる
-OpenCore
-インスタンスの数に限りがあるため、解放処理は重要となります。`Media`
-リソースが不要になった場合には、`release`
-メソッドを都度呼び出すことを推奨します。
+OpenCore インスタンスの数に限りがあるため、解放処理は重要となります。`Media` リソースが不要になった場合には、`release` メソッドを都度呼び出すことを推奨します。
 
-    media.release();
+{{<highlight javascript>}}
+media.release();
+{{</highlight>}}
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -378,13 +381,15 @@ var my_media = new Media(src, onSuccess, onError);
 my_media.play();
 my_media.stop();
 my_media.release();
-```
+{{</highlight>}}
 
 #### media.resumeRecord
 
 オーディオファイルの録音を再開します。
 
-    media.resumeRecord();
+{{<highlight javascript>}}
+media.resumeRecord();
+{{</highlight>}}
 
 ##### サポート対象のプラットフォーム
 
@@ -392,7 +397,7 @@ my_media.release();
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -421,13 +426,15 @@ function recordAudio() {
         mediaRec.resumeRecord();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.seekTo
 
 オーディオファイルの再生位置を指定します。
 
-    media.seekTo(milliseconds);
+{{<highlight javascript>}}
+media.seekTo(milliseconds);
+{{</highlight>}}
 
 ##### パラメーター
 
@@ -435,7 +442,7 @@ function recordAudio() {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Audio player
 //
 var my_media = new Media(src, onSuccess, onError);
@@ -444,13 +451,15 @@ var my_media = new Media(src, onSuccess, onError);
 setTimeout(function() {
     my_media.seekTo(10000);
 }, 5000);
-```
+{{</highlight>}}
 
 #### media.setVolume
 
 オーディオファイルの音量を指定します。
 
-    media.setVolume(volume);
+{{<highlight javascript>}}
+media.setVolume(volume);
+{{</highlight>}}
 
 ##### パラメーター
 
@@ -464,7 +473,7 @@ setTimeout(function() {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -492,13 +501,15 @@ function playAudio(url) {
         my_media.setVolume('1.0');
     }, 5000);
 }
-```
+{{</highlight>}}
 
 #### media.startRecord
 
 オーディオファイルの録音を開始します。
 
-    media.startRecord();
+{{<highlight javascript>}}
+media.startRecord();
+{{</highlight>}}
 
 ##### サポート対象のプラットフォーム
 
@@ -508,7 +519,7 @@ function playAudio(url) {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -527,12 +538,13 @@ function recordAudio() {
     // Record audio
     mediaRec.startRecord();
 }
-```
+{{</highlight>}}
 
 ##### Android 特有の動作
 
 -   Androidデバイスは、オーディオをAAC
     ADTSファイル形式で記録します。指定されたファイルは`.aac`拡張子で終わる必要があります。
+
 -   Media
     オブジェクトが存続する間は、ハードウェア側の音量設定は、オブジェクト
     側の音量設定と紐付けされています。直近で作成した Media
@@ -543,22 +555,22 @@ function recordAudio() {
 ##### iOS 特有の動作
 
 -   iOSは`.wav`および`.m4a`タイプのファイルにのみ記録し、ファイル名の拡張子が正しくない場合はエラーを返します。
+
 -   フルパス ( full path ) を指定しない場合、アプリの `documents/tmp`
     ディレクトリーに、録音ファイルが置かれます。このファイルへのアクセスには、`ファイル操作`
     API ( File API ) を使用します ( `LocalFileSystem.TEMPORARY` を使用
     )。録音時にサブディレクトリーを使用する場合には、事前に作成しておく必要があります。
+    
 -   「 documents:// 」 形式の URI
     を使用して、ファイルを録音・再生できます。
 
-        var myMedia = new Media("documents://beer.mp3")
+    {{<highlight javascript>}}var myMedia = new Media("documents://beer.mp3"){{</highlight>}}
 
 -   iOS 10以降は、 `info.plist` に `NSMicrophoneUsageDescription`
     を追加する必要があります。
 
-NSMicrophoneUsageDescription
-は、アプリがユーザーのマイクにアクセスする理由を記述します。
-システムがアクセス許可をユーザに求めた際、この文字列がダイアログボックスの一部として表示されます。このエントリを追加するには、プラグインのインストール時に変数
-`MICROPHONE_USAGE_DESCRIPTION` で追加することができます。
+`NSMicrophoneUsageDescription` は、アプリがユーザーのマイクにアクセスする理由を記述します。
+システムがアクセス許可をユーザに求めた際、この文字列がダイアログボックスの一部として表示されます。このエントリを追加するには、プラグインのインストール時に変数 `MICROPHONE_USAGE_DESCRIPTION` で追加することができます。
 
 変数を渡さない場合は、プラグインは空の文字列を値として追加します。
 
@@ -581,11 +593,13 @@ NSMicrophoneUsageDescription
 
 オーディオファイルの再生を停止します。
 
-    media.stop();
+{{<highlight javascript>}}
+media.stop();
+{{</highlight>}}
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Play audio
 //
 function playAudio(url) {
@@ -609,13 +623,15 @@ function playAudio(url) {
         my_media.stop();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 #### media.stopRecord
 
 オーディオファイルの録音を停止します。
 
-    media.stopRecord();
+{{<highlight javascript>}}
+media.stopRecord();
+{{</highlight>}}
 
 ##### サポート対象のプラットフォーム
 
@@ -625,7 +641,7 @@ function playAudio(url) {
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 // Record audio
 //
 function recordAudio() {
@@ -650,7 +666,7 @@ function recordAudio() {
         mediaRec.stopRecord();
     }, 10000);
 }
-```
+{{</highlight>}}
 
 MediaError Object
 -----------------

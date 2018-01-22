@@ -1,32 +1,28 @@
-InAppBrowser プラグイン
-=======================
+---
+title: InAppBrowser プラグイン
+weight: 130
+---
 
-テスト環境 ( バージョン番号 ) :
-[1.7.1](https://github.com/apache/cordova-plugin-inappbrowser/releases/tag/1.7.1)
+テスト環境 ( バージョン番号 ) : [1.7.1](https://github.com/apache/cordova-plugin-inappbrowser/releases/tag/1.7.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-inappbrowser)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-inappbrowser">}} をご確認ください。
+{{</note>}}
 
 このプラグインでは、`cordova.InAppBrowser.open()`
-を使用して、InAppBrowser ウィンドウ ( InAppBrowser 提供の Web ブラウザー
-) を開きます。
+を使用して、InAppBrowser ウィンドウ ( InAppBrowser 提供の Web ブラウザー ) を開きます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-```
+{{</highlight>}}
 
 `cordova.InAppBrowser.open()` 関数は、`window.open()`
 関数を代替する関数です。次の記述をすれば、既存の `window.open()`
 を使用して、InAppBrowser ウィンドウを開くことができます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 window.open = cordova.InAppBrowser.open;
-```
+{{</highlight>}}
 
 InAppBrowser を使用して開いたウィンドウ ( InAppBrowser ウィンドウ )
 は、標準の Web ブラウザーと同じ動作をします。ただし、Cordova API
@@ -52,27 +48,31 @@ hook ) しています。ただし、`window.open`
 特に、別のプラグインとの間に依存関係がある場合など )。`window.open`
 へのフックは、将来的には廃止される予定ですが、それまでは、次のようにして、手動でも、デフォルトの挙動に戻すことができます。
 
-    delete window.open // Reverts the call back to it's prototype's default
+{{<highlight javascript>}}
+delete window.open // Reverts the call back to it's prototype's default
+{{</highlight>}}
 
 `window.open` は、グローバルスコープに属していますが、InAppBrowser
 が使用できるのは、`deviceready` イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("window.open works well");
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log("window.open works well");
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-inappbrowser
+{{<highlight javascript>}}
+cordova-plugin-inappbrowser
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`InAppBrowser` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`InAppBrowser` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 API の解説
 ----------
@@ -83,7 +83,9 @@ API の解説
 の新規インスタンス内、現在開いているブラウザーのインスタンス内、または、system
 browser ( システムブラウザー ) 内で、URL を開きます。
 
-    var ref = cordova.InAppBrowser.open(url, target, options);
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open(url, target, options);
+{{</highlight>}}
 
 -   **ref**: ターゲットが 、`'_blank'` に設定されているときの
     `InAppBrowser` ウィンドウへのリファレンス。 *(InAppBrowser)*
@@ -93,12 +95,9 @@ browser ( システムブラウザー ) 内で、URL を開きます。
     の読み込み先として使用するブラウザーの種別。任意のパラメーターです。デフォルトでは、`_self`
     となります。 *(String)*
 
-    > -   `_self`: ホワイトリストに対象の URL
-    >     が登録されている場合には、Cordova WebView
-    >     を開きます。それ以外の場合には、`InAppBrowser` を開きます。
-    > -   `_blank`: `InAppBrowser` を開きます。
-    > -   `_system`: システム標準の Web ブラウザー ( system's web
-    >     browser ) を開きます。
+    -   `_self`: ホワイトリストに対象の URL が登録されている場合には、Cordova WebView を開きます。それ以外の場合には、`InAppBrowser` を開きます。
+    -   `_blank`: `InAppBrowser` を開きます。
+    -   `_system`: システム標準の Web ブラウザー ( system's web browser ) を開きます。
 
 -   **options**: `InAppBrowser`
     で使用する、任意のオプションです。デフォルトでは、`location=yes`
@@ -107,111 +106,41 @@ browser ( システムブラウザー ) 内で、URL を開きます。
     名前と値の組み合わせ )
     の間を、コンマで区切る必要があります。各設定の名前では、大文字・小文字を区別しません。次の値は、すべてのプラットフォームでサポートされています。
 
-    > -   **location**: `yes` または `no` を設定すると、`InAppBrowser`
-    >     のロケーションバーを、それぞれ、表示または非表示にできます。
-    >
-    > Android 専用 :
-    >
-    > -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」
-    >     とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop
-    >     イベントが発火します。省略または `no` ( デフォルト )
-    >     に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
-    > -   **clearcache**: `yes`
-    >     に設定した場合、新規のウィンドウを開く前に、ブラウザーの
-    >     cookie とキャッシュを削除します。
-    > -   **clearsessioncache**: `yes`
-    >     に設定した場合、新規のウィンドウを開く前に、セッションの
-    >     cookie とキャッシュを削除します。
-    > -   **zoom**: `yes` に設定した場合、Android
-    >     ブラウザーのズームコントロール ( 制御バー )
-    >     が表示されます。`no`
-    >     に設定した場合、非表示になります。デフォルト値は、`yes` です。
-    > -   **hardwareback**: `yes` に設定した場合、ハードウェア標準の 「
-    >     戻る 」 ボタンを使用して、前のページに戻ります (
-    >     `InAppBrowser` に記録されているページ遷移の履歴を使用 )。「
-    >     前のページ 」 が存在しない場合には、`InAppBrowser`
-    >     が閉じます。デフォルト値は、`yes` です。「 戻る 」
-    >     ボタンを使用して、InAppBrowser を閉じたい場合には、`no`
-    >     に設定します。
-    > -   **mediaPlaybackRequiresUserAction**: `yes` または `no`
-    >     に設定して、 HTML5 の audio または video
-    >     の自動再生を、有効または無効にします ( デフォルトでは `no` )。
-    > -   **shouldPauseOnSuspend**: InAppBrowser
-    >     WebViewでのバックグラウンドオーディオを停止するためにアプリで一時停止/再開させるには
-    >     `yes` に設定します。（これは、
-    >     [CB-11013](https://issues.apache.org/jira/browse/CB-11013)
-    >     のようなGoogle
-    >     Playの問題を避けるために必要な場合があります。）
-    > -   **useWideViewPort**: WebViewが、 "viewport"
-    >     タグのサポートを有効にするか、wide viewport
-    >     を使用するかを設定します。設定の値が `no`
-    >     の場合、レイアウト幅は常に端末非依存（CSS）ピクセルのWebViewコントロールの幅に設定されます。値が
-    >     `yes` で、ページに viewport
-    >     タグが含まれている場合、タグで指定された幅の値が使用されます。ページにタグが含まれていないか、幅が指定されていない場合は、wide
-    >     viewport が使用されます。（デフォルトは `yes` です）。
-    >
-    > iOS 専用 :
-    >
-    > -   **closebuttoncaption**: **Done**
-    >     ボタンのラベルに使用する文字列を設定します。この値は、各自でローカライズする必要があります。
-    > -   **disallowoverscroll**: `yes` または `no` に設定すると (
-    >     デフォルトでは `no` )、UIWebViewBounce
-    >     プロパティーを、それぞれ、オンまたはオフにします。
-    > -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」
-    >     とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop
-    >     イベントが発火します。省略または `no` ( デフォルト )
-    >     に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
-    > -   **clearcache**: `yes`
-    >     に設定した場合、新規のウィンドウを開く前に、ブラウザーの
-    >     cookie とキャッシュを削除します。
-    > -   **clearsessioncache**: `yes`
-    >     に設定した場合、新規のウィンドウを開く前に、セッションの
-    >     cookie とキャッシュを削除します。
-    > -   **toolbar**: `yes` または `no` に設定すると、`InAppBrowser`
-    >     のツールバーを、それぞれ、表示または非表示にします (
-    >     デフォルトでは `yes` )。
-    > -   **enableViewportScale**: meta タグを使用した、ビューポート (
-    >     viewport ) の尺度変更を、有効 ( `yes` ) または無効 ( `no` )
-    >     にします ( デフォルトでは `no` )。
-    > -   **mediaPlaybackRequiresUserAction**: `yes` または `no`
-    >     に設定して、 HTML5 の audio または video
-    >     の自動再生を、有効または無効にします ( デフォルトでは `no` )。
-    > -   **allowInlineMediaPlayback**: `yes` または `no`
-    >     に設定して、端末標準のメディア再生用インターフェイスではなく、ブラウザーウィンドウ内でのインライン再生を許可するか設定します。HTML
-    >     の `video` 要素には `webkit-playsinline`
-    >     属性を指定する必要があります ( デフォルトは `no` )。
-    > -   **keyboardDisplayRequiresUserAction**: JavaScript の `focus()`
-    >     を使用して、form
-    >     要素がフォーカスされたとき、キーボードを表示するかを、`yes`
-    >     または `no` で設定します ( デフォルトは `yes` )。
-    > -   **suppressesIncrementalRendering**:
-    >     レンダリング処理の開始時期を設定します。表示するコンテンツをすべて受け取った後に行うのであれば
-    >     `yes` に設定します ( デフォルトは `no` )。
-    > -   **presentationstyle**: [presentation style ( Apple 社のページ
-    >     )](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle)
-    >     を設定します。`pagesheet`、`formsheet`、`fullscreen`
-    >     のいずれかを設定します ( デフォルトは、`fullscreen` )。
-    > -   **transitionstyle**: [transition style ( Apple 社のページ
-    >     )](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle)
-    >     を設定します。`fliphorizontal`、`crossdissolve`、`coververtical`
-    >     のいずれかを設定します ( デフォルトは `coververtical` )。
-    > -   **toolbarposition**: `top` または `bottom`
-    >     に設定して、ツールバーの表示位置 ( ウィンドウの上・下 )
-    >     を指定します ( デフォルトは `bottom` )。
-    >
-    > Windows 専用 :
-    >
-    > -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」
-    >     とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop
-    >     イベントが発火します。省略または `no` ( デフォルト )
-    >     に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
-    > -   **fullscreen**: `yes` に設定した場合、枠なしのブラウザー
-    >     コントロール ( 制御メニュー )
-    >     が作成されます。なお、\**location=no*\*
-    >     が設定されている場合、InAppBrowser
-    >     ウィンドウを閉じるメニューは表示されなくなります。
-    > -   **hardwareback**:
-    >     Androidプラットフォームと同じように動作します。
+    -   **location**: `yes` または `no` を設定すると、`InAppBrowser` のロケーションバーを、それぞれ、表示または非表示にできます。
+    
+    Android 専用 :
+    
+    -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」 とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop イベントが発火します。省略または `no` ( デフォルト ) に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
+    -   **clearcache**: `yes` に設定した場合、新規のウィンドウを開く前に、ブラウザーの cookie とキャッシュを削除します。
+    -   **clearsessioncache**: `yes` に設定した場合、新規のウィンドウを開く前に、セッションの cookie とキャッシュを削除します。
+    -   **zoom**: `yes` に設定した場合、Android ブラウザーのズームコントロール ( 制御バー ) が表示されます。`no` に設定した場合、非表示になります。デフォルト値は、`yes` です。
+    -   **hardwareback**: `yes` に設定した場合、ハードウェア標準の 「 戻る 」 ボタンを使用して、前のページに戻ります ( `InAppBrowser` に記録されているページ遷移の履歴を使用 )。「 前のページ 」 が存在しない場合には、`InAppBrowser` が閉じます。デフォルト値は、`yes` です。「 戻る 」 ボタンを使用して、InAppBrowser を閉じたい場合には、`no` に設定します。
+    -   **mediaPlaybackRequiresUserAction**: `yes` または `no` に設定して、 HTML5 の audio または video の自動再生を、有効または無効にします ( デフォルトでは `no` )。
+    -   **shouldPauseOnSuspend**: InAppBrowser WebViewでのバックグラウンドオーディオを停止するためにアプリで一時停止/再開させるには `yes` に設定します。（これは、 [CB-11013](https://issues.apache.org/jira/browse/CB-11013) のようなGoogle Playの問題を避けるために必要な場合があります。）
+    -   **useWideViewPort**: WebViewが、 "viewport" タグのサポートを有効にするか、wide viewport を使用するかを設定します。設定の値が `no` の場合、レイアウト幅は常に端末非依存（CSS）ピクセルのWebViewコントロールの幅に設定されます。値が `yes` で、ページに viewport タグが含まれている場合、タグで指定された幅の値が使用されます。ページにタグが含まれていないか、幅が指定されていない場合は、wide viewport が使用されます。（デフォルトは `yes` です）。
+    
+    iOS 専用 :
+    
+    -   **closebuttoncaption**: **Done** ボタンのラベルに使用する文字列を設定します。この値は、各自でローカライズする必要があります。
+    -   **disallowoverscroll**: `yes` または `no` に設定すると ( デフォルトでは `no` )、UIWebViewBounce プロパティーを、それぞれ、オンまたはオフにします。
+    -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」 とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop イベントが発火します。省略または `no` ( デフォルト ) に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
+    -   **clearcache**: `yes` に設定した場合、新規のウィンドウを開く前に、ブラウザーの cookie とキャッシュを削除します。
+    -   **clearsessioncache**: `yes` に設定した場合、新規のウィンドウを開く前に、セッションの cookie とキャッシュを削除します。
+    -   **toolbar**: `yes` または `no` に設定すると、`InAppBrowser` のツールバーを、それぞれ、表示または非表示にします ( デフォルトでは `yes` )。
+    -   **enableViewportScale**: meta タグを使用した、ビューポート ( viewport ) の尺度変更を、有効 ( `yes` ) または無効 ( `no` ) にします ( デフォルトでは `no` )。
+    -   **mediaPlaybackRequiresUserAction**: `yes` または `no` に設定して、 HTML5 の audio または video の自動再生を、有効または無効にします ( デフォルトでは `no` )。
+    -   **allowInlineMediaPlayback**: `yes` または `no` に設定して、端末標準のメディア再生用インターフェイスではなく、ブラウザーウィンドウ内でのインライン再生を許可するか設定します。HTML の `video` 要素には `webkit-playsinline` 属性を指定する必要があります ( デフォルトは `no` )。
+    -   **keyboardDisplayRequiresUserAction**: JavaScript の `focus()` を使用して、form 要素がフォーカスされたとき、キーボードを表示するかを、`yes` または `no` で設定します ( デフォルトは `yes` )。
+    -   **suppressesIncrementalRendering**: レンダリング処理の開始時期を設定します。表示するコンテンツをすべて受け取った後に行うのであれば `yes` に設定します ( デフォルトは `no` )。
+    -   **presentationstyle**: [presentation style ( Apple 社のページ )](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) を設定します。`pagesheet`、`formsheet`、`fullscreen` のいずれかを設定します ( デフォルトは、`fullscreen` )。
+    -   **transitionstyle**: [transition style ( Apple 社のページ )](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) を設定します。`fliphorizontal`、`crossdissolve`、`coververtical` のいずれかを設定します ( デフォルトは `coververtical` )。
+    -   **toolbarposition**: `top` または `bottom` に設定して、ツールバーの表示位置 ( ウィンドウの上・下 ) を指定します ( デフォルトは `bottom` )。
+    
+    Windows 専用 :
+
+    -   **hidden**: `yes` に設定した場合、ブラウザーの 「 作成 」 とページの読み込みを行いますが、表示はしません。読み込みが完了すると、loadstop イベントが発火します。省略または `no` ( デフォルト ) に設定した場合、通常通り、ブラウザーを開き、読み込みを行います。
+    -   **fullscreen**: `yes` に設定した場合、枠なしのブラウザー コントロール ( 制御メニュー ) が作成されます。なお、**location=no** が設定されている場合、InAppBrowser ウィンドウを閉じるメニューは表示されなくなります。
+    -   **hardwareback**: Androidプラットフォームと同じように動作します。
 
 #### サポート対象のプラットフォーム
 
@@ -220,8 +149,10 @@ browser ( システムブラウザー ) 内で、URL を開きます。
 
 #### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+{{</highlight>}}
 
 #### Windows 特有の動作
 
@@ -255,10 +186,11 @@ Firefox OS 同様に、InAppBrowser
 
 ### InAppBrowser.addEventListener
 
-> `InAppBrowser` からイベントリスナーを登録します。 （ターゲットが
-> `'_blank'` に設定されている場合のみ使用可能）
+`InAppBrowser` からイベントリスナーを登録します。 （ ターゲットが `'_blank'` に設定されている場合のみ使用可能 ）
 
-    ref.addEventListener(eventname, callback);
+{{<highlight javascript>}}
+ref.addEventListener(eventname, callback);
+{{</highlight>}}
 
 -   **ref**: `InAppBrowser` ウィンドウへのリファレンス *(InAppBrowser)*
 -   **eventname**: リスナーを設定するイベント *(String)*
@@ -275,7 +207,7 @@ Firefox OS 同様に、InAppBrowser
 
 ### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var inAppBrowserRef;
 
 function showHelp(url) {
@@ -339,7 +271,7 @@ function executeScriptCallBack(params) {
     }
 
 }
-```
+{{</highlight>}}
 
 #### InAppBrowserEvent のプロパティー
 
@@ -356,17 +288,20 @@ function executeScriptCallBack(params) {
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    ref.addEventListener('loadstart', function(event) { alert(event.url); });
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+ref.addEventListener('loadstart', function(event) { alert(event.url); });
+{{</highlight>}}
 
 ### InAppBrowser.removeEventListener
 
-> `InAppBrowser` からイベントリスナーを削除します。 （ターゲットが
-> `'_blank'` に設定されている場合のみ使用可能）
+`InAppBrowser` からイベントリスナーを削除します。 （ ターゲットが `'_blank'` に設定されている場合のみ使用可能 ）
 
-    ref.removeEventListener(eventname, callback);
+{{<highlight javascript>}}
+ref.removeEventListener(eventname, callback);
+{{</highlight>}}
 
 -   **ref**: `InAppBrowser` ウィンドウへのリファレンス *(InAppBrowser)*
 -   **eventname**: リスナーの登録を解除するイベント *(String)*
@@ -386,18 +321,22 @@ function executeScriptCallBack(params) {
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var myCallback = function(event) { alert(event.url); }
-    ref.addEventListener('loadstart', myCallback);
-    ref.removeEventListener('loadstart', myCallback);
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+var myCallback = function(event) { alert(event.url); }
+ref.addEventListener('loadstart', myCallback);
+ref.removeEventListener('loadstart', myCallback);
+{{</highlight>}}
 
 ### InAppBrowser.close
 
-> `InAppBrowser` ウィンドウを閉じます。
+`InAppBrowser` ウィンドウを閉じます。
 
-    ref.close();
+{{<highlight javascript>}}
+ref.close();
+{{</highlight>}}
 
 -   **ref**: `InAppBrowser` ウィンドウへのリファレンス *(InAppBrowser)*
 
@@ -406,18 +345,21 @@ function executeScriptCallBack(params) {
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    ref.close();
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+ref.close();
+{{</highlight>}}
 
 ### InAppBrowser.show
 
-> 非表示で実行されている InAppBrowser ウィンドウを表示します。
-> InAppBrowser ウィンドウ
-> がすでに表示されている場合には、この関数を呼んでも効果ありません。
+非表示で実行されている InAppBrowser ウィンドウを表示します。 InAppBrowser ウィンドウ
+がすでに表示されている場合には、この関数を呼んでも効果ありません。
 
-    ref.show();
+{{<highlight javascript>}}
+ref.show();
+{{</highlight>}}
 
 -   **ref**: InAppBrowser ウィンドウへのリファレンス (InAppBrowser)
 
@@ -426,18 +368,22 @@ function executeScriptCallBack(params) {
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
-    // some time later...
-    ref.show();
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+// some time later...
+ref.show();
+{{</highlight>}}
 
-InAppBrowser.close -----------------
+### InAppBrowser.hide
 
 InAppBrowserウィンドウを非表示にします。
 InAppBrowserがすでに非表示の場合、この呼び出しは無効です。
 
-    ref.hide();
+{{<highlight javascript>}}
+ref.hide();
+{{</highlight>}}
 
 -   **ref**: InAppBrowser ウィンドウへのリファレンス (InAppBrowser)
 
@@ -446,11 +392,13 @@ InAppBrowserがすでに非表示の場合、この呼び出しは無効です�
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank');
-    // some time later...
-    ref.hide();
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank');
+// some time later...
+ref.hide();
+{{</highlight>}}
 
 ### InAppBrowser.executeScript
 
@@ -458,7 +406,9 @@ InAppBrowserがすでに非表示の場合、この呼び出しは無効です�
 inject/注入 ) します。（ターゲットが `'_blank'`
 に設定されている場合のみ使用可能）
 
-    ref.executeScript(details, callback);
+{{<highlight javascript>}}
+ref.executeScript(details, callback);
+{{</highlight>}}
 
 -   **ref**: `InAppBrowser` ウィンドウへのリファレンス *(InAppBrowser)*
 -   **injectDetails**: 実行するスクリプトの詳細。`file` または `code`
@@ -479,26 +429,28 @@ inject/注入 ) します。（ターゲットが `'_blank'`
 -   Android
 -   iOS
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    ref.addEventListener('loadstop', function() {
-        ref.executeScript({file: "myscript.js"});
-    });
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({file: "myscript.js"});
+});
+{{</highlight>}}
 
 #### Windows 特有の動作
 
-[MSDN
-ドキュメント](https://msdn.microsoft.com/en-us/library/windows.ui.xaml.controls.webview.invokescriptasync.aspx)
-に記載されているように、実行されたスクリプトは、文字列の値を返します。それ以外の場合、\**callback*\*
-に渡されるパラメーターは、`[null]` となります。
+[MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows.ui.xaml.controls.webview.invokescriptasync.aspx)
+に記載されているように、実行されたスクリプトは、文字列の値を返します。それ以外の場合、**callback** に渡されるパラメーターは、`[null]` となります。
 
 ### InAppBrowser.insertCSS
 
 CSSを `InAppBrowser` ウィンドウに挿入します。（ターゲットが `'_blank'`
 に設定されている場合のみ使用可能）
 
-    ref.insertCSS(details, callback);
+{{<highlight javascript>}}
+ref.insertCSS(details, callback);
+{{</highlight>}}
 
 -   **ref**: `InAppBrowser` ウィンドウへのリファレンス *(InAppBrowser)*
 -   **injectDetails**: 実行するスクリプトの詳細。`file` または `code`
@@ -513,12 +465,14 @@ CSSを `InAppBrowser` ウィンドウに挿入します。（ターゲットが 
 -   iOS
 -   Windows
 
-#### Quick 例
+#### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    ref.addEventListener('loadstop', function() {
-        ref.insertCSS({file: "mystyles.css"});
-    });
+{{<highlight javascript>}}
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.insertCSS({file: "mystyles.css"});
+});
+{{</highlight>}}
 
 サンプル: InAppBrowserでヘルプページを表示する
 ----------------------------------------------
@@ -528,31 +482,31 @@ CSSを `InAppBrowser` ウィンドウに挿入します。（ターゲットが 
 
 以下は、これを行うためのサンプルです。
 
--   [ユーザーにヘルプを求める方法を提供する](#give)
--   [ヘルプページを読み込む](#load)
--   [ユーザーにページの準備ができていることを知らせる](#let)
--   [ヘルプページを表示する](#show)
--   [ページエラーを処理する](#handle)
+-   [ユーザーにヘルプを求める方法を提供する](#ユーザーにヘルプを求める方法を提供する)
+-   [ヘルプページを読み込む](#ヘルプページを読み込む)
+-   [ユーザーにページの準備ができていることを知らせる](#ユーザーにページの準備ができていることを知らせる)
+-   [ヘルプページを表示する](#ヘルプページを表示する)
+-   [ページエラーを処理する](#ページエラーを処理する)
 
 ### ユーザーにヘルプを求める方法を提供する
 
 アプリでこれを行う方法はたくさんあります。
 ドロップダウンリストは簡単な方法です。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <select id="help-select">
     <option value="default">Need help?</option>
     <option value="article">Show me a helpful article</option>
     <option value="video">Show me a helpful video</option>
     <option value="search">Search for other topics</option>
 </select>
-```
+{{</highlight>}}
 
 ページの `onDeviceReady` 関数でユーザーの選択肢を収集し、適切な URL
 を共有ライブラリファイルのヘルパー関数に送信します。 ヘルパー関数は
 showHelp() です。次にその関数を記述します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 $('#help-select').on('change', function (e) {
 
     var url;
@@ -576,7 +530,7 @@ $('#help-select').on('change', function (e) {
     showHelp(url);
 
 });
-```
+{{</highlight>}}
 
 ### ヘルプページを読み込む
 
@@ -587,7 +541,7 @@ loadstop
 イベントが発生すると、コンテンツがいつロードされたかがわかります。
 loadstop イベントを処理します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function showHelp(url) {
 
     var target = "_blank";
@@ -603,7 +557,7 @@ function showHelp(url) {
     inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
 
 }
-```
+{{</highlight>}}
 
 ### ユーザーにページの準備ができていることを知らせる
 
@@ -611,13 +565,11 @@ function showHelp(url) {
 イベントを使用して、状況メッセージ、進行状況バー、またはその他のインディケーターを表示できます。
 これは、コンテンツが途中であることをユーザーに保証します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadStartCallBack() {
-
     $('#status-message').text("loading please wait ...");
-
 }
-```
+{{</highlight>}}
 
 ### ヘルプページを表示する
 
@@ -626,7 +578,7 @@ function loadStartCallBack() {
 このような仕掛けは、より良いパフォーマンスの印象を作り出すことができます。
 実は、コンテンツが読み込まれる前にブラウザを表示するかどうかにかかわらず、読み込み時間は同じです。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadStopCallBack() {
 
     if (inAppBrowserRef != undefined) {
@@ -639,7 +591,7 @@ function loadStopCallBack() {
     }
 
 }
-```
+{{</highlight>}}
 
 `insertCSS`
 関数の呼び出しに気づいたかもしれません。これは、今回のサンプルの主な目的ではありませんが、この場合、ページのフォントサイズが一定のサイズになっていることを確認しています。この関数を使用して、任意の
@@ -656,7 +608,7 @@ Windows デバイス上のブラウザでは機能しないため、executeScrip
 コールバック関数のパラメータを調べて、有効かどうかを確認する必要があります。動作しない場合は、ページの
 `<div>` にエラーメッセージが表示されます。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function loadErrorCallBack(params) {
 
     $('#status-message').text("");
@@ -683,41 +635,47 @@ function executeScriptCallBack(params) {
     }
 
 }
-```
+{{</highlight>}}
 
 詳細情報
 --------
 
 ### ローカルURL（アプリ内のソース）
 
-    var iab = cordova.InAppBrowser;
+{{<highlight javascript>}}
+var iab = cordova.InAppBrowser;
 
-    iab.open('local-url.html');                  // loads in the Cordova WebView
-    iab.open('local-url.html', '_self');         // loads in the Cordova WebView
-    iab.open('local-url.html', '_system');       // Security error: system browser, but url will not load (iOS)
-    iab.open('local-url.html', '_blank');        // loads in the InAppBrowser
-    iab.open('local-url.html', 'random_string'); // loads in the InAppBrowser
-    iab.open('local-url.html', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+iab.open('local-url.html');                  // loads in the Cordova WebView
+iab.open('local-url.html', '_self');         // loads in the Cordova WebView
+iab.open('local-url.html', '_system');       // Security error: system browser, but url will not load (iOS)
+iab.open('local-url.html', '_blank');        // loads in the InAppBrowser
+iab.open('local-url.html', 'random_string'); // loads in the InAppBrowser
+iab.open('local-url.html', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}
 
 ### ホワイトリストに登録されたコンテンツ
 
-    var iab = cordova.InAppBrowser;
+{{<highlight javascript>}}
+var iab = cordova.InAppBrowser;
 
-    iab.open('http://whitelisted-url.com');                  // loads in the Cordova WebView
-    iab.open('http://whitelisted-url.com', '_self');         // loads in the Cordova WebView
-    iab.open('http://whitelisted-url.com', '_system');       // loads in the system browser
-    iab.open('http://whitelisted-url.com', '_blank');        // loads in the InAppBrowser
-    iab.open('http://whitelisted-url.com', 'random_string'); // loads in the InAppBrowser
+iab.open('http://whitelisted-url.com');                  // loads in the Cordova WebView
+iab.open('http://whitelisted-url.com', '_self');         // loads in the Cordova WebView
+iab.open('http://whitelisted-url.com', '_system');       // loads in the system browser
+iab.open('http://whitelisted-url.com', '_blank');        // loads in the InAppBrowser
+iab.open('http://whitelisted-url.com', 'random_string'); // loads in the InAppBrowser
 
-    iab.open('http://whitelisted-url.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+iab.open('http://whitelisted-url.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}
 
 ### ホワイトリストに登録されていないURL
 
-    var iab = cordova.InAppBrowser;
+{{<highlight javascript>}}
+var iab = cordova.InAppBrowser;
 
-    iab.open('http://url-that-fails-whitelist.com');                  // loads in the InAppBrowser
-    iab.open('http://url-that-fails-whitelist.com', '_self');         // loads in the InAppBrowser
-    iab.open('http://url-that-fails-whitelist.com', '_system');       // loads in the system browser
-    iab.open('http://url-that-fails-whitelist.com', '_blank');        // loads in the InAppBrowser
-    iab.open('http://url-that-fails-whitelist.com', 'random_string'); // loads in the InAppBrowser
-    iab.open('http://url-that-fails-whitelist.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+iab.open('http://url-that-fails-whitelist.com');                  // loads in the InAppBrowser
+iab.open('http://url-that-fails-whitelist.com', '_self');         // loads in the InAppBrowser
+iab.open('http://url-that-fails-whitelist.com', '_system');       // loads in the system browser
+iab.open('http://url-that-fails-whitelist.com', '_blank');        // loads in the InAppBrowser
+iab.open('http://url-that-fails-whitelist.com', 'random_string'); // loads in the InAppBrowser
+iab.open('http://url-that-fails-whitelist.com', 'random_string', 'location=no'); // loads in the InAppBrowser, no location bar
+{{</highlight>}}

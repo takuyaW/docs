@@ -1,33 +1,30 @@
-ネットワーク情報の取得 プラグイン
-=================================
+---
+title: ネットワーク情報の取得 プラグイン
+weight: 160
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.3.3](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.3.3)
 
-<div class="admonition note">
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-network-information">}} をご確認ください。
+{{</note>}}
 
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-network-information)
-をご確認ください。
-
-</div>
-
-このプラグインでは、旧バージョンの [Network Information
-API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
-が使用されています。このプラグインを使用すれば、セルラー ( Cellular )
-情報、WiFi 接続情報などのインターネット接続情報を取得できます。
+このプラグインでは、旧バージョンの [Network Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
+が使用されています。このプラグインを使用すれば、セルラー ( Cellular ) 情報、WiFi 接続情報などのインターネット接続情報を取得できます。
 
 プラグイン ID
 -------------
 
-    cordova-plugin-network-information
+{{<highlight javascript>}}
+cordova-plugin-network-information
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Network Information` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Network Information` プラグインを
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -66,7 +63,7 @@ API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
 
 ##### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 function checkConnection() {
     var networkState = navigator.connection.type;
 
@@ -84,7 +81,7 @@ function checkConnection() {
 }
 
 checkConnection();
-```
+{{</highlight>}}
 
 ##### API の変更点
 
@@ -113,7 +110,9 @@ Cordova 2.3.0 までは、`navigator.network.connection` 経由で `Connection`
 
 アプリがオフラインになったときに、このイベントが発火します。端末は、インターネットに接続されていません。
 
-    document.addEventListener("offline", yourCallbackFunction, false);
+{{<highlight javascript>}}
+document.addEventListener("offline", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### 詳細
 
@@ -130,13 +129,13 @@ API と同じ情報を使用します。
 
 #### 例
 
-``` {.sourceCode .js}
+{{<highlight javascript>}}
 document.addEventListener("offline", onOffline, false);
 
 function onOffline() {
     // Handle the offline event
 }
-```
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -158,9 +157,9 @@ unknown になっています。よって、このイベントは *発火しま�
 
 アプリがオンラインになったときに、このイベントが発火します。端末は、インターネットに接続されています。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("online", yourCallbackFunction, false);
-```
+{{</highlight>}}
 
 #### 詳細
 
@@ -176,13 +175,13 @@ document.addEventListener("online", yourCallbackFunction, false);
 
 #### 例
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("online", onOnline, false);
 
 function onOnline() {
     // Handle the online event
 }
-```
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -198,13 +197,11 @@ function onOnline() {
 まず、サンプルデータ用に新しい FileEntry オブジェクト（ data.txt
 ）を作成します。 この関数を `deviceready` ハンドラから呼び出します。
 
-<div class="admonition note">
-
+{{<note>}}
 このコード例では、File プラグインが必要です。
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var dataFileEntry;
 
 function createSomeData() {
@@ -221,14 +218,14 @@ function createSomeData() {
 
     }, onErrorLoadFs);
 }
-```
+{{</highlight>}}
 
 次に、`deviceready` で online と offline イベントリスナーを追加します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
-```
+{{</highlight>}}
 
 アプリの `onOnline` 関数は、online イベントを処理します。
 イベントハンドラで、現在のネットワーク状態を確認します。
@@ -236,7 +233,7 @@ document.addEventListener("online", onOnline, false);
 として扱います。
 接続している場合は、ファイルをアップロードしようとします。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onOnline() {
     // Handle the online event
     var networkState = navigator.connection.type;
@@ -248,20 +245,18 @@ function onOnline() {
     }
     display('Connection type: ' + networkState);
 }
-```
+{{</highlight>}}
 
 前のコードで online イベントが発生した場合は、アプリの tryToUploadFile
 関数を呼び出します。 FileTransfer
 オブジェクトのアップロード機能が失敗した場合は、アプリケーションの
 offlineWrite 関数を呼び出して、現在のデータを保存します。
 
-<div class="admonition note">
-
+{{<note>}}
 この例では、FileTransfer プラグインが必要です。
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function tryToUploadFile() {
     // !! Assumes variable fileURL contains a valid URL to a text file on the device,
     var fileURL = getDataFileEntry().toURL();
@@ -286,17 +281,15 @@ function tryToUploadFile() {
     // Content-Security-Policy <meta> element in index.html.
     ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
 };
-```
+{{</highlight>}}
 
 offlineWrite 関数のコードは次のとおりです。
 
-<div class="admonition note">
-
+{{<note>}}
 このコード例では、File プラグインが必要です。
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function offlineWrite(offlineData) {
     // Create a FileWriter object for our FileEntry.
     dataFileEntry.createWriter(function (fileWriter) {
@@ -313,14 +306,14 @@ function offlineWrite(offlineData) {
         fileWriter.write(offlineData);
     });
 }
-```
+{{</highlight>}}
 
 offline
 イベントが発生した場合は、ユーザーに通知する（この例では単にログに記録する）操作を行います。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 function onOffline() {
     // Handle the offline event
     console.log("lost connection");
 }
-```
+{{</highlight>}}

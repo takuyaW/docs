@@ -308,19 +308,14 @@ ft.abort();
 #### プロパティー
 
 -   **code**: 後述のエラーコードのいずれか (Number)
--   **source**: ソースへの URL (String)nn \[ 翻訳者メモ :
-    このプロパティーには、アップロード時には端末上のファイルの保存場所、ダウンロード時にはダウンロード元の
-    URL が格納されるようです。\]
--   **target**: ターゲットへの URL (String) nn\[ 翻訳者メモ :
-    このプロパティーには、アップロード時にはアップロード先の
-    URL、ダウンロード時には端末上のファイルの保存場所が格納されるようです。
-    \]
--   **http\_status**: HTTP ステータスコード。HTTP
+-   **source**: ソースへの URL (String)
+-   **target**: ターゲットへの URL (String)
+-   **http_status**: HTTP ステータスコード。HTTP
     接続の状態を示すレスポンスコードを受け取った場合のみ、この属性を使用できます。
     (Number)
 -   **body** : レスポンスのボディー。HTTP
     接続の状態を示すレスポンスコードを受け取った場合のみ、この属性を使用できます。(String)
--   **exception**: e.getMessage または e.toString のいずれか (String)
+-   **exception**: `e.getMessage` または `e.toString` のいずれか (String)
 
 #### 定数
 
@@ -332,21 +327,13 @@ ft.abort();
 
 #### Windows 特有の動作
 
--   このプラグインは、[BackgroundDownloader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounddownloader.aspx)
-    /
-    [BackgroundUploader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounduploader.aspx)
-    を基礎としています。よって、Windows
-    の端末では、起動までに時間がかかります (
-    処理の作成・開始まで、数秒かかる場合があります
-    )。サイズの小さいダウンロード向けには、処理速度が早い、XHR または
-    [HttpClient](https://msdn.microsoft.com/en-us/library/windows/apps/windows.web.http.httpclient.aspx)
-    の使用を推奨します。
+-   このプラグインは、[BackgroundDownloader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounddownloader.aspx) / [BackgroundUploader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounduploader.aspx) を基礎としています。よって、Windows の端末では、起動までに時間がかかります ( 処理の作成・開始まで、数秒かかる場合があります )。サイズの小さいダウンロード向けには、処理速度が早い、XHR または [HttpClient](https://msdn.microsoft.com/en-us/library/windows/apps/windows.web.http.httpclient.aspx) の使用を推奨します。
 
 後方互換性に関するメモ書き
 --------------------------
 
 このプラグインの以前のバージョンでは、アップロード時のソースまたはダウンロード時のターゲットには、ファイルの保存場所への端末固有の絶対パス
-( device-absolute-file-location )
+( `device-absolute-file-location` )
 を使用していました。典型的なパスの形式は、次のとおりでした。
 
 {{<highlight bash>}}
@@ -369,7 +356,7 @@ File プラグイン ) では、この問題も解消され、JavaScript
 を使用していた場合には、代わりに、ファイルシステムの URL ( Filesystem
 URL ) を使用するように、コードを変更する必要があります。
 
-FileEntry.toURL() と `DirectoryEntry.toURL()` では、ファイルシステムの
+`FileEntry.toURL()` と `DirectoryEntry.toURL()` では、ファイルシステムの
 URL ( Filesystem URL ) を、次の形式で返します。
 
 {{<highlight bash>}}

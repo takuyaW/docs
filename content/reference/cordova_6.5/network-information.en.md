@@ -1,5 +1,6 @@
 ---
 title: Network Information Plugin
+weight: 160
 ---
 
 Tested Version: [1.3.3](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.3.3)
@@ -15,14 +16,14 @@ and whether the device has an internet connection.
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-network-information
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-network-information
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Network Information` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -110,7 +111,7 @@ The event fires when an application goes offline, and the device is not
 connected to the Internet.
 
 {{<highlight javascript>}}
-    document.addEventListener("offline", yourCallbackFunction, false);
+document.addEventListener("offline", yourCallbackFunction, false);
 {{</highlight>}}
 
 #### Details

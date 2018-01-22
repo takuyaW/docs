@@ -295,7 +295,7 @@ error occurs.
     when a response code is received from the HTTP connection. (Number)
 -   **body** Response body. This attribute is only available when a
     response is received from the HTTP connection. (String)
--   **exception**: Either e.getMessage or e.toString (String)
+-   **exception**: Either `e.getMessage` or `e.toString` (String)
 
 #### Constants
 
@@ -341,7 +341,7 @@ have previously been using `entry.fullPath` as arguments to `download()`
 or `upload()`, then you will need to change your code to use filesystem
 URLs instead.
 
-FileEntry.toURL() and `DirectoryEntry.toURL()` return a filesystem URL
+`FileEntry.toURL()` and `DirectoryEntry.toURL()` return a filesystem URL
 of the form:
 
 {{<highlight bash>}}
@@ -364,10 +364,10 @@ examples, we demonstrate several tasks like:
 ###  Download a Binary File to the application cache
 
 Use the File plugin with the File-Transfer plugin to provide a target
-for the files that you download (the target must be a FileEntry object).
-Before you download the file, create a DirectoryEntry object by using
+for the files that you download (the target must be a `FileEntry` object).
+Before you download the file, create a `DirectoryEntry` object by using
 `resolveLocalFileSystemURL` and calling `fs.root` in the success
-callback. Use the `getFile` method of DirectoryEntry to create the
+callback. Use the `getFile` method of `DirectoryEntry` to create the
 target file.
 
 {{<highlight javascript>}}
@@ -390,7 +390,7 @@ window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 For persistent storage, pass LocalFileSystem.PERSISTENT to requestFileSystem.
 {{</note>}}
 
-When you have the FileEntry object, download the file using the
+When you have the `FileEntry` object, download the file using the
 `download` method of the FileTransfer object. The 3rd argument to the
 `download` function of FileTransfer is the success callback, which you
 can use to call the app's `readBinaryFile` function. In this code

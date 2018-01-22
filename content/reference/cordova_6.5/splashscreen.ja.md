@@ -1,16 +1,13 @@
-スプラッシュスクリーンの制御 プラグイン
-=======================================
+---
+title: スプラッシュスクリーンの制御 プラグイン
+weight: 170
+---
 
-テスト環境 ( バージョン番号 ) :
-[4.0.3](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/4.0.3)
+テスト環境 ( バージョン番号 ) : [4.0.3](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/4.0.3)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-splashscreen)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-splashscreen">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、アプリの起動中に表示 ( または 非表示 )
 されるスプラッシュスクリーンを制御します。
@@ -18,14 +15,14 @@
 プラグイン ID
 -------------
 
-    cordova-plugin-splashscreen
+{{<highlight javascript>}}
+cordova-plugin-splashscreen
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Splashscreen` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`Splashscreen` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -34,11 +31,9 @@
 -   iOS
 -   Windows (cordova-windows バージョン 4.4.0 以上が必要)
 
-<div class="admonition note">
-
+{{<note>}}
 プラグインAPIを使用しない場合（つまりプログラム的な表示/非表示の場合）に、Windows（AndroidとiOSではなく）でプラグインは必要ありません。
-
-</div>
+{{</note>}}
 
 peference を使用したカスタマイズ設定
 ------------------------------------
@@ -50,83 +45,69 @@ peference を使用したカスタマイズ設定
     「 `SplashScreenDelay` 」
     に指定された時間の経過後、スプラッシュスクリーンが非表示になります。
 
-    ``` {.sourceCode .xml}
-    <preference name="AutoHideSplashScreen" value="true" />
-    ```
+    {{<highlight xml>}}<preference name="AutoHideSplashScreen" value="true" />{{</highlight>}}
 
 -   `SplashScreenDelay` ( 数値、デフォルトでは 3000 ) :
     スプラッシュスクリーンを自動的に非表示にするまでの時間 ( ミリ秒単位
     ) を指定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="SplashScreenDelay" value="3000" />
-    ```
+    {{<highlight xml>}}<preference name="SplashScreenDelay" value="3000" />{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 以前は、ミリ秒ではなく秒単位で値を設定していたため、現在でも、30
 未満の値を指定した場合は、「 秒 」 として処理されるようになっています (
 応急的な措置ですので、将来的には廃止します )。
-
-</div>
+{{</note>}}
 
 スプラッシュスクリーンを無効にする場合には、次の preference を
 `config.xml` に追加します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="SplashScreenDelay" value="0"/>
-```
+{{</highlight>}}
 
 ### Windows 特有の動作
 
 UI
 /コントロールに影響を与えないようにドキュメント本体全体を動的に更新する（つまり、SPAルーターなどを利用した場合）場合は、スプラッシュスクリーンを無効にする必要があります。
 
-<div class="admonition note">
-
-バグ（ [CB-11658](https://issues.apache.org/jira/browse/CB-11658)
-）を避けるためには、HTMLで `WinJS/base.js` を参照する必要があります。
-
-</div>
+{{<note>}}
+バグ（ {{<link href="https://issues.apache.org/jira/browse/CB-11658" title="CB-11658">}} ）を避けるためには、HTMLで <code>WinJS/base.js</code> を参照する必要があります。
+{{</note>}}
 
 ### iOS 特有の動作
 
 -   iOS では、スプラッシュスクリーンの画像は、「 Launch Image 」
     と呼ばれています。iOS では、画像は必須となります。
 
-`ios`
-プラットフォーム上で、スプラッシュスクリーンを無効にする場合には、上記の他に、`<preference name=\"FadeSplashScreenDuration\" value=\"0\"/>`
-を `config.xml` に追加します。
+`ios` プラットフォーム上で、スプラッシュスクリーンを無効にする場合には、上記の他に、`<preference name=\"FadeSplashScreenDuration\" value=\"0\"/>` を `config.xml` に追加します。
 
 -   `FadeSplashScreen` ( 真偽値、デフォルトでは `true` ):
     画面の状態が切り替わるときに、スプラッシュスクリーンがフェードイン・フェードアウト
     ( fade in/out ) することを防ぐ場合には、false に設定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="FadeSplashScreen" value="false"/>
-    ```
+    {{<highlight xml>}}<preference name="FadeSplashScreen" value="false"/>{{</highlight>}}
 
 -   `FadeSplashScreenDuration` （float、デフォルトは `500`）:
     スプラッシュスクリーンのフェード効果を実行するためのミリ秒数を指定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="FadeSplashScreenDuration" value="750"/>
-    ```
-
-<div class="admonition note">
+    {{<highlight xml>}}<preference name="FadeSplashScreenDuration" value="750"/>{{</highlight>}}
 
 `SplashScreenDelay` の処理と `FadeSplashScreenDuration`
 の処理は併用できます ( `FadeSplashScreenDuration` の処理を
 `SplashScreenDelay` の処理に吸収させることができます
-)。たとえば、&lt;preference name="SplashScreenDelay" value="3000" /&gt;
-と &lt;preference name="FadeSplashScreenDuration" value="1000"/&gt; を
+)。たとえば、
+
+{{<highlight xml>}}
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="FadeSplashScreenDuration" value="1000"/>
+{{</highlight>}}
+
 `config.xml` に設定した場合には、次のように処理されます。
 
 -   00:00 - スプラッシュスクリーンの表示
 -   00:02 - フェード処理を開始
 -   00:03 - スプラッシュスクリーンの非表示
-
-</div>
 
 `<preference name="FadeSplashScreen" value="false"/>`
 の設定とフェードの処理時間を `0` に設定したとき ( または、0 になったとき
@@ -134,35 +115,31 @@ UI
 の挙動は同じです。よって、上記の例では、スプラッシュスクリーンの非表示設定が優先されます
 ( スプラッシュスクリーンの非表示は、設定どおり、3 秒後になります )。
 
-<div class="admonition note">
-
+{{<note>}}
 上記のような設定は、アプリの起動のみに適用できます。よって、コード内にて、スプラッシュスクリーンの表示・非表示を手動で行う場合、たとえば、次のように、フェード処理にタイマーを設定する必要があります。
+{{</note>}}
 
-</div>
-
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.splashscreen.show();
 window.setTimeout(function () {
     navigator.splashscreen.hide();
 }, splashDuration - fadeDuration);
-```
+{{</highlight>}}
 
 -   `ShowSplashScreenSpinner` ( 真偽値、デフォルトでは `true` ) :
     スプラッシュスクリーン上にスピナーを表示させない場合には、`false`
     を設定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="ShowSplashScreenSpinner" value="false"/>
-    ```
+    {{<highlight xml>}}<preference name="ShowSplashScreenSpinner" value="false"/>{{</highlight>}}
 
 ### Android 特有の動作
 
 `config.xml` には、以下の設定を追加することができます。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="SplashMaintainAspectRatio" value="true|false" />
 <preference name="SplashShowOnlyFirstTime" value="true|false" />
-```
+{{</highlight>}}
 
 preference 「 `SplashMaintainAspectRatio` 」 は、任意の設定です。true
 に設定した場合、スプラッシュスクリーンの画像は、画面サイズに応じて引き伸ばされるのではなく、縦横比は固定されたまま、拡大
@@ -188,18 +165,14 @@ preference 「 `SplashMaintainAspectRatio` 」 は、任意の設定です。tru
     記号付きのカラーコード ( 原文 「 hash 」 のみ )、RGB、CSS
     のカラーネームのいずれかで指定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="SplashScreenSpinnerColor" value="#242424"/>
-    <preference name="SplashScreenSpinnerColor" value="DarkRed"/>
-    <preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>
-    ```
+    {{<highlight xml>}}<preference name="SplashScreenSpinnerColor" value="#242424"/>
+<preference name="SplashScreenSpinnerColor" value="DarkRed"/>
+<preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>{{</highlight>}}
 
 -   `SplashScreenBackgroundColor` ( 文字列、デフォルトは \#464646 ): 16
     進数のカラーコードを指定します。
 
-    ``` {.sourceCode .xml}
-    <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
-    ```
+    {{<highlight xml>}}<preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>{{</highlight>}}
 
 メソッド
 --------
@@ -211,17 +184,17 @@ preference 「 `SplashMaintainAspectRatio` 」 は、任意の設定です。tru
 
 スプラッシュスクリーンを非表示にします。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.splashscreen.hide();
-```
+{{</highlight>}}
 
 ### splashscreen.show
 
 スプラッシュスクリーンを表示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 navigator.splashscreen.show();
-```
+{{</highlight>}}
 
 アプリ側では、アプリが起動して、`deviceready`
 イベントが発火するまで、`navigator.splashscreen.show()`
@@ -237,88 +210,78 @@ navigator.splashscreen.show();
 If you choose to use legacy launch images, you will use the following
 syntax in `config.xml`:
 
-    <splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
-    <splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
-    <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
-    <splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-    <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
-    <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-    <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
-    <splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
-    <splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
+{{<highlight xml>}}
+<splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
+<splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+<splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+<splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+<splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+<splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+<splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+<splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
+<splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
+{{</highlight>}}
 
-`src`
-属性のファイル名は任意のものとなります。ファイル名は、プロジェクトのコンパイル時に使用されるものと一致するため使用されます。
+`src` 属性のファイル名は任意のものとなります。ファイル名は、プロジェクトのコンパイル時に使用されるものと一致するため使用されます。
 width属性とheight属性は、どの起動イメージがどのデバイスに表示されるかを次のように決定します。
 
-  width              height              端末
-  ------------------ ------------------- ------------------------------------------------------------------
-  320                480                 すべての非Retina iPhoneとiPod
-  640                960                 iPhone 4/4s/5/5s (縦向き)
-  750                1334                iPhone 6/6s/7 (縦向き)
-  1242               2208                iPhone 6+/6s+/7+ (縦向き)
-  2208               1242                iPhone 6+/6s+/7+ (横向き)
-  768                1024                すべての非Retina iPads (縦向き)
-  1024               768                 すべての非Retina iPads (横向き)
-  1536               2048                すべてのRetina iPads (縦向き)
-  2048               1536                すべてのRetina iPads (横向き)
+width | height | 端末
+------|--------|----------------------------
+320 | 480 | すべての非Retina iPhoneとiPod
+640 | 960 | iPhone 4/4s/5/5s (縦向き)
+750 | 1334 | iPhone 6/6s/7 (縦向き)
+1242 | 2208 | iPhone 6+/6s+/7+ (縦向き)
+2208 | 1242 | iPhone 6+/6s+/7+ (横向き)
+768 | 1024 | すべての非Retina iPads (縦向き)
+1024 | 768 | すべての非Retina iPads (横向き)
+1536 | 2048 | すべてのRetina iPads (縦向き)
+2048 | 1536 | すべてのRetina iPads (横向き)
 
-<div class="admonition note">
-
-画像イメージが `width` と `height`
-属性で指定されたサイズと実際に一致することは非常に重要です。一致しない場合、デバイスは正しくレンダリングできないことがあります。
-
-</div>
+{{<note>}}
+画像イメージが <code>width</code> と <code>height</code> 属性で指定されたサイズと実際に一致することは非常に重要です。一致しない場合、デバイスは正しくレンダリングできないことがあります。
+{{</note>}}
 
 Windows固有の情報
 -----------------
 
-スプラッシュスクリーンは
-MRT &lt;https://cordova.apache.org/docs/en/dev/config\_ref/images.html\#windows&gt;
-コンセプトを使って定義できます。 `src="res/windows/splashscreen.png"`
-を指定すると、以下のファイルがアプリケーションのimagesフォルダにコピーされます。
-:
+スプラッシュスクリーンは [MRT](https://cordova.apache.org/docs/en/dev/config_ref/images.html#windows) コンセプトを使って定義できます。 `src="res/windows/splashscreen.png"` を指定すると、以下のファイルがアプリケーションのimagesフォルダにコピーされます。
 
-    ``res/windows/splashscreen.png`` | ``res/windows/splashscreen.scale-100.png``, ``res/windows/splashscreen.scale-125.png``, etc.
+{{<highlight bash>}}
+``res/windows/splashscreen.png`` | ``res/windows/splashscreen.scale-100.png``, ``res/windows/splashscreen.scale-125.png``, etc.
+{{</highlight>}}
 
 以下がサポートされています：
 
-  画像サイズ                              | プロジェクト                                         | Widt                               h | Heigh                               t | ファイル名
-  --------------------------------------- ------------------------------------------------------ ------------------------------------ --------------------------------------- ------------------------------------------------------------------------------------
-  100                                     Windows 10/8.1                                         620                                  300                                     `splashscreen.png` | `splashscreen.scale-100. png`
-  125                                     Windows 10                                             775                                  375                                     `splashscreen.scale-125. png`
-  150                                     Windows 10                                             930                                  450                                     `splashscreen.scale-150. png`
-  200                                     Windows 10                                             1240                                 600                                     `splashscreen.scale-200. png`
-  400                                     Windows 10                                             2480                                 1200                                    `splashscreen.scale-400. png`
-  140                                     Windows 8.1                                            868                                  420                                     `splashscreen.scale-140. png`
-  180                                     Windows 8.1                                            1116                                 540                                     `splashscreen.scale-180. png`
-  100                                     Windows Phone 8.1                                      480                                  800                                     `splashscreenphone.png` | `splashscreenphone.scale -100.png`
-  140                                     Windows Phone 8.1                                      672                                  1120                                    `splashscreenphone.scale -140.png`
-  240                                     Windows Phone 8.1                                      1152                                 1920                                    `splashscreenphone.scale -240.png`
+画像サイズ | プロジェクト | Width | Height | ファイル名
+---------|---------|-------|--------|---------------------------
+100 | Windows 10&#47;8.1 | 620 | 300 | `splashscreen.png` &#124; `splashscreen.scale-100. png`
+125 | Windows 10 | 775 | 375 | `splashscreen.scale-125. png`
+150 | Windows 10 | 930 | 450 | `splashscreen.scale-150. png`
+200 | Windows 10 | 1240 | 600 | `splashscreen.scale-200. png`
+400 | Windows 10 | 2480 | 1200 | `splashscreen.scale-400. png`
+140 | Windows 8.1 | 868 | 420 | `splashscreen.scale-140. png`
+180 | Windows 8.1 | 1116 | 540 | `splashscreen.scale-180. png`
+100 | Windows Phone 8.1 | 480 | 800 | `splashscreenphone.png` &#124; `splashscreenphone.scale -100.png`
+140 | Windows Phone 8.1 | 672 | 1120 | `splashscreenphone.scale -140.png`
+240 | Windows Phone 8.1 | 1152 | 1920 | `splashscreenphone.scale -240.png`
 
-<div class="admonition note">
-
+{{<note>}}
 Windows 10プロジェクトのスプラッシュスクリーンのサイズは、200
 KByteを超えないようにしてください。
+{{</note>}}
 
-</div>
-
-<div class="admonition note">
-
-サポートされている形式は `.png` 、 `.jpg` 、 `.jpeg`
+{{<note>}}
+サポートされている形式は <b>.png</b> 、 <b>.jpg</b> 、 <b>.jpeg</b>
 です。ターゲット内でのエクステンションの混在はサポートされていません。
-`splashscreen.scale-100.png` 、 `splashscreen.scale-400.jpg` ではなく
-`splashscreen.jpg` と `splashscreenphone.png` を使うことができます。
+<b>splashscreen.scale-100.png</b> 、 <b>splashscreen.scale-400.jpg</b> ではなく
+<b>splashscreen.jpg</b> と <b>splashscreenphone.png</b> を使うことができます。
+{{</note>}}
 
-</div>
-
-<div class="admonition note">
-
+{{<note>}}
 イメージを変更し、変更を有効にするための
-`cordova prepare`を実行した後、Visual
+<code>cordova prepare</code> を実行した後、Visual
 Studioソリューションを再度開く必要があるかもしれません。
-
-</div>
+{{</note>}}
 
 設定例
 ------
@@ -331,6 +294,7 @@ Studioソリューションを再度開く必要があるかもしれません�
 
 ディレクトリ構造：
 
+{{<highlight bash>}}
     projectRoot
         hooks
         platforms
@@ -344,8 +308,9 @@ Studioソリューションを再度開く必要があるかもしれません�
                 android
                 ios
                 windows
+{{</highlight>}}
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <platform name="android">
     <!-- you can use any density that exists in the Android project -->
     <splash src="res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
@@ -387,7 +352,7 @@ Studioソリューションを再度開く必要があるかもしれません�
 
 </platform>
 
-<!-- Configuration using MRT concept (Recommended, see "Windows固有の情報" section for details): -->
+<!-- Configuration using MRT concept (Recommended, see "Windows-specific information" section for details): -->
 <platform name="windows">
     <splash src="res/screen/windows/splashscreen.png" target="SplashScreen"/>
     <splash src="res/screen/windows/splashscreenphone.png" target="SplashScreenPhone"/>
@@ -406,4 +371,4 @@ Studioソリューションを再度開く必要があるかもしれません�
 </platform>
 
 <preference name="SplashScreenDelay" value="10000" />
-```
+{{</highlight>}}

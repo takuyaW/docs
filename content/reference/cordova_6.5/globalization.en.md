@@ -1,5 +1,6 @@
 ---
 title: Globalization Plugin
+weight: 120
 ---
 
 Tested Version: [1.0.7](https://github.com/apache/cordova-plugin-globalization/releases/tag/1.0.7)
@@ -33,14 +34,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-globalization
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-globalization
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Globalization` plugin in Monaca Cloud IDE.
 
 API Reference
@@ -70,7 +71,7 @@ API Reference
 Get the BCP 47 language tag for the client's current language.
 
 {{<highlight javascript>}}
-    navigator.globalization.getPreferredLanguage(successCallback, errorCallback);
+navigator.globalization.getPreferredLanguage(successCallback, errorCallback);
 {{</highlight>}}
 
 ##### Description
@@ -95,10 +96,10 @@ When the browser is set to the `en-US` language, this should display a
 popup dialog with the text `language: en-US`:
 
 {{<highlight javascript>}}
-    navigator.globalization.getPreferredLanguage(
-        function (language) {alert('language: ' + language.value + '\n');},
-        function () {alert('Error getting language\n');}
-    );
+navigator.globalization.getPreferredLanguage(
+    function (language) {alert('language: ' + language.value + '\n');},
+    function () {alert('Error getting language\n');}
+);
 {{</highlight>}}
 
 ##### Android Quirks
@@ -119,7 +120,7 @@ Returns the BCP 47 compliant tag for the client's current locale
 setting.
 
 {{<highlight javascript>}}
-    navigator.globalization.getLocaleName(successCallback, errorCallback);
+navigator.globalization.getLocaleName(successCallback, errorCallback);
 {{</highlight>}}
 
 ##### Description
@@ -147,10 +148,10 @@ When the browser is set to the `en-US` locale, this displays a popup
 dialog with the text `locale: en-US`.
 
 {{<highlight javascript>}}
-    navigator.globalization.getLocaleName(
-        function (locale) {alert('locale: ' + locale.value + '\n');},
-        function () {alert('Error getting locale\n');}
-    );
+navigator.globalization.getLocaleName(
+    function (locale) {alert('locale: ' + locale.value + '\n');},
+    function () {alert('Error getting locale\n');}
+);
 {{</highlight>}}
 
 ##### Android Quirks
@@ -171,7 +172,7 @@ Returns a date formatted as a string according to the client's locale
 and timezone.
 
 {{<highlight javascript>}}
-    navigator.globalization.dateToString(date, successCallback, errorCallback, options);
+navigator.globalization.dateToString(date, successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -187,8 +188,11 @@ expected code is `GlobalizationError.FORMATTING_ERROR`.
 
 The `options` parameter is optional, and its default values are:
 
-{{<highlight javascript>}}
-    {formatLength:'short', selector:'date and time'}
+{{<highlight json>}}
+{   
+    formatLength: 'short',
+    selector: 'date and time'
+}
 {{</highlight>}}
 
 The `options.formatLength` can be `short`, `medium`, `long`, or `full`.
@@ -208,12 +212,12 @@ dialog with text similar to `date: 9/25/2012 4:21PM` using the default
 options:
 
 {{<highlight javascript>}}
-    navigator.globalization.dateToString(
-        new Date(),
-        function (date) { alert('date: ' + date.value + '\n'); },
-        function () { alert('Error getting dateString\n'); },
-        { formatLength: 'short', selector: 'date and time' }
-    );
+navigator.globalization.dateToString(
+    new Date(),
+    function (date) { alert('date: ' + date.value + '\n'); },
+    function () { alert('Error getting dateString\n'); },
+    { formatLength: 'short', selector: 'date and time' }
+);
 {{</highlight>}}
 
 ##### Android Quirks
@@ -239,7 +243,7 @@ Returns a pattern string to format and parse currency values according
 to the client's user preferences and ISO 4217 currency code.
 
 {{<highlight javascript>}}
-    navigator.globalization.getCurrencyPattern(currencyCode, successCallback, errorCallback);
+navigator.globalization.getCurrencyPattern(currencyCode, successCallback, errorCallback);
 {{</highlight>}}
 
 ##### Description
@@ -280,29 +284,29 @@ is United States Dollars, this example displays a popup dialog with text
 similar to the results that follow:
 
 {{<highlight javascript>}}
-    navigator.globalization.getCurrencyPattern(
-        'USD',
-        function (pattern) {
-            alert('pattern: '  + pattern.pattern  + '\n' +
-                  'code: '     + pattern.code     + '\n' +
-                  'fraction: ' + pattern.fraction + '\n' +
-                  'rounding: ' + pattern.rounding + '\n' +
-                  'decimal: '  + pattern.decimal  + '\n' +
-                  'grouping: ' + pattern.grouping);
-        },
-        function () { alert('Error getting pattern\n'); }
-    );
+navigator.globalization.getCurrencyPattern(
+    'USD',
+    function (pattern) {
+        alert('pattern: '  + pattern.pattern  + '\n' +
+                'code: '     + pattern.code     + '\n' +
+                'fraction: ' + pattern.fraction + '\n' +
+                'rounding: ' + pattern.rounding + '\n' +
+                'decimal: '  + pattern.decimal  + '\n' +
+                'grouping: ' + pattern.grouping);
+    },
+    function () { alert('Error getting pattern\n'); }
+);
 {{</highlight>}}
 
 Expected result:
 
 {{<highlight bash>}}
-    pattern: $#,##0.##;($#,##0.##)
-    code: USD
-    fraction: 2
-    rounding: 0
-    decimal: .
-    grouping: ,
+pattern: $#,##0.##;($#,##0.##)
+code: USD
+fraction: 2
+rounding: 0
+decimal: .
+grouping: ,
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -315,7 +319,7 @@ Returns an array of the names of the months or days of the week,
 depending on the client's user preferences and calendar.
 
 {{<highlight javascript>}}
-    navigator.globalization.getDateNames(successCallback, errorCallback, options);
+navigator.globalization.getDateNames(successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -333,7 +337,10 @@ expected code is `GlobalizationError.UNKNOWN_ERROR`.
 The `options` parameter is optional, and its default values are:
 
 {{<highlight javascript>}}
-    {type:'wide', item:'months'}
+{   
+    type: 'wide', 
+    item: 'months'
+}
 {{</highlight>}}
 
 The value of `options.type` can be `narrow` or `wide`.
@@ -353,15 +360,15 @@ series of twelve popup dialogs, one per month, with text similar to
 `month: January`:
 
 {{<highlight javascript>}}
-    navigator.globalization.getDateNames(
-        function (names) {
-            for (var i = 0; i < names.value.length; i++) {
-                alert('month: ' + names.value[i] + '\n');
-            }
-        },
-        function () { alert('Error getting names\n'); },
-        { type: 'wide', item: 'months' }
-    );
+navigator.globalization.getDateNames(
+    function (names) {
+        for (var i = 0; i < names.value.length; i++) {
+            alert('month: ' + names.value[i] + '\n');
+        }
+    },
+    function () { alert('Error getting names\n'); },
+    { type: 'wide', item: 'months' }
+);
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -376,7 +383,7 @@ Returns a pattern string to format and parse dates according to the
 client's user preferences.
 
 {{<highlight javascript>}}
-    navigator.globalization.getDatePattern(successCallback, errorCallback, options);
+navigator.globalization.getDatePattern(successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -405,7 +412,10 @@ The `options` parameter is optional, and defaults to the following
 values:
 
 {{<highlight javascript>}}
-    {formatLength:'short', selector:'date and time'}
+{ 
+    formatLength: 'short', 
+    selector: 'date and time'
+}
 {{</highlight>}}
 
 The `options.formatLength` can be `short`, `medium`, `long`, or `full`.
@@ -423,13 +433,13 @@ When the browser is set to the `en_US` locale, this example displays a
 popup dialog with text such as `pattern: M/d/yyyy h:mm a`:
 
 {{<highlight javascript>}}
-    function checkDatePattern() {
-        navigator.globalization.getDatePattern(
-            function (date) { alert('pattern: ' + date.pattern + '\n'); },
-            function () { alert('Error getting pattern\n'); },
-            { formatLength: 'short', selector: 'date and time' }
-        );
-    }
+function checkDatePattern() {
+    navigator.globalization.getDatePattern(
+        function (date) { alert('pattern: ' + date.pattern + '\n'); },
+        function () { alert('Error getting pattern\n'); },
+        { formatLength: 'short', selector: 'date and time' }
+    );
+}
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -450,7 +460,7 @@ Returns the first day of the week according to the client's user
 preferences and calendar.
 
 {{<highlight javascript>}}
-    navigator.globalization.getFirstDayOfWeek(successCallback, errorCallback);
+navigator.globalization.getFirstDayOfWeek(successCallback, errorCallback);
 {{</highlight>}}
 
 ##### Description
@@ -476,10 +486,10 @@ When the browser is set to the `en_US` locale, this displays a popup
 dialog with text similar to `day: 1`.
 
 {{<highlight javascript>}}
-    navigator.globalization.getFirstDayOfWeek(
-        function (day) {alert('day: ' + day.value + '\n');},
-        function () {alert('Error getting day\n');}
-    );
+navigator.globalization.getFirstDayOfWeek(
+    function (day) {alert('day: ' + day.value + '\n');},
+    function () {alert('Error getting day\n');}
+);
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -493,7 +503,7 @@ Returns a pattern string to format and parse numbers according to the
 client's user preferences.
 
 {{<highlight javascript>}}
-    navigator.globalization.getNumberPattern(successCallback, errorCallback, options);
+navigator.globalization.getNumberPattern(successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -526,7 +536,7 @@ expected code is `GlobalizationError.PATTERN_ERROR`.
 The `options` parameter is optional, and default values are:
 
 {{<highlight javascript>}}
-    {type:'decimal'}
+{ type: 'decimal' }
 {{</highlight>}}
 
 The `options.type` can be `decimal`, `percent`, or `currency`.
@@ -543,31 +553,31 @@ When the browser is set to the `en_US` locale, this should display a
 popup dialog with text similar to the results that follow:
 
 {{<highlight javascript>}}
-    navigator.globalization.getNumberPattern(
-        function (pattern) {alert('pattern: '  + pattern.pattern  + '\n' +
-                                  'symbol: '   + pattern.symbol   + '\n' +
-                                  'fraction: ' + pattern.fraction + '\n' +
-                                  'rounding: ' + pattern.rounding + '\n' +
-                                  'positive: ' + pattern.positive + '\n' +
-                                  'negative: ' + pattern.negative + '\n' +
-                                  'decimal: '  + pattern.decimal  + '\n' +
-                                  'grouping: ' + pattern.grouping);},
-        function () {alert('Error getting pattern\n');},
-        {type:'decimal'}
-    );
+navigator.globalization.getNumberPattern(
+    function (pattern) {alert('pattern: '  + pattern.pattern  + '\n' +
+                                'symbol: '   + pattern.symbol   + '\n' +
+                                'fraction: ' + pattern.fraction + '\n' +
+                                'rounding: ' + pattern.rounding + '\n' +
+                                'positive: ' + pattern.positive + '\n' +
+                                'negative: ' + pattern.negative + '\n' +
+                                'decimal: '  + pattern.decimal  + '\n' +
+                                'grouping: ' + pattern.grouping);},
+    function () {alert('Error getting pattern\n');},
+    {type:'decimal'}
+);
 {{</highlight>}}
 
 Results:
 
 {{<highlight bash>}}
-    pattern: #,##0.###
-    symbol: .
-    fraction: 0
-    rounding: 0
-    positive:
-    negative: -
-    decimal: .
-    grouping: ,
+pattern: #,##0.###
+symbol: .
+fraction: 0
+rounding: 0
+positive:
+negative: -
+decimal: .
+grouping: ,
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -581,7 +591,7 @@ Indicates whether daylight savings time is in effect for a given date
 using the client's time zone and calendar.
 
 {{<highlight javascript>}}
-    navigator.globalization.isDayLightSavingsTime(date, successCallback, errorCallback);
+navigator.globalization.isDayLightSavingsTime(date, successCallback, errorCallback);
 {{</highlight>}}
 
 ##### Description
@@ -610,11 +620,11 @@ During the summer, and if the browser is set to a DST-enabled timezone,
 this should display a popup dialog with text similar to `dst: true`:
 
 {{<highlight javascript>}}
-    navigator.globalization.isDayLightSavingsTime(
-        new Date(),
-        function (date) {alert('dst: ' + date.dst + '\n');},
-        function () {alert('Error getting names\n');}
-    );
+navigator.globalization.isDayLightSavingsTime(
+    new Date(),
+    function (date) {alert('dst: ' + date.dst + '\n');},
+    function () {alert('Error getting names\n');}
+);
 {{</highlight>}}
 
 #### navigator.globalization.numberToString
@@ -623,7 +633,7 @@ Returns a number formatted as a string according to the client's user
 preferences.
 
 {{<highlight javascript>}}
-    navigator.globalization.numberToString(number, successCallback, errorCallback, options);
+navigator.globalization.numberToString(number, successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -639,7 +649,7 @@ expected code is `GlobalizationError.FORMATTING_ERROR`.
 The `options` parameter is optional, and its default values are:
 
 {{<highlight javascript>}}
-    {type:'decimal'}
+{type:'decimal'}
 {{</highlight>}}
 
 The `options.type` can be `decimal`, `percent`, or `currency`.
@@ -656,12 +666,12 @@ When the browser is set to the `en_US` locale, this displays a popup
 dialog with text similar to `number: 3.142`:
 
 {{<highlight javascript>}}
-    navigator.globalization.numberToString(
-        3.1415926,
-        function (number) {alert('number: ' + number.value + '\n');},
-        function () {alert('Error getting number\n');},
-        {type:'decimal'}
-    );
+navigator.globalization.numberToString(
+    3.1415926,
+    function (number) {alert('number: ' + number.value + '\n');},
+    function () {alert('Error getting number\n');},
+    {type:'decimal'}
+);
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -681,7 +691,7 @@ preferences and calendar using the time zone of the client, and returns
 the corresponding date object.
 
 {{<highlight javascript>}}
-    navigator.globalization.stringToDate(dateString, successCallback, errorCallback, options);
+navigator.globalization.stringToDate(dateString, successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -704,7 +714,10 @@ The `options` parameter is optional, and defaults to the following
 values:
 
 {{<highlight javascript>}}
-    {formatLength:'short', selector:'date and time'}
+{
+    formatLength: 'short', 
+    selector: 'date and time'
+}
 {{</highlight>}}
 
 The `options.formatLength` can be `short`, `medium`, `long`, or `full`.
@@ -728,14 +741,14 @@ month integer is one less than the string, as the month integer
 represents an array index.
 
 {{<highlight javascript>}}
-    navigator.globalization.stringToDate(
-        '9/25/2012',
-        function (date) {alert('month:' + date.month +
-                               ' day:'  + date.day   +
-                               ' year:' + date.year  + '\n');},
-        function () {alert('Error getting date\n');},
-        {selector: 'date'}
-    );
+navigator.globalization.stringToDate(
+    '9/25/2012',
+    function (date) {alert('month:' + date.month +
+                            ' day:'  + date.day   +
+                            ' year:' + date.year  + '\n');},
+    function () {alert('Error getting date\n');},
+    {selector: 'date'}
+);
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -753,7 +766,7 @@ Parses a number formatted as a string according to the client's user
 preferences and returns the corresponding number.
 
 {{<highlight javascript>}}
-    navigator.globalization.stringToNumber(string, successCallback, errorCallback, options);
+navigator.globalization.stringToNumber(string, successCallback, errorCallback, options);
 {{</highlight>}}
 
 ##### Description
@@ -770,7 +783,7 @@ The `options` parameter is optional, and defaults to the following
 values:
 
 {{<highlight javascript>}}
-    {type:'decimal'}
+{type:'decimal'}
 {{</highlight>}}
 
 The `options.type` can be `decimal`, `percent`, or `currency`.
@@ -787,12 +800,12 @@ When the browser is set to the `en_US` locale, this should display a
 popup dialog with text similar to `number: 1234.56`:
 
 {{<highlight javascript>}}
-    navigator.globalization.stringToNumber(
-        '1234.56',
-        function (number) {alert('number: ' + number.value + '\n');},
-        function () {alert('Error getting number\n');},
-        {type:'decimal'}
-    );
+navigator.globalization.stringToNumber(
+    '1234.56',
+    function (number) {alert('number: ' + number.value + '\n');},
+    function () {alert('Error getting number\n');},
+    {type:'decimal'}
+);
 {{</highlight>}}
 
 ##### Windows Quirks
@@ -834,10 +847,10 @@ When the following error callback executes, it displays a popup dialog
 with the text similar to `code: 3` and `message:`
 
 {{<highlight javascript>}}
-    function errorCallback(error) {
-        alert('code: ' + error.code + '\n' +
-              'message: ' + error.message + '\n');
-    };
+function errorCallback(error) {
+    alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+};
 {{</highlight>}}
 
 See Also:

@@ -1,5 +1,6 @@
 ---
 title: Media Plugin
+weight: 140
 ---
 
 Tested Version: [3.0.1](https://github.com/apache/cordova-plugin-media/releases/tag/3.0.1)
@@ -31,14 +32,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-media
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-media
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Media` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -115,7 +116,7 @@ The following constants are reported as the only parameter to the
 Returns the current amplitude of the current recording.
 
 {{<highlight javascript>}}
-    media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+media.getCurrentAmplitude(mediaSuccess, [mediaError]);
 {{</highlight>}}
 
 ##### Supported Platforms
@@ -161,7 +162,7 @@ Returns the current position within an audio file. Also updates the
 `Media` object's `position` parameter.
 
 {{<highlight javascript>}}
-    media.getCurrentPosition(mediaSuccess, [mediaError]);
+media.getCurrentPosition(mediaSuccess, [mediaError]);
 {{</highlight>}}
 
 ##### Parameters
@@ -203,7 +204,7 @@ Returns the duration of an audio file in seconds. If the duration is
 unknown, it returns a value of -1.
 
 {{<highlight javascript>}}
-    media.getDuration();
+media.getDuration();
 {{</highlight>}}
 
 
@@ -264,7 +265,8 @@ function playAudio(url) {
 -   **numberOfLoops**: Pass this option to the `play` method to specify
     the number of times you want the media file to play, e.g.:
 
-    {{<highlight javascript>}}var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
 myMedia.play({ numberOfLoops: 2 });{{</highlight>}}
 
 -   **playAudioWhenScreenIsLocked**: Pass in this option to the `play`
@@ -272,7 +274,8 @@ myMedia.play({ numberOfLoops: 2 });{{</highlight>}}
     is locked. If set to `true` (the default value), the state of the
     hardware mute button is ignored, e.g.:
 
-    {{<highlight javascript>}}var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
 myMedia.play({ playAudioWhenScreenIsLocked : true });
 myMedia.setVolume('1.0');{{</highlight>}}
 
@@ -284,7 +287,8 @@ myMedia.setVolume('1.0');{{</highlight>}}
     provided, iOS searches in the `www` directory for the file, then in
     the application's `documents/tmp` directory:
 
-    {{<highlight javascript>}}var myMedia = new Media("audio/beer.mp3")
+    {{<highlight javascript>}}
+var myMedia = new Media("audio/beer.mp3")
 myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3{{</highlight>}}
 
 #### media.pause

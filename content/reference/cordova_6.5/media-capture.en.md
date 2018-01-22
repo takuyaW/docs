@@ -1,5 +1,6 @@
 ---
 title: Media Capture Plugin
+weight: 150
 ---
 
 Tested Version: [1.4.3](https://github.com/apache/cordova-plugin-media-capture/releases/tag/1.4.3)
@@ -41,14 +42,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-media-capture
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-media-capture
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Capture` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -130,7 +131,7 @@ navigator.device.capture.captureImage(captureSuccess, captureError, options);
 
 #### CaptureVideoOptions
 
-> Encapsulates video capture configuration options.
+Encapsulates video capture configuration options.
 
 ##### Properties
 
@@ -364,8 +365,7 @@ Supports the following `MediaFileData` properties:
 
 #### capture.captureAudio
 
-> Start the audio recorder application and return information about
-> captured audio clip files.
+Start the audio recorder application and return information about captured audio clip files.
 
 {{<highlight javascript>}}
 navigator.device.capture.captureAudio(
@@ -611,13 +611,11 @@ Android Lifecycle Quirks
 When capturing audio, video, or images on the Android platform, there is
 a chance that the application will get destroyed after the Cordova
 Webview is pushed to the background by the native capture application.
-See the [Android Lifecycle
-Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
+See the [Android Lifecycle Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#lifecycle-guide)
 for a full description of the issue. In this case, the success and
 failure callbacks passed to the capture method will not be fired and
 instead the results of the call will be delivered via a document event
-that fires after the Cordova [resume
-event](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume).
+that fires after the Cordova [resume event](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume).
 
 In your app, you should subscribe to the two possible events like so:
 

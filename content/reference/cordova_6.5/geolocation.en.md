@@ -1,5 +1,6 @@
 ---
 title: Geolocation Plugin
+weight: 110
 ---
 
 Tested Version: [2.4.3](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.4.3)
@@ -50,14 +51,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-geolocation
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-geolocation
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Geolocation` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -130,7 +131,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 Since iOS 10 it's mandatory to add a
 `NSLocationWhenInUseUsageDescription` entry in the info.plist.
 
-NSLocationWhenInUseUsageDescription describes the reason that the app
+`NSLocationWhenInUseUsageDescription` describes the reason that the app
 accesses the user's location. When the system prompts the user to allow
 access, this string is displayed as part of the dialog box. To add this
 entry you can pass the variable `GEOLOCATION_USAGE_DESCRIPTION` on
@@ -216,6 +217,7 @@ Optional parameters to customize the retrieval of the geolocation
     retrieve a `Position` using network-based methods. Setting this
     property to `true` tells the framework to use more accurate methods,
     such as satellite positioning. *(Boolean)*
+
 -   **timeout**: The maximum length of time (milliseconds) that is
     allowed to pass from the call to
     `navigator.geolocation.getCurrentPosition` or
@@ -226,6 +228,7 @@ Optional parameters to customize the retrieval of the geolocation
     when used in conjunction with `geolocation.watchPosition`, the
     `geolocationError` callback could be called on an interval every
     `timeout` milliseconds!) *(Number)*
+
 -   **maximumAge**: Accept a cached position whose age is no greater
     than the specified time in milliseconds. *(Number)*
 
@@ -318,15 +321,14 @@ function when an error occurs with navigator.geolocation.
 
 ##### Constants
 
--   `PositionError.PERMISSION_DENIED`
--   Returned when users do not allow the app to retrieve position
+-   `PositionError.PERMISSION_DENIED`: Returned when users do not allow the app to retrieve position
     information. This is dependent on the platform.
--   `PositionError.POSITION_UNAVAILABLE`
--   Returned when the device is unable to retrieve a position. In
+
+-   `PositionError.POSITION_UNAVAILABLE`: Returned when the device is unable to retrieve a position. In
     general, this means the device is not connected to a network or
     can't get a satellite fix.
--   `PositionError.TIMEOUT`
--   Returned when the device is unable to retrieve a position within the
+
+-   `PositionError.TIMEOUT`: Returned when the device is unable to retrieve a position within the
     time specified by the `timeout` included in `geolocationOptions`.
     When used with `navigator.geolocation.watchPosition`, this error
     could be repeatedly passed to the `geolocationError` callback every
@@ -342,12 +344,12 @@ and more.
 Here's a "cookbook" of ideas to get you started. In the snippets below,
 we'll show you some basic ways to add these features to your app.
 
--   [Get your coordinates](#coords)
--   [Get the weather forecast](#weather)
--   [Receive updated weather forecasts as you drive around](#receive)
--   [See where you are on a map](#map)
--   [Find stores near you](#find)
--   [See pictures of things around you](#things)
+-   [Get your coordinates](#get-your-geolocation-coordinates)
+-   [Get the weather forecast](#get-the-weather-forecast)
+-   [Receive updated weather forecasts as you drive around](#receive-updated-weather-forecasts-as-you-drive-around)
+-   [See where you are on a map](#see-where-you-are-on-a-map)
+-   [Find stores near you](#find-stores-near-you)
+-   [See pictures of things around you](#see-pictures-of-things-around-you)
 
 ###  Get your geolocation coordinates
 

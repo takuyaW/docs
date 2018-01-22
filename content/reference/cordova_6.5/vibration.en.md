@@ -1,5 +1,6 @@
 ---
 title: Vibration Plugin
+weight: 180
 ---
 
 Tested Version: [2.1.5](https://github.com/apache/cordova-plugin-vibration/releases/tag/2.1.5)
@@ -28,14 +29,14 @@ function onDeviceReady() {
 Plugin ID
 ---------
 
-{{<syntax>}}
-    cordova-plugin-vibration
-{{</syntax>}}
+{{<highlight javascript>}}
+cordova-plugin-vibration
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Vibration` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -88,6 +89,7 @@ or
 
 -   **time**: Ignores the specified time and vibrates for a pre-set
     amount of time.
+    
     {{<highlight javascript>}}navigator.vibrate(3000); // 3000 is ignored{{</highlight>}}
 
 #### Windows Quirks
@@ -185,16 +187,16 @@ Vibrates the device with a given pattern.
 #### Example
 
 {{<highlight javascript>}}
-    // Immediately start vibrating
-    // vibrate for 100ms,
-    // wait for 100ms,
-    // vibrate for 200ms,
-    // wait for 100ms,
-    // vibrate for 400ms,
-    // wait for 100ms,
-    // vibrate for 800ms,
-    // (do not repeat)
-    navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
+// Immediately start vibrating
+// vibrate for 100ms,
+// wait for 100ms,
+// vibrate for 200ms,
+// wait for 100ms,
+// vibrate for 400ms,
+// wait for 100ms,
+// vibrate for 800ms,
+// (do not repeat)
+navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
 {{</highlight>}}
 
 ### notification.cancelVibration (deprecated)
