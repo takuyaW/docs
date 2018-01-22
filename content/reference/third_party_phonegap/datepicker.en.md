@@ -1,5 +1,6 @@
 ---
 title: DatePicker Plugin
+weight: 30
 ---
 
 DatePicker plugin lets an app use the native DatePicker control.

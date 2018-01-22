@@ -1,5 +1,7 @@
-WebIntent プラグイン ( Android 向け )
-=====================================
+---
+title: WebIntent プラグイン ( Android 向け )
+weight: 50
+---
 
 WebIntent
 プラグインを使用すれば、端末にインストールされている他のアプリを、Monaca

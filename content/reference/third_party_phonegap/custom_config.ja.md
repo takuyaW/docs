@@ -1,5 +1,7 @@
-Custom Config プラグイン
-========================
+---
+title: Custom Config プラグイン
+weight: 20
+---
 
 Cordova 5.2 以前のバージョンをサポートしていた Monaca
 フレームワークでは、AndroidManifest.xml ( Android の場合 ) または

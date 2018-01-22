@@ -1,5 +1,6 @@
 ---
 title: WebIntent Plugin (Android)
+weight: 50
 ---
 
 WebIntent plugin lets you start an installed application from within

@@ -1,5 +1,7 @@
-Datepicker プラグイン
-=====================
+---
+title: Datepicker プラグイン
+weight: 30
+---
 
 DatePicker プラグインを使用して、ネイティブ側の DatePicker コントロール
 ( 日付設定 ) にアクセスします。
@@ -7,27 +9,28 @@ DatePicker プラグインを使用して、ネイティブ側の DatePicker コ
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-1.  IDE メニュー上で、 ファイル &gt; Cordova プラグインの管理 または
-    設定 &gt; Cordova プラグインの管理 を選択します。
-2.  DatePicker の 有効 ボタンをクリックして、プロジェクトへ追加します。
+1.  IDE メニュー上で、 {{<menu menu1="ファイル" menu2="Cordova プラグインの管理">}} または {{<menu menu1="設定" menu2="Cordova プラグインの管理">}} を選択します。
 
-> ![image](images/datepicker/1.png){width="700px"}
+2.  DatePicker の {{<guilabel name="有効">}} ボタンをクリックして、プロジェクトへ追加します。
+
+    {{<img src="/images/reference/third_party_phonegap/datepicker/1.png">}}
 
 メソッド
 --------
 
 ### Android の場合
 
-  関数名 |解説         
-  -------------------- -------------------------------------------------
-  show(func)           DatePicker を表示します。
+関数名 |解説         
+--------------------|-------------------------------------------------
+show(func)          | DatePicker を表示します。
+
 
 DatePicker のデモ
 -----------------
 
 ### Android の場合
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -58,13 +61,13 @@ DatePicker のデモ
     <input type="button" onClick ="dateTest()" value ="dateTest()" />
   </body>
 </html>
-```
+{{</highlight>}}
 
 ### iOS の場合
 
 このサンプルは、iPhone が対象です。iPad では正常に動作しません。
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -151,4 +154,4 @@ DatePicker のデモ
     </p>
 </body>
 </html>
-```
+{{</highlight>}}

@@ -1,5 +1,7 @@
-サードパーティー製 Cordova プラグイン
-=====================================
+---
+title: サードパーティー製 Cordova プラグイン
+weight: 30
+---
 
 第三者提供 ( サードパーティー製 ) の Cordova
 プラグインを使用しても、正規の Cordova プラグインと同じく、JavaScript
@@ -12,14 +14,19 @@ Cordova プラグイン ( Monaca
 プロジェクトにインポートできます。
 
 ネイティブコードを使用した、プログラムの拡張も可能です。ユーザー Corodva
-プラグインの作成と使用方法に関しては、 custom\_cordova\_plugin
+プラグインの作成と使用方法に関しては、 [ユーザー Cordova プラグイン]({{<ref "custom_cordova_plugin.ja.md">}})
 をご確認ください。
 
 Monaca が提供している、第三者提供の Cordova
 プラグインは、次のとおりです。
 
-> maxdepth
->
-> :   2
->
-> barcode\_scanner custom\_config datepicker share webintent
+- [BarcodeScanner プラグイン](barcode_scanner)
+- [Custom Config プラグイン](custom_config)
+- [Datepicker プラグイン](datepicker)
+- [Share プラグイン ( Android 向け )](share)
+- [WebIntent プラグイン ( Android 向け )](webintent)
+
+
+
+
+

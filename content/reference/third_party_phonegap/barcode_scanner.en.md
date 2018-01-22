@@ -1,5 +1,6 @@
 ---
 title: BarcodeScanner Plugin
+weight: 10
 ---
 
 {{<note>}}

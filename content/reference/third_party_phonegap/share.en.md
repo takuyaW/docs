@@ -1,5 +1,6 @@
 ---
 title: Share Plugin (Android)
+weight: 40
 ---
 
 Share plugin lets an app to share data with other apps like Gmail,

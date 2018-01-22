@@ -1,5 +1,6 @@
 ---
 title: Cordova Custom Config Plugin
+weight: 20
 ---
 
 For Cordova 5.2 or lower, basic behaviour of Android or iOS applications

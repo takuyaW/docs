@@ -1,5 +1,7 @@
-Share プラグイン ( Android 向け )
-=================================
+---
+title: Share プラグイン ( Android 向け )
+weight: 40
+---
 
 Share プラグインを使用すれば、他のアプリ ( Gmail、Dropbox など )
 とデータを共有できます。
