@@ -4,11 +4,11 @@ weight: 20
 ---
 
 Cordova 5.2 以前のバージョンをサポートしていた Monaca
-フレームワークでは、AndroidManifest.xml ( Android の場合 ) または
+フレームワークでは、 `AndroidManifest.xml` ( Android の場合 ) または
 `MonacaApp-Info.plist` ( iOS の場合 )
 を編集すれば、アプリのデフォルトの挙動を制御することができました。Cordova
 6.2 以降のバージョンをサポートする Monaca
-フレームワークでは、仕様が変更され、AndroidManifest.xml と
+フレームワークでは、仕様が変更され、 `AndroidManifest.xml` と
 `MonacaApp-Info.plist` のいずれのファイルも使用しなくなりました。
 
 このため、最新の Monaca フレームワーク ( Cordova 6.2 以降をサポート )
@@ -24,12 +24,12 @@ Android の両方に使用可 ) を使用すると、フック用のスクリプ
 プラグインの有効化 ( Monaca 上での処理 )
 ----------------------------------------
 
-1.  IDE メニュー上で、 ファイル &gt; Cordova プラグインの管理 または
-    設定 &gt; Cordova プラグインの管理 を選択します。
-2.  `Custom Config` の 有効
-    ボタンをクリックして、プロジェクトへ追加します。
+1.  IDE メニュー上で、 {{<menu menu1="ファイル" menu2="Cordova プラグインの管理">}} または
+    {{<menu menu1="設定" menu2="Cordova プラグインの管理">}} を選択します。
 
-> ![image](images/custom_config/1.png){width="700px"}
+2.  `Custom Config` の {{<guilabel name="有効">}} ボタンをクリックして、プロジェクトへ追加します。
+
+    {{<img src="/images/reference/third_party_phonegap/custom_config/1.png">}}
 
 設定
 ----
@@ -46,9 +46,9 @@ Android の両方に使用可 ) を使用すると、フック用のスクリプ
 preference を使用して、元に戻せるように設定することもできます (
 自動リストア機能、`config.xml` の最上位の `<widget>` 要素内に追加 )。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="cordova-custom-config-autorestore" value="true" />
-```
+{{</highlight>}}
 
 peference を使用したカスタマイズ設定
 ------------------------------------
@@ -56,9 +56,9 @@ peference を使用したカスタマイズ設定
 preference は、`config.xml` ファイル内で、`<preference>`
 要素を使用し設定します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-launchMode" value="singleTop" />
-```
+{{</highlight>}}
 
 preference を設定する場合には、次の点に、注意が必要です。
 
@@ -108,70 +108,63 @@ config-file の設定時には、次の点に注意が必要です。
 Android
 -------
 
-Android
-では、このプラグインを使用してカスタマイズできる対象は、現在、`platforms/android/AndroidManifest.xml`
-内の設定だけです。Manifest ファイル内の詳細は、[アプリ マニフェスト (
-外部サイト
-)](http://developer.android.com/guide/topics/manifest/manifest-intro.html)
-をご確認ください。なお、Android 向けの設定は、`config.xml` ファイルの
-`<platform name=\"android\">` ブロック内に置きます。
+Android では、このプラグインを使用してカスタマイズできる対象は、現在、`platforms/android/AndroidManifest.xml`
+内の設定だけです。Manifest ファイル内の詳細は、[アプリ マニフェスト ( 外部サイト )](http://developer.android.com/guide/topics/manifest/manifest-intro.html)
+をご確認ください。なお、Android 向けの設定は、`config.xml` ファイルの `<platform name=\"android\">` ブロック内に置きます。
 
-Android peference を使用したカスタマイズ設定
-\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
+### Android 向けの preference の設定方法
 
 `config.xml` 内の `<preference>` 要素を使用して、`AndroidManifest.xml`
 内の要素に、指定した属性を反映させます。たとえば、`config.xml`
 に、次の要素を追加すると...
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/@android:hardwareAccelerated" value="false" />
-```
+{{</highlight>}}
 
 `AndroidManifest.xml` には、次の設定が追加されます。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <manifest android:hardwareAccelerated="false">
-```
+{{</highlight>}}
 
 `AndroidManifest.xml`
 内に定義されているデフォルトの設定を削除する場合には、`<preference>`
 要素に `delete=\"true\"` を設定します。たとえば、`config.xml`
-に次の設定を追加した場合、`AndroidManifest.xml` 内の
+に次の設定を追加した場合、 `AndroidManifest.xml` 内の
 `<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />`
 を削除できます。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/uses-permission/[@android:name='android.permission.WRITE_CONTACTS']/@android:name" delete="true" />
-```
+{{</highlight>}}
 
-### 名前空間の設定方法
+#### 名前空間の設定方法
 
-<div class="admonition note">
-
-`config.xml` の preference に `android:` ( 名前空間を指定 )
-を指定する場合、`<widget>` 要素 ( ルート要素 ) にも、andorid
+{{<note>}}
+<code>config.xml</code> の preference に <code>android:</code> ( 名前空間を指定 )
+を指定する場合、 <code>&lt;widget&gt;</code> 要素 ( ルート要素 ) にも、andorid
 の名前空間を設定する必要があります。
-
-</div>
+{{</note>}}
 
 名前空間を指定する属性は、次のように記述します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 xmlns:android="http://schemas.android.com/apk/res/android"
-```
+{{</highlight>}}
 
 `<widget>` 要素は、次のように記述します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <widget
     id="com.my.app"
     version="0.0.1"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
-```
+{{</highlight>}}
 
-### XPath peference を使用したカスタマイズ設定
+#### XPath peference を使用したカスタマイズ設定
 
 Android のマニフェストに適用する preference には、XPath
 も使用できます。preference の name に、要素と属性を XPath
@@ -180,42 +173,39 @@ Android のマニフェストに適用する preference には、XPath
 を先頭に付け、その後ろに、XPath 形式で要素と属性を指定して、value
 の値の適用先となる場所を示します。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/activity/@android:launchMode" value="singleTask" />
-```
+{{</highlight>}}
 
 上記の preference を適用すると、次のように、`launchMode`
 属性に、`singleTask` が設定されます。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <activity android:launchMode="singleTask">
-```
+{{</highlight>}}
 
 manifest 内に、複数の activity が存在する場合、XPath
 の記述内にも、activity の name を指定します。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/activity[@android:name='MainActivity']/@android:launchMode" value="singleTask" />
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 Cordova 4.2.0 以前のバージョンでは、プロジェクトの作成時、activity の
-name には、`\"CordovaApp\"` が使用されていました。Cordova 4.3.0
-以降では、`\"MainActivity\"` となっています。
-
-</div>
+name には、 <code>CordovaApp</code> が使用されていました。Cordova 4.3.0
+以降では、 <code>MainActivity</code> となっています。
+{{</note>}}
 
 `<manifest>` 要素 ( ルート要素 )
 内にある属性を適用先とする場合、要素名は省略して、属性だけを指定します。
 例 :
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/@android:installLocation" value="auto" />
-```
+{{</highlight>}}
 
-Android config-file を使用したカスタマイズ設定
-\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
+### Android 向けの config-file ブロックの設定方法
 
 `AndroidManifest.xml`
 に適用するカスタマイズ設定が複数ある場合は、`<config-file>`
@@ -230,60 +220,52 @@ Android config-file を使用したカスタマイズ設定
     内の親となる要素を指定します。この要素下に、XML
     のサブツリーとして、指定された値が挿入されます。
 
-    > -   `<manifest>` 要素 ( ルート要素 )
-    >     にブロックを挿入する場合には、`parent=\"/*\"` を使用します。
-    > -   `<manifest>` の子孫ノード下にブロックを挿入する場合には、`./`
-    >     形式の記法も使用できます。たとえば、`parent=\"./application/activity\"`
-    >     を指定した場合、`/manifest/application/activity`
-    >     下に、ブロックが挿入されます。
+    -   `<manifest>` 要素 ( ルート要素 ) にブロックを挿入する場合には、`parent="/*"` を使用します。
+    -   `<manifest>` の子孫ノード下にブロックを挿入する場合には、`./` 形式の記法も使用できます。たとえば、`parent="./application/activity"` を指定した場合、`/manifest/application/activity` 下に、ブロックが挿入されます。
 
 例 :
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file target="AndroidManifest.xml" parent="./application">
     <some-element />
 </config-file>
-```
+{{</highlight>}}
 
 `AndroidManifest.xml` 内では、次のようになります。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <manifest ...>
     <application ...>
         <some-element />
     </application>
 </manifest>
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
-parent 要素に指定された値が XML
-のサブツリー側に定義されている値と重複する場合、既存の要素は上書きされます。
-
-</div>
+{{<note>}}
+parent 要素に指定された値が XML のサブツリー側に定義されている値と重複する場合、既存の要素は上書きされます。
+{{</note>}}
 
 例 :
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <config-file target="AndroidManifest.xml">
     <application android:name="MyApp" />
 </config-file>
-```
+{{</highlight>}}
 
 上記の内容を使用すれば、既存の `<application>`
 要素が書き換えられます。なお、このような場合には、preference
 の使用を推奨します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="android-manifest/application/@android:name" value="MyApp" />
-```
+{{</highlight>}}
 
-#### 例
+### 例
 
-Android 向けの設定のサンプルを、次に記します ( `config.xml` ファイル内
-)。
+Android 向けの設定のサンプルを、次に記します ( `config.xml` ファイル内 )。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <platform name="android">
     <!-- custom preferences examples -->
     <preference name="android-manifest/application/activity/@android:windowSoftInputMode" value="stateVisible" />
@@ -319,32 +301,28 @@ Android 向けの設定のサンプルを、次に記します ( `config.xml` �
         <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     </config-file>
 </platform>
-```
+{{</highlight>}}
 
 iOS
 ---
 
-iOS
-では、このプラグインを使用してカスタマイズできる対象は、現在、プロジェクトの
+iOS では、このプラグインを使用してカスタマイズできる対象は、現在、プロジェクトの
 plist ( `*-Info.plist`、config-file ブロックを使用 )、および、設定情報 (
 `project.pbxproj`、preference 要素を使用 ) です。なお、iOS
-向けの設定は、`config.xml` ファイルの `<platform name=\"ios\">`
+向けの設定は、 `config.xml` ファイルの `<platform name=\"ios\">`
 ブロック内に置きます。
 
-iOS peference を使用したカスタマイズ設定
-\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
+### iOS 向けの preference の設定方法
 
-`config.xml` の `<preference>` 要素を使用して、`*-Info.plist`
-の設定を更新します。preference
-は、`<preference name="ios-SOME_BLOCK_TYPE-SOME_KEY" value="SOME_VALUE" />`
+`config.xml` の `<preference>` 要素を使用して、 `*-Info.plist`
+の設定を更新します。preference は、 `<preference name="ios-SOME_BLOCK_TYPE-SOME_KEY" value="SOME_VALUE" />`
 の形式で設定します。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-ENABLE_BITCODE" value="NO" />
-```
+{{</highlight>}}
 
-Build Configuration peference を使用したカスタマイズ設定
----------------------------------------
+#### ビルド設定用の preferences
 
 ビルド設定は、`project.pbxproj` 内の `XCBuildConfiguration`
 を使用して、現在行っています。使用する key/value
@@ -361,46 +339,45 @@ Build Configuration peference を使用したカスタマイズ設定
 属性を追加すれば、ビルドの種類を指定でき、ブロックを絞り込めます。この属性に指定できる値は、`debug`
 または `release` です。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" />
-```
+{{</highlight>}}
 
 デフォルトでは、`XCBuildConfiguration` への挿入時、key と value
 は、ダブルクォーテーションで囲われます。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" />
-```
+{{</highlight>}}
 
 `project.pbxproj` 内では、次のようになります。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 "IPHONEOS_DEPLOYMENT_TARGET" = "7.0";
-```
+{{</highlight>}}
 
 クォーテーションの付記方法 ( 上記がデフォルトの仕様 ) は、`<preference>`
-の `quote`
-属性を使用して、変更できます。この属性には、次の値を使用できます。
+の `quote` 属性を使用して、変更できます。この属性には、次の値を使用できます。
 
--   "none": key と value
+-   `none`: key と value
     のいずれにも、クォーテーションは付記されません。
--   "key": key だけに、クォーテーションが付記されます。
--   "value": value だけに、クォーテーションが付記されます。
--   "both": key と value のいずれにも、クォーテーションが付記されます。
+-   `key`: key だけに、クォーテーションが付記されます。
+-   `value`: value だけに、クォーテーションが付記されます。
+-   `both`: key と value のいずれにも、クォーテーションが付記されます。
 
 例 :
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="7.0" buildType="release" quote="none" />
-```
+{{</highlight>}}
 
 `project.pbxproj` 内では、次のようになります。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-```
+{{</highlight>}}
 
-### .xcconfig ファイル
+#### .xcconfig ファイル
 
 Cordova では、`/platforms/ios/cordova/` の `.xcconfig`
 ファイルを使用して、Xcode プロジェクトの `project.pbxproj`
@@ -414,10 +391,10 @@ Cordova では、`/platforms/ios/cordova/` の `.xcconfig`
 属性を参照して、次に、対応する `.xcconfig`
 ファイルにアクセスして、対象の設定値を確認します。
 
--   buildType 属性が `\"debug\"` の場合には
-    `build-debug.xcconfig`、`\"release\"` の場合には
+-   buildType 属性が `debug` の場合には
+    `build-debug.xcconfig`、`release` の場合には
     `build-release.xcconfig` にアクセスします。
--   buildType が指定されていない場合、または、`\"none\"`
+-   buildType が指定されていない場合、または、`none`
     に設定されている場合、`build.xcconfig` にアクセスします。
 
 `config.xml` 内に記述されている preference の name
@@ -427,57 +404,53 @@ Cordova では、`/platforms/ios/cordova/` の `.xcconfig`
 側の値が上書きされます。このような上書き処理を無効にする場合には、`xcconfigEnforce="false"`
 を、preference に設定します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-SOME_PREFERENCE" value="Some value" buildType="debug" xcconfigEnforce="false" />
-```
+{{</highlight>}}
 
 preference に設定した値が、対応する `.xcconfig`
 ファイル内に存在しない場合は、`xcconfigEnforce="true"`
 を使用すれば、強制的に、ファイルに設定を追加できます。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="ios-XCBuildConfiguration-SOME_PREFERENCE" value="Some value" buildType="debug" xcconfigEnforce="true" />
-```
+{{</highlight>}}
 
-更新された `.xcconfig`
-ファイルのバックアップが、`plugins/cordova-custom-config/backup/ios`
-下に作成されます。デフォルトでは、prepare
-コマンドを実行するたびに、バックアップファイルが適用されます。この自動リストア機能を無効にする場合には、`<preference name=\"cordova-custom-config-autorestore\" value=\"false\" />`
-に設定します ( `config.xml` 内 )。
+更新された `.xcconfig` ファイルのバックアップが、 `plugins/cordova-custom-config/backup/ios`
+下に作成されます。デフォルトでは、 `prepare` コマンドを実行するたびに、バックアップファイルが適用されます。この自動リストア機能を無効にする場合には、 `<preference name="cordova-custom-config-autorestore" value="false" />` に設定します ( `config.xml` 内 )。
 
 なお、`.xcconfig` の更新時、`quote`
 属性は無視されます。よって、preference で指定している name と value
 を使用して、`.xcconfig` を更新しても、クォーテーションは付記されません。
 
-### CODE\_SIGN\_IDENTITY 設定用の preference
+#### CODE_SIGN_IDENTITY 設定用の preference
 
-Cordova では、リリースビルド向けに使用される CODE\_SIGN\_IDENTITY
+Cordova では、リリースビルド向けに使用される CODE_SIGN_IDENTITY
 は、build-release.xcconfig
 に置かれます。一方、デバッグビルド向けでは、`build.xcconfig`
 に置かれます。
 
-`buildType="release"` を指定して、CODE\_SIGN\_IDENTITY 用の preference
-を設定した場合 ( `config.xml` 内 )、`build-release.xcconfig`
+`buildType="release"` を指定して、CODE_SIGN_IDENTITY 用の preference
+を設定した場合 ( `config.xml` 内 )、 `build-release.xcconfig`
 内に記述されているデフォルト設定が上書きされます。次に例を記します。
 
-``` {.sourceCode .xml}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" />
-```
+{{<highlight xml>}}
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" />
+{{</highlight>}}
 
 `buildType="debug"` を指定して、CODE\_SIGN\_IDENTITY 用の preference
-を設定した場合 ( `config.xml` 内 )、`build.xcconfig`
+を設定した場合 ( `config.xml` 内 )、 `build.xcconfig`
 内に記述されているデフォルト設定が上書きされます。次に例を記します。
 
-``` {.sourceCode .xml}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" />
-```
+{{<highlight xml>}}
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" />
+{{</highlight>}}
 
-上記のような上書き処理を無効にする場合には、`xcconfigEnforce="false"`
-を設定します。次に例を記します。
+上記のような上書き処理を無効にする場合には、 `xcconfigEnforce="false"` を設定します。次に例を記します。
 
-``` {.sourceCode .xml}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" xcconfigEnforce="false" />
-```
+{{<highlight xml>}}
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" xcconfigEnforce="false" />
+{{</highlight>}}
 
 `buildType="debug"` に設定した場合には、`xcconfigEnforce="true"`
 にして、`build.xcconfig`
@@ -488,12 +461,11 @@ Cordova では、リリースビルド向けに使用される CODE\_SIGN\_IDENT
 内の設定が後から更新されるため、結局は、`build.xcconfig`
 内のデフォルト設定は上書きされます。次に例を記します。
 
-``` {.sourceCode .xml}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" xcconfigEnforce="true" />
-```
+{{<highlight xml>}}
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" xcconfigEnforce="true" />
+{{</highlight>}}
 
-iOS config-file を使用したカスタマイズ設定
-\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^
+### iOS 向けの config-file ブロックの設定方法
 
 `<config-file>`
 要素を使用してカスタマイズできる対象は、現在、プロジェクトの `.plist`
@@ -506,20 +478,20 @@ iOS config-file を使用したカスタマイズ設定
 
 例 :
 
-``` {.sourceCode .xml}
-<config-file platform="ios" target="*-Info.plist" parent="NSLocationAlways設定Description">
-```
+{{<highlight xml>}}
+<config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+{{</highlight>}}
 
 上記の内容を適用した場合、`{PROJECT_NAME}-Info.plist`
 は、次のようになります。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <plist version="1.0">
     <dict>
-        <key>NSLocationAlways設定Description</key>
+        <key>NSLocationAlwaysUsageDescription</key>
     </dict>
 </plist>
-```
+{{</highlight>}}
 
 挿入する value には、`<config-file>`
 要素内に記述されている子要素が使用されます。`.plist`
@@ -527,30 +499,30 @@ iOS config-file を使用したカスタマイズ設定
 
 例 :
 
-``` {.sourceCode .xml}
-<config-file platform="ios" target="*-Info.plist" parent="NSLocationAlways設定Description">
+{{<highlight xml>}}
+<config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
     <string>
         This app requires constant access to your location in order to track your position, even when the screen is off.
     </string>
 </config-file>
-```
+{{</highlight>}}
 
 `plist` ファイルでは、次のようになります。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <key>
-    NSLocationAlways設定Description
+    NSLocationAlwaysUsageDescription
 </key>
 <string>
     This app requires constant access to your location in order to track your position, even when the screen is off.
 </string>
-```
+{{</highlight>}}
 
 #### 例
 
 iOS 向けの設定のサンプルを、次に記します ( `config.xml` ファイル内 )。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <platform name="ios">
 
     <!-- Set ENABLE_BITCODE to YES in XCode project file override NO value in /ios/cordova/build.xcconfig -->
@@ -592,12 +564,12 @@ iOS 向けの設定のサンプルを、次に記します ( `config.xml` ファ
     </config-file>
 
     <!-- Set message displayed when app requests constant location updates -->
-    <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlways設定Description">
+    <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
         <string>This app requires constant access to your location in order to track your position, even when the screen is off.</string>
     </config-file>
 
     <!-- Set message displayed when app requests foreground location updates -->
-    <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUse設定Description">
+    <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
         <string>This app will now only track your location when the screen is on and the app is displayed.</string>
     </config-file>
 
@@ -609,18 +581,18 @@ iOS 向けの設定のサンプルを、次に記します ( `config.xml` ファ
         </dict>
     </config-file>
 </platform>
-```
+{{</highlight>}}
 
-Plugin peference を使用したカスタマイズ設定 ===========================
+## プラグインの制御 ( preference を使用 )
 
 このプラグインでは、プラグイン自体の動作をカスタマイズするため、数種類の
 preference を用意しています。各 preference の name には、他の name
-との競合を避けるため、`cordova-custom-config`
+との競合を避けるため、 `cordova-custom-config`
 が先頭に付記されています。次に例を記します。
 
-``` {.sourceCode .xml}
+{{<highlight xml>}}
 <preference name="cordova-custom-config-autorestore" value="true" />
-```
+{{</highlight>}}
 
 次の preference が使用できます。
 
@@ -628,6 +600,7 @@ preference を用意しています。各 preference の name には、他の na
     `true` に設定された場合、変更前の設定情報にロールバックします (
     ロールバックに使用される情報は、このプラグインのインストール時にバックアップされたものです
     )。
+     
 -   `cordova-custom-config-stoponerror`: ( デフォルトでは、`false` )
     `prepare` コマンドの実行時、この値が `true`
     に設定されている場合、エラーが発生したときには (

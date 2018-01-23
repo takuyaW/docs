@@ -7,25 +7,24 @@ WebIntent
 プラグインを使用すれば、端末にインストールされている他のアプリを、Monaca
 アプリから起動できます。ここでは、例として、地図を表示するアプリを起動させます。
 
-<div class="admonition note">
-
+{{<note>}}
 このプラグインは、Android プラットフォーム専用です。
-
-</div>
+{{</note>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-1.  IDE メニュー上で、 ファイル &gt; Cordova プラグインの管理 または
-    設定 &gt; Cordova プラグインの管理 を選択します。
-2.  WebIntent の 有効 ボタンをクリックして、プロジェクトへ追加します。
+1.  IDE メニュー上で、 {{<menu menu1="ファイル" menu2="Cordova プラグインの管理">}} または
+    {{<menu menu1="設定" menu2="Cordova プラグインの管理">}} を選択します。
 
-> ![image](images/webintent/1.png){width="700px"}
+2.  WebIntent の {{<guilabel name="有効">}} ボタンをクリックして、プロジェクトへ追加します。
+
+    {{<img src="/images/reference/third_party_phonegap/webintent/1.png">}}
 
 WebIntent プラグインの使用例
 ----------------------------
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -52,12 +51,12 @@ WebIntent プラグインの使用例
 
 </body>
 </html>
-```
+{{</highlight>}}
 
 `"startActivity"` 関数の `"url"`
 属性を使用して、起動させるアプリを指定できます。次に例を示します。
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 //Call to the specified phone number
 url: 'tel: phone_number=' + '03-5875-6862'
 
@@ -66,4 +65,5 @@ url: 'tel: phone_number=' + '03-5875-6862'
 
 //Open the information of the 1st person in the contact
     url: 'content://contacts/people/1'
-```
+{{</highlight>}}
+

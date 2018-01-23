@@ -410,12 +410,12 @@ function onFail(message) {
 
 #### Preferences (iOS)
 
--   **CameraUsesGeolocation** (boolean, defaults to false). For
-    capturing JPEGs, set to true to get geolocation data in the EXIF
-    header. This will trigger a request for geolocation permissions if
-    set to true.
+**CameraUsesGeolocation** (boolean, defaults to false). For
+capturing JPEGs, set to true to get geolocation data in the EXIF
+header. This will trigger a request for geolocation permissions if
+set to true.
 
-    {{<highlight xml>}}<preference name="CameraUsesGeolocation" value="false" />{{</highlight>}}
+{{<highlight xml>}}<preference name="CameraUsesGeolocation" value="false" />{{</highlight>}}
 
 ####  Android Quirks
 
@@ -459,6 +459,7 @@ More information about Windows Phone 8.1 picker APIs is here: [How to continue y
 #### Android Quirks
 
 -   Any `cameraDirection` value results in a back-facing photo.
+
 -   **`allowEdit` is unpredictable on Android and it should not be
     used!** The Android implementation of this plugin tries to find and
     use an application on the user's device to do image cropping. The
@@ -471,9 +472,11 @@ More information about Windows Phone 8.1 picker APIs is here: [How to continue y
     case. If image editing is essential to your application, consider
     seeking a third party library or plugin that provides its own image
     editing utility for a more robust solution.
+
 -   `Camera.PictureSourceType.PHOTOLIBRARY` and
     `Camera.PictureSourceType.SAVEDPHOTOALBUM` both display the same
     photo album.
+
 -   Ignores the `encodingType` parameter if the image is unedited (i.e.
     `quality` is 100, `correctOrientation` is false, and no
     `targetHeight` or `targetWidth` are specified). The `CAMERA` source
@@ -486,15 +489,17 @@ More information about Windows Phone 8.1 picker APIs is here: [How to continue y
 -   When using `destinationType.FILE_URI`, photos are saved in the
     application's temporary directory. The contents of the application's
     temporary directory is deleted when the application ends.
+
 -   When using `destinationType.NATIVE_URI` and `sourceType.CAMERA`,
     photos are saved in the saved photo album regardless on the value of
     `saveToPhotoAlbum` parameter.
+
 -   When using `destinationType.NATIVE_URI` and
     `sourceType.PHOTOLIBRARY` or `sourceType.SAVEDPHOTOALBUM`, all
     editing options are ignored and link is returned to original
     picture.
 
-Sample: Take Pictures, Select Pictures from the Picture Library, and Get Thumbnails
+Samples
 -----------------------------------------------------------------------------------
 
 The Camera plugin allows you to do things like open the device's Camera
