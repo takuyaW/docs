@@ -1,26 +1,23 @@
-メディア操作 プラグイン
-=======================
+---
+title: メディア操作 プラグイン
+weight: 150
+---
 
 テスト環境 ( バージョン番号 ) :
 [2.3.0](https://github.com/apache/cordova-plugin-media/releases/tag/2.3.0)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-media) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-media">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、オーディオファイルの再生と録音を行います。
 
-<div class="admonition note">
-
+{{<note>}}
 現在の実装方式は、W3C の仕様 ( メディアキャプチャーに関して )
 に準拠しておらず、利便上提供しているものです。リリース予定の次期の実装方式では、最新の
 W3C の仕様に準拠する予定です。また、その場合には、現在の API
 を廃止することもあります。
-
-</div>
+{{</note>}}
 
 このプラグインでは、グローバルなコンストラクタ 「 `Media` 」
 を使用します。
@@ -28,21 +25,25 @@ W3C の仕様に準拠する予定です。また、その場合には、現在�
 グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(Media);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(Media);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-media
+{{<highlight javascript>}}
+cordova-plugin-media
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`Media` プラグインを 有効 &lt;add\_plugins&gt;
+プラグインの管理 \] 上で、`Media` プラグインを [有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}})
 にします。
 
 サポート対象のプラットフォーム
@@ -57,7 +58,9 @@ API の解説
 
 ### Media
 
-    var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+{{<highlight javascript>}}
+var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -71,15 +74,12 @@ API の解説
     ステータスが変化したことを示すときに使用されるコールバック
     *(Function)*
 
-<div class="admonition note">
-
-`src` パラメーターには、`cdvfile` パスを使用できます。
-
-``` {.sourceCode .javascript}
+{{<note>}}
+<code>src</code> パラメーターには、<code>cdvfile</code> パスを使用できます。
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
-```
-
-</div>
+{{</highlight>}}
+{{</note>}}
 
 #### 定数
 
@@ -110,8 +110,7 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 -   **position**: オーディオの再生位置 ( 秒単位 )
 
-> -   再生中、自動的には値を更新しないので、`getCurrentPosition`
->     メソッドを呼び、値を更新します。
+    -   再生中、自動的には値を更新しないので、`getCurrentPosition` メソッドを呼び、値を更新します。
 
 -   **duration**: メディアの再生時間 ( 秒単位 )
 
@@ -119,7 +118,9 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 録音している音の振幅 ( amplitude ) を返します。
 
-    media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+{{<highlight javascript>}}
+media.getCurrentAmplitude(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -134,33 +135,37 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 #### 例
 
-    // Audio player
-    //
-    var my_media = new Media(src, onSuccess, onError);
+{{<highlight javascript>}}
+// Audio player
+//
+var my_media = new Media(src, onSuccess, onError);
 
-    // Record audio
-    my_media.startRecord();
+// Record audio
+my_media.startRecord();
 
-    mediaTimer = setInterval(function () {
-        // get media amplitude
-        my_media.getCurrentAmplitude(
-            // success callback
-            function (amp) {
-                console.log(amp + "%");
-            },
-            // error callback
-            function (e) {
-                console.log("Error getting amp=" + e);
-            }
-        );
-    }, 1000);
+mediaTimer = setInterval(function () {
+    // get media amplitude
+    my_media.getCurrentAmplitude(
+        // success callback
+        function (amp) {
+            console.log(amp + "%");
+        },
+        // error callback
+        function (e) {
+            console.log("Error getting amp=" + e);
+        }
+    );
+}, 1000);
+{{</highlight>}}
 
 ### media.getCurrentPosition
 
 オーディオファイル内の現在の再生位置を返します。また、`Media`
 オブジェクト内の `position` パラメーターを更新します。
 
-    media.getCurrentPosition(mediaSuccess, [mediaError]);
+{{<highlight javascript>}}
+media.getCurrentPosition(mediaSuccess, [mediaError]);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -170,87 +175,99 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 #### 例
 
-    // Audio player
-    //
-    var my_media = new Media(src, onSuccess, onError);
+{{<highlight javascript>}}
+// Audio player
+//
+var my_media = new Media(src, onSuccess, onError);
 
-    // Update media position every second
-    var mediaTimer = setInterval(function () {
-        // get media position
-        my_media.getCurrentPosition(
-            // success callback
-            function (position) {
-                if (position > -1) {
-                    console.log((position) + " sec");
-                }
-            },
-            // error callback
-            function (e) {
-                console.log("Error getting pos=" + e);
+// Update media position every second
+var mediaTimer = setInterval(function () {
+    // get media position
+    my_media.getCurrentPosition(
+        // success callback
+        function (position) {
+            if (position > -1) {
+                console.log((position) + " sec");
             }
-        );
-    }, 1000);
+        },
+        // error callback
+        function (e) {
+            console.log("Error getting pos=" + e);
+        }
+    );
+}, 1000);
+{{</highlight>}}
 
 ### media.getDuration
 
 オーディオファイルの再生時間を、秒単位で返します。再生時間が不明の場合には、「
 -1 」 の値を返します。
 
-    media.getDuration();
+{{<highlight javascript>}}
+media.getDuration();
+{{</highlight>}}
 
 #### 例
 
-    // Audio player
-    //
-    var my_media = new Media(src, onSuccess, onError);
+{{<highlight javascript>}}
+// Audio player
+//
+var my_media = new Media(src, onSuccess, onError);
 
-    // Get duration
-    var counter = 0;
-    var timerDur = setInterval(function() {
-        counter = counter + 100;
-        if (counter > 2000) {
-            clearInterval(timerDur);
-        }
-        var dur = my_media.getDuration();
-        if (dur > 0) {
-            clearInterval(timerDur);
-            document.getElementById('audio_duration').innerHTML = (dur) + " sec";
-        }
-    }, 100);
+// Get duration
+var counter = 0;
+var timerDur = setInterval(function() {
+    counter = counter + 100;
+    if (counter > 2000) {
+        clearInterval(timerDur);
+    }
+    var dur = my_media.getDuration();
+    if (dur > 0) {
+        clearInterval(timerDur);
+        document.getElementById('audio_duration').innerHTML = (dur) + " sec";
+    }
+}, 100);
+{{</highlight>}}
 
 ### media.pause
 
 オーディオファイルの再生を一時停止します。
 
-    media.pause();
+{{<highlight javascript>}}
+media.pause();
+{{</highlight>}}
 
 #### 例
 
+{{<highlight javascript>}}
+// Play audio
+//
+function playAudio(url) {
+    // Play the audio file at url
+    var my_media = new Media(url,
+        // success callback
+        function () { console.log("playAudio():Audio Success"); },
+        // error callback
+        function (err) { console.log("playAudio():Audio Error: " + err); }
+    );
+
     // Play audio
-    //
-    function playAudio(url) {
-        // Play the audio file at url
-        var my_media = new Media(url,
-            // success callback
-            function () { console.log("playAudio():Audio Success"); },
-            // error callback
-            function (err) { console.log("playAudio():Audio Error: " + err); }
-        );
+    my_media.play();
 
-        // Play audio
-        my_media.play();
-
-        // Pause after 10 seconds
-        setTimeout(function () {
-            media.pause();
-        }, 10000);
-    }
+    // Pause after 10 seconds
+    setTimeout(function () {
+        media.pause();
+    }, 10000);
+}
+{{</highlight>}}
 
 ### media.pauseRecord
 
 オーディオファイルの録音を一時停止します。
 
-    media.pauseRecord();
+{{<highlight javascript>}}
+media.pauseRecord();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -258,85 +275,91 @@ var my_media = new Media('cdvfile://localhost/temporary/recording.mp3', ...);
 
 #### 例
 
+{{<highlight javascript>}}
+// Record audio
+//
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+        },
+
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        });
+
     // Record audio
-    //
-    function recordAudio() {
-        var src = "myrecording.mp3";
-        var mediaRec = new Media(src,
-            // success callback
-            function() {
-                console.log("recordAudio():Audio Success");
-            },
+    mediaRec.startRecord();
 
-            // error callback
-            function(err) {
-                console.log("recordAudio():Audio Error: "+ err.code);
-            });
-
-        // Record audio
-        mediaRec.startRecord();
-
-        // Pause Recording after 5 seconds
-        setTimeout(function() {
-            my_media.pauseRecord();
-        }, 5000);
-    }
+    // Pause Recording after 5 seconds
+    setTimeout(function() {
+        my_media.pauseRecord();
+    }, 5000);
+}
+{{</highlight>}}
 
 ### media.play
 
 オーディオファイルの再生を、開始または再開します。
 
-    media.play();
+{{<highlight javascript>}}
+media.play();
+{{</highlight>}}
 
 #### 例
 
+{{<highlight javascript>}}
+// Play audio
+//
+function playAudio(url) {
+    // Play the audio file at url
+    var my_media = new Media(url,
+        // success callback
+        function () {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function (err) {
+            console.log("playAudio():Audio Error: " + err);
+        }
+    );
     // Play audio
-    //
-    function playAudio(url) {
-        // Play the audio file at url
-        var my_media = new Media(url,
-            // success callback
-            function () {
-                console.log("playAudio():Audio Success");
-            },
-            // error callback
-            function (err) {
-                console.log("playAudio():Audio Error: " + err);
-            }
-        );
-        // Play audio
-        my_media.play();
-    }
+    my_media.play();
+}
+{{</highlight>}}
 
 #### iOS 特有の動作
 
 -   **numberOfLoops**: このオプションを `play`
     メソッドに渡して、メディアファイルの再生回数を指定します。次に例を示します。
 
-<!-- -->
-
-    var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
-    myMedia.play({ numberOfLoops: 2 })
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
+myMedia.play({ numberOfLoops: 2 })
+{{</highlight>}}
 
 -   **playAudioWhenScreenIsLocked**: このオプションを `play`
     メソッドに渡して、画面にロックがかかった状態でも、再生を続行するか指定します。
     `true` ( デフォルトはこちら )
     に設定した場合、ハードウェア側のミュートボタンの設定を無視します。次に例を示します。
 
-<!-- -->
-
-    var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
-    myMedia.play({ playAudioWhenScreenIsLocked : false })
+    {{<highlight javascript>}}
+var myMedia = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3")
+myMedia.play({ playAudioWhenScreenIsLocked : false })
+{{</highlight>}}
 
 -   **ファイルの検索順序**: ファイル名のみまたは不完全なパス ( simple
     path ) を指定している場合、iOS では、最初に、`www`
     ディレクトリー内を検索して、見つからなければ、次に、アプリの
     `documents/tmp` ディレクトリーを検索します。
 
-<!-- -->
-
-    var myMedia = new Media("audio/beer.mp3")
-    myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3
+    {{<highlight javascript>}}
+var myMedia = new Media("audio/beer.mp3")
+myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3
+{{</highlight>}}
 
 ### media.release
 
@@ -347,23 +370,29 @@ OpenCore
 リソースが不要になった場合には、`release`
 メソッドを都度呼び出すことを推奨します。
 
-    media.release();
+{{<highlight javascript>}}
+media.release();
+{{</highlight>}}
 
 #### 例
 
-    // Audio player
-    //
-    var my_media = new Media(src, onSuccess, onError);
+{{<highlight javascript>}}
+// Audio player
+//
+var my_media = new Media(src, onSuccess, onError);
 
-    my_media.play();
-    my_media.stop();
-    my_media.release();
+my_media.play();
+my_media.stop();
+my_media.release();
+{{</highlight>}}
 
 ### media.resumeRecord
 
 オーディオファイルの録音を再開します。
 
-    media.resumeRecord();
+{{<highlight javascript>}}
+media.resumeRecord();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -371,40 +400,44 @@ OpenCore
 
 #### 例
 
+{{<highlight javascript>}}
+// Record audio
+//
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+        },
+
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        });
+
     // Record audio
-    //
-    function recordAudio() {
-        var src = "myrecording.mp3";
-        var mediaRec = new Media(src,
-            // success callback
-            function() {
-                console.log("recordAudio():Audio Success");
-            },
+    mediaRec.startRecord();
 
-            // error callback
-            function(err) {
-                console.log("recordAudio():Audio Error: "+ err.code);
-            });
+    // Pause Recording after 5 seconds
+    setTimeout(function() {
+        my_media.pauseRecord();
+    }, 5000);
 
-        // Record audio
-        mediaRec.startRecord();
-
-        // Pause Recording after 5 seconds
-        setTimeout(function() {
-            my_media.pauseRecord();
-        }, 5000);
-
-        // Resume Recording after 10 seconds
-        setTimeout(function() {
-            my_media.resumeRecord();
-        }, 10000);
-    }
+    // Resume Recording after 10 seconds
+    setTimeout(function() {
+        my_media.resumeRecord();
+    }, 10000);
+}
+{{</highlight>}}
 
 ### media.seekTo
 
 オーディオファイルの再生位置を指定します。
 
-    media.seekTo(milliseconds);
+{{<highlight javascript>}}
+media.seekTo(milliseconds);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -412,20 +445,24 @@ OpenCore
 
 #### 例
 
-    // Audio player
-    //
-    var my_media = new Media(src, onSuccess, onError);
-        my_media.play();
-    // SeekTo to 10 seconds after 5 seconds
-    setTimeout(function() {
-        my_media.seekTo(10000);
-    }, 5000);
+{{<highlight javascript>}}
+// Audio player
+//
+var my_media = new Media(src, onSuccess, onError);
+    my_media.play();
+// SeekTo to 10 seconds after 5 seconds
+setTimeout(function() {
+    my_media.seekTo(10000);
+}, 5000);
+{{</highlight>}}
 
 ### media.setVolume
 
 オーディオファイルの音量を指定します。
 
-    media.setVolume(volume);
+{{<highlight javascript>}}
+media.setVolume(volume);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -439,39 +476,43 @@ OpenCore
 
 #### 例
 
+{{<highlight javascript>}}
+// Play audio
+//
+function playAudio(url) {
+    // Play the audio file at url
+    var my_media = new Media(url,
+        // success callback
+        function() {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function(err) {
+            console.log("playAudio():Audio Error: "+err);
+    });
+
     // Play audio
-    //
-    function playAudio(url) {
-        // Play the audio file at url
-        var my_media = new Media(url,
-            // success callback
-            function() {
-                console.log("playAudio():Audio Success");
-            },
-            // error callback
-            function(err) {
-                console.log("playAudio():Audio Error: "+err);
-        });
+    my_media.play();
 
-        // Play audio
-        my_media.play();
+    // Mute volume after 2 seconds
+    setTimeout(function() {
+        my_media.setVolume('0.0');
+    }, 2000);
 
-        // Mute volume after 2 seconds
-        setTimeout(function() {
-            my_media.setVolume('0.0');
-        }, 2000);
-
-        // Set volume to 1.0 after 5 seconds
-        setTimeout(function() {
-            my_media.setVolume('1.0');
-        }, 5000);
-    }
+    // Set volume to 1.0 after 5 seconds
+    setTimeout(function() {
+        my_media.setVolume('1.0');
+    }, 5000);
+}
+{{</highlight>}}
 
 ### media.startRecord
 
 オーディオファイルの録音を開始します。
 
-    media.startRecord();
+{{<highlight javascript>}}
+media.startRecord();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -481,24 +522,26 @@ OpenCore
 
 #### 例
 
+{{<highlight javascript>}}
+// Record audio
+//
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+        },
+
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        });
+
     // Record audio
-    //
-    function recordAudio() {
-        var src = "myrecording.mp3";
-        var mediaRec = new Media(src,
-            // success callback
-            function() {
-                console.log("recordAudio():Audio Success");
-            },
-
-            // error callback
-            function(err) {
-                console.log("recordAudio():Audio Error: "+ err.code);
-            });
-
-        // Record audio
-        mediaRec.startRecord();
-    }
+    mediaRec.startRecord();
+}
+{{</highlight>}}
 
 #### Android 特有の動作
 
@@ -523,9 +566,7 @@ OpenCore
 -   「 documents:// 」 形式の URI
     を使用して、ファイルを録音・再生できます。
 
-<!-- -->
-
-    var myMedia = new Media("documents://beer.mp3")
+    {{<highlight javascript>}} var myMedia = new Media("documents://beer.mp3"){{</highlight>}}
 
 #### Windows 特有の動作
 
@@ -546,39 +587,45 @@ OpenCore
 
 オーディオファイルの再生を停止します。
 
-    media.stop();
+{{<highlight javascript>}}
+media.stop();
+{{</highlight>}}
 
 #### 例
 
+{{<highlight javascript>}}
+// Play audio
+//
+function playAudio(url) {
+    // Play the audio file at url
+    var my_media = new Media(url,
+        // success callback
+        function() {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function(err) {
+            console.log("playAudio():Audio Error: "+err);
+        }
+    );
+
     // Play audio
-    //
-    function playAudio(url) {
-        // Play the audio file at url
-        var my_media = new Media(url,
-            // success callback
-            function() {
-                console.log("playAudio():Audio Success");
-            },
-            // error callback
-            function(err) {
-                console.log("playAudio():Audio Error: "+err);
-            }
-        );
+    my_media.play();
 
-        // Play audio
-        my_media.play();
-
-        // Pause after 10 seconds
-        setTimeout(function() {
-            my_media.stop();
-        }, 10000);
-    }
+    // Pause after 10 seconds
+    setTimeout(function() {
+        my_media.stop();
+    }, 10000);
+}
+{{</highlight>}}
 
 ### media.stopRecord
 
 オーディオファイルの録音を停止します。
 
-    media.stopRecord();
+{{<highlight javascript>}}
+media.stopRecord();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -588,30 +635,32 @@ OpenCore
 
 #### 例
 
+{{<highlight javascript>}}
+// Record audio
+//
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+        },
+
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        }
+    );
+
     // Record audio
-    //
-    function recordAudio() {
-        var src = "myrecording.mp3";
-        var mediaRec = new Media(src,
-            // success callback
-            function() {
-                console.log("recordAudio():Audio Success");
-            },
+    mediaRec.startRecord();
 
-            // error callback
-            function(err) {
-                console.log("recordAudio():Audio Error: "+ err.code);
-            }
-        );
-
-        // Record audio
-        mediaRec.startRecord();
-
-        // Stop recording after 10 seconds
-        setTimeout(function() {
-            mediaRec.stopRecord();
-        }, 10000);
-    }
+    // Stop recording after 10 seconds
+    setTimeout(function() {
+        mediaRec.stopRecord();
+    }, 10000);
+}
+{{</highlight>}}
 
 ### MediaError
 

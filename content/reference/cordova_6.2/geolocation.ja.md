@@ -1,16 +1,14 @@
-位置情報の取得 プラグイン
-=========================
+---
+title: 位置情報の取得 プラグイン
+weight: 120
+---
 
 テスト環境 ( バージョン番号 ) :
 [2.2.0](https://github.com/apache/cordova-plugin-geolocation/releases/tag/2.2.0)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-geolocation)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-geolocation">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、端末の位置情報 ( 緯度・経度 )
 を取得します。情報元として、GPS ( Global Positioning System )
@@ -18,23 +16,16 @@
 アドレス、GSM/CDMA 基地局 ID など ) を使用します。なお、この API
 が返す結果が、端末の正しい位置を示す保証はありません。
 
-この API は [W3C Geolocation API の仕様 ( 外部サイト
-)](http://dev.w3.org/geo/api/spec-source.html)
+この API は [W3C Geolocation API の仕様 ( 外部サイト )](http://dev.w3.org/geo/api/spec-source.html)
 に準拠しています。位置情報の取得を行っていない端末上で、この API
 を使用することになります。
 
-<div class="admonition warning">
-
+{{<warning>}}
 位置情報に関するデータの取得・利用には、個人情報保護の観点から、細心の注意が必要です。位置情報に関するデータの取り扱い方法、第三者への情報提供およびデータの精度
 ( 大雑把な位置、詳細な位置、郵便番号枠レベルの位置など )
 に関しては、アプリの個人情報の取り扱いに関するポリシーの中で議論されるべき問題です。個人情報の中でも位置情報は、個人の居場所の特定および移動記録として利用でき、その取り扱いには注意が求められます。そのため、アプリのプライバシーに関するポリシーの策定に加え、アプリが位置情報にアクセスまたは利用する場合には、事前にユーザーへの通知および許諾を得る必要があります。端末のオペレーティングシステム側でこの通知および許諾の要請を行ってない場合には、開発者側で対応する必要があります。また、ユーザーへの通知および許諾の要請を行う場合には、必ず、個人情報の取り扱いに関するポリシーの開示および使用方法・収集レベルに関する同意の意思表示を求める必要があります
-( **許可する**、または、\**許可しない*\*
-のように、明示的に判断できる必要があります ) 。詳細は、[『
-プライバシーに関する注意点 』 ( Apache Cordova のドキュメント
-)](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html)
-をご確認ください。
-
-</div>
+( <b>許可する</b>、または、<b>許可しない</b> のように、明示的に判断できる必要があります ) 。詳細は、 {{<link href="http://cordova.apache.org/docs/ja/latest/guide/appdev/privacy/index.html" title="『 プライバシーに関する注意点 』 ( Apache Cordova のドキュメント )">}} をご確認ください。
+{{</warning>}}
 
 このプラグインでは、グローバルオブジェクト 「 `navigator.geolocation` 」
 を使用します ( 対象のプラットフォーム上で、同等のオブジェクトがない場合
@@ -44,22 +35,26 @@
 に属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("navigator.geolocation works well");
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log("navigator.geolocation works well");
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-geolocation
+{{<highlight javascript>}}
+cordova-plugin-geolocation
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Geolocation` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -90,9 +85,11 @@ API の解説
 `PositionError` オブジェクトが `geolocationError`
 コールバックに渡されます。
 
-    navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                             [geolocationError],
-                                             [geolocationOptions]);
+{{<highlight javascript>}}
+navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                            [geolocationError],
+                                            [geolocationOptions]);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -103,29 +100,31 @@ API の解説
 
 #### 例
 
-    // onSuccess Callback
-    // This method accepts a Position object, which contains the
-    // current GPS coordinates
-    //
-    var onSuccess = function(position) {
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');
-    };
+{{<highlight javascript>}}
+// onSuccess Callback
+// This method accepts a Position object, which contains the
+// current GPS coordinates
+//
+var onSuccess = function(position) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+            'Longitude: '         + position.coords.longitude         + '\n' +
+            'Altitude: '          + position.coords.altitude          + '\n' +
+            'Accuracy: '          + position.coords.accuracy          + '\n' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+            'Heading: '           + position.coords.heading           + '\n' +
+            'Speed: '             + position.coords.speed             + '\n' +
+            'Timestamp: '         + position.timestamp                + '\n');
+};
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+}
 
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+{{</highlight>}}
 
 #### Android 特有の動作
 
@@ -142,9 +141,11 @@ API の解説
 オブジェクトを引数として使用し、 `geolocationError`
 コールバックが実行されます。
 
-    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                      [geolocationError],
-                                                      [geolocationOptions]);
+{{<highlight javascript>}}
+var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
+                                                    [geolocationError],
+                                                    [geolocationOptions]);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -162,34 +163,38 @@ API の解説
 
 #### 例
 
-    // onSuccess Callback
-    //   This method accepts a `Position` object, which contains
-    //   the current GPS coordinates
-    //
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
-    }
+{{<highlight javascript>}}
+// onSuccess Callback
+//   This method accepts a `Position` object, which contains
+//   the current GPS coordinates
+//
+function onSuccess(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                        'Longitude: ' + position.coords.longitude     + '<br />' +
+                        '<hr />'      + element.innerHTML;
+}
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+}
 
-    // オプション: throw an error if no update is received every 30 seconds.
-    //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+// オプション: throw an error if no update is received every 30 seconds.
+//
+var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+{{</highlight>}}
 
 ### geolocationオプション
 
 `Position` の 「 取得 」
 処理をカスタマイズするための任意のパラメーターです。
 
-    { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+{{<highlight javascript>}}
+{ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+{{</highlight>}}
 
 #### オプション
 
@@ -221,7 +226,9 @@ API の解説
 
 `watchID` パラメーターを使用して、端末の現在位置の監視を停止します。
 
-    navigator.geolocation.clearWatch(watchID);
+{{<highlight javascript>}}
+navigator.geolocation.clearWatch(watchID);
+{{</highlight>}}
 
 #### パラメーター
 
@@ -230,14 +237,16 @@ API の解説
 
 #### 例
 
-    // Options: watch for changes in position, and use the most
-    // accurate position acquisition method available.
-    //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+{{<highlight javascript>}}
+// Options: watch for changes in position, and use the most
+// accurate position acquisition method available.
+//
+var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
 
-    // ...later on...
+// ...later on...
 
-    navigator.geolocation.clearWatch(watchID);
+navigator.geolocation.clearWatch(watchID);
+{{</highlight>}}
 
 ### Position
 
@@ -287,21 +296,9 @@ navigator.geolocation でエラーが起きた場合、`PositionError`
 
 #### 定数
 
--   `PositionError.PERMISSION_DENIED`
+-   `PositionError.PERMISSION_DENIED`: アプリによる位置情報の取得をユーザーが許可しなかった場合、このコードを返します。プラットフォームにより、動作が異なります。
 
-> -   アプリによる位置情報の取得をユーザーが許可しなかった場合、このコードを返します。
->     プラットフォームにより、動作が異なります。
+-   `PositionError.POSITION_UNAVAILABLE`: 位置情報の取得を行えない場合、このコードを返します。一般的には、ネットワークに接続していない場合または衛星の「 Fix 」 が得られない場合が考えられます。
 
--   `PositionError.POSITION_UNAVAILABLE`
-
-> -   位置情報の取得を行えない場合、このコードを返します。一般的には、ネットワークに接続していない場合または衛星の
->     「 Fix 」 が得られない場合が考えられます。
-
--   `PositionError.TIMEOUT`
-
-> -   `geolocationOptions` の `timeout`
->     で指定した時間内に、位置情報を取得できない場合、このコードを返します。`navigator.geolocation.watchPosition`
->     と共に使用した場合、`timeout`
->     で指定した時間になる度に、`geolocationError`
->     コールバックに、このエラーコードが渡されることになります。
+-   `PositionError.TIMEOUT`: `geolocationOptions` の `timeout` で指定した時間内に、位置情報を取得できない場合、このコードを返します。`navigator.geolocation.watchPosition` と共に使用した場合、`timeout` で指定した時間になる度に、`geolocationError` コールバックに、このエラーコードが渡されることになります。
 

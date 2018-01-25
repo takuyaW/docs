@@ -1,33 +1,32 @@
-ネットワーク情報の取得 プラグイン
-=================================
+---
+title: ネットワーク情報の取得 プラグイン
+weight: 170
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.2.1](https://github.com/apache/cordova-plugin-network-information/releases/tag/1.2.1)
 
-<div class="admonition note">
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-network-information">}} をご確認ください。
+{{</note>}}
 
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-network-information)
-をご確認ください。
-
-</div>
-
-このプラグインでは、旧バージョンの [Network Information
-API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
+このプラグインでは、旧バージョンの [Network Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)
 が使用されています。このプラグインを使用すれば、セルラー ( Cellular )
 情報、WiFi 接続情報などのインターネット接続情報を取得できます。
 
 プラグイン ID
 -------------
 
-    cordova-plugin-network-information
+{{<highlight javascript>}}
+cordova-plugin-network-information
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Network Information` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -64,23 +63,25 @@ API の解説
 
 #### 例
 
-    function checkConnection() {
-        var networkState = navigator.connection.type;
+{{<highlight javascript>}}
+function checkConnection() {
+    var networkState = navigator.connection.type;
 
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.CELL]     = 'Cell generic connection';
-        states[Connection.NONE]     = 'No network connection';
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
-    }
+    alert('Connection type: ' + states[networkState]);
+}
 
-    checkConnection();
+checkConnection();
+{{</highlight>}}
 
 #### API の変更点
 
@@ -93,9 +94,7 @@ Cordova 2.3.0 までは、`navigator.network.connection` 経由で `Connection`
 
 -   iOS では、セルラー接続のタイプを識別できません。
 
-> -   モバイルデータ通信 ( セルラーを使用したデータ通信 )
->     に関しては、`navigator.connection.type` は `Connection.CELL`
->     になります。
+-   モバイルデータ通信 ( セルラーを使用したデータ通信 ) に関しては、`navigator.connection.type` は `Connection.CELL` になります。
 
 #### Windows 特有の動作
 
@@ -110,7 +109,9 @@ Cordova 2.3.0 までは、`navigator.network.connection` 経由で `Connection`
 
 アプリがオフラインになったときに、このイベントが発火します。端末は、インターネットに接続されていません。
 
-    document.addEventListener("offline", yourCallbackFunction, false);
+{{<highlight javascript>}}
+document.addEventListener("offline", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### 詳細
 
@@ -127,11 +128,13 @@ API と同じ情報を使用します。
 
 #### 例
 
-    document.addEventListener("offline", onOffline, false);
+{{<highlight javascript>}}
+document.addEventListener("offline", onOffline, false);
 
-    function onOffline() {
-        // Handle the offline event
-    }
+function onOffline() {
+    // Handle the offline event
+}
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -142,7 +145,9 @@ API と同じ情報を使用します。
 
 アプリがオンラインになったときに、このイベントが発火します。端末は、インターネットに接続されています。
 
-    document.addEventListener("online", yourCallbackFunction, false);
+{{<highlight javascript>}}
+document.addEventListener("online", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### 詳細
 
@@ -158,11 +163,13 @@ API と同じ情報を使用します。
 
 #### 例
 
-    document.addEventListener("online", onOnline, false);
+{{<highlight javascript>}}
+document.addEventListener("online", onOnline, false);
 
-    function onOnline() {
-        // Handle the online event
-    }
+function onOnline() {
+    // Handle the online event
+}
+{{</highlight>}}
 
 #### iOS 特有の動作
 

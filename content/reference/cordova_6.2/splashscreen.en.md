@@ -1,5 +1,6 @@
 ---
 title: Splashscreen Plugin
+weight: 180
 ---
 
 Tested Version:
@@ -15,12 +16,14 @@ launch.
 Plugin ID
 ---------
 
-    cordova-plugin-splashscreen
+{{<highlight javascript>}}
+cordova-plugin-splashscreen
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Splashscreen` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -42,42 +45,35 @@ API Reference
     after amount of time specified in the `SplashScreenDelay`
     preference.
 
->     <preference name="AutoHideSplashScreen" value="true" />
+    {{<highlight javascript>}}<preference name="AutoHideSplashScreen" value="true" />{{</highlight>}}
 
 -   `SplashScreenDelay` (number, default to 3000). Amount of time in
     milliseconds to wait before automatically hide splash screen.
 
->     <preference name="SplashScreenDelay" value="3000" />
+    {{<highlight javascript>}}<preference name="SplashScreenDelay" value="3000" />{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 also that this value used to be seconds, and not milliseconds, so values
 less than 30 will still be treated as seconds. ( Consider this a
 deprecated patch that will disapear in some future version. )
-
-</div>
+{{</note>}}
 
 #### iOS Quirks
 
 to disable the splashscreen on `ios` platform you should also add
-`<preference name="FadeSplashScreenDuration" value="0"/>` to
-`config.xml`.
+`<preference name="FadeSplashScreenDuration" value="0"/>` to `config.xml`.
 
 -   `FadeSplashScreen` (boolean, defaults to `true`): Set to `false` to
     prevent the splash screen from fading in and out when its display
     state changes.
 
-<!-- -->
-
-    <preference name="FadeSplashScreen" value="false"/>
+    {{<highlight javascript>}}<preference name="FadeSplashScreen" value="false"/>{{</highlight>}}
 
 -   `FadeSplashScreenDuration` (float, defaults to `3000`): Specifies
     the number of milliseconds for the splash screen fade effect to
     execute.
 
-<!-- -->
-
-    <preference name="FadeSplashScreenDuration" value="3000"/>
+    {{<highlight javascript>}}<preference name="FadeSplashScreenDuration" value="3000"/>{{</highlight>}}
 
 `FadeSplashScreenDuration` is included into `SplashScreenDelay`, for
 example if you have the following configuration defined in in the `config.xml` file:
@@ -98,40 +94,39 @@ Turning the fading off via
 fading duration to be `0` so that in this example the overall splash
 delay will still be 3 seconds.
 
-<div class="admonition note">
-
+{{<note>}}
 This only applies to the app startup - you need to take the fading
 timeout into account when manually showing/hiding the splashscreen in
 the code:
+{{</note>}}
 
-</div>
-
-    navigator.splashscreen.show();
-    window.setTimeout(function () {
-        navigator.splashscreen.hide();
-    }, splashDuration - fadeDuration);
+{{<highlight javascript>}}
+navigator.splashscreen.show();
+window.setTimeout(function () {
+    navigator.splashscreen.hide();
+}, splashDuration - fadeDuration);
+{{</highlight>}}
 
 -   `ShowSplashScreenSpinner` (boolean, defaults to `true`): Set to
     false to hide the splash-screen spinner.
 
-<!-- -->
-
-    <preference name="ShowSplashScreenSpinner" value="false"/>
+    {{<highlight javascript>}}<preference name="ShowSplashScreenSpinner" value="false"/>{{</highlight>}}
 
 #### Android Quirks
 
 In your `config.xml`, you need to add the following preferences:
 
-    <preference name="SplashScreen" value="foo" />
-    <preference name="SplashScreenDelay" value="3000" />
-    <preference name="SplashMaintainAspectRatio" value="true|false" />
+{{<highlight javascript>}}
+<preference name="SplashScreen" value="foo" />
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="SplashMaintainAspectRatio" value="true|false" />
+{{</highlight>}}
 
 Where foo is the name of the splashscreen file, preferably a 9 patch
 file. Make sure to add your splashcreen files to your res/xml directory
 under the appropriate folders. The second parameter represents how long
 the splashscreen will appear in milliseconds. It defaults to 3000 ms.
-See [Icons and Splash
-Screens](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)
+See [Icons and Splash Screens](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)
 for more information.
 
 `SplashMaintainAspectRatio` preference is optional. If set to true,
@@ -155,18 +150,18 @@ are mandatory on iOS.
 -   `SplashScreenSpinnerColor` (string, defaults to system accent
     color): hash, rgb notation or CSS color name.
 
-<!-- -->
-
-    <preference name="SplashScreenSpinnerColor" value="#242424"/>
-    <preference name="SplashScreenSpinnerColor" value="DarkRed"/>
-    <preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>
+    {{<highlight javascript>}}
+<preference name="SplashScreenSpinnerColor" value="#242424"/>
+<preference name="SplashScreenSpinnerColor" value="DarkRed"/>
+<preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>
+{{</highlight>}}
 
 -   SplashScreenBackgroundColor (string, defaults to \#464646): hex
     notation.
 
-<!-- -->
-
-    <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
+    {{<highlight javascript>}}
+<preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
+{{</highlight>}}
 
 ### Methods
 
@@ -177,13 +172,17 @@ are mandatory on iOS.
 
 Dismiss the splash screen.
 
-    navigator.splashscreen.hide();
+{{<highlight javascript>}}
+navigator.splashscreen.hide();
+{{</highlight>}}
 
 ### splashscreen.show
 
 Displays the splash screen.
 
-    navigator.splashscreen.show();
+{{<highlight javascript>}}
+navigator.splashscreen.show();
+{{</highlight>}}
 
 Your application cannot call `navigator.splashscreen.show()` until the
 app has started and the `deviceready` event has fired. But since

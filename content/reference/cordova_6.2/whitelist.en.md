@@ -1,5 +1,6 @@
 ---
 title: Whitelist Plugin (Android Only)
+weight: 210
 ---
 
 Tested Version:

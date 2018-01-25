@@ -1,5 +1,6 @@
 ---
 title: File Transfer Plugin
+weight: 110
 ---
 
 Tested Version:
@@ -12,24 +13,27 @@ This document is based on the original Cordova docs available at {{<link title="
 This plugin allows you to upload and download files.
 
 This plugin defines global `FileTransfer`, `FileUploadOptions`
-Constructors. Although in the global scope, they are not available until
+constructors. Although in the global scope, they are not available until
 after the `deviceready` event.
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(FileTransfer);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(FileTransfer);
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-file-transfer
+{{<highlight javascript>}}
+cordova-plugin-file-transfer
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
-`Transfer` plugin in Monaca Cloud IDE.
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) both `File Transfer` and `File` plugins in Monaca Cloud IDE because `File Transfer` plugin is depending on `File` plugin.
 
 Supported Platforms
 -------------------
@@ -41,40 +45,41 @@ Supported Platforms
 API Reference
 -------------
 
-The `FileTransfer` object provides a way to upload files using an HTTP
-multi-part POST or PUT request, and to download files as well.
+### FileTransfer
 
-### Properties
+The `FileTransfer` object provides a way to upload files using an HTTP
+multi-part POST or PUT request, and to download files.
+
+#### Properties
 
 -   **onprogress**: Called with a `ProgressEvent` whenever a new chunk
     of data is transferred. *(Function)*
 
-### Methods
+#### Methods
 
--   **upload**: sends a file to a server.
--   **download**: downloads a file from server.
+-   **upload**: Sends a file to a server.
+-   **download**: Downloads a file from server.
 -   **abort**: Aborts an in-progress transfer.
 
-### upload
+#### upload
 
 **Parameters**:
 
--   **fileURL**: Filesystem URL representing the file on the device. For
+-   **fileURL**: Filesystem URL representing the file on the device or a
+    [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme). For
     backwards compatibility, this can also be the full path of the file
-    on the device. (See [Backwards Compatibility
-    Notes](#backwards-compatibility-notes) below)
+    on the device. (See [Backwards Compatibility Notes](#backwards-compatibility-notes) below)
+
 -   **server**: URL of the server to receive the file, as encoded by
     `encodeURI()`.
+
 -   **successCallback**: A callback that is passed a `FileUploadResult`
     object. *(Function)*
+
 -   **errorCallback**: A callback that executes if an error occurs
     retrieving the `FileUploadResult`. Invoked with a
     `FileTransferError` object. *(Function)*
--   **trustAllHosts**: Optional parameter, defaults to `false`. If set
-    to `true`, it accepts all security certificates. This is useful
-    since Android rejects self-signed security certificates. Not
-    recommended for production use. Supported on Android and iOS.
-    *(boolean)*
+
 -   **options**: Optional parameters *(Object)*. Valid keys:
 
     Key | Description
@@ -86,103 +91,81 @@ multi-part POST or PUT request, and to download files as well.
     `params` | A set of optional key/value pairs to pass in the HTTP request. (Object)
     `chunkedMode` | Whether to upload the data in chunked streaming mode. Defaults to true. (Boolean)
     `headers` | A map of header name/header values. Use an array to specify more than one value. On iOS, FireOS, and Android, if a header named Content-Type is present, multipart form data will NOT be used. (Object)
+    
+    
+-   **trustAllHosts**: [Optional] defaults to `false`. If set to `true`, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS. *(boolean)*
 
-#### Example
+##### Example
 
-    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/file.txt
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a text file on the device,
+//    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-    var win = function (r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
+var win = function (r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+var fail = function (error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+
+var options = new FileUploadOptions();
+options.fileKey = "file";
+options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+options.mimeType = "text/plain";
+
+var params = {};
+params.value1 = "test";
+params.value2 = "param";
+
+options.params = params;
+
+var ft = new FileTransfer();
+ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+{{</highlight>}}
+
+##### Example with Upload Headers and Progress Events (Android and iOS only)
+
+{{<highlight javascript>}}
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+function fail(error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+
+var uri = encodeURI("http://some.server.com/upload.php");
+
+var options = new FileUploadOptions();
+options.fileKey="file";
+options.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);
+options.mimeType="text/plain";
+
+var headers={'headerParam':'headerValue'};
+
+options.headers = headers;
+
+var ft = new FileTransfer();
+ft.onprogress = function(progressEvent) {
+    if (progressEvent.lengthComputable) {
+        loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+    } else {
+        loadingStatus.increment();
     }
+};
+ft.upload(fileURL, uri, win, fail, options);
+{{</highlight>}}
 
-    var fail = function (error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
-
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    options.mimeType = "text/plain";
-
-    var params = {};
-    params.value1 = "test";
-    params.value2 = "param";
-
-    options.params = params;
-
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-
-#### Example with Upload Headers and Progress Events (Android and iOS only)
-
-    function win(r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-    }
-
-    function fail(error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
-
-    var uri = encodeURI("http://some.server.com/upload.php");
-
-    var options = new FileUploadOptions();
-    options.fileKey="file";
-    options.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);
-    options.mimeType="text/plain";
-
-    var headers={'headerParam':'headerValue'};
-
-    options.headers = headers;
-
-    var ft = new FileTransfer();
-    ft.onprogress = function(progressEvent) {
-        if (progressEvent.lengthComputable) {
-          loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-        } else {
-          loadingStatus.increment();
-        }
-    };
-    ft.upload(fileURL, uri, win, fail, options);
-
-### FileUploadResult
-
-A `FileUploadResult` object is passed to the success callback of the
-`FileTransfer` object's `upload()` method.
-
-#### Properties
-
--   **bytesSent**: The number of bytes sent to the server as part of the
-    upload. (long)
--   **responseCode**: The HTTP response code returned by the server.
-    (long)
--   **response**: The HTTP response returned by the server. (DOMString)
--   **headers**: The HTTP response headers by the server. (Object)
-
-> -   Currently supported on iOS only.
-
-#### iOS Quirks
-
--   Does not support `responseCode` or `bytesSent`.
--   Does not support uploads of an empty file with *chunkedMode=true*
-    and `multipartMode=false`.
-
-#### Windows Quirks
-
--   An option parameter with empty/null value is excluded in the upload
-    operation due to the Windows API design.
--   *chunkedMode* is not supported and all uploads are set to
-    non-chunked mode.
-
-### download
+#### download
 
 **Parameters**:
 
@@ -205,63 +188,95 @@ A `FileUploadResult` object is passed to the success callback of the
 -   **options**: Optional parameters, currently only supports headers
     (such as Authorization (Basic Authentication), etc).
 
-#### Example
+##### Example
 
-    // !! Assumes variable fileURL contains a valid URL to a path on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/downloads/
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a path on the device,
+//    for example, cdvfile://localhost/persistent/path/to/downloads/
 
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://some.server.com/download.php");
+var fileTransfer = new FileTransfer();
+var uri = encodeURI("http://some.server.com/download.php");
 
-    fileTransfer.download(
-        uri,
-        fileURL,
-        function(entry) {
-            console.log("download complete: " + entry.toURL());
-        },
-        function(error) {
-            console.log("download error source " + error.source);
-            console.log("download error target " + error.target);
-            console.log("upload error code" + error.code);
-        },
-        false,
-        {
-            headers: {
-                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-            }
+fileTransfer.download(
+    uri,
+    fileURL,
+    function(entry) {
+        console.log("download complete: " + entry.toURL());
+    },
+    function(error) {
+        console.log("download error source " + error.source);
+        console.log("download error target " + error.target);
+        console.log("download error code" + error.code);
+    },
+    false,
+    {
+        headers: {
+            "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
         }
-    );
+    }
+);
+{{</highlight>}}
 
-### abort
+#### abort
 
 Aborts an in-progress transfer. The onerror callback is passed a
-FileTransferError object which has an error code of
-FileTransferError.ABORT\_ERR.
+`FileTransferError` object which has an error code of
+`FileTransferError.ABORT_ERR`.
 
-#### Example
+##### Example
 
-    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/file.txt
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a text file on the device,
+//    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-    var win = function(r) {
-        console.log("Should not be called.");
-    }
+var win = function(r) {
+    console.log("Should not be called.");
+}
 
-    var fail = function(error) {
-        // error.code == FileTransferError.ABORT_ERR
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
+var fail = function(error) {
+    // error.code == FileTransferError.ABORT_ERR
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
 
-    var options = new FileUploadOptions();
-    options.fileKey="file";
-    options.fileName="myphoto.jpg";
-    options.mimeType="image/jpeg";
+var options = new FileUploadOptions();
+options.fileKey="file";
+options.fileName="myphoto.jpg";
+options.mimeType="image/jpeg";
 
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-    ft.abort();
+var ft = new FileTransfer();
+ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+ft.abort();
+{{</highlight>}}
+
+### FileUploadResult
+
+A `FileUploadResult` object is passed to the success callback of the
+`FileTransfer` object's `upload()` method.
+
+#### Properties
+
+-   **bytesSent**: The number of bytes sent to the server as part of the
+    upload. (long)
+-   **responseCode**: The HTTP response code returned by the server.
+    (long)
+-   **response**: The HTTP response returned by the server. (DOMString)
+-   **headers**: The HTTP response headers by the server. (Object)
+-   Currently supported on iOS only.
+
+#### iOS Quirks
+
+-   Does not support `responseCode` or `bytesSent`.
+-   Does not support uploads of an empty file with **chunkedMode=true**
+    and `multipartMode=false`.
+
+#### Windows Quirks
+
+-   An option parameter with empty/null value is excluded in the upload
+    operation due to the Windows API design.
+-   **chunkedMode** is not supported and all uploads are set to
+    non-chunked mode.
 
 ### FileTransferError
 
@@ -277,7 +292,7 @@ error occurs.
     when a response code is received from the HTTP connection. (Number)
 -   **body** Response body. This attribute is only available when a
     response is received from the HTTP connection. (String)
--   **exception**: Either e.getMessage or e.toString (String)
+-   **exception**: Either `e.getMessage` or `e.toString` (String)
 
 #### Constants
 
@@ -297,14 +312,17 @@ error occurs.
     [HttpClient](https://msdn.microsoft.com/en-us/library/windows/apps/windows.web.http.httpclient.aspx)
     as a quicker alternative for small downloads.
 
-### Backwards Compatibility Notes
+Backwards Compatibility Notes
+-----------------------------
 
 Previous versions of this plugin would only accept
 device-absolute-file-paths as the source for uploads, or as the target
-for downloads. These paths would typically be of the form
+for downloads. These paths would typically be of the form:
 
-    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
-    /storage/emulated/0/path/to/file                                    (Android)
+{{<highlight bash>}}
+/var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
+/storage/emulated/0/path/to/file                                    (Android)
+{{</highlight>}}
 
 For backwards compatibility, these paths are still accepted, and if your
 application has recorded paths like these in persistent storage, then
@@ -312,18 +330,20 @@ they can continue to be used.
 
 These paths were previously exposed in the `fullPath` property of
 `FileEntry` and `DirectoryEntry` objects returned by the File plugin.
-New versions of the File plugin, however, no longer expose these paths
-to JavaScript.
+New versions of the File plugin however, no longer expose these paths to
+JavaScript.
 
 If you are upgrading to a new (1.0.0 or newer) version of File, and you
 have previously been using `entry.fullPath` as arguments to `download()`
 or `upload()`, then you will need to change your code to use filesystem
 URLs instead.
 
-`FileEntry.toURL()` and `DirectoryEntry.toURL()` return a filesystem
-ofURL of the form
+`FileEntry.toURL()` and `DirectoryEntry.toURL()` return a filesystem URL
+of the form:
 
-    cdvfile://localhost/persistent/path/to/file
+{{<highlight bash>}}
+cdvfile://localhost/persistent/path/to/file
+{{</highlight>}}
 
 which can be used in place of the absolute file path in both
 `download()` and `upload()` methods.
@@ -334,17 +354,17 @@ Sample: Download and Upload Files
 Use the File-Transfer plugin to upload and download files. In these
 examples, we demonstrate several tasks like:
 
--   [Downloading a binary file to the application cache](#binaryFile)
--   [Uploading a file created in your application's root](#uploadFile)
--   [Downloading the uploaded file](#downloadFile)
+-   [Downloading a binary file to the application cache](#download-a-binary-file-to-the-application-cache)
+-   [Uploading a file created in your application's root](#upload-a-file)
+-   [Downloading the uploaded file](#download-the-uploaded-file)
 
 ###  Download a Binary File to the application cache
 
 Use the File plugin with the File-Transfer plugin to provide a target
-for the files that you download (the target must be a FileEntry object).
-Before you download the file, create a DirectoryEntry object by using
+for the files that you download (the target must be a `FileEntry` object).
+Before you download the file, create a `DirectoryEntry` object by using
 `resolveLocalFileSystemURL` and calling `fs.root` in the success
-callback. Use the `getFile` method of DirectoryEntry to create the
+callback. Use the `getFile` method of `DirectoryEntry` to create the
 target file.
 
 {{<highlight javascript>}}
@@ -367,7 +387,7 @@ window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 For persistent storage, pass LocalFileSystem.PERSISTENT to requestFileSystem.
 {{</note>}}
 
-When you have the FileEntry object, download the file using the
+When you have the `FileEntry` object, download the file using the
 `download` method of the FileTransfer object. The 3rd argument to the
 `download` function of FileTransfer is the success callback, which you
 can use to call the app's `readBinaryFile` function. In this code
@@ -593,7 +613,7 @@ function download(fileEntry, uri) {
 }
 {{</highlight>}}
 
-In the readFile function, call the `readAsText` method of the FileReader
+In the `readFile` function, call the `readAsText` method of the `FileReader`
 object.
 
 {{<highlight javascript>}}
@@ -613,3 +633,8 @@ function readFile(fileEntry) {
     }, onErrorReadFile);
 }
 {{</highlight>}}
+
+See Also:
+
+- [Third-party Cordova Plugins](../../third_party_phonegap)
+- [Core Cordova Plugins](../../cordova_6.5)

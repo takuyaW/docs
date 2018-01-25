@@ -1,16 +1,14 @@
-表記の国際化対応 プラグイン
-===========================
+---
+title: 表記の国際化対応 プラグイン
+weight: 130
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.0.3](https://github.com/apache/cordova-plugin-globalization/releases/tag/1.0.3)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-globalization)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-globalization">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、ユーザーのロケール ( locale
 )、言語、タイムゾーン ( timezone )
@@ -29,22 +27,26 @@
 グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.globalization);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.globalization);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-globalization
+{{<highlight javascript>}}
+cordova-plugin-globalization
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Globalization` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 API の解説
 ----------
@@ -72,7 +74,9 @@ API の解説
 
 BCP 47 の言語タグ ( ユーザーが使用する言語設定 ) を取得します。
 
-    navigator.globalization.getPreferredLanguage(successCallback, errorCallback);
+{{<highlight javascript>}}
+navigator.globalization.getPreferredLanguage(successCallback, errorCallback);
+{{</highlight>}}
 
 ##### 解説
 
@@ -103,10 +107,12 @@ BCP-47 に準拠した言語識別用のタグが、`successCallback`
 の場合、次の記述をすれば、ポップアップダイアログ上に、`language: en-US`
 と表示されます。
 
-    navigator.globalization.getPreferredLanguage(
-        function (language) {alert('language: ' + language.value + '\n');},
-        function () {alert('Error getting language\n');}
-    );
+{{<highlight javascript>}}
+navigator.globalization.getPreferredLanguage(
+    function (language) {alert('language: ' + language.value + '\n');},
+    function () {alert('Error getting language\n');}
+);
+{{</highlight>}}
 
 ##### Android 特有の動作
 
@@ -124,7 +130,9 @@ BCP-47 に準拠した言語識別用のタグが、`successCallback`
 
 BCP 47 準拠のタグ ( ユーザーが使用するロケール設定 ) を取得します。
 
-    navigator.globalization.getLocaleName(successCallback, errorCallback);
+{{<highlight javascript>}}
+navigator.globalization.getLocaleName(successCallback, errorCallback);
+{{</highlight>}}
 
 ##### 解説
 
@@ -154,10 +162,12 @@ BCP 47 準拠のタグ ( ユーザーが使用するロケール設定 ) を取�
 の場合、次の記述をすれば、ポップアップダイアログ上に、`locale: en-US`
 と表示されます。
 
-    navigator.globalization.getLocaleName(
-        function (locale) {alert('locale: ' + locale.value + '\n');},
-        function () {alert('Error getting locale\n');}
-    );
+{{<highlight javascript>}}
+navigator.globalization.getLocaleName(
+    function (locale) {alert('locale: ' + locale.value + '\n');},
+    function () {alert('Error getting locale\n');}
+);
+{{</highlight>}}
 
 ##### Android 特有の動作
 
@@ -176,7 +186,9 @@ BCP 47 準拠のタグ ( ユーザーが使用するロケール設定 ) を取�
 
 クライアントのロケールとタイムゾーンに基づき、文字列形式の日付を返します。
 
-    navigator.globalization.dateToString(date, successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.dateToString(date, successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -195,7 +207,9 @@ BCP 47 準拠のタグ ( ユーザーが使用するロケール設定 ) を取�
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {formatLength:'short', selector:'date and time'}
+{{<highlight json>}}
+{formatLength:'short', selector:'date and time'}
+{{</highlight>}}
 
 `options.formatLength` には、`short`、`medium`、`long`、`full`
 のいずれかを設定できます。
@@ -217,12 +231,14 @@ BCP 47 準拠のタグ ( ユーザーが使用するロケール設定 ) を取�
 にはデフォルト値を使用しています。なお、実際に表示される時間は、前述のものとは異なります
 )。
 
-    navigator.globalization.dateToString(
-        new Date(),
-        function (date) { alert('date: ' + date.value + '\n'); },
-        function () { alert('Error getting dateString\n'); },
-        { formatLength: 'short', selector: 'date and time' }
-    );
+{{<highlight javascript>}}
+navigator.globalization.dateToString(
+    new Date(),
+    function (date) { alert('date: ' + date.value + '\n'); },
+    function () { alert('Error getting dateString\n'); },
+    { formatLength: 'short', selector: 'date and time' }
+);
+{{</highlight>}}
 
 ##### Android 特有の動作
 
@@ -255,7 +271,9 @@ Pattern 」 と 「 オブジェクトおよびオブジェクトのプロパテ
 Pattern 」 ) がありますが、翻訳文中では、原文のまま、Pattern
 としています。\]
 
-    navigator.globalization.getCurrencyPattern(currencyCode, successCallback, errorCallback);
+{{<highlight javascript>}}
+navigator.globalization.getCurrencyPattern(currencyCode, successCallback, errorCallback);
+{{</highlight>}}
 
 ##### 解説
 
@@ -297,27 +315,31 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 ブラウザーのロケール設定を `en-US` に、通貨の設定を US ドル
 にした場合、次の記述をしたときには、ポップアップダイアログ上に、下記の結果が表示されます。
 
-    navigator.globalization.getCurrencyPattern(
-        'USD',
-        function (pattern) {
-            alert('pattern: '  + pattern.pattern  + '\n' +
-                  'code: '     + pattern.code     + '\n' +
-                  'fraction: ' + pattern.fraction + '\n' +
-                  'rounding: ' + pattern.rounding + '\n' +
-                  'decimal: '  + pattern.decimal  + '\n' +
-                  'grouping: ' + pattern.grouping);
-        },
-        function () { alert('Error getting pattern\n'); }
-    );
+{{<highlight javascript>}}
+navigator.globalization.getCurrencyPattern(
+    'USD',
+    function (pattern) {
+        alert('pattern: '  + pattern.pattern  + '\n' +
+                'code: '     + pattern.code     + '\n' +
+                'fraction: ' + pattern.fraction + '\n' +
+                'rounding: ' + pattern.rounding + '\n' +
+                'decimal: '  + pattern.decimal  + '\n' +
+                'grouping: ' + pattern.grouping);
+    },
+    function () { alert('Error getting pattern\n'); }
+);
+{{</highlight>}}
 
 結果は次のとおりです。
 
-    pattern: $#,##0.##;($#,##0.##)
-    code: USD
-    fraction: 2
-    rounding: 0
-    decimal: .
-    grouping: ,
+{{<highlight javascript>}}
+pattern: $#,##0.##;($#,##0.##)
+code: USD
+fraction: 2
+rounding: 0
+decimal: .
+grouping: ,
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -328,7 +350,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 クライアント側の設定とカレンダーに基づき、曜日の名 ( 群 ) または月の名 (
 群 ) が入った配列を返します。
 
-    navigator.globalization.getDateNames(successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.getDateNames(successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -347,7 +371,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {type:'wide', item:'months'}
+{{<highlight json>}}
+{type:'wide', item:'months'}
+{{</highlight>}}
 
 `options.type` の値には、`narrow` または `wide` を設定できます。
 
@@ -365,15 +391,17 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 にした場合、ポップアップダイアログ上に、`month: January`
 形式のテキストが表示されます ( 月毎に 1 つ表示され、計 12 個を表示 ) 。
 
-    navigator.globalization.getDateNames(
-        function (names) {
-            for (var i = 0; i < names.value.length; i++) {
-                alert('month: ' + names.value[i] + '\n');
-            }
-        },
-        function () { alert('Error getting names\n'); },
-        { type: 'wide', item: 'months' }
-    );
+{{<highlight javascript>}}
+navigator.globalization.getDateNames(
+    function (names) {
+        for (var i = 0; i < names.value.length; i++) {
+            alert('month: ' + names.value[i] + '\n');
+        }
+    },
+    function () { alert('Error getting names\n'); },
+    { type: 'wide', item: 'months' }
+);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -387,7 +415,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 と日付のフォーマット処理 ( format ) に使用する、文字列の pattern
 を返します。
 
-    navigator.globalization.getDatePattern(successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.getDatePattern(successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -412,7 +442,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {formatLength:'short', selector:'date and time'}
+{{<highlight json>}}
+{formatLength:'short', selector:'date and time'}
+{{</highlight>}}
 
 `options.formatLength` には、`short`、`medium`、`long`、`full`
 のいずれかを設定できます。 `options.selector`
@@ -430,13 +462,15 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 の場合、次の記述をすれば、ポップアップダイアログ上に、`pattern: M/d/yyyy h:mm a`
 と表示されます。
 
-    function checkDatePattern() {
-        navigator.globalization.getDatePattern(
-            function (date) { alert('pattern: ' + date.pattern + '\n'); },
-            function () { alert('Error getting pattern\n'); },
-            { formatLength: 'short', selector: 'date and time' }
-        );
-    }
+{{<highlight javascript>}}
+function checkDatePattern() {
+    navigator.globalization.getDatePattern(
+        function (date) { alert('pattern: ' + date.pattern + '\n'); },
+        function () { alert('Error getting pattern\n'); },
+        { formatLength: 'short', selector: 'date and time' }
+    );
+}
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -453,7 +487,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 クライアント側の設定とカレンダーに基づき、週の最初の曜日を返します。
 
-    navigator.globalization.getFirstDayOfWeek(successCallback, errorCallback);
+{{<highlight javascript>}}
+navigator.globalization.getFirstDayOfWeek(successCallback, errorCallback);
+{{</highlight>}}
 
 ##### 解説
 
@@ -480,10 +516,12 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 の場合、次の記述をすれば、ポップアップダイアログ上に、`day: 1` (
 数値は異なる場合があり ) と表示されます。
 
-    navigator.globalization.getFirstDayOfWeek(
-        function (day) {alert('day: ' + day.value + '\n');},
-        function () {alert('Error getting day\n');}
-    );
+{{<highlight javascript>}}
+navigator.globalization.getFirstDayOfWeek(
+    function (day) {alert('day: ' + day.value + '\n');},
+    function () {alert('Error getting day\n');}
+);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -497,7 +535,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 と数値のフォーマット処理 ( format ) に使用する、文字列の pattern (
 パターン ) を返します。
 
-    navigator.globalization.getNumberPattern(successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.getNumberPattern(successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -534,7 +574,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {type:'decimal'}
+{{<highlight javascript>}}
+{type:'decimal'}
+{{</highlight>}}
 
 `options.type` の値には、`decimal`、`percent`、`currency`
 を設定できます。
@@ -550,29 +592,33 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 ブラウザーのロケール設定が `en-US`
 の場合、次の記述をすれば、ポップアップダイアログ上に、下記の結果が表示されます。
 
-    navigator.globalization.getNumberPattern(
-        function (pattern) {alert('pattern: '  + pattern.pattern  + '\n' +
-                                  'symbol: '   + pattern.symbol   + '\n' +
-                                  'fraction: ' + pattern.fraction + '\n' +
-                                  'rounding: ' + pattern.rounding + '\n' +
-                                  'positive: ' + pattern.positive + '\n' +
-                                  'negative: ' + pattern.negative + '\n' +
-                                  'decimal: '  + pattern.decimal  + '\n' +
-                                  'grouping: ' + pattern.grouping);},
-        function () {alert('Error getting pattern\n');},
-        {type:'decimal'}
-    );
+{{<highlight javascript>}}
+navigator.globalization.getNumberPattern(
+    function (pattern) {alert('pattern: '  + pattern.pattern  + '\n' +
+                                'symbol: '   + pattern.symbol   + '\n' +
+                                'fraction: ' + pattern.fraction + '\n' +
+                                'rounding: ' + pattern.rounding + '\n' +
+                                'positive: ' + pattern.positive + '\n' +
+                                'negative: ' + pattern.negative + '\n' +
+                                'decimal: '  + pattern.decimal  + '\n' +
+                                'grouping: ' + pattern.grouping);},
+    function () {alert('Error getting pattern\n');},
+    {type:'decimal'}
+);
+{{</highlight>}}
 
 結果 :
 
-    pattern: #,##0.###
-    symbol: .
-    fraction: 0
-    rounding: 0
-    positive:
-    negative: -
-    decimal: .
-    grouping: ,
+{{<highlight javascript>}}
+pattern: #,##0.###
+symbol: .
+fraction: 0
+rounding: 0
+positive:
+negative: -
+decimal: .
+grouping: ,
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -583,7 +629,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 クライアントのタイムゾーンとカレンダーを使用して、夏時間 ( DST )
 が対象の日付に適用されているかを示します。
 
-    navigator.globalization.isDayLightSavingsTime(date, successCallback, errorCallback);
+{{<highlight javascript>}}
+navigator.globalization.isDayLightSavingsTime(date, successCallback, errorCallback);
+{{</highlight>}}
 
 ##### 解説
 
@@ -611,17 +659,21 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 夏時間が有効なタイムゾーンとして、ブラウザー側を設定した場合、ポップアップダイアログ上に、`dst: true`
 形式のテキストが表示されます。
 
-    navigator.globalization.isDayLightSavingsTime(
-        new Date(),
-        function (date) {alert('dst: ' + date.dst + '\n');},
-        function () {alert('Error getting names\n');}
-    );
+{{<highlight javascript>}}
+navigator.globalization.isDayLightSavingsTime(
+    new Date(),
+    function (date) {alert('dst: ' + date.dst + '\n');},
+    function () {alert('Error getting names\n');}
+);
+{{</highlight>}}
 
 #### navigator.globalization.numberToString
 
 ユーザー側の設定に基づき、文字列形式の数値を返します。
 
-    navigator.globalization.numberToString(number, successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.numberToString(number, successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -636,7 +688,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {type:'decimal'}
+{{<highlight javascript>}}
+{type:'decimal'}
+{{</highlight>}}
 
 `options.type` の値には、`decimal`、`percent`、`currency`
 を設定できます。
@@ -653,12 +707,14 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 の場合、次の記述をすれば、ポップアップダイアログ上に、`number: 3.142`
 と表示されます。
 
-    navigator.globalization.numberToString(
-        3.1415926,
-        function (number) {alert('number: ' + number.value + '\n');},
-        function () {alert('Error getting number\n');},
-        {type:'decimal'}
-    );
+{{<highlight javascript>}}
+navigator.globalization.numberToString(
+    3.1415926,
+    function (number) {alert('number: ' + number.value + '\n');},
+    function () {alert('Error getting number\n');},
+    {type:'decimal'}
+);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -678,7 +734,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 を行います。そして、パース処理の結果 ( 日付情報を持つオブジェクト )
 を返します。
 
-    navigator.globalization.stringToDate(dateString, successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.stringToDate(dateString, successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -698,7 +756,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {formatLength:'short', selector:'date and time'}
+{{<highlight json>}}
+{formatLength:'short', selector:'date and time'}
+{{</highlight>}}
 
 `options.formatLength` には、`short`、`medium`、`long`、`full`
 のいずれかを設定できます。 `options.selector`
@@ -722,14 +782,16 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 形式のテキストが表示されます。月を示す整数は、配列のインデックスを指すため、実際の文字列の数より、「
 1 」 だけ少ない数となります。
 
-    navigator.globalization.stringToDate(
-        '9/25/2012',
-        function (date) {alert('month:' + date.month +
-                               ' day:'  + date.day   +
-                               ' year:' + date.year  + '\n');},
-        function () {alert('Error getting date\n');},
-        {selector: 'date'}
-    );
+{{<highlight javascript>}}
+navigator.globalization.stringToDate(
+    '9/25/2012',
+    function (date) {alert('month:' + date.month +
+                            ' day:'  + date.day   +
+                            ' year:' + date.year  + '\n');},
+    function () {alert('Error getting date\n');},
+    {selector: 'date'}
+);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -746,7 +808,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 クライアント側の設定に基づき、文字列形式の数値のパース処理 ( parse )
 を行います。そして、結果として数値を返します。
 
-    navigator.globalization.stringToNumber(string, successCallback, errorCallback, options);
+{{<highlight javascript>}}
+navigator.globalization.stringToNumber(string, successCallback, errorCallback, options);
+{{</highlight>}}
 
 ##### 解説
 
@@ -761,7 +825,9 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 
 `options` のパラメーター設定は任意です。デフォルト値を、次に示します。
 
-    {type:'decimal'}
+{{<highlight json>}}
+{type:'decimal'}
+{{</highlight>}}
 
 `options.type` の値には、`decimal`、`percent`、`currency`
 を設定できます。
@@ -778,12 +844,14 @@ pattern の取得時にエラーが発生した場合、`GlobalizationError`
 の場合、次の記述をすれば、ポップアップダイアログ上に、`number: 1234.56`
 形式のテキストが表示されます。
 
-    navigator.globalization.stringToNumber(
-        '1234.56',
-        function (number) {alert('number: ' + number.value + '\n');},
-        function () {alert('Error getting number\n');},
-        {type:'decimal'}
-    );
+{{<highlight javascript>}}
+navigator.globalization.stringToNumber(
+    '1234.56',
+    function (number) {alert('number: ' + number.value + '\n');},
+    function () {alert('Error getting number\n');},
+    {type:'decimal'}
+);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -801,10 +869,10 @@ Globalization API が出力したエラーの内容を示すオブジェクト�
 
 -   **code**: 次のいづれかとなります。 *(Number)*
 
-> -   GlobalizationError.UNKNOWN\_ERROR: 0
-> -   GlobalizationError.FORMATTING\_ERROR: 1
-> -   GlobalizationError.PARSING\_ERROR: 2
-> -   GlobalizationError.PATTERN\_ERROR: 3
+-   GlobalizationError.UNKNOWN\_ERROR: 0
+-   GlobalizationError.FORMATTING\_ERROR: 1
+-   GlobalizationError.PARSING\_ERROR: 2
+-   GlobalizationError.PATTERN\_ERROR: 3
 
 -   **message**: エラーの解説または詳細を記したテキストメッセージです。
     *(String)*
@@ -826,7 +894,9 @@ Globalization API が出力したエラーの内容を示すオブジェクト�
 が実行された場合、ポップアップダイアログ上に、`code: 3` と
 `message: エラー内容` 形式のテキストが表示されます。
 
-    function errorCallback(error) {
-        alert('code: ' + error.code + '\n' +
-              'message: ' + error.message + '\n');
-    };
+{{<highlight javascript>}}
+function errorCallback(error) {
+    alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+};
+{{</highlight>}}

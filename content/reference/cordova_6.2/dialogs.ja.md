@@ -1,15 +1,13 @@
-ダイアログの制御 プラグイン
-===========================
+---
+title: ダイアログの制御 プラグイン
+weight: 90
+---
 
-テスト環境 ( バージョン番号 ) :
-[1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
+テスト環境 ( バージョン番号 ) : [1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-dialogs) をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-dialogs">}} をご確認ください。
+{{</note>}}
 
 このプラグインでは、グローバルオブジェクト 「 `navigator.notification`
 」 を使用し、ネイティブ側の UI 要素 ( ダイアログ関連 )
@@ -19,22 +17,26 @@
 に属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.notification);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.notification);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-dialogs
+{{<highlight javascript>}}
+cordova-plugin-dialogs
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Notification` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 API の解説
 ----------
@@ -53,7 +55,9 @@ API の解説
 `alert` 関数を使用しており、
 カスタマイズが制限されている場合があります。
 
-    navigator.notification.alert(message, alertCallback, [title], [buttonName])
+{{<highlight javascript>}}
+navigator.notification.alert(message, alertCallback, [title], [buttonName])
+{{</highlight>}}
 
 -   **message**: ダイアログのメッセージ *(String)*
 -   **alertCallback**: アラートダイアログを閉じたときに呼ぶコールバック
@@ -64,16 +68,18 @@ API の解説
 
 #### 例
 
-    function alertDismissed() {
-        // do something
-    }
+{{<highlight javascript>}}
+function alertDismissed() {
+    // do something
+}
 
-    navigator.notification.alert(
-        'You are the winner!',  // message
-        alertDismissed,         // callback
-        'Game Over',            // title
-        'Done'                  // buttonName
-    );
+navigator.notification.alert(
+    'You are the winner!',  // message
+    alertDismissed,         // callback
+    'Game Over',            // title
+    'Done'                  // buttonName
+);
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -85,7 +91,9 @@ API の解説
 
 確認用ダイアログを表示します ( カスタマイズ可 )。
 
-    navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+{{<highlight javascript>}}
+navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+{{</highlight>}}
 
 -   **message**: ダイアログのメッセージ *(String)*
 -   **confirmCallback**: 押されたボタンのインデックス ( 1・2・3 など )
@@ -108,16 +116,18 @@ API の解説
 
 #### 例
 
-    function onConfirm(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
-    }
+{{<highlight javascript>}}
+function onConfirm(buttonIndex) {
+    alert('You selected button ' + buttonIndex);
+}
 
-    navigator.notification.confirm(
-        'You are the winner!', // message
-         onConfirm,            // callback to invoke with index of button pressed
-        'Game Over',           // title
-        ['Restart','Exit']     // buttonLabels
-    );
+navigator.notification.confirm(
+    'You are the winner!', // message
+        onConfirm,            // callback to invoke with index of button pressed
+    'Game Over',           // title
+    ['Restart','Exit']     // buttonLabels
+);
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -136,7 +146,9 @@ API の解説
 ネイティブのダイアログを表示します ( ブラウザー標準の `prompt`
 関数よりも、カスタマイズが容易 )。
 
-    navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
+{{<highlight javascript>}}
+navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
+{{</highlight>}}
 
 -   **message**: ダイアログのメッセージ *(String)*
 -   **promptCallback**: 押されたボタンのインデックス ( 1・2・3 など )
@@ -163,17 +175,19 @@ prompt ダイアログ上に表示されたボタンを押したときに、`pro
 
 #### 例
 
-    function onPrompt(results) {
-        alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-    }
+{{<highlight javascript>}}
+function onPrompt(results) {
+    alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+}
 
-    navigator.notification.prompt(
-        'Please enter your name',  // message
-        onPrompt,                  // callback to invoke
-        'Registration',            // title
-        ['Ok','Exit'],             // buttonLabels
-        'Jane Doe'                 // defaultText
-    );
+navigator.notification.prompt(
+    'Please enter your name',  // message
+    onPrompt,                  // callback to invoke
+    'Registration',            // title
+    ['Ok','Exit'],             // buttonLabels
+    'Jane Doe'                 // defaultText
+);
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -197,14 +211,18 @@ prompt ダイアログ上に表示されたボタンを押したときに、`pro
 
 ビープ ( beep ) 音を鳴らします。
 
-    navigator.notification.beep(times);
+{{<highlight javascript>}}
+navigator.notification.beep(times);
+{{</highlight>}}
 
 -   **times**: ビープ音のリピート回数 *(Number)*
 
 #### 例
 
-    // Beep twice!
-    navigator.notification.beep(2);
+{{<highlight javascript>}}
+// Beep twice!
+navigator.notification.beep(2);
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 

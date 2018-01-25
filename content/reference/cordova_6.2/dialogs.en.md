@@ -1,9 +1,9 @@
 ---
 title: Dialogs Plugin
+weight: 90
 ---
 
-Tested Version:
-[1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
+Tested Version: [1.2.1](https://github.com/apache/cordova-plugin-dialogs/releases/tag/1.2.1)
 
 {{<note>}}
 This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-dialogs">}}.
@@ -15,20 +15,24 @@ global `navigator.notification` object.
 Although the object is attached to the global scope `navigator`, it is
 not available until after the `deviceready` event.
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.notification);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.notification);
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-dialogs
+{{<highlight javascript>}}
+cordova-plugin-dialogs
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Notification` plugin in Monaca Cloud IDE.
 
 API Reference
@@ -47,7 +51,9 @@ Shows a custom alert or dialog box. Most Cordova implementations use a
 native dialog box for this feature, but some platforms use the browser's
 `alert` function, which is typically less customizable.
 
-    navigator.notification.alert(message, alertCallback, [title], [buttonName])
+{{<highlight javascript>}}
+navigator.notification.alert(message, alertCallback, [title], [buttonName])
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **alertCallback**: Callback to invoke when alert dialog is
@@ -57,16 +63,18 @@ native dialog box for this feature, but some platforms use the browser's
 
 #### Example
 
-    function alertDismissed() {
-        // do something
-    }
+{{<highlight javascript>}}
+function alertDismissed() {
+    // do something
+}
 
-    navigator.notification.alert(
-        'You are the winner!',  // message
-        alertDismissed,         // callback
-        'Game Over',            // title
-        'Done'                  // buttonName
-    );
+navigator.notification.alert(
+    'You are the winner!',  // message
+    alertDismissed,         // callback
+    'Game Over',            // title
+    'Done'                  // buttonName
+);
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -78,7 +86,9 @@ native dialog box for this feature, but some platforms use the browser's
 
 Displays a customizable confirmation dialog box.
 
-    navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+{{<highlight javascript>}}
+navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **confirmCallback**: Callback to invoke with index of button pressed
@@ -100,16 +110,18 @@ indexing, so the value is `1`, `2`, `3`, etc.
 
 #### Example
 
-    function onConfirm(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
-    }
+{{<highlight javascript>}}
+function onConfirm(buttonIndex) {
+    alert('You selected button ' + buttonIndex);
+}
 
-    navigator.notification.confirm(
-        'You are the winner!', // message
-         onConfirm,            // callback to invoke with index of button pressed
-        'Game Over',           // title
-        ['Restart','Exit']     // buttonLabels
-    );
+navigator.notification.confirm(
+    'You are the winner!', // message
+        onConfirm,            // callback to invoke with index of button pressed
+    'Game Over',           // title
+    ['Restart','Exit']     // buttonLabels
+);
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -129,7 +141,9 @@ indexing, so the value is `1`, `2`, `3`, etc.
 Displays a native dialog box that is more customizable than the
 browser's `prompt` function.
 
-    navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
+{{<highlight javascript>}}
+navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])
+{{</highlight>}}
 
 -   **message**: Dialog message. *(String)*
 -   **promptCallback**: Callback to invoke with index of button pressed
@@ -154,17 +168,19 @@ contains the following properties:
 
 #### Example
 
-    function onPrompt(results) {
-        alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-    }
+{{<highlight javascript>}}
+function onPrompt(results) {
+    alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+}
 
-    navigator.notification.prompt(
-        'Please enter your name',  // message
-        onPrompt,                  // callback to invoke
-        'Registration',            // title
-        ['Ok','Exit'],             // buttonLabels
-        'Jane Doe'                 // defaultText
-    );
+navigator.notification.prompt(
+    'Please enter your name',  // message
+    onPrompt,                  // callback to invoke
+    'Registration',            // title
+    ['Ok','Exit'],             // buttonLabels
+    'Jane Doe'                 // defaultText
+);
+{{</highlight>}}
 
 #### Supported Platforms
 
@@ -188,14 +204,18 @@ contains the following properties:
 
 The device plays a beep sound.
 
-    navigator.notification.beep(times);
+{{<highlight javascript>}}
+navigator.notification.beep(times);
+{{</highlight>}}
 
 -   **times**: The number of times to repeat the beep. *(Number)*
 
 #### Example
 
-    // Beep twice!
-    navigator.notification.beep(2);
+{{<highlight javascript>}}
+// Beep twice!
+navigator.notification.beep(2);
+{{</highlight>}}
 
 #### Supported Platforms
 

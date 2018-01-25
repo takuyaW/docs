@@ -1,30 +1,22 @@
-メディアキャプチャー プラグイン
-===============================
+---
+title: メディアキャプチャー プラグイン
+weight: 160
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.3.0](https://github.com/apache/cordova-plugin-media-capture/releases/tag/1.3.0)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-media-capture)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-media-capture">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、端末側の録音・録画 ( オーディオ・画像・動画 )
 機能にアクセスします。
 
-<div class="admonition warning">
-
+{{<warning>}}
 端末に搭載されたカメラまたはマイクロフォンを使用した画像・動画・音声の録音・録画および利用には、個人情報保護の観点から、細心の注意が必要です。録音・録画方法および第三者への情報提供に関しては、アプリの個人情報の取り扱いに関するポリシーの策定時に議論されるべき問題です。また、アプリがカメラまたはマイクロフォンを使用するとき、ユーザー側でもそれを認識できるようにする必要があります。認識できない場合には、事前にユーザー側に通知をする必要があります。端末のオペレーティングシステムがこの通知を行ってない場合には、開発者自身で改善する必要があります。また、ユーザーへの通知を行う場合には、必ず、個人情報の取り扱いに関するポリシーの開示および使用方法に関する同意の意思表示を求める必要があります
-( **許可する** 、または、\**許可しない*\*
-のように、明示的に判断できる必要があります )
-。また、アプリがカメラまたはマイクロフォンを起動する前に、通知および許諾を得ることを条件とする、アプリのマーケットプレースも一部に存在します。詳細は、『
-プライバシーに関するガイド 』 ( Apache Cordova のドキュメント )
-をご確認ください。
-
-</div>
+( <b>許可する</b> 、または、<b>許可しない</b> のように、明示的に判断できる必要があります )。また、アプリがカメラまたはマイクロフォンを起動する前に、通知および許諾を得ることを条件とする、アプリのマーケットプレースも一部に存在します。詳細は、『 プライバシーに関するガイド 』 ( Apache Cordova のドキュメント ) をご確認ください。
+{{</warning>}}
 
 このプラグインでは、グローバルオブジェクト 「 `navigator.device.capture`
 」 を使用します。
@@ -32,22 +24,26 @@
 グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.device.capture);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.device.capture);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-media-capture
+{{<highlight javascript>}}
+cordova-plugin-media-capture
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Capture` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -93,9 +89,11 @@ API の解説
 オーディオ録音用アプリの起動、および、キャプチャーしたオーディオ
 クリップ ファイルの情報を返します。
 
-    navigator.device.capture.captureAudio(
-        CaptureCB captureSuccess, CaptureErrorCB captureError,  [CaptureAudioOptions options]
-    );
+{{<highlight javascript>}}
+navigator.device.capture.captureAudio(
+    CaptureCB captureSuccess, CaptureErrorCB captureError,  [CaptureAudioOptions options]
+);
+{{</highlight>}}
 
 #### 解説
 
@@ -126,41 +124,44 @@ API の解説
 
 #### 例
 
-    // capture callback
-    var captureSuccess = function(mediaFiles) {
-        var i, path, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        }
-    };
 
-    // capture error callback
-    var captureError = function(error) {
-        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-    };
+{{<highlight javascript>}}
+// capture callback
+var captureSuccess = function(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
 
-    // start audio capture
-    navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
+// capture error callback
+var captureError = function(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
+
+// start audio capture
+navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
+{{</highlight>}}
 
 #### iOS 特有の動作
 
--   iOS
-    には、標準のオーディオ録音アプリがありません。簡易なユーザーインターフェースのみ提供されています。
+-   iOS には、標準のオーディオ録音アプリがありません。簡易なユーザーインターフェースのみ提供されています。
 
 ### Catpure.captureImage
 
 カメラアプリの起動、および、キャプチャーした画像ファイルの情報を返します。
 
-    navigator.device.capture.captureImage(
-        CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureImageOptions options]
-    );
+{{<highlight javascript>}}
+navigator.device.capture.captureImage(
+    CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureImageOptions options]
+);
+{{</highlight>}}
 
 #### 解説
 
 端末に標準搭載されているカメラアプリを使用して、画像のキャプチャーを行います
-( 非同期処理
-)。この処理では、同一セッション内で、複数のキャプチャーを行うことができます。
+( 非同期処理 )。この処理では、同一セッション内で、複数のキャプチャーを行うことができます。
 
 カメラアプリを終了したとき、または、`CaptureImageOptions.limit`
 で指定した最大撮影数に達したとき、キャプチャー処理は終了します。`limit`
@@ -184,36 +185,39 @@ API の解説
 
 #### 例
 
-    // capture callback
-    var captureSuccess = function(mediaFiles) {
-        var i, path, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        }
-    };
+{{<highlight javascript>}}
+// capture callback
+var captureSuccess = function(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
 
-    // capture error callback
-    var captureError = function(error) {
-        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-    };
+// capture error callback
+var captureError = function(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
 
-    // start image capture
-    navigator.device.capture.captureImage(captureSuccess, captureError, {limit:2});
+// start image capture
+navigator.device.capture.captureImage(captureSuccess, captureError, {limit:2});
+{{</highlight>}}
 
 ### Catpure.captureVideo
 
 ビデオ録画アプリの起動、および、キャプチャーしたビデオクリップファイルの情報を返します。
 
-    navigator.device.capture.captureVideo(
-        CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureVideoOptions options]
-    );
+{{<highlight javascript>}}
+navigator.device.capture.captureVideo(
+    CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureVideoOptions options]
+);
+{{</highlight>}}
 
 #### 解説
 
 端末に標準搭載されているビデオ録画アプリを使用して、ビデオのキャプチャーを行います
-( 非同期処理
-)。この処理では、同一セッション内で、複数のキャプチャーを行うことができます。
+( 非同期処理 )。この処理では、同一セッション内で、複数のキャプチャーを行うことができます。
 
 ビデオ録画アプリを終了したとき、または、`CaptureVideoOptions.limit`
 で指定した最大録画数に達したとき、キャプチャー処理は終了します。`limit`
@@ -237,22 +241,24 @@ API の解説
 
 #### 例
 
-    // capture callback
-    var captureSuccess = function(mediaFiles) {
-        var i, path, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        }
-    };
+{{<highlight javascript>}}
+// capture callback
+var captureSuccess = function(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
 
-    // capture error callback
-    var captureError = function(error) {
-        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-    };
+// capture error callback
+var captureError = function(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
 
-    // start video capture
-    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+// start video capture
+navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+{{</highlight>}}
 
 ### CaptureAudioOptions
 
@@ -268,10 +274,12 @@ API の解説
 
 #### 例
 
-    // limit capture operation to 3 media files, no longer than 10 seconds each
-    var options = { limit: 3, duration: 10 };
+{{<highlight javascript>}}
+// limit capture operation to 3 media files, no longer than 10 seconds each
+var options = { limit: 3, duration: 10 };
 
-    navigator.device.capture.captureAudio(captureSuccess, captureError, options);
+navigator.device.capture.captureAudio(captureSuccess, captureError, options);
+{{</highlight>}}
 
 #### Android 特有の動作
 
@@ -295,10 +303,12 @@ API の解説
 
 #### 例
 
-    // limit capture operation to 3 images
-    var options = { limit: 3 };
+{{<highlight javascript>}}
+// limit capture operation to 3 images
+var options = { limit: 3 };
 
-    navigator.device.capture.captureImage(captureSuccess, captureError, options);
+navigator.device.capture.captureImage(captureSuccess, captureError, options);
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -318,10 +328,12 @@ API の解説
 
 #### 例
 
-    // limit capture operation to 3 video clips
-    var options = { limit: 3 };
+{{<highlight javascript>}}
+// limit capture operation to 3 video clips
+var options = { limit: 3 };
 
-    navigator.device.capture.captureVideo(captureSuccess, captureError, options);
+navigator.device.capture.captureVideo(captureSuccess, captureError, options);
+{{</highlight>}}
 
 #### iOS 特有の動作
 
@@ -330,25 +342,29 @@ API の解説
 
 #### Android 特有の動作
 
--   Android では、\**quality*\*
+-   Android では、**quality**
     プロパティーも使用できます。このプロパティーを使用して、画質 (
     quality ) を変えて、ビデオをキャプチャーできます。このプロパティーに
     `1` ( デフォルト ) を設定した場合、高画質 ( HQ ) になり、`0`
     を設定した場合、低画質 ( LQ ) になります。低画質のビデオは、MMS
-    メッセージなどで使用するときに有用です。詳細は、http://developer.android.com/reference/android/provider/MediaStore.html\#EXTRA\_VIDEO\_QUALITY
+    メッセージなどで使用するときに有用です。詳細は、[こちら](http://developer.android.com/reference/android/provider/MediaStore.html#EXTRA_VIDEO_QUALITY)
     をご確認ください。
 
 #### 例 ( Android w/ quality )
 
-    // limit capture operation to 1 video clip of low quality
-    var options = { limit: 1, quality: 0 };
-    navigator.device.capture.captureVideo(captureSuccess, captureError, options);
+{{<highlight javascript>}}
+// limit capture operation to 1 video clip of low quality
+var options = { limit: 1, quality: 0 };
+navigator.device.capture.captureVideo(captureSuccess, captureError, options);
+{{</highlight>}}
 
 ### CaptureCB
 
 メディアキャプチャー処理の成功時に呼び出されます。
 
-    function captureSuccess( MediaFile[] mediaFiles ) { ... };
+{{<highlight javascript>}}
+function captureSuccess( MediaFile[] mediaFiles ) { ... };
+{{</highlight>}}
 
 #### 解説
 
@@ -361,14 +377,16 @@ API の解説
 
 #### 例
 
-    // capture callback
-    function captureSuccess(mediaFiles) {
-        var i, path, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        }
-    };
+{{<highlight javascript>}}
+// capture callback
+function captureSuccess(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
+{{</highlight>}}
 
 ### CaptureError
 
@@ -395,7 +413,9 @@ API の解説
 
 メディアのキャプチャー処理中に、エラーが発生した場合に呼び出されます。
 
-    function captureError( CaptureError error ) { ... };
+{{<highlight javascript>}}
+function captureError( CaptureError error ) { ... };
+{{</highlight>}}
 
 #### 解説
 
@@ -408,10 +428,12 @@ API の解説
 
 #### 例
 
-    // capture error callback
-    var captureError = function(error) {
-        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-    };
+{{<highlight javascript>}}
+// capture error callback
+var captureError = function(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
+{{</highlight>}}
 
 ### ConfigurationData
 
@@ -445,18 +467,20 @@ The MIME types should adhere to
 
 #### 例
 
-    // retrieve supported image modes
-    var imageModes = navigator.device.capture.supportedImageModes;
+{{<highlight javascript>}}
+// retrieve supported image modes
+var imageModes = navigator.device.capture.supportedImageModes;
 
-    // Select mode that has the highest horizontal resolution
-    var width = 0;
-    var selectedmode;
-    for each (var mode in imageModes) {
-        if (mode.width > width) {
-            width = mode.width;
-            selectedmode = mode;
-        }
+// Select mode that has the highest horizontal resolution
+var width = 0;
+var selectedmode;
+for each (var mode in imageModes) {
+    if (mode.width > width) {
+        width = mode.width;
+        selectedmode = mode;
     }
+}
+{{</highlight>}}
 
 一部のプラットフォームでのみ、サポートしています。サポートされていない場合、配列には、なにも入っていません。
 
@@ -464,15 +488,16 @@ The MIME types should adhere to
 
 キャプチャーしたメディア ファイルのフォーマット情報を取得できます。
 
-    mediaFile.getFormatData(
-        MediaFileDataSuccessCB successCallback,
-        [MediaFileDataErrorCB errorCallback]
-    );
+{{<highlight javascript>}}
+mediaFile.getFormatData(
+    MediaFileDataSuccessCB successCallback,
+    [MediaFileDataErrorCB errorCallback]
+);
+{{</highlight>}}
 
 #### 解説
 
-メディアファイルのフォーマット情報を取得できます ( 非同期処理
-)。成功時には、`MediaFileData`
+メディアファイルのフォーマット情報を取得できます ( 非同期処理 )。成功時には、`MediaFileData`
 オブジェクトを使用して、`MediaFileDataSuccessCB`
 コールバックが呼び出されます。失敗時には、 `MediaFileDataErrorCB`
 コールバックが呼び出されます。
@@ -554,19 +579,14 @@ The MIME types should adhere to
 -   **duration**:
     使用できます。オーディオ・ビデオファイルのみが対象です。
 
-Android の 「 ライフサイクル 」 に起因する注意点
-------------------------
+## Android の 「 ライフサイクル 」 に起因する注意点
 
 Android
 プラットフォーム上で、オーディオ・ビデオ・画像をキャプチャーする場合、ネイティブ側のキャプチャー用アプリが起動され、Cordova
 Webview がバックグラウンド処理に切り替わったタイミングで、アプリ自体 (
 Cordova が動作中 ) が強制終了 ( kill )
-させられる場合があります。この問題の詳細は、[Cordova 使用時の Android
-アクティビティのライフサイクルに関する注意点 ( 英語サイト
-)](http://cordova.apache.org/docs/en/dev/guide/platforms/android/lifecycle.html)
-をご確認ください。強制終了させられた場合、キャプチャー処理のメソッドに指定されていた成功時または失敗時のコールバックは実行されません。未処理/保留されている実行結果は、Cordova
-の
-[resume](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume)
+させられる場合があります。この問題の詳細は、[Cordova 使用時の Android アクティビティのライフサイクルに関する注意点 ( 英語サイト )](http://cordova.apache.org/docs/en/dev/guide/platforms/android/lifecycle.html)
+をご確認ください。強制終了させられた場合、キャプチャー処理のメソッドに指定されていた成功時または失敗時のコールバックは実行されません。未処理/保留されている実行結果は、Cordova の [resume](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume)
 イベント後に実行される document イベントで使用できます ( resume
 イベントに関する詳細は、左記の 「 ライフサイクルに関する注意点 」
 を参照のこと )。
@@ -574,27 +594,27 @@ Cordova が動作中 ) が強制終了 ( kill )
 なお、アプリ内では、次のように、どちらのイベントにも対応できるように記述
 ( サブスクライブ/subscribe ) しておくことを推奨します。
 
-    function onDeviceReady() {
-        // pendingcaptureresult is fired if the capture call is successful
-        document.addEventListener('pendingcaptureresult', function(mediaFiles) {
-            // Do something with result
-        });
+{{<highlight javascript>}}
+function onDeviceReady() {
+    // pendingcaptureresult is fired if the capture call is successful
+    document.addEventListener('pendingcaptureresult', function(mediaFiles) {
+        // Do something with result
+    });
 
-        // pendingcaptureerror is fired if the capture call is unsuccessful
-        document.addEventListener('pendingcaptureerror', function(error) {
-            // Handle error case
-        });
-    }
+    // pendingcaptureerror is fired if the capture call is unsuccessful
+    document.addEventListener('pendingcaptureerror', function(error) {
+        // Handle error case
+    });
+}
 
-    // Only subscribe to events after deviceready fires
-    document.addEventListener('deviceready', onDeviceReady);
+// Only subscribe to events after deviceready fires
+document.addEventListener('deviceready', onDeviceReady);
+{{</highlight>}}
 
 コード内における、キャプチャー結果を処理する場所は、開発者側で自由に設定できますが
 ( 上記の 「 ライフサイクル 」 を参照のこと )、アプリ側の処理の (
-保留する/されている処理 )
-の保存と復旧は、それぞれ、[pause](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#pause)
-イベントと
-[resume](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume)
+保留する/されている処理 ) の保存と復旧は、それぞれ、[pause](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#pause)
+イベントと [resume](http://cordova.apache.org/docs/en/latest/cordova/events/events.html#resume)
 イベントで適宜行うことが必要です。なお、これらのイベントは、Android
 プラットフォーム上でのみ使用でき、加えて、キャプチャー実行時、WebView
 が強制終了された場合のみ使用できます。

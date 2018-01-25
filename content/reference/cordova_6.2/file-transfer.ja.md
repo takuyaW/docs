@@ -1,16 +1,15 @@
-ファイル転送 プラグイン
-=======================
+---
+title: ファイル転送 プラグイン
+weight: 110
+---
+
 
 テスト環境 ( バージョン番号 ) :
 [1.5.1](https://github.com/apache/cordova-plugin-file-transfer/releases/tag/1.5.1)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-file-transfer)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-file-transfer">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、ファイルのアップロードとダウンロードを行えます。
 
@@ -19,22 +18,25 @@
 を使用します。なお、グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(FileTransfer);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(FileTransfer);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-file-transfer
+{{<highlight javascript>}}
+cordova-plugin-file-transfer
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
-このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
-プラグインの管理 \] 上で、`File Transfer` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+このプラグインを使用する場合には、Monaca クラウド IDE の [ Cordova プラグインの管理 ] 上で、`File Transfer` プラグインを
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -89,69 +91,73 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 
 #### 例
 
-    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/file.txt
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a text file on the device,
+//    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-    var win = function (r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-    }
+var win = function (r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
 
-    var fail = function (error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
+var fail = function (error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
 
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    options.mimeType = "text/plain";
+var options = new FileUploadOptions();
+options.fileKey = "file";
+options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+options.mimeType = "text/plain";
 
-    var params = {};
-    params.value1 = "test";
-    params.value2 = "param";
+var params = {};
+params.value1 = "test";
+params.value2 = "param";
 
-    options.params = params;
+options.params = params;
 
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+var ft = new FileTransfer();
+ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+{{</highlight>}}
 
 #### 例 アップロード時の Headers と ProgressEvent の使用例 ( Android と iOS 専用 )
 
-    function win(r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
+{{<highlight javascript>}}
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+function fail(error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+
+var uri = encodeURI("http://some.server.com/upload.php");
+
+var options = new FileUploadOptions();
+options.fileKey="file";
+options.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);
+options.mimeType="text/plain";
+
+var headers={'headerParam':'headerValue'};
+
+options.headers = headers;
+
+var ft = new FileTransfer();
+ft.onprogress = function(progressEvent) {
+    if (progressEvent.lengthComputable) {
+        loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+    } else {
+        loadingStatus.increment();
     }
-
-    function fail(error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
-
-    var uri = encodeURI("http://some.server.com/upload.php");
-
-    var options = new FileUploadOptions();
-    options.fileKey="file";
-    options.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);
-    options.mimeType="text/plain";
-
-    var headers={'headerParam':'headerValue'};
-
-    options.headers = headers;
-
-    var ft = new FileTransfer();
-    ft.onprogress = function(progressEvent) {
-        if (progressEvent.lengthComputable) {
-          loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-        } else {
-          loadingStatus.increment();
-        }
-    };
-    ft.upload(fileURL, uri, win, fail, options);
+};
+ft.upload(fileURL, uri, win, fail, options);
+{{</highlight>}}
 
 ### FileUploadResult
 
@@ -168,7 +174,7 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 -   **headers**: サーバーから返ってきた HTTP レスポンスのヘッダー
     (Object)
 
-> -   現時点では、iOS 上でのみ使用できます。
+-   現時点では、iOS 上でのみ使用できます。
 
 #### iOS 特有の動作
 
@@ -214,30 +220,32 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 
 #### 例
 
-    // !! Assumes variable fileURL contains a valid URL to a path on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/downloads/
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a path on the device,
+//    for example, cdvfile://localhost/persistent/path/to/downloads/
 
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://some.server.com/download.php");
+var fileTransfer = new FileTransfer();
+var uri = encodeURI("http://some.server.com/download.php");
 
-    fileTransfer.download(
-        uri,
-        fileURL,
-        function(entry) {
-            console.log("download complete: " + entry.toURL());
-        },
-        function(error) {
-            console.log("download error source " + error.source);
-            console.log("download error target " + error.target);
-            console.log("upload error code" + error.code);
-        },
-        false,
-        {
-            headers: {
-                "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-            }
+fileTransfer.download(
+    uri,
+    fileURL,
+    function(entry) {
+        console.log("download complete: " + entry.toURL());
+    },
+    function(error) {
+        console.log("download error source " + error.source);
+        console.log("download error target " + error.target);
+        console.log("upload error code" + error.code);
+    },
+    false,
+    {
+        headers: {
+            "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
         }
-    );
+    }
+);
+{{</highlight>}}
 
 ### abort
 
@@ -247,28 +255,30 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 
 #### 例
 
-    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-    //    for example, cdvfile://localhost/persistent/path/to/file.txt
+{{<highlight javascript>}}
+// !! Assumes variable fileURL contains a valid URL to a text file on the device,
+//    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-    var win = function(r) {
-        console.log("Should not be called.");
-    }
+var win = function(r) {
+    console.log("Should not be called.");
+}
 
-    var fail = function(error) {
-        // error.code == FileTransferError.ABORT_ERR
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
+var fail = function(error) {
+    // error.code == FileTransferError.ABORT_ERR
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
 
-    var options = new FileUploadOptions();
-    options.fileKey="file";
-    options.fileName="myphoto.jpg";
-    options.mimeType="image/jpeg";
+var options = new FileUploadOptions();
+options.fileKey="file";
+options.fileName="myphoto.jpg";
+options.mimeType="image/jpeg";
 
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-    ft.abort();
+var ft = new FileTransfer();
+ft.upload(fileURL, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+ft.abort();
+{{</highlight>}}
 
 ### FileTransferError
 
@@ -318,8 +328,10 @@ MultiPart POST/PUT リクエストを使用 ) とダウンロードを行いま�
 ( device-absolute-file-location )
 を使用していました。典型的なパスの形式は、次のとおりでした。
 
-    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
-    /storage/emulated/0/path/to/file                                    (Android)
+{{<highlight javascript>}}
+/var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
+/storage/emulated/0/path/to/file                                    (Android)
+{{</highlight>}}
 
 後方互換性を考慮して、これらの形式のパスは今でも使用できます。また、永続的なストレージに、これらのパスを保存して使用していた場合でも、継続して、これらの形式のパスを使用できます。
 
@@ -339,7 +351,9 @@ URL ) を使用するように、コードを変更する必要があります�
 `FileEntry.toURL()` と `DirectoryEntry.toURL()` では、ファイルシステムの
 URL ( Filesystem URL ) を、次の形式で返します。
 
-    cdvfile://localhost/persistent/path/to/file
+{{<highlight javascript>}}
+cdvfile://localhost/persistent/path/to/file
+{{</highlight>}}
 
 `download()` と `upload()`
 の両メソッド内において、ファイルへの絶対パスを指定する代わりに、この URL
@@ -350,9 +364,9 @@ URL ( Filesystem URL ) を、次の形式で返します。
 
 ファイル転送プラグインを使用して、ファイルのアップロードとダウンロードを行います。ここでは、次の処理を行います。
 
--   アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード &lt;binary\_file&gt;
--   ファイルのアップロード &lt;upload\_created\_file&gt;
--   ファイルのダウンロード &lt;download\_uploaded\_file&gt;
+-   [アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード](#アプリのキャッシュ用ディレクトリーへ-バイナリーファイルをダウンロード)
+-   [ファイルのアップロード](#ファイルのアップロード)
+-   [ファイルのダウンロード](#ファイルのダウンロード-ここでは-先ほどの例で使用したファイルをダウンロードします)
 
 ### アプリのキャッシュ用ディレクトリーへ、バイナリーファイルをダウンロード
 
@@ -367,26 +381,26 @@ URL ( Filesystem URL ) を、次の形式で返します。
 の `fs.root.getFile` メソッドを使用して、ダウンロード先となるファイル (
 FileEntry ) を作成/取得します。
 
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-        console.log('file system open: ' + fs.name);
+    console.log('file system open: ' + fs.name);
 
-        // Make sure you add the domain name to the Content-Security-Policy <meta> element.
-        var url = 'http://cordova.apache.org/static/img/cordova_bot.png';
-        // Parameters passed to getFile create a new file or return the file if it already exists.
-        fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
-            download(fileEntry, url, true);
+    // Make sure you add the domain name to the Content-Security-Policy <meta> element.
+    var url = 'http://cordova.apache.org/static/img/cordova_bot.png';
+    // Parameters passed to getFile create a new file or return the file if it already exists.
+    fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
+        download(fileEntry, url, true);
 
-        }, onErrorCreateFile);
+    }, onErrorCreateFile);
 
-    }, onErrorLoadFs);
+}, onErrorLoadFs);
+{{</highlight>}}
 
-<div class="admonition note">
-
-永続的なストレージを使用する場合には、requestFileSystem
-の実行時に、LocalFileSystem.PERSISTENT を指定します。
-
-</div>
+{{<note>}}
+永続的なストレージを使用する場合には、 <code>requestFileSystem</code>
+の実行時に、 <code>LocalFileSystem.PERSISTENT</code> を指定します。
+{{</note>}}
 
 FileEntry オブジェクトの作成/取得後、FileTransfer オブジェクトの
 download メソッドを使用して、ファイルを `ダウンロード`
@@ -396,47 +410,51 @@ download メソッドを使用して、ファイルを `ダウンロード`
 には、download の処理結果として受けとった、新規の FileEntry
 オブジェクトが格納されています。
 
-    function download(fileEntry, uri, readBinaryData) {
+{{<highlight javascript>}}
+function download(fileEntry, uri, readBinaryData) {
 
-        var fileTransfer = new FileTransfer();
-        var fileURL = fileEntry.toURL();
+    var fileTransfer = new FileTransfer();
+    var fileURL = fileEntry.toURL();
 
-        fileTransfer.download(
-            uri,
-            fileURL,
-            function (entry) {
-                console.log("Successful download...");
-                console.log("download complete: " + entry.toURL());
-                if (readBinaryData) {
-                  // Read the file...
-                  readBinaryFile(entry);
-                }
-                else {
-                  // Or just display it.
-                  displayImageByFileURL(entry);
-                }
-            },
-            function (error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            null, // or, pass false
-            {
-                //headers: {
-                //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                //}
+    fileTransfer.download(
+        uri,
+        fileURL,
+        function (entry) {
+            console.log("Successful download...");
+            console.log("download complete: " + entry.toURL());
+            if (readBinaryData) {
+                // Read the file...
+                readBinaryFile(entry);
             }
-        );
-    }
+            else {
+                // Or just display it.
+                displayImageByFileURL(entry);
+            }
+        },
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("upload error code" + error.code);
+        },
+        null, // or, pass false
+        {
+            //headers: {
+            //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            //}
+        }
+    );
+}
+{{</highlight>}}
 
 画像を単に表示する場合には、次のように、FileEntry を渡して、FileEntry
 自身の toURL() 関数を呼び出します。
 
-    function displayImageByFileURL(fileEntry) {
-        var elem = document.getElementById('imageFile');
-        elem.src = fileEntry.toURL();
-    }
+{{<highlight javascript>}}
+function displayImageByFileURL(fileEntry) {
+    var elem = document.getElementById('imageFile');
+    elem.src = fileEntry.toURL();
+}
+{{</highlight>}}
 
 バイナリーファイルの読み込み後に、なんらかの処理をする場合、FileReader
 の `readAsBinaryString` と `readAsArrayBuffer` の 2
@@ -445,38 +463,42 @@ download メソッドを使用して、ファイルを `ダウンロード`
 オブジェクトをこのメソッドに渡します。ファイルの読み込み後は、その処理結果を使用して、Blob
 オブジェクトを作成します。
 
-    function readBinaryFile(fileEntry) {
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+{{<highlight javascript>}}
+function readBinaryFile(fileEntry) {
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function() {
+        reader.onloadend = function() {
 
-                console.log("Successful file read: " + this.result);
-                // displayFileData(fileEntry.fullPath + ": " + this.result);
+            console.log("Successful file read: " + this.result);
+            // displayFileData(fileEntry.fullPath + ": " + this.result);
 
-                var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
-                displayImage(blob);
-            };
+            var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
+            displayImage(blob);
+        };
 
-            reader.readAsArrayBuffer(file);
+        reader.readAsArrayBuffer(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}
 
 ファイルの読み込み後、`createObjectURL` を使用すれば、DOM 上で使用できる
 URL を取得できます。次に、この URL を使用して、画像を表示します。
 
-    function displayImage(blob) {
+{{<highlight javascript>}}
+function displayImage(blob) {
 
-        // Note: Use window.URL.revokeObjectURL when finished with image.
-        var objURL = window.URL.createObjectURL(blob);
+    // Note: Use window.URL.revokeObjectURL when finished with image.
+    var objURL = window.URL.createObjectURL(blob);
 
-        // Displays image if result is a valid DOM string for an image.
-        var elem = document.getElementById('imageFile');
-        elem.src = objURL;
-    }
+    // Displays image if result is a valid DOM string for an image.
+    var elem = document.getElementById('imageFile');
+    elem.src = objURL;
+}
+{{</highlight>}}
 
-上記で示したように、ダウンロードした画像を単に表示するのであれば、FileEntry.toURL()
+上記で示したように、ダウンロードした画像を単に表示するのであれば、 `FileEntry.toURL()`
 を使用することもできます。
 
 ### ファイルのアップロード
@@ -490,89 +512,92 @@ URL を取得できます。次に、この URL を使用して、画像を表�
 内にファイルを作成しています。次に、アップロードするコンテンツを渡して、writeFile
 関数を実行します。
 
-    function onUploadFile() {
-        window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+{{<highlight javascript>}}
+function onUploadFile() {
+    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
-            console.log('file system open: ' + fs.name);
-            var fileName = "uploadSource.txt";
-            var dirEntry = fs.root;
-            dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
+        console.log('file system open: ' + fs.name);
+        var fileName = "uploadSource.txt";
+        var dirEntry = fs.root;
+        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
 
-                // Write something to the file before uploading it.
-                writeFile(fileEntry);
+            // Write something to the file before uploading it.
+            writeFile(fileEntry);
 
-            }, onErrorCreateFile);
+        }, onErrorCreateFile);
 
-        }, onErrorLoadFs);
-    }
+    }, onErrorLoadFs);
+}
+{{</highlight>}}
 
 この例では、FileWrite オブジェクトを作成/取得して、次に、upload
 関数を実行しています。
 
-    function writeFile(fileEntry, dataObj) {
-        // Create a FileWriter object for our FileEntry (log.txt).
-        fileEntry.createWriter(function (fileWriter) {
+{{<highlight javascript>}}
+function writeFile(fileEntry, dataObj) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
 
-            fileWriter.onwriteend = function () {
-                console.log("Successful file write...");
-                upload(fileEntry);
-            };
+        fileWriter.onwriteend = function () {
+            console.log("Successful file write...");
+            upload(fileEntry);
+        };
 
-            fileWriter.onerror = function (e) {
-                console.log("Failed file write: " + e.toString());
-            };
+        fileWriter.onerror = function (e) {
+            console.log("Failed file write: " + e.toString());
+        };
 
-            if (!dataObj) {
-              dataObj = new Blob(['file data to upload'], { type: 'text/plain' });
-            }
+        if (!dataObj) {
+            dataObj = new Blob(['file data to upload'], { type: 'text/plain' });
+        }
 
-            fileWriter.write(dataObj);
-        });
-    }
+        fileWriter.write(dataObj);
+    });
+}
+{{</highlight>}}
 
 ここでは、upload 関数へ FileEntry
 オブジェクトを渡しています。なお、実際のアップロード処理には、FileTransfer
 オブジェクトの upload 関数を使用します。
 
-    function upload(fileEntry) {
-        // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-        var fileURL = fileEntry.toURL();
+{{<highlight javascript>}}
+function upload(fileEntry) {
+    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
+    var fileURL = fileEntry.toURL();
 
-        var success = function (r) {
-            console.log("Successful upload...");
-            console.log("Code = " + r.responseCode);
-            displayFileData(fileEntry.fullPath + " (content uploaded to server)");
-        }
+    var success = function (r) {
+        console.log("Successful upload...");
+        console.log("Code = " + r.responseCode);
+        displayFileData(fileEntry.fullPath + " (content uploaded to server)");
+    }
 
-        var fail = function (error) {
-            alert("An error has occurred: Code = " + error.code);
-        }
+    var fail = function (error) {
+        alert("An error has occurred: Code = " + error.code);
+    }
 
-        var options = new FileUploadOptions();
-        options.fileKey = "file";
-        options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-        options.mimeType = "text/plain";
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+    options.mimeType = "text/plain";
 
-        var params = {};
-        params.value1 = "test";
-        params.value2 = "param";
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
 
-        options.params = params;
+    options.params = params;
 
-        var ft = new FileTransfer();
-        // SERVER must be a URL that can handle the request, like
-        // http://some.server.com/upload.php
-        ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
-    };
+    var ft = new FileTransfer();
+    // SERVER must be a URL that can handle the request, like
+    // http://some.server.com/upload.php
+    ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
+};
+{{</highlight>}}
 
-ファイルのダウンロード (
-ここでは、先ほどの例で使用したファイルをダウンロードします )
---------------------------
+### ファイルのダウンロード ( ここでは、先ほどの例で使用したファイルをダウンロードします )
 
 先ほどアップロードしたテキストを、今度は、ダウンロードします ( 「
 ファイルのアップロード 」 を参照のこと )。必要なものは、有効な URL です
-( ダウンロード元を指す
-URL、たとえば、http://some.server.com/download.php
+( ダウンロード元を指す URL、たとえば、http://some.server.com/download.php
 )。FileTransfer.download メソッドの成功時のハンドラーには、FileEntry
 オブジェクトが渡されます。上記のダウンロードの例 ( 「
 バイナリーファイルのダウンロード 」 を参照のこと )
@@ -581,48 +606,52 @@ URL、たとえば、http://some.server.com/download.php
 ファイルのアップロード 」 を参照のこと )
 では、テキスト形式のコンテンツとして、ファイルがアップロードされているためです。
 
-    function download(fileEntry, uri) {
+{{<highlight javascript>}}
+function download(fileEntry, uri) {
 
-        var fileTransfer = new FileTransfer();
-        var fileURL = fileEntry.toURL();
+    var fileTransfer = new FileTransfer();
+    var fileURL = fileEntry.toURL();
 
-        fileTransfer.download(
-            uri,
-            fileURL,
-            function (entry) {
-                console.log("Successful download...");
-                console.log("download complete: " + entry.toURL());
-                readFile(entry);
-            },
-            function (error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            null, // or, pass false
-            {
-                //headers: {
-                //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                //}
-            }
-        );
-    }
+    fileTransfer.download(
+        uri,
+        fileURL,
+        function (entry) {
+            console.log("Successful download...");
+            console.log("download complete: " + entry.toURL());
+            readFile(entry);
+        },
+        function (error) {
+            console.log("download error source " + error.source);
+            console.log("download error target " + error.target);
+            console.log("upload error code" + error.code);
+        },
+        null, // or, pass false
+        {
+            //headers: {
+            //    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+            //}
+        }
+    );
+}
+{{</highlight>}}
 
 readFile 関数内で、FileReader オブジェクトの `readAsText`
 メソッドを実行します。
 
-    function readFile(fileEntry) {
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+{{<highlight javascript>}}
+function readFile(fileEntry) {
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
 
-            reader.onloadend = function () {
+        reader.onloadend = function () {
 
-                console.log("Successful file read: " + this.result);
-                // displayFileData(fileEntry.fullPath + ": " + this.result);
+            console.log("Successful file read: " + this.result);
+            // displayFileData(fileEntry.fullPath + ": " + this.result);
 
-            };
+        };
 
-            reader.readAsText(file);
+        reader.readAsText(file);
 
-        }, onErrorReadFile);
-    }
+    }, onErrorReadFile);
+}
+{{</highlight>}}

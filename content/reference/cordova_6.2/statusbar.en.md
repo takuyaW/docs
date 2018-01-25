@@ -1,5 +1,6 @@
 ---
 title: StatusBar Plugin
+weight: 200
 ---
 
 Tested Version:

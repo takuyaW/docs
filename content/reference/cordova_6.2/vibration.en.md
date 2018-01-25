@@ -1,5 +1,6 @@
 ---
 title: Vibration Plugin
+weight: 190
 ---
 
 Tested Version:
@@ -19,33 +20,37 @@ This plugin defines global objects including `navigator.vibrate`.
 Although in the global scope, they are not available until after the
 `deviceready` event.
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.vibrate);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-vibration
+{{<highlight javascript>}}
+cordova-plugin-vibration
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Vibration` plugin in Monaca Cloud IDE.
 
 Supported Platforms
 -------------------
 
-navigator.vibrate, navigator.notification.vibrate:
+`navigator.vibrate, navigator.notification.vibrate`:
 
 -   Android
 -   iOS
 -   Windows (Windows Phone 8.1 devices only)
 
-navigator.notification.vibrateWithPattern,
-navigator.notification.cancelVibration:
+`navigator.notification.vibrateWithPattern`,
+`navigator.notification.cancelVibration`:
 
 -   Android
 -   Windows (Windows Phone 8.1 devices only)
@@ -62,28 +67,32 @@ passed to it.
 
 Vibrates the device for a given amount of time.
 
-    navigator.vibrate(time)
+{{<highlight javascript>}}
+navigator.vibrate(time)
+{{</highlight>}}
 
 or
 
-    navigator.vibrate([time])
+{{<highlight javascript>}}
+navigator.vibrate([time])
+{{</highlight>}}
 
 -   **time**: Milliseconds to vibrate the device. *(Number)*
 
->     // Vibrate for 3 seconds
->     navigator.vibrate(3000);
->
->     // Vibrate for 3 seconds
->     navigator.vibrate([3000]);
+{{<highlight javascript>}}
+// Vibrate for 3 seconds
+navigator.vibrate(3000);
+
+// Vibrate for 3 seconds
+navigator.vibrate([3000]);
+{{</highlight>}}
 
 ##### iOS Quirks
 
 -   **time**: Ignores the specified time and vibrates for a pre-set
     amount of time.
 
-<!-- -->
-
-    navigator.vibrate(3000); // 3000 is ignored
+    {{<highlight javascript>}}navigator.vibrate(3000); // 3000 is ignored{{</highlight>}}
 
 ##### Windows Quirks
 

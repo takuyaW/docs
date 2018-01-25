@@ -1,5 +1,6 @@
 ---
 title: Network Information Plugin
+weight: 170
 ---
 
 Tested Version:
@@ -9,20 +10,21 @@ Tested Version:
 This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-network-information">}}.
 {{</note>}}
 
-This plugin provides an implementation of an old version of the [Network
-Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). It
+This plugin provides an implementation of an old version of the [Network Information API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). It
 provides information about the device's cellular and wifi connection,
 and whether the device has an internet connection.
 
 Plugin ID
 ---------
 
-    cordova-plugin-network-information
+{{<highlight javascript>}}
+cordova-plugin-network-information
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Network Information` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -60,23 +62,25 @@ connection state, and type of connection.
 
 #### Quick Example
 
-    function checkConnection() {
-        var networkState = navigator.connection.type;
+{{<highlight javascript>}}
+function checkConnection() {
+    var networkState = navigator.connection.type;
 
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.CELL]     = 'Cell generic connection';
-        states[Connection.NONE]     = 'No network connection';
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
-    }
+    alert('Connection type: ' + states[networkState]);
+}
 
-    checkConnection();
+checkConnection();
+{{</highlight>}}
 
 #### API Change
 
@@ -89,9 +93,7 @@ eventually be removed.
 #### iOS Quirks
 
 -   iOS can't detect the type of cellular network connection.
-
-> -   `navigator.connection.type` is set to `Connection.CELL` for all
->     cellular data.
+-   `navigator.connection.type` is set to `Connection.CELL` for all cellular data.
 
 #### Windows Quirks
 
@@ -106,7 +108,9 @@ Network-related Events
 The event fires when an application goes offline, and the device is not
 connected to the Internet.
 
-    document.addEventListener("offline", yourCallbackFunction, false);
+{{<highlight javascript>}}
+document.addEventListener("offline", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### Details
 
@@ -120,11 +124,13 @@ an event listener once the `deviceready` event fires.
 
 #### Quick Example
 
-    document.addEventListener("offline", onOffline, false);
+{{<highlight javascript>}}
+document.addEventListener("offline", onOffline, false);
 
-    function onOffline() {
-        // Handle the offline event
-    }
+function onOffline() {
+    // Handle the offline event
+}
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -136,7 +142,9 @@ least a second to fire.
 This event fires when an application goes online, and the device becomes
 connected to the Internet.
 
-    document.addEventListener("online", yourCallbackFunction, false);
+{{<highlight javascript>}}
+document.addEventListener("online", yourCallbackFunction, false);
+{{</highlight>}}
 
 #### Details
 
@@ -150,11 +158,13 @@ an event listener once the `deviceready` event fires.
 
 #### Quick Example
 
-    document.addEventListener("online", onOnline, false);
+{{<highlight javascript>}}
+document.addEventListener("online", onOnline, false);
 
-    function onOnline() {
-        // Handle the online event
-    }
+function onOnline() {
+    // Handle the online event
+}
+{{</highlight>}}
 
 #### iOS Quirks
 

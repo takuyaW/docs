@@ -1,5 +1,6 @@
 ---
 title: Device Orientation Plugin
+weight: 80
 ---
 
 Tested Version:
@@ -19,20 +20,24 @@ Access is via a global 「 `navigator.compass` 」 object.
 Although the object is attached to the global scope ( `navigator` ), it
 is not available until after the `deviceready` event.
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.compass);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.compass);
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-device-orientation
+{{<highlight javascript>}}
+cordova-plugin-device-orientation
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Device Orientation` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -55,19 +60,23 @@ API Reference
 Get the current compass heading. The compass heading is returned via a
 `CompassHeading` object using the `compassSuccess` callback function.
 
-    navigator.compass.getCurrentHeading(compassSuccess, compassError);
+{{<highlight javascript>}}
+navigator.compass.getCurrentHeading(compassSuccess, compassError);
+{{</highlight>}}
 
 #### Example
 
-    function onSuccess(heading) {
-        alert('Heading: ' + heading.magneticHeading);
-    };
+{{<highlight javascript>}}
+function onSuccess(heading) {
+    alert('Heading: ' + heading.magneticHeading);
+};
 
-    function onError(error) {
-        alert('CompassError: ' + error.code);
-    };
+function onError(error) {
+    alert('CompassError: ' + error.code);
+};
 
-    navigator.compass.getCurrentHeading(onSuccess, onError);
+navigator.compass.getCurrentHeading(onSuccess, onError);
+{{</highlight>}}
 
 ### navigator.compass.watchHeading
 
@@ -79,7 +88,9 @@ The returned watch ID references the compass watch interval. The watch
 ID can be used with `navigator.compass.clearWatch` to stop watching the
 navigator.compass.
 
-    var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [compassOptions]);
+{{<highlight javascript>}}
+var watchID = navigator.compass.watchHeading(compassSuccess, compassError, [compassOptions]);
+{{</highlight>}}
 
 `compassOptions` may contain the following keys:
 
@@ -91,20 +102,22 @@ navigator.compass.
 
 #### Example
 
-    function onSuccess(heading) {
-        var element = document.getElementById('heading');
-        element.innerHTML = 'Heading: ' + heading.magneticHeading;
-    };
+{{<highlight javascript>}}
+function onSuccess(heading) {
+    var element = document.getElementById('heading');
+    element.innerHTML = 'Heading: ' + heading.magneticHeading;
+};
 
-    function onError(compassError) {
-        alert('Compass error: ' + compassError.code);
-    };
+function onError(compassError) {
+    alert('Compass error: ' + compassError.code);
+};
 
-    var options = {
-        frequency: 3000
-    }; // Update every 3 seconds
+var options = {
+    frequency: 3000
+}; // Update every 3 seconds
 
-    var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+{{</highlight>}}
 
 #### iOS Quirks
 
@@ -122,17 +135,21 @@ with time intervals.
 
 Stop watching the compass referenced by the watch ID parameter.
 
-    navigator.compass.clearWatch(watchID);
+{{<highlight javascript>}}
+navigator.compass.clearWatch(watchID);
+{{</highlight>}}
 
 -   **watchID**: The ID returned by `navigator.compass.watchHeading`.
 
 #### Example
 
-    var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+{{<highlight javascript>}}
+var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 
-    // ... later on ...
+// ... later on ...
 
-    navigator.compass.clearWatch(watchID);
+navigator.compass.clearWatch(watchID);
+{{</highlight>}}
 
 ### CompassHeading
 

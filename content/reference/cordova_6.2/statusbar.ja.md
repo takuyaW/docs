@@ -1,5 +1,7 @@
-ステータスバーの制御 プラグイン
-===============================
+---
+title: ステータスバーの制御 プラグイン
+weight: 200
+---
 
 テスト環境 ( バージョン番号 ) :
 [2.1.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.1.3)

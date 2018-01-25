@@ -1,5 +1,6 @@
 ---
 title: File Plugin
+weight: 100
 ---
 
 Tested Version:
@@ -10,44 +11,45 @@ This document is based on the original Cordova docs available at {{<link title="
 {{</note>}}
 
 This plugin implements a File API allowing read/write access to files
-residing on the device.
+residing on the device. This plugin is based on several specs, including
+:
 
-This plugin is based on several specs, including: The HTML5 File API
-<http://www.w3.org/TR/FileAPI/>
+-   [The HTML5 File API](http://www.w3.org/TR/FileAPI/)
+-   [The Directories and System extensions Latest](http://www.w3.org/TR/2012/WD-file-system-api-20120417/)
+    Although most of the plugin code was written when [an earlier spec](http://www.w3.org/TR/2011/WD-file-system-api-20110419/) was current.
+-   It also implements the [FileWriter spec](http://dev.w3.org/2009/dap/file-system/file-writer.html)
 
-The (now-defunct) Directories and System extensions Latest:
-<http://www.w3.org/TR/2012/WD-file-system-api-20120417/> Although most
-of the plugin code was written when an earlier spec was current:
-<http://www.w3.org/TR/2011/WD-file-system-api-20110419/>
+{{<note>}}
+While the W3C FileSystem spec is deprecated for web browsers, the
+FileSystem APIs are supported in Cordova applications with this plugin
+for the platforms listed in the <b>Supported Platforms</b> list, with the
+exception of the Browser platform.
+{{</note>}}
 
-It also implements the FileWriter spec:
-<http://dev.w3.org/2009/dap/file-system/file-writer.html>
+To get a few ideas how to use the plugin, check out the
+[sample](#sample-create-files-and-directories-write-read-and-append-files) at the bottom of this page. For additional examples (browser focused), see the HTML5 Rocks' [FileSystem article.](http://www.html5rocks.com/en/tutorials/file/filesystem/) For an overview of other storage options, refer to Cordova's [storage guide](http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html).
 
-For usage, please refer to HTML5 Rocks' excellent [FileSystem
-article.](http://www.html5rocks.com/en/tutorials/file/filesystem/)
+This plugin defines global `cordova.file` object. Although in the global
+scope, it is not available until after the `deviceready` event.
 
-For an overview of other storage options, refer to Cordova's [storage
-guide](http://cordova.apache.org/docs/en/edge/cordova_storage_storage.md.html).
-
-This plugin defines global `cordova.file` object.
-
-Although in the global scope, it is not available until after the
-`deviceready` event.
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(cordova.file);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(cordova.file);
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-file
+{{<highlight javascript>}}
+cordova-plugin-file
+{{</highlight>}}
 
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins) `File`
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}}) `File`
 plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -57,8 +59,7 @@ Supported Platforms
 -   iOS
 -   Windows\*
 
-\*These platforms do not support `FileReader.readAsArrayBuffer` or
-`FileWriter.write(blob)`.
+*These platforms do not support `FileReader.readAsArrayBuffer` or `FileWriter.write(blob)`.
 
 API Reference
 -------------
@@ -418,8 +419,7 @@ properties are <code>null</code>.
 #### Android Persistent storage location
 
 There are multiple valid locations to store persistent files on an
-Android device. See [this
-page](http://developer.android.com/guide/topics/data/data-storage.html)
+Android device. See [this page](http://developer.android.com/guide/topics/data/data-storage.html)
 for an extensive discussion of the various possibilities.
 
 Previous versions of the plugin would choose the location of the
@@ -439,9 +439,10 @@ storage location, or using the previous logic, with a preference in your
 application's `config.xml` file. To do this, add one of these two lines
 to `config.xml`:
 
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+{{<highlight xml>}}
+<preference name="AndroidPersistentFileLocation" value="Internal" />
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+{{</highlight>}}
 
 Without this line, the File plugin will use `Internal` as the default.
 If a preference tag is present, and is not one of these values, the
@@ -504,9 +505,10 @@ It is now possible to choose whether to store files in the documents or
 library directory, with a preference in your application's `config.xml`
 file. To do this, add one of these two lines to `config.xml`:
 
-    <preference name="iosPersistentFileLocation" value="Library" />
-
-    <preference name="iosPersistentFileLocation" value="Compatibility" />
+{{<highlight xml>}}
+<preference name="iosPersistentFileLocation" value="Library" />
+<preference name="iosPersistentFileLocation" value="Compatibility" />
+{{</highlight>}}
 
 Without this line, the File plugin will use `Compatibility` as the
 default. If a preference tag is present, and is not one of these values,
@@ -533,8 +535,10 @@ Previous (pre-1.0.0) versions of the plugin stored the
 device-absolute-file-location in the `fullPath` property of `Entry`
 objects. These paths would typically look like
 
-    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
-    /storage/emulated/0/path/to/file                                    (Android)
+{{<highlight javascript>}}
+/var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)
+/storage/emulated/0/path/to/file                                    (Android)
+{{</highlight>}}
 
 These paths were also returned by the `toURL()` method of the `Entry`
 objects.
@@ -543,7 +547,9 @@ With v1.0.0, the `fullPath` attribute is the path to the file, *relative
 to the root of the HTML filesystem*. So, the above paths would now both
 be represented by a `FileEntry` object with a `fullPath` of
 
-    /path/to/file
+{{<highlight javascript>}}
+/path/to/file
+{{</highlight>}}
 
 If your application works with device-absolute-paths, and you previously
 retrieved those paths through the `fullPath` property of `Entry`
@@ -567,7 +573,9 @@ absolute '<file://>' URL. wherever possible. To ensure a 'cdvfile:'-URL
 you can use `toInternalURL()` now. This method will now return
 filesystem URLs of the form
 
-    cdvfile://localhost/persistent/path/to/file
+{{<highlight javascript>}}
+cdvfile://localhost/persistent/path/to/file
+{{</highlight>}}
 
 which can be used to identify the file uniquely.
 
@@ -591,48 +599,48 @@ To use `cdvfile` as a tag' `src` you can convert it to native path via
 
 You can also use `cdvfile://` paths directly in the DOM, for example:
 
-``` {.sourceCode .html}
+{{<highlight html>}}
 <img src="cdvfile://localhost/persistent/img/logo.png" />
-```
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 This method requires following Content Security rules updates:
-
-</div>
+{{</note>}}
 
 -   Add `cdvfile:` scheme to `Content-Security-Policy` meta tag of the
     index page, e.g.:
-
-> -   `<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:`**cdvfile:**`https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">`
+    
+    {{<highlight html>}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:`**cdvfile:**`https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+{{</highlight>}}
 
 -   Add `<access origin="cdvfile://*" />` to `config.xml`.
 
 **Converting cdvfile:// to native path**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 resolveLocalFileSystemURL('cdvfile://localhost/temporary/path/to/file.mp4', function(entry) {
-    var nativePath = entry.toURL();
-    console.log('Native URI: ' + nativePath);
-    document.getElementById('video').src = nativePath;
-```
+var nativePath = entry.toURL();
+console.log('Native URI: ' + nativePath);
+document.getElementById('video').src = nativePath;
+{{</highlight>}}
 
 **Converting native path to cdvfile://**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 resolveLocalFileSystemURL(nativePath, function(entry) {
-    console.log('cdvfile URI: ' + entry.toInternalURL());
-```
+console.log('cdvfile URI: ' + entry.toInternalURL());
+{{</highlight>}}
 
 **Using cdvfile in core plugins**
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 fileTransfer.download(uri, 'cdvfile://localhost/temporary/path/to/file.mp3', function (entry) { ...
-```
+{{</highlight>}}
 
-``` {.sourceCode .javascript}
+{{<highlight javascript>}}
 var my_media = new Media('cdvfile://localhost/temporary/path/to/file.mp3', ...); my_media.play();
-```
+{{</highlight>}}
 
 #### cdvfile quirks
 
@@ -665,8 +673,11 @@ iOS and Android recognize a tag in `config.xml` which names the
 filesystems to be installed. By default, all file-system roots are
 enabled.
 
-    <preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
-    <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,root" />
+{{<highlight xml>}}
+<preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
+
+<preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,root" />
+{{</highlight>}}
 
 #### Android
 
@@ -704,13 +715,13 @@ or persistent storage location for your app (sandboxed storage) and to
 store files in other platform-dependent locations. The code snippets in
 this section demonstrate different tasks including:
 
--   [Accessing the file system](#persistent-file)
--   Using cross-platform Cordova file URLs to [store your files](#append-file-alternative) (see Where to Store Files for more info)
--   Creating [files](#persistent-file) and [directories](#create-directories)
--   [Writing to files](#write-file)
--   [Reading files](#read-file)
--   [Appending files](#append-file-alternative)
--   [Display an image file](#display-image)
+-   [Accessing the file system](#create-a-persistent-file)
+-   Using cross-platform Cordova file URLs to [store your files](#append-a-file-using-alternative-methods) (see Where to Store Files for more info)
+-   Creating [files](#create-a-persistent-file) and [directories](#create-directories)
+-   [Writing to files](#write-to-a-file)
+-   [Reading files](#read-a-file)
+-   [Appending files](#append-a-file-using-alternative-methods)
+-   [Display an image file](#display-an-image-file)
 
 ###  Create a persistent file
 

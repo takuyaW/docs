@@ -1,5 +1,7 @@
-ホワイトリストへの登録 プラグイン ( Android 専用 )
-==================================================
+---
+title: ホワイトリストへの登録 プラグイン ( Android 専用 )
+weight: 210
+---
 
 テスト環境 ( バージョン番号 ) :
 [1.2.2](https://github.com/apache/cordova-plugin-whitelist/releases/tag/1.2.2)

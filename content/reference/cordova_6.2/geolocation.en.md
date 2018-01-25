@@ -1,5 +1,6 @@
 ---
 title: Geolocation Plugin
+weight: 120
 ---
 
 Tested Version:
@@ -16,8 +17,7 @@ signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and
 GSM/CDMA cell IDs. There is no guarantee that the API returns the
 device's actual location.
 
-This API is based on the [W3C Geolocation API
-Specification](http://dev.w3.org/geo/api/spec-source.html), and only
+This API is based on the [W3C Geolocation API Specification](http://dev.w3.org/geo/api/spec-source.html), and only
 executes on devices that don't already provide an implementation.
 
 {{<warning>}}
@@ -41,20 +41,24 @@ platforms where it is otherwise missing).
 Although the object is in the global scope, features provided by this
 plugin are not available until after the `deviceready` event.
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("navigator.geolocation works well");
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log("navigator.geolocation works well");
+}
+{{</highlight>}}
 
 Plugin ID
 ---------
 
-    cordova-plugin-geolocation
-
+{{<highlight javascript>}}
+cordova-plugin-geolocation
+{{</highlight>}}
+    
 Adding the Plugin in Monaca
 ---------------------------
 
-In order to use this plugin, please [enable](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#add-plugins)
+In order to use this plugin, please [enable]({{<ref "cordova_plugin.en.md#add-import-cordova-plugins">}})
 `Geolocation` plugin in Monaca Cloud IDE.
 
 Supported Platforms
@@ -86,9 +90,11 @@ callback with a `Position` object as the parameter. If there is an
 error, the `geolocationError` callback is passed a `PositionError`
 object.
 
-    navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                             [geolocationError],
-                                             [geolocationOptions]);
+{{<highlight javascript>}}
+navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                            [geolocationError],
+                                            [geolocationOptions]);
+{{</highlight>}}
 
 #### Parameters
 
@@ -100,29 +106,31 @@ object.
 
 #### Example
 
-    // onSuccess Callback
-    // This method accepts a Position object, which contains the
-    // current GPS coordinates
-    //
-    var onSuccess = function(position) {
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');
-    };
+{{<highlight javascript>}}
+// onSuccess Callback
+// This method accepts a Position object, which contains the
+// current GPS coordinates
+//
+var onSuccess = function(position) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+            'Longitude: '         + position.coords.longitude         + '\n' +
+            'Altitude: '          + position.coords.altitude          + '\n' +
+            'Accuracy: '          + position.coords.accuracy          + '\n' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+            'Heading: '           + position.coords.heading           + '\n' +
+            'Speed: '             + position.coords.speed             + '\n' +
+            'Timestamp: '         + position.timestamp                + '\n');
+};
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+}
 
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+{{</highlight>}}
 
 #### Android Quirks
 
@@ -138,9 +146,11 @@ detected. When the device retrieves a new location, the
 parameter. If there is an error, the `geolocationError` callback
 executes with a `PositionError` object as the parameter.
 
-    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                      [geolocationError],
-                                                      [geolocationOptions]);
+{{<highlight javascript>}}
+var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
+                                                    [geolocationError],
+                                                    [geolocationOptions]);
+{{</highlight>}}
 
 #### Parameters
 
@@ -159,34 +169,38 @@ executes with a `PositionError` object as the parameter.
 
 #### Example
 
-    // onSuccess Callback
-    //   This method accepts a `Position` object, which contains
-    //   the current GPS coordinates
-    //
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
-    }
+{{<highlight javascript>}}
+// onSuccess Callback
+//   This method accepts a `Position` object, which contains
+//   the current GPS coordinates
+//
+function onSuccess(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                        'Longitude: ' + position.coords.longitude     + '<br />' +
+                        '<hr />'      + element.innerHTML;
+}
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+}
 
-    // Options: throw an error if no update is received every 30 seconds.
-    //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+// Options: throw an error if no update is received every 30 seconds.
+//
+var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+{{</highlight>}}
 
 ### geolocationOptions
 
 Optional parameters to customize the retrieval of the geolocation
 `Position`.
 
-    { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+{{<highlight json>}}
+{ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+{{</highlight>}}
 
 #### Options
 
@@ -219,7 +233,9 @@ specified then no callback is called.
 Stop watching for changes to the device's location referenced by the
 `watchID` parameter.
 
-    navigator.geolocation.clearWatch(watchID);
+{{<highlight javascript>}}
+navigator.geolocation.clearWatch(watchID);
+{{</highlight>}}
 
 #### Parameters
 
@@ -228,14 +244,16 @@ Stop watching for changes to the device's location referenced by the
 
 #### Example
 
-    // Options: watch for changes in position, and use the most
-    // accurate position acquisition method available.
-    //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+{{<highlight javascript>}}
+// Options: watch for changes in position, and use the most
+// accurate position acquisition method available.
+//
+var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
 
-    // ...later on...
+// ...later on...
 
-    navigator.geolocation.clearWatch(watchID);
+navigator.geolocation.clearWatch(watchID);
+{{</highlight>}}
 
 ### Position
 
@@ -287,23 +305,9 @@ function when an error occurs with navigator.geolocation.
 
 #### Constants
 
--   `PositionError.PERMISSION_DENIED`
+-   `PositionError.PERMISSION_DENIED`: Returned when users do not allow the app to retrieve position information. This is dependent on the platform.
 
-> -   Returned when users do not allow the app to retrieve position
->     information. This is dependent on the platform.
+-   `PositionError.POSITION_UNAVAILABLE`: Returned when the device is unable to retrieve a position. In general, this means the device is not connected to a network or can't get a satellite fix.
 
--   `PositionError.POSITION_UNAVAILABLE`
-
-> -   Returned when the device is unable to retrieve a position. In
->     general, this means the device is not connected to a network or
->     can't get a satellite fix.
-
--   `PositionError.TIMEOUT`
-
-> -   Returned when the device is unable to retrieve a position within
->     the time specified by the `timeout` included in
->     `geolocationOptions`. When used with
->     `navigator.geolocation.watchPosition`, this error could be
->     repeatedly passed to the `geolocationError` callback every
->     `timeout` milliseconds.
+-   `PositionError.TIMEOUT`: Returned when the device is unable to retrieve a position within the time specified by the `timeout` included in `geolocationOptions`. When used with `navigator.geolocation.watchPosition`, this error could be repeatedly passed to the `geolocationError` callback every `timeout` milliseconds.
 

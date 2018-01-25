@@ -1,16 +1,14 @@
-スプラッシュスクリーンの制御 プラグイン
-=======================================
+---
+title: スプラッシュスクリーンの制御 プラグイン
+weight: 180
+---
 
 テスト環境 ( バージョン番号 ) :
 [3.2.2](https://github.com/apache/cordova-plugin-splashscreen/releases/tag/3.2.2)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-splashscreen)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-splashscreen">}} をご確認ください。
+{{</note>}}
 
 このプラグインを使用して、アプリの起動中に表示 ( または 非表示 )
 されるスプラッシュスクリーンを制御します。
@@ -18,14 +16,16 @@
 プラグイン ID
 -------------
 
-    cordova-plugin-splashscreen
+{{<highlight javascript>}}
+cordova-plugin-splashscreen
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Splashscreen` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
@@ -34,111 +34,115 @@
 -   iOS
 -   Windows ( cordova-windows バージョン 4.4.0 以上が必要 )
 
-API の解説
-----------
+## API の解説
 
-peference を使用したカスタマイズ設定 -----------
+### peference を使用したカスタマイズ設定
 
-### config.xml
+#### config.xml
 
 -   `AutoHideSplashScreen` ( 真偽値、デフォルトでは true ) :
     スプラッシュスクリーンを自動的に非表示にするかを設定します。preference
     「 `SplashScreenDelay` 」
     に指定された時間の経過後、スプラッシュスクリーンが非表示になります。
 
->     <preference name="AutoHideSplashScreen" value="true" />
+    {{<highlight xml>}}
+<preference name="AutoHideSplashScreen" value="true" />
+{{</highlight>}}
 
 -   `SplashScreenDelay` ( 数値、デフォルトでは 3000 ) :
     スプラッシュスクリーンを自動的に非表示にするまでの時間 ( ミリ秒単位
     ) を指定します。
 
->     <preference name="SplashScreenDelay" value="3000" />
+    {{<highlight xml>}}
+<preference name="SplashScreenDelay" value="3000" />
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 以前は、ミリ秒ではなく、秒単位で値を設定していたため、現在でも、30
 未満の値を指定した場合は、「 秒 」 として処理されるようになっています (
 応急的な措置ですので、将来的には廃止します )。
-
-</div>
+{{</note>}}
 
 ### iOS 特有の動作
 
 `ios`
-プラットフォーム上で、スプラッシュスクリーンを無効にする場合には、上記の他に、`<preference name=\"FadeSplashScreenDuration\" value=\"0\"/>`
+プラットフォーム上で、スプラッシュスクリーンを無効にする場合には、上記の他に、`<preference name="FadeSplashScreenDuration" value="0"/>`
 を `config.xml` に追加します。
 
 -   `FadeSplashScreen` ( 真偽値、デフォルトでは `true` ):
     画面の状態が切り替わるときに、スプラッシュスクリーンがフェードイン・フェードアウト
     ( fade in/out ) することを防ぐ場合には、false に設定します。
 
-<!-- -->
-
-    <preference name="FadeSplashScreen" value="false"/>
+    {{<highlight xml>}}
+<preference name="FadeSplashScreen" value="false"/>
+{{</highlight>}}
 
 -   `FadeSplashScreenDuration` ( float、デフォルトでは `3000` ) :
     スプラッシュスクリーンがフェードイン・フェードアウト ( fade in/out )
     するときの長さ ( ミリ秒単位 ) を指定します。
 
-<!-- -->
+    {{<highlight xml>}}
+<preference name="FadeSplashScreenDuration" value="3000"/>
+{{</highlight>}}
 
-    <preference name="FadeSplashScreenDuration" value="3000"/>
-
-<div class="admonition note">
 
 `SplashScreenDelay` の処理と `FadeSplashScreenDuration`
 の処理は併用できます ( `FadeSplashScreenDuration` の処理を
 `SplashScreenDelay` の処理に吸収させることができます
-)。たとえば、&lt;preference name="SplashScreenDelay" value="3000" /&gt;
-と &lt;preference name="FadeSplashScreenDuration" value="1000"/&gt; を
+)。たとえば、
+
+{{<highlight xml>}}
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="FadeSplashScreenDuration" value="1000"/>
+{{</highlight>}}
+
 `config.xml` に設定した場合には、次のように処理されます。
 
-</div>
 
 -   00:00 - スプラッシュスクリーンの表示
 -   00:02 - フェード処理を開始
 -   00:03 - スプラッシュスクリーンの非表示
 
-`<preference name=\"FadeSplashScreen\" value=\"false\"/>`
+`<preference name="FadeSplashScreen" value="false" />`
 の設定とフェードの処理時間を `0` に設定したとき ( または、0 になったとき
 )
 の挙動は同じです。よって、上記の例では、スプラッシュスクリーンの非表示設定が優先されます
 ( スプラッシュスクリーンの非表示は、設定どおり、3 秒後になります )。
 
-<div class="admonition note">
-
+{{<note>}}
 上記のような設定は、アプリの起動のみに適用できます。よって、コード内にて、スプラッシュスクリーンの表示・非表示を手動で行う場合、たとえば、次のように、フェード処理にタイマーを設定する必要があります。
+{{</note>}}
 
-</div>
-
-    navigator.splashscreen.show();
-    window.setTimeout(function () {
-        navigator.splashscreen.hide();
-    }, splashDuration - fadeDuration);
+{{<highlight javascript>}}
+navigator.splashscreen.show();
+window.setTimeout(function () {
+    navigator.splashscreen.hide();
+}, splashDuration - fadeDuration);
+{{</highlight>}}
 
 -   `ShowSplashScreenSpinner` ( 真偽値、デフォルトでは `true` ) :
     スプラッシュスクリーン上にスピナーを表示させない場合には、false
     を設定します。
 
-<!-- -->
-
-    <preference name="ShowSplashScreenSpinner" value="false"/>
+    {{<highlight xml>}}
+<preference name="ShowSplashScreenSpinner" value="false"/>
+{{</highlight>}}
 
 ### Android 特有の動作
 
 `config.xml` ファイルには、次の preference を追加します。
 
-    <preference name="SplashScreen" value="foo" />
-    <preference name="SplashScreenDelay" value="3000" />
-    <preference name="SplashMaintainAspectRatio" value="true|false" />
+{{<highlight xml>}}
+<preference name="SplashScreen" value="foo" />
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="SplashMaintainAspectRatio" value="true|false" />
+{{</highlight>}}
 
 1 列目の foo とは、スプラッシュスクリーンのファイル名です。 9 patch
 形式のファイルを推奨します。ファイルは、 res/xml
 ディレクトリー下の適当な場所に置きます。2
 列目は、スプラッシュスクリーンの表示時間 ( ミリ秒単位 )
-です。デフォルトでは、3000 ms です。詳細は、[Icons and Splash Screens (
-外部サイト
-)](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)
+です。デフォルトでは、3000 ms です。詳細は、[Icons and Splash Screens ( 外部サイト )](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)
 をご確認ください。
 
 preference 「 `SplashMaintainAspectRatio` 」 は、任意の設定です。true
@@ -162,18 +166,18 @@ iOS では、スプラッシュスクリーンの画像は、「 Launch Image �
     記号付きのカラーコード ( 原文 「 hash 」 のみ )、RGB、CSS
     のカラーネームのいずれかで指定します。
 
-<!-- -->
-
-    <preference name="SplashScreenSpinnerColor" value="#242424"/>
-    <preference name="SplashScreenSpinnerColor" value="DarkRed"/>
-    <preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>
+    {{<highlight xml>}}
+<preference name="SplashScreenSpinnerColor" value="#242424"/>
+<preference name="SplashScreenSpinnerColor" value="DarkRed"/>
+<preference name="SplashScreenSpinnerColor" value="rgb(50,128,128)"/>
+{{</highlight>}}
 
 -   `SplashScreenBackgroundColor` ( 文字列、デフォルトは \#464646 ): 16
     進数のカラーコードを指定します。
 
-<!-- -->
-
-    <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
+    {{<highlight xml>}}
+<preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
+{{</highlight>}}
 
 #### メソッド
 
@@ -184,13 +188,17 @@ iOS では、スプラッシュスクリーンの画像は、「 Launch Image �
 
 スプラッシュスクリーンを非表示にします。
 
-    navigator.splashscreen.hide();
+{{<highlight javascript>}}
+navigator.splashscreen.hide();
+{{</highlight>}}
 
 #### splashscreen.show
 
 スプラッシュスクリーンを表示します。
 
-    navigator.splashscreen.show();
+{{<highlight javascript>}}
+navigator.splashscreen.show();
+{{</highlight>}}
 
 アプリ側では、アプリが起動して、`deviceready`
 イベントが発火するまで、`navigator.splashscreen.show()`

@@ -1,5 +1,7 @@
-バイブレーションの制御 プラグイン
-=================================
+---
+title: バイブレーションの制御 プラグイン
+weight: 190
+---
 
 Tested Version:
 [2.1.1](https://github.com/apache/cordova-plugin-vibration/releases/tag/2.1.1)
