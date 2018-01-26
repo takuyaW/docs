@@ -6,13 +6,9 @@ weight: 200
 テスト環境 ( バージョン番号 ) :
 [2.1.3](https://github.com/apache/cordova-plugin-statusbar/releases/tag/2.1.3)
 
-<div class="admonition note">
-
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-statusbar)
-をご確認ください。
-
-</div>
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-statusbar">}} をご確認ください。
+{{</note>}}
 
 `StatusBar` オブジェクトを使用して、iOS と Android
 のステータスバーをカスタマイズできます。
@@ -20,14 +16,16 @@ weight: 200
 プラグイン ID
 -------------
 
-    cordova-plugin-statusbar
+{{<highlight javascript>}}
+cordova-plugin-statusbar
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`StatusBar` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 peference を使用したカスタマイズ設定
 ------------------------------------
@@ -41,7 +39,9 @@ peference を使用したカスタマイズ設定
     とありますが、他のバージョンでも使用されていることから、この表現を削除しています
     \]
 
->     <preference name="StatusBarOverlaysWebView" value="true" />
+    {{<highlight xml>}}
+<preference name="StatusBarOverlaysWebView" value="true" />
+{{</highlight>}}
 
 -   `StatusBarBackgroundColor` ( 16
     進数の文字列で示すカラーコード、デフォルトはなし
@@ -52,7 +52,9 @@ peference を使用したカスタマイズ設定
     とありますが、他のバージョンでも使用されていることから、この表現を削除しています
     \]
 
->     <preference name="StatusBarBackgroundColor" value="#000000" />
+    {{<highlight xml>}}
+<preference name="StatusBarBackgroundColor" value="#000000" />
+{{</highlight>}}
 
 -   `StatusBarStyle` ( ステータスバーのスタイル、デフォルトは
     lightcontent )。ステータスバーのスタイル ( 色 ) を設定します。
@@ -61,7 +63,9 @@ peference を使用したカスタマイズ設定
     とありますが、他のバージョンでも使用されていることから、この表現を削除しています
     \]
 
->     <preference name="StatusBarStyle" value="lightcontent" />
+    {{<highlight xml>}}
+<preference name="StatusBarStyle" value="lightcontent" />
+{{</highlight>}}
 
 ### Android 特有の動作
 
@@ -74,24 +78,25 @@ Android 5+
 `StatusBar.backgroundColorByName` を設定 )、動的 ( プログラムの実行時 )
 に設定する方法の一例を記します。
 
-    if (cordova.platformId == 'android') {
-        StatusBar.backgroundColorByHexString("#333");
-    }
+{{<highlight javascript>}}
+if (cordova.platformId == 'android') {
+    StatusBar.backgroundColorByHexString("#333");
+}
+{{</highlight>}}
 
 ### アプリ起動時の非表示設定
 
-アプリの実行中は、後述する StatusBar.hide
-関数を使用できます。また、アプリ起動時にステータスバーを非表示にしたい場合は、アプリの
-Info.plist ファイルの内容を変更する必要があります。
+アプリの実行中は、後述する `StatusBar.hide` 関数を使用できます。また、アプリ起動時にステータスバーを非表示にしたい場合は、アプリの
+`Info.plist` ファイルの内容を変更する必要があります。
 
-AZQ
-
-    <config-file parent="UIStatusBarHidden" platform="ios" target="*-Info.plist">
-        <true/>
-    </config-file>
-    <config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios" target="*-Info.plist">
-        <false/>
-    </config-file
+{{<highlight xml>}}
+<config-file parent="UIStatusBarHidden" platform="ios" target="*-Info.plist">
+    <true/>
+</config-file>
+<config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios" target="*-Info.plist">
+    <false/>
+</config-file>
+{{</highlight>}}
 
 ### メソッド
 
@@ -101,10 +106,12 @@ AZQ
 グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(StatusBar);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(StatusBar);
+}
+{{</highlight>}}
 
 -   StatusBar.overlaysWebView
 -   StatusBar.styleDefault
@@ -124,9 +131,11 @@ AZQ
 
 **config.xml**
 
-    <feature name="StatusBar">
-      <param name="ios-package" value="CDVStatusBar" onload="true" />
-    </feature>
+{{<highlight xml>}}
+<feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true" />
+</feature>
+{{</highlight>}}
 
 API の解説
 ----------
@@ -136,7 +145,9 @@ API の解説
 iOS 7 のステータスバーを上書きします ( WebView の上書きではありません
 )。
 
-    StatusBar.overlaysWebView(true);
+{{<highlight javascript>}}
+StatusBar.overlaysWebView(true);
+{{</highlight>}}
 
 #### 解説
 
@@ -149,14 +160,18 @@ iOS 7 のステータスバーを、iOS 6 のように表示したい場合、fa
 
 #### 例
 
-    StatusBar.overlaysWebView(true);
-    StatusBar.overlaysWebView(false);
+{{<highlight javascript>}}
+StatusBar.overlaysWebView(true);
+StatusBar.overlaysWebView(false);
+{{</highlight>}}
 
 ### StatusBar.styleDefault
 
 デフォルトのステータスバーを使用します ( 黒の文字、白の背景 )。
 
-    StatusBar.styleDefault();
+{{<highlight javascript>}}
+StatusBar.styleDefault();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -167,7 +182,9 @@ iOS 7 のステータスバーを、iOS 6 のように表示したい場合、fa
 
 lightContent のステータスバーを使用します ( 白の文字、黒の背景 )。
 
-    StatusBar.styleLightContent();
+{{<highlight javascript>}}
+StatusBar.styleLightContent();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -179,7 +196,9 @@ lightContent のステータスバーを使用します ( 白の文字、黒の�
 blackTranslucent のステータスバーを使用します (
 白の文字、半透明の黒の背景 )。
 
-    StatusBar.styleBlackTranslucent();
+{{<highlight javascript>}}
+StatusBar.styleBlackTranslucent();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -191,7 +210,9 @@ blackTranslucent のステータスバーを使用します (
 blackOpaque のステータスバーを使用します ( 白の文字、不透明な黒の背景
 )。
 
-    StatusBar.styleBlackOpaque();
+{{<highlight javascript>}}
+StatusBar.styleBlackOpaque();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -204,11 +225,15 @@ StatusBar.statusBarOverlaysWebView を false にした場合 ( iOS 7 上で iOS
 6 のようなステータスバーを使用
 )、色の名前を指定して、ステータスバーの背景色を設定できます。
 
-    StatusBar.backgroundColorByName("red");
+{{<highlight javascript>}}
+StatusBar.backgroundColorByName("red");
+{{</highlight>}}
 
 サポート対象の色の名前は、次のとおりです。
 
-    black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown
+{{<highlight bash>}}
+black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -220,12 +245,16 @@ StatusBar.statusBarOverlaysWebView を false にした場合 ( iOS 7 上で iOS
 
 16 進数の文字列を使用して、ステータスバーの背景色を設定します。
 
-    StatusBar.backgroundColorByHexString("#C0C0C0");
+{{<highlight javascript>}}
+StatusBar.backgroundColorByHexString("#C0C0C0");
+{{</highlight>}}
 
 CSS のショートハンド プロパティー ( 簡略化表記 ) も使用できます。
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
-    StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
+{{<highlight javascript>}}
+StatusBar.backgroundColorByHexString("#333"); // => #333333
+StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
+{{</highlight>}}
 
 StatusBar.statusBarOverlaysWebView を false にした場合 ( iOS 7 上で iOS
 6 のようなステータスバーを使用 )、16 進数の文字列 ( \#RRGGBB )
@@ -244,7 +273,9 @@ WP7 と WP8 の場合、\#AARRGGBB 形式でも、指定を行えます ( AA
 
 ステータスバーを非表示にします。
 
-    StatusBar.hide();
+{{<highlight javascript>}}
+StatusBar.hide();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -256,7 +287,9 @@ WP7 と WP8 の場合、\#AARRGGBB 形式でも、指定を行えます ( AA
 
 ステータスバーを表示します。
 
-    StatusBar.show();
+{{<highlight javascript>}}
+StatusBar.show();
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 
@@ -269,9 +302,11 @@ WP7 と WP8 の場合、\#AARRGGBB 形式でも、指定を行えます ( AA
 ステータスバーの状態 ( 表示または非表示 )
 を確認する場合には、このプロパティーを使用します。
 
-    if (StatusBar.isVisible) {
-        // do something
-    }
+{{<highlight javascript>}}
+if (StatusBar.isVisible) {
+    // do something
+}
+{{</highlight>}}
 
 #### サポート対象のプラットフォーム
 

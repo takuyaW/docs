@@ -10,8 +10,7 @@ Tested Version:
 This document is based on the original Cordova docs available at {{<link title="Cordova Docs" href="https://github.com/apache/cordova-plugin-vibration">}}.
 {{</note>}}
 
-This plugin aligns with the [W3C vibration
-specification](http://www.w3.org/TR/vibration/).
+This plugin aligns with the [W3C vibration specification](http://www.w3.org/TR/vibration/).
 
 This plugin provides a way to vibrate the device.
 
@@ -98,25 +97,29 @@ navigator.vibrate([3000]);
 
 -   **time**: Max time is 5000ms (5s) and min time is 1ms
 
->     navigator.vibrate(8000); // will be truncated to 5000
+    {{<highlight javascript>}}navigator.vibrate(8000); // will be truncated to 5000 {{</highlight>}}
 
 #### Vibrate with a pattern (Android and Windows only)
 
 Vibrates the device with a given pattern
 
-    navigator.vibrate(pattern);
+{{<highlight javascript>}}
+navigator.vibrate(pattern);
+{{</highlight>}}
 
 -   **pattern**: Sequence of durations (in milliseconds) for which to
     turn on or off the vibrator. *(Array of Numbers)*
 
 ##### Example
 
-    // Vibrate for 1 second
-    // Wait for 1 second
-    // Vibrate for 3 seconds
-    // Wait for 1 second
-    // Vibrate for 5 seconds
-    navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+{{<highlight javascript>}}
+// Vibrate for 1 second
+// Wait for 1 second
+// Vibrate for 3 seconds
+// Wait for 1 second
+// Vibrate for 5 seconds
+navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+{{</highlight>}}
 
 ##### Windows Quirks
 
@@ -126,45 +129,59 @@ Vibrates the device with a given pattern
 
 Immediately cancels any currently running vibration.
 
-    navigator.vibrate(0)
+{{<highlight javascript>}}
+navigator.vibrate(0)
+{{</highlight>}}
 
 or
 
-    navigator.vibrate([])
+{{<highlight javascript>}}
+navigator.vibrate([])
+{{</highlight>}}
 
 or
 
-    navigator.vibrate([0])
+{{<highlight javascript>}}
+navigator.vibrate([0])
+{{</highlight>}}
 
 Passing in a parameter of 0, an empty array, or an array with one
 element of value 0 will cancel any vibrations.
 
-### \*notification.vibrate (deprecated)
+### notification.vibrate (deprecated)
 
 Vibrates the device for a given amount of time.
 
-    navigator.notification.vibrate(time)
+{{<highlight javascript>}}
+navigator.notification.vibrate(time)
+{{</highlight>}}
 
 -   **time**: Milliseconds to vibrate the device. *(Number)*
 
 #### Example
 
-    // Vibrate for 2.5 seconds
-    navigator.notification.vibrate(2500);
+{{<highlight javascript>}}
+// Vibrate for 2.5 seconds
+navigator.notification.vibrate(2500);
+{{</highlight>}}
 
 #### iOS Quirks
 
 -   **time**: Ignores the specified time and vibrates for a pre-set
     amount of time.
+    
+    {{<highlight javascript>}}
+navigator.notification.vibrate();
+navigator.notification.vibrate(2500);   // 2500 is ignored
+{{</highlight>}}
 
->     navigator.notification.vibrate();
->     navigator.notification.vibrate(2500);   // 2500 is ignored
-
-### \*notification.vibrateWithPattern (deprecated)
+### notification.vibrateWithPattern (deprecated)
 
 Vibrates the device with a given pattern.
 
-    navigator.notification.vibrateWithPattern(pattern, repeat)
+{{<highlight javascript>}}
+navigator.notification.vibrateWithPattern(pattern, repeat)
+{{</highlight>}}
 
 -   **pattern**: Sequence of durations (in milliseconds) for which to
     turn on or off the vibrator. *(Array of Numbers)*
@@ -174,25 +191,27 @@ Vibrates the device with a given pattern.
 
 #### Example
 
-    // Immediately start vibrating
-    // vibrate for 100ms,
-    // wait for 100ms,
-    // vibrate for 200ms,
-    // wait for 100ms,
-    // vibrate for 400ms,
-    // wait for 100ms,
-    // vibrate for 800ms,
-    // (do not repeat)
-    navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
+{{<highlight javascript>}}
+// Immediately start vibrating
+// vibrate for 100ms,
+// wait for 100ms,
+// vibrate for 200ms,
+// wait for 100ms,
+// vibrate for 400ms,
+// wait for 100ms,
+// vibrate for 800ms,
+// (do not repeat)
+navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
+{{</highlight>}}
 
-### \*notification.cancelVibration (deprecated)
+### notification.cancelVibration (deprecated)
 
 Immediately cancels any currently running vibration.
 
-    navigator.notification.cancelVibration()
+{{<highlight javascript>}}
+navigator.notification.cancelVibration()
+{{</highlight>}}
 
-<div class="admonition note">
-
+{{<note>}}
 Due to alignment with w3c spec, the starred methods will be phased out.
-
-</div>
+{{</note>}}

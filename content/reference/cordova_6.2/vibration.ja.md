@@ -6,16 +6,11 @@ weight: 190
 Tested Version:
 [2.1.1](https://github.com/apache/cordova-plugin-vibration/releases/tag/2.1.1)
 
-<div class="admonition note">
+{{<note>}}
+このプラグインの詳細は、 {{<link title="こちらの原文 ( GitHub )" href="https://github.com/apache/cordova-plugin-vibration">}} をご確認ください。
+{{</note>}}
 
-このプラグインの詳細は、[こちらの原文 ( GitHub
-)](https://github.com/apache/cordova-plugin-vibration)
-をご確認ください。
-
-</div>
-
-This plugin aligns with the [W3C vibration
-specification](http://www.w3.org/TR/vibration/).
+このプラグインは、W3C の勧告 ( [Vibration API](http://www.w3.org/TR/vibration/) ) に準拠しています。
 
 このプラグインを使用して、端末を振動させることができます。
 
@@ -25,34 +20,38 @@ specification](http://www.w3.org/TR/vibration/).
 グローバルスコープに属していますが、使用できるのは、`deviceready`
 イベントの発火後になります。
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log(navigator.vibrate);
-    }
+{{<highlight javascript>}}
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}
+{{</highlight>}}
 
 プラグイン ID
 -------------
 
-    cordova-plugin-vibration
+{{<highlight javascript>}}
+cordova-plugin-vibration
+{{</highlight>}}
 
 プラグインの追加方法 ( Monaca 上での処理 )
 ------------------------------------------
 
 このプラグインを使用する場合には、Monaca クラウド IDE の \[ Cordova
 プラグインの管理 \] 上で、`Vibration` プラグインを
-有効 &lt;add\_plugins&gt; にします。
+[有効]({{<ref "cordova_plugin.ja.md#cordova-プラグイン-の追加とインポート">}}) にします。
 
 サポート対象のプラットフォーム
 ------------------------------
 
-navigator.vibrate と navigator.notification.vibrate
+`navigator.vibrate` と `navigator.notification.vibrate`
 
 -   Android
 -   iOS
 -   Windows (Windows Phone 8.1 devices only)
 
-navigator.notification.vibrateWithPattern と
-navigator.notification.cancelVibration
+`navigator.notification.vibrateWithPattern` と
+`navigator.notification.cancelVibration`
 
 -   Android
 -   Windows (Windows Phone 8.1 devices only)
@@ -69,53 +68,61 @@ API の解説
 
 指定した時間の長さで、端末を振動させます。
 
-    navigator.vibrate(time)
+
+{{<highlight javascript>}}
+navigator.vibrate(time)
+{{</highlight>}}
 
 または、
 
-    navigator.vibrate([time])
+{{<highlight javascript>}}
+navigator.vibrate([time])
+{{</highlight>}}
 
 -   **time**: 振動する時間 ( ミリ秒単位 ) です。 *( 数値 )*
 
->     // Vibrate fまたは、 3 seconds
->     navigator.vibrate(3000);
->
->     // Vibrate fまたは、 3 seconds
->     navigator.vibrate([3000]);
+{{<highlight javascript>}}
+// Vibrate for 3 seconds
+navigator.vibrate(3000);
+
+// Vibrate for 3 seconds
+navigator.vibrate([3000]);
+{{</highlight>}}
 
 ##### iOS 特有の動作
 
 -   **time**:
     指定された時間を無視して、代わりに、システム側の設定を使用して振動させます。
 
-<!-- -->
-
-    navigator.vibrate(3000); // 3000 is ignまたは、ed
+    {{<highlight javascript>}}navigator.vibrate(3000); // 3000 is ignored{{</highlight>}}
 
 ##### Windows 特有の動作
 
 -   **time**: 最長時間は 5000 ms ( 5 秒 )、最短時間は 1 ms です。
 
->     navigator.vibrate(8000); // will be truncated to 5000
+    {{<highlight javascript>}}navigator.vibrate(8000); // will be truncated to 5000 {{</highlight>}}
 
-pattern ( パターン ) を使用した振動処理 ( Android と Windows のみ )
-\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~
+#### pattern ( パターン ) を使用した振動処理 ( Android と Windows のみ )
 
 指定された pattern に応じて、端末を振動させます。
 
-    navigator.vibrate(pattern);
+{{<highlight javascript>}}
+navigator.vibrate(pattern);
+{{</highlight>}}
 
 -   **pattern**: 振動をオフ・オンにする時間 ( ミリ秒単位 )
     の組み合わせです。 *( 数値の配列 )*
 
 ##### 例
 
-    // Vibrate for 1 second
-    // Wait for 1 second
-    // Vibrate for 3 seconds
-    // Wait for 1 second
-    // Vibrate for 5 seconds
-    navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+{{<highlight javascript>}}
+// Vibrate for 1 second
+// Wait for 1 second
+// Vibrate for 3 seconds
+// Wait for 1 second
+// Vibrate for 5 seconds
+navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+{{</highlight>}}
 
 ##### Windows 特有の動作
 
@@ -126,45 +133,59 @@ pattern ( パターン ) を使用した振動処理 ( Android と Windows の�
 
 振動を即時に停止します。
 
-    navigator.vibrate(0)
+{{<highlight javascript>}}
+navigator.vibrate(0)
+{{</highlight>}}
 
 または、
 
-    navigator.vibrate([])
+{{<highlight javascript>}}
+navigator.vibrate([])
+{{</highlight>}}
 
 または、
 
-    navigator.vibrate([0])
+{{<highlight javascript>}}
+navigator.vibrate([0])
+{{</highlight>}}
 
 Passing in a parameter of 0, an empty array, or an array with one
 element of value 0 will cancel any vibrations.
 
-### \*notification.vibrate (deprecated)
+### notification.vibrate (deprecated)
 
 指定した時間の長さで、端末を振動させます。
 
-    navigator.notification.vibrate(time)
+{{<highlight javascript>}}
+navigator.notification.vibrate(time)
+{{</highlight>}}
 
 -   **time**: 振動する時間 ( ミリ秒単位 ) です。 *( 数値 )*
 
 #### 例
 
-    // Vibrate for 2.5 seconds
-    navigator.notification.vibrate(2500);
+{{<highlight javascript>}}
+// Vibrate for 2.5 seconds
+navigator.notification.vibrate(2500);
+{{</highlight>}}
 
 #### iOS 特有の動作
 
 -   **time**:
     指定された時間を無視して、代わりに、システム側の設定を使用して振動させます。
 
->     navigator.notification.vibrate();
->     navigator.notification.vibrate(2500);   // 2500 is ignored
+    {{<highlight javascript>}}
+navigator.notification.vibrate();
+navigator.notification.vibrate(2500);   // 2500 is ignored
+{{</highlight>}}
 
-### \*notification.vibrateWithPattern (deprecated)
+### notification.vibrateWithPattern (deprecated)
 
 指定された pattern に応じて、端末を振動させます。
 
-    navigator.notification.vibrateWithPattern(pattern, repeat)
+{{<highlight javascript>}}
+navigator.notification.vibrateWithPattern(pattern, repeat)
+{{</highlight>}}
 
 -   **pattern**: 振動をオフ・オンにする時間 ( ミリ秒単位 )
     の組み合わせです。 *( 数値の配列 )*
@@ -176,26 +197,27 @@ element of value 0 will cancel any vibrations.
 
 #### 例
 
-    // Immediately start vibrating
-    // vibrate fまたは、 100ms,
-    // wait fまたは、 100ms,
-    // vibrate fまたは、 200ms,
-    // wait fまたは、 100ms,
-    // vibrate fまたは、 400ms,
-    // wait fまたは、 100ms,
-    // vibrate fまたは、 800ms,
-    // (do not repeat)
-    navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
+{{<highlight javascript>}}
+// Immediately start vibrating
+// vibrate for 100ms,
+// wait for 100ms,
+// vibrate for 200ms,
+// wait for 100ms,
+// vibrate for 400ms,
+// wait for 100ms,
+// vibrate for 800ms,
+// (do not repeat)
+navigator.notification.vibrateWithPattern([0, 100, 100, 200, 100, 400, 100, 800]);
+{{</highlight>}}
 
-### \*notification.cancelVibration (deprecated)
+### notification.cancelVibration (deprecated)
 
 振動を即時に停止します。
 
-    navigator.notification.cancelVibration()
+{{<highlight javascript>}}
+navigator.notification.cancelVibration()
+{{</highlight>}}
 
-<div class="admonition note">
-
-\\\* 注意 - 星印の付いたメソッドは、廃止予定です ( w3c
-の勧告に準拠するため )。
-
-</div>
+{{<note>}}
+注意 - 星印の付いたメソッドは、廃止予定です ( w3c の勧告に準拠するため )。
+{{</note>}}
