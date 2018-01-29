@@ -1,5 +1,5 @@
 ---
-title: Monaca for Visual Studio Overview
+title: Overview
 weight: 10
 ---
 
@@ -26,13 +26,13 @@ In order to use Monaca for Visual Studio, you need:
 ##  Installing Monaca for Visual Studio
 
 {{<note>}}
-    It is necessary to {{<link href="#install-tools-for-apache-cordova" title="install tools for Apache Corodva">}} in Visual Studio in order to run Monaca for Visual Studio properly.
+    It is necessary to {{<link href="#installing-tools-for-apache-cordova" title="install tools for Apache Corodva">}} in Visual Studio in order to run Monaca for Visual Studio properly.
 {{</note>}}
 
 There are two ways to install Monaca for Visual Studio such as:
 
-1. [Installing from Visual Studio](#install-from-vs)
-2. [Installing from Web](#install-from-web)
+1. [Installing from Visual Studio](#installing-from-visual-studio)
+2. [Installing from Web](#installing-from-web)
 
 ###  Installing from Visual Studio
 
@@ -88,8 +88,8 @@ There are two ways to install Monaca for Visual Studio such as:
 To completely uninstall Monaca for Visual Studio, you need to perform
 the following steps:
 
-1. [Uninstalling from Visual Studio](#uninstall-from-vs)
-2. [Uninstalling from Windows PC](#uninstall-from-pc)
+1. [Uninstalling from Visual Studio](#uninstalling-from-visual-studio)
+2. [Uninstalling from Windows PC](#uninstalling-from-windows-pc)
 
 ###  Uninstalling from Visual Studio
 
@@ -114,9 +114,9 @@ please log in with a valid Monaca account.
 In Monaca panel, there are several features such as:
 
 - [Run in Device](#run-in-device)
-- [Build Settings](#monaca-panel-build-settings)
-- [Build](#monaca-panel-build)
-- [Preferences](#monaca-panel-preferences)
+- [Build Settings](#build-settings)
+- [Build](#build)
+- [Preferences](#preferences)
 
 ###  Run in Device
 
@@ -155,7 +155,7 @@ project for 4 different platforms as shown in the screenshot below:
 
 While trying to pair/connect Monaca Debugger with the PC hosting Monaca
 within Visual Studio, you might need to configure HTTP Server Port and
-Proxy Server. Please refer to [troubleshooting the Pairing](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair) on when this
+Proxy Server. Please refer to [troubleshooting the Pairing](/en/products_guide/debugger/troubleshooting/#fail-to-pair-monaca-debugger) on when this
 function is needed.
 
 You can find this function by going to {{<menu menu1="MONACA" menu2="Preferences">}}.
@@ -164,13 +164,11 @@ You can find this function by going to {{<menu menu1="MONACA" menu2="Preferences
 
 There are two ways to define the proxy server address as follows:
 
-1.  Proxy Server with basic authentication: `http://user:pass@server-host:port`
+1.  Proxy Server with basic authentication
 
-2.  Proxy Server without basic authentication: `http://server-host:port`
+    {{<highlight html>}}http://user:pass@server-host:port{{</highlight>}}
 
-See Also:
+2.  Proxy Server without basic authentication
 
-- [Monaca for Visual Studio Tutorial](../tutorial)
-- [Project Dependencies](../dependencies)
-- [Pairing and Debugging](../pairing_debugging)
-- [Remote Building and Publishing](../build_publish)
+    {{<highlight html>}}http://server-host:port{{</highlight>}}
+

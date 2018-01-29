@@ -1,5 +1,6 @@
 ---
 title: Monaca In-App Updater
+weight: 20
 ---
 
 This plugin updates HTML5 assets contained in the app without rebuilding
@@ -7,15 +8,14 @@ and packaging the app. You need a Web server to host the update files
 which will be accessed from the app.
 
 {{<note>}}
-In order to use this plugin, you are required to subscribe to a valid
-plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
+    In order to use this plugin, you are required to subscribe to a valid plan. Please refer to {{<link href="https://monaca.mobi/en/pricing" title="Monaca Subscription Plans">}}.
 {{</note>}}
 
 This plugin is used differently depending on the Cordova version of your
 project:
 
-- [For Cordova 6.2 Projects](#inapp-update-6-2)
-- [For Cordova 5.2 or Lower Projects](#inapp-update-5-2-and-lower)
+- [For Cordova 6.2 Projects](#for-cordova-6-2-projects)
+- [For Cordova 5.2 or Lower Projects](#for-cordova-5-2-or-lower-projects)
 
 ##  For Cordova 6.2 Projects
 
@@ -28,6 +28,7 @@ project:
 
 1.  From Monaca Cloud IDE menu, go to {{<menu menu1="File" menu2="Manage Cordova Plugins">}}
     or {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+
 2.  Click {{<guilabel name="Enable">}} button of the `Monaca In-App Updater (Version 4.0.0)`
     to add it into your project.
 
@@ -39,20 +40,20 @@ project:
 
     {{<img src="/images/reference/power_plugins/inapp_updater/9.png">}}
 
-4.  Input the [CheckUpdate URL](#checkupdate-api) and [Download URL](#download-api) appropriately. Then, click {{<guilabel name="OK">}}button.
+4.  Input the [CheckUpdate URL](#checkupdate-url-checkupdate) and [Download URL](#download-url-download) appropriately. Then, click {{<guilabel name="OK">}} button.
 
     {{<img src="/images/reference/power_plugins/inapp_updater/10.png" width="500">}}
 
 ###  Plugin Configuration
 
 In this section, we will talk about how to create the two web API you
-will need to use this plugin: [/checkUpdate](#checkupdate-api) and [/download](#download-api).
+will need to use this plugin: [/checkUpdate](#checkupdate-url-checkupdate) and [/download](#download-url-download).
 
-####  /checkUpdate
+####  CheckUpdate URL (/checkUpdate)
 
 Check the update version on the server side.
 
-*Request Parameters*
+**Request Parameters**
 
 Parameter | Data Type | Description
 ----------|-----------|---------------------
@@ -63,7 +64,7 @@ Parameter | Data Type | Description
 `app_version` | String | [optional] The version of the app
 `plugin_version` | String | [optional] The version of the In-App-Updater plugin
 
-*Response Parameters*
+**Response Parameters**
 
 Here is an example of a successful response:
 
@@ -110,16 +111,16 @@ As shown in the above example, the value of the update number is an JSON
 object consists of the update information such as `date`, `url` and so
 on. It can be obtained by the `updateInfo` parameter of a JSON object
 returned by the Promise of [getServerVersion()](#getserverversion) method.
-
-####  /download
+ 
+#### Download URL (/download)
 
 Download the zip file (update package file).
 
 {{<note>}}
-You can omit this preference if you set a download URL with {{<link title="download" href="#download_api">}}.
+    You can omit this preference if you set a download URL with {{<link title="download" href="#download">}}.
 {{</note>}}
 
-*Request Parameters*
+**Request Parameters**
 
 Parameter| Data Type | Description
 ---------|-----------|-------------------
@@ -131,19 +132,18 @@ Parameter| Data Type | Description
 `app_version` | String | [optional] The version of the app
 `plugin_version` | String | [optional] The version of the In-App-Updater plugin
 
-*Response Parameters*
+**Response Parameters**
 
 A successful response contains a ZIP file of InAppUpdater resource.
 
 ### Methods
 
 The easiest way to use this plugin is to only use [autoUpdate()](#autoupdate) which will
-download the update files (as configure in [Plugin Configuration](#updater-configuration)) and
+download the update files (as configure in [Plugin Configuration](#plugin-configuration)) and
 update the app automatically.
 
 On the other hand, if you want to customize the update process, you can
-use various available methods such as [getServerVersion()](#getserverversion), [download()](#download_api),
-[updateAndRestart()](#updateandrestart) and so on.
+use various available methods such as [getServerVersion()](#getserverversion), [download()](#download), [updateAndRestart()](#updateandrestart) and so on.
 
 Here is the list of all available methods for this plugin:
 
@@ -152,8 +152,8 @@ Methods                    | Description
 [getServerVersion()](#getserverversion) | Get the information of files to be updated from the server.
 [forceStopGetServerVersion()](#forcestopgetserverversion) | Force [getServerVersion()](#getserverversion) to stop.
 [getLocalVersion()](#getlocalversion) | Get the currect version of the app.
-[download()](#download_api) | Download the update files.
-[forceStopDownload()](#forcestopdownload) | Force [download()](#download_api) to stop.
+[download()](#download) | Download the update files.
+[forceStopDownload()](#forcestopdownload) | Force [download()](#download) to stop.
 [updateAndRestart()](#updateandrestart) | Deploy and mount the downloaded update files, and then restart the app.
 [status()](#status) | Get the current status of the plugin.
 [showAlertDialog()](#showalertdialog) | Show a dialog with a title and a message. Only one dialog is shown at a time.
@@ -169,13 +169,13 @@ Methods                    | Description
 
 Get the information of files to be updated from the server.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.getServerVersion([args: JSON object]): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
-Name | Data Type | Description
+Property | Data Type | Description
 -----|-----------|------------------
 `connectDelay` | Integer | A delay time in milliseconds before starting to connect to the server
 `connectTimeout` | Integer | (Android only) A time-out duration in milliseconds for connecting to the server
@@ -183,11 +183,11 @@ Name | Data Type | Description
 `timeoutForRequest` | Integer | (iOS only) A time-out duration in milliseconds for sending a request to the server. When the time-out happens, the request will be resent automatically without any errors.
 `timeoutForResponse` | Integer | (iOS only) A time-out duration in milliseconds for receiving all responses from the server
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 - Success callback receives a JSON object as shown below:
 
-    Name | Data Type | Description
+    Property | Data Type | Description
     -----|-----------|------------------
     `needsUpdate` | Boolean | It indicates whether or not the version of the app should be updated.
     `updatable` | Boolean | It indicates whether or not there are new files for update on the server.
@@ -195,7 +195,7 @@ Name | Data Type | Description
     `myVersion` | String | The current version of the app
     `latestUpdateNumber` | String | The latest update number for the current version of the app
     `myUpdateNumber` | String | The current update number for the current version of the app
-    `updateInfo` | JSON Object | The update information returned by the server after the update number. For example, if the server side response is as follows:<br/>{{<highlight javascript>}}{
+    `updateInfo` | JSON Object | The update information returned by the server after the update number. For example, if the server side response is as follows: {{<highlight javascript>}}{
   "ios": {
     "2.1.0": {　// app version
       "1": { // update number
@@ -204,14 +204,14 @@ Name | Data Type | Description
       }
     }
   }
-}{{</highlight>}}Then, the value of updateInfo will be:<br/>{{<highlight javascript>}}updateInfo = {
+}{{</highlight>}}Then, the value of updateInfo will be: {{<highlight javascript>}}updateInfo = {
   "date": 20170113,
   "url": "https://hogehoge.com/app/ios-v2.1.0.zip"
 }{{</highlight>}}
 
 - Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.getServerVersion().then(
@@ -232,20 +232,20 @@ monaca.InAppUpdater.getServerVersion().then(
 
 Force `getServerVersion()` to stop.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.forceStopGetServerVersion(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.forceStopGetServerVersion().then(
@@ -258,20 +258,20 @@ monaca.InAppUpdater.forceStopGetServerVersion().then(
 
 Get the currect version of the app.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.getLocalVersion(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.getLocalVersion().then(
@@ -284,11 +284,11 @@ monaca.InAppUpdater.getLocalVersion().then(
 
 Download the update files.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.download(args: JSON object): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
 Name | Data Type | Description
 -----|-----------|----------------------
@@ -301,10 +301,12 @@ Name | Data Type | Description
 `timeoutForRequest` | Integer | (iOS only) A time-out duration in milliseconds for sending a request to the server. When the time-out happens, the request will be resent automatically without any errors.
 `timeoutForResponse` | Integer | (iOS only) A time-out duration in milliseconds for receiving all responses from the server
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
+
 -   Fail callback receives a JSON object indicating the error(s).
+
 -   Progress callback receives a JSON object indicating the progress of download as shown below:
 
     Name | Data Type | Description
@@ -312,7 +314,7 @@ Name | Data Type | Description
     `count` | Integer | The total size of the files that have been downloaded so far
     `total` | Integer | The total size of the all expected download files
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.download( { version : targetVersion, buildNumber : targetBuildNumber, url : url } ).then(
@@ -326,20 +328,20 @@ monaca.InAppUpdater.download( { version : targetVersion, buildNumber : targetBui
 
 Force `download()` to stop.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.forceStopDownload(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.forceStopDownload().then(
@@ -352,18 +354,20 @@ monaca.InAppUpdater.forceStopDownload().then(
 
 Deploy and mount the downloaded update files, and then restart the app.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.updateAndRestart(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
+
 -   Fail callback receives a JSON object indicating the error(s).
+
 -   Progress callback receives a JSON object indicating the progress of the deployment as shown below:
 
     Name | Data Type | Description
@@ -371,7 +375,7 @@ There is no argument for this method.
     `count` | Integer | The total size of the files that have been deployed so far
     `total` | Integer | The total size of the all update files to be deployed
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.updateAndRestart().then(
@@ -385,15 +389,15 @@ monaca.InAppUpdater.updateAndRestart().then(
 
 Get the current status of the plugin.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.status(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object as shown below:
 
@@ -404,7 +408,7 @@ There is no argument for this method.
 
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.status().then(
@@ -418,31 +422,31 @@ monaca.InAppUpdater.status().then(
 Show a dialog with a title and a message. Only one dialog is shown at a
 time.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.showAlertDialog(args: JSON object): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
 Name | Data Type | Description
 -----|-----------|----------------------
 `title` | String | Title of the dialog
 `message` | String | Message content
-`button` | JSON Object | <ul>A button in the dialog consists of 2 elements such as:<li>`label`: [String] The label of the button</li><li>`handler`: A function to be called when the button is clicked.</li></ul>Example:{{<highlight javascript>}}{
+`button` | JSON Object | A button in the dialog consists of 2 elements such as: <ul><li>`label`: [String] The label of the button</li><li>`handler`: A function to be called when the button is clicked.</li></ul>Example: {{<highlight javascript>}}{
     label : "OK",
     handler : function() { alert("OK is clicked"); }
 }{{</highlight>}}
-`cancel` | JSON Object | <ul>A cancel button in the dialog consists of 2 elements such as :<li>`label`: [String] The label of the cancel button</li><li>`handler`: A function to be called when the cancel button is clicked.</li></ul>Example:{{<highlight javascript>}}{
+`cancel` | JSON Object | A cancel button in the dialog consists of 2 elements such as : <ul><li>`label`: [String] The label of the cancel button</li><li>`handler`: A function to be called when the cancel button is clicked.</li></ul>Example: {{<highlight javascript>}}{
     label : "Close",
     handler : function() { alert("Close is clicked"); }
 }{{</highlight>}}
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.showAlertDialog({
@@ -461,20 +465,20 @@ monaca.InAppUpdater.showAlertDialog({
 
 Close the Alert dialog.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.dismissAlertDialog(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 setTimeout( function() {
@@ -489,11 +493,11 @@ setTimeout( function() {
 
 Show a Progress dialog indicating the update progress.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.showProgressDialog(args: JSON object): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
 Name | Data Type | Description
 -----|-----------|----------------------
@@ -501,18 +505,18 @@ Name | Data Type | Description
 `message` | String | Message content
 `max` | Integer | The maximum value of a counter. When downloading files, it will be a total number of files.
 `progress` | Integer | A value that indicates the progress. When downloading files, it will be a total number of files downloaded.
-`cancel` | JSON Object | <ul>A cancel button in the dialog consists of 2 elements such as :<li>`label`: [String] The label of the cancel button</li><li>`handler`: A function to be called when the cancel button is clicked.</li></ul>Example:{{<highlight javascript>}}{
+`cancel` | JSON Object | A cancel button in the dialog consists of 2 elements such as : <ul><li>`label`: [String] The label of the cancel button</li><li>`handler`: A function to be called when the cancel button is clicked.</li></ul>Example: {{<highlight javascript>}}{
     label : "Close",
     handler : function() { alert("Close is clicked"); }
 }{{</highlight>}}
 `dismiss` | Callback | A function to be called when a dialog is closed.
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.showProgressDialog(
@@ -536,22 +540,22 @@ monaca.InAppUpdater.showProgressDialog(
 
 Change the Progress dialog.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.changeProgressDialog(args: JSON object): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
 Name | Data Type | Description
 -----|-----------|----------------------
 `progress` | Integer | A value of the progress to be changed/updated.
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback has no argument.
 -   There is no fail callback.
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.changeProgressDialog( { progress: progress } ).then(
@@ -572,20 +576,20 @@ monaca.InAppUpdater.changeProgressDialog( { progress: progress } ).then(
 
 Close a Progress dialog.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.dismissProgressDialog(): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object indicating the result.
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 setTimeout( function() {
@@ -600,15 +604,15 @@ setTimeout( function() {
 
 Check the network status (Wifi, 3G/LTE, or disconnected).
 
-{{<syntax>}}
-monaca.InAppUpdater.dismissAlertDialog(): Promise
-{{</syntax>}}
+{{<highlight javascript>}}
+monaca.InAppUpdater.networkStatus(): Promise
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value: Promise*
+**Return Value (Promise)**
 
 -   Success callback receives a JSON object as shown below:
 
@@ -620,7 +624,7 @@ There is no argument for this method.
 
 -   Fail callback receives a JSON object indicating the error(s).
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.networkStatus().then(
@@ -634,26 +638,26 @@ monaca.InAppUpdater.networkStatus().then(
 Terminate/Shut down the app.
 
 {{<note>}}
-This method is added for compatibility with the old `InAppUpdater` plugin ( v2.0.4 ) for Cordova 5.
+This method is added for compatibility with the old <code>InAppUpdater</code> plugin ( v2.0.4 ) for Cordova 5.
 {{</note>}}
 
 {{<warning>}}
 For iOS, this is equivalent to shutdown/crash so we do not recommend to use. Apple might reject your app because of this.
 {{</warning>}}
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.terminateApp()
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no argument for this method.
+- None
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.terminateApp();
@@ -663,16 +667,16 @@ monaca.InAppUpdater.terminateApp();
 
 Download the update files and update the app automatically.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.InAppUpdater.autoUpdate(options: JSON object): Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter: JSON Object*
+**Parameter (JSON Object)**
 
 Name | Data Type | Description
 -----|-----------|----------------------
 `connectDelay` | Integer | A delay time in milliseconds before starting to connect to the server
-`dialogMessages` | JSON Object | <ul>A dialog to be displayed while updating the app. It has 3 variables such as:<li>`confirm3G`: [String] A text to be shown when the user is using carrier network instead of Wifi connection while downloading the update.</li><li>`prepare`: [JSON Object] An object with 2 string variables such as `title` and `message` which will displayed while preparing to download the updates.</li><li>`download`: [JSON Object] An object with 2 string variables such as `title` and `message` which will displayed while downloading the updates.</li></ul>Example:{{<highlight javascript>}}{
+`dialogMessages` | JSON Object | A dialog to be displayed while updating the app. It has 3 variables such as: <ul><li>`confirm3G`: [String] A text to be shown when the user is using carrier network instead of Wifi connection while downloading the update.</li><li>`prepare`: [JSON Object] An object with 2 string variables such as `title` and `message` which will displayed while preparing to download the updates.</li><li>`download`: [JSON Object] An object with 2 string variables such as `title` and `message` which will displayed while downloading the updates.</li></ul>Example: {{<highlight javascript>}}{
     confirm3G : 'These updates will be downloaded with your mobile data.',
     prepare : {
         title : 'Preparing to Dowload the Updates',
@@ -684,11 +688,11 @@ Name | Data Type | Description
 `nextTask` | Callback | A function to be called when the update is done successfully.
 `failTask` | Callback | A function to be called when the update is failed.
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Example*
+**Example**
 
 {{<highlight javascript>}}
 monaca.InAppUpdater.autoUpdate( {
@@ -738,7 +742,7 @@ monaca.InAppUpdater.autoUpdate( {
 
     {{<img src="/images/reference/power_plugins/inapp_updater/2.png">}}
 
-4.  Choose an appropriate [Update Mode](#update-mode) and enter the [Deploy URL](#files-placement) storing the package update files (see [Plugin Configuration](#config-in-app-updater)). Then, click {{<guilabel name="OK">}} button.
+4.  Choose an appropriate [Update Mode](#update-mode) and enter the [Deploy URL](#placing-the-update-package-files) storing the package update files (see [Plugin Configuration](#plugin-configuration-1)). Then, click {{<guilabel name="OK">}} button.
 
     {{<img src="/images/reference/power_plugins/inapp_updater/3.png" width="500">}}
 
@@ -802,6 +806,7 @@ You can update the version of the update file by the following steps:
 
 1.  From Monaca Cloud IDE, go to {{<menu menu1="Config" menu2="iOS App Settings">}} for iOS
     or go to {{<menu menu1="Config" menu2="Android App Settings">}} for Android.
+
 2.  Enter the version number and click {{<guilabel name="Save">}} button.
 
 {{<figure src="/images/reference/power_plugins/inapp_updater/6.png" title="Android">}}

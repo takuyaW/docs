@@ -7,8 +7,8 @@ In this page, we will describe how to use Monaca Debugger with Monaca
 Cloud IDE and other Monaca local development tools such as Monaca
 Localkit, Monaca CLI and Monaca for Visual Studio:
 
-- [Monaca Debugger with Monaca Cloud IDE](#debugger-with-ide)
-- [Monaca Debugger with Monaca Local Development Tools](#debugger-with-local-tools)
+- [Monaca Debugger with Monaca Cloud IDE](#monaca-debugger-with-monaca-cloud-ide)
+- [Monaca Debugger with Monaca Local Development Tools](#monaca-debugger-with-monaca-local-development-tools)
 
 {{<note>}}
     Before starting, please install Monaca Debugger on your device or emulator. Please refer to {{<link href="../installation" title="How to Install Monaca Debugger">}} for more information.
@@ -22,10 +22,9 @@ with Monaca Cloud IDE such as:
 -   [Monaca Debug Panel](#debugger-debug-panel): DOM inspection and console debugging.
 -   [USB Debugging](#debugger-usb-debug): DOM inspection, console and JavaScript debugging.
 
-###  Monaca Debug Panel
+### Monaca Debug Panel
 
-A popular Web debugging tool, [Weinre (WEb INspector
-REmote)](https://people.apache.org/~pmuellr/weinre/docs/latest/), is
+A popular Web debugging tool, [Weinre (WEb INspector REmote)](https://people.apache.org/~pmuellr/weinre/docs/latest/), is
 embedded in debug panel of Monaca Cloud IDE. This tool allows you to
 debug your app using console debugging and DOM inspection.
 
@@ -66,31 +65,31 @@ Here is an example of using Console APIs:
 1.  Copy and paste the following code into the `index.html` file.
 
     {{<highlight html>}}
-    <!DOCTYPE HTML>
-    <html>
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
-            <script src="components/loader.js"></script>
-            <link rel="stylesheet" href="components/loader.css">
-            <link rel="stylesheet" href="css/style.css">
-            <script>
-                var a = 1;
-                var b = 2;
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src="components/loader.js"></script>
+        <link rel="stylesheet" href="components/loader.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script>
+            var a = 1;
+            var b = 2;
 
-                function debug(){
-                    var c = a + b;
-                    console.log("debug() function is executed!");
-                    console.log("executed! variable c is " + c);
-                }
+            function debug(){
+                var c = a + b;
+                console.log("debug() function is executed!");
+                console.log("executed! variable c is " + c);
+            }
 
-                debug();
-            </script>
-        </head>
-        <body>
-            <h1>Hello World!</h1>
-        </body>
-    </html>
+            debug();
+        </script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+</html>
     {{</highlight>}}
 
 2.  Save the code and connect Monaca Debugger with Monaca Cloud IDE. Run
@@ -114,12 +113,11 @@ DOM (Document Object Model) Inspection allows you to:
 -   modify the DOM structure as well as CSS of the page with live
     update.
 
-For more information, please refer to [DOM Inspection and Style
-Editing](https://developer.chrome.com/devtools/docs/dom-and-styles).
+For more information, please refer to [DOM Inspection and Style Editing](https://developer.chrome.com/devtools/docs/dom-and-styles).
 
 {{<figure src="/images/debugger/manual/debug/5.png" title="DOM Inspection inside Debug Panel">}}
 
-###  USB Debugging
+### USB Debugging
 
 With USB debugging, you can:
 
@@ -135,7 +133,7 @@ device you use:
 1.  If you are using iOS device, you can use [Safari Remote Debugging](#usb-debugging-ios).
 2.  If you are using Android device, you can use [Chrome Remote Debugging](#usb-debugging-android).
 
-####  *Safari Remote Debugging (for iOS and Mac only)*
+#### Safari Remote Debugging (for iOS and Mac only)
 
 {{<note>}}
     You are required to do some setups before using USB debugging with Monaca. Please refer to {{<link href="#pre-debug-app" title="Prerequisite for USB Debugging with Monaca">}}.
@@ -152,12 +150,11 @@ device you use:
 4.  Then, the Web Inspector window will appear. In this window, you can
     use timing HTTP requests, profiling JavaScript, manipulating the DOM
     tree, and more. In order to learn how to use Web Inspector, please
-    refer to [Safari Web
-    Inspector](https://developer.apple.com/library/ios/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007874).
+    refer to [Safari Web Inspector](https://developer.apple.com/library/ios/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007874).
 
     {{<figure src="/images/debugger/manual/debug/10.png">}}
 
-#### <b>Chrome Remote Debugging (for Android with Google Chrome Browser)</b>
+#### Chrome Remote Debugging (for Android with Google Chrome Browser)
 
 {{<note>}}
     You are required to do some setups before using USB debugging with Monaca. Please refer to {{<link href="#pre-debug-app" title="Prerequisite for USB Debugging with Monaca">}}.
@@ -174,8 +171,7 @@ device you use:
 
 5.  Then, the Chrome Inspection page should be appeared. Now you can
     start debugging your Monaca app. For more information, please refer
-    to [How to Use Chrome
-    DevTools](https://developer.chrome.com/devtools).
+    to [How to Use Chrome DevTools](https://developer.chrome.com/devtools).
 
     {{<figure src="/images/debugger/manual/debug/8.png">}}
 
@@ -184,7 +180,7 @@ device you use:
 Monaca local development tools are Monaca CLI, Monaca Localkit and
 Monaca for Visual Studio.
 
-###  Prerequisite for USB Debugging with Monaca
+### Prerequisite for USB Debugging with Monaca
 
 <table class="small">
     <tr>
@@ -204,14 +200,14 @@ Monaca for Visual Studio.
     </tr>
     <tr>
         <td><b>Enable USB Debug</b></td>
-        <td>Enable `Web Inspector` in iOS device:
+        <td>Enable Web Inspector in iOS device:
             <ul>
                 <li>Go to <code>Settings ‣ Safari</code></li>
                 <li>Scroll down and select <code>Advanced</code>.</li>
                 <li>Switch on <code>Web Inspector</code>.</li>
             </ul>
         </td>
-        <td>Enable `USB debugging` in Android device:
+        <td>Enable USB debugging in Android device:
             <ul>
                 <li>Go to <code>Settings ‣ More</code></li>
                 <li>Select <code>Developer options</code>.</li>

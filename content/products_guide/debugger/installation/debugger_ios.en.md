@@ -12,7 +12,7 @@ weight: 20
 {{<note>}}
     <ol>If the Cordova version of your project is lower than 5.2, it might not work properly with Monaca Debugger 5.X.X. There are two ways to fix this issue:
         <li><a href="/en/products_guide/monaca_ide/dependencies/cordova_plugin/#changing-cordova-version">upgrade Cordova version</a> of your project</li>
-        <li>use <a href="#custom-debugger-and">Custom Monaca Debugger</a>.</li>
+        <li>use <a href="#custom-debugger-ios">Custom Monaca Debugger</a>.</li>
     </ol>
 {{</note>}}
 
@@ -29,9 +29,9 @@ weight: 20
     </tr>
     <tr>
         <td>Installation</td>
-        <td><a href="https://itunes.apple.com/en/app/monaca/id550941371?mt=8">App Store</a>
+        <td><a href="https://itunes.apple.com/us/app/monaca/id550941371?mt=8">App Store</a>
         </td>
-        <td>Refer to <a href="#custom-debugger-ios">Build and Install Custom Monaca Debugger</a></td>
+        <td>Refer to <a href="#how-to-build-custom-monaca-debugger">Build and Install Custom Monaca Debugger</a></td>
     </tr>
         <tr>
         <td><a href="#cordova-ios">Cordova Plugins</a></td>
@@ -117,7 +117,7 @@ debugger. For more information, please refer to [how to use Network Install feat
     This feature is not available for Monaca Debugger for iOS available at App Store.
 {{</note>}}
 
-##  How to Build Custom Monaca Debugger
+## How to Build Custom Monaca Debugger
 
 ### Preparation
 

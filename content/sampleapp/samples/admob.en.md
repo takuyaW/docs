@@ -1,15 +1,15 @@
 ---
 title: AdMob Demo
+weight: 30
 ---
 
 In this page, we will show how to integrate Monaca with the most common
 mobile ads network called, [AdMob](https://www.google.com/admob/). This
-sample app is based on a demo on [AdMob Plugin Pro on
-GitHub](https://github.com/floatinghotpot/cordova-admob-pro).
+sample app is based on a demo on [AdMob Plugin Pro on GitHub](https://github.com/floatinghotpot/cordova-admob-pro).
 
 {{<import pid="5923cb95ff2af25b33815106" title="AdMob Demo">}}
 
-*Tested Environment*: 
+**Tested Environment** 
 
 - Android 6.2
 - iOS 9.3.5
@@ -25,7 +25,8 @@ register your application with AdMob.
 In order to register your application with AdMob, please do as follows:
 
 1. Sign up with [AdMob Apps](https://apps.admob.com).
-2. Go to *MONETIZE* tab and click {{<guilabel name="+ MONETIZE NEW APP">}} button.
+
+2. Go to `MONETIZE` tab and click {{<guilabel name="+ MONETIZE NEW APP">}} button.
 
     {{<img src="/images/sampleapp/admob/8.png">}}
 
@@ -55,7 +56,7 @@ File        | Description
 
 ## Required Cordova Plugins
 
-  [AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro)
+- [AdMob Plugin Pro](https://github.com/floatinghotpot/cordova-admob-pro)
 
 
 ## HTML Explanation
@@ -241,8 +242,6 @@ if (/(android)/i.test(navigator.userAgent)){
     };
 }
 {{</highlight>}}
-
-
 
 {{<note>}}
     All of these ad unit ids are for testing only. For the real ad unit ids, you will need to register with AdMob and create your own ad unit ids there.

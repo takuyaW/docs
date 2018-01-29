@@ -6,12 +6,11 @@ weight: 60
 ## Tell me about the steps to develop applications for mobile devices using Monaca.
 
 For your flexibility and convenience during app development process,
-Monaca provides four different development environments such as:
+Monaca provides 3 different development environments such as:
 
 - [Monaca Cloud IDE](/en/products_guide/monaca_ide)
 - [Monaca Localkit](/en/products_guide/monaca_localkit)
 - [Monaca CLI](/en/products_guide/monaca_cli)
-- [Monaca for Visual Studio](/en/products_guide/monaca_vs)
 
 You can choose your desired platform and start building your
 application. The following steps are the mobile app development steps
@@ -22,7 +21,7 @@ using Monaca:
 -   If needed, check application operations using Monaca Debugger.
 -   Configure your target device build settings and start building the
     application.
--   Download and install the built application file (.app/.apk) in a
+-   Download and install the built application file (`.app`/`.apk`) in a
     smartphone device.
 
 Moreover, note that in order to install the built application on iPhone

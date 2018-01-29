@@ -25,7 +25,7 @@ In order to register your app in iTunes Connect, please do as follows:
 4.  Enter the information about the app on the form that appears as seen
     below:
 
-    | Information | Description |
+    | Data | Description |
     |-------------|-------------|
     | Platforms | Choose a platform for your app. |
     | Name | Enter your app’s name as it will appear on the App Store. It can’t be longer than 255 characters. |

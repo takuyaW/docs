@@ -1,45 +1,46 @@
 ---
 title: Collection Management
+weight: 20
 ---
 
 Below are Monaca Backend Management API for Collections.
 
 Method | Description
 -------|-------------------------------
-[Collection.list()](#c-list) | Get a List of Collections
-[Collection.create()](#c-create) | Create a New Collection Object
-[Collection.drop()](#c-drop) | Drop a Collection
-[Collection.setConfig()](#c-setconfig) | Configure a Collection
-[Collection.getConfig()](#c-getconfig) | Get a Configuration of a Collection
-[Collection.getPropertyNames()](#c-getpropertynames) | Get CollectionItems' Property Names
+[Collection.list()](#collection-list) | Get a List of Collections
+[Collection.create()](#collection-create) | Create a New Collection Object
+[Collection.drop()](#collection-drop) | Drop a Collection
+[Collection.setConfig()](#collection-setconfig) | Configure a Collection
+[Collection.getConfig()](#collection-getconfig) | Get a Configuration of a Collection
+[Collection.getPropertyNames()](#collection-getpropertynames) | Get CollectionItems' Property Names
 
-##  Getting a List of Collections
+## Collection.list()
 
 Get a list of Collections.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.list()
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
-There is no parameter.
+- None
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `items` | Array | Collection Definitions
 
-##  Creating a New Collection
+## Collection.create()
 
 Create a new Collection object.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.create(_id: String, isInsertable: Boolean, defaultPublicPermission: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
@@ -47,11 +48,11 @@ Name | Type | Description
 `isInsertable` | Boolean | Whether the collection can be inserted or not
 `defaultPublicPermission` | String | Public permissions of the Collection which can be `""`, `"r"`, `"w"` or `"rw"`
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -59,25 +60,25 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Dropping a Collection
+## Collection.drop()
 
 Drop a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.drop(_id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `_id` | String | Collection name
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -85,15 +86,15 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Configuring a Collection
+## Collection.setConfig()
 
 Configure a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.setConfig(_id: String, isInsertable: Boolean, defaultPublicPermission: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
@@ -101,11 +102,11 @@ Name | Type | Description
 `isInsertable` | Boolean | Whether the collection can be inserted or not
 `defaultPublicPermission` | String | Public permissions of the Collection which can be `""`, `"r"`, `"w"` or `"rw"`
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code** 
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -113,27 +114,27 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Geting a Collection's Configuration
+## Collection.getConfig()
 
 Get the configuration of a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.getConfig(_id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `_id`  | String | Collection name
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `config` | JSON Object |  Collection Definition
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -141,28 +142,28 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Getting CollectionItems' Property Names
+## Collection.getPropertyNames()
 
-Get displayable property names by internally fetching the latest *100*
+Get displayable property names by internally fetching the latest `100`
 CollectionItems of a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Collection.getPropertyNames(_id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `_id`  | String | Collection name
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `names` | Array |  Array of property names
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 

@@ -24,8 +24,8 @@ In order to use Monaca CI, you will need to integrate GitHub with your
 Monaca account. If you haven't done it, please follow the instruction
 below:
 
-1.  Link your Monaca account to GitHub. Please refer to [GitHub Integration](../../version_control/#github-integration).
-2.  Connect your project to your GitHub repository. Please refer to [Version Control Configuration](../../version_control/#version-control-configuration).
+1.  Link your Monaca account to GitHub. Please refer to [GitHub Integration](../../version_control/github_integration).
+2.  Connect your project to your GitHub repository. Please refer to [Version Control Configuration](../../version_control/github_integration#step-2-connecting-monaca-project-with-repository).
 
 {{<note>}}
     In order to use Monaca CI, Cordova 6.2 or higher is required.
@@ -38,7 +38,7 @@ project, you are now ready to enable Monaca CI. Please do as follows:
 
 1.  From Monaca Cloud IDE menu, go to {{<menu menu1="Config" menu2="Continuous Integration">}}.
 2.  Under `JSON Settings` section, you will see the following default
-    [JSON script](#monaca-ci-json). This script controls the
+    [JSON script](#json-settings-configuration). This script controls the
     automation behaviours of Monaca CI. For example, with this default
     JSON script, Monaca CI will tell Monaca server to generate both
     debug and release builds of your project for iOS platform every time
@@ -48,21 +48,21 @@ project, you are now ready to enable Monaca CI. Please do as follows:
     `Build History` panel ({{<menu menu1="Build" menu2="Build History">}}).
 
     {{<highlight json>}}
-    [
-        {
-            "task_name": "Default",
-            "branch": "/master/",
-            "platform": [
-                "android",
-                "ios"
-            ],
-            "build": [
-                "debug",
-                "release"
-            ],
-            "deploy": []
-        }
-    ]
+[
+    {
+        "task_name": "Default",
+        "branch": "/master/",
+        "platform": [
+            "android",
+            "ios"
+        ],
+        "build": [
+            "debug",
+            "release"
+        ],
+        "deploy": []
+    }
+]
     {{</highlight>}}
 
 3.  Monaca CI is disabled by default. To enable it, click {{<guilabel name="Enable">}} and
@@ -72,7 +72,7 @@ project, you are now ready to enable Monaca CI. Please do as follows:
     under `Build History` panel. It may take some time for the build
     process to be completed.
 
-    {{<img src="/images/monaca_ide/manual/monaca_ci/overview/3.png">}}
+    {{<img src="/images/monaca_ide/manual/monaca_ci/overview/3.png" width="600">}}
 
 {{<warning>}}
     For release build (iOS & Android), you have to start building manually in the IDE first (one time only) before the Monaca CI can start the automatic build later. This is because you will need to input a valid keystore (for Android) and upload the right provisioning profile (for iOS) for release build.
@@ -90,10 +90,10 @@ order to do this, please do as follows:
     
     -   `Config Alias`: a unique identifier for each service
     -   `Username (DeployGate only)`: app's owner's username or organization name registered in DeployGate
-    -   `API Key` (DeployGate) or `API Token` (HockeyApp): API key provided the deployment service prvider. For more information on how to get the API key for each service, please refer to [How to Get API Key from DeployGate](../supported_services/#api-key-deploygate) and [How to Get API Key from HockeyApp](../supported_services/#api-key-hockeyapp).
+    -   `API Key` (DeployGate) or `API Token` (HockeyApp): API key provided the deployment service prvider. For more information on how to get the API key for each service, please refer to [How to Get API Key from DeployGate]({{<ref "supported_services.en.md#how-to-get-api-key">}}) and [How to Get API Key from HockeyApp]({{<ref "supported_services.en.md#how-to-get-api-key-1">}}).
 
-    {{<figure src="/images/monaca_ide/manual/monaca_ci/overview/1.png" title="DeployGate">}}
-    {{<figure src="/images/monaca_ide/manual/monaca_ci/overview/1_1.png" title="HockeyApp">}}
+    {{<figure src="/images/monaca_ide/manual/monaca_ci/overview/1.png" title="DeployGate" width="500">}}
+    {{<figure src="/images/monaca_ide/manual/monaca_ci/overview/1_1.png" title="HockeyApp" width="500">}}
 
 4.  Go to `Continuous Integration` panel, you will see your newly added
     service under `Configured Deploy Services` section.
@@ -109,31 +109,31 @@ order to do this, please do as follows:
     look like this:
 
     {{<highlight json>}}
-    [
-        {
-            "task_name": "Beta Test",
-            "branch": "/release/",
-            "platform": [
-                "ios",
-                "android"
-            ],
-            "build": [
-                "debug"
-            ],
-            "deploy": [
-                {
-                    "type": "DeployGate",
-                    "alias": "Insider Test",
-                    "default": {
-                        "release_note": "This is a beta test for insider testing."
-                    },
-                    "ios": {
-                        "disable_notify": "yes"
-                    }
+[
+    {
+        "task_name": "Beta Test",
+        "branch": "/release/",
+        "platform": [
+            "ios",
+            "android"
+        ],
+        "build": [
+            "debug"
+        ],
+        "deploy": [
+            {
+                "type": "DeployGate",
+                "alias": "Insider Test",
+                "default": {
+                    "release_note": "This is a beta test for insider testing."
+                },
+                "ios": {
+                    "disable_notify": "yes"
                 }
-            ]
-        }
-    ]
+            }
+        ]
+    }
+]
     {{</highlight>}}
 
 6.  Once you are done with the configuration, click {{<guilabel name="Save">}}.
@@ -187,7 +187,7 @@ use in the recipe script.
                 <li><code>default</code>: a block for default parameters you may need to use for the deployment service</li>
                 <li><code>ios</code>: a block for iOS parameters you may need to use for the deployment service</li>
                 <li><code>android</code>: a block for Android parameters you may need to use for the deployment service</li>
-            </ul><br/>
+            </ul>
             Please refer to <a href="../supported_services">here</a> for configuration parameters of each deploy service.
         </td>
     </tr>

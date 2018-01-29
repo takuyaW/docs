@@ -1,5 +1,6 @@
 ---
 title: Facebook Single Sign-on App
+weight: 20
 ---
 
 In this page, you will learn how to use Facebook's Single Sign-On (SSO)
@@ -10,15 +11,14 @@ standard dialog based authentication.
 
 {{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}
 
-*Tested Environment*: 
+**Tested Environment** 
 
 - Android 7.0
 - iOS 10.1.1
 
 {{<figure src="/images/sampleapp/facebook_sso/cover.png">}}
 
-
-##  1. Prerequisite
+## Prerequisite
 
 `APP_ID` and `APP_NAME` are required by the `cordova-plugin-facebook4` plugin. These two values can be found in the Facebook for Developer console after registering your app. To do so, please proceed as follows:
 
@@ -45,24 +45,28 @@ standard dialog based authentication.
 7. Fill in the necessary information as shown below and click {{<guilabel name="Save Changes">}}:
 
     - `Google Play Package Name`: is the Android’s Package Name you configured in Monaca Cloud IDE for Android App Settings.
-    - `Key Hashes`: is the SHA-1 fingerprint of the KeyStore you configured in Monaca Cloud IDE for Android KeyStore Settings. Please refer to How to get SHA-1 fingerprint of a keystore created in Monaca Cloud IDE.
+
+    - `Key Hashes`: is the SHA-1 fingerprint of the KeyStore you configured in Monaca Cloud IDE for Android KeyStore Settings. Please refer to [How to get SHA-1 fingerprint of a keystore created in Monaca Cloud IDE]({{<ref "application.en.md#how-to-get-sha-1-fingerprint-of-a-keystore-created-in-monaca-cloud-ide">}}).
+
     - Enable `Single Sign On` option.
 
-    {{<img src="/images/sampleapp/facebook_sso/android_setting.png">}}
+        {{<img src="/images/sampleapp/facebook_sso/android_setting.png">}}
 
 8. If your app will run on iOS as well, Click {{<guilabel name="+ Add Platform">}} and select `iOS`.
 
 9. Fill in the necessary information as shown below and {{<guilabel name="Save Changes">}}:
 
     - `Bundle ID`: is the iOS’s App ID you configured in Monaca Cloud IDE for iOS App Settings.
+    
     - Enable `Single Sign On` option.
 
     {{<img src="/images/sampleapp/facebook_sso/ios_setting.png">}}
 
-## 2. Importing the Project to Monaca Cloud IDE                                 
+## Importing the Project to Monaca Cloud IDE                                 
 
 {{<import pid="591abc668034513c335e2ecf" title="Facebook Single Sign-on App">}}                               
-## 3. Configuring the Plugin                                                                          
+
+## Configuring the Plugin                                                                          
 
 The authentication is done by [cordova-plugin-facebook4](https://github.com/jeduan/cordova-plugin-facebook4). This plugin will use the native Facebook app to perform Single Sign-on for the user; otherwise, the sign on will degrade gracefully using the standard dialog based authentication.
 
@@ -73,14 +77,16 @@ Before starting to use the plugin, you are required to input the `APP_ID` and `A
 
     {{<img src="/images/sampleapp/facebook_sso/plugin_config.png">}}
 
-3. Input the `APP_ID` and `APP_NAME` values you got in the [Prerequisite](#pre-facebook-sso) section. See the screenshot below as an example:
+3. Input the `APP_ID` and `APP_NAME` values you got in the [Prerequisite](#prerequisite) section. See the screenshot below as an example:
 
     {{<img src="/images/sampleapp/facebook_sso/plugin_params.png">}}
 
 4. Click {{<guilabel name="OK">}} to complete the configuration.
 
-## 4. Application Explanation                                                                                 
+## Application Explanation                                                                                 
+
 ### File Components                                                                                             
+
 {{<figure src="/images/sampleapp/facebook_sso/files.png">}}
 
 | File | Description |
@@ -91,10 +97,9 @@ Before starting to use the plugin, you are required to input the `APP_ID` and `A
 | `css/style.css` | A stylesheet file for the application |
 | `js/app.js` | A JavaScript file for implementation of the application |
 
-HTML Explanation
-----------------
+### HTML Explanation
 
-**index.html**
+#### index.html
 
 {{<highlight html>}}
 <!DOCTYPE HTML>
@@ -127,7 +132,7 @@ the `<body>` tag, there is only one [ons-navigator](https://onsen.io/v2/docs/ang
 component. It provides page stack management and navigation. The
 attribute page is used to identify the first page in the stack.
 
-**home.html**
+#### home.html
 
 {{<highlight html>}}
 <ons-page ng-controller="HomeCtrl">
@@ -151,7 +156,7 @@ page.
 
 {{<figure src="/images/sampleapp/facebook_sso/home.png">}}
 
-**profile.html**
+#### profile.html
 
 {{<highlight html>}}
 <ons-page ng-controller="ProfileCtrl">
@@ -178,7 +183,7 @@ This page is a user's Facebook profile page.
 
 {{<figure src="/images/sampleapp/facebook_sso/profile.png">}}
 
-## Stylesheet Explanation
+### Stylesheet Explanation
 
 This file consists of the CSS style for the navigation bar and Facebook
 profile image.
@@ -208,7 +213,7 @@ img.profile {
 }
 {{</highlight>}}
 
-## JavaScript Explanation
+### JavaScript Explanation
 
 {{<highlight javascript>}}
 ons.bootstrap()

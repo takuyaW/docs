@@ -55,7 +55,7 @@ to the following points:
 
 4.  If your pairing is successful, your local project name will appear
     under `Local Projects` in Monaca Debugger. However, if you fail the
-    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
+    pairing, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#fail-to-pair-monaca-debugger).
 
     {{<img src="/images/monaca_cli/tutorial/testing_debugging/4.png" width="300">}}
 
@@ -81,15 +81,15 @@ to the following points:
     like this:
 
     {{<highlight bash>}}
-    ...
-    <ons-sliding-menu
-        var="app.slidingMenu"
-        menu-page="menu.html"
-        main-page="page2.html"
-        side="left" type="overlay"
-        max-slide-distance="200px">
-    </ons-sliding-menu>
-    ...{{</highlight>}}
+...
+<ons-sliding-menu
+    var="app.slidingMenu"
+    menu-page="menu.html"
+    main-page="page2.html"
+    side="left" type="overlay"
+    max-slide-distance="200px">
+</ons-sliding-menu>
+...{{</highlight>}}
 
 3.  If your PC is still connected to Monaca Debugger, it will
     automatically refresh the updates. Now your starting page should be

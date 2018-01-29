@@ -10,7 +10,7 @@ Inside `Remote Build`, there are several important functions such as:
 -   Building configuration: Configure necessary information regarding
     the application and build for each platform.
 -   Project dependencies: Include necessary dependencies
-    ([Cordova plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin/#standard-plugins), [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components) and Service Integration) used by the project.
+    ([Cordova plugins](/en/products_guide/monaca_ide/dependencies/cordova_plugin), [JS/CSS Components](/en/products_guide/monaca_ide/dependencies/components) and [Service Integration](/en/reference/service_integration/)) used by the project.
 
 Until this step, we assume that you have successfully developed a
 complete application. Then, you can try building your app and installing

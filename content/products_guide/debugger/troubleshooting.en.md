@@ -1,5 +1,5 @@
 ---
-title: Debugger Troubleshooting Guide
+title: Troubleshooting Guide
 weight: 40
 ---
 
@@ -40,7 +40,7 @@ You can manually pair Monaca Debugger with the host PC as follows:
     Some Wi-Fi access points (usually that is available for public access) don’t allow the connected clients to communicate each other. In this case, please try pairing on another local network.
 {{</note>}}
 
-*IP Address and Port Number*
+<a name="ip-port"><b>IP Address and Port Number</b></a>
 
 IP address and port number are needed to establish the communication
 path between Monaca Debugger and the host PC. IP address represents the
@@ -64,13 +64,13 @@ port number you use is not opened or is already used.
         <td>Find IP address:
             <ol>
                 <li>Open Terminal window.</li>
-                <li>Type <code>ifconfig</code.</li>
+                <li>Type <code>ifconfig</code>.</li>
             </ol>
         </td>
         <td>Find IP address:
             <ol>
                 <li>Open Command Prompt window.</li>
-                <li>Type <code>ipconfig</code.</li>
+                <li>Type <code>ipconfig</code>.</li>
             </ol>
         </td>
     </tr>
@@ -79,13 +79,13 @@ port number you use is not opened or is already used.
         <td>Check if a port number is available:
             <ol>
                 <li>Open Terminal window.</li>
-                <li>Type <code>lsof -i :PORT_NUMBER</code.</li>
+                <li>Type <code>lsof -i :PORT_NUMBER</code>.</li>
             </ol>
         </td>
         <td>Check if a port number is available:
             <ol>
                 <li>Open Command Prompt window.</li>
-                <li>Type <code>netstat</code.</li>
+                <li>Type <code>netstat</code>.</li>
             </ol>
         </td>
     </tr>

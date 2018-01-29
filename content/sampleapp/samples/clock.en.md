@@ -1,5 +1,6 @@
 ---
 title: Clock App
+weight: 120
 ---
 
 {{<note>}}
@@ -10,7 +11,7 @@ This sample app is a clock app displaying current Date and time.
 
 {{<import pid="5923cd8e8034518c22fbdcbf" title="Clock App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1

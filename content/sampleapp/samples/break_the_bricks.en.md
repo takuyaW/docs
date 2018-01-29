@@ -1,5 +1,6 @@
 ---
 title: Break the Bricks
+weight: 70
 ---
 
 This is a sample game based on pixi.js which is a super fast HTML5 2D
@@ -11,7 +12,7 @@ the bricks. The objective of the game is to clear all the bricks.
 
 {{<import pid="5923a149ff2af2060e324c54" title="Break the Bricks">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1
@@ -32,8 +33,8 @@ the bricks. The objective of the game is to clear all the bricks.
 
 ## Required JS/CSS Components
 
-- `Pixi`  
-                                                               
+- `Pixi`
+
 ## Source Code Explanation                                      
 
 ### js/main.js                                                   

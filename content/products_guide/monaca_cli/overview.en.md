@@ -1,5 +1,5 @@
 ---
-title: Monaca CLI Overview
+title: Overview
 weight: 10
 ---
 
@@ -49,14 +49,14 @@ your PC in order to install Monaca CLI.
 Use the following command to install Monaca CLI:
 
 {{<highlight bash>}}
-    $ npm install -g monaca
+$ npm install -g monaca
 {{</highlight>}}
 
 On some systems you may have to prefix the command with `sudo` because
 of permission issue:
 
 {{<highlight bash>}}
-    $ sudo npm install -g monaca
+$ sudo npm install -g monaca
 {{</highlight>}}
 
 {{<note>}}

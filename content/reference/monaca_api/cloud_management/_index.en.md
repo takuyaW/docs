@@ -1,5 +1,6 @@
 ---
 title: Backend Management API
+weight: 30
 ---
 
 Monaca also allows you to manage your Monaca Backend from your server
@@ -50,13 +51,13 @@ Here is an example of a JSON-RPC request:
 
 ## JSON-RPC Request Header
 
-{{<syntax>}}
-`X-Monaca-Backend-Management-API-Key`: *********
-{{</syntax>}}
+{{<highlight javascript>}}
+X-Monaca-Backend-Management-API-Key: *********
+{{</highlight>}}
 
 ## JSON-RPC Response
 
-*Successful Response*
+### Successful Response
 
 Here is an example of a successful JSON-RPC response:
 
@@ -71,7 +72,7 @@ Here is an example of a successful JSON-RPC response:
 }
 {{</highlight>}}
 
-*Failed Response*
+### Failed Response
 
 Here is an example of a failure JSON-RPC response (if method was wrong):
 

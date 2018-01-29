@@ -9,7 +9,7 @@ on.
 
 In order to add a JavaScript/CSS library, please do as follows:
 
-1.  From Monaca Cloud IDE, go to `Config` &rarr; `Manage JS/CSS Components`.
+1.  From Monaca Cloud IDE, go to {{<menu menu1="Config" menu2="Manage JS/CSS Components">}}.
 2.  Then, `Add or Remove JS/CSS Components` page will be shown. You can see several libraries listed there. If you can't find the library you want, input the library's name in a search box to find it.
 
     {{<img src="/images/monaca_ide/manual/dependencies/components/1.png">}}

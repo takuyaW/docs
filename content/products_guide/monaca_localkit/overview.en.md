@@ -1,5 +1,5 @@
 ---
-title: Monaca Localkit Overview
+title: Overview
 weight: 10
 ---
 
@@ -31,7 +31,7 @@ provides the following functions:
     various platforms with support from Monaca server.
 
 {{<note>}}
-    Please remember that the projects you have in Monaca Cloud IDE and Monaca Localkit are not synchronized. They are completely separated. However, you can {{<link href="#localkit-import" title="import projects from Monaca Cloud IDE to Monaca Localkit">}}.
+    Please remember that the projects you have in Monaca Cloud IDE and Monaca Localkit are not synchronized. They are completely separated. However, you can {{<link href="#importing-a-project" title="import projects from Monaca Cloud IDE to Monaca Localkit">}}.
 {{</note>}}
 
 {{<note>}}

@@ -75,20 +75,19 @@ you can run it on [Monaca Debugger](/en/products_guide/debugger/).
 
 ## Changing Cordova Version
 
+{{<note>}}
+    You can't downgrade to older Cordova versions once your projects are upgraded. A backup of the project is automatically created before conversion.
+{{</note>}}
+
 For new created projects, the latest Cordova version available in Monaca
 will be automatically applied. However, you can upgrade your existing
 projects to the latest Cordova version as following:
 
-1.  From Monaca Cloud IDE, go to `Config` &rarr; `Manage Cordova Plugins`.
+1.  From Monaca Cloud IDE, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
 2.  Select the preferred Cordova Version from the dropdown list as shown
     below.
 
     {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/3.png">}}
-
-
-{{<note>}}
-    You can't downgrade to older Cordova versions once your projects are upgraded. A backup of the project is automatically created before conversion.
-{{</note>}}
 
 ##  Cordova Plugins in Monaca
 
@@ -104,15 +103,15 @@ third-party Cordova plugins.
 In order to add a Cordova plugin into your project, please do as
 follows:
 
-1.  From Monaca Cloud IDE, go to `File` &rarr; `Manage Cordova plugin` or
-    `Config` &rarr; `Manage Cordova plugin`.
+1.  From Monaca Cloud IDE, go to {{<menu menu1="File" menu2="Manage Cordova plugin">}} or
+    {{<menu menu1="Config" menu2="Manage Cordova plugin">}}.
 2.  Then, Manage Cordova Plugins page will be shown. In this page,
     standardard and some third-party Cordova plugins are listed.
     Mouseover a plugin and click on {{<guilabel name="Enable">}} to add the plugin. If you
     cannot find the plugin you want in the list, you can import other
     third-party Cordova plugins by using {{<guilabel name="Import Cordova Plugin">}} button. A
     project containing external third-party Cordova plugin(s) requires a
-    custom built Monaca Debugger. Please refer to [Monaca Debugger with Custom Cordova Plugin](../custom_cordova_plugin/#debugger-for-custom-plugins).
+    custom built Monaca Debugger. Please refer to [Monaca Debugger with Custom Cordova Plugin](../custom_cordova_plugin/#monaca-debugger-with-custom-cordova-plugin).
 
     {{<img src="/images/monaca_ide/manual/dependencies/cordova_plugin/1.png">}}
 

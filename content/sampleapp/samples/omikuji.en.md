@@ -1,5 +1,6 @@
 ---
 title: Omikuji Fortune Telling App
+weight: 140
 ---
 
 Omikuji is a Japanese word means `random fortunes`. In Monaca, app
@@ -9,7 +10,7 @@ often used for smartphone development compared to other languages.
 
 {{<import pid="5923a1c28034511f6d8a8fe3" title="Omikuji Fortune Telling App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1

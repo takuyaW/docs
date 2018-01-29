@@ -34,7 +34,7 @@ IDE. In order to do this, please do as follows:
 
     {{<img src="/images/monaca_ide/manual/deploy/app_submission/3.png">}}
 
-5.  Make sure you've [registered this app with iTunes Connect](../itunes_connect/#apply-itune-connect) before uploading your app. Then, tick `We've registered the application with iTunes Connect.`. Click {{<guilabel name="Upload">}}.
+5.  Make sure you've [registered this app with iTunes Connect](../itunes_connect/#registering-the-app) before uploading your app. Then, tick `We've registered the application with iTunes Connect.`. Click {{<guilabel name="Upload">}}.
 
     {{<img src="/images/monaca_ide/manual/deploy/app_submission/4.png">}}
 
@@ -55,7 +55,7 @@ IDE. In order to do this, please do as follows:
         Sometimes Monaca is successfully uploaded your app to iTunes Connect but Apple may find error(s) on their end and report to you via email. If this happens, please see the report and fix the error(s) appropriately. Then, re-upload your app.
     {{</note>}}
 
-8.  Now that you successfully uploaded your app, you can start selecting it in iTunes Connect. Please refer to [Selecting the Uploaded App](../itunes_connect/#select-uploaded-app).
+8.  Now that you successfully uploaded your app, you can start selecting it in iTunes Connect. Please refer to [Selecting the Uploaded App](../itunes_connect/#selecting-the-uploaded-app).
 
 
 See Also: 

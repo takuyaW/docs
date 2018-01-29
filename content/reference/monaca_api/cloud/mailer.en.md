@@ -1,22 +1,23 @@
 ---
 title: Mailer
+weight: 70
 ---
 
 Mailer allows to send emails to the users.
 
 Method       |   Description                                   
 -------------|------------------------------------
-[monaca.cloud.Mailer.sendMail()](#m-sendmail) | Send an email to a recipient
+[monaca.cloud.Mailer.sendMail()](#mailer-sendmail) | Send an email to a recipient
 
-##  Sending an Email to a Recipient
+## Mailer.sendMail()
 
 Send an email to a recipient.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Mailer.sendMail(userOid, templateName, substituteParams , [options]) : $.Promise
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
@@ -25,13 +26,13 @@ Name | Type | Description
 `substituteParams` | JSON Object | The placeholder names parameters used in the template
 `options.emailPropertyName` | JSON Object |  The property name to use for the email address (default: `_username`)
 
-*Return Value*
+**Return Value**
 
 Type | Description
 -----|--------------------------
 [$.Promise](../other/#promise) object | Use `done()`, `fail()` and `always()` methods to get results.
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../error) object.
 
@@ -41,18 +42,18 @@ Code | Description
 `-32603` |  Internal error (When the server failed to send mail)
 `11`     |  User login is required.
 
-*Example*
+**Example**
 
 The following sample denotes how to send an email using the `template_a` template. In this case, the `name` parameter is replaced by `John` in the message.
 
 {{<highlight javascript>}}
 var username = 'John';
 monaca.cloud.Mailer.sendMail("userOidA", "template_a", {"name": username})
-  .done
-  (
+.done
+(
     function()
     { /* What to do after sending an email is success. */ }
-  );
+);
 {{</highlight>}}
 
 

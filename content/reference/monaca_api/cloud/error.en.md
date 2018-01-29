@@ -1,12 +1,13 @@
 ---
 title: Error
+weight: 80
 ---
 
-It is an error object containing error code and message.
+An error object containing error code and message.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 Monaca.cloud.Error
-{{</syntax>}}
+{{</highlight>}}
 
 ## Properties
 

@@ -29,6 +29,12 @@ download the built app (APK file).
 4.  The New App Submission page will appear. In this page, you will need
     to fill in the necessary information such as:
 
+    Data | Description 
+    ------------|-------------
+    App title | Name of your app
+    Category | Select a category for your app.
+    Customer support contact | You can either use your default support information or input new information about email address, phone number and website.
+
 5.  Click {{<guilabel name="Save">}}. Then, the following page will appear:
 
     {{<img src="/images/monaca_ide/manual/deploy/amazon_store/2.png">}}
@@ -46,12 +52,12 @@ download the built app (APK file).
 7.  Go to `Description` tab. In this page, you will need to fill in the
     following necessary information and click {{<guilabel name="Save">}}.
 
-    | Information | Description |
+    | Data | Description |
     |-------------|-------------|
     | Display Title | Name of your app |
     | Short description | Description of your app shown in the store. |
     | Long description | Description of your app shown in the store. |
-    | Product feature bullets | Input a list of your app’s features. They will be displayed in Amazon.com website. |
+    | Product feature bullets | Input a list of your app’s features. They will be displayed in `amazon.com` website. |
 
 8.  Go to `Images & Multimedia` tab. In this page, you will need to upload
     at least 3 screenshots, a small icon (`114x114` PNG file) and a large
@@ -62,7 +68,7 @@ download the built app (APK file).
 10. Go to `Binary File(s)` tab. In this page, you will need to fill in the
     following necessary information and click {{<guilabel name="Save">}}.
 
-    | Information | Description |
+    | Data | Description |
     |-------------|-------------|
     | Apply Amazon DRM? | Select Yes if you want to protect your application from unauthorized. |
     | Binary file | Upload your APK file. There is no size restriction for an APK file. However, files larger than 150 MB will need to be uploaded via [SFTP](https://developer.amazon.com/ftp/account.html?appId=MPU22LL128ECT). |
@@ -87,7 +93,7 @@ to complete.
 
 After approved by Amazon, your app will be published on the Amazon
 Appstore for Android. The release date will be the specified date and
-time you have set [in Step 6 in  Register the Apps in Amazon AppStore](#register-app-in-amazon), or as soon as it’s approved if you haven’t set any date or time yet.
+time you have set [in Step 6 of Register the Apps in Amazon AppStore](#register-the-apps-in-amazon-appstore), or as soon as it’s approved if you haven’t set any date or time yet.
 
 {{<figure src="/images/monaca_ide/manual/deploy/amazon_store/4.png">}}
 

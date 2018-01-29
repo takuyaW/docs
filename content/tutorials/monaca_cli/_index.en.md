@@ -15,7 +15,7 @@ integration and remote build your projects without any setups locally.
 Before getting started, you need to:
 
 1. get a Monaca account. If you don’t have one, please register [here](https://monaca.mobi/en/register/start).
-2. install Monaca CLI. Please follow the installation instruction [here](http://docs.monaca.io/en/products_guide/monaca_cli/overview/#install-monaca-cli).
+2. install Monaca CLI. Please follow the installation instruction [here](/en/products_guide/monaca_cli/overview/#step-1-cli-installation).
 
 - [Part 1: Starting a Project](/en/tutorials/monaca_cli/starting_project)
 - [Part 2: Running Monaca Debugger with Monaca CLI](/en/tutorials/monaca_cli/testing_debugging)

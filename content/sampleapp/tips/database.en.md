@@ -15,7 +15,7 @@ You need to create a new Database object before accessing to it.
 var db = window.openDatabase(database_name, database_version, database_displayname, database_size);
 {{</highlight>}}
 
-### Creating a Database (SQLite)
+## Creating a Database (SQLite)
 
 {{<highlight html>}}
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ var db = window.openDatabase(database_name, database_version, database_displayna
 </html>
 {{</highlight>}}
 
-*openDatabase Arguments*
+### openDatabase Arguments
 
 Arguments | Description | Value 
 ----------|-------------|---------- 
@@ -45,7 +45,7 @@ Arguments | Description | Value
 `database_displayname` | Database display name | String
 `database_size` | Database size (in bytes) | Integer number
 
-*Database Object Methods*
+### Database Object Methods
 
 Function	| Description
 ----------|--------------------
@@ -58,7 +58,7 @@ to get `SQLTransaction` object. When executing `executeSql` function in
 `SQLTransaction` object, the callback function is executed and
 `SQLResultSet` object is passed to it.
 
-*SQLResultSet Object Properties*
+### SQLResultSet Object Properties
 
 Property 	| Description
 ----------|--------------------
@@ -66,7 +66,7 @@ Property 	| Description
 `rowsAffected` | Returns affected rows after sql execution.
 `rows` | Returns `ResultSetRowList` object. It represents the results of the sql execution.
 
-### Executing SQL (SQLite)
+## Executing SQL (SQLite)
 
 {{<highlight html>}}
 <!DOCTYPE html>

@@ -1,12 +1,13 @@
 ---
 title: RSS Reader App
+weight: 50
 ---
 
 This is an RSS reader application using jQuery.
 
 {{<import pid="5923c410803451c87248d1f7" title="RSS Reader App  ">}}
 
-*Tested Environment*: 
+**Tested Environment** 
 
 - Android 7.0
 - iOS 10.1.1
@@ -28,8 +29,8 @@ This is an RSS reader application using jQuery.
 
 ## Required JS/CSS Components
 
-- `jQuery`                                                   
-  
+- `jQuery`
+
 ## Required Cordova Plugins                                   
 
 - `InAppBrowser`                                             

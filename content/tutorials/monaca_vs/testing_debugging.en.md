@@ -57,7 +57,7 @@ Please install Monaca Debugger on your device.
 
 1.  Run the project on the debugger.
 2.  Let's make some changes in a project file and save them (please
-    refer to [Edit Project Files](../starting_project/#monaca-vs-edit-project)). In
+    refer to [Edit Project Files](../starting_project/#step-3-editing-the-project-files)). In
     this example, we edit the `index.html` file and change the title of each list
     item from `Rorem Ipsum` to `Monaca and OnsenUI`. Then, save the change.
 

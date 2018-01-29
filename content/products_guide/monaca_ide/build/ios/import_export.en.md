@@ -1,5 +1,6 @@
 ---
 title: Build Settings between Monaca and Xcode
+weight: 20
 ---
 
 If you want to develop your Monaca app in both Monaca Cloud IDE and
@@ -9,8 +10,8 @@ environments.
 
 In this page, we will show you how to:
 
--   [Export the Build Settings from Xcode to Monaca Cloud IDE](#from-mac-to-monaca)
--   [Export the Build Settings from Monaca Cloud IDE to Xcode](#from-monaca-to-mac)
+-   [Export the Build Settings from Xcode to Monaca Cloud IDE](#export-the-build-settings-from-xcode-to-monaca-cloud-ide)
+-   [Export the Build Settings from Monaca Cloud IDE to Xcode](#export-the-build-settings-from-monaca-cloud-ide-to-xcode)
 
 ##  Export the Build Settings from Xcode to Monaca Cloud IDE
 
@@ -106,9 +107,3 @@ IDE, please follow the instruction below:
     the private key and certificate in Xcode.
 
     {{<img src="/images/monaca_ide/manual/build/import_export/11.png">}}
-
-
-See Also: 
-
-- [Building for iOS](../build_ios)
-

@@ -1,36 +1,37 @@
 ---
 title: Push Notification
+weight: 10
 ---
 
 The following JavaScript API is used to handle the push notifications.
 
 Method | Description
 -------|-------------------
-[monaca.cloud.Push.setHandler()](#p-handler) | Set JavaScript handler when receiving push notification
+[monaca.cloud.Push.setHandler()](#push-sethandler) | Set JavaScript handler when receiving push notification
 
 
-##  Setting Push Notification Received Handler
+## Push.setHandler()
 
 Set push handler which is called when an application receives a push
 notification.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 monaca.cloud.Push.setHandler(callback: Function) : void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|------------------
 `callback` | Function | Callback function to handle incoming push notification. Additional data will be set at the first argument.
 
-*Return Value*
+**Return Value**
 
-There is no return value. 
+- None
 
-*Example*
+**Example**
 
-The following code shows a simple function to display the data received from the push notification in the console log.
+The following code shows a simple function to display the data received from the push notification in the `console.log`.
 
 {{<highlight javascript>}}
 monaca.cloud.Push.setHandler(function(data) {

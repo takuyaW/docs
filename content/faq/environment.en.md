@@ -9,7 +9,7 @@ In order to use [Monaca Cloud IDE](/en/products_guide/monaca_ide), all you need 
 have a smart mobile device to test your applications. To speed up your
 app development, we highly recommend you to install [Monaca Debugger](/en/products_guide/debugger) app on your mobile device. It allows you to test your apps instantly on your device without building/installing everytime you make changes to the code.
 
-Monaca users can also develop on their local computers without using Monaca Cloud IDE. This can be done by using [Monaca Localkit](/en/products_guide/monaca_localkit), [Monaca CLI](/en/products_guide/monaca_cli) and [Monaca for Visual Studio](/en/products_guide/monaca_vs).
+Monaca users can also develop on their local computers without using Monaca Cloud IDE. This can be done by using [Monaca Localkit](/en/products_guide/monaca_localkit) and [Monaca CLI](/en/products_guide/monaca_cli).
 
 ## What knowledge required to develop mobile apps with Monaca?
 

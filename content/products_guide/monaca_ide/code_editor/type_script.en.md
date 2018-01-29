@@ -11,10 +11,10 @@ for JavaScript that compiles into plain JavaScript. TypeScript focuses
 on providing useful tools for large scale applications by implementing
 features such as:
 
--   [Type Annotations](#annotation)
--   [Interfaces](#interface)
--   [Arrow Function Expressions](#arrow)
--   [Access Modifiers](#modifier)
+-   [Type Annotations](#type-annotations)
+-   [Interfaces](#interfaces)
+-   [Arrow Function Expressions](#arrow-function-expressions)
+-   [Access Modifiers](#access-modifiers)
 -   [Inheritance](#inheritance)
 
 {{<note>}}
@@ -80,7 +80,7 @@ Then, call the `test.js` in the `index.html` as follow:
 
 {{<warning>}}
     Please do not specify TypeScript file as a src attribute in HTML file.
-Please load as JavaScript file compiled from ".ts file" as above.
+Please load as JavaScript file compiled from <code>.ts</code> file as above.
 {{</warning>}}
 
 Afer running the app, the result will be displayed correctly in the

@@ -28,15 +28,15 @@ weight: 20
 Signs in to Monaca Cloud. You will be prompted to input your Monaca
 account information (username and password).
 
-{{<syntax>}}
-    $ monaca login [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca login [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `email`: Email address used to login to Monaca Cloud.
 
-*Example*
+**Example**
 
 Here is an example of how to login to Monaca Cloud with Monaca CLI:
 
@@ -50,11 +50,11 @@ $ echo "mypass" | monaca login me@monaca.io
 
 Signs out from Monaca Cloud and removes stored login token.
 
-{{<syntax>}}
-    $ monaca logout
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca logout
+{{</highlight>}}
 
-*Example*
+**Example**
 
 Here is an example of how you logout from Monaca Cloud with Monaca CLI:
 
@@ -69,15 +69,15 @@ Removed Monaca Debugger pairing information.
 
 Signs up for Monaca Cloud. Will display a prompt that asks for user credentials.
 
-{{<syntax>}}
-    $ monaca signup [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca signup [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `email`: Email address used to register in Monaca
     
-*Example*
+**Example**
 
 Here is an example of how you use this command:
 
@@ -93,16 +93,16 @@ You will be asked to choose a project template from a list of available
 templates provided by Monaca Cloud. The selected template will be
 created at the specified location.
 
-{{<syntax>}}
-    $ monaca create [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca create [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `path`: Location where you want to store your project files
 - `--url`: URL of a zip file containing a Monaca template
     
-*Example*
+**Example**
 
 Here is an example of how to login to Monaca Cloud with Monaca CLI:
 
@@ -122,11 +122,11 @@ downloaded project.
     If you clone a project into your local PC from Monaca Cloud, the cloned project keeps cloud synced information. In other words, if you make changes to this project locally and upload (using {{<link href="#monaca-upload" title="monaca upload">}}) them to Monaca Cloud, they will overwrite older files of the same project.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca clone
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca clone
+{{</highlight>}}
 
-*Example*
+**Example**
 
 Here is an example of how to clone a project called `Memo Application` from Monaca Cloud into "CloneMemoProject" folder on your local PC.
 
@@ -142,11 +142,11 @@ specify a location for the downloaded project.
     If you import a project into your local PC from Monaca Cloud, the imported project doesn’t keep cloud synced information. In other words, if you make changes to this project locally and upload (using {{<link href="#monaca-upload" title="monaca upload">}}) them to Monaca Cloud, this project will be uploaded as a new project in Monaca Cloud.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca import
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca import
+{{</highlight>}}
 
-*Example*
+**Example**
 
 Here is an example of how to import a project called `Memo Application` from Monaca Cloud into `ImportedMemoApplication` folder on your local PC.
 
@@ -161,17 +161,17 @@ Monaca Cloud into the local project.
     This command will overwrite the changes into the local project. If your local project does not exist in Monaca Cloud, you can’t use this command.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca download [options]
-{{</syntax>}}
-
-*Options*
+{{<highlight bash>}}
+$ monaca download [options]
+{{</highlight>}}
+    
+**Options**
 
 - `--delete`: Deletes local files which do not exist in Monaca Cloud.
 - `--force`: Doesn't ask users for permission to continue.
 - `--dry-run`: Simulates the downloading operation and provides details of which files will be downloaded. No actual downloading operation is done.
     
-*Example*
+**Example**
 
 Navigate to your project folder. Then, type `monaca download` command with various options and see how it works.
 
@@ -194,17 +194,17 @@ done in one of the following ways:
     For ReactJS and Angular2 projects, <code>monaca upload</code> command will transpile the project before uploading them.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca upload [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca upload [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `--delete`: Deletes the project files in Monaca Cloud which do not exist locally.
 - `--force`: Doesn't ask users for permission to continue the uploading process.
 - `--dry-run`: Simulates the uploading operation and provides details of which files will be uploaded. No actual uploading operation is done.
     
-*Example*
+**Example**
 
 Navigate to your project folder. Then, type `monaca upload` command with various options and see how it works.
 
@@ -225,11 +225,11 @@ Please refer to [Build](/en/products_guide/monaca_ide/build) for more informatio
 -   build the application for each platform
 -   get/install the built apps
 
-{{<syntax>}}
-    $ monaca remote build <platform> [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca remote build <platform> [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `platform`: Builds for a specific platform. It can be: `ios`, `android` or `windows`.
 - `--build-type`: Chooses a build type. It can be:
@@ -243,7 +243,7 @@ Please refer to [Build](/en/products_guide/monaca_ide/build) for more informatio
 - `--android_arch`: (Android only) Required if `--android_webview` is `crosswalk`. It can be: `x86` or `arm`.
 - `--browser`: Opens the build process in a browser (see the screenshots below).
     
-*Example*
+**Example**
 
 Navigate to your project folder and try to use this command with different options:
 
@@ -266,16 +266,16 @@ occurs.
     For ReactJS and Angular2 projects, <code>monaca preview</code> command will transpile the project in memory before launching the previewer. Additionally, if the preview is still running and you make a change, the transpile process should be triggered and the previewer will be served with the new files.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca preview [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca preview [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `--port`, `-p`: HTTP port to listen to (default value is 8000)
 - `--no-open`: Starts a local web server without opening a browser.
 
-*Example*
+**Example**
 
 Navigate to your project folder and use `monaca preview` command. Then, a browser will be opened running your project.
 
@@ -292,15 +292,15 @@ Starts a local web server that serves the `www` assets on special views
 for Android and iOS simultaneously. The file-system is watched for
 changes and the browser is reloaded when a change occurs.
 
-{{<syntax>}}
-    $ monaca demo [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca demo [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `--port`, `-p`: Port number (default is 8000)
     
-*Example*
+**Example**
 
 Navigate to your project folder and use `monaca demo` command. Then, a browser will be opened running your project.
 
@@ -323,16 +323,16 @@ will send file system changes to the debugger.
     For ReactJS and Angular2 projects, <code>monaca debug</code> command will transpile the project before serving the files to Monaca Debugger. Additionally, if the debug is still running and you make a change, the transpile process should be triggered and the debugger will be served with the new files.
 {{</note>}}
 
-{{<syntax>}}
-    $ monaca debug [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca debug [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `paths`: List of directories. Omit it to serve the current directory.
 - `--port`: HTTP port to listen to (default value is 8001)
 
-*Example*
+**Example**
 
 Navigate to your project folder and use `monaca debug` command.
 Then, you should be able to see that project name in Monaca Debugger
@@ -347,7 +347,7 @@ $ monaca debug
 
 When running this command, you should be prompted to pair your
 debugger with your local PC or see the notification of successful
-network connection (see the screenshots). Otherwise, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#troubleshoot-pair).
+network connection (see the screenshots). Otherwise, please refer to [Fail to Pair Monaca Debugger](/en/products_guide/debugger/troubleshooting/#fail-to-pair-monaca-debugger).
 
 {{<multi_figures title="Pairing Dialog & Network Connection Notification">}}
 {{<img src="/images/monaca_cli/manual/cli_commands/1.png" width="300">}}
@@ -365,16 +365,16 @@ projects. For transpilable projects, the transpiling process is
 automatically included in some commands such as `monaca upload`,
 `monaca preview`, `monaca debug` and `monaca remote build`.
 
-{{<syntax>}}
-    $ monaca transpile [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca transpile [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `--generate-config`: Creates transpile configuration files for transpilable projects, in case they are missing.
 - `--install-dependencies`: Installs the missing dependencies needed for transpiling.
     
-*Example*
+**Example**
 
 Navigate to your transpilable project folder and use `monaca transpile` command. Then, the transpiling will begin.
 
@@ -391,18 +391,18 @@ Build completed in 71.835s
 
 Manages proxy and API endpoint configuration.
 
-{{<syntax>}}
-    $ monaca config [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca config [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `proxy <url>`: If &lt;url&gt; is not set, the current proxy server will be displayed.
 - `endpoint <url>`: If &lt;url&gt; is not set, the current API endpoint will be displayed.
 - `--help`: Displays a config helper.
 - `--reset`: Resets to the default value.
     
-*Example*
+**Example**
 
 Here are examples of how to use this command:
 
@@ -422,17 +422,17 @@ $ monaca config endpoint --reset
 Generates default project configurations and files. Running it without
 arguments will generate everything.
 
-{{<syntax>}}
-    $ monaca reconfigure [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca reconfigure [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `--transpile`: Generates transpile configuration files (for both dev and prod).
 - `--dependencies`: Installs required build dependencies.
 - `--components`: Generates `components` folder.
 
-*Example*
+**Example**
 
 Navigate to your transpilable project folder and try `monaca reconfigure` command with various parameters.
 
@@ -446,18 +446,18 @@ $ monaca reconfigure --transpile --components
 Manages plugins of a project such as adding new plugins, listing and
 removing installed plugins.
 
-{{<syntax>}}
-    $ monaca plugin [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca plugin [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `add <plugin>`: Adds a plugin.
 - `rm <plugin>`: Removes a plugin.
 - `ls|list`: Lists currently installed plugins.
 - `search <query>`: Searches the plugin directory.
 
-*Example*
+**Example**
 
 Navigate to your project folder and type the command below and see how it works:
 
@@ -472,17 +472,17 @@ $ monaca plugin ls
 
 Displays docs for Monaca CLI, Onsen UI and Tutorials.
 
-{{<syntax>}}
-    $ monaca docs [options]
-{{</syntax>}}
+{{<highlight bash>}}
+$ monaca docs [options]
+{{</highlight>}}
 
-*Options*
+**Options**
 
 - `onsen`: Opens Onsen UI documentation in a browser window.
 - `tutorial`: Opens Onsen UI tutorial in a browser window.
 - `usage`: Opens Monaca CLI documentation in a browser window.
     
-*Example*
+**Example**
 
 Here is an example of how to use this command:
 
@@ -492,7 +492,7 @@ $ monaca docs tutorial
 $ monaca docs usage
 {{</highlight>}}
 
-{{<figure src="/images/monaca_cli/manual/cli_commands/monaca_docs.png">}}
+{{<figure src="/images/monaca_cli/manual/cli_commands/monaca_docs.png" title="monaca docs tutorial">}}
 
 See Also:
 

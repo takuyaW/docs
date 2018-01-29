@@ -3,7 +3,7 @@ title: Monaca API
 weight: 10
 ---
 
-monaca-core-utils.js provides a means to access each function of Monaca.
+`monaca-core-utils.js` provides a means to access each function of Monaca.
 Native page transitions and UI components are supported.
 
 {{<note>}}

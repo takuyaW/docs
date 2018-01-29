@@ -1,5 +1,5 @@
 ---
-title: Introduction to Push Notification
+title: Introduction
 weight: 10
 ---
 
@@ -13,11 +13,11 @@ Push notification is the information sent from a software application to
 a computing device without a specific request from the client. There are
 several types of push notification such as:
 
-1.  *Text*: a pure text message
-2.  *Badge*: a round, red, numerical icon that appears on the top right
+1.  **Text**: a pure text message
+2.  **Badge**: a round, red, numerical icon that appears on the top right
     corner of an application icon
-3.  *Sound*: a sound file played to alert the user of a new notification
-4.  *JSON Data*: data in JSON format used by the application
+3.  **Sound**: a sound file played to alert the user of a new notification
+4.  **JSON Data**: data in JSON format used by the application
 
 {{<note>}}
     Currently, sound notifications are not supported in Monaca.
@@ -93,7 +93,7 @@ each push notification such as:
 
 {{<figure src="/images/backend/overview/3.png">}}
 
-##  How to Receive JSON Data
+## <a name="receive-json-data"></a> How to Receive JSON Data
 
 JSON data within a push notification can be received by
 `monaca.cloud.Push.setHandler` function. The JSON data will be passed to

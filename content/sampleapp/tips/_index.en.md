@@ -1,5 +1,6 @@
 ---
 title: Tips & Tricks
+weight: 20
 ---
 
 Here are some tips for development.

@@ -1,5 +1,6 @@
 ---
 title: Share Plugin (Android)
+weight: 40
 ---
 
 Share plugin lets an app to share data with other apps like Gmail,
@@ -12,6 +13,7 @@ This plugin is available only to Android platform.
 ## Enable Plugin in Monaca
 
 1.  From the IDE menu, go to {{<menu menu1="Config" menu2="Manage Cordova Plugins">}}.
+
 2.  Click {{<guilabel name="Enable">}} button of the `Share` plugin to add it into your
     project.
 

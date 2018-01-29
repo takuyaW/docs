@@ -1,10 +1,10 @@
 ---
 title: AppsFlyer
+weight: 20
 ---
 
 {{<note>}}
-Please note that the AppsFlyer is used differently depending on the
-Cordova version of your project. Please refer to the document carefully.
+    Please note that the AppsFlyer is used differently depending on the Cordova version of your project. Please refer to the document carefully.
 {{</note>}}
 
 [AppsFlyer](https://www.appsflyer.com/overview/) is the market leader in
@@ -29,7 +29,9 @@ required to have the following two information such as:
 
 1.  For Monaca Cloud IDE, go to {{<menu menu1="Config" menu2="Service Integration">}} or go
     to {{<menu menu1="Build Settings" menu2="Service Integration">}} for Monaca Localkit.
+
 2.  Click {{<guilabel name="Details">}} button of *AppsFlyer* service.
+
 3.  Then, click {{<guilabel name="Install">}} button to add it into your project.
 
     {{<img src="/images/reference/service_integration/apps_flyer/1.png" width="500">}}
@@ -39,7 +41,7 @@ required to have the following two information such as:
 
 ## Using AppsFlyer with Cordova Version 6 or Higher
 
-### Usage
+### Configuration
 
 Add the following lines to your code to initialize the tracking with
 your own AppsFlyer `devKey` and `appId`:
@@ -62,17 +64,17 @@ document.addEventListener("deviceready", function(){
 }, false);
 {{</highlight>}}
 
-### API Methods
+### Usage
 
-#### *initSdk()*
+#### SDK Initialization
 
 Initialize the SDK.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 initSdk(options, onSuccess, onError): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
@@ -80,17 +82,16 @@ Name | Type | Description
 `onSuccess` | (`message`: string) => void |	(optional) Success callback: called after a successfull SDK initialization. 
 `onError` | (`message`: string) => void | (optional) Error callback: called when error occurs during initialization. 
 
-
-*options object*
+**options object**
 
 Name | Type | Default | Description
 -----|------|---------|------------------
 `devKey` | String | | [Appsflyer Dev key](https://support.appsflyer.com/hc/en-us/articles/207032126-AppsFlyer-SDK-Integration-Android#SDK_Initialization_and_Installation_Event_(Minimum_Requirement_for_Tracking))
 `appId` | String | | (For iOS only) Your iOS app ID in the App Store
 `isDebug` | Boolean | `false` | (optional) Debug mode 
-`onInstallConversionDataListener` | Boolean | `false` | <ul>Accessing AppsFlyer Attribution/Conversion Data from the SDK (Deferred Deeplinking). AppsFlyer plugin will return attribution data in onSuccess callback. For more information, please refer to:<li>[Deferred Deeplinking for Android](https://support.appsflyer.com/hc/en-us/articles/207032176-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-Android-Deferred-Deeplinking-)</li><li>[Deferred Deeplinking for iOS](https://support.appsflyer.com/hc/en-us/articles/207032096-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-Deferred-Deeplinking-)</li></ul>
+`onInstallConversionDataListener` | Boolean | `false` | Accessing AppsFlyer Attribution/Conversion Data from the SDK (Deferred Deeplinking). AppsFlyer plugin will return attribution data in onSuccess callback. For more information, please refer to: <ul><li>[Deferred Deeplinking for Android](https://support.appsflyer.com/hc/en-us/articles/207032176-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-Android-Deferred-Deeplinking-)</li><li>[Deferred Deeplinking for iOS](https://support.appsflyer.com/hc/en-us/articles/207032096-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-Deferred-Deeplinking-)</li></ul>
 
-*Example*
+**Example**
 
 The following snippet shows how to use `initSdk()` function:
 
@@ -113,7 +114,7 @@ var options = {
 window.plugins.appsFlyer.initSdk(options, onSuccess, onError);
 {{</highlight>}}
 
-#### trackEvent()
+#### In-App Events Tracking API 
 
 Allow you to send in-app events to AppsFlyer analytics. This method
 allows you to add events dynamically by adding them directly to the
@@ -123,18 +124,18 @@ campaigns/media-sources. Please take the time to define the event(s) you
 want to measure to allow you to track ROI (Return on Investment) and LTV
 (Lifetime Value).
 
-{{<syntax>}}
+{{<highlight javascript>}}
 trackEvent(eventName, eventValues): void (optional)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `eventName` | String | Custom event name, is presented in your dashboard.
 `eventValue` | Object | Event details
 
-*Example*
+**Example**
 
 The following snippet shows how to use `trackEvent()` function:
 
@@ -150,21 +151,21 @@ var eventValues = {
 window.plugins.appsFlyer.trackEvent(eventName, eventValues);
 {{</highlight>}}
 
-#### setCurrencyCode()
+#### Currency Code Setting
 
 Change the currency code.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 setCurrencyCode(currencyId): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Default | Description
 -----|------|---------|-----------------
 `currencyId` | String | `USD` | [ISO 4217 Currency Codes](http://www.xe.com/iso4217.php)
 
-*Example*
+**Example**
 
 The following snippet shows how to use `setCurrencyCode()` function:
 
@@ -173,7 +174,7 @@ window.plugins.appsFlyer.setCurrencyCode("USD");
 window.plugins.appsFlyer.setCurrencyCode("GBP"); // British Pound
 {{</highlight>}}
 
-#### setAppUserId()
+#### Customer User ID Setting (Advanced)
 
 Set your own custom ID. This enables you to cross-reference your own
 unique ID with AppsFlyer’s user ID and the other devices’ IDs. This ID
@@ -186,17 +187,17 @@ initialization. The best practice is to call this API during the
 deviceready event, where possible.
 {{</note>}}
 
-{{<syntax>}}
+{{<highlight javascript>}}
 setAppUserId(customerUserId): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `customerUserId` | String | Your custom ID
 
-*Example*
+**Example**
 
 The following snippet shows how to use `setAppUserId()` function:
 
@@ -204,51 +205,51 @@ The following snippet shows how to use `setAppUserId()` function:
 window.plugins.appsFlyer.setAppUserId(userId);
 {{</highlight>}}
 
-#### setGCMProjectID()
+#### GCM Project Number Setting
 
 Set a GCM Project Number in order to enable app uninstall tracking for Android platform.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 setGCMProjectID(GCMProjectNumber): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `GCMProjectNumber` | String | GCM Project number. It is obtained through your google developer console. For more information, please refer to [Android Uninstall Tracking Guide](https://support.appsflyer.com/hc/en-us/articles/208004986-Android-Uninstall-Tracking).
 
-#### registerUninstall()
+#### Uninstall Tracking 
 
 Set your iOS device token in order to enable app uninstall tracking for
 iOS platform.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 registerUninstall(token): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `token` | String | Your iOS device token. You can get your device token from `UnityEngine.iOS.NotificationServices.deviceToken`. For more information, please refer to [Unity](https://support.appsflyer.com/hc/en-us/articles/213766183-Unity) and [iOS Uninstall Tracking Guide](https://support.appsflyer.com/hc/en-us/articles/211211963-iOS-Uninstall-Tracking).
 
-#### getAppsFlyerUID()
+#### Getting AppsFlyer's Device ID
 
 Get AppsFlyer’s proprietary Device ID. The AppsFlyer Device ID is the
 main ID used by AppsFlyer in Reports and APIs.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 getAppsFlyerUID(getUserIdCallbackFn): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `getUserIdCallbackFn` | () =&gt; void | Success callback
 
-*Example*
+**Example**
 
 The following snippet shows how to use `getAppsFlyerUID()` function:
 
@@ -259,7 +260,7 @@ var getUserIdCallbackFn = function(id) {
 window.plugins.appsFlyer.getAppsFlyerUID(getUserIdCallbackFn);
 {{</highlight>}}
 
-#### handleOpenUrl()
+#### Deeplinks Tracking
 
 Track deeplinks with AppsFlyer attribution data (for iOS only).
 
@@ -268,17 +269,17 @@ For Android version 4.2.5 and higher, the deeplinking metadata
 (scheme/host) is sent automatically.
 {{</note>}}
 
-{{<syntax>}}
+{{<highlight javascript>}}
 handleOpenUrl(url): void
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|-------------
 `url` | String | Url
 
-*Example*
+**Example**
 
 The following snippet shows how to use `handleOpenUrl()` function:
 
@@ -290,7 +291,7 @@ var handleOpenURL = function(url) {
 
 ## Using AppsFlyer with Cordova Version Lower than 6
 
-### Configure AppsFlyer in Monaca
+### Configuration
 
 After adding AppsFlyer to your Monaca project, you need to make some
 configurations before starting to use the plugin. Please follow the
@@ -300,23 +301,23 @@ configuration below:
     your `www` folder:
 
     {{<highlight xml>}}
-    <!-- for iOS -->
-    <feature name="AppsFlyerPlugin">
-        <param name="ios-package" value="AppsFlyerPlugin" />
-    </feature>{{</highlight>}}
+<!-- for iOS -->
+<feature name="AppsFlyerPlugin">
+    <param name="ios-package" value="AppsFlyerPlugin" />
+</feature>{{</highlight>}}
 
     {{<highlight xml>}}
-    <!-- for Android -->
-    <feature name="AppsFlyerPlugin">
-        <param name="android-package" value="com.appsflyer.cordova.plugin.AppsFlyerPlugin" />
-    </feature>{{</highlight>}}
+<!-- for Android -->
+<feature name="AppsFlyerPlugin">
+    <param name="android-package" value="com.appsflyer.cordova.plugin.AppsFlyerPlugin" />
+</feature>{{</highlight>}}
 
 2.  For Android, add the following snippet to the `AndroidManifest.xml`:
 
     {{<highlight xml>}}
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />{{</highlight>}}
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />{{</highlight>}}
 
 3.  Add new app on AppsFlyer dashboard. Make sure that the value in the
     manifest and the value entered in the dashboard are identical. If
@@ -327,18 +328,18 @@ configuration below:
     your own AppsFlyer `dev key`:
 
     {{<highlight javascript>}}
-    document.addEventListener("deviceready", function(){
-        var args = [];
-        var devKey = "xxXXXXXxXxXXXXxXXxxxx8";   // your AppsFlyer devKey
-        args.push(devKey);
-        var userAgent = window.navigator.userAgent.toLowerCase();
+document.addEventListener("deviceready", function(){
+    var args = [];
+    var devKey = "xxXXXXXxXxXXXXxXXxxxx8";   // your AppsFlyer devKey
+    args.push(devKey);
+    var userAgent = window.navigator.userAgent.toLowerCase();
 
-        if (/iphone|ipad|ipod/.test( userAgent )) {
-            var appId = "123456789";            // your ios app id in app store
-            args.push(appId);
-        }
-        window.plugins.appsFlyer.initSdk(args);
-    }, false);{{</highlight>}}
+    if (/iphone|ipad|ipod/.test( userAgent )) {
+        var appId = "123456789";            // your ios app id in app store
+        args.push(appId);
+    }
+    window.plugins.appsFlyer.initSdk(args);
+}, false);{{</highlight>}}
 
 5.  Test your app for [Android](https://support.appsflyer.com/hc/en-us/articles/207032136-Testing-AppsFlyer-Android-SDK-Integration-Before-Submitting-to-Google-Play)/[iOS](https://support.appsflyer.com/hc/en-us/articles/207032046-Testing-AppsFlyer-iOS-SDK-Integration-Before-Submitting-to-the-App-Store-) before submitting to the Google Play/App Store.
 
@@ -352,7 +353,7 @@ Once, you have successfully configured AppsFlyer, the plugin is now
 ready to be used. In this section, we will briefly describe some AppsFly
 APIs.
 
-#### Set Customer User ID (Advanced)
+#### Customer User ID Setting (Advanced)
 
 Setting your own custom ID will enable you to cross-reference your own
 unique ID with AppsFlyer’s user ID and the other devices’ IDs. This ID
@@ -369,7 +370,7 @@ initialization. The best practice is to call to this API during
 deviceready event if possible.
 {{</note>}}
 
-#### Set Currency Code (Optional)
+#### Currency Code Setting (Optional)
 
 By default, the currency code is set to be `USD`. You can change it by
 using the following API:
@@ -383,7 +384,7 @@ window.plugins.appsFlyer.setCurrencyCode("GBP");
 For all acceptable currency codes, please refer to {{<link title="ISO 4217 Currency Codes" href="http://www.xe.com/iso4217.php">}}.
 {{</note>}}
 
-#### In-App Events Tracking API (optional)
+#### In-App Events Tracking API
 
 In-app events help you track how loyal users discover your app, and
 attribute them to specific campaigns/media-sources. Please take time to
@@ -401,7 +402,7 @@ window.plugins.appsFlyer.sendTrackingWithEvent(eventName, eventValue);
 // window.plugins.appsFlyer.sendTrackingWithEvent(eventName, "");
 {{</highlight>}}
 
-#### Rich In-App Events Tracking API (optional)
+#### Rich In-App Events Tracking API
 
 AppsFlyer’s rich in­-app events provide advertisers with the ability to
 track any post­-install events and attribute them to a media source and
@@ -414,7 +415,7 @@ var eventValues = {"af_content_id": "id123", "af_currency":"USD", "af_revenue": 
 window.plugins.appsFlyer.trackEvent(eventName, eventValues);
 {{</highlight>}}
 
-#### Get AppsFlyer’s Unique Device UID (Advanced)
+#### Getting AppsFlyer’s Device ID (Advanced)
 
 This API is used to get AppsFlyer’s proprietary device ID. AppsFlyer
 device ID is the main ID used by AppsFlyer in the Reports and APIs.
@@ -433,7 +434,7 @@ var getUserIdCallbackFn = function(id) {
 window.plugins.appsFlyer.getAppsFlyerUID(getUserIdCallbackFn);
 {{</highlight>}}
 
-#### Accessing AppsFlyer Attribution/Conversion Data from the SDK (Deferred Deep-linking)
+#### Accessing AppsFlyer Attribution/Conversion Data (Deferred Deep-linking)
 
 AppsFlyer allows you to access the user attribution data in real time
 directly at the SDK level. It enables you to customize the landing page

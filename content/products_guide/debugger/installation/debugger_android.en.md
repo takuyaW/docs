@@ -35,7 +35,7 @@ weight: 10
                 <li><a href="http://www.amazon.com/Asial-Corporation-Monaca-Debugger/dp/B00H1M1518">Amazon App Store</a></li>
             </ol>
         </td>
-        <td>Refer to <a href="#custom-debugger-and">Build and Install Custom Monaca Debugger</a></td>
+        <td>Refer to <a href="#build-and-install-custom-monaca-debugger">Build and Install Custom Monaca Debugger</a></td>
     </tr>
         <tr>
         <td><a href="#cordova-and">Cordova Plugins</a></td>

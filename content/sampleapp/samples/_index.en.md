@@ -1,8 +1,11 @@
 ---
 title: Sample Apps & Templates
+weight: 10
 ---
 
 ## Sample Apps
+
+This section introduces various sample applications which are published to external sites with complete source code and explanation.
 
 <section>
 
@@ -11,11 +14,6 @@ title: Sample Apps & Templates
         window.location.href = window.location.origin + path;
         }
     </script>
-
-    <p>
-    This section introduces various sample applications which are published to external sites with complete source code and explanation.
-    </p>
-    <h2 id="1">Sample Apps</h2>
     <ul class="sample-container">
     <li class="sample-item">
         <img src="/images/samples/api_ai.png" alt="" class="thumb">
@@ -39,6 +37,14 @@ title: Sample Apps & Templates
         <button onclick="GoTo('/en/sampleapp/samples/facebook_sso/')">Detail</button>
         <h3>Facebook Single Sign-on App</h3>
         <p align="left">A sample app using Native Facebook authentication with Angular 1 and Onsen UI</p>
+    </li>
+
+    <li class="sample-item">
+        <img src="/images/samples/push_notification.png" alt="" class="thumb">
+        <button onclick="location.href='https://monaca.mobi/en/directimport?pid=59f6aecde78885c3758b4567'">Direct Import</button>&nbsp;
+        <button onclick="location.href='https://medium.com/the-web-tub/unlimited-free-push-notifications-with-onesignal-and-cordova-1a415fcc6e1b'">Detail</button>
+        <h3>Push Notification Demo</h3>
+        <p align="left">A sample app using OneSignal push notification feature with Angular 1 and Onsen UI</p>
     </li>
 
     <li class="sample-item">
@@ -205,8 +211,19 @@ title: Sample Apps & Templates
     </li>
     </ul>
 
-    <h2 id="6">Templates</h2>
+</section>
+
+## Templates
+
+<section>
     <ul class="sample-container">
+
+    <li class="sample-item">
+        <img src="/images/samples/onsen_minimum.png" alt="" class="thumb">
+        <button onclick="GoTo('/en/sampleapp/samples/onsen_ui_minimum_project/')">Detail</button>
+        <h3>Onsen UI Minimum Template</h3>
+        <p align="left">A minimum template for Onsen UI application</p>
+    </li>
 
     <li class="sample-item">
         <img src="/images/samples/onsen_tabbar.png" alt="" class="thumb">
@@ -222,11 +239,6 @@ title: Sample Apps & Templates
         <p align="left">Onsen UI sliding menu with navigation example.</p>
     </li>
 
-    <li class="sample-item">
-        <img src="/images/samples/onsen_minimum.png" alt="" class="thumb">
-        <button onclick="GoTo('/en/sampleapp/samples/onsen_ui_minimum_project/')">Detail</button>
-        <h3>Onsen UI Minimum Template</h3>
-        <p align="left">A minimum template for Onsen UI application</p>
-    </li>
+
     </ul>
 </section>

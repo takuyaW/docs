@@ -8,7 +8,7 @@ In this page, we describe a step-by-step instruction of how to:
 -   start a new local project from a template provided by Monaca. You
     can also import projects you have in Monaca Cloud IDE or other
     existing Cordova projects into Monaca Localkit as well. Please refer
-    to [Importing a Project](/en/products_guide/monaca_localkit/overview/#localkit-import).
+    to [Importing a Project](/en/products_guide/monaca_localkit/overview/#importing-a-project).
 -   preview your project right from the Monaca Localkit without the use
     of real devices.
 -   edit the project files.
@@ -44,7 +44,7 @@ project locally. Please do as follows:
 In Monaca Localkit, you can run the project using Live Preview function
 without real devices. However, some functionalitlies of some
 applications might not be properly previewed. For more information,
-please refer to [usage and limitation of Live Preview](/en/products_guide/monaca_ide/overview/#preview_team_panel).
+please refer to [usage and limitation of Live Preview](/en/products_guide/monaca_ide/overview/#live-preview).
 
 In order to preview a project, please do as follows:
 

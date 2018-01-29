@@ -1,5 +1,6 @@
 ---
 title: BirthYear App
+weight: 130
 ---
 
 {{<note>}}
@@ -10,7 +11,7 @@ The app will calculate a user's birthyear and display it after he/she entered hi
 
 {{<import pid="5923d096013eb065012a943a" title="BirthYear App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 4.2.2
 - iOS 7.1.1

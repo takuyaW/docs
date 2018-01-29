@@ -1,5 +1,6 @@
 ---
 title: Twitter Single Sign-on App
+weight: 10
 ---
 
 In this page, you will learn how to use Twitter's Single Sign-On (SSO)
@@ -12,14 +13,16 @@ the user’s basic information will be displayed in the app.
 
 {{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1
 
 {{<figure src="/images/sampleapp/twitter_sso/cover.png">}}
 
-## 1. Prerequisite    
+## Prerequisite    
+
+### Getting Twitter Consumer Key and Consumer Secret
 
 You are required to obtain `Consumer Key` and `Consumer Secret` by
 registering your Monaca app with Twitter Apps page. Please proceed as
@@ -43,7 +46,7 @@ follows:
 
     {{<img src="/images/sampleapp/twitter_sso/twitter_keys.png">}}
 
-##  Getting Fabric API Key
+###  Getting Fabric API Key
 
 `Fabric API key` is required by the `twitter-connect-plugin` plugin. To
 get `Fabric API key`, please proceed as follows:
@@ -57,11 +60,11 @@ get `Fabric API key`, please proceed as follows:
 
     {{<img src="/images/sampleapp/twitter_sso/twitter_fabric.png">}}
 
-### 2. Importing the Project to Monaca Cloud IDE
+## Importing the Project to Monaca Cloud IDE
 
 {{<import pid="591bff71ff2af275320625fa" title="Twitter Single Sign-on App">}}
 
-### 3. Configuring the Plugin
+## Configuring the Plugin
 
 The authentication is done by
 [twitter-connect-plugin](https://github.com/ManifestWebDesign/twitter-connect-plugin).
@@ -77,26 +80,26 @@ Before starting to use this plugin, you are required to input the
 
     {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_config.png">}}
 
-3.  Input the `FABRIC_KEY` value you got in the [Getting Fabric API Key](#get-fabric-key)
+3.  Input the `FABRIC_KEY` value you got in the [Getting Fabric API Key](#getting-fabric-api-key)
     section. See the screenshot below as an example:
 
     {{<img src="/images/sampleapp/twitter_sso/twitter_plugin_fabric.png">}}
 
 4.  Click {{<guilabel name="OK">}} to complete the configuration.
 
-### 4. Editing config.xml File
+## Editing config.xml File
 
 1.  Open the `config.xml` file and add the following code within the
     `<widget>` tag. Please remember to replace your own
     `Twitter Consumer Key` and `Twitter Consumer Secret`.
 
     {{<highlight xml>}}
-    <preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
-    <preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />{{</highlight>}}
+<preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
+<preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />{{</highlight>}}
 
 2.  Save the file.
 
-## 5. Application Explanation
+## Application Explanation
 
 ### File Components
 
@@ -111,7 +114,7 @@ Before starting to use this plugin, you are required to input the
 
 ### HTML Explanation
 
-**index.html**
+#### index.html
 
 {{<highlight html>}}
 <!DOCTYPE HTML>
@@ -144,7 +147,7 @@ have only one main page in this sample application, `home.html` is, of
 course, the first in the page stack and will be loaded as soon as the
 `index.html` file is completed.
 
-**home.html**
+#### home.html
 
 {{<highlight html>}}
 <ons-page ng-controller="HomeCtrl as home" ng-init="CheckLoginStatus()">
@@ -323,9 +326,11 @@ Storage. There is also one controller, called `HomeCtrl`, consists of
 two main functions such as `Login()` and `Logout()`. Inside the
 `Login()` function, `TwitterConnect.login()` is called asking the user the
 login with a valid Twitter account information.
+
 {{<note>}}
     If you have logged in with a Twitter app on your device, the information of that account will be grabbed and used in the app automatically (see the screenshot below as an example). If you want to log in with a different account, please go to your Twitter app and change the account there.
 {{</note>}}
+
 {{<figure src="/images/sampleapp/twitter_sso/twitter_authentication.png">}}
 
 However, if you neither have a Twitter app nor log in the existing

@@ -1,12 +1,13 @@
 ---
 title: Flickr Sample
+weight: 90
 ---
 
 This sample app shows how to retrieve pictures from Flickr and displays them as a slide show.
 
 {{<import pid="5923cadf013eb0c4545dd864" title="Flickr Sample">}}
 
-*Tested Environment*: 
+**Tested Environment**
 
 - Android 7.0
 - iOS 10.1.1
@@ -27,8 +28,8 @@ This sample app shows how to retrieve pictures from Flickr and displays them as 
 
 ## Required JS/CSS Components
 
-- `jQuery`                                                   
-  
+- `jQuery`
+
 ## HTML Explanation                                           
 
 The following HTML body of `index.html` file is for the title bar, spinner and container for displaying the images (see screenshot below):

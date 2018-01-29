@@ -34,10 +34,10 @@ After pressing the tab key, the above line will be expanded into:
 The following Emmet actions along with keyboard shortcuts are supported
 in Monaca:
 
-- [Expand Abbreviation (TAB)](#expandAbbr)
-- [Wrap with Abbreviation (CTRL+SHIFT+A)](#wrapAbbr)
-- [Match Tag Pair (CTRL+D)](#matchTag)
-- [Match Tag Pair Inward (CTRL+SHIFT+D)](#matchTagInward)
+- [Expand Abbreviation (TAB)](#expand-abbreviation-tab)
+- [Wrap with Abbreviation (CTRL+SHIFT+A)](#wrap-with-abbreviation-ctrl-shift-a)
+- [Match Tag Pair (CTRL+D)](#match-tag-pair-ctrl-d)
+- [Match Tag Pair Inward (CTRL+SHIFT+D)](#match-tag-pair-inward-ctrl-shift-d)
 
 Please note that almost every action highly depends on current cursor
 position inside the editor.
@@ -50,25 +50,25 @@ operators supported by Emmet:
 
 | Syntax | Description | Example |
 |--------|-------------|---------|
-| `E`  |          elementName |      `div`|
-| `E#id` |         elementId  |       `div#content` |
-| `E.class` |      elementClass |     `div.header` |
-| `E#id.class` |   elementIdClass |   `div#content.column.width` |
-| `E>N` |          childElement |     `div>p` |
-| `E+N` |          siblingElement |   `h1+p` |
-| `E*N` |          elementMult |      `ul#nav>li*5>a` |
-| `E$*N` |         itemNum |          `ul#nav>li.item-$*5` |
-| `E[attr]` |      elementAttr |      `p[title]` |
-|  <code>E&#124;filter</code> | elementFilter | <code>p.title&#124;e</code |
-| `P:V (CSS)` |    propertyValues |   `fl:r+d:b+w:300+h:600` |
+| `E`  | [Element Name](#element-name) |  `div`|
+| `E#id` | [Element with Identifier](#element-with-identifier) | `div#content` |
+| `E.class` | [Element with Class](#element-with-class) | `div.header` |
+| `E#id.class` | [Element with ID and Class](#element-with-id-and-class) | `div#content.column.width` |
+| `E>N` | [Child Element](#child-element) | `div>p` |
+| `E+N` | [Sibling Element](#sibling-element) | `h1+p` |
+| `E*N` | [Element Multiplication](#element-multiplication) | `ul#nav>li*5>a` |
+| `E$*N` | [Item Numbering](#item-numbering) | `ul#nav>li.item-$*5` |
+| `E[attr]` | [Element with Attribute](#element-with-attribute) | `p[title]` |
+|  <code>E&#124;filter</code> | [Element with Filter](#element-with-filter) | <code>p.title&#124;e</code |
+| `P:V (CSS)` | [CSS Abbreviation](#css-abbreviation) | `fl:r+d:b+w:300+h:600` |
 
 ### Element Name
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -82,9 +82,9 @@ E
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E#id
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -98,9 +98,9 @@ E#id
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E.class
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -115,9 +115,9 @@ E.class
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E#id.class
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -132,9 +132,9 @@ E#id.class
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E>N
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -153,9 +153,9 @@ E>N
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E+N
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -172,9 +172,9 @@ E+N
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E*N
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -194,9 +194,9 @@ E*N
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E$*N
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -217,9 +217,9 @@ E$*N
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E[attr]
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -235,9 +235,9 @@ For more information about `Filter`, please refer to [Zen Coding Filter Wiki](ht
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 E|filter
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 
@@ -253,9 +253,9 @@ E|filter
 
 *Syntax*
 
-{{<syntax>}}
+{{<highlight javascript>}}
 P:V
-{{</syntax>}}
+{{</highlight>}}
 
 *Example*
 

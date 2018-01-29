@@ -1,5 +1,6 @@
 ---
 title: iBeacon
+weight: 150
 ---
 
 This sample app uses iBeacon service to detect its proximity to iBeacon
@@ -8,7 +9,7 @@ device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/products_guide/
 
 {{<import pid="5923d13f8034510a419679fa" title="iBeacon">}}
 
-*Tested Environment*: 
+**Tested Environment** 
 
 - Android 7.0
 - iOS 10.1.1
@@ -21,9 +22,12 @@ device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/products_guide/
 
 ## Prerequisite                                                                                    
   
-1. Download the iBeacon plugin from [here](https://github.com/petermetz/cordova-plugin-ibeacon.git) and import it into Monaca Cloud IDE. See [Import Custom Cordova Plugin](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin/#import-cordova-plugin).
+1. Download the iBeacon plugin from [here](https://github.com/petermetz/cordova-plugin-ibeacon.git) and import it into Monaca Cloud IDE. See [Import Custom Cordova Plugin](/en/products_guide/monaca_ide/dependencies/custom_cordova_plugin/#import-custom-cordova-plugin).
+
 2. Find at least one iBeacon device.
+
 3. Get information of each iBeacon device by using its conresponded utility software. In our case, we use [My Beacon Tool](https://itunes.apple.com/jp/app/mybeacon-tool/id848908053?mt=8).
+
 4. Take note of the UUID of each iBeacon device.
 
 ## File Components                                           
@@ -217,6 +221,7 @@ store those global variables as follows:
 Inside this service function, we are able to:
 
 - create an array of all predefined iBeacon devices' information (UUID, proximity, name, icon file and so on).
+
 - create a function to search for iBeacon devices nearby and retrieve the UUID of the closest iBeacon devices.
 
 Next, we will explain each controller function:

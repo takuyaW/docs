@@ -1,11 +1,12 @@
 ---
 title: Cordova Custom Config Plugin
+weight: 20
 ---
 
 For Cordova 5.2 or lower, basic behaviour of Android or iOS applications
-can be configured by editing AndroidManifest.xml or
+can be configured by editing `AndroidManifest.xml` or
 `MonacaApp-Info.plist` file respectively. However, for Cordova 6.2 or
-higher, both AndroidManifest.xml and `MonacaApp-Info.plist` files are
+higher, both `AndroidManifest.xml` and `MonacaApp-Info.plist` files are
 removed from Monaca framework.
 
 Therefore, in order to config iOS/Android application settings, you will
@@ -92,8 +93,7 @@ points:
 
 The plugin currently supports setting of custom config only in
 `platforms/android/AndroidManifest.xml`. For a list of possible manifest
-values, please refer to [App
-Manifest](http://developer.android.com/guide/topics/manifest/manifest-intro.html).
+values, please refer to [App Manifest](http://developer.android.com/guide/topics/manifest/manifest-intro.html).
 All Android-specific config should be placed inside the
 `<platform name="android">` in `config.xml` file.
 
@@ -117,8 +117,7 @@ Sometimes, you may want to remove some default settings in
 `AndroidManifest.xml`. You can do delete them by using the
 `delete="true"` attribute of the `<preference>` element. For example, if
 you add the following line in `config.xml`, it will delete the existing
-node
-`<uses-permission android:name="android.permission.WRITE_CONTACTS" />`
+node `<uses-permission android:name="android.permission.WRITE_CONTACTS" />`
 within `AndroidManifest.xml`:
 
 {{<highlight xml>}}
@@ -370,10 +369,10 @@ When applying a custom preference, the plugin will look for an existing
 entry in the `.xcconfig` file that corresponds to the buildType
 attribute.
 
--   If buildType attribute is `"debug"` or `"release"`, the plugin will
+-   If buildType attribute is `debug` or `release`, the plugin will
     look in `build-debug.xcconfig` or `build-release.xcconfig`
     respectively.
--   If buildType is not specified or set to `"none"`, the plugin will
+-   If buildType is not specified or set to `none`, the plugin will
     look in `build.xcconfig`.
 
 By default, if an entry is found in the `.xcconfig` file which
@@ -416,7 +415,7 @@ If you set a CODE\_SIGN\_IDENTITY preference in the `config.xml` with
 `build-release.xcconfig`. For example:
 
 {{<highlight xml>}}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" />
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" />
 {{</highlight>}}
 
 If you set a CODE\_SIGN\_IDENTITY preference in the `config.xml` with
@@ -424,14 +423,14 @@ If you set a CODE\_SIGN\_IDENTITY preference in the `config.xml` with
 `build.xcconfig`. For example:
 
 {{<highlight xml>}}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" />
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" />
 {{</highlight>}}
 
 You can prevent the CODE\_SIGN\_IDENTITY preferences being overwritten
 by setting `xcconfigEnforce="false"`. For example:
 
 {{<highlight xml>}}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" xcconfigEnforce="false" />
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Release Profile (A1B2C3D4)" buildType="release" xcconfigEnforce="false" />
 {{</highlight>}}
 
 You can force the plugin to add a new entry for CODE\_SIGN\_IDENTITY
@@ -442,7 +441,7 @@ than overwriting the defaults in `build.xcconfig` by setting
 `build.xcconfig`. For example:
 
 {{<highlight xml>}}
-<preference name="ios-XCBuildConfiguration-CODE\_SIGN\_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" xcconfigEnforce="true" />
+<preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution: My Debug Profile (A1B2C3D4)" buildType="debug" xcconfigEnforce="true" />
 {{</highlight>}}
 
 ### iOS Config Blocks
@@ -578,6 +577,7 @@ The following preferences are currently supported:
 -   `cordova-custom-config-autorestore`: (set to `false` by default) if
     set to `true`, the plugin will restore a backup of platform
     configuration files taken at plugin installation time.
+    
 -   `cordova-custom-config-stoponerror`: (set to `false` by default) if
     set to `true` and an error occurs while updating config for a given
     platform during a `prepare` operation, the error will cause the

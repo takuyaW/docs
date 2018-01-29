@@ -1,28 +1,29 @@
 ---
 title: Collection Item Management
+weight: 30
 ---
 
 Below are Monaca Backend Management API for CollectionItem.
 
 Method | Description
 -------|-----------------------
-[CollectionItem.list()](#ci-list) | Get a List of Items in a Collection
-[CollectionItem.create()](#ci-create) | Create a CollectionItem
-[CollectionItem.get()](#ci-get) | Get a CollectionItem
-[CollectionItem.update()](#ci-update) | Update a CollectionItem
-[CollectionItem.delete()](#ci-delete) | Delete Collection Items
-[CollectionItem.getPermission()](#ci-getpermission) | Get Permissions of Collection Items
-[CollectionItem.setPermission()](#ci-setpermission) | Set Permissions of Collection Items
+[CollectionItem.list()](#collectionitem-list) | Get a List of Items in a Collection
+[CollectionItem.create()](#collectionitem-create) | Create a CollectionItem
+[CollectionItem.get()](#collectionitem-get) | Get a CollectionItem
+[CollectionItem.update()](#collectionitem-update) | Update a CollectionItem
+[CollectionItem.delete()](#collectionitem-delete) | Delete Collection Items
+[CollectionItem.getPermission()](#collectionitem-getpermission) | Get Permissions of Collection Items
+[CollectionItem.setPermission()](#collectionitem-setpermission) | Set Permissions of Collection Items
 
-##  Getting a List of Items in a Collection
+## CollectionItem.list()
 
 Get a list of items in a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.list(collectionName: String, page: Number, itemsInPage: Number, sortProperty: String, sortOrder: String, propertyNames: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
@@ -33,14 +34,14 @@ Name | Type | Description
 `sortOrder` | String | Sorting order which can be `"asc"` or `"desc"` (Default: `"asc"`)
 `propertyNames` | String | Properties to fetch in addition to system properties
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `items` | JSON Object | A list of all items returned
 `totalItems` | Number | Number of total items returned
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -48,28 +49,28 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Creating a Collection Item
+## CollectionItem.create()
 
 Create an item for a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.create(collectionName: String, item: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `collectionName` | String | Collection name
 `item` | JSON Object | Item data
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `item` | JSON Object | Item data with `_id`
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -77,28 +78,28 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Getting a Collection Item
+## CollectionItem.get()
 
 Get an item from a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.get(collectionName: String, _id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `collectionName` | String | Collection name
 `_id` | String | Item's id
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `item` | JSON Object | Item data
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -106,15 +107,15 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Updating a Collection Item
+## CollectionItem.update()
 
 Update an item of a Collection.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.update(collectionName: String, _id: String, item: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
@@ -122,11 +123,11 @@ Name | Type | Description
 `_id` | String | Item's id
 `item` | JSON Object | Item data (`_id` column and `_permission` column will be ignored)
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -134,26 +135,26 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Deleting Collection Items
+## CollectionItem.delete()
 
 Delete multiple Collection items.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.delete(collectionName: String, idList: Array of String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `collectionName` | String | Collection name
 `idList` | Array of String | List of Items'id
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -161,28 +162,28 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Getting Permissions of a Collection Item
+## CollectionItem.getPermission()
 
 Get permissions of a Collection item.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.getPermission(collectionName: String, _id: String)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
 `collectionName` | String | Collection name
 `_id` | String | Item's id
 
-*Return Value*
+**Return Value**
 
 Name | Type | Description
 -----|------|----------------
 `permission` | JSON Object | Permission
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 
@@ -190,27 +191,27 @@ Code | Description
 -----|--------------------------
 `-32602` |  Invalid params
 
-##  Setting Permissions of a Collection Item
+## CollectionItem.setPermission()
 
 Set Permissions of a Collection item.
 
-{{<syntax>}}
+{{<highlight javascript>}}
 CollectionItem.setPermission(collectionName: String, _id: String, permission: JSON Object)
-{{</syntax>}}
+{{</highlight>}}
 
-*Parameter*
+**Parameter**
 
 Name | Type | Description
 -----|------|----------------
-`collectionName`  String | Collection name
+`collectionName` | String | Collection name
 `_id` | String | Item's id
 `permission` | JSON Object |  New permission
 
-*Return Value*
+**Return Value**
 
-There is no return value.
+- None
 
-*Errors Code*
+**Errors Code**
 
 Errors are returned as [Error](../../cloud/error) object.
 

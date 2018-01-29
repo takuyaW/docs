@@ -1,16 +1,16 @@
 ---
-title: Cloud IDE Overview
+title: Overview
 weight: 10
 ---
 
 
 Monaca Cloud IDE consists of 5 main parts such as:
 
-1. [Menu Bar](#menu_bar)
-2. [Project Panel](#file_tree)
-3. [Debug Panel](#debug_panel)
-4. [Live Preivew](#preview_team_panel)
-5. [Code Editor](#code_editor)
+1. [Menu Bar](#menu-bar)
+2. [Project Panel](#project-panel)
+3. [Debug Panel](#debug-panel)
+4. [Live Preivew](#live-preview)
+5. [Code Editor](#code-editor)
 
 {{< figure src="/images/monaca_ide/manual/overview/1.png" >}}
 
@@ -27,9 +27,9 @@ In the menu bar, there are several main menus such as:
 | [View](#view)	| Opens `View` submenu. |
 | [Debug](#debug) |	Opens `Debug` submenu. |
 | [Build](#build) |	Opens `Build` submenu. |
-| [Version Control](#ide-version-control) | Manages version control of your project with GitHub. |
+| [Version Control](#version-control) | Manages version control of your project with GitHub. |
 | Save | Saves the file currently openeded. If no file is opened, this function is disable. |
-| [Preview](#preview_team_panel) | Displays the `Preview` window. |
+| [Preview](#live-preview) | Displays the `Preview` window. |
 | Run on Device | Runs the current project in [Monaca Debugger](/en/products_guide/debugger/). |
 | [Share](#share) |	Invites other Monaca users to join the project.
 | [Config](#config) | Opens `Config` submenu. |
@@ -106,7 +106,7 @@ In the menu bar, there are several main menus such as:
 | Show Commit History |	Shows all commits history from Monaca Cloud IDE. |
 | Configure	| Configures the remote repository. |
 
-For more information to enable vision control on your project, please refer to [Version Control (GitHub)](../version_control).
+For more information to enable vision control on your project, please refer to [Version Control](../version_control).
 
 ###  Config
 
@@ -166,22 +166,21 @@ In the Project panel, there are 3 main tabs:
     current project. Right-click on a folder or file to see additional
     functions such as New File, Copy, Rename, Delete, Upload File and so
     on. To edit a file, select it and then its content will be shown in
-    [Monaca IDE Editor](#code_editor).
+    [Monaca IDE Editor](#code-editor).
 -   *Grep*: Searches for files by using Unix command.
 -   *Monaca Backend*: Contains the backend settings of the project.
 
-
-{{< multi_figures title="File Tree, Grep & Backend" >}}
-    {{< img src="/images/monaca_ide/manual/overview/3.png" >}}
-    {{< img src="/images/monaca_ide/manual/overview/4.png" >}}
-    {{< img src="/images/monaca_ide/manual/overview/5.png" >}}
-{{< /multi_figures >}}
+    {{< multi_figures title="File Tree, Grep & Backend" >}}
+        {{< img src="/images/monaca_ide/manual/overview/3.png" >}}
+        {{< img src="/images/monaca_ide/manual/overview/4.png" >}}
+        {{< img src="/images/monaca_ide/manual/overview/5.png" >}}
+    {{< /multi_figures >}}
 
 ##  Debug Panel
 
 Once Monaca Debugger is connected with Monaca Cloud IDE, you can do
 console debugging as well DOM inspection in this panel. For more
-information, please refer to [Monaca Debugger with Monaca Cloud IDE](/en/products_guide/debugger/debug/#monaca-debug-panel).
+information, please refer to [Monaca Debugger with Monaca Cloud IDE](/en/products_guide/debugger/debug/#monaca-debugger-with-monaca-cloud-ide).
 
 {{< figure src="/images/monaca_ide/manual/overview/6.png" >}}
 
@@ -294,8 +293,8 @@ below:
 
 Within this short menu, you can:
 
--   go to Monaca documentation by clicking on Help icon.
--   config the code editor by clicking on Setting icon. You will see 3
+-   go to Monaca documentation by clicking on `Help` icon.
+-   config the code editor by clicking on `Setting` icon. You will see 3
     menu items such as:
     1.  View Older Versions: View older versions of the currently
         selected file.

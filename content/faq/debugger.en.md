@@ -49,10 +49,10 @@ is the build version of Monaca debugger.
 There may have problems of configuration in `AndroidManifest.xml` file. If you use PhoneGap, please make sure to have this setting: 
 
 {{<highlight xml>}}
-    <uses-permission android:name=”android.permission.ACCESS_NETWORK_STATE”></uses-permission>
+<uses-permission android:name=”android.permission.ACCESS_NETWORK_STATE”></uses-permission>
 {{</highlight>}}
 
-For details, please refer to [Android Configuration](/en/reference/config/android_configuration).
+For details, please refer to [Android Configuration]({{<ref "android_configuration.en.md" >}}).
 
 ## Monaca Debugger is not working.
 
@@ -97,7 +97,7 @@ Here are some important differences:
 3.  USB debugging support (iOS Only): For iOS devices, USB debugging can
     be only enabled when the app is debug built. Therefore, you cannot
     do USB debugging on Monaca Debugger downloaded from App Store. For
-    more details, please see [Monaca Debugger for iOS](/en/products_guide/debugger/installation/debugger_ios).
+    more details, please see [Monaca Debugger for iOS]({{<ref "debugger_ios.en.md">}}).
 
 ## How can I debug my application?
 
@@ -128,15 +128,15 @@ In order to reset Monaca Debugger, please do as follows:
 
     -   For Android:
     
-        a.  From Monaca Debugger menu, go to `Debugger Settings`.
+        - From Monaca Debugger menu, go to `Debugger Settings`.
 
-        b.  Click on {{<guilabel name="CLEAR SYNCED FILES">}} and {{<guilabel name="CLEAR STORAGE DATA">}} buttons.
+        - Click on {{<guilabel name="CLEAR SYNCED FILES">}} and {{<guilabel name="CLEAR STORAGE DATA">}} buttons.
 
     -   For iOS
         
-        a.  From Monaca Debugger menu, go to `Settings`.
+        - From Monaca Debugger menu, go to `Settings`.
 
-        b.  Click on {{<guilabel name="Clear Temporary Files">}} and {{<guilabel name="Clear Local Storage">}} buttons.
+        - Click on {{<guilabel name="Clear Temporary Files">}} and {{<guilabel name="Clear Local Storage">}} buttons.
 
 2.  Log out of the debugger.
 3.  Log in again.
