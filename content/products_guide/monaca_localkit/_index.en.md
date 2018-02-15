@@ -8,3 +8,4 @@ weight: 30
 - [Pairing and Debugging](pairing_debugging)
 - [Remote Building and Publishing](build_publish)
 - [Troubleshooting Guide](troubleshooting)
+- [Tutorial](tutorial)

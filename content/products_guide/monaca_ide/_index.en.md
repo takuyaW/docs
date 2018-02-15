@@ -13,8 +13,9 @@ screen structure, editor's shortcuts and project files management.
 - [Changes in the New Cloud IDE](changes)
 - [Code Editor](code_editor)
 - [Project Dependencies](dependencies)
-- [Version Control (GitHub)](version_control)
+- [Version Control](version_control)
 - [Monaca CI](monaca_ci)
 - [Build](build)
 - [Distribution](deploy)
+- [Tutorial](tutorial)
 
