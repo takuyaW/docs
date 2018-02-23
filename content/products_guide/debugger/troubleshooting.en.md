@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting Guide
 weight: 40
+aliases: /en/debugger/troubleshooting
 ---
 
 ## Fail to Pair Monaca Debugger

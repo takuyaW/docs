@@ -1,6 +1,7 @@
 ---
 title: Usage
 weight: 30
+aliases: /en/debugger/debug
 ---
 
 In this page, we will describe how to use Monaca Debugger with Monaca

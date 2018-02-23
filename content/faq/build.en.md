@@ -29,7 +29,7 @@ all applications running on the device.
 In iOS apps developing, you need to follow the instructions provided by
 Apple. Register properly the information of the device and developer,
 and then prepare the necessary files. For a step-by-step guide, please
-refer to [Building an iOS App]({{< ref "build_ios.md" >}}).
+refer to [Building an iOS App]({{< ref "build_ios.en.md" >}}).
 
 ## I was able to build build iOS (iPhone/iPad) apps before, but now I can't successfully build them anymore.
 

@@ -1,6 +1,9 @@
 ---
 title: Monaca バックエンド
 weight: 70
+aliases: 
+    - /ja/backend/
+    - /ja/backend/manual/
 ---
 
 ユーザー登録、保存データの管理など、ユーザー管理機能 (

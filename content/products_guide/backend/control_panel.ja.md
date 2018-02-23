@@ -1,6 +1,7 @@
 ---
 title: バックエンド管理パネル
 weight: 10
+aliases: /ja/backend/manual/control_panel/
 ---
 
 ユーザーを登録・管理する機能を、モバイルアプリに実装するためには、クライアントアプリと連携するサーバーサイドのプログラムを、別途、組む必要があります。Monaca

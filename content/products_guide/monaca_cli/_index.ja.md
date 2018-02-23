@@ -1,6 +1,9 @@
 ---
 title: Monaca CLI
 weight: 40
+aliases: 
+    - /ja/monaca_cli
+    - /ja/monaca_cli/manual
 ---
 
 - [概要](overview)

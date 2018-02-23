@@ -1,6 +1,7 @@
 ---
 title: 使用例
 weight: 30
+aliases: /ja/debugger/debug
 ---
 
 Monaca 提供の各種開発ツール ( Monaca クラウド IDE、Monaca

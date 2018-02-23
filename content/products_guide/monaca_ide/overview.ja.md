@@ -280,7 +280,7 @@ Monaca
 
 エディターでは、JavaScript/HTML5/CSS3 のシンタックス
 ハイライト機能もサポートされています。他にも、JavaScript/CSS
-の自動補完機能、[Emmet ( 旧 Zen Coding )]({{<ref "zen_coding.ja.md">}})、[TypeScript]({{<ref "type_script.en.md">}}) もサポートされています。
+の自動補完機能、[Emmet ( 旧 Zen Coding )]({{<ref "zen_coding.ja.md">}})、[TypeScript]({{<ref "type_script.ja.md">}}) もサポートされています。
 
 {{<note>}}
 コードエディター上で利用できるショートカットキーに関しては、{{<link href="/ja/products_guide/monaca_ide/code_editor/editor/" title="エディターのショートカット一覧">}}

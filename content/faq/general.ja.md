@@ -33,7 +33,7 @@ Nitobi 社は、Adobe 社に吸収されました )。Monaca では、JavaScript
 を使用して、基本 Cordova
 プラグイン経由で、スマートフォン搭載の機能にアクセスします。Monaca
 における 基本 Cordova
-プラグインの使用方法に関しては、[概要]({{<ref "cordova_plugin.en.md">}}) と
+プラグインの使用方法に関しては、[概要]({{<ref "cordova_plugin.ja.md">}}) と
 [こちら](https://cordova.apache.org/docs/en/latest/) をご確認ください。
 
 Monaca で商用のスマートフォン向けアプリを開発しても良いですか？

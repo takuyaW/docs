@@ -1,6 +1,7 @@
 ---
 title: Installation
 weight: 20
+aliases: /en/debugger/installation
 ---
 
 Monaca Debugger can be installed in several platforms such as Android,

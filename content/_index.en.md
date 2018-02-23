@@ -3,10 +3,93 @@ title="Monaca Docs"
 type="homepage"
 +++
 
+<nav id="top-bar">
+    <img src="/images/common/header_logo_docs.png">
+    <ul>
+        <li><a href="https://community.onsen.io/">Community</a></li>
+        <li><a href="faq">FAQ</a></li>
+        <li>
+            <a href="https://monaca.io/">
+                <span class="external">MONACA</span>
+            </a>
+        </li>
+    </ul>
+    <div class="top-search" id="top-search">
+        <input type="search" id="top-search-doc" placeholder="Search Keyword">
+    </div>
+</nav>
+
+<div class="top-body">
+    <div class="container">
+        <div class="item">
+            <a href="products_guide"><img src="/images/common/top_page/img_samples1.jpg"></a>
+            <h3>Products Guide</h3>
+            <p>Comprehensive guides of each Monaca products such as Monaca Cloud IDE, Localkit and CLI</p>
+        </div>
+        <div class="item">
+            <a href="tutorials"><img src="/images/common/top_page/img_build1.jpg"></a>
+            <h3>Tutorials</h3>
+            <p>Step-by-step tutorials for all Monaca products covering varous aspect of app development from creating a project to deploying your app</p>
+        </div>
+        <div class="item">
+            <a href="sampleapp/samples#templates"><img src="/images/common/top_page/img_components1.jpg"></a>
+            <h3>Templates</h3>
+            <p>Complete explanation of various templates available in Monaca</p>
+        </div>
+        <div class="item">
+            <a href="sampleapp/samples"><img src="/images/common/top_page/img_samples2.jpg"></a>
+            <h3>Sample Apps</h3>
+            <p>Useful and popular sample apps using Monaca & Onsen UI</p>
+        </div>
+        <div class="item">
+            <a href="reference"><img src="/images/common/top_page/img_debug1.jpg"></a>
+            <h3>API Reference</h3>
+            <p>Everything about API references you may need to use while creating Monaca apps such as Monaca API, Core & third-party Cordova plugins and so on</p>
+        </div>
+        <div class="item">
+            <a href="sampleapp/tips"><img src="/images/common/top_page/img_samples3.jpg"></a>
+            <h3>Tips & Tricks</h3>
+            <p>Clever ways to develop with Monaca</p>
+        </div>
+        <div class="item">
+            <a href="reference/service_integration"><img src="/images/common/top_page/img_hands1.jpg"></a>
+            <h3>Service Integration</h3>
+            <p>Integrable services with Monaca such as Repro, AppsFlyer and so on</p>
+        </div>
+    </div>
+    <footer class="footline">
+        <p>Copyright © 2011-2016 Asial Corporation. All rights reserved.</p>
+    </footer>
+</div>
+<div class="bottom-menu">
+    <ul class="bottom-menu">
+        <li><a href="environment">Development Environment</a></li>
+        <li><a href="https://monaca.io/headline/">Updates/Known Issues</a></li>
+        <li><a href="https://monaca.io/pricing.html">Pricing</a></li>
+        <li><a href="https://monaca.io/service/index.html">Services</a></li>
+        <li><a href="sitemap">Sitemap</a></li>
+        <li><a href="/ja">日本語版</a></li>
+    </ul>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+    docsearch({
+      apiKey: 'cb8771194cfef15ef3d6578f488656b7',
+      indexName: 'monaca',
+      inputSelector: '#top-search-doc',
+      algoliaOptions: { 'facetFilters': ["language:en"] },
+      debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
 <style>
 body {
     width: 100%;
     height: 100%;
+}
+
+h3 {
+    font-family: 'Open Sans', 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic ProN W3','Hiragino Kaku Gothic ProN','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
 #sidebar {
@@ -105,14 +188,12 @@ div.container {
 }
 
 div.item {
-    max-width: 320px;
-    margin-bottom: 30px;
-    padding-right: 20px;
+    width: 320px;
+    padding: 20px 5px 20px 10px;
 }
 
 div.item > h3 {
     margin: 0;
-    font-family: Meiryo;
     color:  #35527c;
     font-size: 18px;/* Approximation due to font substitution */
     font-weight: 700;
@@ -123,7 +204,6 @@ div.item > h3 {
 div.item > p {
     margin: 0;
     padding-top: 16px;
-    font-family: Meiryo;
     color:  #333333;
     font-size: 12px;/* Approximation due to font substitution */
     font-weight: 400;
@@ -213,27 +293,29 @@ input::-webkit-input-placeholder {
 }
 
 div.bottom-menu {
-    margin: 0;
+    margin: 30px 0 0 0;
     padding: 0;
     width: 100%;
     background-color: #f8f6f2;
+    border-top: 1px solid #CCC;
 }
 
 ul.bottom-menu {
-    width: 100%;
+    width: 1020px;
+    height: auto;
+    margin: 0 auto 1.8em auto;
     display: flex;
     -webkit-flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     list-style-type: none;
     text-align: center;
-    padding: 0 150px;
-    margin: 30px 0 30px 0;
-    border-top: 1px solid #CCC;
+    padding: 0 20px;
+
 }
 
 ul.bottom-menu > li {
     height: 95px;
-    width: 15%;
+    width: auto;
     line-height: 95px;
 }
 
@@ -312,82 +394,3 @@ span.external {
 }
 
 </style>
-
-<nav id="top-bar">
-    <img src="/images/common/header_logo_docs.png">
-    <ul>
-        <li><a href="https://community.onsen.io/">Community</a></li>
-        <li><a href="faq">FAQ</a></li>
-        <li>
-            <a href="https://monaca.io/">
-                <span class="external">MONACA</span>
-            </a>
-        </li>
-    </ul>
-    <div class="top-search" id="top-search">
-        <input type="search" id="top-search-doc" placeholder="Search Keyword">
-    </div>
-</nav>
-
-<div class="top-body">
-    <div class="container">
-        <div class="item">
-            <a href="products_guide"><img src="/images/common/top_page/img_samples1.jpg"></a>
-            <h3>Products Guide</h3>
-            <p>Comprehensive guides of each Monaca products such as Monaca Cloud IDE, Localkit and CLI</p>
-        </div>
-        <div class="item">
-            <a href="tutorials"><img src="/images/common/top_page/img_build1.jpg"></a>
-            <h3>Tutorials</h3>
-            <p>Step-by-step tutorials for all Monaca products covering varous aspect of app development from creating a project to deploying your app</p>
-        </div>
-        <div class="item">
-            <a href="sampleapp/samples#templates"><img src="/images/common/top_page/img_components1.jpg"></a>
-            <h3>Templates</h3>
-            <p>Complete explanation of various templates available in Monaca</p>
-        </div>
-        <div class="item">
-            <a href="sampleapp/samples"><img src="/images/common/top_page/img_samples2.jpg"></a>
-            <h3>Sample Apps</h3>
-            <p>Useful and popular sample apps using Monaca & Onsen UI</p>
-        </div>
-        <div class="item">
-            <a href="reference"><img src="/images/common/top_page/img_debug1.jpg"></a>
-            <h3>API Reference</h3>
-            <p>Everything about API references you may need to use while creating Monaca apps such as Monaca API, Core & third-party Cordova plugins and so on</p>
-        </div>
-        <div class="item">
-            <a href="sampleapp/tips"><img src="/images/common/top_page/img_samples3.jpg"></a>
-            <h3>Tips & Tricks</h3>
-            <p>Clever ways to develop with Monaca</p>
-        </div>
-        <div class="item">
-            <a href="reference/service_integration"><img src="/images/common/top_page/img_hands1.jpg"></a>
-            <h3>Service Integration</h3>
-            <p>Integrable services with Monaca such as Repro, AppsFlyer and so on</p>
-        </div>
-    </div>
-    <footer class="footline">
-        <p>Copyright © 2011-2016 Asial Corporation. All rights reserved.</p>
-    </footer>
-</div>
-<div class="bottom-menu">
-    <ul class="bottom-menu">
-        <li><a href="environment">Environment</a></li>
-        <li><a href="https://monaca.io/headline/">Updates/Known Issues</a></li>
-        <li><a href="https://monaca.io/pricing.html">Pricing</a></li>
-        <li><a href="https://monaca.io/service/index.html">Services</a></li>
-        <li><a href="sitemap">Sitemap</a></li>
-        <li><a href="/ja">日本語版</a></li>
-    </ul>
-</div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-<script type="text/javascript">
-    docsearch({
-      apiKey: 'cb8771194cfef15ef3d6578f488656b7',
-      indexName: 'monaca',
-      inputSelector: '#top-search-doc',
-      algoliaOptions: { 'facetFilters': ["language:en"] },
-      debug: false // Set debug to true if you want to inspect the dropdown
-    });
-</script>

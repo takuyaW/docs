@@ -1,6 +1,7 @@
 ---
 title: Monaca Debugger for Chrome Apps
 weight: 30
+aliases: /en/debugger/installation/debugger_chrome
 ---
 
 {{<note>}}

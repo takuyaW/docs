@@ -1,6 +1,7 @@
 ---
 title: Remote Building and Publishing
 weight: 50
+aliases: /en/monaca_cli/build_publish
 ---
 
 Inside `Remote Build`, there are several important functions such as:

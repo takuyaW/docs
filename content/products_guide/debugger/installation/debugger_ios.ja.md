@@ -1,6 +1,7 @@
 ---
 title: iOS 向け Monaca デバッガー
 weight: 20
+aliases: /ja/debugger/installation/debugger_emulator
 ---
 
 {{<figure src="/images/debugger/manual/installation/debugger_ios/1.png" title="iOS 向け Monaca デバッガー" width="300">}}  

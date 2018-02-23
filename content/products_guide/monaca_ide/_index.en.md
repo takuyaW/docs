@@ -1,6 +1,9 @@
 ---
 title: Monaca Cloud IDE
 weight: 20
+aliases: 
+    - /en/monaca_ide/
+    - /en/monaca_ide/manual/
 ---
 
 {{< figure src="/images/monaca_ide/manual/1.png" >}}

@@ -1,6 +1,7 @@
 ---
 title: Functionalities
 weight: 10
+aliases: /en/debugger/features
 ---
 
 ## Debugger Functions

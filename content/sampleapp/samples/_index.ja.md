@@ -16,6 +16,14 @@ weight: 10
     </script>
     <ul class="sample-container">
     <li class="sample-item">
+          <img src="/images/samples/square.png" alt="" class="thumb">
+          <button onclick="location.href='https://monaca.mobi/en/directimport?pid=5a7d137fe788852c038b4568'">Direct Import</button>&nbsp;
+          <button onclick="location.href='https://medium.com/the-web-tub/adding-payment-service-to-cordova-app-with-square-304bea8ad1f7'">解説</button>
+          <h3>Square Demo</h3>
+          <p align="left">スクエアサービスでサポートされている支払い方法を利用したサンプルアプリ</p>
+    </li>
+
+    <li class="sample-item">
         <img src="/images/samples/api_ai.png" alt="" class="thumb">
         <button onclick="location.href='https://monaca.mobi/en/directimport?pid=5948e341ff2af2305254a9e6'">Direct Import</button>&nbsp;
         <button onclick="location.href='https://medium.com/the-web-tub/integrating-monaca-with-api-ai-f9f294c5382a'">解説</button>

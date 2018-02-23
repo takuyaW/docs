@@ -1,6 +1,7 @@
 ---
 title: Backend Operations
 weight: 20
+aliases: /en/backend/manual/control_operations/
 ---
 
 Monaca Backend has 4 main operations which can be found at Backend

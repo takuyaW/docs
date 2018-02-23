@@ -1,6 +1,7 @@
 ---
 title: 機能の概要
 weight: 10
+aliases: /ja/debugger/features
 ---
 
 ## デバッガーの機能

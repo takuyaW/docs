@@ -37,7 +37,7 @@ Cordova6.2プロジェクトでアドホックビルドしたアプリに対し�
 
 Monaca クラウド IDE からプッシュ通知を行うには、Monaca
 バックエンドを事前に準備しておく必要があります。Monaca
-バックエンドの作成方法に関しては、[Monaca バックエンドのセットアップ]({{<ref "adding_backend.en.md">}})
+バックエンドの作成方法に関しては、[Monaca バックエンドのセットアップ]({{<ref "adding_backend.ja.md">}})
 または [Monaca バックエンドの管理]({{< ref "control_panel.ja.md#backend-control-panel-getting-started" >}}) をご確認ください。
 
 プッシュ通知の設定 ( Monaca 上での処理 )
