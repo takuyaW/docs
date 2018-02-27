@@ -5,7 +5,7 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: sudo apt-get update && sudo apt-get upgrade
       - run: sudo apt-get install hugo
       - run: npm install
       - run: npm rebuild node-sass
