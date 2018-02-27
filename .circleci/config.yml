@@ -6,6 +6,6 @@ jobs:
       - checkout
       - run: 
           name: install hugo
-          command: go get -v github.com/gohugoio/hugo
+          command: snap install hugo
       - run: npm install
       - run: npm rebuild node-sass
