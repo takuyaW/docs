@@ -1,11 +1,14 @@
 version: 2
 jobs:
   build:
+    machine: true
     docker:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get upgrade
+      - run: 
+          name: install hugo
+          command: go get -v github.com/gohugoio/hugo
       - run: sudo apt-get install hugo
       - run: npm install
       - run: npm rebuild node-sass
