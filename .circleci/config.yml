@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: 
+          name: install hugo
+          command: go get -v github.com/gohugoio/hugo 
+      - run: ls -la
+      - run:
+          name: install pygments
+          command: pip install pygments
+      - run:
+          name: build hugo
+          command: hugo
+      - run: npm install
+      - run: npm rebuild node-sass
