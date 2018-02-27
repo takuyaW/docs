@@ -1,6 +1,7 @@
 ---
 title: Chrome 向け Monaca デバッガー
 weight: 30
+aliases: /ja/debugger/manual/installation/debugger_chrome
 ---
 
 {{<note>}}

@@ -1,6 +1,7 @@
 ---
 title: Common Build and Application Uploader Errors
 weight: 40
+aliases: /en/monaca_ide/manual/build/build_error
 ---
 
 Here is a list of commom errors you may face while building or uploading

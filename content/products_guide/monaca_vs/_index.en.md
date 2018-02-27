@@ -11,4 +11,5 @@ Monaca for Visual Studio has been discontinued and will no longer be supported o
 - [Project Dependencies](dependencies)
 - [Pairing and Debugging](pairing_debugging)
 - [Remote Building and Publishing](build_publish)
+- [Tutorial](tutorial)
 

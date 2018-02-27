@@ -1,6 +1,7 @@
 ---
 title: Building for Android
 weight: 20
+aliases: /en/monaca_ide/manual/build/build_android
 ---
 
 ##  Types of Build

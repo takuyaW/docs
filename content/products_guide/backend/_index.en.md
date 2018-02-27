@@ -1,6 +1,9 @@
 ---
 title: Monaca Backend
 weight: 70
+aliases: 
+    - /en/backend/
+    - /en/backend/manual/
 ---
 
 There is a growing need for mobile apps to have user management

@@ -1,6 +1,7 @@
 ---
 title: 新しい Monaca クラウド IDE の変更点
 weight: 20
+aliases: /ja/monaca_ide/manual/changes/
 ---
 
 現在、新しいMonaca クラウド IDEを公開しています。

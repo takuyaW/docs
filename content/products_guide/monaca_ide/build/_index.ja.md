@@ -1,6 +1,7 @@
 ---
 title: ビルド
 weight: 70
+aliases: /ja/monaca_ide/manual/build/
 ---
 
 *ビルド Environment*

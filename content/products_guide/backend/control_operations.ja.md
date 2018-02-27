@@ -1,6 +1,7 @@
 ---
 title: バックエンドの管理
 weight: 20
+aliases: /ja/backend/manual/control_operations/
 ---
 
 \[ Monaca バックエンド管理 \] パネル上で操作できる項目を、次に記します。

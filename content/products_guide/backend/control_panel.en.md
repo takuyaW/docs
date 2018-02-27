@@ -1,6 +1,7 @@
 ---
 title: Backend Control Panel
 weight: 10
+aliases: /en/backend/manual/control_panel/#*
 ---
 
 There is a growing need for mobile apps to have user management

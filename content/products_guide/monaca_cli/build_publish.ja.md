@@ -1,6 +1,7 @@
 ---
 title: リモートビルドと配布申請
 weight: 50
+aliases: /ja/monaca_cli/manual/build_publish
 ---
 
 リモートビルド の機能を解説します ( \[ ビルド設定 \] 画面の各タブの解説

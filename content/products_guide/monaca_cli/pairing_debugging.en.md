@@ -1,6 +1,7 @@
 ---
 title: Pairing and Debugging
 weight: 40
+aliases: /en/monaca_cli/manual/pairing_debugging/
 ---
 
 In order to debug Monaca app with Monaca CLI, you need to pair your host

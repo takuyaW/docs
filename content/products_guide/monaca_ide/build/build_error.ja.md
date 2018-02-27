@@ -1,6 +1,7 @@
 ---
 title: 一般的なビルドとアップロードエラー
 weight: 40
+aliases: /ja/monaca_ide/manual/build/build_error
 ---
 
 ビルドまたは iTunes Connect

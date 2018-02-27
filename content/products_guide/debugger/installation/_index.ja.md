@@ -1,6 +1,7 @@
 ---
 title: インストール方法
 weight: 20
+aliases: /ja/debugger/manual/installation
 ---
 
 複数のプラットフォーム ( Android、Android 仮想端末、iOS、Chrome など )

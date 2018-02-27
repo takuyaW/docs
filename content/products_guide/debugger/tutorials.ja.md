@@ -1,6 +1,7 @@
 ---
 title: チュートリアル
 weight: 50
+aliases: /ja/debugger/tutorial
 ---
 
 - [Running Monaca Debugger with Monaca Cloud IDE](/ja/tutorials/monaca_ide/testing_debugging)

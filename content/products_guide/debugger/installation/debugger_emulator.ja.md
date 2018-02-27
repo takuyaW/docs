@@ -1,6 +1,7 @@
 ---
 title: Android エミュレーター向け Monaca デバッガー
 weight: 40
+aliases: /ja/debugger/manual/installation/debugger_emulator
 ---
 
 ここでは 「 Android SDK 」 の AVD ( Android Virtual Device/Android

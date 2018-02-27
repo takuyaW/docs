@@ -1,6 +1,7 @@
 ---
 title: Android 向けの Monaca デバッガー
 weight: 10
+aliases: /ja/debugger/manual/installation/debugger_android
 ---
 
 {{<figure src="/images/debugger/manual/installation/debugger_android/3.png" title="Android 向けの Monaca デバッガー" width="300">}}  

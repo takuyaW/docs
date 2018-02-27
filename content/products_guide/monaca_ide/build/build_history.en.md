@@ -1,6 +1,7 @@
 ---
 title: Build History
 weight: 50
+aliases: /en/monaca_ide/manual/build/build_history
 ---
 
 Everytime you build your app through Monaca IDE, Monaca saves your build

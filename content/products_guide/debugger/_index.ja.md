@@ -1,7 +1,9 @@
-
 ---
 title: Monaca デバッガー
 weight: 60
+aliases: 
+    - /ja/debugger
+    - /ja/debugger/manual
 ---
 
 Monaca デバッガーは、Monaca アプリの開発時に使用するツールです。Monaca

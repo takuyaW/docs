@@ -1,6 +1,7 @@
 ---
 title: ビルド履歴一覧
 weight: 50
+aliases: /ja/monaca_ide/manual/build/build_history
 ---
 
 Monaca クラウドサービスでアプリのビルド ( ローカル環境用の開発ツールから、または、クラウド IDE 上で直接 )

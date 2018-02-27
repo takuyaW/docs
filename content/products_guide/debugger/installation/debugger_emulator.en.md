@@ -1,6 +1,7 @@
 ---
 title: Monaca Debugger for Android Emulator
 weight: 40
+aliases: /en/debugger/manual/installation/debugger_emulator
 ---
 
 In this page, we will describe how Monaca Debugger works on AVD (Android
