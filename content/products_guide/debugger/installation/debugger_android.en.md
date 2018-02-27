@@ -1,7 +1,7 @@
 ---
 title: Monaca Debugger for Android
 weight: 10
-aliases: /en/debugger/installation/debugger_android
+aliases: /en/debugger/manual/installation/debugger_android
 ---
 
 {{<figure src="/images/debugger/manual/installation/debugger_android/3.png" title="Monaca Debugger for Android" width="300">}}  

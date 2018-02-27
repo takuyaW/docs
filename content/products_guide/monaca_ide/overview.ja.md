@@ -1,6 +1,7 @@
 ---
 title: 概要
 weight: 10
+aliases: /ja/monaca_ide/manual/overview/
 ---
 
 Monaca クラウド IDE は、5 つの領域から構成されています。

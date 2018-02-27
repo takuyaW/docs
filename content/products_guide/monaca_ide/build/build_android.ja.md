@@ -1,6 +1,7 @@
 ---
 title: Android アプリのビルド
 weight: 20
+aliases: /ja/monaca_ide/manual/build/build_android
 ---
 
 ビルドの種類

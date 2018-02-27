@@ -1,6 +1,7 @@
 ---
 title: Changes in the New Cloud IDE
 weight: 20
+aliases: /en/monaca_ide/manual/changes/
 ---
 
 Recently, we are just rolling out the new Monaca Cloud IDE. Even though

@@ -1,6 +1,7 @@
 ---
 title: Building for Windows
 weight: 30
+aliases: /en/monaca_ide/manual/build/build_winrt
 ---
 
 ## Windows Store Apps

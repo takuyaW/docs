@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting Guide
 weight: 60
+aliases: /en/monaca_cli/manual/troubleshooting/
 ---
 
 ## Incomplete Files and Folder Structure

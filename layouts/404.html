@@ -1,0 +1,13 @@
+{{ define "main"}}
+    <div>
+		{{if eq .Lang "en"}}
+			<p>The document is not found or removed.</p>
+			<a href="{{ "/" | relURL }}">Go to Document top page</a>
+		{{else }}
+			<p>ページが見つかりません。削除またはURLが変更されました。</p>
+			<a href="{{ "/" | relURL }}">ドキュメントのトップページを開きます</a>
+		{{end}}
+	</div>
+	
+    
+{{ end }}

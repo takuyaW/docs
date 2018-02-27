@@ -1,6 +1,7 @@
 ---
 title: Windows アプリのビルド
 weight: 30
+aliases: /ja/monaca_ide/manual/build/build_winrt
 ---
 
 Windows ストアアプリ

@@ -1,7 +1,7 @@
 ---
 title: Monaca Debugger for iOS
 weight: 20
-aliases: /en/debugger/installation/debugger_ios
+aliases: /en/debugger/manual/installation/debugger_ios
 ---
 
 {{<figure src="/images/debugger/manual/installation/debugger_ios/1.png" title="Monaca Debugger for iOS" width="300">}}  

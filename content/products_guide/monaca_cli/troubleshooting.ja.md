@@ -1,6 +1,7 @@
 ---
 title: トラブルシューティング ガイド
 weight: 60
+aliases: /ja/monaca_cli/manual/troubleshooting/
 ---
 
 不完全なファイル・フォルダー構成

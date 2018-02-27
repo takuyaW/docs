@@ -1,7 +1,7 @@
 ---
 title: Monaca CLI コマンド
 weight: 20
-aliases: /en/monaca_cli/cli_commands
+aliases: /ja/monaca_cli/manual/cli_commands
 ---
 
 | コマンド |	説明 |

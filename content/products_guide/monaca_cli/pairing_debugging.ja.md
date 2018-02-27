@@ -1,6 +1,7 @@
 ---
 title: ペアリングとデバッグ
 weight: 40
+aliases: /ja/monaca_cli/manual/pairing_debugging/
 ---
 
 Monaca CLI を使用して、Monaca アプリをデバッグする場合、ホスト PC (

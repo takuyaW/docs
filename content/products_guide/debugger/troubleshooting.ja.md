@@ -1,7 +1,7 @@
 ---
 title: トラブルシューティング ガイド
 weight: 40
-aliases: /ja/debugger/troubleshooting
+aliases: /ja/debugger/manual/troubleshooting
 ---
 
 Monaca デバッガーとのペアリングが失敗する場合
