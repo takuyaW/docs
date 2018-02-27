@@ -19,4 +19,4 @@ jobs:
       - run: pwd
       - run:
           name: Deploy to S3 if tests pass and branch is Master
-          command: aws s3 sync ~/project s3://test-hugo --delete
+          command: aws s3 sync public s3://test-hugo --delete
