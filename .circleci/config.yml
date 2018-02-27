@@ -11,7 +11,7 @@ jobs:
       - run: pip install awscli --upgrade --user
       - run:
           name: build hugo
-          command: hugo
+          command: hugo --baseURL http://test-hugo.s3-website-us-east-1.amazonaws.com/
       - run: npm install
       - run: npm rebuild node-sass
       - run: ls -la
