@@ -8,9 +8,7 @@ jobs:
           name: install hugo
           command: go get -v github.com/gohugoio/hugo 
       - run: ls -la
-      - run:
-          name: install pygments
-          command: pip install pygments
+      - run: pip install awscli --upgrade --user
       - run:
           name: build hugo
           command: hugo
