@@ -7,6 +7,5 @@ jobs:
       - run: 
           name: install hugo
           command: go get -v github.com/gohugoio/hugo
-      - run: sudo apt-get install hugo
       - run: npm install
       - run: npm rebuild node-sass
