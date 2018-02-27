@@ -6,3 +6,6 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
+      - run: apt-get install hugo
+      - run: npm install
+      - run: npm rebuild node-sass
