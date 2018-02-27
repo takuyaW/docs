@@ -4,8 +4,9 @@ jobs:
     machine: true
     steps:
       - checkout
+      - run: sudo apt-get update
       - run: 
           name: install hugo
-          command: snap install hugo
+          command: sudo apt-get install hugo
       - run: npm install
       - run: npm rebuild node-sass
