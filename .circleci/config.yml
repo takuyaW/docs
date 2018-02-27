@@ -8,7 +8,9 @@ jobs:
           name: install hugo
           command: go get -v github.com/gohugoio/hugo 
       - run: ls -la
-      - run: sh ./fix-broken-links.sh
+      - run:
+          name: install pygments
+          command: pip install pygments
       - run:
           name: build hugo
           command: hugo
