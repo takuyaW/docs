@@ -8,16 +8,14 @@ jobs:
       - run: 
           name: install hugo
           command: go get -v github.com/gohugoio/hugo 
-      - run: ls -la
       - run: pip install awscli --upgrade --user
+      - run: npm install
+      - run: npm rebuild node-sass
+      - run: npm run build-sass
       - run: hugo -t monaca
       - run:
           name: build hugo
           command: hugo --baseURL "http://test-hugo.s3-website-us-east-1.amazonaws.com/"
-      - run: npm install
-      - run: npm rebuild node-sass
-      - run: ls -la
-      - run: pwd
       - run:
           name: Deploy to S3 if tests pass and branch is Master
           command: aws s3 sync public s3://test-hugo --delete
