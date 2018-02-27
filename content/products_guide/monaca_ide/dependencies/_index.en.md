@@ -1,6 +1,7 @@
 ---
 title: Project Dependencies
 weight: 40
+aliases: /en/monaca_ide/manual/dependencies/
 ---
 
 {{%excerpt%}}

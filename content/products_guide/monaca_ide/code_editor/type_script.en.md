@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 weight: 20
+aliases: /en/monaca_ide/manual/code_editor/type_script
 ---
 
 ## What is TypeScript?

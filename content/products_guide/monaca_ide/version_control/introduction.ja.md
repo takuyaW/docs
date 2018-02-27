@@ -1,6 +1,7 @@
 ---
 title: 概要
 weight: 10
+aliases: /ja/monaca_ide/manual/version_control/introduction
 ---
 
 バージョン管理システムとは、変更履歴の記録を含む、ソースコードに対して行われた操作を管理するためのツールです。通常、変更履歴を追うためには、リビジョンコード

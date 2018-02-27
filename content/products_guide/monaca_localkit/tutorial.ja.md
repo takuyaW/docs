@@ -1,6 +1,7 @@
 ---
 title: チュートリアル
 weight: 60
+aliases: /ja/monaca_localkit/tutorial/
 ---
 
 {{<note>}}

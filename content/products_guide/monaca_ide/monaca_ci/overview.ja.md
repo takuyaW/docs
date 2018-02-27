@@ -1,6 +1,7 @@
 ---
 title: 概要
 weight: 10
+aliases: /ja/monaca_ide/manual/monaca_ci/overview
 ---
 
 Monaca CI は、Monaca の開発環境に新しく組み込まれた、CI ( Continuous

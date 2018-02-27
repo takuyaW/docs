@@ -1,6 +1,7 @@
 ---
 title: Pairing and Debugging
 weight: 30
+aliases: /en/monaca_localkit/manual/pairing_debugging
 ---
 
 In order to debug Monaca app with Monaca Localkit, you need to pair your

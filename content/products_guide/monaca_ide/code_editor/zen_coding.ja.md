@@ -1,6 +1,7 @@
 ---
 title: Emmet
 weight: 30
+aliases: /ja/monaca_ide/manual/code_editor/zen_coding
 ---
 
 Emmet とは

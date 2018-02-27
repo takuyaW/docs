@@ -1,6 +1,7 @@
 ---
 title: iOS App Push Notification Settings
 weight: 30
+aliases: /en/push_notification/manual/apns  
 ---
 
 APNs (Apple Push Notification Service) is a push notification mechanism

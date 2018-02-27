@@ -1,6 +1,7 @@
 ---
 title: Monaca Upload Feature
 weight: 20
+aliases: /en/monaca_ide/manual/deploy/appstore/itunes_connect
 ---
 
 {{<note>}}

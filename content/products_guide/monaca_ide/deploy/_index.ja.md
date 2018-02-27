@@ -1,6 +1,7 @@
 ---
 title: 配布方法
 weight: 80
+aliases: /ja/monaca_ide/manual/deploy/
 ---
 
 - [App Store での配布](appstore)

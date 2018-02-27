@@ -1,6 +1,7 @@
 ---
 title: App Store Distribution
 weight: 10
+aliases: /en/monaca_ide/manual/deploy/appstore
 ---
 
 Before publishing iOS apps to the App Store, your apps need to be

@@ -1,6 +1,7 @@
 ---
 title: ペアリングとデバッグ
 weight: 30
+aliases: /ja/monaca_vs/manual/pairing_debugging
 ---
 
 Monaca for Visual Studio を使用して、Monaca

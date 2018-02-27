@@ -1,6 +1,7 @@
 ---
 title: 概要
 weight: 10
+aliases: /ja/monaca_localkit/manual/overview
 ---
 
 Monaca Localkit は、Monaca

@@ -1,6 +1,7 @@
 ---
 title: Introduction
 weight: 10
+aliases: /en/monaca_ide/manual/version_control/introduction
 ---
 
 Version control is a management tool that helps manage the changes to

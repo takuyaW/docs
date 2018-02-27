@@ -1,6 +1,9 @@
 ---
 title: Monaca for Visual Studio
 weight: 50
+aliases: 
+    - /ja/monaca_vs/
+    - /ja/monaca_vs/manual
 ---
 
 {{%warning%}}

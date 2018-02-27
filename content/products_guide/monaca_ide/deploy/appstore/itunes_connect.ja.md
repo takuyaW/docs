@@ -1,6 +1,7 @@
 ---
 title: iTunes Connect ガイド
 weight: 10
+aliases: /ja/monaca_ide/manual/deploy/appstore/app_submission
 ---
 
 App Store にアプリを提出する場合には、iTunes Connect

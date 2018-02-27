@@ -1,6 +1,9 @@
 ---
 title: Monaca Localkit
 weight: 30
+aliases: 
+    - /en/monaca_localkit/
+    - /en/monaca_localkit/manual
 ---
 
 - [Overview](overview)

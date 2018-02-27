@@ -1,6 +1,7 @@
 ---
 title: Build Settings between Monaca and Xcode
 weight: 20
+aliases: /en/monaca_ide/manual/build/ios/import_export
 ---
 
 If you want to develop your Monaca app in both Monaca Cloud IDE and

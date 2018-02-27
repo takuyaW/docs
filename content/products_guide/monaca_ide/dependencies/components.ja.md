@@ -1,6 +1,7 @@
 ---
 title: JS・CSS コンポーネント
 weight: 20
+aliases: /ja/monaca_ide/manual/dependencies/components
 ---
 
 JS・CSS コンポーネントとは、プロジェクトにインクルード ( include )

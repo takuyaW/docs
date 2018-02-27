@@ -1,6 +1,7 @@
 ---
 title: Git SSH Integration
 weight: 30
+aliases: /en/monaca_ide/manual/version_control/git_ssh_integration
 ---
 
 Monaca allows you to connect your project with a repository using any

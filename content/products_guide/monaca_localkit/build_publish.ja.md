@@ -1,6 +1,7 @@
 ---
 title: リモートビルドと配布申請
 weight: 40
+aliases: /ja/monaca_localkit/manual/build_publish
 ---
 
 {{<figure src="/images/monaca_localkit/manual/build_publish/1.png">}}

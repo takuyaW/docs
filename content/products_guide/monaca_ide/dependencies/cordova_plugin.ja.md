@@ -1,6 +1,7 @@
 ---
 title: Cordova プラグイン
 weight: 30
+aliases: /ja/monaca_ide/manual/dependencies/cordova_plugin
 ---
 
 概要

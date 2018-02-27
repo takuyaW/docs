@@ -1,6 +1,7 @@
 ---
 title: Google Play Distribution
 weight: 20
+aliases: /en/monaca_ide/manual/deploy/google_play
 ---
 
 ## Prerequisite

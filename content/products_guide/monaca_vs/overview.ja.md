@@ -1,6 +1,7 @@
 ---
 title: 概要
 weight: 10
+aliases: /ja/monaca_vs/manual/overview
 ---
 
 {{%warning%}}

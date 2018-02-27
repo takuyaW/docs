@@ -1,6 +1,7 @@
 ---
 title: Monaca 提供のアップロード機能
 weight: 20
+aliases: /ja/monaca_ide/manual/deploy/appstore/itunes_connect
 ---
 
 {{<note>}}

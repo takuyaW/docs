@@ -1,6 +1,7 @@
 ---
 title: App Store での配布
 weight: 10
+aliases: /ja/monaca_ide/manual/deploy/appstore
 ---
 
 App Store で iOS アプリを配布するためには、Apple

@@ -1,6 +1,7 @@
 ---
 title: Google Play での配布
 weight: 20
+aliases: /ja/monaca_ide/manual/deploy/google_play
 ---
 
 事前準備

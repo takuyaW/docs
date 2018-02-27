@@ -1,6 +1,7 @@
 ---
 title: Tutorial
 weight: 60
+aliases: /en/monaca_localkit/tutorial/
 ---
 
 {{<note>}}

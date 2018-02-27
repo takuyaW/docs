@@ -1,6 +1,7 @@
 ---
 title: Onsen UI
 weight: 90
+aliases: /en/onsenui
 ---
 
 {{<figure src="/images/onsenui/with_text.png">}}

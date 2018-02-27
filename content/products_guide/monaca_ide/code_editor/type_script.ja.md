@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 weight: 20
+aliases: /ja/monaca_ide/manual/code_editor/type_script
 ---
 
 TypeScript の概要

@@ -1,6 +1,7 @@
 ---
 title: iTunes Connect Guide
 weight: 10
+aliases: /en/monaca_ide/manual/deploy/appstore/app_submission
 ---
 
 This document describes how to use iTunes Connect to submit an app for

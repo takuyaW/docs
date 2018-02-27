@@ -1,6 +1,7 @@
 ---
 title: Distribution
 weight: 80
+aliases: /en/monaca_ide/manual/deploy/
 ---
 
 - [App Store Distribution](appstore)

@@ -1,6 +1,7 @@
 ---
 title: チュートリアル
 weight: 50
+aliases: /ja/monaca_vs/tutorial
 ---
 
 {{<warning>}}

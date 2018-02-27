@@ -1,6 +1,7 @@
 ---
 title: Android App Push Notification Settings
 weight: 20
+aliases: /en/push_notification/manual/gcm
 ---
 
 Monaca sends push notifications via FCM (Firebase Cloud Messaging). FCM

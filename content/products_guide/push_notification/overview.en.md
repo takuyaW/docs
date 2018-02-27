@@ -1,6 +1,7 @@
 ---
 title: Introduction
 weight: 10
+aliases: /en/push_notification/manual/overview
 ---
 
 {{<note>}}

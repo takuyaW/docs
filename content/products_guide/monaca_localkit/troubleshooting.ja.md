@@ -1,6 +1,7 @@
 ---
 title: トラブルシューティング
 weight: 50
+aliases: /ja/monaca_localkit/manual/troubleshooting
 ---
 
 Monaca Localkit に関する、既知の問題点と解決策を解説します。

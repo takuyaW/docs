@@ -1,6 +1,7 @@
 ---
 title: 公式ストア経由以外での配布
 weight: 40
+aliases: /ja/monaca_ide/manual/deploy/non_market_deploy
 ---
 
 iOS アプリの場合

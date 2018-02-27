@@ -1,6 +1,7 @@
 ---
 title: Amazon アプリストア での配布
 weight: 30
+aliases: /ja/monaca_ide/manual/deploy/amazon_store
 ---
 
 事前準備

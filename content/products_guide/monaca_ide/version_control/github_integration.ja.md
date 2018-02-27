@@ -1,6 +1,7 @@
 ---
 title: GitHub との連携
 weight: 20
+aliases: /ja/monaca_ide/manual/version_control/github_integration
 ---
 
 {{<note>}}

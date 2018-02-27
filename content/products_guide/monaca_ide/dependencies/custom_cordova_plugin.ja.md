@@ -1,6 +1,7 @@
 ---
 title: ユーザー Cordova プラグイン
 weight: 40
+aliases: /ja/monaca_ide/manual/dependencies/custom_cordova_plugin
 ---
 
 Cordova プラグインを利用すると、ネイティブ機能をプログラムに簡単に組み込めます。ここでは、ユーザー

@@ -1,6 +1,7 @@
 ---
 title: iOS アプリへのプッシュ通知設定
 weight: 30
+aliases: /ja/push_notification/manual/apns
 ---
 
 APNs ( Apple Push Notification Service ) とは、Apple 社が提供する、iOS

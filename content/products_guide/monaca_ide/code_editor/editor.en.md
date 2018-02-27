@@ -1,6 +1,7 @@
 ---
 title: Editor Shortcuts
 weight: 10
+aliases: /en/monaca_ide/manual/code_editor/editor
 ---
 
 {{<note>}}

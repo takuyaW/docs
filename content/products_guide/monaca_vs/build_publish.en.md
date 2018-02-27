@@ -1,6 +1,7 @@
 ---
 title: Remote Building and Publishing
 weight: 40
+aliases: /en/monaca_vs/manual/build_publish
 ---
 
 {{<warning>}}

@@ -1,6 +1,7 @@
 ---
 title: ペアリングとデバッグ
 weight: 30
+aliases: /ja/monaca_localkit/manual/pairing_debugging
 ---
 
 Monaca Localkit を使用して、Monaca アプリをデバッグする場合、ホスト PC (

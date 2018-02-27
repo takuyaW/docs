@@ -1,6 +1,7 @@
 ---
 title: Overview
 weight: 10
+aliases: /en/monaca_localkit/manual/overview
 ---
 
 ## Introduction

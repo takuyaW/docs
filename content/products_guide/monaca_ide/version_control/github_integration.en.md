@@ -1,6 +1,7 @@
 ---
 title: GitHub Integration
 weight: 20
+aliases: /en/monaca_ide/manual/version_control/github_integration
 ---
 
 {{<note>}}

@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting Guide
 weight: 50
+aliases: /en/monaca_localkit/manual/troubleshooting
 ---
 
 In this page, we will describe how to solve some known issues related to

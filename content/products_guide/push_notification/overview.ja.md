@@ -1,6 +1,7 @@
 ---
 title: プッシュ通知
 weight: 10
+aliases: /ja/push_notification/manual/overview
 ---
 
 {{<note>}}

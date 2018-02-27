@@ -1,6 +1,7 @@
 ---
 title: Remote Building and Publishing
 weight: 40
+aliases: /en/monaca_localkit/manual/build_publish
 ---
 
 {{<figure src="/images/monaca_localkit/manual/build_publish/1.png">}}

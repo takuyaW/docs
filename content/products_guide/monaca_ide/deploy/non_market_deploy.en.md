@@ -1,6 +1,7 @@
 ---
 title: Non-market App Distribution
 weight: 40
+aliases: /en/monaca_ide/manual/deploy/non_market_deploy
 ---
 
 ## For iOS Apps

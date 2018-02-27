@@ -1,6 +1,7 @@
 ---
 title: プロジェクトの構成
 weight: 40
+aliases: /ja/monaca_ide/manual/dependencies/
 ---
 
 {{%excerpt%}}

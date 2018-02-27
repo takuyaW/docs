@@ -1,6 +1,7 @@
 ---
 title: Amazon Appstore Distribution
 weight: 30
+aliases: /en/monaca_ide/manual/deploy/amazon_store
 ---
 
 ## Prerequisite

@@ -1,6 +1,7 @@
 ---
 title: Android アプリへのプッシュ通知設定
 weight: 20
+aliases: /ja/push_notification/manual/gcm
 ---
 
 Monaca では、FCM ( Firebase Cloud Messaging )

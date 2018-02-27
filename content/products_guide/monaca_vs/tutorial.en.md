@@ -1,6 +1,7 @@
 ---
 title: Tutorial
 weight: 50
+aliases: /en/monaca_vs/tutorial
 ---
 
 {{%warning%}}

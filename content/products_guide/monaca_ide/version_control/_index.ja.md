@@ -1,6 +1,7 @@
 ---
 title: バージョン管理
 weight: 50
+aliases: /ja/monaca_ide/manual/version_control
 ---
 
 - [概要](introduction)

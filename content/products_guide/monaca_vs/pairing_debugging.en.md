@@ -1,6 +1,7 @@
 ---
 title: Pairing and Debugging
 weight: 30
+aliases: /en/monaca_vs/manual/pairing_debugging
 ---
 
 {{<warning>}}

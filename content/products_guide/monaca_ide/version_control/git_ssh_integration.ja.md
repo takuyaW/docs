@@ -1,6 +1,7 @@
 ---
 title: Git SSH との連携
 weight: 30
+aliases: /ja/monaca_ide/manual/version_control/git_ssh_integration
 ---
 
 Monacaでは、Git サービスを使ってレポジトリとプロジェクトを SSH

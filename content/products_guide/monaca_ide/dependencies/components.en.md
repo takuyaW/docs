@@ -1,6 +1,7 @@
 ---
 title: JS/CSS Components
 weight: 20
+aliases: /en/monaca_ide/manual/dependencies/components
 ---
 
 JS/CSS components are JavaScript and CSS libraries you may need to

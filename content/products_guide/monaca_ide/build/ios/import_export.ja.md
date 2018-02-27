@@ -1,6 +1,7 @@
 ---
 title: Monaca と Xcode 間でのビルド設定の再利用
 weight: 20
+aliases: /ja/monaca_ide/manual/build/ios/import_export
 ---
 
 Monaca クラウド IDE と Xcode ( Mac OS X ) を併用して、Monaca

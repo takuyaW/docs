@@ -1,6 +1,7 @@
 ---
 title: Custom Cordova Plugins
 weight: 40
+aliases: /en/monaca_ide/manual/dependencies/custom_cordova_plugin
 ---
 
 Cordova Plugin provides a simple way to write a native code onto your

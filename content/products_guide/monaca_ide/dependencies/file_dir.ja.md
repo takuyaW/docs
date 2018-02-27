@@ -1,6 +1,7 @@
 ---
 title: ファイル・フォルダー構成
 weight: 10
+aliases: /ja/monaca_ide/manual/dependencies/file_dir
 ---
 
 Monaca アプリのフォルダー・ファイル構成は、次のようになります。

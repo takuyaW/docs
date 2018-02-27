@@ -1,6 +1,7 @@
 ---
 title: Monaca CI
 weight: 60
+aliases: /ja/monaca_ide/manual/monaca_ci/
 ---
 
 - [概要](overview)

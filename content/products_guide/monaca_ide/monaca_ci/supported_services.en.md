@@ -1,6 +1,7 @@
 ---
 title: Deploy Services
 weight: 20
+aliases: /en/monaca_ide/manual/monaca_ci/supported_services
 ---
 
 ## Currently Supported Deploy Services

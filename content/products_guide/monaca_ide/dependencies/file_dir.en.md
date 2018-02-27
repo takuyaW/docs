@@ -1,6 +1,7 @@
 ---
 title: File and Folder Structure
 weight: 10
+aliases: /en/monaca_ide/manual/dependencies/file_dir
 ---
 
 ## Cordova Version
