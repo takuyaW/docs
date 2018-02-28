@@ -3,7 +3,7 @@ title="Monaca Docs"
 type="homepage"
 +++
 
-<nav id="top-bar">
+<!-- <nav id="top-bar">
     <img src="/images/common/header_logo_docs.png">
     <ul>
         <li><a href="https://community.onsen.io/">Community</a></li>
@@ -17,7 +17,37 @@ type="homepage"
     <div class="top-search" id="top-search">
         <input type="search" id="top-search-doc" placeholder="Search Keyword">
     </div>
+</nav> -->
+<nav id="sidebar-top">
+    <ul>
+        <li><a href="https://community.onsen.io/">Community</a></li>
+        <li><a href="faq">FAQ</a></li>
+        <li>
+            <a href="https://monaca.io/">
+                <span class="external">MONACA</span>
+            </a>
+        </li>
+    </ul>
 </nav>
+<div id="top-bar">
+    <nav id="top-bar">
+    <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+      <i class="fa fa-bars"></i>
+    </a>
+    <img src="/images/common/header_logo_docs.png">
+    <ul>
+        <li><a href="https://community.onsen.io/">Community</a></li>
+        <li><a href="faq">FAQ</a></li>
+        <li>
+            <a href="https://monaca.io/">
+                <span class="external">MONACA</span>
+            </a>
+        </li>
+    </ul>
+    <div class="top-search" id="top-search">
+        <input type="search" id="top-search-doc" placeholder="Search Keyword">
+    </div>
+</div>
 
 <div class="top-body">
     <div class="container">
@@ -83,6 +113,31 @@ type="homepage"
 </script>
 
 <style>
+#top-bar > img {
+    margin: 0;
+    float: left;
+}
+.sidebar-open #sidebar-top {
+    display: inline;
+    left: 0; }
+
+#sidebar-top {
+    display: none;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  height: 100%
+  bottom: 0;
+  left: 0;
+  font-weight: normal;
+  font-size: 90%;
+  line-height: 27px;
+  -webkit-transition: left 0.35s ease;
+  -moz-transition: left 0.35s ease;
+  -ms-transition: left 0.35s ease;
+  transition: left 0.35s ease; 
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -108,12 +163,8 @@ h3 {
 #body .padding {
     padding: 0;
 }
-#body img {
-    float: left;
-    margin: 0 0 16px 0;
-}
 
-nav {
+/* nav {
     width: 100%;
     height: 50px;
 }
@@ -137,16 +188,36 @@ ul > li > a {
 nav#top-bar {
     background-color: #ffffff;
     border-bottom: 1px solid #CCC;
-}
+} */
 
 nav#top-bar > img {
+    float: left;
     margin: 10px 20px;
+}
+@media only screen and (max-width: 500px) {
+    nav > ul {
+        display: none;
+    }
+
+    div.bottom-menu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    nav#top-bar > img {
+        margin: 0;
+    }
 }
 
 nav#top-bar > ul {
-    width: auto;
-    float: right;
-    margin-right: 220px;
+    height: auto;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style-type: none;
+    text-align: center;
+    margin: 0 60px 0 0;
 }
 
 nav#top-bar > li > a {
@@ -169,7 +240,7 @@ ul#top-menu > li > a{
 }
 
 div.top-body{
-    width: 1020px;
+    max-width: 1020px;
     height: auto;
     margin: 0 auto;
     padding: 0px 23px;
@@ -301,7 +372,7 @@ div.bottom-menu {
 }
 
 ul.bottom-menu {
-    width: 1020px;
+    max-width: 1020px;
     height: auto;
     margin: 0 auto 1.8em auto;
     display: flex;
