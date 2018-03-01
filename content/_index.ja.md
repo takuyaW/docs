@@ -11,9 +11,7 @@ type="homepage"
             </div>
             <div class="searchbox">
                 <label for="search-by"><i class="fa fa-search"></i></label>
-                <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
-                    <input data-search-input="" id="search-by" type="text" placeholder="Search..." class="ds-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Open Sans&quot;, &quot;ヒラギノ角ゴ Pro W3&quot;, &quot;Hiragino Kaku Gothic ProN W3&quot;, &quot;Hiragino Kaku Gothic ProN&quot;, メイリオ, Meiryo, &quot;ＭＳ Ｐゴシック&quot;, sans-serif; font-size: 14.4px; font-style: normal; font-variant: normal; font-weight: 300; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span>
-                </span>
+                <input data-search-input id="search-by" type="text" placeholder="Search...">
             </div>
         </div>
         <ul class="topics" style="padding-top: 10px;">
