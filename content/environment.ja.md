@@ -25,6 +25,17 @@ title: 対応環境
 - Android 4.0以上
 - Windows 8.1
 
+## Cordova 7.1 ビルド環境
+
+### Android
+
+- AndroidSDK バージョン: `26`
+- Crosswalk バージョン : [プラグイン](http://docs.monaca.io/en/reference/cordova_6.5/crosswalk/)に依存します
+
+### iOS
+
+- Xcode バージョン : `9`
+
 ## Cordova 6.5 ビルド環境
 
 ### Android

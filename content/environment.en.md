@@ -26,6 +26,17 @@ title: Supported Environment
 - Android 4.0 or higher
 - Windows 8.1
 
+## Cordova 7.1 Build Environment
+
+### Android
+
+- AndroidSDK version : `26`
+- Crosswalk version : It depends on [Crosswalk Plugin](http://docs.monaca.io/en/reference/cordova_6.5/crosswalk/)
+
+### iOS
+
+- Xcode version : `9`
+
 ## Cordova 6.5 Build Environment
 
 ### Android
