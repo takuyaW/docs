@@ -15,7 +15,7 @@ jobs:
       - run: npm run build-sass
       - run:
           name: build hugo
-          command: hugo --baseURL "http://test-hugo.s3-website-us-east-1.amazonaws.com/"
+          command: hugo --baseURL "http://s.docs.monaca.io/"
       - run:
           name: Deploy to S3 if tests pass and branch is Master
           command: aws s3 sync public s3://s.docs.monaca.io --delete
