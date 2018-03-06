@@ -6,16 +6,26 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install hugo
+          name: Install hugo
           command: go get -v github.com/gohugoio/hugo 
-      - run: pip install --upgrade pip
-      - run: pip install awscli --upgrade --user
-      - run: npm install
-      - run: npm rebuild node-sass
-      - run: npm run build-sass
       - run:
-          name: build hugo
+          name: Install pip
+          command: pip install --upgrade pip
+      - run: 
+          name: install AWS CLI
+          command: pip install awscli --upgrade --user
+      - run: 
+          name: Install NPM dependency
+          command: npm install
+      - run: 
+          name: Rebuild node-sass
+          command: npm rebuild node-sass
+      - run: 
+          name: Run build-sass
+          command: npm run build-sass
+      - run:
+          name: Build hugo
           command: hugo --baseURL "http://s.docs.monaca.io/"
       - run:
-          name: Deploy to S3 if tests pass and branch is Master
+          name: Deploy to S3
           command: aws s3 sync public s3://s.docs.monaca.io --delete
