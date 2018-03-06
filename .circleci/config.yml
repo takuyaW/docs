@@ -61,10 +61,7 @@ workflows:
       - build
       - deploy-stg:
           requires:
-            - build 
-          filters:
-            branches:
-              only: master
+            - build
       - deploy-prod:
           requires:
             - build 
