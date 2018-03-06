@@ -26,6 +26,30 @@ jobs:
       - run:
           name: Build hugo
           command: hugo --baseURL "http://s.docs.monaca.io/"
+     - save_cache:
+          key: docs-{{ epoch }}
+          paths:
+            - ~/project/output
+            
+  deploy:
+    machine: true
+    working_directory: ~/project/output
+    steps:
+      - restore_cache:
+          keys:
+            - docs
       - run:
           name: Deploy to S3
           command: aws s3 sync public s3://s.docs.monaca.io --delete
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build 
+          filters:
+            branches:
+              only: master
