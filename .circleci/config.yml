@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Build hugo
           command: hugo --baseURL "http://s.docs.monaca.io/"
-     - save_cache:
+      - save_cache:
           key: docs-{{ epoch }}
           paths:
             - ~/project/output
