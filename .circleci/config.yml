@@ -8,6 +8,7 @@ jobs:
       - run: 
           name: install hugo
           command: go get -v github.com/gohugoio/hugo 
+      - run: pip install --upgrade pip
       - run: pip install awscli --upgrade --user
       - run: npm install
       - run: npm rebuild node-sass
