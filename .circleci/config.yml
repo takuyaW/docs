@@ -41,7 +41,7 @@ jobs:
       - run: (pwd && ls -la)
       - run:
           name: Deploy to stg 
-          command: aws s3 sync public s3://s.docs.monaca.io --delete
+          command: aws s3 sync ~/project/output/public s3://s.docs.monaca.io --delete
 
   deploy-prod:
     machine: true
@@ -52,7 +52,7 @@ jobs:
             - docs
       - run:
           name: Deploy to production
-          command: aws s3 sync public s3://s.docs.monaca.io --delete
+          command: aws s3 sync ~/project/output/public s3://s.docs.monaca.io --delete
 
 workflows:
   version: 2
