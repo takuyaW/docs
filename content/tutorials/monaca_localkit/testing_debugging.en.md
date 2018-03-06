@@ -1,6 +1,7 @@
 ---
 title: "Part 2: Running Monaca Debugger with Monaca Localkit"
 weight: 2
+aliases: /en/monaca_localkit/tutorial/testing_debugging/
 ---
 
 [Monaca Debugger](/en/products_guide/debugger) is a powerful

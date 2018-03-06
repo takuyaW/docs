@@ -1,6 +1,7 @@
 ---
 title: "パート 3 : Monaca アプリのビルド"
 weight: 3
+aliases: /ja/monaca_vs/tutorial/building_app/
 ---
 
 

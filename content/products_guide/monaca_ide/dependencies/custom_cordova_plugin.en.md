@@ -173,7 +173,7 @@ custom built debugger:
 
 We also offer technical support (fee required) for developing your
 custom Cordova Plugin. Please contact our support team
-[here](https://monaca.mobi/en/support/index).
+[here](https://monaca.io/service/index.html).
 
 ## Testing Custom Cordova Plugin
 

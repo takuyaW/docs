@@ -14,10 +14,10 @@ which will be accessed from the app.
 This plugin is used differently depending on the Cordova version of your
 project:
 
-- [For Cordova 6.2 Projects](#for-cordova-6-2-projects)
+- [For Cordova 6.2 Projects or Higher](#for-cordova-6-2-projects-or-higher)
 - [For Cordova 5.2 or Lower Projects](#for-cordova-5-2-or-lower-projects)
 
-##  For Cordova 6.2 Projects
+##  For Cordova 6.2 Projects or Higher
 
 ### Supported Platforms
 

@@ -13,7 +13,7 @@ aliases: /en/monaca_ide/manual/deploy/appstore/itunes_connect
 {{</note>}}
 
 {{<warning>}}
-    If you use activation code to upgrade your account, you can use Monaca upload feature in case your plan supports this feature. Please {{<link href="https://monaca.mobi/en/support/inquiry" title="contact us">}} for more details.
+    If you use activation code to upgrade your account, you can use Monaca upload feature in case your plan supports this feature. Please {{<link href="https://monaca.io/service/index.html" title="contact us">}} for more details.
 {{</warning>}}
 
 Monaca allows you to upload your app to iTunes Connect right from Monaca

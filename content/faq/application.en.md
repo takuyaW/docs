@@ -11,7 +11,7 @@ please use them according to the agreements of each ad network company.
 
 If they are InMobi, mediba (Japanese) or nend (Japanese), you can
 display the ads in apps created by Monaca. In regard to nend, please
-refer to [nend](/en/sampleapp/tips/nend_ad).
+refer to [nend (Japanese)](/ja/sampleapp/tips/nend_ad).
 
 ## Can I use external backend service?
 

@@ -1,6 +1,7 @@
 ---
 title: Monaca Cloud IDE Tutorial
 weight: 10
+aliases: /en/monaca_ide/tutorial/
 ---
 
 {{%excerpt%}}

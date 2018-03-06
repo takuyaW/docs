@@ -1,6 +1,7 @@
 ---
 title: "パート 4 : Monaca アプリの配布申請"
 weight: 4
+aliases: /ja/monaca_localkit/tutorial/publishing_app/
 ---
 
 App Store への申請

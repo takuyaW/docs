@@ -112,8 +112,7 @@ for Visual Studio など )
 -   デバッガー上でアプリが実行されているか確認します。
 -   ケーブルを抜き差しして、コンピューターが端末を正しく認識するか確認します。
 -   端末と ホスト PC 間が、USB ケーブルで接続されているか確認します。
--   [指定された](ja/products_guide/monaca_localkit/pairing_debugging/#localkit-debug-app) Monaca
-    デバッガーを使用しているか確認します。
+-   [指定された](/ja/products_guide/debugger/debug/#monaca-提供のローカル環境用の開発ツールと-monaca-デバッガーとの連携) Monaca デバッガーを使用しているか確認します。
 -   `adb` プロセスを終了 ( kill ) させます。複数の `adb`
     プロセスが実行されている場合、すべてを終了させます。
 -   `iosWebKitDebugProxy` プロセスを終了 ( kill ) させます。複数の

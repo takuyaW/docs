@@ -1,6 +1,7 @@
 ---
 title: "パート 3 : Monaca バックエンドのセットアップ"
 weight: 3
+aliases: /ja/monaca_ide/tutorial/adding_backend/
 ---
 
 ステップ 1 : Monaca バックエンドで使用するプラグインの有効化

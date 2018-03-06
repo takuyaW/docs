@@ -181,7 +181,7 @@ title: サイトマップ
         - [100MB以上のAndroidアプリをビルドするには](/ja/rpg_tkool/build_large_app)
     - [FAQ](/ja/faq)
         - [概要](/ja/faq/general)
-        - [IDE](/ja/faq/javironment)
+        - [IDE](/ja/faq/environment)
         - [ビルドを行う](/ja/faq/build)
         - [契約プランの変更](/ja/faq/subscription)
         - [アプリケーション](/ja/faq/application)

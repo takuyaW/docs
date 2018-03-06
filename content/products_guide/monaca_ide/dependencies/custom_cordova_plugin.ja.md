@@ -171,7 +171,7 @@ Cordova プラグインを組み込んだプロジェクトを使用してビル
 
 また、ユーザー Cordova プラグイン開発の技術支援 ( 有料 )
 も、弊社にて承っております。サポートチームまで、お気軽に詳細を
-[お問い合わせ](https://monaca.mobi/ja/support/index) ください。
+[お問い合わせ](https://ja.monaca.io/service/index.html) ください。
 
 ## ユーザー Cordova プラグインの検証
 

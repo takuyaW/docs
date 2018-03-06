@@ -49,7 +49,7 @@ information, please refer to [USB Debugging with Monaca](../debug/#pre-debug-app
 {{<figure src="/images/debugger/manual/features/7.png">}}  
 
 {{<note>}}
-    Inspector function is only available when you are using {{<link href="/en/products_guide/monaca_localkit" title="Monaca Localkit">}} or {{<link href="/en/products_guide/monaca_cli" title="Monaca CLI">}}. Please refer to {{<link href="../debug/#debugger-with-local-tools" title="USB Debugging with Monaca Local Development Tools">}}.
+    Inspector function is only available when you are using {{<link href="/en/products_guide/monaca_localkit" title="Monaca Localkit">}} or {{<link href="/en/products_guide/monaca_cli" title="Monaca CLI">}}. Please refer to {{<link href="/en/products_guide/debugger/debug/#monaca-debugger-with-monaca-local-development-tools" title="USB Debugging with Monaca Local Development Tools">}}.
 {{</note>}}
 
 ## Debugger Menu

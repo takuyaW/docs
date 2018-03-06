@@ -1,6 +1,7 @@
 ---
 title: "パート 4 : Monaca アプリのビルド"
 weight: 4
+aliases: /ja/monaca_ide/tutorial/building_app/
 ---
 
 こちらのチュートリアルでは、iOS 向けと Android 向けの Monaca
