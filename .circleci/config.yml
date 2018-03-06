@@ -29,29 +29,29 @@ jobs:
       - save_cache:
           key: docs-{{ epoch }}
           paths:
-            - ~/project/output
-          
+            - ~/project/public
+
   deploy-stg:
     machine: true
-    working_directory: ~/project/output
+    working_directory: ~/project
     steps:
       - restore_cache:
           keys:
             - docs
       - run:
           name: Deploy to stg 
-          command: aws s3 sync public s3://s.docs.monaca.io --delete
+          command: aws s3 sync ~/project/public s3://s.docs.monaca.io --delete
 
   deploy-prod:
     machine: true
-    working_directory: ~/project/output
+    working_directory: ~/project
     steps:
       - restore_cache:
           keys:
             - docs
       - run:
           name: Deploy to production
-          command: aws s3 sync public s3://s.docs.monaca.io --delete
+          command: aws s3 sync ~/project/public s3://s.docs.monaca.io --delete
 
 workflows:
   version: 2
@@ -60,7 +60,7 @@ workflows:
       - build
       - deploy-stg:
           requires:
-            - build 
+            - build
           filters:
             branches:
               only: master
