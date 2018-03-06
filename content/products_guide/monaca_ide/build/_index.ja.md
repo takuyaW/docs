@@ -13,6 +13,16 @@ aliases: /ja/monaca_ide/manual/build/
         <th width="20%">iOS</th>
     </tr>
     <tr>
+        <td>Cordova 7.1</td>
+        <td>
+            <ul>
+                <li>AndroidSDK バージョン : 26</li>
+                <li>Crosswalk バージョン : <a href="/en/reference/cordova_6.5/crosswalk/">Crosswalk Plugin</a> に依存します</li>
+            </ul>
+        </td>
+        <td>Xcode バージョン : 9</td>
+    </tr>
+    <tr>
         <td>Cordova 6.5</td>
         <td>
             <ul>

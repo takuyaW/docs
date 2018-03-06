@@ -3,21 +3,58 @@ title="Monaca Docs"
 type="homepage"
 +++
 
-<nav id="top-bar">
+<nav id="sidebar">
+    <div class="highlightable">
+        <div id="header-wrapper">
+            <div id="header">
+                <p><a href="/en"><img src="/images/common/header_logo_docs.png" alt="Monaca Docs"></a></p>
+            </div>
+            <div class="searchbox">
+                <label for="search-by"><i class="fa fa-search"></i></label>
+                <input data-search-input id="search-by" type="text" placeholder="Search...">
+            </div>
+        </div>
+        <ul class="topics" style="padding-top: 10px;">
+            <li>
+                <a href="https://community.onsen.io/">
+                    <span class="external">Community</span>
+                </a>
+            </li>
+            <li>
+                <a href="faq">
+                    <span>FAQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://monaca.io/">
+                    <span class="external">MONACA</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="top-bar">
+    <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+      <i class="fa fa-bars"></i>
+    </a>
     <img src="/images/common/header_logo_docs.png">
-    <ul>
-        <li><a href="https://community.onsen.io/">Community</a></li>
-        <li><a href="faq">FAQ</a></li>
-        <li>
-            <a href="https://monaca.io/">
-                <span class="external">MONACA</span>
-            </a>
-        </li>
-    </ul>
+    <nav id="top-bar">
+        <ul>
+            <li><a href="https://community.onsen.io/">
+                <span class="external">Community</span>
+            </a></li>
+            <li><a href="faq">FAQ</a></li>
+            <li>
+                <a href="https://monaca.io/">
+                    <span class="external">MONACA</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <div class="top-search" id="top-search">
         <input type="search" id="top-search-doc" placeholder="Search Keyword">
     </div>
-</nav>
+</div>
 
 <div class="top-body">
     <div class="container">
@@ -83,6 +120,93 @@ type="homepage"
 </script>
 
 <style>
+
+p {
+    margin: 0;
+}
+
+div#top-bar {
+    height: 48px;
+}
+nav#top-bar {
+    height: 48px;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+div#top-bar > img {
+    float: left;
+    margin: 0;
+    padding: 10px 0 0 20px;   
+}
+
+@media only all and (max-width: 770px) {
+    nav#top-bar {
+        display: none;
+    }
+    div#top-bar > img {
+        padding: 0;   
+    }
+}
+
+nav#top-bar > ul {
+    height: auto;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 15px 60px 0 0;
+}
+
+nav#top-bar > ul > li {
+    padding-right: 20px;
+}
+
+nav#top-bar > li > a {
+    color: #fdfdfd;
+}
+
+#sidebar {
+    display: none;
+}
+
+.sidebar-open #sidebar {
+    display: inline;
+    left: 0; 
+}
+
+.sidebar-open div#top-bar > img {
+    display: none;
+}
+
+.sidebar-open div.top-search {
+    display: none;
+}
+
+#sidebar-top {
+background-color: #f2f2f2;
+display: none;
+position: fixed;
+top: 0;
+width: 300px;
+height: 100%
+bottom: 0;
+left: 0;
+font-weight: normal;
+font-size: 90%;
+line-height: 27px;
+-webkit-transition: left 0.35s ease;
+-moz-transition: left 0.35s ease;
+-ms-transition: left 0.35s ease;
+transition: left 0.35s ease; 
+}
+
+#sidebar-top > ul {
+    list-style-type: none;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -108,68 +232,9 @@ h3 {
 #body .padding {
     padding: 0;
 }
-#body img {
-    float: left;
-    margin: 0 0 16px 0;
-}
-
-nav {
-    width: 100%;
-    height: 50px;
-}
-
-nav > ul {
-    margin: 0 auto;
-    list-style-type: none;
-    padding: 12px 0;
-}
-
-
-nav > ul > li {
-    display: inline;
-}
-
-ul > li > a {
-    font-size: 13px;
-    padding: 0 10px;
-}
-
-nav#top-bar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #CCC;
-}
-
-nav#top-bar > img {
-    margin: 10px 20px;
-}
-
-nav#top-bar > ul {
-    width: auto;
-    float: right;
-    margin-right: 220px;
-}
-
-nav#top-bar > li > a {
-    color: #fdfdfd;
-}
-
-nav#top-menu {
-    background-color: #2687ea;
-    text-align: center; 
-}
-
-nav#top-menu > ul {
-    clear: both;
-    margin: 0 auto;
-    display: table;
-}
-
-ul#top-menu > li > a{
-    color: #FFF;
-}
 
 div.top-body{
-    width: 1020px;
+    max-width: 1020px;
     height: auto;
     margin: 0 auto;
     padding: 0px 23px;
@@ -184,7 +249,7 @@ div.container {
     width: 100%;
     display: flex;
     -webkit-flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
 }
 
 div.item {
@@ -216,11 +281,8 @@ div.item > img {
 
 .top-search {
   position: absolute;
-  top: 5px;
+  top: 3px;
   right: 20px;
-  @media screen and (max-width: 825px) {
-    right: 50px;
-  }
 }
 
 #top-search input[type=search] {
@@ -301,12 +363,12 @@ div.bottom-menu {
 }
 
 ul.bottom-menu {
-    width: 1020px;
+    max-width: 1020px;
     height: auto;
     margin: 0 auto 1.8em auto;
     display: flex;
     -webkit-flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style-type: none;
     text-align: center;
     padding: 0 20px;
@@ -316,6 +378,7 @@ ul.bottom-menu {
 ul.bottom-menu > li {
     height: 95px;
     width: auto;
+    padding: 0 10px;
     line-height: 95px;
 }
 
