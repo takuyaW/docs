@@ -400,4 +400,4 @@ HTML コードをご確認ください。
 参考ページ
 
 - [エディターのショートカット一覧](../editor)
-- [TypeScript](../typescript)
+- [TypeScript](../type_script)

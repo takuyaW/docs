@@ -1,6 +1,7 @@
 ---
 title: Monaca Localkit チュートリアル
 weight: 20
+aliases: /ja/monaca_localkit/tutorial/
 ---
 
 {{<note>}}

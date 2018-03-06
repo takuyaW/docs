@@ -1,6 +1,7 @@
 ---
 title: "Part 3: Setting up Monaca Backend"
 weight: 3
+aliases: /en/monaca_ide/tutorial/adding_backend/
 ---
 
 ## Step 1: Enabling a Required Plugin for Monaca Backend

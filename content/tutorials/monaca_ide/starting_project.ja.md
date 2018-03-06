@@ -1,6 +1,7 @@
 ---
 title: "パート 1 : プロジェクトの作成"
 weight: 1
+aliases: /ja/monaca_ide/tutorial/starting_project/
 ---
 
 ステップ 1 : Monaca へのログイン

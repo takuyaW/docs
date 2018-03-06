@@ -1,6 +1,7 @@
 ---
 title: "Part 1: Starting a Project"
 weight: 1
+aliases: /en/monaca_localkit/tutorial/starting_project/
 ---
 
 In this page, we describe a step-by-step instruction of how to:

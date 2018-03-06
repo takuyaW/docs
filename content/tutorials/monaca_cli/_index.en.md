@@ -1,6 +1,7 @@
 ---
 title: Monaca CLI Tutorial
 weight: 30
+aliases: /en/monaca_cli/tutorial/
 ---
 
 {{%excerpt%}}

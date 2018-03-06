@@ -1,6 +1,7 @@
 ---
 title: "Part 3: Building Monaca App"
 weight: 3
+aliases: /en/monaca_localkit/tutorial/building_app/
 ---
 
 In this page, we will cover the two following topics:

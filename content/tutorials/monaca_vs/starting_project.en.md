@@ -1,6 +1,7 @@
 ---
 title: "Part 1: Starting a Project"
 weight: 1
+aliases: /en/monaca_vs/tutorial/starting_project/
 ---
 
 ## Step 1: Logging into Monaca

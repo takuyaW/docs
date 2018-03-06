@@ -1,6 +1,7 @@
 ---
 title: "パート 2 : Monaca クラウド IDE と Monaca デバッガーとの連携"
 weight: 2
+aliases: /ja/monaca_ide/tutorial/testing_debugging/
 ---
 
 [Monaca デバッガー](/ja/products_guide/debugger/) は、Monaca

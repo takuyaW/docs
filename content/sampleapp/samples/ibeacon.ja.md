@@ -4,7 +4,7 @@ weight: 150
 ---
 
 iBeacon ( アイビーコン ) サービスを組み込んだサンプルアプリです。iBeacon
-発信機との距離を検知します。こちらの Monaca アプリでは、[Onsen UI](https://docs.monaca.io/ja/onsenui/) を使用して、UI
+発信機との距離を検知します。こちらの Monaca アプリでは、[Onsen UI](https://ja.onsen.io/) を使用して、UI
 を構築しています。iBeacon 発信機の射程内に携帯端末が入ると、発信機の
 UUID が画面上に表示されます ( このサンプルでは、アプリが起動中であること、発信機は端末側に登録済みであることが必要です )。
 
@@ -57,7 +57,7 @@ HTML の解説
 -----------
 
 ユーザー インターフェースには、Onsen UI を使用しています。 *Onsen
-UI* のタグとそのコンポーネントの詳細は、[Onsen UI ドキュメント](https://docs.monaca.io/ja/onsenui/) をご確認ください。
+UI* のタグとそのコンポーネントの詳細は、[Onsen UI ドキュメント](https://ja.onsen.io/v2/guide/) をご確認ください。
 
 index.html ファイル内の次の記述 ( HTML の &lt;body&gt; 内 ) で、
 `top-page.html` ファイルを起動時に読み込みます。

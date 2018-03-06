@@ -1,6 +1,7 @@
 ---
 title: "パート 1 : プロジェクトの作成"
 weight: 1
+aliases: /ja/monaca_localkit/tutorial/starting_project/
 ---
 
 このパートで学習する内容は、次のとおりです。

@@ -50,7 +50,7 @@ Monaca
 {{<figure src="/images/debugger/manual/features/7.png">}}  
 
 {{<note>}}
-    {{<link href="/en/products_guide/monaca_localkit" title="Monaca Localkit">}} または {{<link href="/en/products_guide/monaca_cli" title="Monaca CLI">}} の使用時のみ、このインスペクタ機能を利用できます。詳細は、{{<link href="../debug/#debugger-with-local-tools" title="Monaca Localkit を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} または {{<link href="ja/products_guide/monaca_cli/pairing_debugging/#cli-debug-app" title="Monaca CLI を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} をご確認ください。
+    {{<link href="/en/products_guide/monaca_localkit" title="Monaca Localkit">}} または {{<link href="/en/products_guide/monaca_cli" title="Monaca CLI">}} の使用時のみ、このインスペクタ機能を利用できます。詳細は、{{<link href="../debug/#debugger-with-local-tools" title="Monaca Localkit を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} または {{<link href="/ja/products_guide/debugger/debug/#monaca-提供のローカル環境用の開発ツールと-monaca-デバッガーとの連携" title="Monaca CLI を使用して、アプリをデバッグする方法 ( USB デバッグの解説箇所 )">}} をご確認ください。
 {{</note>}}
 
 デバッガーのメニュー

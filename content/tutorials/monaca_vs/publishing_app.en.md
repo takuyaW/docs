@@ -1,6 +1,7 @@
 ---
 title: "Part 4: Publishing Monaca App"
 weight: 4
+aliases: /en/monaca_vs/tutorial/publishing_app/
 ---
 
 ## Publishing for App Store

@@ -1,6 +1,7 @@
 ---
 title: "Part 4: Building Monaca App"
 weight: 4
+aliases: /en/monaca_ide/tutorial/building_app/
 ---
 
 In this tutorial, we only cover the building of Monaca Apps for iOS and

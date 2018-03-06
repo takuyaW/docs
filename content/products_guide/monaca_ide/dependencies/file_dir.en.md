@@ -122,4 +122,4 @@ The `config.xml` file is a settings file controlling various settings of Cordova
 See Also: 
 
 - [Third-party Cordova Plugins](/ja/reference/third_party_phonegap/)
-- [Core Cordova Plugins](ja/reference/cordova_6.5/)
+- [Core Cordova Plugins](/ja/reference/cordova_6.5/)

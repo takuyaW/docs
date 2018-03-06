@@ -4,7 +4,7 @@ weight: 150
 ---
 
 This sample app uses iBeacon service to detect its proximity to iBeacon
-device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/products_guide/onsenui/) as its UI. When the mobile
+device. This Monaca app has [Onsen UI](https://onsen.io/) as its UI. When the mobile
 (running this app) gets close enough to a predefined iBeacon device, a new page showing its UUID will be displayed.
 
 {{<import pid="5923d13f8034510a419679fa" title="iBeacon">}}
@@ -54,7 +54,7 @@ device. This Monaca app has [Onsen UI](https://docs.monaca.io/en/products_guide/
 ## HTML Explanation
 
 The User Interface of this sample app is based on *Onsen UI*. For more
-information on *Onsen UI* tags and components, please refer to [Onsen UI Documentation](https://docs.monaca.io/en/products_guide/onsenui/).
+information on *Onsen UI* tags and components, please refer to [Onsen UI Documentation](https://onsen.io/v2/guide/).
 
 The following contents of the HTML body of index.html file loads the `top-page.html` file at startup:
 

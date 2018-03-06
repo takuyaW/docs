@@ -13,7 +13,7 @@ aliases: /ja/monaca_ide/manual/deploy/appstore/itunes_connect
 {{</note>}}
 
 {{<warning>}}
-    アクティベーション コードを使用し、アカウントをアップグレードさせて、アップロード機能を使用する場合には、アップグレード後のプランがこの機能をサポートしている必要があります。なにかご質問がございましたら、こちらの {{<link href="https://monaca.mobi/ja/support/inquiry" title="相談窓口">}} までご連絡ください。
+    アクティベーション コードを使用し、アカウントをアップグレードさせて、アップロード機能を使用する場合には、アップグレード後のプランがこの機能をサポートしている必要があります。なにかご質問がございましたら、こちらの {{<link href="https://ja.monaca.io/service/index.html" title="相談窓口">}} までご連絡ください。
 {{</warning>}}
 
 

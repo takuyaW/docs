@@ -1,6 +1,7 @@
 ---
 title: "Part 2: Running Monaca Debugger with Monaca for Visual Studio"
 weight: 2
+aliases: /en/monaca_vs/tutorial/testing_debugging/
 ---
 
 [Monaca Debugger](/en/products_guide/debugger) is a powerful application for testing and debugging your Monaca applications on real devices in real time.

@@ -15,6 +15,6 @@ Monaca クラウド IDE では、プロジェクトの開発からビルドま�
 - [コードエディター](code_editor)
 - [プロジェクトの構成](dependencies)
 - [バージョン管理](version_control)
-- [Monaca CI](monaca_cli)
+- [Monaca CI](monaca_ci)
 - [ビルド](build)
 - [配布方法](deploy)
