@@ -30,7 +30,6 @@ jobs:
           key: docs-{{ epoch }}
           paths:
             - ~/project/output
-            
   deploy:
     machine: true
     working_directory: ~/project/output
