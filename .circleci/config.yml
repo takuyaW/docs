@@ -38,6 +38,7 @@ jobs:
       - restore_cache:
           keys:
             - docs
+      - run: (pwd && ls -la)
       - run:
           name: Deploy to stg 
           command: aws s3 sync public s3://s.docs.monaca.io --delete
